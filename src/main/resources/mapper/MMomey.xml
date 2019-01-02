@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.peiwan.dao.MMomeyMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.peiwan.bean.MMomey">
+        <id column="mid" property="mid" />
+        <result column="pid" property="pid" />
+        <result column="oid" property="oid" />
+        <result column="m_balance" property="mBalance" />
+        <result column="m_changetime" property="mChangetime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        pid, mid, oid, m_balance, m_changetime
+    </sql>
+
+</mapper>

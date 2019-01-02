@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.peiwan.dao.PCommentMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.peiwan.bean.PComment">
+        <id column="cid" property="cid" />
+        <result column="pid" property="pid" />
+        <result column="oid" property="oid" />
+        <result column="gid" property="gid" />
+        <result column="c_context" property="cContext" />
+        <result column="c_createtime" property="cCreatetime" />
+        <result column="c_rank" property="cRank" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        pid, oid, gid, cid, c_context, c_createtime, c_rank
+    </sql>
+
+</mapper>
