@@ -21,5 +21,8 @@ import javax.annotation.Resource;
  */
 @Controller
 public class AAttentionController {
-
+    @RequestMapping("/hello")
+    public String hello(){
+        return "zuboInfo";
+    }
 }

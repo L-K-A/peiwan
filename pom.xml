@@ -82,6 +82,37 @@
         <version>3.7</version>
     </dependency>
 
+        <!--静态资源加载问题-->
+        <!-- 核心模块，包括自动配置支持、日志和YAML -->
+        <!--<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>-->
+
+        <!--自动重启以及自动清缓存(对访问静态资源至关重要)-->
+        <!--<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+        </dependency>-->
+        <!--&lt;!&ndash;对json字符串进行快捷的类型转换&ndash;&gt;
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.16</version>
+        </dependency>
+        &lt;!&ndash;自动扫描yml或者properties&ndash;&gt;
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+
+        &lt;!&ndash;html扫描器和标签补偿器&ndash;&gt;
+        <dependency>
+            <groupId>net.sourceforge.nekohtml</groupId>
+            <artifactId>nekohtml</artifactId>
+            <version>1.9.22</version>
+        </dependency>-->
+
     </dependencies>
 
     <build>
