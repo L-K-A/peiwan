@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>安全中心-约玩</title>
+    <link href="./css/Security_Center_2.css" type="text/css" rel="stylesheet">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="format-detection" content="telephone=no">
+    <script src="./js/jquery-1.12.3.min.js"></script>
+    <link href="./css/newcommon_admin.css" type="text/css" rel="stylesheet">
+    <script src="./js/lrz.js"></script>
+    <script src="./js/exif.js"></script>
+    <script src="./js/jquery-1.12.3.min.js"></script>
+    <script src="./js/jsencrypt.min.js"></script>
+    <script src="./js/getRSAKey.js"></script>
+    <script src="./js/encryption.js"></script>
+    <script src="./js/gt.js"></script>
+</head>
+<style>
+    .add_input {
+        border: 1px solid #fa323c;
+    }
+    .input_validate:focus {
+        border: 1px solid #25e198;
+    }
+    #Security_box .user_name002 {
+        background-position: -182px -47px;
+    }
+    .video_box {
+        background: url(./static/img/top_bg.jpg) repeat-x;
+        width: 100%;
+        height: 7px;
+        margin-top: -12px;
+    }
+    .header-cell{ background: #fff; }
+</style>
+
+<body>
+<div id="captcha"></div>
+<!--修改手机号-->
+<div id="Bound_phone" style="display:none;">
+    <div class="pop_up_bg"></div>
+    <div class="Bound_cell">
+        <div class="layer-cell-close"></div>
+        <div class="input_title mb40">绑定手机</div>
+        <img src="./img/logo_03.png">
+        <div class="mb10 input_text">手机号(请输入11位手机号码)</div>
+        <input type="text" class="input_box" id="ctl00_mainContent_txt_phone">
+        <div class="mb10 input_text mt30">密码(账户密码)</div>
+        <input type="password" class="input_box" id="chk_tel_pwd">
+        <div class="mb10 input_text mt30">验证码(请输入短信验证码)</div>
+        <input type="text" class="input_validate fl" id="ctl00_mainContent_txt_code">
+        <input type="button" class="input_validate input_validate01 fl ml10" value="获取验证码" id="getcode">
+        <div class="clearfix"></div>
+        <div style="margin: 20px auto;text-align: center;color: red;" id='errMsgBox'>&nbsp;</div>
+        <div class="input_sure mt45" onclick="bindphone();" style="margin-top: 20px;"> 确认修改</div>
+    </div>
+</div>
+<!--实名认证弹窗-->
+<div id="Real_name" style="display:none;">
+    <form action="" method="post" id="form">
+        <div class="pop_up_bg"></div>
+        <div class="Real_name">
+            <div class="layer-cell-close"></div>
+            <div class=" mb20 mt10 Real_title">实名认证</div>
+            <div>尊敬的用户您好，为确保您的账户安全，我们开通了实名认证，请务必填写本人实名信息，我们承若对您 的绝对保证您的信息安全</div>
+            <div class="mb10 input_text  mt30">真实姓名<span>（请输入真实姓名）</span></div>
+            <input type="text" class="input_box" name="name" id="name" value="">
+            <div class="mb10 input_text  mt30">身份证号码<span>（身份证有效期在1个月以上）</span></div>
+            <input type="text" class="input_box" name="idcard" id="idcard">
+            <div>
+                <div class="fl">
+                    <div class="mt40 fl breviary_title"> 身份证正面照<br><span>（内容需清晰）</span></div>
+                    <div class="fl breviary_add mt40 ml30">
+                        <div id="upfileflag1"></div>
+                        <span>+</span><br/> 上传图片
+                        <input type="file" style="display:block;" class="file_01" id="upfile1" accept="image/*">
+                        <input type="hidden" id="file_text1" name="file_text1" value="">
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="mt40 fl breviary_title"> 手持身份证照<br><span>（内容需清晰）</span></div>
+                    <div class="fl breviary_add mt40 ml30">
+                        <div id="upfileflag2"></div>
+                        <span>+</span><br/> 上传图片
+                        <input type="file" style="display:block;" class="file_01" id="upfile2" accept="image/*">
+                        <input type="hidden" id="file_text2"  name="file_text2" value="">
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="fl id_card_box">
+                    <div class="mt30 mb30">1.支持上传jpg、png、bmp格式照片，文件必需小于4MB</div>
+                    <div>
+                        <div class="fl">2.示例:</div>
+                        <div class="fl ml20">
+                            <div class="img_box"><img src="/images/shenfenzheng.jpg"></div>
+                            <span>身份证正面照示例</span>
+                        </div>
+                        <div class="fl ml20">
+                            <div class="img_box"><img src="https://res.tuwan.com/templet/teach/admin/security/images/img.jpg"></div>
+                            <span>手持身份证照示例</span>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <input type="submit" class="input_sure input_sure_01" value="确定修改">
+        </div>
+    </form>
+</div>
+<!--绑定微信弹窗-->
+<div id="Modify_wechat" style="display:none;">
+    <div class="pop_up_bg"></div>
+    <div class="wechat_cell">
+        <div class="input_title mb50 mt10">绑定微信</div>
+        <div class="fl">
+            <div class="layer-cell-close"></div>
+            <div class="mb5 input_text  mt30">请输入微信号</div>
+            <input type="text" class="input_box" id="wxcode">
+            <div class="mb5 input_text  mt30">请确认手机号</div>
+            <div class="input_box input_box01"></div>
+            <div class="input_box input_box02" style="display:none;">请绑定手机号</div>
+            <div class="mb5 input_text  mt30">请输入验证码</div>
+            <input type="text" class="input_validate fl" id="wxcheckcode">
+            <input type="button" class="input_validate input_validate01 fl ml10" id="wxg" value="获取验证码" onclick="getcheckcode(1);">
+            <div class="clearfix"></div>
+            <div class="input_sure mt45" onclick="bind(1);"> 确认绑定</div>
+        </div>
+        <div class="fl Alipay"><img src="https://res.tuwan.com/templet/teach/admin/security/images/weixin.jpg"></div>
+        <div class="clearfix"></div>
+    </div>
+</div>
+<style type="text/css">
+    #Modify_alipay .alipay_cell {
+        color: #666666;
+        width: 690px;
+        height: 456px;
+        background-color: #fff;
+        position: fixed;
+        z-index: 99999;
+        left: 24%;
+        top: 10%;
+        border-radius: 6px;
+        -webkit-border-radius: 6px;
+        padding: 40px;
+    }
+    #Modify_alipay .input_box{width: 290px}
+    .input_text_right{margin-left: 65px;margin-top: 10px;}
+    .input_sure_yinhangka{margin:0 auto;margin-top: 40px;}
+    .input_sure_wran{color: #999999;font-size: 14px;margin-top: 16px;text-align: center;}
+    .input_text .input_text_wran{color: #ff0000;}
+</style>
+<!--绑定支付宝弹窗-->
+<div id="Modify_alipay" style="display:none;">
+    <div class="pop_up_bg"></div>
+    <div class="alipay_cell">
+        <div class="input_title mb30">绑定银行卡</div>
+        <div class="fl">
+            <div class="layer-cell-close"></div>
+            <div class="mb5 input_text mt10">银行</div>
+            <select id="bank_from" class="input_box">
+                <option value="">请选择银行</option>
+                <option value="0">工商银行</option><option value="1">农业银行</option><option value="2">中国银行</option><option value="3">建设银行</option><option value="4">招商银行</option><option value="5">交通银行</option><option value="6">中信银行</option><option value="7">兴业银行</option><option value="8">光大银行</option><option value="9">民生银行</option><option value="10">邮政储蓄银行</option><option value="11">北京银行</option>
+            </select>
+            <div class="mb5 input_text  mt30">银行卡户名<span class="input_text_wran">(*需匹配卡号，如张三)</span></div>
+            <input type="text" class="input_box" id="bank_name">
+            <div class="mb5 input_text  mt30">银行卡卡号<span class="input_text_wran">(*请认真核对填写，不能有误)</span></div>
+            <input type="text" class="input_box" id="bank_id">
+
+        </div>
+        <div class="fl input_text_right">
+            <div class="mb5 input_text">开户行<span class="ml5">*开户行可拨打银行客服电话查询</span></div>
+            <input type="text" class="input_box" id="bank_area" placeholder="例：北京城东支行">
+            <div class="mb5 input_text mt30">请确认手机号</div>
+            <div class="input_box input_box01"></div>
+            <div class="input_box input_box02" style="display:none;">请绑定手机号</div>
+            <div class="mb5 input_text  mt30">请输入验证码</div>
+            <input type="text" class="input_validate fl" id="bankcheckcode">
+            <input type="button" class="input_validate input_validate01 fl ml10" id="bank" value="获取验证码" onclick="getcheckcode(3);">
+            <div class="clearfix"></div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="input_sure input_sure_yinhangka mt45" onclick="bind(3);"> 确认绑定</div>
+        <div class="input_sure_wran">*请认真填写银行卡信息，如因填写错误导致提现失败，一切损失将由个人承担。</div>
+    </div>
+</div>
+<!--修改手机弹窗-->
+<div id="Modify_mobile" style="display:none;">
+    <div class="pop_up_bg"></div>
+    <div class="mobile_cell">
+        <div class="layer-cell-close"></div>
+        <div class="input_title mb50 mt40"></div>
+        <div class="mobile_01"></div>
+        <div class="mobile_02 mb40 mt20"></div>
+        <a href="https://wpa.qq.com/msgrd?v=3&uin=775121240&site=qq&menu=yes" target="_blank">
+            <div class="input_sure mt45">联系客服</div></a>
+    </div>
+</div>
+<!--修改密码弹窗-->
+<div id="Modify_password" style="display:none;">
+    <div class="pop_up_bg"></div>
+    <div class="password_cell">
+        <div class="layer-cell-close"></div>
+        <div class="input_title mb40 mt20">修改密码</div>
+        <div class="mb10 input_text">旧密码<span>（请输入旧密码）</span></div>
+        <input type="password" id="oldpwd"  class="input_box">
+        <div class="mb10 input_text mt30">新密码<span>（密码长度6-20位）</span></div>
+        <input type="password" id="ctl00_mainContent_txt_password" class="input_box">
+        <div class="mb10 input_text  mt30">确认新密码<span>（密码长度6-20位）</span></div>
+        <input type="password" id="repeatpwd" class="input_box">
+        <div class="input_sure mt45" onclick="changepwd();"> 确认修改</div>
+    </div>
+</div>
+<!--left_column-->
+
+<script charset="utf-8" src="https://res.tuwan.com/templet/teach/js/kfqq.js"></script>
+<script>
+    var global_teacherid = '1758728';
+</script>
+<!--left_column-->
+<div id="left_column">
+    <div>
+        <a href="https://y.tuwan.com" target="_blank">
+            <i class="header " style="color:white;margin:10px 0 0 25px;">
+            <img src="https://res.tuwan.com/templet/play/images/logo_03.png"></i></a>
+        <div class="boundary"></div>
+    </div>
+    <div>
+        <div class="manage_bigbox mt15">
+            <div class="manage_box pb15">
+                <i class="icon_bgs manage2 fl"></i>
+                <span class="fl">管理</span>
+                <div class="clearfix"></div>
+            </div>
+            <div class="classify_box">
+                <a href="https://y.tuwan.com/home/ocenter/">我的订单</a>
+                <a href="https://y.tuwan.com/home/attent/">我的关注</a>
+                <!--<a href="https://y.tuwan.com/home/medal/">聊天室特权</a>
+                <a href="https://y.tuwan.com/home/blackroom/">黑名单管理</a>
+                <a href="https://y.tuwan.com/home/mycoupon/">我的优惠券</a>-->
+                <a href="https://y.tuwan.com/home/trecord/">交易记录</a>
+                <a href="https://y.tuwan.com/home/gift/">礼物记录</a>
+                <!--<a href="https://y.tuwan.com/mygrade/"  target="_blank">魅力等级</a>-->
+                <img src="./img/sure.png" style="position: fixed;margin-left: 37px;margin-top: 5px;">
+                <a href="https://y.tuwan.com/pullnew/"  target="_blank">分享红包</a>
+
+            </div>
+        </div>
+        <div class="manage_bigbox mt15">
+            <div class="manage_box pb15">
+                <i class="icon_bgs manage3 fl"></i>
+                <span class="fl">设置</span>
+                <div class="clearfix"></div>
+            </div>
+            <div class="classify_box">
+                <a href="https://y.tuwan.com/home/security/">安全中心</a><a href="https://y.tuwan.com/home/data/">个人资料</a><a href="https://y.tuwan.com/home/playerinfo/">申请入驻</a>
+            </div>
+        </div>
+    </div>
+    <div class="two_code mt20">
+        <img src="https://res.tuwan.com/templet/play/images/qrcode_y_app.jpg" style="width:118px;height:118px;">
+        <br/><br/> 扫描二维码下载
+        <br/> 点点约玩APP
+    </div>
+</div>
+<!--left-column-end-->
+<!--top-box-->
+<div id="top_box">
+    <!--     <div class="fl affiche_box pt30 pb20"><i class="icon_bg affiche fl ml35"></i><a href="#" target="_blank" title="" class="fl ml10">移动VR游戏——我的未来不是梦！</a>
+            <div class="clearfix"></div>
+        </div> -->
+    <div class="fr">
+        <div class="mailbox_bigbox pt25 pb20 fl">
+            <a href="https://y.tuwan.com/home/msg/"><div class="fl mailbox_box">
+                <i class="icon_bgs fl mailbox"></i><span class="mailshu" style="display: none;"></span>
+                <span class="fl">消息</span>
+                <div class="clearfix"></div>
+            </div></a>
+            <a href="https://wpa.qq.com/msgrd?v=3&uin=775121240&site=qq&menu=yes" target="_blank">
+                <div class="fl service_box course5" id="BizQQWPA" style="display: none;">
+                </div>
+
+            </a>
+            <div class="fl service_box course5" id="dd_kefu_qidian">
+                <i class="icon_bgs fl service"></i><span class="fl">客服</span>
+                <div class="clearfix"></div>
+            </div>
+            <div class="fl"><i class="fl"><img src="./img/icon_uid.png"></i><span class="fl">UID：1758728</span>
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="clearfix"></div>
+        </div>
+        <div class="fl ml25 head_img_box">
+            <div class="vip_text_box fl">
+                <div class="fl head_img"><img src=""></div>
+                <div class="fl ml10 vip_text">
+                    <div class="vip_01">普通用户</div>
+                    <div class="vip_02"></div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="fl ml10 mr40 pl10 quit" id="dologout">退出</div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="clearfix"></div>
+</div>
+<div id="c_top" class="content_top"></div>
+<div class="left_margin">
+
+</div>
+<!-- WPA start -->
+<script id="qd28521617238c30f79840d9dfdbcd7ab878868635a2" src="https://wp.qiye.qq.com/qidian/2852161723/8c30f79840d9dfdbcd7ab878868635a2" charset="utf-8" async defer></script>
+<!-- WPA end -->
+<div style="display:none">
+    <script type="text/javascript">
+        var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " https://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1000286078'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "w.cnzz.com/q_stat.php%3Fid%3D1000286078' type='text/javascript'%3E%3C/script%3E"));
+        var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " https://");
+        document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F4f076a14812b9a06461d3e2748176769' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " https://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1258092183'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "w.cnzz.com/q_stat.php%3Fid%3D1258092183' type='text/javascript'%3E%3C/script%3E"));</script>
+</div>
+<script>
+    function avatarNoFound(that) {
+        that.src="https://ucavatar.tuwan.com/images/noavatar_middle.gif";
+        that.onerror=null;
+    }
+
+    $(function(){
+        msg();
+        function msg(){
+            $.ajax({
+                url:"https://app.tuwan.com/Message/GetMessage.ashx?classid=2",
+                dataType:'json',
+                xhrFields: {
+                    withCredentials: true
+                },
+                crossDomain: true,
+                success:function (obj){
+                    var obj=eval(obj);
+                    result = obj.result;
+                    TotalUnRead = result.TotalUnRead
+                    if(TotalUnRead < 1){
+                        $('.mailshu').hide();
+                    }else{
+                        $('.mailshu').show();
+                        $('.mailshu').html(TotalUnRead);
+                    }
+                }
+            })
+        }
+    })
+    $('#dologout').click(function(){
+        $.ajax({
+            url:"https://app.tuwan.com/comment2/api/useraction.ashx?method=loginout",
+            dataType: "jsonp",
+            success:function (obj){
+                url = window.location.href;
+                if(url.indexOf('home')>0){
+                    window.location.href = "https://y.tuwan.com";
+                }else{
+                    location.reload(true);
+                }
+            }
+        })
+    })
+    $('#jump_yuewan').click(function(){
+        $.ajax({
+            url:"https://y.tuwan.com/m/Report/report?type=myteach",
+            dataType: "jsonp",
+            success:function (obj){
+                window.location.href = "https://y.tuwan.com";
+            }
+        })
+    })
+
+
+    $.ajax({
+        url:"https://user.tuwan.com/api/action.ashx?t=userinfo",
+        dataType:'jsonp',
+        success:function (obj){
+            if(obj.code==0){
+                if("0"=="1"){
+                    $('.head_img').html('<a href="https://y.tuwan.com/home/playerinfo/"><img src="https://ucavatar.tuwan.com/data/avatar/001/75/87/28_avatar_middle.jpg?random=20190103" alt="头像" title="假如dd" onerror="avatarNoFound(this)"/></a>');
+                    $('.vip_02').html('<a href="https://y.tuwan.com/home/playerinfo/" id="name_href" title="假如dd">假如dd</a>');
+                }
+                else{
+                    $('.head_img').html('<a href="https://y.tuwan.com/home/data/"><img src="https://ucavatar.tuwan.com/data/avatar/001/75/87/28_avatar_middle.jpg?random=20190103" alt="头像" title="假如dd" onerror="avatarNoFound(this)"/></a>');
+                    $('.vip_02').html('<a href="https://y.tuwan.com/home/data/" id="name_href" title="假如dd">假如dd</a>');
+                }
+
+
+            }
+        }
+    })
+</script>
+<!--top-box-end-->
+<script>
+    // $(".classify_box li").click(function() {
+    //     $(this).parents().find(".classify_box li").removeClass("left_border")
+    //     $(this).addClass("left_border").siblings().removeClass("left_border")
+    // })
+    var a = $('.classify_box a');
+    for (var i = a.length - 1; i >= 0; i--) {
+        if(location.href == a.eq(i).attr('href')){
+            a.eq(i).attr('class','left_border');
+            a.eq(i).attr('href','javascript:void(0)');
+        }
+    }
+</script>
+<script src="https://res.tuwan.com/templet/play/public/js/tuwan_message.js?201805251801"></script>
+
+<!--top-box-end-->
+
+<div id="Security_box" class="left_margin">
+    <div class="Security_left">
+        <div class="Security_title">安全中心</div>
+        <div class="star_title_box" style="display: none;">
+            <div class="fl star_title"> 账号安全级别:</div>
+            <i class="icon_bg_02 fl ml20"></i>
+            <i class="icon_bg_02 fl ml5"></i>
+            <i class="icon_bg_02 fl ml5"></i>
+            <i class="icon_bg_02 fl ml5"></i>
+            <i class="icon_bg_02 fl ml5"></i>
+            <div class="fl star_text01 ml15" id="pointclass"></div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="user_name_box">
+            <i class="icon_bg_02  user_name fl ml20"></i>
+            <div class="fl  user_name_01">用户名:</div>
+            <div class="fl  user_color" id="username"></div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="user_name_box">
+            <i class="icon_bg_02  user_name01 fl ml20"></i>
+            <div class="fl  user_name_01">登录密码:</div>
+            <div class="fl user_color">***********</div>
+            <div class="fr mr50 user_cousor user_cousor_01"> 修改</div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="user_name_box">
+            <i class="icon_bg_02 user_name002 user_name02 fl ml20"></i>
+            <div class="fl  user_name_01">手机号码:</div>
+            <div class="fl user_color" id="telnum"></div>
+            <div class="fl display_none display_none01" id="edittel"> 未绑定</div>
+            <div class="fr mr50 user_cousor user_cousor_02" style="display:none;" id="edittel1"> 修改</div>
+            <div class="clearfix"></div>
+        </div>
+        <div style="display: none;">
+            <div class="user_name_box">
+                <i class="icon_bg_02  user_name03  user_name003 fl ml20"></i>
+                <div class="fl  user_name_01">微信:</div>
+                <div class="fl display_none display_none02" style="display:black;"> 未绑定</div>
+                <div class="fl  user_color" style="display:none;"></div>
+                <div class="fr mr50 user_cousor user_cousor_02" style="display:none;"> 修改</div>
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="user_name_box">
+                <i class="icon_bg_02  user_name04 fl user_name004 ml20"></i>
+                <div class="fl  user_name_01">银行卡:</div>
+                <div class="fl display_none display_none03" style="display: black;"> 未绑定</div>
+                <div class="fl user_color" style="display:none;"></div>
+                <div class="fr mr50 user_cousor user_cousor_02" style="display:none;"> 修改</div>
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="user_name_box  mb30">
+                <i class="icon_bg_02  user_name05   fl ml20"></i>
+                <div class="fl  user_name_01">身份证:</div>
+                <div class="fl display_none  display_none04" style="display: none;"> 未绑定</div>
+                <div class="fl user_name_02 user_color" style="display:black;">***********</div>
+                <div class="fr mr50" style="display:black;"> 身份已验证</div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="https://res.tuwan.com/templet/teach/admin/security/js/Security_Center_2.js?v=1803141543"></script>
+<script>
+
+    var point = 2;
+    $.ajax({
+        url: "https://user.tuwan.com/api/method/userextinfo",
+        dataType: 'jsonp',
+        success: function (obj) {
+            if (obj.code == 0) {
+
+                $('#username').html(obj.data['username']);
+
+                if (obj.data['tel'].length > 0) {
+                    point++;
+                    $('#telnum, .input_box01').html(obj.data['tel']);
+                    $('#edittel').hide();
+                    $('#edittel1').show();
+                    $('.display_none03').click(function() {
+                        $('#Modify_alipay').show();
+
+                    })
+                    $('.display_none02').click(function() {
+                        $('#Modify_wechat').show();
+
+                    })
+                    $('.user_name002').removeClass('user_name002');
+                } else {
+                    $('.display_none03, .display_none02').click(function() {
+                        alert("请先绑定手机号");
+                    })
+                    $('#edittel1').hide();
+                    $('#edittel').show();
+                }
+                for (var i = $('.star_title_box i').length - 1; i >= 0; i--) {
+                    if(point == 0){
+                        var pointclass = 'star_text03';
+                        $('.star_title_box i').eq(i).addClass('star_04');
+                    }else if(point>0 && point<=2){
+                        var pointclass = 'star_text03';
+                        if(i<point){
+                            $('.star_title_box i').eq(i).addClass('star_01');
+                        }else{
+                            $('.star_title_box i').eq(i).addClass('star_04');
+                        }
+                    }else if(point>2 && point<=4){
+                        var pointclass = 'star_text02';
+                        if(i<point){
+                            $('.star_title_box i').eq(i).addClass('star_02');
+                        }else{
+                            $('.star_title_box i').eq(i).addClass('star_04');
+                        }
+                    }else if(point==5){
+                        var pointclass = 'star_text01';
+                        $('.star_title_box i').eq(i).addClass('star_03');
+                    }
+                }
+                var points = point*20;
+                $('#pointclass').html('<span>'+points+'</span>分');
+                $('#pointclass').addClass(pointclass);
+            }
+        }
+    })
+
+</script>
+</html>

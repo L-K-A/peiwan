@@ -1,0 +1,26 @@
+/* 以下遮罩层为demo.用户可自行设计实现 */
+#mask {
+    display: none;
+    position: fixed;
+    text-align: center;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    overflow: auto;
+}
+/* 可自行设计实现captcha的位置大小 */
+.popup-mobile {
+    position: relative;
+}
+
+#popup-captcha-mobile {
+    position: fixed;
+    display: none;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    z-index: 9999;
+}
