@@ -6,7 +6,7 @@
 /*老版本*/
 
 #user_content {
-    background: url(../images/top_bg.jpg) repeat-x top;
+    background: url(../img/top_bg.jpg) repeat-x top;
     padding: 30px 30px 30px 0;
     background: #f3f3f3;
     margin-top: -20px;
@@ -38,7 +38,7 @@
 }
 
 .icon_bg {
-    background-image: url(../images/icon_bg.png);
+    background-image: url(../img/icon_bg.png);
     background-repeat: no-repeat;
 }
 
@@ -1510,7 +1510,7 @@
     font-size: 14px;
 }
 /* 为空的状态*/
- .all_bg{background-image: url(https://static.tuwan.com/templet/teach/admin/ocenter/images/img.png);}
+ .all_bg{background-image: url(../img/img.png);}
 .vip_bg_box i{display: block;}
 .vip_bg_box{text-align:center;}
 .vip_bg{width:291px;height:243px;margin:0 auto;margin-top:100px;background-position: -580px 0}

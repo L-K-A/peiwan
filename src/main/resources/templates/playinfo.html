@@ -2,9 +2,181 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>导师资料-点点约玩</title>
+    <link href="./css/geeteststyle.css" rel="stylesheet" type="text/css">
+    <link href="./css/personal_data.css" type="text/css" rel="stylesheet">
+    <link href="./css/newcommon_admin.css" type="text/css" rel="stylesheet">
+    <link href="./css/pot_up_settings.css" type="text/css" rel="stylesheet">
+    <link href="./css/umeditor.css" type="text/css" rel="stylesheet">
+    <script src="./js/jquery-1.12.3.min.js"></script>
+    <script src="./js/jquery.zclip.js"></script>
+    <script type="text/javascript" src="./js/cropbox.js"></script>
+    <script src="./js/gt.js"></script>
+    <script src="./js/jsencrypt.min.js"></script>
+    <script src="./js/getRSAKey.js"></script>
+    <script src="./js/encryption.js"></script>
+    <script type="text/javascript" src="./js/calendar.js"></script>
+    <style>
+        .keep_box{background-color:#999999;width:192px;height:52px;line-height:52px;
+            font-size:18px;color:#fff;text-align:center;margin-top:30px;
+            margin-right:20px;cursor:pointer;border:none 0; border-radius:4px;
+            -webkit-border-radius:4px;}
+        .keep_box1{margin-left:-100px;background-color:#5ecfba;}
+        .keep_box1:hover{background-color:#47b5a1;}
+        .keep_box2:hover{background-color:#888888;}
+        .img_ts{font-size:12px;color:#ea6e74;width:80%;margin-top:-6px;}
+        .img_ts input{width:80%;}
+        .submit_box input{height:52px;margin-left:60%;}
+        .game_ID span{padding-top:6px;}
+        .content_bg1 {height: 910px; }
+
+        .imageBox .thumbBox{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 402px;
+            height: 402px;
+            margin-top: -200px;
+            margin-left: -200px;
+            border-radius:50%;
+            box-sizing: border-box;
+            border: 1px solid rgb(102, 102, 102);
+            box-shadow: 0 0 0 1000px rgba(0, 0, 0, 0.5);
+            background: none repeat scroll 0% 0% transparent;
+        }
+        .pop_up_basic{
+            width:760px;
+            height:750px;
+            top: 50%;
+            margin-top: -375px;
+        }
+        .imageBox{
+            width:460px;
+            height:460px;
+        }
+        .cropped{
+            right:-312px;
+            height:518px;
+            width:200px;
+        }
+        .action{
+            width:464px;
+        }
+        .keep_box2{
+            margin-right:77px;
+        }
+        .keep_box1{
+            margin-left:-110px;
+        }
+        .new-contentarea{
+            overflow:visible;
+        }
+        a.upload-img{
+            margin-left:0;
+            text-align:center;
+        }
+        .container{
+            margin:20px;
+        }
+        .lol_status_03{color: red;font-size: 14px;}
+    </style>
 </head>
 <body>
-$END$
+
+<!--pop_up-->
+<div id="mailer_box" style="display:none">
+    <div class="pop_up_bg"></div>
+    <div class="mailer">
+        <img src="./images/close.png" class="fr close">
+        <div class="clearfix"></div>
+        <div class="mailer_title mt25">我们已收到您的申请</div>
+        <div class="mailer_time">1970-01-01 08:00</div>
+        <p class="mailer_text">亲爱的，您的资料已提交成功，请申请加入考核QQ群进行考核。</p>
+        <div class="qq_box">
+            <a class="ic_face fl" href="//shang.qq.com/wpa/qunwpa?idkey=5c75d39709a82b906b4ff53e5c73e8db2aee02688837dbb2a7239a24913e7538" target="_blank" title="考核群：596143834"><img src="https://res.tuwan.com/templet/teach/admin/playerinfo/images/qq.png?"></a>
+            <div class="fl face_qq mt15 ml25">
+                <span>考核群：</span>
+                <input type="text" class="input" id="share_link" value="596143834" />
+                <a href="#none" class="copy-input" title="点击复制">【点击复制】</a>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+<!--pop_up_end-->
+
+<!--info start-->
+
+<!--info end-->
+
+<div class="left_margin" style="display:block">
+    <div style="float:left;position:absolute;z-index:999;"><a href="//t.tuwan.com" target="_blank"><img src="//res.tuwan.com/templet/teach/images/teach.jpg?t=11" style="width:100%;height:100%"></a></div>
+    <div class="content_center">
+        <div class="content_center_01">
+            <div class="content_bigtitle">“**约玩”陪玩申请协议</div>
+            <p class="content_text">本《陪玩申请协议》是您（下称"用户"）与**公司之间在申请成为**约玩平台（下称"**约玩"）陪玩人员（下称"陪陪"）时签署的协议。</p>
+            <div class="content_title">1、重要须知---在签署本协议之前，**正式提醒用户：</div>
+            <p class="content_text">1.1、您应认真阅读（未成年人应当在监护人陪同下阅读）、充分理解本《陪玩申请协议》中各条款，包括免除或者限制兔玩责任的免责条款及对用户的权利限制条款。</p>
+            <p class="content_text">1.2、除非您接受本协议，否则用户无权也无必要继续接受**的服务，可以退出本次注册。用户点击接受并继续使用兔玩的服务，视为用户已完全的接受本协议。</p>
+            <p class="content_text">1.3、本协议一经签署，具有法律效力，请您慎重考虑是否接受本协议。</p>
+            <p class="content_text">1.4、在您签署本协议之后，此文本可能因国家政策、产品以及履行本协议的环境发生变化而进行修改，修改后的协议发布在本网站上，若您对修改后的协议有异议的，请立即停止登录、使用**产品及服务，若您登录或继续使用**产品，视为对修改后的协议予以认可。</p>
+            <div class="content_title">2、关于“**约玩帐号”</div>
+            <p class="content_text">2.1、**旗下业务平台**（**.com）、**约玩（**.com）以及英雄训练营（t.tuwan.com）上同时提供用户注册通道，用户在任一通道注册获得点点约玩帐号。</p>
+            <p class="content_text">2.2、用户在首次注册**约玩账户成功之后，**会按系统规则自动分配给用户一个ID号码，ID号码与**约玩账号一样是用户接受**约玩服务的身份识别凭证。</p>
+            <p class="content_text">2.3、点点约玩账号以及ID号码的性质上是**提供服务授予用户的凭证，点点约玩账号和ID号码是兔玩相应计算机软件作品的一部分，即兔玩将相关产品计算机软件著作权授权给注册用户的授权凭证。</p>
+            <p class="content_text">2.4、点点约玩账号还是用户持有、使用相关虚拟财产、道具的身份凭证。用户若需要接受兔玩提供的增值服务，点点约玩账号同时也是用户支付费用、接受增值服务的凭证。</p>
+            <p class="content_text">2.5、用户应当妥善保管自己的点点约玩账号、密码，用户就其账号及密码项下之一切活动负全部责任，包括用户数据的修改，虚拟道具的损失以及其他所有的损失由用户自行承担。用户如发现他人未经许可使用其账号时立即通知兔玩。</p>
+            <p class="content_text">2.6、用户点点约玩账号在丢失或遗忘密码后，可通过手机验证码的方式找回，如果未绑定手机号，需联系兔玩客服进行申诉找回帐号。用户应不断提供能增加账号安全性的个人密码保护资料。对用户因被他人冒名申诉而致的任何损失，兔玩不承担任何责任。</p>
+            <p class="content_text">2.7、用户保证注册点点约玩账号时填写的身份信息是真实的，任何非法、不真实、不准确的用户信息所产生的责任由用户承担。如果因用户的注册信息不真实而引起的问题，以及对问题发生所带来的后果，兔玩不负任何责任。</p>
+            <p class="content_text">2.8、如用户违反法律法规、兔玩各服务协议或点点约玩陪玩守则等规定，兔玩有权根据相关规则进行违规判定，并采取相应限制或处罚措施，包括但不限于：限制或冻结用户对点点约玩帐号的使用，限制或停止某项单独服务（如线上LOL陪玩），扣除保证金，扣减收入分成并根据实际情况决定是否恢复使用。</p>
+            <div class="content_title">3、审核通过的陪陪不得从事以下行为：</div>
+            <p class="content_text">3.1、利用**约玩平台发表、传播代练、代打、政治、色情等相关信息。</p>
+            <p class="content_text">3.2、利用**约玩平台产生欺诈、诱导买家第三方平台进行交易等行为，如私单、微信红包、QQ红包等。</p>
+            <p class="content_text">3.3、在陪玩过程中进行挂机、代打、消失、消极服务、谩骂等行为。</p>
+            <p class="content_text">3.4、进行其他任何违法以及侵犯其他个人、公司、社会团体、组织的合法权益的行为。</p>
+            <p class="content_text">3.5、利用**约玩平台产生欺诈、诱导买家第三方平台进行交易等行为，如私单、微信红包、QQ红包等。</p>
+            <div class="content_title">4、**约玩声明</div>
+            <p class="content_text">4.1、用户须明白，在陪玩过程中可能存在有来自任何他人的包括威胁性的、诽谤性的、令人反感的或非法的内容或行为或对他人权利的侵犯（包括知识产权）的匿名或冒名的信息的风险，用户须承担以上风险，兔玩对服务不作担保，不论是明确的或隐含的，包括所有有关信息真实性、适当性、适于某一特定用途、所有权和非侵权性的默示担保和条件，对因此导致任何因用户不正当或非法使用服务产生的直接、间接、偶然、特殊及后续的损害，不承担任何责任。</p>
+            <p class="content_text">4.2、使用**约玩服务必须遵守国家有关法律和政策等，维护国家利益，保护国家安全，并遵守本条款，对于用户违法或违反本协议的使用(包括但不限于言论发表、传送等)而引起的一切责任，由用户负全部责任。</p>
+            <p class="content_text">4.3、**约玩的服务同大多数因特网产品一样，易受到各种安全问题的困扰，包括但不限于：
+                1）透露详细个人资料，被不法分子利用，造成现实生活中的骚扰；
+                2）哄骗、套取密码；
+                对于发生上述情况的，用户应当自行承担责任。</p>
+            <p class="content_text">4.4、用户须明白，**为了服务整体运营的需要，有权在公告通知后修改或中断、中止或终止服务而不需通知您的权利，而无须向第三方负责或承担任何赔偿责任。</p>
+            <div class="content_title">5、知识产权</div>
+            <p class="content_text">5.1、**约玩的服务包括运营的网站、网页应用、软件以及内涵的文字、图片、视频、音频等元素，点点约玩服务标志、标识以及专利权，兔玩对此享有上述知识产权。</p>
+            <p class="content_text">5.2、用户在使用**约玩服务时发表上传的文字、图片、视频、软件以及表演等用户原创的信息，此部分信息的知识产权归用户，但用户的发表、上传行为是对点点约玩平台的授权，用户确认其发表、上传的信息非独占性、永久性的授权，该授权可转授权。兔玩可将前述信息在兔玩旗下的服务平台上使用，可再次编辑后使用，也可以由兔玩授权给合作方使用。</p>
+            <p class="content_text">5.3、若**约玩平台内的信息以及其他用户上传、存储、传播的信息有侵犯的用户或第三人的知识产权的，兔玩网站提供投诉通道。</p>
+            <div class="content_title">6、隐私保护</div>
+            <p class="content_text">6.1、请用户注意勿在使用**约玩服务中透露自己的各类财产帐户、银行卡、信用卡、第三方支付账户及对应密码等重要资料，否则由此带来的任何损失由用户自行承担。</p>
+            <p class="content_text">6.2、用户的**约玩账号、密码属于保密信息，**应当采取积极的措施保护用户账号、密码的安全。</p>
+            <p class="content_text">6.3、用户的注册信息作为**的商业秘密进来保护。但用户同时明白，互联网的开放性以及技术更新非常快，非**可控制的因素导致用户泄漏的，兔玩不承担责任。</p>
+            <p class="content_text">6.4、用户在使用**约玩服务时不可将自认为隐私的信息发表、上传至**，也不可将该等信息通过**的服务传播给其他人，若用户的行为引起的隐私泄漏，由用户承担责任。</p>
+            <p class="content_text">6.5、**在提供服务时可能会搜集用户信息，**会明确告知用户，通常信息仅限于用户姓名、性别、年龄、出生日期、身份证号、家庭住址、教育程度、公司情况、所属行业、兴趣爱好等。</p>
+            <p class="content_text">6.6、就下列相关事宜的发生，**不承担任何法律责任：
+                1）**根据法律规定或相关政府、司法机关的要求提供您的个人信息；
+                2）由于用户将用户密码告知他人或与他人共享注册账户，由此导致的任何个人信息的泄漏，或其他非因**原因导致的个人信息的泄漏；
+                3）任何由于黑客攻击、电脑病毒侵入造成的信息泄漏；
+                4）因不可抗力导致的信息泄漏；</p>
+            <div class="content_title">7、其他条款</div>
+            <p class="content_text">7.1、本协议由**公布在网站上，对**具有法律约束力；用户一经点击接受或者直接登录的行为视为对本协议的接受，对用户具有法律约束力。</p>
+        </div>
+        <div class="protocol_box">
+            <div class="switch">
+                <input type="checkbox" id="control" class="control">
+                <label for="control" class="checkbox"></label>
+            </div>
+            <div class="agree">我已阅读并同意此协议</div>
+            <div class="point_out">温馨提示：阅读整个协议，才能进行下一步。</div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="botton_box" style="text-align: center;">
+            <input type="button" value="下一步 &nbsp;&nbsp;&nbsp;>" class="botton_box1">
+        </div>
+
+    </div>
+</div>
+
+
 </body>
 </html>

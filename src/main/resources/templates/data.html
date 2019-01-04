@@ -88,6 +88,159 @@
     }
 </style>
 <body>
+<!--弹窗1-->
+<div class="pop_up_basicbox1" style="display:none;">
+    <div class="pop_up_basic01">
+    </div>
+    <div class="pop_up_basic">
+        <div class="basic_title_box">
+            <div class="basic_title">上传头像</div>
+            <div class="close">×</div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="container">
+            <div class="imageBox">
+                <div class="thumbBox"></div>
+                <div class="spinner" style="display: none">Loading...</div>
+            </div>
+            <div class="action">
+                <div class="new-contentarea tc">
+                    <a href="javascript:void(0)" class="upload-img">
+                        <label for="upload-file">上传图像</label>
+                    </a>
+                    <input type="file" class="" name="upload-file" id="upload-file" />
+                </div>
+                <input type="button" id="btnCrop" class="Btnsty_peyton" value="裁切">
+                <input type="button" id="btnZoomIn" class="Btnsty_peyton" value="+" style="font-size:30px;">
+                <input type="button" id="btnZoomOut" class="Btnsty_peyton" value="-" style="font-size:40px;">
+            </div>
+            <div class="cropped"></div>
+        </div>
+        <input type="button" value="保存" class="keep_box keep_box1" id="saveAvatar">
+        <input type="button" value="取消" class="keep_box keep_box2">
+    </div>
+</div>
+<!--content-->
+<form id="form" action="" method="post">
+    <div class="money_box_bg">
+        <div class="courses_title left_margin">个人资料</div>
+        <div class="content_bg content_bg1 left_margin">
+            <div class="head_portrait_box">
+                <div class="head_portrait">
+                    <img src="">
+                </div>
+                <ul class="portrait_text">
+                    <li class="portrait_btn">上传头像</li>
+                    <li>支持jpg、gif、png、或bmp格式的图片，文件必须小于1M</li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="game_ID">
+                <label class="fl"><span>*</span>&nbsp;&nbsp;用&nbsp;户&nbsp;名：</label>
+                <div style="margin-left: -3px;">
 
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="game_ID">
+                <label class="fl"><span>*</span>&nbsp;&nbsp;昵&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;称：</label>
+                <div class="img_ts fl" style="margin-left: -3px;">
+                    <input name="name" id="name" type="text" placeholder="请输入昵称" value="" >
+                    <input name="nickname" id="nickname" type="hidden" value="" />
+                    <input name="data" id="data" type="hidden" value="" />
+                    <i id="name_i"></i>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="game_ID">
+                <label class="fl"><span>*</span>&nbsp;&nbsp;QQ&nbsp;&nbsp;&nbsp;号：</label>
+                <div class="img_ts fl" style="margin-left: -3px;">
+                    <input name="qq" id="qq" type="text" placeholder="请输入QQ号，一定要输入啊！！！" value="">
+                    <i id="qq_i"></i>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="submit_box">
+                <input type="submit" value="提交修改" id="commit" class="problem">
+            </div>
+        </div>
+    </div>
+</form>
+<script type="text/javascript">
+    $(".portrait_btn").click(function(){
+        $(".pop_up_basicbox1").show();
+        $("body").css("overflow-y", "hidden");
+    })
+
+    $(".close").click(function(){
+        $(".pop_up_basicbox1").hide();
+        $("body").css('overflow-y', 'scroll');
+    })
+
+    $(".keep_box2").click(function () {
+        //$('.pop_up_basic .container .imageBox')[0].style.backgroundImage = 'url(' + 'https://res.tuwan.com/templet/teach/admin/data/images/avatar.png'+')';
+        //$('.pop_up_basic .container .cropped').html('');
+        $(".pop_up_basicbox1").hide();
+        $("body").css('overflow-y', 'scroll');
+    })
+    //上传头像
+    $(window).load(function() {
+        var options =
+            {
+                thumbBox: '.thumbBox',
+                spinner: '.spinner',
+                imgSrc: ''
+            }
+        var cropper = $('.imageBox').cropbox(options);
+        $('#upload-file').on('change', function(){
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                options.imgSrc = e.target.result;
+                cropper = $('.imageBox').cropbox(options);
+                conosle.log(cropper);
+            }
+            reader.readAsDataURL(this.files[0]);
+            this.files = [];
+        })
+        /*裁剪*/
+        $('#btnCrop').on('click', function(){
+            var img = cropper.getDataURL();
+            console.log(img);
+            $('.cropped').html('');
+            $('.cropped').append('<img src="'+img+'" align="absmiddle" style="width:64px;margin-top:15px;border-radius:64px;box-shadow:0px 0px 12px #7E7E7E;" >' +
+                '<p  style="margin-top:20px;">64px*64px</p>');
+            $('.cropped').append('<img src="'+img+'" align="absmiddle" style="width:128px;margin-top:15px;border-radius:128px;box-shadow:0px 0px 12px #7E7E7E;">' +
+                '<p  style="margin-top:20px;">128px*128px</p>');
+            $('.cropped').append('<img src="'+img+'" align="absmiddle" style="width:400px;margin-left:-100px;margin-top:-90px;transform:scale(0.5,0.5);border-radius:400px;box-shadow:0px 0px 12px #7E7E7E;">' +
+                '<p style="margin-top:-90px;">400px*400px</p>');
+        })
+        $('#btnZoomIn').on('click', function(){
+            cropper.zoomIn();
+        })
+        $('#btnZoomOut').on('click', function(){
+            cropper.zoomOut();
+        })
+    });
+    /*form*/
+    $('#form').submit(function(){
+        var flag = true;
+        if($('#qq').val().length == 0){
+            flag = false;
+            $('#qq_i').html('&nbsp;&nbsp;&nbsp;&nbsp; <img src="./img/wrong.png">&nbsp;&nbsp;请输入QQ');
+        }
+        if($('#name').val().length == ""){
+            flag = false;
+            $('#name_i').html('&nbsp;&nbsp;&nbsp;&nbsp; <img src="./img/wrong.png">&nbsp;&nbsp;请输入昵称');
+        } else if($('#name').val() != $('#nickname').val()) {
+            var a = new Object();
+            a.nickname = $('#name').val();
+            a = packSendData_general(a);
+            $('#data').val(a);
+        }
+
+        return flag;
+    })
+    </script>
 </body>
 </html>

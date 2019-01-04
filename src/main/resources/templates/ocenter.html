@@ -552,7 +552,7 @@
     }</style>
     <style>@font-face {
         font-family: uc-nexus-iconfont;
-        src: url(chrome-extension://pogijhnlcfmcppgimcaccdkmbedjkmhi/res/font_9qmmi8b8jsxxbt9.woff) format('woff'), url(chrome-extension://pogijhnlcfmcppgimcaccdkmbedjkmhi/res/font_9qmmi8b8jsxxbt9.ttf) format('truetype')
+        src: url(./static/fonts/font_9qmmi8b8jsxxbt9.woff) format('woff'), url(chrome-extension://pogijhnlcfmcppgimcaccdkmbedjkmhi/res/font_9qmmi8b8jsxxbt9.ttf) format('truetype')
     }</style>
     <script async=""
             src="https://admin.qidian.qq.com/qbf/aBTest/getGrayLevel?kfuin=2852161723&amp;callback=JSONP_CB_2_1546000444184_604&amp;cb=JSONP_CB_2_1546000444184_604"></script>
@@ -896,7 +896,7 @@
         <div class="clearfix"></div>
         <div class="phone_title"></div>
         <div class="phone"><img id="telephoneimg"
-                                src="https://res.tuwan.com/templet/teach/admin/ocenter/images/phone.png"></div>
+                                src="./img/phone.png"></div>
         <div class="phone_number"></div>
     </div>
 </div>
@@ -926,7 +926,7 @@
 </div>
 <!--top-box-->
 
-<script charset="utf-8" src="https://res.tuwan.com/templet/teach/js/kfqq.js"></script>
+<script charset="utf-8" src="./js/kfqq.js"></script>
 <script>
     var global_teacherid = '1758728';
 </script>
@@ -936,8 +936,7 @@
 <div id="left_column">
     <div>
         <a href="https://www.baidu.com" target="_blank">
-            <i class="header " style="color:white;margin:10px 0 0 25px;">
-                java约玩 </i></a>
+            <i class="header " style="color:white;margin:10px 0 0 25px;">java约玩 </i></a>
         <div class="boundary"></div>
     </div>
     <div>
@@ -950,8 +949,8 @@
             <div class="classify_box">
                 <a href="javascript:void(0)" class="left_border">我的订单</a>
                 <a href="https://y.tuwan.com/home/attent/">我的关注</a>
-                <a href="https://y.tuwan.com/home/medal/">聊天室特权</a>
-                <a href="https://y.tuwan.com/home/blackroom/">黑名单管理</a>
+                <!--<a href="https://y.tuwan.com/home/medal/">聊天室特权</a>-->
+                <!--<a href="https://y.tuwan.com/home/blackroom/">黑名单管理</a>-->
 
                 <a href="https://y.tuwan.com/home/trecord/">交易记录</a>
                 <a href="https://y.tuwan.com/home/gift/">礼物记录</a>
@@ -965,25 +964,25 @@
                 <div class="clearfix"></div>
             </div>
             <div class="classify_box">
-                <a href="https://y.tuwan.com/home/security/">安全中心</a>
-                <a href="https://y.tuwan.com/home/data/">个人资料</a><a
-                    href="https://y.tuwan.com/home/playerinfo/">申请入驻</a>
+                <a href="/secur">安全中心</a>
+                <a href="/data">个人资料</a>
+                <a href="/playerinfo">申请入驻</a>
             </div>
         </div>
     </div>
 
 </div>
 <!--left-column-end-->
+
 <!--top-box-->
 <div id="top_box">
-    <!--     <div class="fl affiche_box pt30 pb20"><i class="icon_bg affiche fl ml35"></i><a href="#" target="_blank" title="" class="fl ml10">移动VR游戏——我的未来不是梦！</a>
-            <div class="clearfix"></div>
-        </div> -->
     <div class="fr">
         <div class="mailbox_bigbox pt25 pb20 fl">
             <a href="https://y.tuwan.com/home/msg/">
-                <div class="fl mailbox_box"><i class="icon_bgs fl mailbox"></i>
-                    <span class="mailshu" style="display: none;"></span>
+                <div class="fl mailbox_box">
+                    <i class="icon_bgs fl mailbox"></i>
+                    <span class="mailshu" style="display: none;">
+                    </span>
                     <span class="fl">消息</span>
                     <div class="clearfix"></div>
                 </div>
