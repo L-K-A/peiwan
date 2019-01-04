@@ -6,6 +6,9 @@ import com.peiwan.service.AAttentionService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
+import java.util.List;
+
 /**
  * <p>
  *  服务实现类
@@ -17,4 +20,19 @@ import org.springframework.stereotype.Service;
 @Service
 public class AAttentionServiceImpl extends ServiceImpl<AAttentionMapper, AAttention> implements AAttentionService {
 
+    @Resource
+    private  AAttentionMapper aAttentionMapper;
+    @Override
+    public List<AAttention> queryAAttentionList() {
+        List list=aAttentionMapper.getAAttentionList();
+        return list;
+    }
+
+    public AAttentionMapper getaAttentionMapper() {
+        return aAttentionMapper;
+    }
+
+    public void setaAttentionMapper(AAttentionMapper aAttentionMapper) {
+        this.aAttentionMapper = aAttentionMapper;
+    }
 }

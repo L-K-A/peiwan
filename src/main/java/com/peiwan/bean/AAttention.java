@@ -19,6 +19,7 @@ import lombok.experimental.Accessors;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
+@TableName("a_attention")
 public class AAttention implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -26,11 +27,13 @@ public class AAttention implements Serializable {
     /**
      * 用户id
      */
+    @TableId(value = "pid")
     private Integer pid;
 
     /**
      * 关注列表id
      */
+
     private Integer aid;
 
     /**

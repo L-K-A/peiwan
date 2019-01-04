@@ -1,7 +1,10 @@
 package com.peiwan.service;
 
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.peiwan.bean.AAttention;
 import com.baomidou.mybatisplus.extension.service.IService;
+
+import java.util.List;
 
 /**
  * <p>
@@ -12,5 +15,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @since 2019-01-02
  */
 public interface AAttentionService extends IService<AAttention> {
-
+    List<AAttention> queryAAttentionList();
 }

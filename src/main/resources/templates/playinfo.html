@@ -1,102 +1,271 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <title>导师资料-点点约玩</title>
+
     <link href="./css/geeteststyle.css" rel="stylesheet" type="text/css">
     <link href="./css/personal_data.css" type="text/css" rel="stylesheet">
     <link href="./css/newcommon_admin.css" type="text/css" rel="stylesheet">
     <link href="./css/pot_up_settings.css" type="text/css" rel="stylesheet">
     <link href="./css/umeditor.css" type="text/css" rel="stylesheet">
-    <script src="./js/jquery-1.12.3.min.js"></script>
-    <script src="./js/jquery.zclip.js"></script>
+    <link href="./css/calendar-green.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="./js/jquery-1.12.3.min.js"></script>
+    <script type="text/javascript" src="./js/jquery.zclip.js"></script>
     <script type="text/javascript" src="./js/cropbox.js"></script>
-    <script src="./js/gt.js"></script>
-    <script src="./js/jsencrypt.min.js"></script>
-    <script src="./js/getRSAKey.js"></script>
-    <script src="./js/encryption.js"></script>
+    <script type="text/javascript" src="./js/gt.js"></script>
+    <script type="text/javascript" src="./js/jsencrypt.min.js"></script>
+    <script type="text/javascript" src="./js/getRSAKey.js"></script>
+    <script type="text/javascript" src="./js/encryption.js"></script>
     <script type="text/javascript" src="./js/calendar.js"></script>
-    <style>
-        .keep_box{background-color:#999999;width:192px;height:52px;line-height:52px;
-            font-size:18px;color:#fff;text-align:center;margin-top:30px;
-            margin-right:20px;cursor:pointer;border:none 0; border-radius:4px;
-            -webkit-border-radius:4px;}
-        .keep_box1{margin-left:-100px;background-color:#5ecfba;}
-        .keep_box1:hover{background-color:#47b5a1;}
-        .keep_box2:hover{background-color:#888888;}
-        .img_ts{font-size:12px;color:#ea6e74;width:80%;margin-top:-6px;}
-        .img_ts input{width:80%;}
-        .submit_box input{height:52px;margin-left:60%;}
-        .game_ID span{padding-top:6px;}
-        .content_bg1 {height: 910px; }
-
-        .imageBox .thumbBox{
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 402px;
-            height: 402px;
-            margin-top: -200px;
-            margin-left: -200px;
-            border-radius:50%;
-            box-sizing: border-box;
-            border: 1px solid rgb(102, 102, 102);
-            box-shadow: 0 0 0 1000px rgba(0, 0, 0, 0.5);
-            background: none repeat scroll 0% 0% transparent;
-        }
-        .pop_up_basic{
-            width:760px;
-            height:750px;
-            top: 50%;
-            margin-top: -375px;
-        }
-        .imageBox{
-            width:460px;
-            height:460px;
-        }
-        .cropped{
-            right:-312px;
-            height:518px;
-            width:200px;
-        }
-        .action{
-            width:464px;
-        }
-        .keep_box2{
-            margin-right:77px;
-        }
-        .keep_box1{
-            margin-left:-110px;
-        }
-        .new-contentarea{
-            overflow:visible;
-        }
-        a.upload-img{
-            margin-left:0;
-            text-align:center;
-        }
-        .container{
-            margin:20px;
-        }
-        .lol_status_03{color: red;font-size: 14px;}
-    </style>
+    <script type="text/javascript" src="./js/personal_data1.js"></script>
+    <script type="text/javascript" src="./js/lrz.js"></script>
+    <script type="text/javascript" src="./js/exif.js"></script>
+    <script type="text/javascript" src="./js/tuwan_message.js"></script>
+    <script type="text/javascript" src="./js/moxie.js"></script>
+    <script type="text/javascript" src="./js/plupload.dev.js"></script>
+    <script type="text/javascript" src="./js/upload_playinfo.js"></script>
+    <script type="text/javascript" src="./js/umeditor.config.js"></script>
+    <script type="text/javascript" src="./js/umeditor.min.js"></script>
 </head>
-<body>
+<style>
+    .keep_box {
+        background-color: #999999;
+        width: 192px;
+        height: 52px;
+        line-height: 52px;
+        font-size: 18px;
+        color: #fff;
+        text-align: center;
+        margin-top: 30px;
+        margin-right: 20px;
+        cursor: pointer;
+        border: none 0;
+        border-radius: 4px;
+        -webkit-border-radius: 4px;
+    }
 
+    .keep_box1 {
+        margin-left: -100px;
+        background-color: #5ecfba;
+    }
+
+    .keep_box1:hover {
+        background-color: #47b5a1;
+    }
+
+    .keep_box2:hover {
+        background-color: #888888;
+    }
+
+    .img_ts {
+        font-size: 12px;
+        color: #ea6e74;
+        width: 80%;
+        margin-top: -6px;
+    }
+
+    .img_ts input {
+        width: 80%;
+    }
+
+    .submit_box input {
+        height: 52px;
+        margin-left: 60%;
+    }
+
+    .game_ID span {
+        padding-top: 6px;
+    }
+
+    .content_bg1 {
+        height: 910px;
+    }
+
+    .imageBox .thumbBox {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 402px;
+        height: 402px;
+        margin-top: -200px;
+        margin-left: -200px;
+        border-radius: 50%;
+        box-sizing: border-box;
+        border: 1px solid rgb(102, 102, 102);
+        box-shadow: 0 0 0 1000px rgba(0, 0, 0, 0.5);
+        background: none repeat scroll 0% 0% transparent;
+    }
+
+    .pop_up_basic {
+        width: 760px;
+        height: 750px;
+        top: 50%;
+        margin-top: -375px;
+    }
+
+    .imageBox {
+        width: 460px;
+        height: 460px;
+    }
+
+    .cropped {
+        right: -312px;
+        height: 518px;
+        width: 200px;
+    }
+
+    .action {
+        width: 464px;
+    }
+
+    .keep_box2 {
+        margin-right: 77px;
+    }
+
+    .keep_box1 {
+        margin-left: -110px;
+    }
+
+    .new-contentarea {
+        overflow: visible;
+    }
+
+    a.upload-img {
+        margin-left: 0;
+        text-align: center;
+    }
+
+    .container {
+        margin: 20px;
+    }
+
+    .lol_status_03 {
+        color: red;
+        font-size: 14px;
+    }
+
+    #user_center_box {
+        margin-top: 0;
+    }
+
+    .content_center {
+        background-color: #fff;
+        margin: 0 auto;
+        width: 52%;
+        padding: 5% 10%;
+        font-family: '微软雅黑';
+    }
+
+    .protocol_box {
+        width: 100%;
+        padding-top: 17px;
+        padding-bottom: 17px;
+        border: #d6d7dc 1px solid;
+        margin-top: 65px;
+    }
+
+    .switch {
+        float: left;
+        margin-left: 12px;
+    }
+
+    .agree {
+        float: left;
+        color: #333;
+        margin-left: 12px;
+        margin-right: 26px;
+    }
+
+    .point_out {
+        float: left;
+        color: #be1a2c;
+        font-size: 14px;
+    }
+
+    .botton_box .botton_box1 {
+        background-color: #afb0b3;
+    }
+
+    .botton_box input {
+        height: 47px;
+        width: 190px;
+        color: #fff;
+        font-weight: 500;
+        margin-top: 40px;
+    }
+
+    button, input, select, .content_text {
+        font-size: 100%;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        border: none;
+    }
+
+    .botton_box .botton_box2 {
+        background-color: #be1a2c;
+        margin-left: 30px;
+        cursor: pointer;
+    }
+
+    .botton_box input {
+        height: 47px;
+        width: 190px;
+        color: #fff;
+        font-weight: 500;
+        margin-top: 40px;
+    }
+
+    .content_center .content_bigtitle {
+        font-size: 24px;
+        color: #333333;
+        text-align: center;
+        line-height: 34px;
+    }
+
+    .content_center .content_title {
+        font-size: 18px;
+        color: #333333;
+        line-height: 30px;
+    }
+
+    .content_center .content_text {
+        font-size: 14px;
+        color: #666666;
+        line-height: 28px;
+    }
+
+    .content_center_01 {
+        height: 500px;
+        overflow-y: scroll;
+    }
+
+    .closehide {
+        position: absolute;
+    }
+
+    .lol_box {
+        margin-left: 2.3%;
+        margin-top: 49px;
+    }
+</style>
+<body>
 <!--pop_up-->
 <div id="mailer_box" style="display:none">
     <div class="pop_up_bg"></div>
     <div class="mailer">
-        <img src="./images/close.png" class="fr close">
+        <img src="./img/close.png" class="fr close">
         <div class="clearfix"></div>
         <div class="mailer_title mt25">我们已收到您的申请</div>
         <div class="mailer_time">1970-01-01 08:00</div>
         <p class="mailer_text">亲爱的，您的资料已提交成功，请申请加入考核QQ群进行考核。</p>
         <div class="qq_box">
-            <a class="ic_face fl" href="//shang.qq.com/wpa/qunwpa?idkey=5c75d39709a82b906b4ff53e5c73e8db2aee02688837dbb2a7239a24913e7538" target="_blank" title="考核群：596143834"><img src="https://res.tuwan.com/templet/teach/admin/playerinfo/images/qq.png?"></a>
+            <a class="ic_face fl"
+               href="//shang.qq.com/wpa/qunwpa?idkey=5c75d39709a82b906b4ff53e5c73e8db2aee02688837dbb2a7239a24913e7538"
+               target="_blank" title="考核群：596143834">
+                <img src="./img/qq.png?"></a>
             <div class="fl face_qq mt15 ml25">
                 <span>考核群：</span>
-                <input type="text" class="input" id="share_link" value="596143834" />
+                <input type="text" class="input" id="share_link" value="596143834"/>
                 <a href="#none" class="copy-input" title="点击复制">【点击复制】</a>
             </div>
             <div class="clearfix"></div>
@@ -106,11 +275,660 @@
 <!--pop_up_end-->
 
 <!--info start-->
+<div id="user_center_box" style="display:none">
+    <div class="user_content_left">
+        <div class="user_center">
+            <form action="" method="post" enctype="multipart/form-data" id="form">
+                <input type="hidden" name="dtid" class="dtid" value="31540"/>
+                <input type="hidden" name="loadflaghidden" id="loadflaghidden" value="0"/>
+                <div>
+                    <div class="head_samllimg"><img id="headimg"
+                                                    src=""></div>
+                    <div class="head_title">修改头像</div>
+                    <input type="hidden" name="img64" id="img64" value="">
+                    <input type="hidden" name="ori_avatar" id="ori_avatar" value=""/>
+                </div>
+                <div class="care_text mt10">支持jpg/gif/png格式的图片，文件必须小于3M</div>
+                <div class="mt50 border_text_box">
+                    <div class="fl border_left"></div>
+                    <div class="fl border_text pb30">基本资料</div>
+                    <div class="fl remind ml35">标题标*为必填项，请务必填写真实资料</div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="mt30">
+                    <div class="fl mt10 name_title"><span class="star">*</span>昵称：</div>
+                    <input class="fl name_text pl10" type="text" placeholder="昵称" value="" id="nickname"
+                           name="nickname">
+                    <div class="clearfix"></div>
+                </div>
+                <div class="mt30">
+                    <div class="fl name_title mr5"><span class="star">*</span>性别：</div>
+                    <div class="fl sex_box">
+                        <input type="radio" value="1" checked name="sex">&nbsp;&nbsp;男 &nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" value="2" name="sex">&nbsp;&nbsp;女
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="mt30">
+                    <div class="fl name_title  mt10"><span class="star">*</span>出生日期：</div>
+                    <input type="text" id="birthday" readonly placeholder="请选择出生日期" class="fl name_text pl10" value=""
+                           name="birthday">
+                    <div class="clearfix"></div>
+                </div>
+                <div class="mt30">
+                    <div class="fl name_title  mt10"><span class="star">*</span>所在地：</div>
+                    <select id="province" name="province" class="fl mr10 pl10 pr10">
+                        <option value="0" selected="selected">选择省份</option>
+                        <option value="100000">北京市</option>
+                        <option value="100020">天津市</option>
+                        <option value="100021">上海市</option>
+                        <option value="100022">重庆市</option>
+                        <option value="130000">河北省</option>
+                        <option value="140000">山西省</option>
+                        <option value="150000">内蒙古自治区</option>
+                        <option value="210000">辽宁省</option>
+                        <option value="220000">吉林省</option>
+                        <option value="230000">黑龙江省</option>
+                        <option value="320000">江苏省</option>
+                        <option value="330000">浙江省</option>
+                        <option value="340000">安徽省</option>
+                        <option value="350000">福建省</option>
+                        <option value="360000">江西省</option>
+                        <option value="370000">山东省</option>
+                        <option value="410000">河南省</option>
+                        <option value="420000">湖北省</option>
+                        <option value="430000">湖南省</option>
+                        <option value="440000">广东省</option>
+                        <option value="450000">广西壮族自治区</option>
+                        <option value="460000">海南省</option>
+                        <option value="510000">四川省</option>
+                        <option value="520000">贵州省</option>
+                        <option value="530000">云南省</option>
+                        <option value="540000">西藏自治区</option>
+                        <option value="610000">陕西省</option>
+                        <option value="620000">甘肃省</option>
+                        <option value="630000">青海省</option>
+                        <option value="640000">宁夏回族自治区</option>
+                        <option value="650000">新疆维吾尔自治区</option>
+                        <option value="659005">台湾省</option>
+                    </select>
+                    <select id="city" name="city" class="fl pl10 pr10">
+                        <option value="0" selected>选择城市</option>
+                    </select>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="mt30">
+                    <div class="fl mt10 name_title"><span class="star" style="margin-right:10px;">*</span> 手机号：</div>
+                    <div style="padding-top: 10px;" id="phone"></div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="mt30">
+                    <div class="fl mt10 name_title"><span class="star">*</span>QQ：</div>
+                    <input class="fl name_text pl10" id="qq" name="qq" type="text" placeholder="重要联系方式" value="">
+                    <div class="clearfix"></div>
+                </div>
+                <div class="mt50">
+                    <div class="fl mt10 name_title"><span class="star">*</span>个性标签：<br/><span class="Optional">（请任意选择两项）</span>
+                    </div>
+                    <div style="width:540px;" class="fl label">
+                        <div class='mt10 fl' style='margin-right:7%;'><input type='checkbox' name='tag[]'
+                                                                             class='TagCheckBox' value='0'/><span
+                                class='fl'>特殊才艺</span>
+                            <div class='clearfix'></div>
+                        </div>
+                        <div class='mt10 fl' style='margin-right:7%;'><input type='checkbox' name='tag[]'
+                                                                             class='TagCheckBox' value='1'/><span
+                                class='fl'>颜值担当</span>
+                            <div class='clearfix'></div>
+                        </div>
+                        <div class='mt10 fl' style='margin-right:7%;'><input type='checkbox' name='tag[]'
+                                                                             class='TagCheckBox' value='2'/><span
+                                class='fl'>逗比闲聊</span>
+                            <div class='clearfix'></div>
+                        </div>
+                        <div class='mt10 fl' style='margin-right:7%;'><input type='checkbox' name='tag[]'
+                                                                             class='TagCheckBox' value='3'/><span
+                                class='fl'>声音甜美</span>
+                            <div class='clearfix'></div>
+                        </div>
+                        <div class='mt10 fl' style='margin-right:7%;'><input type='checkbox' name='tag[]'
+                                                                             class='TagCheckBox' value='4'/><span
+                                class='fl'>乖巧黏人</span>
+                            <div class='clearfix'></div>
+                        </div>
+                        <div class='mt10 fl' style='margin-right:7%;'><input type='checkbox' name='tag[]'
+                                                                             class='TagCheckBox' value='5'/><span
+                                class='fl'>情感知心</span>
+                            <div class='clearfix'></div>
+                        </div>
+                        <div class='mt10 fl' style='margin-right:7%;'><input type='checkbox' name='tag[]'
+                                                                             class='TagCheckBox' value='6'/><span
+                                class='fl'>爽朗直率</span>
+                            <div class='clearfix'></div>
+                        </div>
+                        <div class='mt10 fl' style='margin-right:7%;'><input type='checkbox' name='tag[]'
+                                                                             class='TagCheckBox' value='7'/><span
+                                class='fl'>激情四射</span>
+                            <div class='clearfix'></div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="mt50">
+                    <div class="fl mt10  name_title"><span class="star">*</span>个性签名：</div>
+                    <input type="text" class="fl input_file" name="short_desc" id="short_desc" placeholder="一句话介绍你自己"
+                           value="">
+                    <div class="clearfix"></div>
+                </div>
+                <br>
+                <br>
 
+                <div class="mt30" style="margin-bottom: 43px;">
+                    <div class="fl mt10">Tips：以下资料为选填内容，资料完整的陪玩导师优先获得首页推荐特权</div>
+                    <div class="clearfix"></div>
+                </div>
+                <div style="width:500px;height:1px;border-bottom:2px dotted #cccccc;"></div>
+                <div class="mt30">
+                    <div class="fl mt10 name_title"><span class="Optional">（选填）</span>身高(cm)</div>
+                    <input class="fl name_text pl10" id="Sheight" name="Sheight" type="text" placeholder="身高" value="">
+                    <div class="clearfix"></div>
+                </div>
+                <div class="mt30">
+                    <div class="fl mt10 name_title"><span class="Optional">（选填）</span>体重(kg)</div>
+                    <input class="fl name_text pl10" id="weight" name="weight" type="text" placeholder="体重" value="">
+                    <div class="clearfix"></div>
+                </div>
+                <div class="mt30">
+                    <div class="fl mt10 name_title"><span class="Optional">（选填）</span>职业：</div>
+                    <select name="work" id="work">
+                        <option value="">请选择</option>
+                        <option value='0'>学生</option>
+                        <option value='1'>主播</option>
+                        <option value='2'>医生</option>
+                        <option value='3'>护士</option>
+                        <option value='4'>模特</option>
+                        <option value='5'>教师</option>
+                        <option value='6'>公务员</option>
+                        <option value='7'>个体经营</option>
+                        <option value='8'>上班族</option>
+                        <option value='9'>其他</option>
+                    </select>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="mt30 school" style="display:none">
+                    <div class="fl mt10 name_title"><span class="Optional">（选填）</span>学校：</div>
+                    <select name="school" id="school">
+                        <option value="">请选择</option>
+                        Array
+                        <option value='0'>成都大学</option>
+                        <option value='1'>四川师范大学</option>
+                        <option value='2'>四川大学</option>
+                        <option value='3'>四川传媒学院</option>
+                    </select>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="mt30">
+                    <div class="fl mt10 name_title"><span class="Optional">（选填）</span>兴趣爱好：</div>
+                    <input type="text" class="fl input_file" name="like" id="like" placeholder="字数不超过20个字" value="">
+                    <div class="clearfix"></div>
+                </div>
+                <div class="mt50">
+                    <div class="fl mt10 name_title"><span class="Optional">（选填）</span>魅力部位：<br/>
+                        <span class="Optional">（不超过三项）</span></div>
+                    <div style="width:540px;" class="fl label">
+                        <div class='mt10 fl mr40'>
+                            <input type='checkbox' name='organ[]' class='organ' value='0'/>眼睛
+                        </div>
+                        <div class='mt10 fl mr40'>
+                            <input type='checkbox' name='organ[]' class='organ' value='1'/>鼻子
+                        </div>
+                        <div class='mt10 fl mr40'>
+                            <input type='checkbox' name='organ[]' class='organ' value='2'/>耳朵
+                        </div>
+                        <div class='mt10 fl mr40'>
+                            <input type='checkbox' name='organ[]' class='organ' value='3'/>嘴唇
+                        </div>
+                        <div class='mt10 fl mr40'>
+                            <input type='checkbox' name='organ[]' class='organ' value='4'/>胸部
+                        </div>
+                        <div class='mt10 fl mr40'>
+                            <input type='checkbox' name='organ[]' class='organ' value='5'/>腰部
+                        </div>
+                        <div class='mt10 fl mr40'>
+                            <input type='checkbox' name='organ[]' class='organ' value='6'/>腿
+                        </div>
+                        <div class='mt10 fl mr40'>
+                            <input type='checkbox' name='organ[]' class='organ' value='7'/>臀部
+                        </div>
+                        <div class='mt10 fl mr40'>
+                            <input type='checkbox' name='organ[]' class='organ' value='8'/>手
+                        </div>
+                        <div class='mt10 fl mr40'>
+                            <input type='checkbox' name='organ[]' class='organ' value='9'/>其他
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <!--<div id="container">
+                    <div class="mt30">
+                        <input type="hidden" name="fileurl" id="fileurl" value="">
+                        <div class="fl mt10"> <span class="Optional">（选填）</span>上传视频：</div>
+                        <input type="text" class="fl input_file" name="video" id="video" value="" placeholder="请上传十秒左右的自拍视频，视频“我是点点约玩的某某”" disabled="disabled">
+                        <span class="choose" id="selectfiles">选择</span>
+                        <div class="clearfix"></div>
+                        <span class="choose_text">注：视频大小不超过10MB，视频格式支持MP4，审核成功后获得真人认证勋章！</span>
+                        <div class="clearfix"></div>
+                        <div id="Progress" style="display: none;">
+                            <div  class="riginal_box fl">
+                                <div class="pop_up_original mt25"></div>
+                                <div class="pop_up_hou mb15"></div>
+                                <div class="zhengque">上传中，请等待...</div>
+                            </div>
+                            <div class="fl ml10">
+                                <div class="pop_up_percent mt10">0%</div>
+                                &lt;!&ndash; <div class="pop_up_per">取消上传</div> &ndash;&gt;
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+
+                    <div class="mt30" style="display:block">
+                        <div class="fl mt10 mr5 name_title"><span class="star">*</span> APP主页封面照：</div>
+                        <div class="fl" style="position: relative;">
+                            <input class="name_text pl10" type="button" value="上传图片" style="background-color: #5ecfba;color: #ffffff;height:32px;line-height:32px;">
+                            <input type="file"  class="file_01" id="appindeximg" accept="image/*" style="height:32px;line-height:32px;display:block;">
+                            <input type="hidden" name="appindeximg_64" id="appindeximg_64" value="">
+                            <div  class="diagram diagram3">示例图</div>
+                        </div>
+                        <div class="" style="margin-left: 10px;"><img style="width: 100px; margin-left: 20px;" src="./img/fmsl.jpg" class="appindeximgbreviary" /></div>
+                        <div class="voice_01 mt10" style="float: right;    margin-top: -6.6%;    margin-right: 13%;">请上传您的主页封面照，建议大小为：750*1334</div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>-->
+
+                <div class="mt50 border_text_box">
+                    <div class="fl border_left"></div>
+                    <div class="fl border_text pb30">开通服务</div>
+                    <div class="fl remind ml35">标题标*为必填项，请务必填写真实资料（个人最多申请开通七项服务）</div>
+                    <div class="clearfix"></div>
+                </div>
+                <!--服务-->
+                <div class="lol_bigbox">
+
+                    <div class="fl lol_box">
+                        <div class="lol_img" dtid="31540" flag="0">
+                            <img src="./img/playinfo/apply_31540.png" class="status_lol"
+                                 style="width:80px;height:80px;display:none;">
+                            <img src="./img/playinfo/apply_hover_31540.png"
+                                 style="width:80px;height:80px;display:block;" class="status_lolhover">
+                        </div>
+                        <div class="lol_title">线上LOL</div>
+                        <div class="lol_status">（未开通）</div>
+                    </div>
+                    <div class="fl lol_box">
+                        <div class="lol_img" dtid="20002" flag="0">
+                            <img src="./img/playinfo/apply_20002.png" class="status_lol"
+                                 style="width:80px;height:80px;display:block;">
+                            <img src="./img/playinfo/apply_hover_20002.png" style="width:80px;height:80px;display:none;"
+                                 class="status_lolhover">
+                        </div>
+                        <div class="lol_title">线上歌手</div>
+                        <div class="lol_status">（未开通）</div>
+                    </div>
+                    <div class="fl lol_box">
+                        <div class="lol_img" dtid="20004" flag="0">
+                            <img src="./img/playinfo/apply_20004.png" class="status_lol"
+                                 style="width:80px;height:80px;display:block;">
+                            <img src="./img/playinfo/apply_hover_20004.png" style="width:80px;height:80px;display:none;"
+                                 class="status_lolhover">
+                        </div>
+                        <div class="lol_title">声优聊天</div>
+                        <div class="lol_status">（未开通）</div>
+                    </div>
+                    <div class="fl lol_box">
+                        <div class="lol_img" dtid="20008" flag="0">
+                            <img src="./img/playinfo/apply_20008.png" class="status_lol"
+                                 style="width:80px;height:80px;display:block;">
+                            <img src="./img/playinfo/apply_hover_20008.png" style="width:80px;height:80px;display:none;"
+                                 class="status_lolhover">
+                        </div>
+                        <div class="lol_title">王者荣耀</div>
+                        <div class="lol_status">（未开通）</div>
+                    </div>
+                    <div class="fl lol_box">
+                        <div class="lol_img" dtid="20011" flag="0">
+                            <img src="./img/playinfo/apply_20011.png" class="status_lol"
+                                 style="width:80px;height:80px;display:block;">
+                            <img src="./img/playinfo/apply_hover_20011.png" style="width:80px;height:80px;display:none;"
+                                 class="status_lolhover">
+                        </div>
+                        <div class="lol_title">虚拟恋人</div>
+                        <div class="lol_status">（未开通）</div>
+                    </div>
+                    <div class="fl lol_box">
+                        <div class="lol_img" dtid="20012" flag="0">
+                            <img src="./img/playinfo/apply_20012.png" class="status_lol"
+                                 style="width:80px;height:80px;display:block;">
+                            <img src="./img/playinfo/apply_hover_20012.png" style="width:80px;height:80px;display:none;"
+                                 class="status_lolhover">
+                        </div>
+                        <div class="lol_title">哄睡觉</div>
+                        <div class="lol_status">（未开通）</div>
+                    </div>
+                    <div class="fl lol_box">
+                        <div class="lol_img" dtid="20013" flag="0">
+                            <img src="./img/playinfo/apply_20013.png" class="status_lol"
+                                 style="width:80px;height:80px;display:block;">
+                            <img src="./img/playinfo/apply_hover_20013.png" style="width:80px;height:80px;display:none;"
+                                 class="status_lolhover">
+                        </div>
+                        <div class="lol_title">叫醒</div>
+                        <div class="lol_status">（未开通）</div>
+                    </div>
+                    <div class="fl lol_box">
+                        <div class="lol_img" dtid="20014" flag="0">
+                            <img src="./img/playinfo/apply_20014.png" class="status_lol"
+                                 style="width:80px;height:80px;display:block;">
+                            <img src="./img/playinfo/apply_hover_20014.png" style="width:80px;height:80px;display:none;"
+                                 class="status_lolhover">
+                        </div>
+                        <div class="lol_title">绝地求生</div>
+                        <div class="lol_status">（未开通）</div>
+                    </div>
+                    <div class="fl lol_box">
+                        <div class="lol_img" dtid="20016" flag="0">
+                            <img src="./img/playinfo/apply_20016.png" class="status_lol"
+                                 style="width:80px;height:80px;display:block;">
+                            <img src="./img/playinfo/apply_hover_20016.png" style="width:80px;height:80px;display:none;"
+                                 class="status_lolhover">
+                        </div>
+                        <div class="lol_title">荒野行动</div>
+                        <div class="lol_status">（未开通）</div>
+                    </div>
+                    <div class="fl lol_box">
+                        <div class="lol_img" dtid="20018" flag="0">
+                            <img src="./img/playinfo/apply_20018.png" class="status_lol"
+                                 style="width:80px;height:80px;display:block;">
+                            <img src="./img/playinfo/apply_hover_20018.png" style="width:80px;height:80px;display:none;"
+                                 class="status_lolhover">
+                        </div>
+                        <div class="lol_title">刺激战场</div>
+                        <div class="lol_status">（未开通）</div>
+                    </div>
+                    <div class="fl lol_box">
+                        <div class="lol_img" dtid="20019" flag="0">
+                            <img src="./img/playinfo/apply_20019.png" class="status_lol"
+                                 style="width:80px;height:80px;display:block;">
+                            <img src="./img/playinfo/apply_hover_20019.png" style="width:80px;height:80px;display:none;"
+                                 class="status_lolhover">
+                        </div>
+                        <div class="lol_title">全军出击</div>
+                        <div class="lol_status">（未开通）</div>
+                    </div>
+                    <div class="fl lol_box">
+                        <div class="lol_img" dtid="20020" flag="0">
+                            <img src="./img/playinfo/apply_20020.png" class="status_lol"
+                                 style="width:80px;height:80px;display:block;">
+                            <img src="./img/playinfo/apply_hover_20020.png" style="width:80px;height:80px;display:none;"
+                                 class="status_lolhover">
+                        </div>
+                        <div class="lol_title">第五人格</div>
+                        <div class="lol_status">（未开通）</div>
+                    </div>
+                    <div class="fl lol_box">
+                        <div class="lol_img" dtid="20021" flag="0">
+                            <img src="./img/playinfo/apply_20021.png" class="status_lol"
+                                 style="width:80px;height:80px;display:block;">
+                            <img src="./img/playinfo/apply_hover_20021.png" style="width:80px;height:80px;display:none;"
+                                 class="status_lolhover">
+                        </div>
+                        <div class="lol_title">视频游戏</div>
+                        <div class="lol_status">（未开通）</div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="mt30">
+                    <div class="fl mt10 mr5 name_title"><span class="star">*</span> 封面照：</div>
+                    <div class="fl" style="position: relative;">
+                        <input class="name_text pl10" type="button" value="上传图片"
+                               style="background-color: #5ecfba;color: #ffffff;height:32px;line-height:32px;">
+                        <input type="file"
+                               class="file_01" id="upfile" accept="image/*"
+                               style="height:32px;line-height:32px;display:block;">
+                        <input type="hidden" name="upfile_64" id="upfile_64" value="">
+                        <div class="diagram diagram1">示例图</div>
+                    </div>
+                    <div class="randimgsrc"><img src="./img/breviary.png" style="padding-left: 20px;"
+                                                 class="upfilebreviary breviary"></div>
+                    <div class="voice_01 mt10 gameExplain" style="float: right;margin-top: -140px;margin-right: 60px;">
+                        请上传您的段位截图（需包含个人ID）,并填写<br>
+                        线上LOL相关的描述<br>
+                        男段位要求：电一钻Ⅰ以上，其他区大师王者；<br>
+                        女段位要求：黄金以上
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="mt30" style="margin-bottom: 43px;width:100%">
+                    <div class="fl mt10" style="width:13%">
+                        <span class="star"></span>服务描述：<br/>
+                        <div class="diagram diagram2" style="margin-top:10px;margin-right:16px;">示例图</div>
+                    </div>
+                    <!--富文本编辑器-->
+                    <!--<div class="fr" id="ieflag" style="width:85%">
+                        <script type="text/plain" id="myEditor" style="width:1024px;height:500px;"></script>
+
+                    </div>-->
+                    富文本编辑器
+
+
+                    <div class="clearfix"></div>
+                </div>
+                <div class="mt30" id="gamelist" style="display: none;">
+                    <div class="fl mt10 name_title"><span class="star"></span>QQ可接段位：</div>
+                    <div class="ajaxgamelist fl" style="width: 724px;">
+                        <div class='mt10 fl mr40 gamenums1'>
+                            <input type='checkbox' name='gamelistV2[]' class='gamelist' value='1'/>倔强黄铜
+                        </div>
+                        <div class='mt10 fl mr40 gamenums2'>
+                            <input type='checkbox' name='gamelistV2[]' class='gamelist' value='2'/>秩序白银
+                        </div>
+                        <div class='mt10 fl mr40 gamenums3'>
+                            <input type='checkbox' name='gamelistV2[]' class='gamelist' value='3'/>荣耀黄金
+                        </div>
+                        <div class='mt10 fl mr40 gamenums4'>
+                            <input type='checkbox' name='gamelistV2[]' class='gamelist' value='4'/>尊贵铂金
+                        </div>
+                        <div class='mt10 fl mr40 gamenums5'>
+                            <input type='checkbox' name='gamelistV2[]' class='gamelist' value='5'/>永恒钻石
+                        </div>
+                        <div class='mt10 fl mr40 gamenums6'>
+                            <input type='checkbox' name='gamelistV2[]' class='gamelist' value='6'/>至尊星耀
+                        </div>
+                        <div class='mt10 fl mr40 gamenums7'>
+                            <input type='checkbox' name='gamelistV2[]' class='gamelist' value='7'/>最强王者
+                        </div>
+                        <div class='mt10 fl mr40 gamenums8'>
+                            <input type='checkbox' name='gamelistV2[]' class='gamelist' value='8'/>荣耀王者
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="mt30" id="gamelistV2" style="display: none;">
+                    <div class="fl mt10 name_title"><span class="star"></span>微信可接段位：</div>
+                    <div class="ajaxgamelistV2 fl" style="width: 724px;">
+                        <div class='mt10 fl mr40 gamenums1'>
+                            <input type='checkbox' name='gamelist[]' class='gamelist' value='1'/>倔强黄铜
+                        </div>
+                        <div class='mt10 fl mr40 gamenums2'>
+                            <input type='checkbox' name='gamelist[]' class='gamelist' value='2'/>秩序白银
+                        </div>
+                        <div class='mt10 fl mr40 gamenums3'>
+                            <input type='checkbox' name='gamelist[]' class='gamelist' value='3'/>荣耀黄金
+                        </div>
+                        <div class='mt10 fl mr40 gamenums4'>
+                            <input type='checkbox' name='gamelist[]' class='gamelist' value='4'/>尊贵铂金
+                        </div>
+                        <div class='mt10 fl mr40 gamenums5'>
+                            <input type='checkbox' name='gamelist[]' class='gamelist' value='5'/>永恒钻石
+                        </div>
+                        <div class='mt10 fl mr40 gamenums6'>
+                            <input type='checkbox' name='gamelist[]' class='gamelist' value='6'/>至尊星耀
+                        </div>
+                        <div class='mt10 fl mr40 gamenums7'>
+                            <input type='checkbox' name='gamelist[]' class='gamelist' value='7'/>最强王者
+                        </div>
+                        <div class='mt10 fl mr40 gamenums8'>
+                            <input type='checkbox' name='gamelist[]' class='gamelist' value='8'/>荣耀王者
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div id="dtid">
+
+                    <div class="mt30">
+                        <div class="fl mt10 mr5 name_title"><span class="star">*</span>游戏ID：</div>
+                        <input class="fl name_text pl10" type="text" placeholder="GameID" name="gameID" id="gameID"
+                               value="">
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="mt30">
+                        <div class="fl mt10 mr5 name_title"><span class="star">*</span>所在大区：</div>
+                        <select id="area_id" name="area_id" class="pl10 pr10">
+                            <option value="0" style="color:#999999;">请选择服务器</option>
+                            <option value="1">艾欧尼亚</option>
+                            <option value="2">比尔吉沃特</option>
+                            <option value="3">祖安</option>
+                            <option value="4">诺克萨斯</option>
+                            <option value="5">班德尔城</option>
+                            <option value="6">德玛西亚</option>
+                            <option value="7">皮尔特沃夫</option>
+                            <option value="8">战争学院</option>
+                            <option value="9">弗雷尔卓德</option>
+                            <option value="10">巨神峰</option>
+                            <option value="11">雷瑟守备</option>
+                            <option value="12">无畏先锋</option>
+                            <option value="13">裁决之地</option>
+                            <option value="14">黑色玫瑰</option>
+                            <option value="15">暗影岛</option>
+                            <option value="16">恕瑞玛</option>
+                            <option value="17">钢铁烈阳</option>
+                            <option value="18">水晶之痕</option>
+                            <option value="19">均衡教派</option>
+                            <option value="20">扭曲丛林</option>
+                            <option value="21">教育网专区</option>
+                            <option value="22">影流</option>
+                            <option value="23">守望之海</option>
+                            <option value="24">征服之海</option>
+                            <option value="25">卡拉曼达</option>
+                            <option value="26">巨龙之巢</option>
+                            <option value="27">皮城警备</option>
+                            <option value="30">男爵领域</option>
+                            <option value="31">峡谷之巅</option>
+                        </select>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="mt30">
+                        <div class="fl mt10 mr5 name_title"><span class="star"> </span>当前段位：</div>
+                        <select name="grading">
+                            <option value="0" selected="selected">无段位</option>
+                            <option value="1">最强王者</option>
+                            <option value="2">超凡大师</option>
+                            <option value="3">璀璨钻石Ⅰ</option>
+                            <option value="4">璀璨钻石Ⅱ</option>
+                            <option value="5">璀璨钻石Ⅲ</option>
+                            <option value="6">璀璨钻石Ⅳ</option>
+                            <option value="7">璀璨钻石Ⅴ</option>
+                            <option value="8">华贵铂金Ⅰ</option>
+                            <option value="9">华贵铂金Ⅱ</option>
+                            <option value="10">华贵铂金Ⅲ</option>
+                            <option value="11">华贵铂金Ⅳ</option>
+                            <option value="12">华贵铂金Ⅴ</option>
+                            <option value="13">荣耀黄金Ⅰ</option>
+                            <option value="14">荣耀黄金Ⅱ</option>
+                            <option value="15">荣耀黄金Ⅲ</option>
+                            <option value="16">荣耀黄金Ⅳ</option>
+                            <option value="17">荣耀黄金Ⅴ</option>
+                            <option value="18">不屈白银Ⅰ</option>
+                            <option value="19">不屈白银Ⅱ</option>
+                            <option value="20">不屈白银Ⅲ</option>
+                            <option value="21">不屈白银Ⅳ</option>
+                            <option value="22">不屈白银Ⅴ</option>
+                            <option value="23">英勇黄铜Ⅰ</option>
+                            <option value="24">英勇黄铜Ⅱ</option>
+                            <option value="25">英勇黄铜Ⅲ</option>
+                            <option value="26">英勇黄铜Ⅳ</option>
+                            <option value="27">英勇黄铜Ⅴ</option>
+                        </select>
+
+                        <div class="clearfix"></div>
+                    </div>
+
+                </div>
+
+                <div id="typetag" style="display:none">
+                    <div class="mt50">
+                        <div class="fl mt10 name_title">*技能分类：<br/><span class="Optional">（可多选）</span></div>
+                        <div style="width:540px;" class="fl label">
+                            <div class='mt10 fl' style='margin-right:7%;'>
+                                <input type='checkbox' name='typetag[]' id='typetag_32' value='32'/>
+                                <span class='fl'>在线点歌</span>
+                                <div class='clearfix'></div>
+                            </div>
+                            <div class='mt10 fl' style='margin-right:7%;'>
+                                <input type='checkbox' name='typetag[]' id='typetag_33' value='33'/>
+                                <span class='fl'>连麦哄睡</span>
+                                <div class='clearfix'></div>
+                            </div>
+                            <div class='mt10 fl' style='margin-right:7%;'>
+                                <input type='checkbox' name='typetag[]' id='typetag_34' value='34'/>
+                                <span class='fl'>情感咨询</span>
+                                <div class='clearfix'></div>
+                            </div>
+                            <div class='mt10 fl' style='margin-right:7%;'>
+                                <input type='checkbox' name='typetag[]' id='typetag_35' value='35'/>
+                                <span class='fl'>电台故事</span>
+                                <div class='clearfix'></div>
+                            </div>
+                            <div class='mt10 fl' style='margin-right:7%;'>
+                                <input type='checkbox' name='typetag[]' id='typetag_36' value='36'/>
+                                <span class='fl'>幽默搞笑</span>
+                                <div class='clearfix'></div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                <div class="mt30">
+                    <div class="fl mt10"><span class="Optional">（选填）</span>语音介绍：</div>
+                    <div class="voice_hover fl ">
+                        <div style="position: relative;"><span class="time_box">0s</span>
+                            <img src="./img/playinfo/voice.png" id="voice_hover" class="fl ml20" style="display:block;">
+                            <img src="./img/playinfo/voice_hover.png" class=" fl  ml20 voice_hover01" id="cloudBody">
+                            <img src="./img/playinfo/voice_hover02.gif" class=" fl  ml20  voice_hover02">
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                    <div class="fl voice mt10 ml10 mr5">上传语音
+                        <input type="file" class="input_top" id="datamp3" name="datamp3" accept="audio/mpeg">
+                        <input type="hidden" id="flagmp3" name="flagmp3" value=""></div>
+                    <div class="fl voice_01 mt10">（支持上传MP3格式录音，时长不可超过60秒）</div>
+                    <div class="clearfix"></div>
+
+                </div>
+
+                <!--<input type="submit" class="sure_box" value="确认提交" style="margin-left: 238px" id="postfiles">-->
+                <input type="button" class="sure_box1" value="申请导师" style="margin-left: 238px">
+            </form>
+        </div>
+    </div>
+</div>
 <!--info end-->
 
 <div class="left_margin" style="display:block">
-    <div style="float:left;position:absolute;z-index:999;"><a href="//t.tuwan.com" target="_blank"><img src="//res.tuwan.com/templet/teach/images/teach.jpg?t=11" style="width:100%;height:100%"></a></div>
+
     <div class="content_center">
         <div class="content_center_01">
             <div class="content_bigtitle">“**约玩”陪玩申请协议</div>
@@ -119,16 +937,23 @@
             <p class="content_text">1.1、您应认真阅读（未成年人应当在监护人陪同下阅读）、充分理解本《陪玩申请协议》中各条款，包括免除或者限制兔玩责任的免责条款及对用户的权利限制条款。</p>
             <p class="content_text">1.2、除非您接受本协议，否则用户无权也无必要继续接受**的服务，可以退出本次注册。用户点击接受并继续使用兔玩的服务，视为用户已完全的接受本协议。</p>
             <p class="content_text">1.3、本协议一经签署，具有法律效力，请您慎重考虑是否接受本协议。</p>
-            <p class="content_text">1.4、在您签署本协议之后，此文本可能因国家政策、产品以及履行本协议的环境发生变化而进行修改，修改后的协议发布在本网站上，若您对修改后的协议有异议的，请立即停止登录、使用**产品及服务，若您登录或继续使用**产品，视为对修改后的协议予以认可。</p>
+            <p class="content_text">
+                1.4、在您签署本协议之后，此文本可能因国家政策、产品以及履行本协议的环境发生变化而进行修改，修改后的协议发布在本网站上，若您对修改后的协议有异议的，请立即停止登录、使用**产品及服务，若您登录或继续使用**产品，视为对修改后的协议予以认可。</p>
             <div class="content_title">2、关于“**约玩帐号”</div>
-            <p class="content_text">2.1、**旗下业务平台**（**.com）、**约玩（**.com）以及英雄训练营（t.tuwan.com）上同时提供用户注册通道，用户在任一通道注册获得点点约玩帐号。</p>
+            <p class="content_text">
+                2.1、**旗下业务平台**（**.com）、**约玩（**.com）以及英雄训练营（t.tuwan.com）上同时提供用户注册通道，用户在任一通道注册获得点点约玩帐号。</p>
             <p class="content_text">2.2、用户在首次注册**约玩账户成功之后，**会按系统规则自动分配给用户一个ID号码，ID号码与**约玩账号一样是用户接受**约玩服务的身份识别凭证。</p>
-            <p class="content_text">2.3、点点约玩账号以及ID号码的性质上是**提供服务授予用户的凭证，点点约玩账号和ID号码是兔玩相应计算机软件作品的一部分，即兔玩将相关产品计算机软件著作权授权给注册用户的授权凭证。</p>
+            <p class="content_text">
+                2.3、点点约玩账号以及ID号码的性质上是**提供服务授予用户的凭证，点点约玩账号和ID号码是兔玩相应计算机软件作品的一部分，即兔玩将相关产品计算机软件著作权授权给注册用户的授权凭证。</p>
             <p class="content_text">2.4、点点约玩账号还是用户持有、使用相关虚拟财产、道具的身份凭证。用户若需要接受兔玩提供的增值服务，点点约玩账号同时也是用户支付费用、接受增值服务的凭证。</p>
-            <p class="content_text">2.5、用户应当妥善保管自己的点点约玩账号、密码，用户就其账号及密码项下之一切活动负全部责任，包括用户数据的修改，虚拟道具的损失以及其他所有的损失由用户自行承担。用户如发现他人未经许可使用其账号时立即通知兔玩。</p>
-            <p class="content_text">2.6、用户点点约玩账号在丢失或遗忘密码后，可通过手机验证码的方式找回，如果未绑定手机号，需联系兔玩客服进行申诉找回帐号。用户应不断提供能增加账号安全性的个人密码保护资料。对用户因被他人冒名申诉而致的任何损失，兔玩不承担任何责任。</p>
-            <p class="content_text">2.7、用户保证注册点点约玩账号时填写的身份信息是真实的，任何非法、不真实、不准确的用户信息所产生的责任由用户承担。如果因用户的注册信息不真实而引起的问题，以及对问题发生所带来的后果，兔玩不负任何责任。</p>
-            <p class="content_text">2.8、如用户违反法律法规、兔玩各服务协议或点点约玩陪玩守则等规定，兔玩有权根据相关规则进行违规判定，并采取相应限制或处罚措施，包括但不限于：限制或冻结用户对点点约玩帐号的使用，限制或停止某项单独服务（如线上LOL陪玩），扣除保证金，扣减收入分成并根据实际情况决定是否恢复使用。</p>
+            <p class="content_text">
+                2.5、用户应当妥善保管自己的点点约玩账号、密码，用户就其账号及密码项下之一切活动负全部责任，包括用户数据的修改，虚拟道具的损失以及其他所有的损失由用户自行承担。用户如发现他人未经许可使用其账号时立即通知兔玩。</p>
+            <p class="content_text">
+                2.6、用户点点约玩账号在丢失或遗忘密码后，可通过手机验证码的方式找回，如果未绑定手机号，需联系兔玩客服进行申诉找回帐号。用户应不断提供能增加账号安全性的个人密码保护资料。对用户因被他人冒名申诉而致的任何损失，兔玩不承担任何责任。</p>
+            <p class="content_text">
+                2.7、用户保证注册点点约玩账号时填写的身份信息是真实的，任何非法、不真实、不准确的用户信息所产生的责任由用户承担。如果因用户的注册信息不真实而引起的问题，以及对问题发生所带来的后果，兔玩不负任何责任。</p>
+            <p class="content_text">
+                2.8、如用户违反法律法规、兔玩各服务协议或点点约玩陪玩守则等规定，兔玩有权根据相关规则进行违规判定，并采取相应限制或处罚措施，包括但不限于：限制或冻结用户对点点约玩帐号的使用，限制或停止某项单独服务（如线上LOL陪玩），扣除保证金，扣减收入分成并根据实际情况决定是否恢复使用。</p>
             <div class="content_title">3、审核通过的陪陪不得从事以下行为：</div>
             <p class="content_text">3.1、利用**约玩平台发表、传播代练、代打、政治、色情等相关信息。</p>
             <p class="content_text">3.2、利用**约玩平台产生欺诈、诱导买家第三方平台进行交易等行为，如私单、微信红包、QQ红包等。</p>
@@ -136,8 +961,10 @@
             <p class="content_text">3.4、进行其他任何违法以及侵犯其他个人、公司、社会团体、组织的合法权益的行为。</p>
             <p class="content_text">3.5、利用**约玩平台产生欺诈、诱导买家第三方平台进行交易等行为，如私单、微信红包、QQ红包等。</p>
             <div class="content_title">4、**约玩声明</div>
-            <p class="content_text">4.1、用户须明白，在陪玩过程中可能存在有来自任何他人的包括威胁性的、诽谤性的、令人反感的或非法的内容或行为或对他人权利的侵犯（包括知识产权）的匿名或冒名的信息的风险，用户须承担以上风险，兔玩对服务不作担保，不论是明确的或隐含的，包括所有有关信息真实性、适当性、适于某一特定用途、所有权和非侵权性的默示担保和条件，对因此导致任何因用户不正当或非法使用服务产生的直接、间接、偶然、特殊及后续的损害，不承担任何责任。</p>
-            <p class="content_text">4.2、使用**约玩服务必须遵守国家有关法律和政策等，维护国家利益，保护国家安全，并遵守本条款，对于用户违法或违反本协议的使用(包括但不限于言论发表、传送等)而引起的一切责任，由用户负全部责任。</p>
+            <p class="content_text">
+                4.1、用户须明白，在陪玩过程中可能存在有来自任何他人的包括威胁性的、诽谤性的、令人反感的或非法的内容或行为或对他人权利的侵犯（包括知识产权）的匿名或冒名的信息的风险，用户须承担以上风险，兔玩对服务不作担保，不论是明确的或隐含的，包括所有有关信息真实性、适当性、适于某一特定用途、所有权和非侵权性的默示担保和条件，对因此导致任何因用户不正当或非法使用服务产生的直接、间接、偶然、特殊及后续的损害，不承担任何责任。</p>
+            <p class="content_text">
+                4.2、使用**约玩服务必须遵守国家有关法律和政策等，维护国家利益，保护国家安全，并遵守本条款，对于用户违法或违反本协议的使用(包括但不限于言论发表、传送等)而引起的一切责任，由用户负全部责任。</p>
             <p class="content_text">4.3、**约玩的服务同大多数因特网产品一样，易受到各种安全问题的困扰，包括但不限于：
                 1）透露详细个人资料，被不法分子利用，造成现实生活中的骚扰；
                 2）哄骗、套取密码；
@@ -145,14 +972,16 @@
             <p class="content_text">4.4、用户须明白，**为了服务整体运营的需要，有权在公告通知后修改或中断、中止或终止服务而不需通知您的权利，而无须向第三方负责或承担任何赔偿责任。</p>
             <div class="content_title">5、知识产权</div>
             <p class="content_text">5.1、**约玩的服务包括运营的网站、网页应用、软件以及内涵的文字、图片、视频、音频等元素，点点约玩服务标志、标识以及专利权，兔玩对此享有上述知识产权。</p>
-            <p class="content_text">5.2、用户在使用**约玩服务时发表上传的文字、图片、视频、软件以及表演等用户原创的信息，此部分信息的知识产权归用户，但用户的发表、上传行为是对点点约玩平台的授权，用户确认其发表、上传的信息非独占性、永久性的授权，该授权可转授权。兔玩可将前述信息在兔玩旗下的服务平台上使用，可再次编辑后使用，也可以由兔玩授权给合作方使用。</p>
+            <p class="content_text">
+                5.2、用户在使用**约玩服务时发表上传的文字、图片、视频、软件以及表演等用户原创的信息，此部分信息的知识产权归用户，但用户的发表、上传行为是对点点约玩平台的授权，用户确认其发表、上传的信息非独占性、永久性的授权，该授权可转授权。兔玩可将前述信息在兔玩旗下的服务平台上使用，可再次编辑后使用，也可以由兔玩授权给合作方使用。</p>
             <p class="content_text">5.3、若**约玩平台内的信息以及其他用户上传、存储、传播的信息有侵犯的用户或第三人的知识产权的，兔玩网站提供投诉通道。</p>
             <div class="content_title">6、隐私保护</div>
             <p class="content_text">6.1、请用户注意勿在使用**约玩服务中透露自己的各类财产帐户、银行卡、信用卡、第三方支付账户及对应密码等重要资料，否则由此带来的任何损失由用户自行承担。</p>
             <p class="content_text">6.2、用户的**约玩账号、密码属于保密信息，**应当采取积极的措施保护用户账号、密码的安全。</p>
             <p class="content_text">6.3、用户的注册信息作为**的商业秘密进来保护。但用户同时明白，互联网的开放性以及技术更新非常快，非**可控制的因素导致用户泄漏的，兔玩不承担责任。</p>
             <p class="content_text">6.4、用户在使用**约玩服务时不可将自认为隐私的信息发表、上传至**，也不可将该等信息通过**的服务传播给其他人，若用户的行为引起的隐私泄漏，由用户承担责任。</p>
-            <p class="content_text">6.5、**在提供服务时可能会搜集用户信息，**会明确告知用户，通常信息仅限于用户姓名、性别、年龄、出生日期、身份证号、家庭住址、教育程度、公司情况、所属行业、兴趣爱好等。</p>
+            <p class="content_text">
+                6.5、**在提供服务时可能会搜集用户信息，**会明确告知用户，通常信息仅限于用户姓名、性别、年龄、出生日期、身份证号、家庭住址、教育程度、公司情况、所属行业、兴趣爱好等。</p>
             <p class="content_text">6.6、就下列相关事宜的发生，**不承担任何法律责任：
                 1）**根据法律规定或相关政府、司法机关的要求提供您的个人信息；
                 2）由于用户将用户密码告知他人或与他人共享注册账户，由此导致的任何个人信息的泄漏，或其他非因**原因导致的个人信息的泄漏；
@@ -177,6 +1006,308 @@
     </div>
 </div>
 
+<script type="text/javascript">
 
+    var dtid = 31540;
+
+    /*开通服务*/
+    function changeService(that, dtid) {
+        $('.dtid').val(dtid);
+        if ($(that).attr("flag") == 0) {
+            if ('1' > 7) {
+                alert('最多开通七种服务')
+                return false;
+            }
+            $('#desc').val('');
+            $('.time_box').html('空');
+            $('#cloudBody').attr("data-music", "");
+            $('.randimgsrc').html('<img src="./img/breviary.png" style="padding-left: 20px;" class="upfilebreviary breviary">');
+        }
+        GetDtidInfo(dtid);
+        if (dtid == '31540' || dtid == '20009') $('#dtid').show();
+        else $('#dtid').hide();
+        $(that).find('.status_lol').hide();
+        $(that).find('.status_lolhover').show();
+        $(that).parent().siblings().find('.status_lolhover').hide();
+        $(that).parent().siblings().find('.status_lol').show();
+        $('#gamelist').hide()
+        $('#gamelistV2').hide()
+        if (dtid == 20017) {
+            $("#typetag").show();
+        } else {
+            $("#typetag").hide();
+        }
+        if (dtid == 31540 || dtid == 20009) $('.gameExplain').html('请上传您的段位截图（需包含个人ID）,并填写<br>线上LOL相关的描述<br>男段位要求：电一钻Ⅰ以上，其他区大师王者；<br>女段位要求：黄金以上</div>');
+        else if (dtid == 20009) $('.gameExplain').html('请上传您的段位截图（需包含个人ID）,并填写<br>线上LOL相关的描述');
+        else if (dtid == 20002) $('.gameExplain').html('请上传真人正面清晰照作为该服务封面图，等<br>待考核');
+        else if (dtid == 20003) $('.gameExplain').html('请上传您的视频封面照一张，并联系客服进行<br>视频考核');
+        else if (dtid == 20004) $('.gameExplain').html('请上传您的点点约玩【声鉴卡】一张，<br>如没有【声鉴卡】，请点击获取。<a href="https://y.tuwan.com/list/?play=syjd" target="_blank">获取声鉴卡</a>');
+        else if (dtid == 20006) $('.gameExplain').html('请上传真人正面清晰照作为该服务封面图，<br>等待考核');
+        else if (dtid == 20007) $('.gameExplain').html('请上传您的点点约玩【声鉴卡】一张，<br>如没有【声鉴卡】，请点击获取。<a href="https://y.tuwan.com/list/?play=syjd" target="_blank">获取声鉴卡</a>');
+        else if (dtid == 20008) $('.gameExplain').html('请上传您的段位截图（需包含个人ID）,并填写<br>王者荣耀相关的描述'), $('#gamelist').show(), $('#gamelistV2').show();
+        else if (dtid == 20010) $('.gameExplain').html('请上传真人正面清晰照作为该服务封面图，等<br>待考核');
+        else if (dtid == 20011) $('.gameExplain').html('请上传真人正面清晰照作为该服务封面图，等<br>待考核<br>虚拟恋人按天服务，需要有足够长的时间<br>服务内容包含叫醒、哄睡、聊天、游戏、视频等');
+        else if (dtid == 20012) $('.gameExplain').html('请上传真人正面清晰照作为该服务封面图，等<br>待考核');
+        else if (dtid == 20013) $('.gameExplain').html('请上传真人正面清晰照作为该服务封面图，等<br>待考核');
+        else if (dtid == 20014) $('.gameExplain').html('请上传《绝地求生：大逃杀》个人数据截图，等<br>待考核');
+        else if (dtid == 20016) $('.gameExplain').html('请上传《荒野行动》个人数据截图，等<br>待考核');
+        else if (dtid == 20017) $('.gameExplain').html('请上传您的点点约玩【声鉴卡】一张，<br>如没有【声鉴卡】，请点击获取。<a href="https://y.tuwan.com/list/?play=syjd" target="_blank">获取声鉴卡</a>');
+        else if (dtid == 20018) $('.gameExplain').html('请上传《刺激战场》个人数据截图，等<br>待考核');
+        else if (dtid == 20019) $('.gameExplain').html('请上传《全军出击》个人数据截图，等<br>待考核');
+        else if (dtid == 20020) $('.gameExplain').html('请上传《第五人格》个人数据截图，等<br>待考核');
+        else if (dtid == 20021) $('.gameExplain').html('请上传您的视频封面照一张，并联系客服进行<br>视频考核');
+    }
+
+    //切换
+    $('.lol_img').click(function () {
+        var dtid = $(this).attr("dtid");
+        changeService(this, dtid);
+    })
+    //根据游戏id去相对应的数据
+    //GetDtidInfo(dtid);
+    changeService($(".lol_box").find('div[dtid=' + dtid + ']'), dtid);
+
+    function GetDtidInfo(dtid) {
+        $.ajax({
+            url: "?type=play&data=getdtidinfo&format=jsonp&dtid=" + dtid,
+            type: "get",
+            dataType: "jsonp",
+            success: function (obj) {
+                $('#myEditor').html(obj.desc);
+                if (obj.speech !== '' && obj.speech !== undefined && obj.speech !== null) $('#cloudBody').attr("data-music", "https://www.tuwan.com" + obj.speech);
+                var audio = new Audio($("body #cloudBody").attr("data-music"));
+                audio.addEventListener('canplay', function () {
+                    var mp3 = Math.ceil(this.duration);
+                    $('.time_box').html(mp3 + 's');
+                });
+                if (obj.speech == null) $('.time_box').html('空');
+                if (obj.randimg == undefined || obj.randimg == null || obj.randimg == '') {
+                    $('.randimgsrc').html('<img src="../static/img/breviary.png" style="padding-left: 20px;" class="upfilebreviary breviary">');
+                    randimgFlag = 0;
+                } else {
+                    $('.randimgsrc').html('<a href=' + obj.randimg + ' target="_blank"><img src=' + obj.randimg + ' style="padding-left: 20px;" class="upfilebreviary breviary"></a>');
+                    randimgFlag = 1;
+                }
+                if (dtid == 20006 && obj.gamelist != null) {
+                    strs = obj.gamelist.split(",");
+                    for (var i = 0; i < strs.length; i++) {
+                        $('.gamenums' + strs[i] + ' .gamelist').attr('checked', 'true')
+                    }
+                }
+
+                if (dtid == 20017) {
+                    strs = obj.typetag.split(",");
+                    for (var i = 0; i < strs.length; i++) {
+                        $('#typetag_' + strs[i]).attr('checked', 'true')
+                    }
+                    $("#typetag").show();
+                } else {
+                    $("#typetag").hide();
+                }
+            }
+        })
+    }
+
+    //上传图片
+    getImageWidthAndHeight('upfile', function (obj) {
+    }, '1')
+    getImageWidthAndHeight('appindeximg', function (obj) {
+    }, '1')
+
+    //获取input图片宽高和大小
+    function getImageWidthAndHeight(id, callback, flag) {
+        var _URL = window.URL || window.webkitURL;
+        $("#" + id).change(function (e) {
+            if (id == 'upfile') randimgFlag = 0;
+            var file, img;
+            var thisFiles = this.files[0];
+            if ((file = this.files[0])) {
+                img = new Image();
+                img.onload = function () {
+                    var widthsnum = this.width * 1;
+                    var heightsnum = this.height * 1;
+                    var flagyanzhen = $("#" + id).val().substr($("#" + id).val().lastIndexOf('.') + 1);
+                    if (flagyanzhen == 'jpg' || flagyanzhen == 'png' || flagyanzhen == 'jpeg' || flagyanzhen == 'JPG' || flagyanzhen == 'PNG' || flagyanzhen == 'JPEG') {
+                        lrz(thisFiles, {width: widthsnum, height: heightsnum}, function (results) {
+                            var ba = results.base64;
+                            if (flag == 1) {
+                                $('#' + id + '_64').val(ba);
+                                // $('.'+id+'breviary').css("height",$('.'+id+'breviary').height())
+                                $('.' + id + 'breviary').attr('src', ba);
+                            }
+                        })
+                    }
+                };
+                img.src = _URL.createObjectURL(file);
+            }
+        });
+    }
+
+    //cd时间
+    function GetCacheUid() {
+        $.ajax({
+            url: "https://api.tuwan.com/playteach/?type=play&data=getcacheuid&format=jsonp",
+            type: "get",
+            dataType: "jsonp",
+            success: function (obj) {
+            }
+        })
+    }
+
+    $('#choose').click(function () {
+        alert('不要频繁的上传视频，请于五分钟之后重试！');
+    })
+
+    $('.diagram3').click(function () {
+        dtidimg('https://res.tuwan.com/templet/play/public/images/fdemo.jpg?v=1');
+    })
+    $('.diagram1').click(function () {
+        if (DitdVal() == 31540 || DitdVal() == 20009) dtidimg('https://res.tuwan.com/templet/play/images/lol-s1.jpg');
+        else if (DitdVal() == 20002 || DitdVal() == 20010 || DitdVal() == 20011 || DitdVal() == 20012 || DitdVal() == 20013) dtidimg('https://res.tuwan.com/templet/play/images/sing-s1.jpg');
+        else if (DitdVal() == 20003) dtidimg('https://res.tuwan.com/templet/play/images/video-s1.jpg');
+        else if (DitdVal() == 20004) dtidimg('https://res.tuwan.com/templet/play/images/akira_1.jpg');
+        else if (DitdVal() == 20017) dtidimg('https://res.tuwan.com/templet/play/images/akira_1.jpg');
+        else if (DitdVal() == 20012) dtidimg('https://res.tuwan.com/templet/play/images/akira_1.jpg');
+        else if (DitdVal() == 20006) dtidimg('https://res.tuwan.com/templet/play/images/game-s1.jpg');
+        else if (DitdVal() == 20007) dtidimg('https://res.tuwan.com/templet/play/images/akira-s1.jpg');
+        else if (DitdVal() == 20008) dtidimg('https://res.tuwan.com/templet/play/images/wzry-s1.jpg');
+        else if (DitdVal() == 20014) dtidimg('https://res.tuwan.com/templet/play/images/dts-s1.jpg');
+        else if (DitdVal() == 20016) dtidimg('https://res.tuwan.com/templet/play/images/huangye-s1.jpg');
+        else if (DitdVal() == 20018) dtidimg('https://res.tuwan.com/templet/play/images/ciji-s1.jpg');
+        else if (DitdVal() == 20019) dtidimg('https://res.tuwan.com/templet/play/images/quanjun-s1.jpg');
+        else if (DitdVal() == 20020) dtidimg('https://res.tuwan.com/templet/play/images/dwrg-s1.jpg?t=1');
+    })
+    $('.diagram2').click(function () {
+        if (DitdVal() == 31540 || DitdVal() == 20009) dtidimg('https://res.tuwan.com/templet/play/images/lol-s2.jpg');
+        else if (DitdVal() == 20002) dtidimg('https://res.tuwan.com/templet/play/images/sing-s2.jpg');
+        else if (DitdVal() == 20003) dtidimg('https://res.tuwan.com/templet/play/images/video-s2.jpg');
+        else if (DitdVal() == 20004) dtidimg('https://res.tuwan.com/templet/play/images/akira-s2.jpg');
+        else if (DitdVal() == 20006) dtidimg('https://res.tuwan.com/templet/play/images/game-s2.jpg');
+        else if (DitdVal() == 20007) dtidimg('https://res.tuwan.com/templet/play/images/akira-s2.jpg');
+        else if (DitdVal() == 20008) dtidimg('https://res.tuwan.com/templet/play/images/wzry-s2.jpg');
+    })
+
+    $('.layer-cell-close,.closehide').click(function () {
+        $('#shiliimg').hide();
+    })
+
+    /*点击下一步*/
+    $('#control').click(function () {
+        if ($(this).is(':checked')) {
+            $('.botton_box1').css('background-color', "#be1a2c").attr('flag', '1'), $('#loadflaghidden').val('1');
+        } else {
+            $('.botton_box1').css('background-color', "#afb0b3").attr('flag', '0'), $('#loadflaghidden').val('0');
+        }
+    });
+
+    $('.botton_box1').on('click', function () {
+        if ($('#control').is(':checked') === true && $('.botton_box1').attr("flag") == 1) $('.left_margin').hide(), $('#user_center_box').show();
+        else alert('请先勾选');
+    })
+
+    $('#work').click(function () {
+        if ($(this).val() == 0 && $(this).val() !== '') $('.school').show();
+        else $('.school').hide();
+    })
+
+    function DitdVal() {
+        $('.status_lolhover').each(function () {
+            if ($(this).css('display') !== 'none') {
+                dtids = $(this).parent().attr('dtid');
+            }
+        })
+
+        return dtids;
+    }
+
+    function dtidimg(val) {
+        var heights = imgLoad(val, imgheight, val);
+
+    }
+
+    function imgLoad(url, callback, val) {
+        var img = new Image();
+        img.src = url;
+        if (img.complete) {
+            callback(img.width, img.height);
+        } else {
+            img.onload = function () {
+                callback(img.width, img.height);
+                img.onload = null;
+            };
+        }
+        ;
+        $('#shiliimg').find('.dtidimginfo').attr("src", val);
+    };
+
+    function imgheight(width, height) {
+        $('#shiliimg .Bound_cell').css("top", ($(window).height() - height) * 0.5)
+        $('#shiliimg').show();
+    }
+
+    $(document).ready(function () {
+
+        $("#saveAvatar").click(function () {
+            if ($(".container .cropped img")[0] != null) {
+                var imgClip = $(".container .cropped img")[0].src;
+                $.ajax({
+                    type: "post",
+                    url: "https://u.tuwan.com/Avatar/upload?format=json",
+                    crossDomain: true,
+                    xhrFields: {
+                        withCredentials: true
+                    },
+                    data: {img: imgClip},
+                    success: function (data) {
+
+                        var ret = JSON.parse(data);
+
+                        if (ret.code == 0) {
+
+                            if (ret.data.small != null) {
+                                $(".pop_up").hide();
+                                $("body").css('overflow-y', 'scroll');
+
+                                $(".head_samllimg img")[0].src = imgClip;
+                                $("#img64").val('1');
+                            }
+
+                        } else {
+                            alert(ret.msg);
+                        }
+                    }
+                });
+
+
+            } else {
+                alert("请先裁剪图片!");
+            }
+        });
+
+        $("#nickname").blur(function () {
+            var nickname = $(this).val();
+            var len = nickname.length;
+            if (len < 2 || len > 24) {
+                alert("请填写正确的昵称");
+                $(".sure_box1").attr("disabled", true);
+                return;
+            }
+            $.ajax({
+                url: "?nickname=" + encodeURIComponent(nickname),
+                type: "get",
+                dataType: "jsonp",
+                success: function (obj) {
+                    if (obj.error == 1) {
+                        alert("昵称己被使用，换个试试");
+                        $(".sure_box1").attr("disabled", true);
+                    } else {
+                        $(".sure_box1").attr("disabled", false);
+                    }
+                }
+            })
+        })
+    });
+
+</script>
 </body>
 </html>
