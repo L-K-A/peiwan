@@ -452,6 +452,10 @@
 <body>
 <div class="pop_gift" style="display:none"><img src=""><span>x1</span></div>
 <script src="/js/json2.js"></script>
+<script src="./js/vue.min.js"></script>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/laypage.js" ></script>
+<script src="../js/layer.js" ></script>
 <script src="/js/jsencrypt.min.js"></script>
 <script src="/js/getrsakey.js"></script>
 <script src="/js/function.js"></script>
@@ -505,96 +509,6 @@
 <input type="hidden" value="1" id="checkall_pwd">
 <input type="hidden" value="1" id="checkall_code">
 <div id="captcha"></div>
-<div id="index_pup_box" style="display: none;">
-    <div class="entry_pop_bg"></div>
-    <div class="entry_pop_box">
-        <div class="entry_pop_content">
-            <div class="enroll_box">
-                <div class="fl">
-                    <div class="fl enroll enroll_add">登录</div>
-                    <div class="fl enroll">注册</div>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="fr close">
-                    <div class=" layer-cell-close"></div>
-                </div>
-                <div class="clearfix"></div>
-            </div>
-            <!--<div class="fl" style="width:430px;">
-                <div class="enroll_content">
-                    <div class="register_box">
-                        <div class="register">
-                            <label> 账号</label>
-                            <input type="text" placeholder="请输入用户名/手机号" id="username" required>
-                            <div class="dislocation dislocation_02 usernameMsg"></div>
-                        </div>
-                        <div class="register">
-                            <label>密码</label>
-                            <input type="password" id="pwd" placeholder="请输入密码" required>
-                            <div class="dislocation dislocation_02 passwordMsg"></div>
-                        </div>
-                        <div class="register">
-                            <label>验证码</label>
-                            <input type="text" placeholder="验证码" required id="check" class="yanzheng identifying" required>
-                            <div class="dislocation dislocation_04 codeMsg"></div>
-                            <a style="padding-left: 20px" href="javascript:;" onclick="loadcode('code', 82, 30);"><img id="code" src="picture/action.ashx"></a>
-                        </div>
-                    </div>
-
-                    <div class="voluntarily_box">
-                        <input type="checkbox" checked class="fl voluntarily01"><span></span>
-                        <div class="fl voluntarily02">下次自动登录</div>
-                        <a href="//user.tuwan.com/resetpwd/" target="_blank" title="忘记密码？">
-                            <div class="fr voluntarily03">忘记密码?</div>
-                        </a>
-                    </div>
-                    <button class="identif_go mt35" id="button_post" onclick="check_login()">登录</button>
-                </div>
-                <div class="enroll_content" style="display: none;">
-                    <div class="register_box">
-                        <div class="register">
-                            <label> 手机</label>
-                            <input type="text" placeholder="请输入手机号" required id="ctl00_mainContent_txt_phone">
-                            <div class="dislocation dislocation_01" id="phone_tishi"></div>
-                        </div>
-                        <div class="register">
-                            <label>用户名</label>
-                            <input type="text" placeholder="请输入用户名" required id="user_name">
-                            <div class="dislocation dislocation_02" id="username_tishi"></div>
-                        </div>
-                        <div class="register">
-                            <label>密码</label>
-                            <input type="password" placeholder="请输入密码" required id="userpwd">
-                            <div class="dislocation dislocation_03" id="userpwd_tishi"></div>
-                        </div>
-                        <div class="register">
-                            <label>验证码</label>
-                            <input type="password" placeholder="验证码" class="identifying yanzheng" required id="phonecode">
-                            <div class="dislocation dislocation_0aa dislocation_04"></div>
-                            <button class="identif yanzheng_02" id="getcode">获取验证码</button>
-                        </div>
-                    </div>
-                    <input type="radio" class="fl radio_01" checked="checked" required>
-                    <div class="radio_box fl"><span>已阅读并同意</span>《兔玩网用户使用协议》</div>
-                    <div class="clearfix"></div>
-                    <button class="identif_go mt35" id="button_post1">注册</button>
-                </div>
-
-            </div>-->
-            <div class="fr entry_wbox mt50">
-                <div class="entry_01">第三方账号登录</div>
-                <a class="Wechat" href="javascript:;">
-                    <div class="entry_w"><img src="/picture/entry_w.png">&nbsp;微信账号登录</div>
-                </a>
-                <a class="QQ" href="javascript:;">
-                    <div class="entry_qq"><img src="/picture/entry_qq.png">&nbsp;QQ账号登录</div>
-                </a>
-            </div>
-            <div class="clearfix"></div>
-        </div>
-    </div>
-</div>
-<!-- 登录 end -->
 <div id="common_top_box">
     <div class="fl common_top_logo" style="margin-left: 78px;margin-left: calc((100% - 1366px)/6.9);">
         <a href="https://y.tuwan.com/">
@@ -621,7 +535,7 @@
         <div class="search_box fl">
             <div class="search_img_box">
                 <input type="text" placeholder="搜索昵称、uid、靓号" class="search_input">
-                <img style="right: 6px;" src="picture/search.png" class="search_img">
+                <img style="right: 6px;" src="/picture/search.png" class="search_img">
             </div>
         </div>
     </div>
@@ -677,8 +591,8 @@
                         </a>
                         <div class="hide_common mt5 mb5 nickname"></div>
                         <div class="fl common_runk_number  common_runk_number_01"></div>
-                        <a class="means_box fl ml10 mr10" href="" target="_blank"><img src="picture/means.png" class="means"><img src="picture/means_hover.png" class="means_hover">&nbsp;资料</a>
-                        <a class="order_box fl" href="//y.tuwan.com/home/ocenter/" target="_blank"><img src="picture/order.png" class="order"><img src="picture/order_hover.png" class="order_hover">&nbsp;订单</a>
+                        <a class="means_box fl ml10 mr10" href="" target="_blank"><img src="/picture/means.png" class="means"><img src="picture/means_hover.png" class="means_hover">&nbsp;资料</a>
+                        <a class="order_box fl" href="//y.tuwan.com/home/ocenter/" target="_blank"><img src="/picture/order.png" class="order"><img src="picture/order_hover.png" class="order_hover">&nbsp;订单</a>
                         <div class="clearfix"></div>
                         <div class="contribution_value mt15 mb10"></div>
                         <div class="common_vip_box">
@@ -693,13 +607,13 @@
                             <a href="//y.tuwan.com/recharge/" target="_blank">
                                 <div class="fl money_01_box">
                                     <div class="current_money"></div>
-                                    <div class="money_01"><img src="picture/money_01.png">&nbsp;账户余额</div>
+                                    <div class="money_01"><img src="/picture/money_01.png">&nbsp;账户余额</div>
                                 </div>
                             </a>
                             <a href="https://y.tuwan.com/recharge/" target="_blank">
                                 <div class="fl money_01_box">
                                     <div class="current_value"></div>
-                                    <div class="money_01"><img src="picture/zuanshi.png">&nbsp;<span class="current_value_info"></span></div>
+                                    <div class="money_01"><img src="/picture/zuanshi.png">&nbsp;<span class="current_value_info"></span></div>
                                 </div>
                             </a>
                             <a class="fl common_payfor" href="//y.tuwan.com/recharge/" target="_blank">
@@ -1068,7 +982,7 @@
                         return;
                     } else {
                         $("#checkall_phone").val(1);
-                        $("#phone_tishi").html('<img src="picture/ture.png"/>');
+                        $("#phone_tishi").html('<img src="/picture/ture.png"/>');
                     }
                 }
             });
@@ -1707,10 +1621,13 @@
             <div class="top_left fl">
                 <div class="top_head_img fl"><img src="/picture/90_avatar_middle.jpg"></div>
                 <div class="fl mt25 ml10">
-                    <div class="top_immortal_text">李向前<br><img src="/picture/plutocrat_rick.png" class="plutocrat_rick" style="display: none;"></div>
+                    <div class="top_immortal_text"v-for="(item,index) in result">{{item.person_nickname}}<br><img src="{{item.person_image}}" class="plutocrat_rick" style="display: none;"></div>
                     <div class="top_usercp_text fl">信用值：0.0</div>
+
+                    <!--接收后台信用值-->
                     <div class="fl top_usercp_jibie">
                     </div>
+
                     <div class="clearfix"></div>
                 </div>
                 <div class="clearfix"></div>
@@ -2816,94 +2733,6 @@
 <script id="qd28521617238326075327d1c513a4a384b1e7d01503" src="js/c927102b616e496bbf6a1f223399540c.js" charset="utf-8" async defer></script>
 <!-- WPA end -->
 <script src="js/tuwan_message.js"></script>
-<!-- <!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-<meta name="format-detection" content="telephone=no">
-<meta content="black" name="apple-mobile-web-app-status-bar-style">
-    <style>
-    .yw-gg-float{
-        position: fixed;left: 0;bottom: 138px;width: 100%;height: 0;z-index: 999;
-    }
-    .yw-gg-float .yw-big-show{
-        position: relative; display: block; width: 1100px; height: 138px; display: none; background-image: url(images/yanwo-big.png); margin: 0 auto;cursor: default;
-    }
-    .yw-gg-float .yw-big-show .yw-close{
-        position: absolute; width: 19px; height: 19px; background-image: url(images/yanwo-close.png); right: 12px; top: 30px; cursor: pointer;
-    }
-    .yw-gg-float .yw-jump{
-        display: block; position: absolute; width: 100%; height: 100%; left: 0; top: 0;
-    cursor: default;
-    }
-    .yw-gg-float .yw-small-show{
-        width: 161px; height: 120px; display: none; position: absolute; left: 0; top: 0; background-image: url(images/yanwo-small.png); cursor: default;
-    }
-    .yw-gg-float .yw-open{
-        width: 20px; height: 36px; position: absolute; right: 13px; top: 40px; background-image: url(images/yanwo-open.png); cursor: pointer;
-    }
-</style>
-</head>
-<body>
-<div class="yw-gg-float">
-    <div class="yw-big-show">
-        <a href="javascript:void(0)" class="yw-jump"></a>
-        <div class="yw-close"></div>
-    </div>
-    <div class="yw-small-show" style="display: none;">
-        <a href="javascript:void(0)" class="yw-jump"></a>
-        <div class="yw-open"></div>
-    </div>
-</div>
-    <script>
-        var ywJumpUrl = "javascript:void(0)";
-    //var ywJumpUrl = "http://y.tuwan.com/"
-    var close = "1";
-    var myDate = new Date();
-    //获取当前年
-    var year = myDate.getFullYear();
-    //获取当前月
-    var month = myDate.getMonth() + 1;
-    //获取当前日
-    var date = myDate.getDate();
-    var nowtime = year.toString() +  month.toString() + date.toString();
-
-    var localtime = localStorage.getItem("yy-gg-time");
-
-    if(localtime){
-        if(localtime !== nowtime){
-            close = "1";
-            localStorage.setItem("yy-gg-state", close);
-        }
-    }
-    localStorage.setItem("yy-gg-time", nowtime);
-
-    var $ysGgFloat = $(".yw-gg-float");
-    $ysGgFloat.find(".yw-jump").prop("href", ywJumpUrl);
-    $ysGgFloat.find(".yw-close").on("click", function(){
-        close = "0";
-        localStorage.setItem("yy-gg-state", close);
-        $ysGgFloat.find(".yw-big-show").hide();
-        $ysGgFloat.find(".yw-small-show").show();
-    });
-    $ysGgFloat.find(".yw-small-show .yw-open").on("click", function(){
-        close = "1";
-        localStorage.setItem("yy-gg-state", close);
-        $ysGgFloat.find(".yw-big-show").show();
-        $ysGgFloat.find(".yw-small-show").hide();
-    });
-
-    if(localStorage.getItem("yy-gg-state") == "0"){
-        $('.yw-big-show').hide();
-        $('.yw-small-show').show();
-    } else{
-        $('.yw-big-show').show();
-        $('.yw-small-show').hide();
-    }
-</script>
-</body>
-</html>
- -->
 <!-- 当前所选时间 -->
 <input type="hidden" id="index" value="" />
 <script type="text/javascript">
@@ -4652,16 +4481,44 @@ function text_(){
 
     /**>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
      * 获取导师信用值*/
+
+    /*获取URL中的参数 查询导师信息*/
+    /*获取到Url里面的参数*/
+    function GetQueryString(name)
+    {
+        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);//search,查询？后面的参数，并匹配正则
+        if(r!=null)return  unescape(r[2]); return null;
+    }
+    // 调用方法  传入参数名可获得
+    /*alert(GetQueryString("name"));
+    alert(GetQueryString("id"));*/
+    /*避免无参数是出现异常*/
+    var myurl=GetQueryString("url");
+    if(myurl !=null && myurl.toString().length>1)
+    {
+        alert(GetQueryString("url"));
+    }
+    /*vue的导师信息遍历*/
+    var app = new Vue({
+        el : '#app',
+        data : {
+            result : []
+        }
+    });
+
     function loadCharm() {
         $.ajax({
-            url: "/hello"+ teacherid,
+            url: "getInfo",
             type: "post",
             dataType: "json",
             data: {
-                "userName": $("#username").val(),
-                "age":$("#userage").val()
+                "pid": GetQueryString("pid"),
+                "gid":GetQueryString("gid")
             },
             success: function (obj){
+                console.log(obj);
+                app.result=obj;
                 var html = '';
                 if (obj.error == 0) {
                     html += '<div><a href="https://y.tuwan.com/mygrade/" target="_blank"><img src="/picture/5ab6608ce2e8431d94f91d76866e190f.gif'+ obj.data.level +'.png?t=201804111508"></a></div>';
@@ -4670,8 +4527,6 @@ function text_(){
             }
         });
     }
-
-
 
 
     $(function(){
@@ -5696,7 +5551,7 @@ function text_(){
 <div id="div-im-content" style="position: fixed; z-index: 2001; left: 0; top: 0; background: rgba(51,51,51,0.5); width: 100%; height: 100%; display: none;">
     <div style="width: 1002px; height: 622px; position: absolute;left: 50%; top: 50%; transform: translate(-50%, -50%); cursor: pointer;">
         <div onclick="document.getElementById('div-im-content').style.display='none';" style="width: 38px; height: 38px; position: absolute; right: -25px; top: -25px; z-index: 99">
-            <img src="picture/close.png">
+            <img src="/picture/close.png">
         </div>
         <iframe style="width: 100%; height: 100%" scrolling="no" src=""></iframe>
     </div>

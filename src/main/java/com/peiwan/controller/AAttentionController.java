@@ -1,15 +1,10 @@
 package com.peiwan.controller;
 
 
-import com.peiwan.bean.AAttention;
-import com.peiwan.dao.AAttentionMapper;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.stereotype.Controller;
-
-import javax.annotation.Resource;
 
 /**
  * <p>
@@ -21,8 +16,10 @@ import javax.annotation.Resource;
  */
 @Controller
 public class AAttentionController {
+
     @RequestMapping("/hello")
     public String hello(){
-        return "zuboInfo";
+        return "testOne";
     }
+
 }
