@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class AAttentionController {
 
+
     @RequestMapping("/indexw")
     public String fir(){
         return "ocenter";
@@ -29,5 +30,10 @@ public class AAttentionController {
     @RequestMapping("/data")
     public  String logi(){
         return "data";
+
+    @RequestMapping("/hello")
+    public String hello(){
+        return "zuboInfo";
+
     }
 }
