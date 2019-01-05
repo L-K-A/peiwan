@@ -2,7 +2,7 @@
 /* CSS Document */
 .body_bg{ background-color:#ffe2e2;font-size: 16px;}
 .index_banner_bg{ background: url(../images/women.jpg) no-repeat top center;background-size: 100%;padding-top: 30px;padding-bottom: 120px;}
-.index_banner_bg .top_bg{width:1226px;margin:0 auto;background-color:#fff;background-color:rgba(255,255,255,0.8);;height:108px;border-radius: 50px;box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.15);border-style: solid 1px rgb(229, 229, 229);}
+.index_banner_bg .top_bg{width:1226px;margin:0 auto;background-color:#fff;background-color:rgba(255,255,255,0.8);;height:108px;border-radius: 50px;box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.15);border:solid 1px rgb(229, 229, 229);}
 .index_banner_bg .top_left{width:390px;}
 .index_banner_bg .top_center{width:400px;height: 70px;
     overflow: hidden;}
@@ -502,7 +502,7 @@ padding:10px;}
 .index_banner_bg .top_wechat:hover{background-color: #d8ecd3;}
 .index_banner_bg .top_share:hover{background-color: #ffdad4;}
 .index_banner_bg .top_follow:hover{background-color: #ed4d33;}
-.share_top_box,.share_top_box1{position: absolute;width:150px;height:170px; background-color:#fff;z-index: 2222;left: -32px;top:36px;border-style: solid 1px rgb(228, 228, 228);box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.13);border-radius:8px;}
+.share_top_box,.share_top_box1{position: absolute;width:150px;height:170px; background-color:#fff;z-index: 2222;left: -32px;top:36px;border: solid 1px rgb(228, 228, 228);box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.13);border-radius:8px;}
 .share_top_box1{width: 327px;display: none;}
 .code_box{position: relative;}
 .share_top{position: absolute;margin-top: -17px;margin-left: 64px;width:100%;}
@@ -520,7 +520,7 @@ padding:10px;}
   text-shadow: 0px 2px 8px rgba(57, 57, 57, 0.6);text-shadow:#fff 3px 0 0,#fff 0 3px 0,#fff -3px 0 0,#fff 0 -3px 0;
 -webkit-text-shadow:#fff 3px 0 0,#fff 0 3px 0,#fff -3px 0 0,#fff 0 -3px 0;
 -moz-text-shadow:#fff 3px 0 0,#fff 0 3px 0,#fff -3px 0 0,#fff 0 -3px 0;
-*filter: Glow(color=#fff, strength=1);line-height: 100px;}
+*filter: Glow(color #fff, strength 1);line-height: 100px;}
 .commentTime{font-size: 12px;color: #999;line-height: 20px;}
 .no_top{font-size: 14px;
     color: #999999;
@@ -572,7 +572,7 @@ padding:10px;}
   text-shadow: 0px 2px 8px rgba(57, 57, 57, 0.6);text-shadow:#fff 3px 0 0,#fff 0 3px 0,#fff -3px 0 0,#fff 0 -3px 0;
 -webkit-text-shadow:#fff 3px 0 0,#fff 0 3px 0,#fff -3px 0 0,#fff 0 -3px 0;
 -moz-text-shadow:#fff 3px 0 0,#fff 0 3px 0,#fff -3px 0 0,#fff 0 -3px 0;
-*filter: Glow(color=#fff, strength=1);line-height: 100px;}
+*filter: Glow(color #fff, strength 1);line-height: 100px;}
 .code_img,.samll_wechat_box {position: relative;}   
 .code_img .samll_wechat,.code_img1 .samll_wechat{position: absolute;top:50%;left:50%;margin-top: -12px;margin-left: -11px;width:22px;height: 24px;}
 .qq_03_content{    font-size: 16px;

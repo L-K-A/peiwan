@@ -1,8 +1,9 @@
 package com.peiwan.bean;
 
-import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
+
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
@@ -18,6 +19,7 @@ import lombok.experimental.Accessors;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
+@TableName("p_person")
 public class PPerson implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -25,7 +27,7 @@ public class PPerson implements Serializable {
     /**
      * id
      */
-    @TableId(value = "pid", type = IdType.AUTO)
+    @TableId(value = "pid")
     private Integer pid;
 
     /**
@@ -56,7 +58,7 @@ public class PPerson implements Serializable {
     /**
      * 年龄
      */
-    private Integer personAge;
+    private String personBirthday;
 
     /**
      * qq
@@ -132,6 +134,5 @@ public class PPerson implements Serializable {
      * 成为主播同时修改
      */
     private Integer zZhubo;
-
 
 }

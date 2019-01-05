@@ -452,6 +452,10 @@
 <body>
 <div class="pop_gift" style="display:none"><img src=""><span>x1</span></div>
 <script src="/js/json2.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/laypage.js" ></script>
+<script src="../js/layer.js" ></script>
 <script src="/js/jsencrypt.min.js"></script>
 <script src="/js/getrsakey.js"></script>
 <script src="/js/function.js"></script>
@@ -505,96 +509,6 @@
 <input type="hidden" value="1" id="checkall_pwd">
 <input type="hidden" value="1" id="checkall_code">
 <div id="captcha"></div>
-<div id="index_pup_box" style="display: none;">
-    <div class="entry_pop_bg"></div>
-    <div class="entry_pop_box">
-        <div class="entry_pop_content">
-            <div class="enroll_box">
-                <div class="fl">
-                    <div class="fl enroll enroll_add">登录</div>
-                    <div class="fl enroll">注册</div>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="fr close">
-                    <div class=" layer-cell-close"></div>
-                </div>
-                <div class="clearfix"></div>
-            </div>
-            <!--<div class="fl" style="width:430px;">
-                <div class="enroll_content">
-                    <div class="register_box">
-                        <div class="register">
-                            <label> 账号</label>
-                            <input type="text" placeholder="请输入用户名/手机号" id="username" required>
-                            <div class="dislocation dislocation_02 usernameMsg"></div>
-                        </div>
-                        <div class="register">
-                            <label>密码</label>
-                            <input type="password" id="pwd" placeholder="请输入密码" required>
-                            <div class="dislocation dislocation_02 passwordMsg"></div>
-                        </div>
-                        <div class="register">
-                            <label>验证码</label>
-                            <input type="text" placeholder="验证码" required id="check" class="yanzheng identifying" required>
-                            <div class="dislocation dislocation_04 codeMsg"></div>
-                            <a style="padding-left: 20px" href="javascript:;" onclick="loadcode('code', 82, 30);"><img id="code" src="picture/action.ashx"></a>
-                        </div>
-                    </div>
-
-                    <div class="voluntarily_box">
-                        <input type="checkbox" checked class="fl voluntarily01"><span></span>
-                        <div class="fl voluntarily02">下次自动登录</div>
-                        <a href="//user.tuwan.com/resetpwd/" target="_blank" title="忘记密码？">
-                            <div class="fr voluntarily03">忘记密码?</div>
-                        </a>
-                    </div>
-                    <button class="identif_go mt35" id="button_post" onclick="check_login()">登录</button>
-                </div>
-                <div class="enroll_content" style="display: none;">
-                    <div class="register_box">
-                        <div class="register">
-                            <label> 手机</label>
-                            <input type="text" placeholder="请输入手机号" required id="ctl00_mainContent_txt_phone">
-                            <div class="dislocation dislocation_01" id="phone_tishi"></div>
-                        </div>
-                        <div class="register">
-                            <label>用户名</label>
-                            <input type="text" placeholder="请输入用户名" required id="user_name">
-                            <div class="dislocation dislocation_02" id="username_tishi"></div>
-                        </div>
-                        <div class="register">
-                            <label>密码</label>
-                            <input type="password" placeholder="请输入密码" required id="userpwd">
-                            <div class="dislocation dislocation_03" id="userpwd_tishi"></div>
-                        </div>
-                        <div class="register">
-                            <label>验证码</label>
-                            <input type="password" placeholder="验证码" class="identifying yanzheng" required id="phonecode">
-                            <div class="dislocation dislocation_0aa dislocation_04"></div>
-                            <button class="identif yanzheng_02" id="getcode">获取验证码</button>
-                        </div>
-                    </div>
-                    <input type="radio" class="fl radio_01" checked="checked" required>
-                    <div class="radio_box fl"><span>已阅读并同意</span>《兔玩网用户使用协议》</div>
-                    <div class="clearfix"></div>
-                    <button class="identif_go mt35" id="button_post1">注册</button>
-                </div>
-
-            </div>-->
-            <div class="fr entry_wbox mt50">
-                <div class="entry_01">第三方账号登录</div>
-                <a class="Wechat" href="javascript:;">
-                    <div class="entry_w"><img src="/picture/entry_w.png">&nbsp;微信账号登录</div>
-                </a>
-                <a class="QQ" href="javascript:;">
-                    <div class="entry_qq"><img src="/picture/entry_qq.png">&nbsp;QQ账号登录</div>
-                </a>
-            </div>
-            <div class="clearfix"></div>
-        </div>
-    </div>
-</div>
-<!-- 登录 end -->
 <div id="common_top_box">
     <div class="fl common_top_logo" style="margin-left: 78px;margin-left: calc((100% - 1366px)/6.9);">
         <a href="https://y.tuwan.com/">
@@ -621,7 +535,7 @@
         <div class="search_box fl">
             <div class="search_img_box">
                 <input type="text" placeholder="搜索昵称、uid、靓号" class="search_input">
-                <img style="right: 6px;" src="picture/search.png" class="search_img">
+                <img style="right: 6px;" src="/picture/search.png" class="search_img">
             </div>
         </div>
     </div>
@@ -677,8 +591,8 @@
                         </a>
                         <div class="hide_common mt5 mb5 nickname"></div>
                         <div class="fl common_runk_number  common_runk_number_01"></div>
-                        <a class="means_box fl ml10 mr10" href="" target="_blank"><img src="picture/means.png" class="means"><img src="picture/means_hover.png" class="means_hover">&nbsp;资料</a>
-                        <a class="order_box fl" href="//y.tuwan.com/home/ocenter/" target="_blank"><img src="picture/order.png" class="order"><img src="picture/order_hover.png" class="order_hover">&nbsp;订单</a>
+                        <a class="means_box fl ml10 mr10" href="" target="_blank"><img src="/picture/means.png" class="means"><img src="picture/means_hover.png" class="means_hover">&nbsp;资料</a>
+                        <a class="order_box fl" href="//y.tuwan.com/home/ocenter/" target="_blank"><img src="/picture/order.png" class="order"><img src="picture/order_hover.png" class="order_hover">&nbsp;订单</a>
                         <div class="clearfix"></div>
                         <div class="contribution_value mt15 mb10"></div>
                         <div class="common_vip_box">
@@ -693,13 +607,13 @@
                             <a href="//y.tuwan.com/recharge/" target="_blank">
                                 <div class="fl money_01_box">
                                     <div class="current_money"></div>
-                                    <div class="money_01"><img src="picture/money_01.png">&nbsp;账户余额</div>
+                                    <div class="money_01"><img src="/picture/money_01.png">&nbsp;账户余额</div>
                                 </div>
                             </a>
                             <a href="https://y.tuwan.com/recharge/" target="_blank">
                                 <div class="fl money_01_box">
                                     <div class="current_value"></div>
-                                    <div class="money_01"><img src="picture/zuanshi.png">&nbsp;<span class="current_value_info"></span></div>
+                                    <div class="money_01"><img src="/picture/zuanshi.png">&nbsp;<span class="current_value_info"></span></div>
                                 </div>
                             </a>
                             <a class="fl common_payfor" href="//y.tuwan.com/recharge/" target="_blank">
@@ -1068,7 +982,7 @@
                         return;
                     } else {
                         $("#checkall_phone").val(1);
-                        $("#phone_tishi").html('<img src="picture/ture.png"/>');
+                        $("#phone_tishi").html('<img src="/picture/ture.png"/>');
                     }
                 }
             });
@@ -1700,16 +1614,22 @@
 </div>
 <!-- 大弹窗-end -->
 <!-- body-bg -->
-<div class="body_bg" >
+<div class="body_bg" id="qweqwe" style="scoped:scoped">
     <!-- top -->
-    <div class="index_banner_bg" >
+    <div class="index_banner_bg">
         <div class="top_bg">
-            <div class="top_left fl">
+            <div class="top_left fl" >
                 <div class="top_head_img fl"><img src="/picture/90_avatar_middle.jpg"></div>
-                <div class="fl mt25 ml10">
-                    <div class="top_immortal_text">李向前<br><img src="/picture/plutocrat_rick.png" class="plutocrat_rick" style="display: none;"></div>
-                    <div class="top_usercp_text fl">信用值：0.0</div>
-                    <div class="fl top_usercp_jibie">
+                <div class="fl mt25 ml10" >
+                    <div class="top_immortal_text" >
+                      {{result.personNickname}}<br>
+                        <img src="{{result.personImage}}" class="plutocrat_rick" style="display: none;">
+                    </div>
+                    <div class="top_usercp_text fl">信用值：</div>
+
+                    <!--接收后台信用值-->
+                    <div class="fl top_usercp_jibie"  >
+                        {{result.personNickname}}
                     </div>
                     <div class="clearfix"></div>
                 </div>
@@ -1744,8 +1664,8 @@
                 </div>
                 <!--基本信息-->
                 <div class="top_women fr">
-                    <div class="fl"><img src="/picture/women.png">&nbsp;&nbsp;20</div>
-                    <div class="fl ml15 mr15"><img src="/picture/address.png">&nbsp;&nbsp;长春市</div>
+                    <div class="fl"><img src="/picture/women.png">{{result.personAge}}</div>
+                    <div class="fl ml15 mr15"><img src="/picture/address.png">{{result.personAdress=null}}</div>
                     <div class="fl"><img src="/picture/time.png">&nbsp;&nbsp;离线</div>
                     <div class="clearfix"></div>
                 </div>
@@ -1771,7 +1691,7 @@
                         </div>
                     </div>
                     <div class="mt15 ml15">
-                        <div class="fl mt25 left_btn"><img src="picture/left_btn.png"></div>
+                        <div class="fl mt25 left_btn"><img src="/picture/left_btn.png"></div>
                         <div class="fl">
                             <div class="content_left_top_sub_img_bigbox">
                                 <div class="content_left_top_sub_img_box">
@@ -1804,84 +1724,84 @@
                                     <div class="content_left_giftlist">
                                         <div style="color: #333;" class="content_left_gift_02 fl content_left_gift_type1 content_left_gift_02_add" gid="1">
                                             <div class="gift_pirce_box">
-                                                <div class="gift_pirce"><img src="picture/gift_pirce.png"></div>
+                                                <div class="gift_pirce"><img src="/picture/gift_pirce.png"></div>
                                                 <div class="gift_pirce_text " >
                                                     价格：1钻石
                                                     <div>导师获赠1魅力值</div>
                                                     <div class="gift_btntop_end"></div>
                                                 </div>
                                             </div>
-                                            <div class="gift_01_img_height"><img src="picture/1629711503976254.png"></div>
+                                            <div class="gift_01_img_height"><img src="/picture/1629711503976254.png"></div>
                                             香吻
                                         </div><div style="color: #333;" class="content_left_gift_02 fl content_left_gift_type1 " gid="96">
                                         <div class="gift_pirce_box">
-                                            <div class="gift_pirce"><img src="picture/gift_pirce.png"></div>
+                                            <div class="gift_pirce"><img src="/picture/gift_pirce.png"></div>
                                             <div class="gift_pirce_text gift_pirce_text_02" >
                                                 价格：10钻石
                                                 <div>导师获赠10魅力值</div>
                                                 <div class="gift_btntop_end">元旦节日礼物</div>
                                             </div>
                                         </div>
-                                        <div class="gift_01_img_height"><img src="picture/1142101545745926.png"></div>
+                                        <div class="gift_01_img_height"><img src="/picture/1142101545745926.png"></div>
                                         烟火
                                     </div><div style="color: #333;" class="content_left_gift_02 fl content_left_gift_type1 " gid="77">
                                         <div class="gift_pirce_box">
-                                            <div class="gift_pirce"><img src="picture/gift_pirce.png"></div>
+                                            <div class="gift_pirce"><img src="/picture/gift_pirce.png"></div>
                                             <div class="gift_pirce_text gift_pirce_text_02" >
                                                 价格：10钻石
                                                 <div>导师获赠10魅力值</div>
                                                 <div class="gift_btntop_end">圣诞节专属礼物</div>
                                             </div>
                                         </div>
-                                        <div class="gift_01_img_height"><img src="picture/1869951544500364.png"></div>
+                                        <div class="gift_01_img_height"><img src="/picture/1869951544500364.png"></div>
                                         平安果
                                     </div><div style="color: #333;" class="content_left_gift_02 fl content_left_gift_type1 " gid="34">
                                         <div class="gift_pirce_box">
-                                            <div class="gift_pirce"><img src="picture/gift_pirce.png"></div>
+                                            <div class="gift_pirce"><img src="/picture/gift_pirce.png"></div>
                                             <div class="gift_pirce_text " >
                                                 价格：10钻石
                                                 <div>导师获赠10魅力值</div>
                                                 <div class="gift_btntop_end"></div>
                                             </div>
                                         </div>
-                                        <div class="gift_01_img_height"><img src="picture/1898151532696070.png"></div>
+                                        <div class="gift_01_img_height"><img src="/picture/1898151532696070.png"></div>
                                         玫瑰
                                     </div><div style="color: #333;" class="content_left_gift_02 fl content_left_gift_type1 " gid="57">
                                         <div class="gift_pirce_box">
-                                            <div class="gift_pirce"><img src="picture/gift_pirce.png"></div>
+                                            <div class="gift_pirce"><img src="/picture/gift_pirce.png"></div>
                                             <div class="gift_pirce_text " >
                                                 价格：52钻石
                                                 <div>导师获赠52魅力值</div>
                                                 <div class="gift_btntop_end"></div>
                                             </div>
                                         </div>
-                                        <div class="gift_01_img_height"><img src="picture/2049781539250469.png"></div>
+                                        <div class="gift_01_img_height"><img src="/picture/2049781539250469.png"></div>
                                         棒棒糖
                                     </div><div style="color: #333;" class="content_left_gift_02 fl content_left_gift_type1 " gid="68">
                                         <div class="gift_pirce_box">
-                                            <div class="gift_pirce"><img src="picture/gift_pirce.png"></div>
+                                            <div class="gift_pirce"><img src="/picture/gift_pirce.png"></div>
                                             <div class="gift_pirce_text gift_pirce_text_02" >
                                                 价格：99钻石
                                                 <div>导师获赠99魅力值</div>
                                                 <div class="gift_btntop_end">感恩节礼物</div>
                                             </div>
                                         </div>
-                                        <div class="gift_01_img_height"><img src="picture/1292451542357555.png"></div>
+                                        <div class="gift_01_img_height"><img src="/picture/1292451542357555.png"></div>
                                         感恩的心
                                     </div><div style="color: #333;" class="content_left_gift_02 fl content_left_gift_type1 " gid="66">
                                         <div class="gift_pirce_box">
-                                            <div class="gift_pirce"><img src="picture/gift_pirce.png"></div>
+                                            <div class="gift_pirce"><img src="/picture/gift_pirce.png"></div>
                                             <div class="gift_pirce_text gift_pirce_text_02" >
                                                 价格：198钻石
                                                 <div>导师获赠198魅力值</div>
                                                 <div class="gift_btntop_end">点歌专用</div>
                                             </div>
                                         </div>
-                                        <div class="gift_01_img_height"><img src="picture/1456841541580138.png"></div>
+                                        <div class="gift_01_img_height"><img src="/picture/1456841541580138.png"></div>
                                         金话筒
                                     </div><div style="color: #333;" class="content_left_gift_02 fl content_left_gift_type1 " gid="98">
                                         <div class="gift_pirce_box">
-                                            <div class="gift_pirce"><img src="picture/gift_pirce.png"></div>
+                                            <div class="gift_pirce"><img src="/picture/gift_pirce.png"></div>
                                             <div class="gift_pirce_text gift_pirce_text_02" >
                                                 价格：666钻石
                                                 <div>导师获赠666魅力值</div>
@@ -1891,62 +1811,62 @@
                                                     收到52个获得人生赢家</div>
                                             </div>
                                         </div>
-                                        <div class="gift_01_img_height"><img src="picture/1278231545732119.png"></div>
+                                        <div class="gift_01_img_height"><img src="/picture/1278231545732119.png"></div>
                                         许愿灯
                                     </div><div style="color: #333;" class="content_left_gift_02 fl content_left_gift_type1 " gid="99">
                                         <div class="gift_pirce_box">
-                                            <div class="gift_pirce"><img src="picture/gift_pirce.png"></div>
+                                            <div class="gift_pirce"><img src="/picture/gift_pirce.png"></div>
                                             <div class="gift_pirce_text gift_pirce_text_02" >
                                                 价格：2019钻石
                                                 <div>导师获赠4038魅力值</div>
                                                 <div class="gift_btntop_end">元旦专属礼物 魅力值+贡献值翻倍</div>
                                             </div>
                                         </div>
-                                        <div class="gift_01_img_height"><img src="picture/1300931545732107.png"></div>
+                                        <div class="gift_01_img_height"><img src="/picture/1300931545732107.png"></div>
                                         元旦礼花
                                     </div><div style="color: #333;" class="content_left_gift_02 fl content_left_gift_type1 " gid="5">
                                         <div class="gift_pirce_box">
-                                            <div class="gift_pirce"><img src="picture/gift_pirce.png"></div>
+                                            <div class="gift_pirce"><img src="/picture/gift_pirce.png"></div>
                                             <div class="gift_pirce_text gift_pirce_text_02" >
                                                 价格：1990钻石
                                                 <div>导师获赠1990魅力值</div>
                                                 <div class="gift_btntop_end">获得表白位（1天）</div>
                                             </div>
                                         </div>
-                                        <div class="gift_01_img_height"><img src="picture/2090801542354414.gif"></div>
+                                        <div class="gift_01_img_height"><img src="/picture/2090801542354414.gif"></div>
                                         表白
                                     </div><div style="color: #333;" class="content_left_gift_02 fl content_left_gift_type1 " gid="6">
                                         <div class="gift_pirce_box">
-                                            <div class="gift_pirce"><img src="picture/gift_pirce.png"></div>
+                                            <div class="gift_pirce"><img src="/picture/gift_pirce.png"></div>
                                             <div class="gift_pirce_text gift_pirce_text_02" >
                                                 价格：5200钻石
                                                 <div>导师获赠5200魅力值</div>
                                                 <div class="gift_btntop_end">获得表白位（7天）</div>
                                             </div>
                                         </div>
-                                        <div class="gift_01_img_height"><img src="picture/1417281503976535.png"></div>
+                                        <div class="gift_01_img_height"><img src="/picture/1417281503976535.png"></div>
                                         钻戒
                                     </div><div style="color: #333;" class="content_left_gift_02 fl content_left_gift_type1 " gid="8">
                                         <div class="gift_pirce_box">
-                                            <div class="gift_pirce"><img src="picture/gift_pirce.png"></div>
+                                            <div class="gift_pirce"><img src="/picture/gift_pirce.png"></div>
                                             <div class="gift_pirce_text gift_pirce_text_02" style="width:180px;">
                                                 价格：36660钻石
                                                 <div>导师获赠36660魅力值</div>
                                                 <div class="gift_btntop_end">导师获赠专属主页皮肤（30天）</div>
                                             </div>
                                         </div>
-                                        <div class="gift_01_img_height"><img src="picture/1775311542354534.png"></div>
+                                        <div class="gift_01_img_height"><img src="/picture/1775311542354534.png"></div>
                                         别墅
                                     </div><div style="color: #333;" class="content_left_gift_02 fl content_left_gift_type1 " gid="55">
                                         <div class="gift_pirce_box">
-                                            <div class="gift_pirce"><img src="picture/gift_pirce.png"></div>
+                                            <div class="gift_pirce"><img src="/picture/gift_pirce.png"></div>
                                             <div class="gift_pirce_text gift_pirce_text_02" >
                                                 价格：131400钻石
                                                 <div>导师获赠131400魅力值</div>
                                                 <div class="gift_btntop_end">获得冠名（365天）</div>
                                             </div>
                                         </div>
-                                        <div class="gift_01_img_height"><img src="picture/1130651539409858.gif"></div>
+                                        <div class="gift_01_img_height"><img src="/picture/1130651539409858.gif"></div>
                                         年冠名
                                     </div>
                                         <div class="clearfix"></div>
@@ -1954,47 +1874,47 @@
                                     <div class="content_left_giftlist" style="display: none;">
                                         <div style="color: #333;" class="content_left_gift_02 fl content_left_gift_type1 " gid="37">
                                             <div class="gift_pirce_box">
-                                                <div class="gift_pirce"><img src="picture/gift_pirce.png"></div>
+                                                <div class="gift_pirce"><img src="/picture/gift_pirce.png"></div>
                                                 <div class="gift_pirce_text " >
                                                     价格：999钻石
 
                                                     <div class="gift_btntop_end">获得冠名（1天）</div>
                                                 </div>
                                             </div>
-                                            <div class="gift_01_img_height"><img src="picture/6072051531895135.png"></div>
+                                            <div class="gift_01_img_height"><img src="/picture/6072051531895135.png"></div>
                                             日冠
                                         </div><div style="color: #333;" class="content_left_gift_02 fl content_left_gift_type1 " gid="9">
                                         <div class="gift_pirce_box">
-                                            <div class="gift_pirce"><img src="picture/gift_pirce.png"></div>
+                                            <div class="gift_pirce"><img src="/picture/gift_pirce.png"></div>
                                             <div class="gift_pirce_text " >
                                                 价格：5200钻石
 
                                                 <div class="gift_btntop_end">获得冠名（7天）</div>
                                             </div>
                                         </div>
-                                        <div class="gift_01_img_height"><img src="picture/1540621505120933.png"></div>
+                                        <div class="gift_01_img_height"><img src="/picture/1540621505120933.png"></div>
                                         周冠名
                                     </div><div style="color: #333;" class="content_left_gift_02 fl content_left_gift_type1 " gid="10">
                                         <div class="gift_pirce_box">
-                                            <div class="gift_pirce"><img src="picture/gift_pirce.png"></div>
+                                            <div class="gift_pirce"><img src="/picture/gift_pirce.png"></div>
                                             <div class="gift_pirce_text " >
                                                 价格：13140钻石
 
                                                 <div class="gift_btntop_end">获得冠名（30天）</div>
                                             </div>
                                         </div>
-                                        <div class="gift_01_img_height"><img src="picture/1104631505120967.png"></div>
+                                        <div class="gift_01_img_height"><img src="/picture/1104631505120967.png"></div>
                                         月冠名
                                     </div><div style="color: #333;" class="content_left_gift_02 fl content_left_gift_type1 " gid="55">
                                         <div class="gift_pirce_box">
-                                            <div class="gift_pirce"><img src="picture/gift_pirce.png"></div>
+                                            <div class="gift_pirce"><img src="/picture/gift_pirce.png"></div>
                                             <div class="gift_pirce_text gift_pirce_text_02" >
                                                 价格：131400钻石
                                                 <div>导师获赠131400魅力值</div>
                                                 <div class="gift_btntop_end">获得冠名（365天）</div>
                                             </div>
                                         </div>
-                                        <div class="gift_01_img_height"><img src="picture/1130651539409858.gif"></div>
+                                        <div class="gift_01_img_height"><img src="/picture/1130651539409858.gif"></div>
                                         年冠名
                                     </div>
                                     </div>
@@ -2011,11 +1931,11 @@
                                                         收到52个获得圣诞老人</div>
                                                 </div>
                                             </div>
-                                            <div class="gift_01_img_height"><img src="picture/2133071544603843.png"></div>
+                                            <div class="gift_01_img_height"><img src="/picture/2133071544603843.png"></div>
                                             圣诞树
                                         </div><div style="color: #333;" class="content_left_gift_02 fl content_left_gift_type1 " gid="79">
                                         <div class="gift_pirce_box">
-                                            <div class="gift_pirce"><img src="picture/gift_pirce.png"></div>
+                                            <div class="gift_pirce"><img src="/picture/gift_pirce.png"></div>
                                             <div class="gift_pirce_text gift_pirce_text_02" >
                                                 价格：1225钻石
                                                 <div>导师获赠2450魅力值</div>
@@ -2023,40 +1943,40 @@
                                                     魅力值+贡献值翻倍</div>
                                             </div>
                                         </div>
-                                        <div class="gift_01_img_height"><img src="picture/8823631544521477.png"></div>
+                                        <div class="gift_01_img_height"><img src="/picture/8823631544521477.png"></div>
                                         圣诞快乐
                                     </div><div style="color: #333;" class="content_left_gift_02 fl content_left_gift_type1 " gid="14">
                                         <div class="gift_pirce_box">
-                                            <div class="gift_pirce"><img src="picture/gift_pirce.png"></div>
+                                            <div class="gift_pirce"><img src="/picture/gift_pirce.png"></div>
                                             <div class="gift_pirce_text gift_pirce_text_02" >
                                                 价格：2880钻石
                                                 <div>导师获赠2880魅力值</div>
                                                 <div class="gift_btntop_end">获得富豪推荐1天</div>
                                             </div>
                                         </div>
-                                        <div class="gift_01_img_height"><img src="picture/5123141508487078.png"></div>
+                                        <div class="gift_01_img_height"><img src="/picture/5123141508487078.png"></div>
                                         富豪推荐
                                     </div><div style="color: #333;" class="content_left_gift_02 fl content_left_gift_type1 " gid="17">
                                         <div class="gift_pirce_box">
-                                            <div class="gift_pirce"><img src="picture/gift_pirce.png"></div>
+                                            <div class="gift_pirce"><img src="/picture/gift_pirce.png"></div>
                                             <div class="gift_pirce_text " >
                                                 价格：10钻石
                                                 <div>导师获赠10魅力值</div>
                                                 <div class="gift_btntop_end"></div>
                                             </div>
                                         </div>
-                                        <div class="gift_01_img_height"><img src="picture/2132001515566355.png"></div>
+                                        <div class="gift_01_img_height"><img src="/picture/2132001515566355.png"></div>
                                         胡萝卜
                                     </div><div style="color: #333;" class="content_left_gift_02 fl content_left_gift_type1 " gid="25">
                                         <div class="gift_pirce_box">
-                                            <div class="gift_pirce"><img src="picture/gift_pirce.png"></div>
+                                            <div class="gift_pirce"><img src="/picture/gift_pirce.png"></div>
                                             <div class="gift_pirce_text " >
                                                 价格：2钻石
                                                 <div>导师获赠2魅力值</div>
                                                 <div class="gift_btntop_end"></div>
                                             </div>
                                         </div>
-                                        <div class="gift_01_img_height"><img src="picture/3653191516859916.png"></div>
+                                        <div class="gift_01_img_height"><img src="/picture/3653191516859916.png"></div>
                                         六味帝王丸
                                     </div>
                                     </div>
@@ -2077,7 +1997,7 @@
                             <div class="content_left_gift_bg_box">
                                 <div class="gift_test_box">
 								<span class="ml10 gift_test" style="position: relative;">
-									<img src="picture/gift_test.png">&nbsp;&nbsp;<em class="giftTitle" style="color: #ff593e">香吻</em>
+									<img src="/picture/gift_test.png">&nbsp;&nbsp;<em class="giftTitle" style="color: #ff593e">香吻</em>
 								</span>
 
                                 </div>
@@ -2091,8 +2011,8 @@
                                     <span class="fl ml10" style="color: #333;">数量</span>
                                     <input style="color: #333; background: #fff; border-style: none;" type="text" class="fl" placeholder="1" value="1" id="giftNum">
                                     <div class="fl mr10 top_kong_hover_box">
-                                        <img src="picture/top_kong_hover.png" class="top_kong_img">
-                                        <img src="picture/top_kong_hover.png" class="top_kong_img_hover">
+                                        <img src="/picture/top_kong_hover.png" class="top_kong_img">
+                                        <img src="/picture/top_kong_hover.png" class="top_kong_img_hover">
                                     </div>
                                     <div class="clearfix"></div>
                                     <div></div>
@@ -2106,7 +2026,7 @@
                                         <li>1314</li>
                                         <div class="clearfix"></div>
                                     </ul>
-                                    <div class="shar_bottom"><img src="picture/shar_bottom.png"></div>
+                                    <div class="shar_bottom"><img src="/picture/shar_bottom.png"></div>
                                 </div>
                             </div>
                         </div>
@@ -2115,7 +2035,7 @@
                                 <div class="anonymous"><input type="checkbox" name="anonymous"><span>匿名赠送</span> 收礼人将无法得知您的身份</div>
                                 <div class="top_box ml10">
                                     <div class="fl top_box_give" style="color: #fff;">赠送</div>
-                                    <div class="fl top_box_give_img"><img src="picture/top.png"></div>
+                                    <div class="fl top_box_give_img"><img src="/picture/top.png"></div>
                                     <div class="clearfix"></div>
                                 </div>
                             </div>
@@ -2143,14 +2063,14 @@
                             <div class="content_left_bttom_kickbac_copyright">*禁止侮辱、骚扰性质的恶意提问，对于恶意提问对方有权不回答</div>
                         </div>
                         <div class="content_left_bttom_content mt10">
-                            <div class="data_01"><img src="picture/data_01.png"><span>身高</span>：175CM</div>
-                            <div class="data_01"><img src="picture/data_02.png"><span>星座</span>：天蝎座</div>
-                            <div class="data_01"><img src="picture/data_03.png"><span>职业</span>：其他</div>
-                            <div class="data_01"><img src="picture/data_04.png"><span>魅力部位</span>：眼睛、腿、其他</div>
-                            <div class="data_01"><img src="picture/data_05.png"><span>个性标签</span>：声音甜美、情感知心</div>
-                            <div class="data_01"><img src="picture/data_06.png"><span>兴趣爱好</span>：LOL  </div>
-                            <div class="wechat_box" style="display: none;"><img src="picture/wechat.png">查看></div>
-                            <div class="wechat_box_ed"><img src="picture/wechat_hover.png">&nbsp;&nbsp;<span></span></div>
+                            <div class="data_01"><img src="/picture/data_01.png"><span>身高</span>：{{result.personHeight}}</div>
+                            <div class="data_01"><img src="/picture/data_02.png"><span>星座</span>：天蝎座</div>
+                            <div class="data_01"><img src="/picture/data_03.png"><span>职业</span>：{{result.personCareer}}</div>
+                            <div class="data_01"><img src="/picture/data_04.png"><span>魅力部位</span>：眼睛、腿、其他</div>
+                            <div class="data_01"><img src="/picture/data_05.png"><span>个性标签</span>：声音甜美、情感知心</div>
+                            <div class="data_01"><img src="/picture/data_06.png"><span>兴趣爱好</span>：{{result.personInterest}}  </div>
+                            <div class="wechat_box" style="display: none;"><img src="/picture/wechat.png">查看></div>
+                            <div class="wechat_box_ed"><img src="/picture/wechat_hover.png">&nbsp;&nbsp;<span></span></div>
                         </div>
                     </div>
                 </div>
@@ -2163,7 +2083,7 @@
                     <!-- 守护者 -->
                     <div class="gift_top_box">
                         <div class="gift_top_img fl">
-                            <img src="picture/gift_top.png"><br>守护者
+                            <img src="/picture/gift_top.png"><br>守护者
                         </div>
                         <div class="gift_top_box_user">
                         </div>
@@ -2172,15 +2092,15 @@
                     <!-- 守护者-end -->
                     <!-- 礼物 -->
                     <div class="gift_bottom_box">
-                        <div class="gift_bottom_img fl"><img src="picture/gift_bottom.png"><br>礼物</div>
-                        <div class="fl right_gift_btn mt40 ml5 move_left_btn"><img src="picture/left_btn.png"></div>
+                        <div class="gift_bottom_img fl"><img src="/picture/gift_bottom.png"><br>礼物</div>
+                        <div class="fl right_gift_btn mt40 ml5 move_left_btn"><img src="/picture/left_btn.png"></div>
                         <div class="fl">
                             <div class="gift_bottom_img_height_box_gibbox">
                                 <div class="gift_bottom_img_height_box_svbbox">
                                 </div>
                             </div>
                         </div>
-                        <div class="fl right_gift_btn mt40 ml5 move_right_btn"><img src="picture/right_btn.png"></div>
+                        <div class="fl right_gift_btn mt40 ml5 move_right_btn"><img src="/picture/right_btn.png"></div>
                         <div class="clearfix"></div>
                     </div>
                     <!-- 礼物-end -->
@@ -2291,30 +2211,30 @@
                                         <div class="clearfix"></div>
                                     </div><div class="introduce_01">
                                     <div class="mt30">
-                                        <div class="fl introduce_head_img_box"><img src="picture/78_avatar_middle.jpg" onerror="imgNoFound(this)"></div>
+                                        <div class="fl introduce_head_img_box"><img src="/picture/78_avatar_middle.jpg" onerror="imgNoFound(this)"></div>
                                         <div class="fl ml10 mt10">
                                             <div class="fl grade_name mr10">太子*****</div>
-                                            <div class="grade_box fl  mr15"><img src="picture/grade.png" class="grade_img"><span class="grade_span">VIP1</span></div><img src="picture/1.png" class="fl mr15" style="height:20px;">
+                                            <div class="grade_box fl  mr15"><img src="/picture/grade.png" class="grade_img"><span class="grade_span">VIP1</span></div><img src="picture/1.png" class="fl mr15" style="height:20px;">
                                             <div class="fl commentTime">2018-12-07 23:03</div>
                                             <div class="clearfix"></div>
                                             <div class="mt10 width_grade"> 没感觉</div>
                                         </div>
-                                        <div class="fr star_box"><img src="picture/star1.png"><img src="picture/star0.png"><img src="picture/star0.png"><img src="picture/star0.png"><img src="picture/star0.png"></div>
+                                        <div class="fr star_box"><img src="/picture/star1.png"><img src="/picture/star0.png"><img src="picture/star0.png"><img src="picture/star0.png"><img src="picture/star0.png"></div>
                                         <div class="clearfix"></div>
                                     </div>
 
                                     <div class="clearfix"></div>
                                 </div><div class="introduce_01">
                                     <div class="mt30">
-                                        <div class="fl introduce_head_img_box"><img src="picture/30_avatar_middle.jpg" onerror="imgNoFound(this)"></div>
+                                        <div class="fl introduce_head_img_box"><img src="/picture/30_avatar_middle.jpg" onerror="imgNoFound(this)"></div>
                                         <div class="fl ml10 mt10">
                                             <div class="fl grade_name mr10">花了*****</div>
-                                            <div class="grade_box fl  mr15"><img src="picture/grade.png" class="grade_img"><span class="grade_span">VIP1</span></div><img src="picture/1.png" class="fl mr15" style="height:20px;">
+                                            <div class="grade_box fl  mr15"><img src="/picture/grade.png" class="grade_img"><span class="grade_span">VIP1</span></div><img src="picture/1.png" class="fl mr15" style="height:20px;">
                                             <div class="fl commentTime">2018-12-03 02:53</div>
                                             <div class="clearfix"></div>
                                             <div class="mt10 width_grade"> 666</div>
                                         </div>
-                                        <div class="fr star_box"><img src="picture/star1.png"><img src="picture/star2.png"><img src="picture/star3.png"><img src="picture/star4.png"><img src="picture/star5.png"></div>
+                                        <div class="fr star_box"><img src="/picture/star1.png"><img src="/picture/star2.png"><img src="picture/star3.png"><img src="picture/star4.png"><img src="picture/star5.png"></div>
                                         <div class="clearfix"></div>
                                     </div>
 
@@ -2329,14 +2249,14 @@
                                             <div class="clearfix"></div>
                                             <div class="mt10 width_grade"> 挺好的，声音好听，普通哈飘准！</div>
                                         </div>
-                                        <div class="fr star_box"><img src="picture/star1.png"><img src="picture/star2.png"><img src="picture/star3.png"><img src="picture/star4.png"><img src="picture/star5.png"></div>
+                                        <div class="fr star_box"><img src="/picture/star1.png"><img src="/picture/star2.png"><img src="picture/star3.png"><img src="picture/star4.png"><img src="picture/star5.png"></div>
                                         <div class="clearfix"></div>
                                     </div>
 
                                     <div class="clearfix"></div>
                                 </div><div class="introduce_01">
                                     <div class="mt30">
-                                        <div class="fl introduce_head_img_box"><img src="picture/12_avatar_middle.jpg" onerror="imgNoFound(this)"></div>
+                                        <div class="fl introduce_head_img_box"><img src="/picture/12_avatar_middle.jpg" onerror="imgNoFound(this)"></div>
                                         <div class="fl ml10 mt10">
                                             <div class="fl grade_name mr10">杰森*****</div>
                                             <div class="grade_box fl  mr15"></div>
@@ -2344,22 +2264,22 @@
                                             <div class="clearfix"></div>
                                             <div class="mt10 width_grade"> 很耐心，声音好听，看到的多多支持吧！</div>
                                         </div>
-                                        <div class="fr star_box"><img src="picture/star1.png"><img src="picture/star2.png"><img src="picture/star3.png"><img src="picture/star4.png"><img src="picture/star5.png"></div>
+                                        <div class="fr star_box"><img src="/picture/star1.png"><img src="/picture/star2.png"><img src="picture/star3.png"><img src="picture/star4.png"><img src="picture/star5.png"></div>
                                         <div class="clearfix"></div>
                                     </div>
 
                                     <div class="clearfix"></div>
                                 </div><div class="introduce_01">
                                     <div class="mt30">
-                                        <div class="fl introduce_head_img_box"><img src="picture/56_avatar_middle.jpg" onerror="imgNoFound(this)"></div>
+                                        <div class="fl introduce_head_img_box"><img src="/picture/56_avatar_middle.jpg" onerror="imgNoFound(this)"></div>
                                         <div class="fl ml10 mt10">
                                             <div class="fl grade_name mr10">。未*****</div>
-                                            <div class="grade_box fl  mr15"><img src="picture/grade.png" class="grade_img"><span class="grade_span">VIP3</span></div><img src="picture/3.png" class="fl mr15" style="height:20px;">
+                                            <div class="grade_box fl  mr15"><img src="/picture/grade.png" class="grade_img"><span class="grade_span">VIP3</span></div><img src="picture/3.png" class="fl mr15" style="height:20px;">
                                             <div class="fl commentTime">2018-11-24 22:35</div>
                                             <div class="clearfix"></div>
                                             <div class="mt10 width_grade"> 是我铁锤妹妹没错了</div>
                                         </div>
-                                        <div class="fr star_box"><img src="picture/star1.png"><img src="picture/star2.png"><img src="picture/star3.png"><img src="picture/star4.png"><img src="picture/star5.png"></div>
+                                        <div class="fr star_box"><img src="/picture/star1.png"><img src="/picture/star2.png"><img src="picture/star3.png"><img src="picture/star4.png"><img src="picture/star5.png"></div>
                                         <div class="clearfix"></div>
                                     </div>
 
@@ -2816,94 +2736,6 @@
 <script id="qd28521617238326075327d1c513a4a384b1e7d01503" src="js/c927102b616e496bbf6a1f223399540c.js" charset="utf-8" async defer></script>
 <!-- WPA end -->
 <script src="js/tuwan_message.js"></script>
-<!-- <!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-<meta name="format-detection" content="telephone=no">
-<meta content="black" name="apple-mobile-web-app-status-bar-style">
-    <style>
-    .yw-gg-float{
-        position: fixed;left: 0;bottom: 138px;width: 100%;height: 0;z-index: 999;
-    }
-    .yw-gg-float .yw-big-show{
-        position: relative; display: block; width: 1100px; height: 138px; display: none; background-image: url(images/yanwo-big.png); margin: 0 auto;cursor: default;
-    }
-    .yw-gg-float .yw-big-show .yw-close{
-        position: absolute; width: 19px; height: 19px; background-image: url(images/yanwo-close.png); right: 12px; top: 30px; cursor: pointer;
-    }
-    .yw-gg-float .yw-jump{
-        display: block; position: absolute; width: 100%; height: 100%; left: 0; top: 0;
-    cursor: default;
-    }
-    .yw-gg-float .yw-small-show{
-        width: 161px; height: 120px; display: none; position: absolute; left: 0; top: 0; background-image: url(images/yanwo-small.png); cursor: default;
-    }
-    .yw-gg-float .yw-open{
-        width: 20px; height: 36px; position: absolute; right: 13px; top: 40px; background-image: url(images/yanwo-open.png); cursor: pointer;
-    }
-</style>
-</head>
-<body>
-<div class="yw-gg-float">
-    <div class="yw-big-show">
-        <a href="javascript:void(0)" class="yw-jump"></a>
-        <div class="yw-close"></div>
-    </div>
-    <div class="yw-small-show" style="display: none;">
-        <a href="javascript:void(0)" class="yw-jump"></a>
-        <div class="yw-open"></div>
-    </div>
-</div>
-    <script>
-        var ywJumpUrl = "javascript:void(0)";
-    //var ywJumpUrl = "http://y.tuwan.com/"
-    var close = "1";
-    var myDate = new Date();
-    //获取当前年
-    var year = myDate.getFullYear();
-    //获取当前月
-    var month = myDate.getMonth() + 1;
-    //获取当前日
-    var date = myDate.getDate();
-    var nowtime = year.toString() +  month.toString() + date.toString();
-
-    var localtime = localStorage.getItem("yy-gg-time");
-
-    if(localtime){
-        if(localtime !== nowtime){
-            close = "1";
-            localStorage.setItem("yy-gg-state", close);
-        }
-    }
-    localStorage.setItem("yy-gg-time", nowtime);
-
-    var $ysGgFloat = $(".yw-gg-float");
-    $ysGgFloat.find(".yw-jump").prop("href", ywJumpUrl);
-    $ysGgFloat.find(".yw-close").on("click", function(){
-        close = "0";
-        localStorage.setItem("yy-gg-state", close);
-        $ysGgFloat.find(".yw-big-show").hide();
-        $ysGgFloat.find(".yw-small-show").show();
-    });
-    $ysGgFloat.find(".yw-small-show .yw-open").on("click", function(){
-        close = "1";
-        localStorage.setItem("yy-gg-state", close);
-        $ysGgFloat.find(".yw-big-show").show();
-        $ysGgFloat.find(".yw-small-show").hide();
-    });
-
-    if(localStorage.getItem("yy-gg-state") == "0"){
-        $('.yw-big-show').hide();
-        $('.yw-small-show').show();
-    } else{
-        $('.yw-big-show').show();
-        $('.yw-small-show').hide();
-    }
-</script>
-</body>
-</html>
- -->
 <!-- 当前所选时间 -->
 <input type="hidden" id="index" value="" />
 <script type="text/javascript">
@@ -4547,7 +4379,7 @@ function text_(){
         	</div>';
                 }
                 if (giftStr == '') {
-                    giftStr = '<div class="fl no_top"><img src="picture/no_bottom.png">&nbsp;&nbsp;喜欢我就给我送礼物吧~</div>';
+                    giftStr = '<div class="fl no_top"><img src="/picture/no_bottom.png">&nbsp;&nbsp;喜欢我就给我送礼物吧~</div>';
                 }
                 $(".gift_bottom_img_height_box_svbbox").html(giftStr);
 
@@ -4652,28 +4484,57 @@ function text_(){
 
     /**>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
      * 获取导师信用值*/
-    function loadCharm() {
+
+    /*获取URL中的参数 查询导师信息*/
+    /*获取到Url里面的参数*/
+    function GetQueryString(name)
+    {
+        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);//search,查询？后面的参数，并匹配正则
+        if(r!=null)return  unescape(r[2]); return null;
+    }
+    // 调用方法  传入参数名可获得
+    /*alert(GetQueryString("name"));
+    alert(GetQueryString("id"));*/
+    /*避免无参数是出现异常*/
+    var myurl=GetQueryString("url");
+    if(myurl !=null && myurl.toString().length>1)
+    {
+        alert(GetQueryString("url"));
+    }
+    /*vue的导师信息遍历*/
+    var app = new Vue({
+        el : '#qweqwe',
+        data : {
+            result : [],
+
+        }
+    });
+
+  var gitTeacherInfo = function loadCharm() {
         $.ajax({
-            url: "/hello"+ teacherid,
+            url: "/getInfo",
             type: "post",
             dataType: "json",
             data: {
-                "userName": $("#username").val(),
-                "age":$("#userage").val()
+                /* 正常情况"pid": GetQueryString("pid"),
+                "gid":GetQueryString("gid")*/
+                /*测试情况*/
+                "pid":1,
+                "gid":1
             },
-            success: function (obj){
-                var html = '';
-                if (obj.error == 0) {
-                    html += '<div><a href="https://y.tuwan.com/mygrade/" target="_blank"><img src="/picture/5ab6608ce2e8431d94f91d76866e190f.gif'+ obj.data.level +'.png?t=201804111508"></a></div>';
+            success:function (msg){
+                console.log(msg)
+                app.result=msg.pperson;
+                if (msg.error == 0) {
+                    html += '<div><a href="https://y.tuwan.com/mygrade/" target="_blank"><img src="/picture/5ab6608ce2e8431d94f91d76866e190f.gif'+ msg.data.level +'.png?t=201804111508"></a></div>';
                 }
-                $(".top_usercp_jibie").html(html);
+               /* $(".top_usercp_jibie").html(html);*/
             }
         });
     }
 
-
-
-
+    gitTeacherInfo();
     $(function(){
         // 上方滚动
         function startShow(firstDom){
@@ -5696,7 +5557,7 @@ function text_(){
 <div id="div-im-content" style="position: fixed; z-index: 2001; left: 0; top: 0; background: rgba(51,51,51,0.5); width: 100%; height: 100%; display: none;">
     <div style="width: 1002px; height: 622px; position: absolute;left: 50%; top: 50%; transform: translate(-50%, -50%); cursor: pointer;">
         <div onclick="document.getElementById('div-im-content').style.display='none';" style="width: 38px; height: 38px; position: absolute; right: -25px; top: -25px; z-index: 99">
-            <img src="picture/close.png">
+            <img src="/picture/close.png">
         </div>
         <iframe style="width: 100%; height: 100%" scrolling="no" src=""></iframe>
     </div>
