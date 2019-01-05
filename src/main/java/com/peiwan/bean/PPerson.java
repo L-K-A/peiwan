@@ -2,6 +2,8 @@ package com.peiwan.bean;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
+
+import java.beans.PropertyVetoException;
 import java.io.Serializable;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -54,9 +56,9 @@ public class PPerson implements Serializable {
     private String personSex;
 
     /**
-     * 年龄
+     * 出生日期
      */
-    private Integer personAge;
+    private String personBirthday;
 
     /**
      * qq
@@ -97,6 +99,11 @@ public class PPerson implements Serializable {
      * 职业
      */
     private String personCareer;
+
+    /**
+     * 学校
+     */
+    private String personSchool;
 
     /**
      * 兴趣

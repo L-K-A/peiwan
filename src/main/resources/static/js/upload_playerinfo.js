@@ -25,7 +25,7 @@ function send_request()
   
     if (xmlhttp!=null)
     {
-        serverUrl = 'https://y.tuwan.com/home/getplayerinfo/';
+        serverUrl = '/getplayerinfo/';
         xmlhttp.open( "GET", serverUrl, false );
         xmlhttp.send( null );
         return xmlhttp.responseText;

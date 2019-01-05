@@ -261,8 +261,7 @@
         <div class="qq_box">
             <a class="ic_face fl"
                href="//shang.qq.com/wpa/qunwpa?idkey=5c75d39709a82b906b4ff53e5c73e8db2aee02688837dbb2a7239a24913e7538"
-               target="_blank" title="考核群：596143834">
-                <img src="./img/qq.png?"></a>
+               target="_blank" title="考核群：123123"><img src="./img/qq.png"></a>
             <div class="fl face_qq mt15 ml25">
                 <span>考核群：</span>
                 <input type="text" class="input" id="share_link" value="596143834"/>
@@ -282,13 +281,15 @@
                 <input type="hidden" name="dtid" class="dtid" value="31540"/>
                 <input type="hidden" name="loadflaghidden" id="loadflaghidden" value="0"/>
                 <div>
-                    <div class="head_samllimg"><img id="headimg"
-                                                    src=""></div>
+                    <div class="head_samllimg">
+                        <img id="headimg" src="">
+                    </div>
                     <div class="head_title">修改头像</div>
                     <input type="hidden" name="img64" id="img64" value="">
                     <input type="hidden" name="ori_avatar" id="ori_avatar" value=""/>
                 </div>
                 <div class="care_text mt10">支持jpg/gif/png格式的图片，文件必须小于3M</div>
+                <!--资料-->
                 <div class="mt50 border_text_box">
                     <div class="fl border_left"></div>
                     <div class="fl border_text pb30">基本资料</div>
@@ -296,29 +297,33 @@
                     <div class="clearfix"></div>
                 </div>
                 <div class="mt30">
-                    <div class="fl mt10 name_title"><span class="star">*</span>昵称：</div>
+                    <div class="fl mt10 name_title"><span class="star">*</span>昵称:</div>
                     <input class="fl name_text pl10" type="text" placeholder="昵称" value="" id="nickname"
-                           name="nickname">
+                           name="personNickname">
                     <div class="clearfix"></div>
                 </div>
                 <div class="mt30">
-                    <div class="fl name_title mr5"><span class="star">*</span>性别：</div>
+                    <div class="fl name_title mr5">
+                        <span class="star">*</span>性别:
+                    </div>
                     <div class="fl sex_box">
-                        <input type="radio" value="1" checked name="sex">&nbsp;&nbsp;男 &nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="radio" value="2" name="sex">&nbsp;&nbsp;女
+                        <input type="radio" value="1" checked name="personSex">&nbsp;&nbsp;男 &nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" value="2" name="personSex">&nbsp;&nbsp;女
                     </div>
                     <div class="clearfix"></div>
                 </div>
                 <div class="mt30">
-                    <div class="fl name_title  mt10"><span class="star">*</span>出生日期：</div>
-                    <input type="text" id="birthday" readonly placeholder="请选择出生日期" class="fl name_text pl10" value=""
-                           name="birthday">
+                    <div class="fl name_title  mt10">
+                        <span class="star">*</span>出生日期:
+                    </div>
+                    <input type="text" id="birthday"  placeholder="例:19990102" class="fl name_text pl10" value=""
+                           name="personBirthday">
                     <div class="clearfix"></div>
                 </div>
                 <div class="mt30">
                     <div class="fl name_title  mt10"><span class="star">*</span>所在地：</div>
-                    <select id="province" name="province" class="fl mr10 pl10 pr10">
-                        <option value="0" selected="selected">选择省份</option>
+                    <select id="province" name="personProvince" class="fl mr10 pl10 pr10">
+                        <option value="0" selected="selected" name="personAdress">选择省份</option>
                         <option value="100000">北京市</option>
                         <option value="100020">天津市</option>
                         <option value="100021">上海市</option>
@@ -352,63 +357,68 @@
                         <option value="650000">新疆维吾尔自治区</option>
                         <option value="659005">台湾省</option>
                     </select>
-                    <select id="city" name="city" class="fl pl10 pr10">
-                        <option value="0" selected>选择城市</option>
+                    <select id="city" name="personAdress" class="fl pl10 pr10">
+                        <option value="0" selected >选择城市</option>
+                        <option value="1" name="personAdress">上海</option>
+                        <option value="2" name="personAdress">北京</option>
+                        <option value="3" name="personAdress">重庆</option>
                     </select>
                     <div class="clearfix"></div>
                 </div>
                 <div class="mt30">
-                    <div class="fl mt10 name_title"><span class="star" style="margin-right:10px;">*</span> 手机号：</div>
-                    <div style="padding-top: 10px;" id="phone"></div>
+                    <!--<div class="fl mt10 name_title">
+                        <span class="star" style="margin-right:10px;">*</span> 手机号:</div>
+                    <div style="padding-top: 10px;" id="phone"></div>-->
                     <div class="clearfix"></div>
                 </div>
                 <div class="mt30">
                     <div class="fl mt10 name_title"><span class="star">*</span>QQ：</div>
-                    <input class="fl name_text pl10" id="qq" name="qq" type="text" placeholder="重要联系方式" value="">
+                    <input class="fl name_text pl10" id="qq" name="personQq" type="text" placeholder="重要联系方式" value="">
                     <div class="clearfix"></div>
                 </div>
                 <div class="mt50">
-                    <div class="fl mt10 name_title"><span class="star">*</span>个性标签：<br/><span class="Optional">（请任意选择两项）</span>
+                    <div class="fl mt10 name_title"><span class="star">*</span>个性标签：<br/>
+                        <span class="Optional">（请任意选择两项）</span>
                     </div>
                     <div style="width:540px;" class="fl label">
-                        <div class='mt10 fl' style='margin-right:7%;'><input type='checkbox' name='tag[]'
-                                                                             class='TagCheckBox' value='0'/><span
-                                class='fl'>特殊才艺</span>
+                        <div class='mt10 fl' style='margin-right:7%;'>
+                            <input type='checkbox' name='tag' class='TagCheckBox' value='0'/>
+                            <span class='fl'>特殊才艺</span>
                             <div class='clearfix'></div>
                         </div>
-                        <div class='mt10 fl' style='margin-right:7%;'><input type='checkbox' name='tag[]'
-                                                                             class='TagCheckBox' value='1'/><span
-                                class='fl'>颜值担当</span>
+                        <div class='mt10 fl' style='margin-right:7%;'>
+                            <input type='checkbox' name='tag' class='TagCheckBox' value='1'/>
+                            <span class='fl'>颜值担当</span>
                             <div class='clearfix'></div>
                         </div>
-                        <div class='mt10 fl' style='margin-right:7%;'><input type='checkbox' name='tag[]'
-                                                                             class='TagCheckBox' value='2'/><span
-                                class='fl'>逗比闲聊</span>
+                        <div class='mt10 fl' style='margin-right:7%;'>
+                            <input type='checkbox' name='tag' class='TagCheckBox' value='2'/>
+                            <span class='fl'>逗比闲聊</span>
                             <div class='clearfix'></div>
                         </div>
-                        <div class='mt10 fl' style='margin-right:7%;'><input type='checkbox' name='tag[]'
-                                                                             class='TagCheckBox' value='3'/><span
-                                class='fl'>声音甜美</span>
+                        <div class='mt10 fl' style='margin-right:7%;'>
+                            <input type='checkbox' name='tag' class='TagCheckBox' value='3'/>
+                            <span class='fl'>声音甜美</span>
                             <div class='clearfix'></div>
                         </div>
-                        <div class='mt10 fl' style='margin-right:7%;'><input type='checkbox' name='tag[]'
-                                                                             class='TagCheckBox' value='4'/><span
-                                class='fl'>乖巧黏人</span>
+                        <div class='mt10 fl' style='margin-right:7%;'>
+                            <input type='checkbox' name='tag' class='TagCheckBox' value='4'/>
+                            <span class='fl'>乖巧黏人</span>
                             <div class='clearfix'></div>
                         </div>
-                        <div class='mt10 fl' style='margin-right:7%;'><input type='checkbox' name='tag[]'
-                                                                             class='TagCheckBox' value='5'/><span
-                                class='fl'>情感知心</span>
+                        <div class='mt10 fl' style='margin-right:7%;'>
+                            <input type='checkbox' name='tag' class='TagCheckBox' value='5'/>
+                            <span class='fl'>情感知心</span>
                             <div class='clearfix'></div>
                         </div>
-                        <div class='mt10 fl' style='margin-right:7%;'><input type='checkbox' name='tag[]'
-                                                                             class='TagCheckBox' value='6'/><span
-                                class='fl'>爽朗直率</span>
+                        <div class='mt10 fl' style='margin-right:7%;'>
+                            <input type='checkbox' name='tag' class='TagCheckBox' value='6'/>
+                            <span class='fl'>爽朗直率</span>
                             <div class='clearfix'></div>
                         </div>
-                        <div class='mt10 fl' style='margin-right:7%;'><input type='checkbox' name='tag[]'
-                                                                             class='TagCheckBox' value='7'/><span
-                                class='fl'>激情四射</span>
+                        <div class='mt10 fl' style='margin-right:7%;'>
+                            <input type='checkbox' name='tag' class='TagCheckBox' value='7'/>
+                            <span class='fl'>激情四射</span>
                             <div class='clearfix'></div>
                         </div>
                         <div class="clearfix"></div>
@@ -417,7 +427,7 @@
                 </div>
                 <div class="mt50">
                     <div class="fl mt10  name_title"><span class="star">*</span>个性签名：</div>
-                    <input type="text" class="fl input_file" name="short_desc" id="short_desc" placeholder="一句话介绍你自己"
+                    <input type="text" class="fl input_file" name="personContent" id="short_desc" placeholder="一句话介绍你自己"
                            value="">
                     <div class="clearfix"></div>
                 </div>
@@ -431,17 +441,17 @@
                 <div style="width:500px;height:1px;border-bottom:2px dotted #cccccc;"></div>
                 <div class="mt30">
                     <div class="fl mt10 name_title"><span class="Optional">（选填）</span>身高(cm)</div>
-                    <input class="fl name_text pl10" id="Sheight" name="Sheight" type="text" placeholder="身高" value="">
+                    <input class="fl name_text pl10" id="Sheight" name="personHeight" type="text" placeholder="身高" value="">
                     <div class="clearfix"></div>
                 </div>
                 <div class="mt30">
                     <div class="fl mt10 name_title"><span class="Optional">（选填）</span>体重(kg)</div>
-                    <input class="fl name_text pl10" id="weight" name="weight" type="text" placeholder="体重" value="">
+                    <input class="fl name_text pl10" id="weight" name="personWeight" type="text" placeholder="体重" value="">
                     <div class="clearfix"></div>
                 </div>
                 <div class="mt30">
                     <div class="fl mt10 name_title"><span class="Optional">（选填）</span>职业：</div>
-                    <select name="work" id="work">
+                    <select name="personCareer" id="work" >
                         <option value="">请选择</option>
                         <option value='0'>学生</option>
                         <option value='1'>主播</option>
@@ -458,9 +468,8 @@
                 </div>
                 <div class="mt30 school" style="display:none">
                     <div class="fl mt10 name_title"><span class="Optional">（选填）</span>学校：</div>
-                    <select name="school" id="school">
+                    <select name="school" id="personSchool">
                         <option value="">请选择</option>
-                        Array
                         <option value='0'>成都大学</option>
                         <option value='1'>四川师范大学</option>
                         <option value='2'>四川大学</option>
@@ -470,7 +479,7 @@
                 </div>
                 <div class="mt30">
                     <div class="fl mt10 name_title"><span class="Optional">（选填）</span>兴趣爱好：</div>
-                    <input type="text" class="fl input_file" name="like" id="like" placeholder="字数不超过20个字" value="">
+                    <input type="text" class="fl input_file" name="personInterest" id="like" placeholder="字数不超过20个字" value="">
                     <div class="clearfix"></div>
                 </div>
                 <div class="mt50">
@@ -556,6 +565,7 @@
                 </div>
                 <!--服务-->
                 <div class="lol_bigbox">
+
 
                     <div class="fl lol_box">
                         <div class="lol_img" dtid="31540" flag="0">
@@ -694,14 +704,13 @@
                     <div class="fl" style="position: relative;">
                         <input class="name_text pl10" type="button" value="上传图片"
                                style="background-color: #5ecfba;color: #ffffff;height:32px;line-height:32px;">
-                        <input type="file"
-                               class="file_01" id="upfile" accept="image/*"
+                        <input type="file" class="file_01" id="upfile" accept="image/*"
                                style="height:32px;line-height:32px;display:block;">
-                        <input type="hidden" name="upfile_64" id="upfile_64" value="">
+                        <input type="hidden" name="personCoverphoto" id="upfile_64" value="">
                         <div class="diagram diagram1">示例图</div>
                     </div>
-                    <div class="randimgsrc"><img src="./img/breviary.png" style="padding-left: 20px;"
-                                                 class="upfilebreviary breviary"></div>
+                    <div class="randimgsrc">
+                        <img src="./img/breviary.png" style="padding-left: 20px;" class="upfilebreviary breviary"></div>
                     <div class="voice_01 mt10 gameExplain" style="float: right;margin-top: -140px;margin-right: 60px;">
                         请上传您的段位截图（需包含个人ID）,并填写<br>
                         线上LOL相关的描述<br>
@@ -756,7 +765,7 @@
                     <div class="clearfix"></div>
                 </div>
                 <div class="mt30" id="gamelistV2" style="display: none;">
-                    <div class="fl mt10 name_title"><span class="star"></span>微信可接段位：</div>
+                    <div class="fl mt10 name_title"><span class="star"></span>微信可接段位:</div>
                     <div class="ajaxgamelistV2 fl" style="width: 724px;">
                         <div class='mt10 fl mr40 gamenums1'>
                             <input type='checkbox' name='gamelist[]' class='gamelist' value='1'/>倔强黄铜
@@ -901,7 +910,7 @@
                         <div class="clearfix"></div>
                     </div>
                 </div>
-                <div class="mt30">
+                <!--<div class="mt30">
                     <div class="fl mt10"><span class="Optional">（选填）</span>语音介绍：</div>
                     <div class="voice_hover fl ">
                         <div style="position: relative;"><span class="time_box">0s</span>
@@ -917,7 +926,7 @@
                     <div class="fl voice_01 mt10">（支持上传MP3格式录音，时长不可超过60秒）</div>
                     <div class="clearfix"></div>
 
-                </div>
+                </div>-->
 
                 <!--<input type="submit" class="sure_box" value="确认提交" style="margin-left: 238px" id="postfiles">-->
                 <input type="button" class="sure_box1" value="申请导师" style="margin-left: 238px">
@@ -1010,6 +1019,10 @@
 
     var dtid = 31540;
 
+
+
+
+
     /*开通服务*/
     function changeService(that, dtid) {
         $('.dtid').val(dtid);
@@ -1074,7 +1087,7 @@
             dataType: "jsonp",
             success: function (obj) {
                 $('#myEditor').html(obj.desc);
-                if (obj.speech !== '' && obj.speech !== undefined && obj.speech !== null) $('#cloudBody').attr("data-music", "https://www.tuwan.com" + obj.speech);
+                if (obj.speech !== '' && obj.speech !== undefined && obj.speech !== null) $('#cloudBody').attr("data-music", "url" + obj.speech);
                 var audio = new Audio($("body #cloudBody").attr("data-music"));
                 audio.addEventListener('canplay', function () {
                     var mp3 = Math.ceil(this.duration);
@@ -1082,7 +1095,7 @@
                 });
                 if (obj.speech == null) $('.time_box').html('空');
                 if (obj.randimg == undefined || obj.randimg == null || obj.randimg == '') {
-                    $('.randimgsrc').html('<img src="../static/img/breviary.png" style="padding-left: 20px;" class="upfilebreviary breviary">');
+                    $('.randimgsrc').html('<img src="./img/breviary.png" style="padding-left: 20px;" class="upfilebreviary breviary">');
                     randimgFlag = 0;
                 } else {
                     $('.randimgsrc').html('<a href=' + obj.randimg + ' target="_blank"><img src=' + obj.randimg + ' style="padding-left: 20px;" class="upfilebreviary breviary"></a>');
@@ -1146,7 +1159,7 @@
     //cd时间
     function GetCacheUid() {
         $.ajax({
-            url: "https://api.tuwan.com/playteach/?type=play&data=getcacheuid&format=jsonp",
+            url: "/?type=play&data=getcacheuid&format=jsonp",
             type: "get",
             dataType: "jsonp",
             success: function (obj) {
@@ -1159,32 +1172,32 @@
     })
 
     $('.diagram3').click(function () {
-        dtidimg('https://res.tuwan.com/templet/play/public/images/fdemo.jpg?v=1');
+        dtidimg('./img/fdemo.jpg');
     })
     $('.diagram1').click(function () {
-        if (DitdVal() == 31540 || DitdVal() == 20009) dtidimg('https://res.tuwan.com/templet/play/images/lol-s1.jpg');
-        else if (DitdVal() == 20002 || DitdVal() == 20010 || DitdVal() == 20011 || DitdVal() == 20012 || DitdVal() == 20013) dtidimg('https://res.tuwan.com/templet/play/images/sing-s1.jpg');
-        else if (DitdVal() == 20003) dtidimg('https://res.tuwan.com/templet/play/images/video-s1.jpg');
-        else if (DitdVal() == 20004) dtidimg('https://res.tuwan.com/templet/play/images/akira_1.jpg');
-        else if (DitdVal() == 20017) dtidimg('https://res.tuwan.com/templet/play/images/akira_1.jpg');
-        else if (DitdVal() == 20012) dtidimg('https://res.tuwan.com/templet/play/images/akira_1.jpg');
-        else if (DitdVal() == 20006) dtidimg('https://res.tuwan.com/templet/play/images/game-s1.jpg');
-        else if (DitdVal() == 20007) dtidimg('https://res.tuwan.com/templet/play/images/akira-s1.jpg');
-        else if (DitdVal() == 20008) dtidimg('https://res.tuwan.com/templet/play/images/wzry-s1.jpg');
-        else if (DitdVal() == 20014) dtidimg('https://res.tuwan.com/templet/play/images/dts-s1.jpg');
-        else if (DitdVal() == 20016) dtidimg('https://res.tuwan.com/templet/play/images/huangye-s1.jpg');
-        else if (DitdVal() == 20018) dtidimg('https://res.tuwan.com/templet/play/images/ciji-s1.jpg');
-        else if (DitdVal() == 20019) dtidimg('https://res.tuwan.com/templet/play/images/quanjun-s1.jpg');
-        else if (DitdVal() == 20020) dtidimg('https://res.tuwan.com/templet/play/images/dwrg-s1.jpg?t=1');
+        if (DitdVal() == 31540 || DitdVal() == 20009) dtidimg('/images/lol-s1.jpg');
+        else if (DitdVal() == 20002 || DitdVal() == 20010 || DitdVal() == 20011 || DitdVal() == 20012 || DitdVal() == 20013) dtidimg(' /images/sing-s1.jpg');
+        else if (DitdVal() == 20003) dtidimg('/images/video-s1.jpg');
+        else if (DitdVal() == 20004) dtidimg('/images/akira_1.jpg');
+        else if (DitdVal() == 20017) dtidimg('/images/akira_1.jpg');
+        else if (DitdVal() == 20012) dtidimg('/images/akira_1.jpg');
+        else if (DitdVal() == 20006) dtidimg('/images/game-s1.jpg');
+        else if (DitdVal() == 20007) dtidimg('/images/akira-s1.jpg');
+        else if (DitdVal() == 20008) dtidimg('/images/wzry-s1.jpg');
+        else if (DitdVal() == 20014) dtidimg('/images/dts-s1.jpg');
+        else if (DitdVal() == 20016) dtidimg('/images/huangye-s1.jpg');
+        else if (DitdVal() == 20018) dtidimg('/images/ciji-s1.jpg');
+        else if (DitdVal() == 20019) dtidimg('/images/quanjun-s1.jpg');
+        else if (DitdVal() == 20020) dtidimg('/images/dwrg-s1.jpg?t=1');
     })
     $('.diagram2').click(function () {
-        if (DitdVal() == 31540 || DitdVal() == 20009) dtidimg('https://res.tuwan.com/templet/play/images/lol-s2.jpg');
-        else if (DitdVal() == 20002) dtidimg('https://res.tuwan.com/templet/play/images/sing-s2.jpg');
-        else if (DitdVal() == 20003) dtidimg('https://res.tuwan.com/templet/play/images/video-s2.jpg');
-        else if (DitdVal() == 20004) dtidimg('https://res.tuwan.com/templet/play/images/akira-s2.jpg');
-        else if (DitdVal() == 20006) dtidimg('https://res.tuwan.com/templet/play/images/game-s2.jpg');
-        else if (DitdVal() == 20007) dtidimg('https://res.tuwan.com/templet/play/images/akira-s2.jpg');
-        else if (DitdVal() == 20008) dtidimg('https://res.tuwan.com/templet/play/images/wzry-s2.jpg');
+        if (DitdVal() == 31540 || DitdVal() == 20009) dtidimg('/images/lol-s2.jpg');
+        else if (DitdVal() == 20002) dtidimg('/images/sing-s2.jpg');
+        else if (DitdVal() == 20003) dtidimg('/images/video-s2.jpg');
+        else if (DitdVal() == 20004) dtidimg('/images/akira-s2.jpg');
+        else if (DitdVal() == 20006) dtidimg('/images/game-s2.jpg');
+        else if (DitdVal() == 20007) dtidimg('/images/akira-s2.jpg');
+        else if (DitdVal() == 20008) dtidimg('/images/wzry-s2.jpg');
     })
 
     $('.layer-cell-close,.closehide').click(function () {
@@ -1252,7 +1265,7 @@
                 var imgClip = $(".container .cropped img")[0].src;
                 $.ajax({
                     type: "post",
-                    url: "https://u.tuwan.com/Avatar/upload?format=json",
+                    url: "/upload?format=json",
                     crossDomain: true,
                     xhrFields: {
                         withCredentials: true
@@ -1277,12 +1290,23 @@
                         }
                     }
                 });
-
-
             } else {
                 alert("请先裁剪图片!");
             }
         });
+        /*表单提交*/
+        $(".sure_box1").click(function () {
+            $.ajax({
+                type: "POST",
+                url:"/playinfosubmit",
+                dataType:"json",
+                data: $('#form').serialize(),
+                success:function (result) {
+                    alert(result);
+                }
+            });
+        });
+
 
         $("#nickname").blur(function () {
             var nickname = $(this).val();
@@ -1293,7 +1317,7 @@
                 return;
             }
             $.ajax({
-                url: "?nickname=" + encodeURIComponent(nickname),
+                url: "?personNickname=" + encodeURIComponent(personNickname),
                 type: "get",
                 dataType: "jsonp",
                 success: function (obj) {

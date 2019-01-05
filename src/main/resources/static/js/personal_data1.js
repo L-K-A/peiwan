@@ -19,6 +19,7 @@ $('.cheak').click(function() {
     }
 })
 var audio = document.createElement("audio");
+
 $(function() {
     var indexii = 0;
     $("body #cloudBody").each(function(index, el) {
@@ -64,8 +65,8 @@ $('.voice_hover').click(function() {
     $('#mailer_box').hide();
 })
 
-     $.ajax({
-        url: "https://user.tuwan.com/api/method/userextinfo",
+     /*$.ajax({
+        url: "",
         dataType: 'jsonp',
         success: function (obj) {
             if (obj.code == 0) {
@@ -79,11 +80,12 @@ $('.voice_hover').click(function() {
                     $('.sure_box1').click(function(){
                         alert('请先绑定手机号！');
                     })
+
                     $('#phone').html('<a href="javascript:;" onclick="bindp()" style="color: #fc848a;cursor: pointer;text-decoration: underline;">未绑定</a>');
                 }
             }
         }
-    })
+    })*/
     $(document).ready(function() {
         var a = function(a) {
             $("#getcode").click(function() {
@@ -98,7 +100,7 @@ $('.voice_hover').click(function() {
                     c = packSendData_general(d);
                     $.ajax({
                         type: "post",
-                        url: "https://user.tuwan.com/api/requestCode.ashx?t\x3d" + (new Date).getTime(),
+                        url: "?t\x3d" + (new Date).getTime(),
                         dataType: "jsonp",
                         jsonp: "callback",
                         data: {
@@ -114,7 +116,7 @@ $('.voice_hover').click(function() {
             a.bindOn("#getcode")
         };
         $.ajax({
-            url: "https://user.tuwan.com/api/getSlider.ashx?t\x3d" + (new Date).getTime(),
+            url: "?t\x3d" + (new Date).getTime(),
             type: "get",
             dataType: "jsonp",
             jsonp: "callback",
@@ -160,7 +162,7 @@ $('.voice_hover').click(function() {
             a = packSendData_general(a);
             $.ajax({
                 type: "post",
-                url: "https://user.tuwan.com/api/method/editmobile",
+                url: "",
                 dataType: "jsonp",
                 jsonp: "callback",
                 data: {
@@ -204,7 +206,7 @@ $('.voice_hover').click(function() {
             var b = !1;
             $.ajax({
                 type: "post",
-                url: "https://user.tuwan.com/api/method/checkpassword",
+                url: "checkpassword",
                 dataType: "jsonp",
                 jsonp: "callback",
                 data: {
@@ -234,7 +236,7 @@ $('.voice_hover').click(function() {
                 var b = !1;
                 $.ajax({
                     type: "post",
-                    url: "https://user.tuwan.com/api/method/chkuser",
+                    url: "/chkuser",
                     dataType: "jsonp",
                     jsonp: "callback",
                     data: {
