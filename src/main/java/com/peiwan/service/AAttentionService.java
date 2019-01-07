@@ -3,6 +3,7 @@ package com.peiwan.service;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.peiwan.bean.AAttention;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.peiwan.bean.PPerson;
 
 import java.util.List;
 
@@ -16,4 +17,5 @@ import java.util.List;
  */
 public interface AAttentionService extends IService<AAttention> {
     List<AAttention> queryAAttentionList();
+    int queryPPersonInsert(PPerson pPerson);
 }

@@ -136,7 +136,7 @@ function bindphone() {
         a = packSendData_general(a);
         $.ajax({
             type: "post",
-            url: "https://user.tuwan.com/api/method/editmobile",
+            url: "/editmobile",
             dataType: "jsonp",
             jsonp: "callback",
             data: {
@@ -183,7 +183,7 @@ function changepwd() {
         a = packSendData_general(a);
         $.ajax({
             type: "post",
-            url: "https://user.tuwan.com/api/method/editpassword",
+            url: "/editpassword",
             dataType: "jsonp",
             jsonp: "callback",
             data: {
@@ -197,7 +197,7 @@ function changepwd() {
 }
 function relogin() {
     $.ajax({
-        url: "https://app.tuwan.com/comment2/api/useraction.ashx?method\x3dloginout",
+        url: "/useraction.ashx?method\x3dloginout",
         dataType: "jsonp",
         success: function(a) {
             window.location.href = window.location.href
@@ -221,7 +221,7 @@ $(document).ready(function() {
                 console.log(c)
                 $.ajax({
                     type: "post",
-                    url: "https://user.tuwan.com/api/requestCode.ashx?t\x3d" + (new Date).getTime(),
+                    url: "/requestCode.ashx?t\x3d" + (new Date).getTime(),
                     dataType: "jsonp",
                     jsonp: "callback",
                     data: {
@@ -236,7 +236,7 @@ $(document).ready(function() {
         a.bindOn("#getcode")
     };
     $.ajax({
-        url: "https://user.tuwan.com/api/getSlider.ashx?t\x3d" + (new Date).getTime(),
+        url: "/getSlider.ashx?t\x3d" + (new Date).getTime(),
         type: "get",
         dataType: "jsonp",
         jsonp: "callback",
@@ -284,7 +284,7 @@ function chktelpwd(a) {
         var b = false;
         $.ajax({
             type: "post",
-            url: "https://user.tuwan.com/api/method/checkpassword",
+            url: "/checkpassword",
             dataType: "jsonp",
             jsonp: "callback",
             data: {
@@ -318,7 +318,7 @@ function chkoldpwd(a) {
         var b = !1;
         $.ajax({
             type: "post",
-            url: "https://user.tuwan.com/api/method/checkpassword",
+            url: "/checkpassword",
             dataType: "jsonp",
             jsonp: "callback",
             data: {
@@ -366,7 +366,7 @@ function chktel(a) {
             var b = !1;
             $.ajax({
                 type: "post",
-                url: "https://user.tuwan.com/api/method/chkuser",
+                url: "/chkuser",
                 dataType: "jsonp",
                 jsonp: "callback",
                 data: {
@@ -540,7 +540,7 @@ function submitbind(type){
         }
     }
     $.ajax({
-        url: 'https://api.tuwan.com/playteach/?data=bindpaytype&format=json',
+        url: '/?data=bindpaytype&format=json',
         type: "post",
         data: data,
         crossDomain:true,

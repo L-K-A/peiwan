@@ -24,7 +24,7 @@
     <script type="text/javascript" src="./js/tuwan_message.js"></script>
     <script type="text/javascript" src="./js/moxie.js"></script>
     <script type="text/javascript" src="./js/plupload.dev.js"></script>
-    <script type="text/javascript" src="./js/upload_playinfo.js"></script>
+    <script type="text/javascript" src="./js/upload_playerinfo.js"></script>
     <script type="text/javascript" src="./js/umeditor.config.js"></script>
     <script type="text/javascript" src="./js/umeditor.min.js"></script>
 </head>
@@ -277,7 +277,7 @@
 <div id="user_center_box" style="display:none">
     <div class="user_content_left">
         <div class="user_center">
-            <form action="" method="post" enctype="multipart/form-data" id="form">
+            <form method="post" enctype="multipart/form-data" id="personform">
                 <input type="hidden" name="dtid" class="dtid" value="31540"/>
                 <input type="hidden" name="loadflaghidden" id="loadflaghidden" value="0"/>
                 <div>
@@ -298,7 +298,7 @@
                 </div>
                 <div class="mt30">
                     <div class="fl mt10 name_title"><span class="star">*</span>昵称:</div>
-                    <input class="fl name_text pl10" type="text" placeholder="昵称" value="" id="nickname"
+                    <input class="fl name_text pl10" type="text" placeholder="昵称" value="" id="personNickname"
                            name="personNickname">
                     <div class="clearfix"></div>
                 </div>
@@ -316,7 +316,7 @@
                     <div class="fl name_title  mt10">
                         <span class="star">*</span>出生日期:
                     </div>
-                    <input type="text" id="birthday"  placeholder="例:19990102" class="fl name_text pl10" value=""
+                    <input type="text" id="birthday" placeholder="例:19990102" class="fl name_text pl10" value=""
                            name="personBirthday">
                     <div class="clearfix"></div>
                 </div>
@@ -358,7 +358,7 @@
                         <option value="659005">台湾省</option>
                     </select>
                     <select id="city" name="personAdress" class="fl pl10 pr10">
-                        <option value="0" selected >选择城市</option>
+                        <option value="0" selected>选择城市</option>
                         <option value="1" name="personAdress">上海</option>
                         <option value="2" name="personAdress">北京</option>
                         <option value="3" name="personAdress">重庆</option>
@@ -441,17 +441,19 @@
                 <div style="width:500px;height:1px;border-bottom:2px dotted #cccccc;"></div>
                 <div class="mt30">
                     <div class="fl mt10 name_title"><span class="Optional">（选填）</span>身高(cm)</div>
-                    <input class="fl name_text pl10" id="Sheight" name="personHeight" type="text" placeholder="身高" value="">
+                    <input class="fl name_text pl10" id="Sheight" name="personHeight" type="text" placeholder="身高"
+                           value="">
                     <div class="clearfix"></div>
                 </div>
                 <div class="mt30">
                     <div class="fl mt10 name_title"><span class="Optional">（选填）</span>体重(kg)</div>
-                    <input class="fl name_text pl10" id="weight" name="personWeight" type="text" placeholder="体重" value="">
+                    <input class="fl name_text pl10" id="weight" name="personWeight" type="text" placeholder="体重"
+                           value="">
                     <div class="clearfix"></div>
                 </div>
                 <div class="mt30">
                     <div class="fl mt10 name_title"><span class="Optional">（选填）</span>职业：</div>
-                    <select name="personCareer" id="work" >
+                    <select name="personCareer" id="work">
                         <option value="">请选择</option>
                         <option value='0'>学生</option>
                         <option value='1'>主播</option>
@@ -479,7 +481,8 @@
                 </div>
                 <div class="mt30">
                     <div class="fl mt10 name_title"><span class="Optional">（选填）</span>兴趣爱好：</div>
-                    <input type="text" class="fl input_file" name="personInterest" id="like" placeholder="字数不超过20个字" value="">
+                    <input type="text" class="fl input_file" name="personInterest" id="like" placeholder="字数不超过20个字"
+                           value="">
                     <div class="clearfix"></div>
                 </div>
                 <div class="mt50">
@@ -700,17 +703,21 @@
                     <div class="clearfix"></div>
                 </div>
                 <div class="mt30">
-                    <div class="fl mt10 mr5 name_title"><span class="star">*</span> 封面照：</div>
-                    <div class="fl" style="position: relative;">
-                        <input class="name_text pl10" type="button" value="上传图片"
-                               style="background-color: #5ecfba;color: #ffffff;height:32px;line-height:32px;">
-                        <input type="file" class="file_01" id="upfile" accept="image/*"
-                               style="height:32px;line-height:32px;display:block;">
-                        <input type="hidden" name="personCoverphoto" id="upfile_64" value="">
-                        <div class="diagram diagram1">示例图</div>
+                    <div class="fl mt10 mr5 name_title">
+                        <span class="star">*</span> 封面照：
                     </div>
-                    <div class="randimgsrc">
-                        <img src="./img/breviary.png" style="padding-left: 20px;" class="upfilebreviary breviary"></div>
+                    <div class="fl" style="position: relative;">
+                        <!--<input class="name_text pl10" type="button"  value="上传图片"
+                               style="background-color: #5ecfba;color: #ffffff;height:32px;line-height:32px;">
+                        <input type="file" name="himage" class="file_01" id="upimg"
+                               style="height:32px;line-height:32px;display:block;">
+                        <input type="hidden"  id="upimgfile" value="">
+                        <div class="diagram diagram1">示例图</div>-->
+                        <input type="file" name="himage" id="imagefile">
+                    </div>
+                    <!--<div class="randimgsrc">
+                        <img src="./img/breviary.png" style="padding-left: 20px;" class="upfilebreviary breviary">
+                    </div>-->
                     <div class="voice_01 mt10 gameExplain" style="float: right;margin-top: -140px;margin-right: 60px;">
                         请上传您的段位截图（需包含个人ID）,并填写<br>
                         线上LOL相关的描述<br>
@@ -1020,9 +1027,6 @@
     var dtid = 31540;
 
 
-
-
-
     /*开通服务*/
     function changeService(that, dtid) {
         $('.dtid').val(dtid);
@@ -1122,10 +1126,12 @@
     }
 
     //上传图片
+    //封面照
     getImageWidthAndHeight('upfile', function (obj) {
-    }, '1')
-    getImageWidthAndHeight('appindeximg', function (obj) {
-    }, '1')
+    }, '1');
+    //app封面照
+     getImageWidthAndHeight('appindeximg', function (obj) {
+    }, '1');
 
     //获取input图片宽高和大小
     function getImageWidthAndHeight(id, callback, flag) {
@@ -1144,9 +1150,9 @@
                         lrz(thisFiles, {width: widthsnum, height: heightsnum}, function (results) {
                             var ba = results.base64;
                             if (flag == 1) {
-                                $('#' + id + '_64').val(ba);
+                                $('#upfile_64').val(ba);
                                 // $('.'+id+'breviary').css("height",$('.'+id+'breviary').height())
-                                $('.' + id + 'breviary').attr('src', ba);
+                                $('.breviary').attr('src', ba);
                             }
                         })
                     }
@@ -1265,7 +1271,7 @@
                 var imgClip = $(".container .cropped img")[0].src;
                 $.ajax({
                     type: "post",
-                    url: "/upload?format=json",
+                    url: "",
                     crossDomain: true,
                     xhrFields: {
                         withCredentials: true
@@ -1294,17 +1300,49 @@
                 alert("请先裁剪图片!");
             }
         });
+
+
         /*表单提交*/
         $(".sure_box1").click(function () {
-            $.ajax({
-                type: "POST",
-                url:"/playinfosubmit",
-                dataType:"json",
-                data: $('#form').serialize(),
-                success:function (result) {
-                    alert(result);
-                }
-            });
+
+            /*判断*/
+            if ($("#imagefile").val() == '') {
+                alert('请上传图片');
+                flag = false;
+                return false;
+            }
+            var ext = $("#imagefile").val().substr($("#imagefile").val().lastIndexOf('.') + 1);
+            ext = ext.toLocaleLowerCase();
+            /*alert(ext);*/
+            if (ext != 'jpg' && ext != 'jpeg' && ext != 'png' && ext != 'JPG' && ext != 'JPEG' && ext != 'PNG')
+            {
+                flag = false;
+                alert('格式上传错误');
+                return false;
+            }
+            if ($('#imagefile').val().length > 104857) {
+                alert('图片大小不能超过1M');
+                flag = false;
+                return false;
+            }
+            if(flag!=false){
+                var fomFile = new FormData($("#personform")[0]);
+                //获取上传文件的路径和名称
+                var filePath=$("input[name='himage']").val();
+                $.ajax({
+                    type: "POST",
+                    url: "/playinfosubmit",
+                    dataType: "json",
+                    cache: false,
+                    processData: false,  //关闭
+                    contentType: false,  //关闭
+                    data: fomFile,
+                    success: function (result) {
+                        alert(result);
+                    }
+                });
+            }
+
         });
 
 

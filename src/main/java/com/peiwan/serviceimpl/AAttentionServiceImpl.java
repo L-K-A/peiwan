@@ -1,6 +1,7 @@
 package com.peiwan.serviceimpl;
 
 import com.peiwan.bean.AAttention;
+import com.peiwan.bean.PPerson;
 import com.peiwan.dao.AAttentionMapper;
 import com.peiwan.service.AAttentionService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -26,6 +27,12 @@ public class AAttentionServiceImpl extends ServiceImpl<AAttentionMapper, AAttent
     public List<AAttention> queryAAttentionList() {
         List list=aAttentionMapper.getAAttentionList();
         return list;
+    }
+
+    @Override
+    public int queryPPersonInsert(PPerson pPerson) {
+        int a=aAttentionMapper.getPPersonInsert(pPerson);
+        return a;
     }
 
     public AAttentionMapper getaAttentionMapper() {

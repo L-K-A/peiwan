@@ -149,7 +149,7 @@ var uploader = new plupload.Uploader({
 	browse_button : 'selectfiles', 
     //multi_selection: false,
     container: document.getElementById('container'),
-    flash_swf_url : '/static/templet/teach/admin/oss/lib/plupload-2.1.2/js/Moxie.swf',
+    flash_swf_url : '/js/Moxie.swf',
 //  silverlight_xap_url : 'http://static.tuwan.com/templet/teach/admin/oss/lib/plupload-2.1.2/js/Moxie.xap',
     url : 'http://oss.aliyuncs.com',
     filters: {

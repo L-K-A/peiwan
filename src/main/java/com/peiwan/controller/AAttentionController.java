@@ -1,6 +1,7 @@
 package com.peiwan.controller;
 
 
+import com.peiwan.Utils.baseCoverString;
 import com.peiwan.bean.PPerson;
 import com.peiwan.dao.AAttentionMapper;
 import com.peiwan.service.AAttentionService;
@@ -9,8 +10,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-
+import org.springframework.web.multipart.MultipartFile;
 import javax.annotation.Resource;
+import java.io.File;
 import java.util.List;
 
 /**
@@ -24,7 +26,7 @@ import java.util.List;
 @Controller
 public class AAttentionController {
 
-    @Autowired
+    @Resource
     private AAttentionMapper aAttentionMapper;
 
     @Resource
@@ -35,8 +37,8 @@ public class AAttentionController {
     /*测试*/
     @RequestMapping("/userinfo")
     public String getlist() {
-        List list = aAttentionMapper.getAAttentionList();
-
+        //List list = aAttentionMapper.getAAttentionList();
+        List list = aAttentionService.queryAAttentionList();
         System.out.println(list);
         return "sele";
     }
@@ -44,10 +46,17 @@ public class AAttentionController {
     /*申请表单测试*/
 
     @PostMapping("/playinfosubmit")
-    public String sek(@RequestBody String tag,@RequestBody String personProvince, PPerson pPerson) {
-        System.out.println(pPerson);
-        System.out.println(personProvince);
-        System.out.println(tag);
+    public String sek(MultipartFile himage, PPerson pPerson) {
+        //System.out.println(pPerson);
+        System.out.println(himage.getOriginalFilename());
+        System.out.println(himage.getContentType());
+        System.out.println(himage.getSize());
+        //System.out.println("转码:"+new baseCoverString().baseCoverStr(pPerson.getPersonCoverphoto()));
+        //int a=aAttentionMapper.getPPersonInsert(pPerson);
+        //System.out.println(a);
+        /*System.out.println("-----start------"+himage+"------end-------");
+        System.out.println(himageFileName);
+        System.out.println(himageContentType);*/
         return "sele";
     }
 
