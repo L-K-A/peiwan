@@ -1,5 +1,6 @@
 package com.peiwan.controller;
 
+import com.peiwan.bean.GService;
 import com.peiwan.bean.GSortDuanwei;
 import com.peiwan.service.ClassifyService;
 import org.springframework.stereotype.Controller;
@@ -47,22 +48,20 @@ public class ClassifyController {
     }
 
     @RequestMapping("/lists")
-    public Map lists(){
+    public Map lists(GService gid){
 
-        int i = 0;
-        System.out.println("进入后台list方法:"+i);
+
+        GService gids = new GService();
+        gids.setGid(1001);
 
         Map<String,Object> map = new HashMap<>();
         List<GSortDuanwei> list = cs.getList();
-
-        map.put("image","touxiang.jpg");
-
+        List<Map<String,Object>> mapList = cs.getPidGid(gids);
+        map.put("mapList",mapList);
         map.put("list",list);
-
 
         return map;
     }
-
 
 
 

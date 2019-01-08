@@ -1,8 +1,10 @@
 package com.peiwan.service;
 
+import com.peiwan.bean.GService;
 import com.peiwan.bean.GSortDuanwei;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @Author: QSC
@@ -12,6 +14,8 @@ import java.util.List;
  */
 public interface ClassifyService {
 
-    public List<GSortDuanwei> getList();
+    List<GSortDuanwei> getList();
+
+    List<Map<String,Object>> getPidGid(GService gid);
 
 }
