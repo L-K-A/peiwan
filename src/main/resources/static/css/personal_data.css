@@ -3,7 +3,7 @@
     /*老版本*/
 
 #user_center_box {
-    background: url(../images/top_bg.jpg) repeat-x top;
+    background: url(../img/top_bg.jpg) repeat-x top;
     margin-left: 220px;
     padding: 30px;
     background: #f3f3f3;
@@ -20,7 +20,7 @@
     }*/
     
     .icon_bg_02 {
-        background-image: url(../images/icon_bg_02.png);
+        background-image: url(../img/icon_bg_02.png);
         background-repeat: no-repeat;
     }
    /* 
@@ -743,7 +743,7 @@
 .lol_status_01{color:#25e198;font-size: 14px;}
 .lol_status{color:#999999;font-size: 14px;text-align: center;}
 .lol_img{width:80px;height:80px;overflow: hidden;border-radius: 100px;}
-.breviary{width: 156px; height: 135px;}
+.breviary{width: 206px; height: 205px;}
 .star{color:#f93f3f;margin-right:14px;}
 #user_center_box .name_title{width:136px;}
 .diagram{margin-top: 82px;text-align: right;color:#25e198;font-size:15px;text-decoration: underline;}
@@ -765,8 +765,8 @@
             padding: 50px 10%;
         }
 }
-}
-}
+
+
  @media (max-width :1780px){ 
       #user_center_box .user_center {
             width: 60%;
