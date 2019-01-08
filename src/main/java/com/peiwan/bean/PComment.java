@@ -1,13 +1,16 @@
 package com.peiwan.bean;
 
 import java.io.Serializable;
+
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 /**
  * <p>
- * 
+ *
  * </p>
  *
  * @author bjlz
@@ -16,6 +19,7 @@ import lombok.experimental.Accessors;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
+@TableName("p_comment")
 public class PComment implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -38,6 +42,7 @@ public class PComment implements Serializable {
     /**
      * 评论id
      */
+    @TableId("cid")
     private Integer cid;
 
     /**

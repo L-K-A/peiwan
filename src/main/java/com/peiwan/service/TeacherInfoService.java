@@ -1,8 +1,9 @@
 package com.peiwan.service;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.peiwan.bean.PComment;
 import com.peiwan.bean.PPerson;
 
-import java.sql.SQLOutput;
 
 /**
  * @Author: zhangwanli
@@ -13,5 +14,8 @@ import java.sql.SQLOutput;
 public interface TeacherInfoService {
     /*查询全部导师信息*/
     PPerson getInfo(int pid);
+
+    /*fenye */
+    IPage<PComment> selectPageExt(PComment pComment, int page, int pageSize);
 
 }

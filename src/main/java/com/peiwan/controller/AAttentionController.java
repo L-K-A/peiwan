@@ -19,7 +19,8 @@ public class AAttentionController {
 
     @RequestMapping("/hello")
     public String hello(){
-        return "zuboInfo";
+
+        return "testOne";
     }
 
 }

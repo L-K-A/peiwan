@@ -1,12 +1,15 @@
 package com.peiwan.serviceimpl;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.peiwan.bean.PComment;
 import com.peiwan.bean.PPerson;
 import com.peiwan.dao.TeacherInfoMapper;
 import com.peiwan.service.TeacherInfoService;
+import org.apache.ibatis.jdbc.Null;
 import org.springframework.stereotype.Service;
-
 import javax.annotation.Resource;
-import java.util.Map;
 
 import static com.peiwan.peiUtils.ConstellationUtil.calculateConstellation;
 
@@ -31,12 +34,25 @@ public class TeacherInfoServiceImpl implements TeacherInfoService {
         return  pPerson;
     }
 
+    /*fenye*/
+    @Override
+    public IPage<PComment> selectPageExt(PComment pComment , int page, int pageSize) throws RuntimeException {
+        try {
+            Page<PComment> p = new Page<>(page, pageSize);
+            p.setRecords(teacherInfoMapper.selectPageExt(p,pComment));
+            return p;
+        } catch (Exception e) {
+            throw new RuntimeException(e.getMessage());
+        }
+    }
 
-    
+
+
     public TeacherInfoMapper getTeacherInfoMapper() {
         return teacherInfoMapper;
     }
     public void setTeacherInfoMapper(TeacherInfoMapper teacherInfoMapper) {
         this.teacherInfoMapper = teacherInfoMapper;
     }
+
 }
