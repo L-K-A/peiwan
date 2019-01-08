@@ -1320,14 +1320,16 @@
                 alert('格式上传错误');
                 return false;
             }
-            if ($('#imagefile').val().length > 104857) {
+            if ($('#imagefile').val().length > 104858) {
+
                 alert('图片大小不能超过1M');
                 flag = false;
                 return false;
             }
-            if(flag!=false){
+            
                 var fomFile = new FormData($("#personform")[0]);
                 //获取上传文件的路径和名称
+                alert(fomFile.size);
                 var filePath=$("input[name='himage']").val();
                 $.ajax({
                     type: "POST",
@@ -1341,7 +1343,7 @@
                         alert(result);
                     }
                 });
-            }
+
 
         });
 
