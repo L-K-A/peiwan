@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>用户注册页面</title>
+    <script src="\jquery-3.3.1\jquery-3.3.1.min.js"></script>
+    <script src="\bootstrap\js\bootstrap.min.js"></script>
+    <link rel="stylesheet"
+          href="/bootstrap/css/bootstrap.css" />
+    <script type="text/javascript" src="\myjs\kaptcha.js"></script>
+    <!--<script type="text/javascript" src="/js/validate.js"></script>-->
+    <!--<script type="text/javascript" src="/js/register.js"></script>-->
+</head>
+<body>
+
+<!--张家明添加   登陆功能实现-->
+
+<!-- begin:添加一个注册表单 -->
+<div>
+    <form id="insert_modal" class="form-horizontal">
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="insert_name"
+                   name="name" placeholder="请输入账号"/> <span
+                class="help-block"></span>
+        </div>
+        <div class="col-sm-10">
+            <input type="password" class="form-control" id="insert_password"
+                   name="password" placeholder="请输入密码"/> <span
+                class="help-block"></span>
+        </div>
+
+        <!-- begin:验证码 -->
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="kaptcha" name="kaptcha"
+                   placeholder="请输入验证码" style="color: #000000;" /><span
+                class="help-block"></span>
+            <img src="kaptcha.jpg" width="200" id="kaptchaImage" title="看不清，点击换一张" />
+            <small>看不清，点击换一张</small>
+            <button type="button" class="btn btn-primary" id="user_insert_btn">注册</button>
+        </div>
+        <!-- end:验证码 -->
+
+    </form>
+</div>
+</body>
+</html>
