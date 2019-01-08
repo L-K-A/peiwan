@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--<script src="./vue/vue.min.js"></script>-->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="./js/jquery-1.12.3.min.js"></script>
+</head>
+<body>
+<div id="app">
+    <table id="tab" border="1 solid red">
+        <tr>
+            <th>编号</th>
+            <th>段位</th>
+            <th>编辑</th>
+        </tr>
+        <tr v-for="item in lists">
+            <td>{{item.gid}}</td>
+            <td>{{item.gDw}}</td>
+
+        </tr>
+    </table>
+</div>
+
+<script>
+    var a = new Vue({
+        el:'#app',
+        data:{
+            lists:[]
+        }
+    });
+    var getlist = function () {
+        console.log("test111");
+        $.ajax({
+            type:'POST',
+            dataType:'json',
+            url:'/lists',
+            success:function (data) {
+                console.log("test");
+                alert("test");
+                console.log(data);
+                a.lists = data.list;
+            }
+        });
+    };
+
+
+    getlist();
+</script>
+
+</body>
+</html>

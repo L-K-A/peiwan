@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<link href="css/common_index.css" type="text/css" rel="stylesheet">
+<link href="css/playlist.css" type="text/css" rel="stylesheet">
+<script src="js/jquery-1.12.3.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+<script src="js/json2.js"></script>
+<script src="js/jsencrypt.min.js"></script>
+<script src="js/getrsakey.js"></script>
+<script src="js/function.js"></script>
+<script src="js/encryption.js"></script>
+<script src="js/securelogin.js"></script>
+<script src="js/securereg.js"></script>
+<script src="js/sendtgid.js"></script>
+<script src="js/gt.js"></script>
+<!-- <script charset="utf-8" src="js/kfqq.js"></script> -->
+<!--<link rel="stylesheet" href="css/common_index_1.css" type="text/css">-->
+<link rel="stylesheet" href="css/top_footer.css" type="text/css">
+<link rel="stylesheet" href="css/geeteststyle.css" type="text/css">
+<link rel="stylesheet" href="css/common_head.css" type="text/css">
+
+
+
+<body>
+
+<!-- 这个是控制左边弹窗和主播展示头像的边框的 -->
+<style type="text/css">
+    #common_top_box {
+        background: #fff;
+    }
+
+
+    /*为某些指定用户的展示头像添加边框 images/border_list.png是边框图片*/
+    /*增加bg*/
+    #entry_box .play_box_bg {
+        /*background: (F:\yunhe\peiwan\src\main\resources\static\images\border_list.png) no-repeat center top;*/
+        width: 300px;
+        height: 400px;
+        margin-left: -27px;
+        position: absolute;
+        z-index: 1;
+        top: -24px;
+        left: 0;
+    }
+    </style>
+
+
+
+<!-- 游戏服务、娱乐服务、等级分类、导师性别四个板块 -->
+<div class="nav_center_box">
+    <!-- 游戏服务 -->
+    <div class="nav_box_border">
+        <div class="fl nav_title nav_title_add">游戏服务</div>
+        <div class="fl icon_box" gameid="31540" _class="lolup_icon">
+            <i class="listicon lolup_icon"></i><br>线上LOL
+        </div>
+        <div class="fl icon_box" gameid="20014" _class="pubg_icon">
+            <i class="listicon pubg_icon"></i><br>绝地求生
+        </div>
+        <div class="fl icon_box" gameid="20008" _class="hizi_icon">
+            <i class="listicon hizi_icon"></i><br>王者荣耀
+        </div>
+        <div class="fl icon_box" gameid="20018" _class="ciji_icon">
+            <i class="listicon ciji_icon"></i><br>刺激战场
+        </div>
+        <div class="fl icon_box" gameid="20019" _class="quanjun_icon">
+            <i class="listicon quanjun_icon"></i><br>全军出击
+        </div>
+        <div class="fl icon_box" gameid="20016" _class="huangye_icon">
+            <i class="listicon huangye_icon"></i><br>荒野行动
+        </div>
+        <div class="fl icon_box" gameid="20020" _class="five_icon">
+            <i class="listicon five_icon"></i><br>第五人格
+        </div>
+        <div class="fl icon_box" gameid="20021" _class="video_icon">
+            <i class="listicon video_icon"></i><br>视频游戏
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <!-- 娱乐服务 -->
+    <div class="nav_box_border">
+        <div class="fl  nav_title">娱乐服务</div>
+        <div class="fl icon_box" gameid="20004" _class="audio_icon">
+            <i class="listicon audio_icon"></i><br>声优聊天
+        </div>
+        <div class="fl icon_box" gameid="20012" _class="sleep_icon">
+            <i class="listicon sleep_icon"></i><br>哄睡觉
+        </div>
+        <div class="fl icon_box" gameid="20002" _class="songster_icon">
+            <i class="listicon songster_icon"></i><br>线上歌手
+        </div>
+        <div class="fl icon_box" gameid="20013" _class="wake_icon">
+            <i class="listicon wake_icon"></i><br>叫醒
+        </div>
+        <div class="fl icon_box" gameid="20011" _class="lover_icon">
+            <i class="listicon lover_icon"></i><br>虚拟恋人
+        </div>
+        <div class="fl icon_box" gameid="20015" _class="jianding_icon">
+            <i class="listicon jianding_icon"></i><br>声音鉴定
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <!-- 等级分类 -->
+    <div class="nav_box_border" id="ceshi">
+        <div class="nav_title_bottom fl">等级分类</div>
+        <div style="display:inline-block" v-for="item in lists" id="grade_icon" class="fl">
+            <div style="margin: auto">
+                {{item.gDw}}
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <!-- 性别 -->
+    <div>
+        <div class="nav_title_bottom fl">导师性别</div>
+        <div class="fl grade_icon grade_sex grade_icon_add">全部</div>
+        <div class="fl grade_icon grade_sex">女神</div>
+        <div class="fl grade_icon grade_sex">男神</div>
+        <div class="clearfix"></div>
+    </div>
+</div>
+<!-- 综合、热门、新人排序 -->
+<div class="sort_nav_box">
+    <div class="fl sort_nav sort_nav_add">综合排序</div>
+    <div class="fl sort_nav">热门</div>
+    <div class="fl sort_nav">新人</div>
+    <div class="clearfix"></div>
+</div>
+<!-- 排行榜 -->
+<div class="list_box" id="entry_box">
+    <div class="list_left_box fl" style="border: #9b9ca8 0px solid;width: 1060px;float: left">
+        <div v-for="item in box" style="width: 236px;height: 338px;margin:0px 29px 30px 0px; float: left" id="jd">
+            <!-- 主播头像的遍历 -->
+            <img style="background-image: url('images/touxiang.png');width: 236px;height: 233px"/>
+            <div style="width: 216px;height: 27px;margin: 15px 10px 0px 10px">
+                <!-- 昵称的遍历 -->
+                <span style="width: 150px;height: 27px;font-size: 20px;float: left">{{item.gid}}</span>
+                <!-- 段位的遍历 -->
+                <span style="width: 34px;height: 18px;margin: 5px 0px 0px 6px;float: right;background-color: #fcc171">{{item.gDw}}</span>
+            </div>
+            <div style="width: 110px;height: 18px;margin: 10px 0px 0px 10px">
+                <div style="width: 109px;height: 18px">
+                    <!-- 性别和年龄 -->
+                    <div style="width: 21.078px;height: 18px;padding: 0px 5px 0px 5px;margin-right: 6px;float: left">
+                        <i style="width: 7px;height: 18px;float: left">♀</i>
+                        <span style="width: 14.078px;height: 18px;float: left">20</span>
+                    </div>
+                    <!-- 地址的遍历 -->
+                    <div style="float: left;margin-right: 5px;width: 66px;height: 18px">{{item.gid}}</div>
+                </div>
+                <!-- 每小时费用的遍历 -->
+                <div style="width: 74.016px;height: 30px;margin: 8px 6px 0px 145px;font-size: 15px">
+                    ￥<span>50/</span>小时
+                </div>
+            </div>
+            <!-- 是否在线 -->
+            <div style="width: 109px;height: 21px;margin: 10px 10px 0px 10px;float: left">
+                <i style="width: 12px;height: 12px">☺</i>
+                <span style="width: 28px;height: 19px">在线</span>
+            </div>
+        </div>
+    </div>
+    <div class="list_right_box fr" style="float: right">
+        <div class="cv-rank-area">
+            <div class="cv-rank">
+                <div class="cv-rank-head">
+                    <span>热度榜</span>
+                    <ul class="sub-nav">
+                        <li><a href="javascript:;" rela="week" data-index="2" class="on sub-nav-call">7天</a></li>
+                        <li><a href="javascript:;" rela="month" data-index="3" class="sub-nav-call">30天</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="cv-rank-box">
+                <div class="cv-rank-list" id="cv-rank-call" data-index="1" style="opacity: 1;display: block;">
+                </div>
+                <div class="cv-rank-list" id="cv-rank-call2" data-index="1" style="opacity: 1;display: block;">
+                </div>
+            </div>
+        </div>
+        <div class="cv-rank-area">
+            <div class="cv-rank">
+                <div class="cv-rank-head">
+                    <span>礼物榜</span>
+                    <ul class="sub-nav">
+                        <li><a href="javascript:;" rela="week" data-index="2" class="on sub-nav-gift">7天</a></li>
+                        <li><a href="javascript:;" rela="month" data-index="3" class="sub-nav-gift">30天</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="cv-rank-box">
+                <div class="cv-rank-list" id="cv-rank-gift" data-index="1" style="opacity: 1;display: block;">
+                </div>
+            </div>
+        </div>
+        <div class="cv-rank-area">
+            <div class="cv-rank">
+                <div class="cv-rank-head">
+                    <span>富豪榜</span>
+                    <ul class="sub-nav">
+                        <li><a href="javascript:;" rela="week" data-index="2" class="on sub-nav-rich">7天</a></li>
+                        <li><a href="javascript:;" rela="month" data-index="3" class="sub-nav-rich">30天</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="cv-rank-box">
+                <div class="cv-rank-list" id="cv-rank-rich" data-index="1" style="opacity: 1;display: block;">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</div>
+<!-- 最下面的客服电话、帮助中心等 -->
+<div id="footer" style="float: left; width: 100%;">
+    <div class="footer_box">
+        <a href="javascript:" title="" class="fl"><img src="picture/consume1.jpg"></a>
+        <a href="javascript:" title="" class="fl"><img src="picture/consume2.jpg"></a>
+        <a href="javascript:" title="" class="fl"><img src="picture/consume3.jpg"></a>
+        <a href="javascript:" title="" class="fl"><img src="picture/consume4.jpg"></a>
+        <div class="clearfix"></div>
+        <div class="help_box mt30">
+            <div class="fl ml35 pr30 border_right"><i class="icon custom mr10"></i>客服电话：<span class="custom_01">010-68608228</span><span class="custom_02">咨询时间：7X24小时</span></div>
+            <div class="fl pl30" id="dd_kefu_pcbottom" style="cursor: pointer;"><i class="icon QQ mr10"></i>客服QQ：<span class="custom_01">800184580</span></div><div class="fl pl30"><span class="custom_02">咨询时间：7X24小时</span></div>
+            <div class="fl ml40">
+                <a href="javascript:" title="" class="fl help">帮助中心</a>
+                <a href="javascript:" title="" class="fl help">服务保障</a>
+                <a href="javascript:" title=""  class="fl help">陪玩守则</a>
+                <div class="clearfix"></div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="Copy">(京)字第05536号Copyright 2014-2020 TUWAN Corporation,All Rights Reserved</div>
+    </div>
+</div>
+
+<script>
+    var a = new Vue({
+        el:'#ceshi',
+        data:{
+            lists:[]
+        }
+    });
+    var getlist = function () {
+        console.log("test111");
+        $.ajax({
+            type:'POST',
+            dataType:'json',
+            url:'/lists',
+            success:function (data) {
+                console.log("test");
+                console.log(data);
+                a.lists = data.list;
+            }
+        });
+    };
+
+    var entry =new Vue({
+        el:'#entry_box',
+        data:{
+            box:[]
+        }
+    });
+    var getEntry = function(){
+        $.ajax({
+            type:'POST',
+            dataType:'json',
+            url:'/lists',
+            success:function (data) {
+                entry.box=data.list;
+            }
+        })
+    };
+    getEntry();
+    getlist();
+</script>
+<script>
+
+</script>
+
+</body>
+</html>
