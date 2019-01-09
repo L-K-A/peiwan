@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>找回密码</title>
+</head>
+<body>
+
+
+<!-- 忘记密码 -->
+<div class="login-reg-wrapper forget" v-if="popShow==2">
+    <div class="close-wrapper" @click="close()"><img src="/picture/close.png" class="close"></div>
+    <div class="login-reg-title">
+        <span class="return-btn" @click="forgetFun(1)"><img class="icon" src="/picture/back.png" alt="">返回</span>
+        <span class="text">找回密码</span>
+    </div>
+    <div class="login-content-wrapper">
+        <div class="login-content-item ">
+            <div class="left">
+                <div class="login-inp reset-inp">
+                    <div class="regist_phone_code regist_phone_code3" v-model.trim='regist_reset_code' @click="regist_ul_show(3)">+{{regist_reset_code}} <img src="/picture/jt.png" alt=""></div>
+                    <ul class="regist_phone_ul regist_phone_ul3" style="display: none;">
+                        <li @click="regist_li_data(86,3)">中国大陆 <span>+86</span></li>
+                        <li @click="regist_li_data(886,3)">中国台湾 <span>+886</span></li>
+                    </ul>
+                    <input class="reset_mobile" type="text" v-model.trim='reset_mobile' maxlength="11" placeholder="请输入手机号">
+                </div>
+                <div class="login-inp img-code">
+                    <div class="code-wrapper w200 reset-inp">
+                        <input class="w177 reset_captcha_code" type="text" v-model.trim="reset_captcha_code" placeholder="请输入图形验证码" :readonly="code_readonly">
+                    </div>
+                    <i class="code_txt">
+                        <img :src="/picture/b72fc88107de48c2b745631624f9fde5.gif" class="security-code" @click="refreshImgCode()">
+                    </i>
+                </div>
+                <div class="login-inp">
+
+                    <div class="code-wrapper w240 reset-inp">
+                        <input class="reset_message_code w218 " type="text" v-model='reset_message_code' onfocus="this.type='number'" placeholder="请输入短信验证码">
+                    </div>
+                    <i class="code_txt">
+                        <input type="button"  v-bind:value="reset_message_code_btn" class="reset_phone-security-code" @click='sendmessageFun(5)' :disabled='resetIsdisabled'/>
+                    </i>
+                </div>
+                <div class="login-inp reset-inp">
+                    <input class="reset_pwd" v-model.trim='reset_pwd' maxlength="20" onfocus="this.type='password'" placeholder="请输入密码">
+                </div>
+                <div class="login-inp reset-inp">
+                    <input class="reset_re_pwd" v-model.trim='reset_re_pwd' maxlength="20" onfocus="this.type='password'" placeholder="请输入密码">
+                </div>
+                <div class="login-inp "><a href="javascript:;" @click="password_find()" class="login-btn">重置密码</a></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+</body>
+</html>

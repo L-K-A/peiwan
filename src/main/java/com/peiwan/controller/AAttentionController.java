@@ -25,11 +25,30 @@ import javax.annotation.Resource;
 @RestController
 public class AAttentionController {
 
+
+
+//  主页
     @RequestMapping("/toIndex")
 
     public ModelAndView toIndex(){
         return new ModelAndView("index");
     }
+
+
+//   登陆
+
+    @RequestMapping("/toAddLogin")
+    public ModelAndView toAdd_login(){
+        return new ModelAndView("add_login");
+    }
+
+
+//    注册
+    public ModelAndView toAdd_enroll(){
+        return new ModelAndView("add_enroll");
+    }
+
+//  找回密码
 
 
 

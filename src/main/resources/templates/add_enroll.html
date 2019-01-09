@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+</head>
+<body>
+
+
+<!-- 注册 -->
+<div class="login-content-item">
+    <div class="left">
+        <div class="login-inp regist-inp">
+            <div class="regist_phone_code regist_phone_code2" v-model.trim='regist_phone_code' @click="regist_ul_show(2)">+{{regist_phone_code}} <img src="picture/jt.png" alt=""></div>
+            <ul class="regist_phone_ul regist_phone_ul2" style="display: none;">
+                <li @click="regist_li_data(86,2)">中国大陆 <span>+86</span></li>
+                <li @click="regist_li_data(886,2)">中国台湾 <span>+886</span></li>
+            </ul>
+            <input class="regist_mobile" type="text" v-model.trim='regist_mobile' maxlength="11" placeholder="请输入手机号">
+        </div>
+        <div class="login-inp img-code">
+            <div class="code-wrapper w200 regist-inp">
+                <input class="w177 regist_captcha_code" type="text" v-model.trim="regist_captcha_code" placeholder="请输入图形验证码" :readonly="code_readonly">
+            </div>
+            <i class="code_txt">
+                <img :src="/picture/b72fc88107de48c2b745631624f9fde5.gif" class="security-code" @click="refreshImgCode()">
+            </i>
+        </div>
+        <div class="login-inp">
+
+            <div class="code-wrapper w240 regist-inp">
+                <input class="regist_message_code w218 " type="text" v-model='regist_message_code' onfocus="this.type='number'" placeholder="请输入短信验证码">
+            </div>
+            <i class="code_txt">
+                <input type="button"  v-bind:value="regist_message_code_btn" class="regist_phone-security-code" @click='sendmessageFun(2)' :disabled='registIsdisabled'/>
+            </i>
+        </div>
+        <div class="login-inp regist-inp">
+            <input class="regist_pwd" v-model.trim='regist_pwd' maxlength="20" onfocus="this.type='password'" placeholder="请输入密码">
+        </div>
+        <div class="login-inp"><a href="javascript:;" @click="register()" class="login-btn">注册</a></div>
+    </div>
+    <div class="right">
+        <span class="right-title">其它登录方式</span>
+        <div class="login-mode-wrapper">
+            <div class="login-mode-item one" @click="changeLogin(1)">
+                <img src="/picture/phone.png" alt="" class="icon">
+                <span class="text">短信登录</span>
+            </div>
+            <div class="login-mode-item two">
+                <a href="/user/connect/authorize/platform/wechat">
+                    <img src="/picture/wx.png" alt="" class="icon">
+                    <span class="text">微信登录</span>
+                </a>
+            </div>
+            <div class="login-mode-item three">
+                <a href="/user/connect/authorize/platform/qq">
+                    <img src="/picture/qq.png" alt="" class="icon">
+                    <span class="text">QQ登录</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="bottom">
+        <span class="check-btn-wrapper" :class="{on:agreementChecked}" @click="agreementChecked=!agreementChecked"><span class="check-btn"></span><span class="check-text">注册即同意<span class="agreement" @click.stop.prevent='agreement_fn()'>《用户服务协议》</span></span></span>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+</body>
+</html>
