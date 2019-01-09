@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 /**
  * <p>
- *  服务实现类
+ * 服务实现类
  * </p>
  *
  * @author bjlz
@@ -16,5 +16,6 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class AAttentionServiceImpl extends ServiceImpl<AAttentionMapper, AAttention> implements AAttentionService {
+
 
 }

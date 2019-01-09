@@ -129,12 +129,10 @@
 
 						}
 						else{
-
 							var _content = Content.substr(0, 50);
 							if(Content.length>50){
 								_content += "..."
 							}	
-
 
 							createMessageHtml();
 							$(".message-main #message_main_teachearname").html('<a class="message-goteacher-detail" href="https://y.tuwan.com/play/'+ SendID +'/" target="_blank">'+ Sender +'</a>');
@@ -145,18 +143,14 @@
 							$(".message-main .message-hongbao-thumb img").attr("src", thumbUrl);
 							$(".message-main .message-hongbao-thumb a").attr("href", "https://y.tuwan.com/play/"+ SendID +"/");
 
-
 							$(".message-main .message-close").off("click");
 							$(".message-main .message-close").on("click", function(){
 								$(".message-main").hide();
 							})
-
 						}
-
 						new Image().src="https://app.tuwan.com/Message/ChangeMessage.ashx?messageid="+ messageid +"&action=read"
-							
+
 					}
-					
 				}
 			}
 		})
@@ -164,7 +158,6 @@
 
 	function getHeadThumb(teacherId){
 		var _tid = teacherId + "",ids=[];
-
 		if(_tid.length<9){
 			var __zeroLen = 9-_tid.length, __za=[];
 			for(var _i=0;_i<__zeroLen;_i++){
@@ -186,7 +179,6 @@
 		var thumbUrl = "https://ucavatar.tuwan.com/data/avatar/"+ ids.join("/") +"_avatar_large.jpg?random=" + new Date().getTime();
 		return thumbUrl;
 	}
-
 	function chaiHongbao(token, code, price){
 		$("#message_hongbao_jie, #message_hongbao_kai").off("click");
 		$("#message_hongbao_jie, #message_hongbao_kai").on("click", function(){
@@ -210,7 +202,6 @@
 		$(".message-main").hide();
 		$(".message-hongbao").hide();
 	}
-
 	function showTips(text){
 		$("#message_tips").text(text);
 		$("#message_tips").show();
@@ -218,7 +209,5 @@
 			$("#message_tips").hide();
 		}, 2000)
 	}
-
 	new message().init();
-
 })(window, document, jQuery);

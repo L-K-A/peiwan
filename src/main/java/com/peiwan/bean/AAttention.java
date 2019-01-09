@@ -35,6 +35,11 @@ public class AAttention implements Serializable {
     private Integer aid;
 
     /**
+     * 导师id
+     */
+    private Integer zid;
+
+    /**
      * 主播标识
      */
     private Integer zZhubo;
@@ -57,6 +62,14 @@ public class AAttention implements Serializable {
 
     public void setAid(Integer aid) {
         this.aid = aid;
+    }
+
+    public Integer getZid() {
+        return zid;
+    }
+
+    public void setZid(Integer zid) {
+        this.zid = zid;
     }
 
     public Integer getzZhubo() {

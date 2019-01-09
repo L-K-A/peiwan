@@ -1,14 +1,13 @@
 package com.peiwan.controller;
 
 
-
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.stereotype.Controller;
 
 /**
  * <p>
- *  前端控制器
+ * 前端控制器
  * </p>
  *
  * @author bjlz
@@ -17,9 +16,27 @@ import org.springframework.stereotype.Controller;
 @Controller
 public class AAttentionController {
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //测试内容
     @RequestMapping("/hello")
-    public String hello(){
-        return "zuboInfo";
+    public String hello() {
+        return "testOne";
     }
 
 }
