@@ -8,8 +8,14 @@
     <link href="./css/personal_data.css" type="text/css" rel="stylesheet">
     <link href="./css/newcommon_admin.css" type="text/css" rel="stylesheet">
     <link href="./css/pot_up_settings.css" type="text/css" rel="stylesheet">
-    <link href="./css/umeditor.css" type="text/css" rel="stylesheet">
-    <link href="./css/calendar-green.css" type="text/css" rel="stylesheet">
+    <!--<link href="./css/umeditor.css" type="text/css" rel="stylesheet">-->
+    <!--<link href="./css/calendar-green.css" type="text/css" rel="stylesheet">-->
+    <!--<link href="./js/layer/mobile/need/layer.css" type="text/css" rel="stylesheet">-->
+    <link rel="stylesheet" href="./css/easyhelper.min.css">
+    <script src="./js/es6-shim.min.js"></script>
+    <script src="./js/jquery-3.3.1.min.js"></script>
+    <script src="./js/jquery.transit.min.js"></script>
+    <script src="./js/easyhelper.min.js"></script>
     <script type="text/javascript" src="./js/jquery-1.12.3.min.js"></script>
     <script type="text/javascript" src="./js/jquery.zclip.js"></script>
     <script type="text/javascript" src="./js/cropbox.js"></script>
@@ -17,16 +23,17 @@
     <script type="text/javascript" src="./js/jsencrypt.min.js"></script>
     <script type="text/javascript" src="./js/getRSAKey.js"></script>
     <script type="text/javascript" src="./js/encryption.js"></script>
-    <script type="text/javascript" src="./js/calendar.js"></script>
+    <!--<script type="text/javascript" src="./js/calendar.js"></script>-->
     <script type="text/javascript" src="./js/personal_data1.js"></script>
     <script type="text/javascript" src="./js/lrz.js"></script>
     <script type="text/javascript" src="./js/exif.js"></script>
-    <script type="text/javascript" src="./js/tuwan_message.js"></script>
+    <!--<script type="text/javascript" src="./js/tuwan_message.js"></script>-->
     <script type="text/javascript" src="./js/moxie.js"></script>
     <script type="text/javascript" src="./js/plupload.dev.js"></script>
     <script type="text/javascript" src="./js/upload_playerinfo.js"></script>
-    <script type="text/javascript" src="./js/umeditor.config.js"></script>
+    <!--<script type="text/javascript" src="./js/umeditor.config.js"></script>
     <script type="text/javascript" src="./js/umeditor.min.js"></script>
+    <script type="text/javascript" src="./js/layer/layer.js"></script>-->
 </head>
 <style>
     .keep_box {
@@ -568,13 +575,11 @@
                     <div class="clearfix"></div>
                 </div>
                 <!--服务-->
-                <div class="lol_bigbox">
-
-
-                    <div class="fl lol_box">
-                        <div class="lol_img" gid="31540" flag="0"  >
-
-                            <img src="./img/playinfo/apply_31540.png" class="status_lol" gName="lol"
+                <div class="lol_bigbox" id="dj">
+                    <span name="gid" value="31540"></span>
+                    <div class="fl lol_box"  >
+                        <div class="lol_img" dtid="31540" flag="0"  >
+                            <img src="./img/playinfo/apply_31540.png" class="status_lol"
                                  style="width:80px;height:80px;display:none;" >
                             <img src="./img/playinfo/apply_hover_31540.png"
                                  style="width:80px;height:80px;display:block;" class="status_lolhover" >
@@ -582,9 +587,11 @@
                         <div class="lol_title" >线上LOL</div>
                         <div class="lol_status">（未开通）</div>
                     </div>
+
+                    <span name="gid" value="20002"></span >
                     <div class="fl lol_box">
-                        <div class="lol_img" gid="20002" flag="0">
-                            <img src="./img/playinfo/apply_20002.png" class="status_lol" gName="linesinger"
+                        <div class="lol_img" dtid="20002"  flag="0">
+                            <img src="./img/playinfo/apply_20002.png" class="status_lol"
                                  style="width:80px;height:80px;display:block;">
                             <img src="./img/playinfo/apply_hover_20002.png" style="width:80px;height:80px;display:none;"
                                  class="status_lolhover">
@@ -592,9 +599,13 @@
                         <div class="lol_title">线上歌手</div>
                         <div class="lol_status">（未开通）</div>
                     </div>
+
+
                     <div class="fl lol_box">
-                        <div class="lol_img" gid="20004" flag="0">
-                            <img src="./img/playinfo/apply_20004.png" class="status_lol" gName="talker"
+                        <div class="lol_img" dtid="20004"  flag="0">
+                            <!--<input type="checkbox" name="gid" value="20004" hidden="hidden">-->
+                            <!--<input name="gName" value="talker" hidden="hidden">-->
+                            <img src="./img/playinfo/apply_20004.png" class="status_lol"
                                  style="width:80px;height:80px;display:block;">
                             <img src="./img/playinfo/apply_hover_20004.png" style="width:80px;height:80px;display:none;"
                                  class="status_lolhover">
@@ -603,8 +614,10 @@
                         <div class="lol_status">（未开通）</div>
                     </div>
                     <div class="fl lol_box">
-                        <div class="lol_img" gid="20008" flag="0">
-                            <img src="./img/playinfo/apply_20008.png" class="status_lol" gName="wangzhe"
+                        <div class="lol_img" dtid="20008" flag="0">
+                            <input type="checkbox" name="gid" value="20008" hidden="hidden">
+                            <!--<input name="gName" value="wangzhe" hidden="hidden">-->
+                            <img src="./img/playinfo/apply_20008.png" class="status_lol"
                                  style="width:80px;height:80px;display:block;">
                             <img src="./img/playinfo/apply_hover_20008.png" style="width:80px;height:80px;display:none;"
                                  class="status_lolhover">
@@ -613,7 +626,9 @@
                         <div class="lol_status">（未开通）</div>
                     </div>
                     <div class="fl lol_box">
-                        <div class="lol_img" gid="20011" flag="0">
+                        <div class="lol_img" dtid="20011" flag="0">
+                            <input name="gid" value="20011" hidden="hidden">
+                            <!--<input name="gName" value="lover" hidden="hidden">-->
                             <img src="./img/playinfo/apply_20011.png" class="status_lol"
                                  style="width:80px;height:80px;display:block;">
                             <img src="./img/playinfo/apply_hover_20011.png" style="width:80px;height:80px;display:none;"
@@ -623,7 +638,9 @@
                         <div class="lol_status">（未开通）</div>
                     </div>
                     <div class="fl lol_box">
-                        <div class="lol_img" gid="20012" flag="0">
+                        <div class="lol_img" dtid="20012" flag="0">
+                            <input name="gid" value="20012" hidden="hidden">
+                            <!--<input name="gName" value="gosleep" hidden="hidden">-->
                             <img src="./img/playinfo/apply_20012.png" class="status_lol"
                                  style="width:80px;height:80px;display:block;">
                             <img src="./img/playinfo/apply_hover_20012.png" style="width:80px;height:80px;display:none;"
@@ -633,7 +650,9 @@
                         <div class="lol_status">（未开通）</div>
                     </div>
                     <div class="fl lol_box">
-                        <div class="lol_img" gid="20013" flag="0">
+                        <div class="lol_img" dtid="20013" flag="0">
+                            <input name="gid" value="20013" hidden="hidden">
+                            <!--<input name="gName" value="weakup" hidden="hidden">-->
                             <img src="./img/playinfo/apply_20013.png" class="status_lol"
                                  style="width:80px;height:80px;display:block;">
                             <img src="./img/playinfo/apply_hover_20013.png" style="width:80px;height:80px;display:none;"
@@ -643,7 +662,9 @@
                         <div class="lol_status">（未开通）</div>
                     </div>
                     <div class="fl lol_box">
-                        <div class="lol_img" gid="20014" flag="0">
+                        <div class="lol_img" dtid="20014" flag="0">
+                            <input name="gid" value="20014" hidden="hidden">
+                            <!--<input name="gName" value="pubg" hidden="hidden">-->
                             <img src="./img/playinfo/apply_20014.png" class="status_lol"
                                  style="width:80px;height:80px;display:block;">
                             <img src="./img/playinfo/apply_hover_20014.png" style="width:80px;height:80px;display:none;"
@@ -653,7 +674,9 @@
                         <div class="lol_status">（未开通）</div>
                     </div>
                     <div class="fl lol_box">
-                        <div class="lol_img" gid="20016" flag="0">
+                        <div class="lol_img" dtid="20016" flag="0">
+                            <input name="gid" value="20016" hidden="hidden">
+                            <!--<input name="gName" value="huangye" hidden="hidden">-->
                             <img src="./img/playinfo/apply_20016.png" class="status_lol"
                                  style="width:80px;height:80px;display:block;">
                             <img src="./img/playinfo/apply_hover_20016.png" style="width:80px;height:80px;display:none;"
@@ -663,7 +686,9 @@
                         <div class="lol_status">（未开通）</div>
                     </div>
                     <div class="fl lol_box">
-                        <div class="lol_img" gid="20018" flag="0">
+                        <div class="lol_img" dtid="20018" flag="0">
+                            <input name="gid" value="20018" hidden="hidden">
+                            <!--<input name="gName" value="ciji" hidden="hidden">-->
                             <img src="./img/playinfo/apply_20018.png" class="status_lol"
                                  style="width:80px;height:80px;display:block;">
                             <img src="./img/playinfo/apply_hover_20018.png" style="width:80px;height:80px;display:none;"
@@ -673,7 +698,9 @@
                         <div class="lol_status">（未开通）</div>
                     </div>
                     <div class="fl lol_box">
-                        <div class="lol_img" gid="20019" flag="0">
+                        <div class="lol_img" dtid="20019" flag="0">
+                            <input name="gid" value="20019" hidden="hidden">
+                            <!--<input name="gName" value="quanjun" hidden="hidden">-->
                             <img src="./img/playinfo/apply_20019.png" class="status_lol"
                                  style="width:80px;height:80px;display:block;">
                             <img src="./img/playinfo/apply_hover_20019.png" style="width:80px;height:80px;display:none;"
@@ -683,7 +710,9 @@
                         <div class="lol_status">（未开通）</div>
                     </div>
                     <div class="fl lol_box">
-                        <div class="lol_img" gid="20020" flag="0">
+                        <div class="lol_img" dtid="20020" flag="0">
+                            <input name="gid" value="20020" hidden="hidden">
+                            <!--<input name="gName" value="five" hidden="hidden">-->
                             <img src="./img/playinfo/apply_20020.png" class="status_lol"
                                  style="width:80px;height:80px;display:block;">
                             <img src="./img/playinfo/apply_hover_20020.png" style="width:80px;height:80px;display:none;"
@@ -693,7 +722,9 @@
                         <div class="lol_status">（未开通）</div>
                     </div>
                     <div class="fl lol_box">
-                        <div class="lol_img" gid="20021" flag="0">
+                        <div class="lol_img" dtid="20021" flag="0">
+                            <input name="gid" value="20021" hidden="hidden">
+                            <!--<input name="gName" value="videoplay" hidden="hidden">-->
                             <img src="./img/playinfo/apply_20021.png" class="status_lol"
                                  style="width:80px;height:80px;display:block;">
                             <img src="./img/playinfo/apply_hover_20021.png" style="width:80px;height:80px;display:none;"
@@ -747,77 +778,77 @@
                     <div class="clearfix"></div>
                 </div>
                 <div class="mt30" id="gamelist" style="display: none;">
-                    <div class="fl mt10 name_title"><span class="star"></span>QQ可接段位：</div>
+                    <div class="fl mt10 name_title"><span class="star"></span>QQ/微信 可接段位:</div>
                     <div class="ajaxgamelist fl" style="width: 724px;">
                         <div class='mt10 fl mr40 gamenums1'>
-                            <input type='checkbox' name='gamelistV2' class='gamelist' value='1'/>倔强黄铜
+                            <input type='checkbox' name='gDuanwei' class='gamelist' value='1'/>倔强黄铜
                         </div>
                         <div class='mt10 fl mr40 gamenums2'>
-                            <input type='checkbox' name='gamelistV2' class='gamelist' value='2'/>秩序白银
+                            <input type='checkbox' name='gDuanwei' class='gamelist' value='2'/>秩序白银
                         </div>
                         <div class='mt10 fl mr40 gamenums3'>
-                            <input type='checkbox' name='gamelistV2' class='gamelist' value='3'/>荣耀黄金
+                            <input type='checkbox' name='gDuanwei' class='gamelist' value='3'/>荣耀黄金
                         </div>
                         <div class='mt10 fl mr40 gamenums4'>
-                            <input type='checkbox' name='gamelistV2' class='gamelist' value='4'/>尊贵铂金
+                            <input type='checkbox' name='gDuanwei' class='gamelist' value='4'/>尊贵铂金
                         </div>
                         <div class='mt10 fl mr40 gamenums5'>
-                            <input type='checkbox' name='gamelistV2' class='gamelist' value='5'/>永恒钻石
+                            <input type='checkbox' name='gDuanwei' class='gamelist' value='5'/>永恒钻石
                         </div>
                         <div class='mt10 fl mr40 gamenums6'>
-                            <input type='checkbox' name='gamelistV2' class='gamelist' value='6'/>至尊星耀
+                            <input type='checkbox' name='gDuanwei' class='gamelist' value='6'/>至尊星耀
                         </div>
                         <div class='mt10 fl mr40 gamenums7'>
-                            <input type='checkbox' name='gamelistV2' class='gamelist' value='7'/>最强王者
+                            <input type='checkbox' name='gDuanwei' class='gamelist' value='7'/>最强王者
                         </div>
                         <div class='mt10 fl mr40 gamenums8'>
-                            <input type='checkbox' name='gamelistV2' class='gamelist' value='8'/>荣耀王者
+                            <input type='checkbox' name='gDuanwei' class='gamelist' value='8'/>荣耀王者
                         </div>
                     </div>
                     <div class="clearfix"></div>
                 </div>
-                <div class="mt30" id="gamelistV2" style="display: none;">
+               <!-- <div class="mt30" id="gamelistV2" style="display: none;">
                     <div class="fl mt10 name_title"><span class="star"></span>微信可接段位:</div>
                     <div class="ajaxgamelistV2 fl" style="width: 724px;">
                         <div class='mt10 fl mr40 gamenums1'>
-                            <input type='checkbox' name='gamelist' class='gamelist' value='1'/>倔强黄铜
+                            <input type='checkbox' name='gamelistwx' class='gamelist' value='1'/>倔强黄铜
                         </div>
                         <div class='mt10 fl mr40 gamenums2'>
-                            <input type='checkbox' name='gamelist' class='gamelist' value='2'/>秩序白银
+                            <input type='checkbox' name='gamelistwx' class='gamelist' value='2'/>秩序白银
                         </div>
                         <div class='mt10 fl mr40 gamenums3'>
-                            <input type='checkbox' name='gamelist' class='gamelist' value='3'/>荣耀黄金
+                            <input type='checkbox' name='gamelistwx' class='gamelist' value='3'/>荣耀黄金
                         </div>
                         <div class='mt10 fl mr40 gamenums4'>
-                            <input type='checkbox' name='gamelist' class='gamelist' value='4'/>尊贵铂金
+                            <input type='checkbox' name='gamelistwx' class='gamelist' value='4'/>尊贵铂金
                         </div>
                         <div class='mt10 fl mr40 gamenums5'>
-                            <input type='checkbox' name='gamelist' class='gamelist' value='5'/>永恒钻石
+                            <input type='checkbox' name='gamelistwx' class='gamelist' value='5'/>永恒钻石
                         </div>
                         <div class='mt10 fl mr40 gamenums6'>
-                            <input type='checkbox' name='gamelist' class='gamelist' value='6'/>至尊星耀
+                            <input type='checkbox' name='gamelistwx' class='gamelist' value='6'/>至尊星耀
                         </div>
                         <div class='mt10 fl mr40 gamenums7'>
-                            <input type='checkbox' name='gamelist' class='gamelist' value='7'/>最强王者
+                            <input type='checkbox' name='gamelistwx' class='gamelist' value='7'/>最强王者
                         </div>
                         <div class='mt10 fl mr40 gamenums8'>
-                            <input type='checkbox' name='gamelist' class='gamelist' value='8'/>荣耀王者
+                            <input type='checkbox' name='gamelistwx' class='gamelist' value='8'/>荣耀王者
                         </div>
                     </div>
                     <div class="clearfix"></div>
-                </div>
+                </div>-->
                 <div id="dtid">
 
                     <div class="mt30">
                         <div class="fl mt10 mr5 name_title">
                             <span class="star">*</span>游戏ID:</div>
-                        <input class="fl name_text pl10" type="text" placeholder="GameID" name="gameID" id="gameID"
+                        <input class="fl name_text pl10" type="text" placeholder="GameID" name="pGid" id="gameID"
                                value="">
                         <div class="clearfix"></div>
                     </div>
                     <div class="mt30">
                         <div class="fl mt10 mr5 name_title"><span class="star">*</span>所在大区：</div>
-                        <select id="area_id" name="area_id" class="pl10 pr10">
+                        <select id="area_id" name="gDaqu" class="pl10 pr10">
                             <option value="0" style="color:#999999;">请选择服务器</option>
                             <option value="1">艾欧尼亚</option>
                             <option value="2">比尔吉沃特</option>
@@ -853,7 +884,7 @@
                     </div>
                     <div class="mt30">
                         <div class="fl mt10 mr5 name_title"><span class="star"> </span>当前段位：</div>
-                        <select name="grading">
+                        <select name="gDuanwei">
                             <option value="0" selected="selected">无段位</option>
                             <option value="1">最强王者</option>
                             <option value="2">超凡大师</option>
@@ -1031,7 +1062,7 @@
 
 <script type="text/javascript">
 
-    var dtid = 31540;
+    var dtid = null;
 
 
     /*开通服务*/
@@ -1329,24 +1360,50 @@
                 return false;
             }
         }*/
+        /*生日*/
+        /*$("#birthday").blur(function () {
+            var personbirthday = /^\d{4}\d{2}\d{2}$/;
+            if (!personbirthday.test($('#birthday').val())) {
+                alert("日期错误");
+                $('#birthday').addClass('add_input');
+                flag = false;
+            }
+        });*/
+
+
+        /*游戏名判断*/
+        /*$("#dj span").click(function () {
+            /!*var indexDiv = $("#dj span").index(this);
+            gid = indexDiv + 1000;
+            alert(gid);*!/
+            var gameid=$("#dj span").attr("value");
+            var gName=null;
+            alert(gameid);
+        });*/
+
+        /*$("#gna").click(function () {
+            var gameid=$('input[name="gid"]').val();
+            var gName=null;
+            alert(gameid);
+        });*/
         /*判断checkout选中个数*/
         $(document).ready(function() {
 
             $('input[type=checkbox][name=tag]').click(function () {
-                var leng = $("input[name=tag]:checked").length;
+                var leng = $("input[type=checkbox][name=tag]:checked").length;
                 if (leng > 2) {
                     flag=false;
                     alert("最多选2个");
-                    $("input[name=tag]:checked").attr('checked', false);
+                    $("input[type=checkbox][name=tag]:checked").attr('checked', false);
                 }
             });
 
             $('input[type=checkbox][name=organ]').click(function () {
-                var leng = $("input[name=organ]:checked").length;
+                var leng = $("input[type=checkbox][name=organ]:checked").length;
                 if (leng > 3) {
                     flag=false;
                     alert("最多选3个");
-                    $("input[name=organ]:checked").attr('checked', false);
+                    $("input[type=checkbox][name=organ]:checked").attr('checked', false);
                 }
             });
 
@@ -1374,14 +1431,11 @@
         /*表单提交*/
         $(".sure_box1").click(function () {
             var  flag=true;
-
-
             /*昵称判断*/
             if($("#personNickname").val()==''){
                 alert('昵称不能为空!');
                 flag=false;
             }
-
             /*图片判断*/
             if ($("#imagefile").val() == '') {
                 alert('请上传图片');
@@ -1413,6 +1467,8 @@
                 var fomFile = new FormData($("#personform")[0]);
                 //获取上传文件的路径和名称
                 var filePath=$("input[name='himage']").val();
+                Helper.ui.dialogSuccess( "提交成功", "请耐心等待审核,页面将返回!!" );
+
                 $.ajax({
                     type: "POST",
                     url: "/playinfosubmit",
@@ -1422,11 +1478,30 @@
                     contentType: false,  //关闭
                     data: fomFile,
                     success: function (result) {
-                        alert(result);
+                        if(result.succ==1){
+                           /!* Helper.ui.dialogSuccess( "提交成功", "页面将返回!" );*!/
+                            countDown(5);
+                        }
+
+                            //window.location.href='indexw';
+
                     }
                 });
+
+
+                /*window.location.href='ocenter.html';*/
             }
         });
+
+
+        function countDown(secs){
+            if(secs>0){
+                setTimeout("countDown("+secs+")",5000);
+                location.href='/indexw';
+            }else{
+                window.location.href='/indexw';
+            }
+        }
 
         $("#personNickname").blur(function () {
             var nickname = $(this).val();

@@ -7,6 +7,7 @@ import com.peiwan.bean.PAlity;
 import com.peiwan.bean.PPerson;
 import com.peiwan.dao.AAttentionMapper;
 import com.peiwan.service.AAttentionService;
+import jdk.management.resource.internal.inst.SocketOutputStreamRMHooks;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
+
 import javax.annotation.Resource;
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -61,6 +64,7 @@ public class AAttentionController {
 
     /**
      * 申请表单
+     * @AUther lxq
      * @param tag
      * @param organ
      * @param himage
@@ -71,20 +75,22 @@ public class AAttentionController {
      * @throws Exception
      */
     @PostMapping("/playinfosubmit")
-    public String sek(String tag, String organ,MultipartFile himage, PPerson pPerson, PAlity pAlity, GService gService) throws Exception {
+    @ResponseBody
+    public Map sek(String tag, String organ,MultipartFile himage, PPerson pPerson, PAlity pAlity, GService gService) throws Exception {
         //System.out.println(himage.getOriginalFilename());
+        int pid =4;
+
         String filePath ="F:\\upload\\"+himage.getOriginalFilename();
         BufferedOutputStream outputStream=new BufferedOutputStream(new FileOutputStream(filePath));
         outputStream.write(himage.getBytes());
         outputStream.flush();
         outputStream.close();
         pPerson.setPersonCoverphoto(filePath);
-        /*取出才艺标签*/
+        pPerson.setPid(pid);
+        /*才艺标签*/
         //System.out.println("标签:"+tag);
-        //System.out.println(tag.substring(0,1));
-        //System.out.println(tag.substring(2,3));
         /*才艺表赋值*/
-        //pAlity.setPid();
+        //pAlity.setPid(pid);
         //pAlity.setAlityOne(tag.substring(0,1));
         //pAlity.setAlityTwo(tag.substring(2,3));
         /*魅力部位*/
@@ -93,15 +99,19 @@ public class AAttentionController {
         //pAlity.setCharmThree(organ.substring(4,5));
         //System.out.println(pAlity);
         /*游戏版块*/
-        System.out.println(gService.getGid());
-        System.out.println(gService.getGName());
+        //System.out.println("游戏"+gService);
+        //gService.setPid(pid);
+        //gService.setGName("lol");
         //System.out.println(pPerson);
         /*base64转码*/
         //System.out.println("转码:"+new baseCoverString().baseCoverStr(pPerson.getPersonCoverphoto()));
         /*插入操作*/
-        //int a=aAttentionMapper.getPPersonInsert(pPerson);
-        //System.out.println(a);
-        return "sele";
+        //aAttentionMapper.getPPersonInsert(pPerson);
+        //aAttentionMapper.getInsertAlity(pAlity);
+        //aAttentionMapper.getInsertGservice(gService);
+        Map map=new HashMap();
+        map.put("succ",1);
+        return  map;
     }
     /**
      * 用户名检查

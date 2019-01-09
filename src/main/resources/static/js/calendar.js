@@ -11,7 +11,7 @@
 
 var head = document.getElementsByTagName('HEAD').item(0);
 var style = document.createElement('link');
-style.href = 'https://res.tuwan.com/templet/teach/admin/playerinfo/js/calendar/calendar-green.css';
+style.href = './js/calendar-green.css';
 style.rel = 'stylesheet';
 style.type = 'text/css';
 head.appendChild(style);
@@ -163,7 +163,7 @@ Calendar.removeEvent = function (el, evname, func) {
 Calendar.createElement = function (type, parent) {
     var el = null;
     if (document.createElementNS) {
-        el = document.createElementNS("http://www.w3.org/1999/xhtml", type);
+        el = document.createElementNS("/1999/xhtml", type);
     } else {
         el = document.createElement(type);
     }

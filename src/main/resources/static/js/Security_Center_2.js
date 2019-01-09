@@ -97,7 +97,7 @@ $('.display_none01').click(function() {
     $('#Bound_phone').show();
 
 })
-$('.layer-cell-close').click(function() {
+$('.layer1-cell-close').click(function() {
         $('#Modify_password').hide();
         $('#Modify_mobile').hide();
         $('#Modify_alipay').hide();

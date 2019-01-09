@@ -22,7 +22,7 @@ function editavatar() {
 
         $.ajax({
             type: "post",
-            url: "http://u.tuwan.com/Avatar/upload?format=json",
+            url: "/upload?format=json",
             crossDomain: true,
             xhrFields: {
                 withCredentials: true

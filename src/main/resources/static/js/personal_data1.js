@@ -298,7 +298,7 @@ function settime(a) {
 }
 
 
-$('.layer-cell-close').click(function () {
+$('.layer1-cell-close').click(function () {
     $('#Bound_phone').hide();
 })
 
@@ -635,7 +635,7 @@ function jqchk(classname) { //jquery获取复选框值
 }
 
 
-if (UM) {
+/*if (UM) {
     var um = UM.getEditor('myEditor');
     um.execCommand('unlink');
 
@@ -644,6 +644,6 @@ if (UM) {
         arr.push(UM.getEditor('myEditor').getContent());
         return arr.join("\n");
     }
-} 
+} */
 
          

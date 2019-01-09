@@ -538,7 +538,7 @@
     #mailer_box .mailer {
         width: 766px;
         height: 610px;
-        background: url(http://static.tuwan.com/templet/teach/admin/playerinfo/images/mailer.png);
+        background: url(../img/mailer.png);
         position: fixed;
         z-index: 99999;
         left: 32%;

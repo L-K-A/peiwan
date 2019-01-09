@@ -3,16 +3,254 @@
 <head>
     <title>HTML5上传图片预览</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="./css/easyhelper.min.css">
+    <script src="./js/es6-shim.min.js"></script>
+    <script src="./js/jquery-3.3.1.min.js"></script>
+    <script src="./js/jquery.transit.min.js"></script>
+    <script src="./js/easyhelper.min.js"></script>
 </head>
 <body>
-<h3>请选择图片文件：JPG/GIF</h3>
+
+<div>
+    <div class="order_goods_box">
+
+
+        <div class="order_goods " style=" height: 192px;">
+            <div class="help_bigbox pt10 pb10">
+                <div class="fl ml20 up_down_box">
+                    <span class="fl">订单号:202019010919382302111</span>
+
+                </div>
+
+                <a class="fl help_box lianxikefu" href="javascript:void(0)" title="客服QQ：800184580">
+                    <i class="icon_bg fl help"></i><span class="fl telephone">联系客服</span>
+                    <div class="clearfix"></div>
+                </a>
+                <div class="fr refuse_box pr15 off" order="202019010919382302111"><i class="icon_bg fl refuse"></i><span class="fl">取消订单</span>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="mt30 pb30">
+                <div class="fl head_samllimg_box">
+                    <div class="fl">
+                        <div class="head_samll_box">
+                            <a href="https://y.tuwan.com/play/420073/?gameid=20014" target="_blank" class="head_samllimg ml20" style="display: block;"><img src="https://ucavatar.tuwan.com/data/avatar/000/42/00/73_avatar_middle.jpg?random=1546952848" onerror="imgNoFound(this)"></a>
+                            <!-- <div class="head_samll_01">V5</div> -->
+                        </div>
+                    </div>
+                    <div class="fl  head_samlltext ml30">
+                        <div>绝地求生 · 点点约玩（1小时）</div>
+                        <div><span>导师：</span>小耳朵<div class="grade_box"><img src="https://res.tuwan.com/templet/play/teacher/images/grade.png" class="grade_img"><span class="grade_span">VIP2</span></div></div>
+                        <div><span>UID：</span>420073</div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="fl refuse_01_box mt30">
+                    <span class="fl">联系导师</span><i class="icon_bg fl refuse_01 ml10 lxdaoshi" qq="1028798058" desc="导师" title="导师QQ：1028798058"></i>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="time_order fl mt20"><div class="yuyuetime">预约时间</div> 2019年01月09日 21:00-22:00
+                </div>
+                <div class="fl Orders_box zf Orders_box_zhifu">
+                    <div>未付款：50.00元</div>
+                    <div name="小耳朵" class="Orders Orders_05" order="202019010919382302111">去支付</div>
+                    <div class="time_box" id="zf_202019010919382302111">还剩07分39秒,逾期自动取消订单</div>
+                    <script type="text/javascript">
+                        var t202019010919382302111 = 574;
+                        function timeShow202019010919382302111(){
+                            t202019010919382302111--;
+                            i = Math.floor(t202019010919382302111/60);
+                            s = t202019010919382302111%60;
+                            if(i<10){
+                                i = "0"+i;
+                            }
+                            if(s<10){
+                                s = "0"+s;
+                            }
+                            str = "还剩"+i+"分"+s+"秒,逾期自动取消订单";
+                            $("#zf_202019010919382302111").html(str);
+                            if(t202019010919382302111==0){
+                                location.href = location.href;
+                            }
+                        };
+                        setInterval(timeShow202019010919382302111,1000);
+                    </script>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+
+        <div class="order_goods " style=" height: 192px;">
+            <div class="help_bigbox pt10 pb10">
+                <div class="fl ml20 up_down_box">
+                    <span class="fl">订单号:202019010919380136110</span>
+
+                </div>
+
+                <a class="fl help_box lianxikefu" href="javascript:void(0)" title="客服QQ：800184580">
+                    <i class="icon_bg fl help"></i><span class="fl telephone">联系客服</span>
+                    <div class="clearfix"></div>
+                </a>
+                <div class="fr refuse_box pr15 off" order="202019010919380136110"><i class="icon_bg fl refuse"></i><span class="fl">取消订单</span>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="mt30 pb30">
+                <div class="fl head_samllimg_box">
+                    <div class="fl">
+                        <div class="head_samll_box">
+                            <a href="https://y.tuwan.com/play/420073/?gameid=20014" target="_blank" class="head_samllimg ml20" style="display: block;"><img src="https://ucavatar.tuwan.com/data/avatar/000/42/00/73_avatar_middle.jpg?random=1546952848" onerror="imgNoFound(this)"></a>
+                            <!-- <div class="head_samll_01">V5</div> -->
+                        </div>
+                    </div>
+                    <div class="fl  head_samlltext ml30">
+                        <div>绝地求生 · 点点约玩（1小时）</div>
+                        <div><span>导师：</span>小耳朵<div class="grade_box"><img src="https://res.tuwan.com/templet/play/teacher/images/grade.png" class="grade_img"><span class="grade_span">VIP2</span></div></div>
+                        <div><span>UID：</span>420073</div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="fl refuse_01_box mt30">
+                    <span class="fl">联系导师</span><i class="icon_bg fl refuse_01 ml10 lxdaoshi" qq="1028798058" desc="导师" title="导师QQ：1028798058"></i>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="time_order fl mt20"><div class="yuyuetime">预约时间</div> 2019年01月09日 20:00-21:00
+                </div>
+                <div class="fl Orders_box zf Orders_box_zhifu">
+                    <div>未付款：50.00元</div>
+                    <div name="小耳朵" class="Orders Orders_05" order="202019010919380136110">去支付</div>
+                    <div class="time_box" id="zf_202019010919380136110">还剩07分17秒,逾期自动取消订单</div>
+                    <script type="text/javascript">
+                        var t202019010919380136110 = 552;
+                        function timeShow202019010919380136110(){
+                            t202019010919380136110--;
+                            i = Math.floor(t202019010919380136110/60);
+                            s = t202019010919380136110%60;
+                            if(i<10){
+                                i = "0"+i;
+                            }
+                            if(s<10){
+                                s = "0"+s;
+                            }
+                            str = "还剩"+i+"分"+s+"秒,逾期自动取消订单";
+                            $("#zf_202019010919380136110").html(str);
+                            if(t202019010919380136110==0){
+                                location.href = location.href;
+                            }
+                        };
+                        setInterval(timeShow202019010919380136110,1000);
+                    </script>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--guanzhu-->
+<div class="left_margin gift_record">
+    <div class="gift_title mb20">我的关注</div>
+    <div class="gift_list_box">
+        <div class="gift_list_border">
+            <div class="gift_list_title ml10 fl">全部关注(<span class="gift_list_allnumber">1</span>)</div>
+            <div class="fr m130">
+                <div class="fl all_pitch"><label><input id="checkAll" type="checkbox" class="fl"><span class="fl">全选</span></label><div class="clearfix"></div></div>
+                <div class="fl follow_box"><img src="https://res.tuwan.com/templet/play/attent/images/follow.png" class="follow"><img src="https://res.tuwan.com/templet/play/attent/images/follow_hover.png" class="follow_hover">&nbsp;取消关注</div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="follow_code_bigbox">
+            <div class="follow_code_subbox"><div class="follow_code_box fl">
+                <div class="follow_code_input">
+                    <input type="checkbox" value="420073" class="follow_code_input_01"></div>					<a class="fl pr25 follow_code_headimg_border" href="https://y.tuwan.com/play/420073/?gameid=31540" target="_blank"><div class="follow_code_headimg mt20"><img src="https://ucavatar.tuwan.com/data/avatar/000/42/00/73_avatar_middle.jpg?random=1546952848" onerror="this.src='https://uc.tuwan.com/images/noavatar_1.jpg'"></div></a>					<div class="fl ml25 mt10">						<a class="follow_code_name" href="https://y.tuwan.com/play/420073/?gameid=31540" target="_blank">小耳朵</a>						<div class="follow_runk">							<div class="fl  mr10">								<div class="vip_runk_02">5</div>								<img src="https://res.tuwan.com/templet/play/teacher/images/jibie_02.png?0009">							</div>							<div class="fl like_runk">魅力值：89308</div>							<div class="clearfix"></div>						</div>						<div class="follow_hover_box" tid="420073"><img src="https://res.tuwan.com/templet/play/attent/images/follow_hover.png" class="follow_hover_01">&nbsp;取消关注</div>					</div>					<div class="clearfix"></div>				</div></div>
+            <div class="nofollow">
+                <img src="https://res.tuwan.com/templet/play/attent/images/blank.png"></div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="tcdPageCode"><span class="disabled">上一页</span><span class="current">1</span><span class="disabled">下一页</span></div>
+    </div>
+</div>
+<!--guanzhu3nd-->
+<!--<h3>请选择图片文件：JPG/GIF</h3>
 <form name="form0" id="form0">
     <input type="file" name="file0" id="file0" multiple="multiple" /><br>
     <img src="" id="img0" style="width: 20rem;height: 15rem;">
-</form>
+</form>-->
+<!--<button id="butt" value="点击">点击</button>-->
+<!--<div id="mailer_box"style="display: none" >
+    <div class="pop_up_bg"></div>
+    <div class="mailer">
+        <img src="./img/close.png" class="fr close">
+        <div class="clearfix"></div>
+        <div class="mailer_title mt25">我们已收到您的申请</div>
+        <div class="mailer_time">时间</div>
+        <p class="mailer_text">亲爱的，您的资料已提交成功，请申请加入考核QQ群进行考核。</p>
+        <div class="qq_box">
+            <a class="ic_face fl"
+               href="//shang.qq.com/wpa/qunwpa?idkey=5c75d39709a82b906b4ff53e5c73e8db2aee02688837dbb2a7239a24913e7538"
+               target="_blank" title="考核群：123123"><img src="./img/qq.png"></a>
+            <div class="fl face_qq mt15 ml25">
+                <span>考核群：</span>
+                <input type="text" class="input" id="share_link" value="596143834"/>
+                <a href="#none" class="copy-input" title="点击复制">【点击复制】</a>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>-->
+<div class="wrapper">
+    <button class="helper-button-info" id="dialog-info">info 对话框</button>
+    <button class="helper-button-info" id="dialog-success">success 对话框</button>
+    <button class="helper-button-info" id="dialog-warn">warn 对话框</button>
+    <button class="helper-button-info" id="dialog-error">error 对话框</button>
+</div>
+
 <script>
-    $("#file0").change(function(){
+    $( "#dialog-info" ).on("click", function () {
+        Helper.ui.dialogInfo( "对话框标题", "对话框内容" );
+    })
+
+    $( "#dialog-success" ).on("click", function () {
+        Helper.ui.dialogSuccess( "对话框标题", "对话框内容" );
+    })
+
+    $( "#dialog-warn" ).on("click", function () {
+        Helper.ui.dialogWarn( "对话框标题", "对话框内容" );
+    })
+
+    $( "#dialog-error" ).on("click", function () {
+        Helper.ui.dialogError( "对话框标题", "对话框内容" );
+    })
+</script>
+
+
+<!--<script>
+
+            /*$("#")
+                //示范一个公告层
+                layer.open({
+                    type: 1,
+                    title: false, //不显示标题栏
+                    closeBtn: false,
+                    area: '300px;',
+                    shade: 0.8,
+                    id: 'LAY_layuipro', //设定一个id，防止重复弹出
+                    btn: ['火速围观', '残忍拒绝'],
+                    btnAlign: 'c',
+                    moveType: 1, //拖拽模式，0或者1
+                    content: '<div style="padding: 50px; line-height: 22px; background-color: #393D49; color: #fff; font-weight: 300;">你知道吗？亲！<br>layer ≠ layui<br><br>layer只是作为Layui的一个弹层模块，由于其用户基数较大，所以常常会有人以为layui是layerui<br><br>layer虽然已被 Layui 收编为内置的弹层模块，但仍然会作为一个独立组件全力维护、升级。<br><br>我们此后的征途是星辰大海 ^_^</div>',
+                    success: function (layero) {
+                        var btn = layero.find('.layui-btn');
+                        btn.find('.layui-layer-btn0').attr({
+                            href: 'http://www.layui.com/', target: '_blank'
+                        });
+                    }
+                });*/
+    /*$("#file0").change(function(){
         var objUrl = getObjectURL(this.files[0]) ;//获取文件信息
         console.log("objUrl = "+objUrl);
         if (objUrl) {
@@ -29,7 +267,21 @@
             url = window.webkitURL.createObjectURL(file) ;
         }
         return url ;
-    }
-</script>
+    }*/
+
+    $("#butt").click(function () {
+        layer.open({
+            type: 2,
+            title: '添加用户',
+            fix: false,
+            maxmin: true,
+            shadeClose: true,
+            area: '500px',
+            content: "newpeople",
+            end: function () {
+            }
+        });
+    });
+</script>-->
 </body>
 </html>
