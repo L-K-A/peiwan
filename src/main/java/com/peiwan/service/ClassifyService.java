@@ -14,8 +14,9 @@ import java.util.Map;
  */
 public interface ClassifyService {
 
-    List<GSortDuanwei> getList();
 
-    List<Map<String,Object>> getPidGid(GService gid);
+    List<Map<String,Object>> getDuanWei(int gid);
+
+    List<Map<String,Object>> getCondition(Map map);
 
 }

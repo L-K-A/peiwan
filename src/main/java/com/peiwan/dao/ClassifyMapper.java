@@ -3,6 +3,7 @@ package com.peiwan.dao;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.peiwan.bean.GService;
 import com.peiwan.bean.GSortDuanwei;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
@@ -17,7 +18,15 @@ import java.util.Map;
 public interface ClassifyMapper extends BaseMapper<GSortDuanwei> {
 
 
-    @Select("select p.pid,p.person_nickname,p.person_name,p.person_age,p.person_image,p.person_adress,p.person_coverphoto,g.gid,g.g_name,g.g_daqu,g.g_duanwei from p_person p left join g_service g on p.pid=g.pid where p.z_zhubo=1 and g.gid=#{gid}")
-    List<Map<String,Object>> getPidGid(GService gid);
+    /*
+    * qsc       @Param("gSortDuanwei")
+    * */
+    @Select("select gid,g_dw from g_sort_duanwei where gid=#{gid}")
+    List<Map<String,Object>> getDuanWei(int gid);
+
+    /*
+    * 分类查询，目前有gid、gDw、psex三个，综合排序、热门、新人暂无；
+    * */
+    List<Map<String,Object>> getCondition(Map map);
 
 }

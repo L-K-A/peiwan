@@ -28,7 +28,6 @@
 <link rel="stylesheet" href="css/common_head.css" type="text/css">
 
 
-
 <body>
 
 <!-- 这个是控制左边弹窗和主播展示头像的边框的 -->
@@ -52,135 +51,178 @@
     }
 
     /*float的设置*/
-    .fl{
+    .fl {
         float: left;
     }
-    .fr{
+
+    .fr {
         float: right;
     }
+
     /*margin的设置*/
-    .mt5{
+    .mt5 {
         margin-top: 5px;
     }
-    .mt8{
+
+    .mt8 {
         margin-top: 8px;
     }
-    .mt10{
+
+    .mt10 {
         margin-top: 10px;
     }
-    .mt15{
+
+    .mt15 {
         margin-top: 15px;
     }
-    .mt18{
+
+    .mt18 {
         margin-top: 18px;
     }
-    .mr6{
+
+    .mr6 {
         margin-right: 6px;
     }
-    .mr10{
+
+    .mr10 {
         margin-right: 10px;
     }
-    .mr29{
+
+    .mr29 {
         margin-right: 29px;
     }
-    .mb30{
+
+    .mb30 {
         margin-bottom: 30px;
     }
-    .ml6{
+
+    .ml6 {
         margin-left: 6px;
     }
-    .ml10{
+
+    .ml10 {
         margin-left: 10px;
     }
-    .ml13{
+
+    .ml13 {
         margin-left: 13px;
     }
-    .ml145{
+
+    .ml145 {
         margin-left: 145px;
     }
 
     .mydiv1 {
-        height:342px;
-        width:240px;
-        border:#9b9ca8 1px solid;
+        height: 342px;
+        width: 240px;
+        border: #9b9ca8 1px solid;
         /*color:#9b9ca8;*/
-        filter:progid:DXImageTransform.Microsoft.Shadow(color=#909090,direction=120,strength=4);
+        filter: progid:DXImageTransform.Microsoft.Shadow(color=#909090, direction=120, strength=4);
         -moz-box-shadow: 2px 2px 10px #909090;
         -webkit-box-shadow: 2px 2px 10px #909090;
-        box-shadow:2px 2px 0px #909090;
+        box-shadow: 2px 2px 0px #909090;
     }
+
     .mydiv2 {
-        height:342px;
-        width:240px;
-        border:#9b9ca8 1px solid;
+        height: 342px;
+        width: 240px;
+        border: #9b9ca8 1px solid;
     }
 
 
 </style>
 
 
-
 <!-- 游戏服务、娱乐服务、等级分类、导师性别四个板块 -->
-<div class="nav_center_box">
+
+<div class="nav_center_box" id="game">
     <!-- 游戏服务 -->
-    <div class="nav_box_border" id="dj">
+    <div class="nav_box_border">
         <div class="fl nav_title nav_title_add">游戏服务</div>
-        <div class="fl icon_box" name="gid" gameid="1001" _class="lolup_icon">
+        <span>
+        <div class="fl icon_box" gameid="1001" _class="lolup_icon">
             <i class="listicon lolup_icon"></i><br>线上LOL
         </div>
-        <div class="fl icon_box" name="gid" gameid="1002" _class="pubg_icon">
+        </span>
+        <span>
+        <div class="fl icon_box" gameid="1002" _class="pubg_icon">
             <i class="listicon pubg_icon"></i><br>绝地求生
         </div>
-        <div class="fl icon_box" name="gid" gameid="1003" _class="hizi_icon">
+        </span>
+        <span>
+        <div class="fl icon_box" gameid="1003" _class="hizi_icon">
             <i class="listicon hizi_icon"></i><br>王者荣耀
         </div>
-        <div class="fl icon_box" name="gid" gameid="1004" _class="ciji_icon">
+        </span>
+        <span>
+        <div class="fl icon_box" gameid="1004" _class="ciji_icon">
             <i class="listicon ciji_icon"></i><br>刺激战场
         </div>
-        <div class="fl icon_box" name="gid" gameid="1005" _class="quanjun_icon">
+        </span>
+        <span>
+        <div class="fl icon_box" gameid="1005" _class="quanjun_icon">
             <i class="listicon quanjun_icon"></i><br>全军出击
         </div>
-        <div class="fl icon_box" name="gid" gameid="1006" _class="huangye_icon">
+        </span>
+        <span>
+        <div class="fl icon_box" gameid="1006" _class="huangye_icon">
             <i class="listicon huangye_icon"></i><br>荒野行动
         </div>
-        <div class="fl icon_box" name="gid" gameid="1007" _class="five_icon">
+        </span>
+        <span>
+        <div class="fl icon_box" gameid="1007" _class="five_icon">
             <i class="listicon five_icon"></i><br>第五人格
         </div>
-        <div class="fl icon_box" name="gid" gameid="1008" _class="video_icon">
+        </span>
+        <span>
+        <div class="fl icon_box" gameid="1008" _class="video_icon">
             <i class="listicon video_icon"></i><br>视频游戏
         </div>
+        </span>
         <div class="clearfix"></div>
     </div>
     <!-- 娱乐服务 -->
 
     <div class="nav_box_border">
         <div class="fl  nav_title">娱乐服务</div>
-        <div class="fl icon_box" name="gid" gameid="1009" _class="audio_icon">
+        <span>
+        <div class="fl icon_box" gameid="1009" _class="audio_icon">
             <i class="listicon audio_icon"></i><br>声优聊天
         </div>
-        <div class="fl icon_box" name="gid" gameid="1010" _class="sleep_icon">
+        </span>
+        <span>
+        <div class="fl icon_box" gameid="1010" _class="sleep_icon">
             <i class="listicon sleep_icon"></i><br>哄睡觉
         </div>
-        <div class="fl icon_box" name="gid" gameid="1011" _class="songster_icon">
+        </span>
+        <span>
+        <div class="fl icon_box" gameid="1011" _class="songster_icon">
             <i class="listicon songster_icon"></i><br>线上歌手
         </div>
-        <div class="fl icon_box" name="gid" gameid="1012" _class="wake_icon">
+        </span>
+        <span>
+        <div class="fl icon_box" gameid="1012" _class="wake_icon">
             <i class="listicon wake_icon"></i><br>叫醒
         </div>
-        <div class="fl icon_box" name="gid" gameid="1013" _class="lover_icon">
+        </span>
+        <span>
+        <div class="fl icon_box" gameid="1013" _class="lover_icon">
             <i class="listicon lover_icon"></i><br>虚拟恋人
         </div>
-        <div class="fl icon_box" name="gid" gameid="1014" _class="jianding_icon">
+        </span>
+        <span>
+        <div class="fl icon_box" gameid="1014" _class="jianding_icon">
             <i class="listicon jianding_icon"></i><br>声音鉴定
         </div>
-        <!--<div class="clearfix"></div>-->
+        </span>
+        <div class="clearfix"></div>
     </div>
     <!-- 等级分类 -->
-    <div class="nav_box_border" id="ceshi">
+    <div class="nav_box_border" id="grade">
         <div class="nav_title_bottom fl">等级分类</div>
-        <div class="fl" style="display:inline-block" v-for="item in lists" id="grade_icon">
+        <div class="fl" style="display:inline-block" v-for="item in games">
             <div class="fl mt18 ml13" style="width: 90px;height: 36px;text-align: center;line-height: 36px">
-                {{item.gDw}}
+                {{item.g_dw}},{{item.gid}}
             </div>
         </div>
         <div class="clearfix"></div>
@@ -202,17 +244,18 @@
     <div class="clearfix"></div>
 </div>
 <!-- 信息展示 -->
-<div class="list_box" id="entry_box">
+<div class="list_box" id="xxzs">
     <div class="list_left_box fl" style="border: #9b9ca8 0px solid;width: 1060px">
-        <div v-for="item in box" class="div2 fl mr29 mb30" style="width: 236px;height: 338px" id="jd" onmouseover="changediv('t');" onmouseout="changediv('f')">
-            <span style="display: none" id="pidgid">{{item.pid}},{{item.gid}}</span>
+        <div v-for="item in grades" class="div2 fl mr29 mb30" style="width: 236px;height: 338px" id="jd"
+             onmouseover="changediv('t');" onmouseout="changediv('f')">
+            <span style="display: none" id="pidgid">{{index.pid}},{{item.gid}}</span>
             <!-- 主播头像的遍历 -->
             <img style="background-image: url('images/touxiang.png');width: 236px;height: 233px"/>
             <div class="mt15 mr10 ml10" style="width: 216px;height: 27px">
                 <!-- 昵称的遍历 -->
                 <span class="fl" style="width: 150px;height: 27px;font-size: 20px">{{item.person_nickname}}</span>
                 <!-- 段位的遍历 -->
-                <span class="fr mt5 ml6" style="width: 34px;height: 18px;background-color: #fcc171">{{item.g_duanwei}}</span>
+                <span class="fr mt5 ml6" style="width: 34px;height: 18px;background-color: #fcc171">{{item.gdw}}</span>
             </div>
             <div class="mt10 ml10" style="width: 110px;height: 18px">
                 <div style="width: 109px;height: 18px">
@@ -287,6 +330,7 @@
     </div>
     <div class="clearfix"></div>
 </div>
+
 <!-- 最下面的客服电话、帮助中心等 -->
 <div class="fl" id="footer" style="width: 100%;">
     <div class="footer_box">
@@ -296,12 +340,15 @@
         <a href="javascript:" title="" class="fl"><img src="picture/consume4.jpg"></a>
         <div class="clearfix"></div>
         <div class="help_box mt30">
-            <div class="fl ml35 pr30 border_right"><i class="icon custom mr10"></i>客服电话：<span class="custom_01">010-68608228</span><span class="custom_02">咨询时间：7X24小时</span></div>
-            <div class="fl pl30" id="dd_kefu_pcbottom" style="cursor: pointer;"><i class="icon QQ mr10"></i>客服QQ：<span class="custom_01">800184580</span></div><div class="fl pl30"><span class="custom_02">咨询时间：7X24小时</span></div>
+            <div class="fl ml35 pr30 border_right"><i class="icon custom mr10"></i>客服电话：<span class="custom_01">010-68608228</span><span
+                    class="custom_02">咨询时间：7X24小时</span></div>
+            <div class="fl pl30" id="dd_kefu_pcbottom" style="cursor: pointer;"><i class="icon QQ mr10"></i>客服QQ：<span
+                    class="custom_01">800184580</span></div>
+            <div class="fl pl30"><span class="custom_02">咨询时间：7X24小时</span></div>
             <div class="fl ml40">
                 <a href="javascript:" title="" class="fl help">帮助中心</a>
                 <a href="javascript:" title="" class="fl help">服务保障</a>
-                <a href="javascript:" title=""  class="fl help">陪玩守则</a>
+                <a href="javascript:" title="" class="fl help">陪玩守则</a>
                 <div class="clearfix"></div>
             </div>
             <div class="clearfix"></div>
@@ -312,55 +359,82 @@
 
 <!-- 使用VUE遍历的代码 -->
 <script>
-    var a = new Vue({
-        el:'#ceshi',
-        data:{
-            lists:[]
+
+    var gid = 0;
+    var gdw = null;
+    var psex = null;
+
+
+    /*点击游戏服务的Vue*/
+    var game = new Vue({
+        el: '#game',
+        data: {
+            games: []
         }
     });
-    var getlist = function () {
-        console.log("test111");
-        $.ajax({
-            type:'POST',
-            dataType:'json',
-            url:'/lists',
-            success:function (data) {
-                console.log("test");
-                console.log(data);
-                a.lists = data.list;
-            }
-        });
+
+    /*点击游戏服务*/
+    $("#game span").click(function () {
+        var indexDiv = $("#game span").index(this);
+        gid = indexDiv + 1001;
+        alert(gid);
+
+        getEntry(gid);
+
+    });
+
+    var getEntry = function (gid) {
+        /*if (gid == 0) {
+            gid = 1001;
+        }*/
+            $.ajax({
+                type: 'POST',
+                dataType: 'json',
+                async: true,
+                url: '/duanwei',
+                data: {gid:gid},
+                success: function (data) {
+                    alert(gid);
+                    game.games = data.duanwei;
+                }
+            });
+
     };
 
-    var entry =new Vue({
-        el:'#entry_box',
-        data:{
-            box:[]
+
+
+
+    $("#grade div div i").click(function () {
+        gdw = $("#grade div div i").html();
+        alert(gdw);
+        getCondition(gid,gdw,psex);
+    });
+    alert(gdw);
+
+
+    /*等级分类的Vue*/
+    var all = new Vue({
+        el: '#grade',
+        data: {
+            grades: []
         }
     });
-    var getEntry = function(){
+
+    var getCondition = function () {
         $.ajax({
-            type:'POST',
-            dataType:'json',
-            url:'/lists',
-            success:function (data) {
-                entry.box=data.mapList;
+            type: 'Post',
+            dataType: 'json',
+            url: '/getCondition',
+            data: {
+                gid: gid,
+                gdw: gdw,
+                psex: psex
+            },
+            success: function (data) {
+                all.grades = data.condition;
             }
         })
-    };
-
-    getEntry();
-    getlist();
-
-    var gid;
-
-    $("#dj div").click(function () {
-        var indexDiv = $("#dj div").index(this);
-        alert(indexDiv+1000);
-    });
-
-    alert(gid);
-
+    }
 
 
 </script>
@@ -370,13 +444,11 @@
     function changediv(v) {
         var jd = document.getElementById("jd");
         if (v == "t") {
-            jd.className="mydiv1";
-        }else {
-            jd.className="mydiv2";
+            jd.className = "mydiv1";
+        } else {
+            jd.className = "mydiv2";
         }
     }
-
-    
 
 
 </script>

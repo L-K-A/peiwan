@@ -133,5 +133,10 @@ public class PPerson implements Serializable {
      */
     private Integer zZhubo;
 
+    /*
+    * qsc:条件查询需要三表的数据
+    * */
+    private GSortDuanwei gSortDuanwei;
+    private GService gService;
 
 }

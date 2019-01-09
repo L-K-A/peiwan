@@ -4,7 +4,9 @@ import com.peiwan.bean.GService;
 import com.peiwan.bean.GSortDuanwei;
 import com.peiwan.service.ClassifyService;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
@@ -28,13 +30,6 @@ public class ClassifyController {
     @Resource
     private ClassifyService cs;
 
-
-    @RequestMapping("/playlist")
-    public ModelAndView playList(){
-        System.out.println("进入playlist控制层，返回hello页面");
-        return new ModelAndView("hello");
-    }
-
     @RequestMapping("/fenlei")
     public ModelAndView fenLei(){
         System.out.println("进入分类控制层，返回分类前台页面");
@@ -42,24 +37,31 @@ public class ClassifyController {
     }
 
 
-    @RequestMapping("/tolist")
-    public ModelAndView toList(){
-        return new ModelAndView("list");
+
+    /*
+    * Qsc
+    * 前台传回gid的值，后台返回相应的等级分类
+    * */
+    @RequestMapping("/duanwei")
+    public Map duanWei(int gid){
+        List<Map<String, Object>> duanWei = cs.getDuanWei(gid);
+        Map<String,Object> map = new HashMap<>();
+        map.put("duanwei",duanWei);
+        return map;
     }
 
-    @RequestMapping("/lists")
-    public Map lists(GService gid){
 
-
-        GService gids = new GService();
-        gids.setGid(1001);
+    @RequestMapping("/getCondition")
+    public Map getCondition(int gid,String gdw,String psex){
 
         Map<String,Object> map = new HashMap<>();
-        List<GSortDuanwei> list = cs.getList();
-        List<Map<String,Object>> mapList = cs.getPidGid(gids);
-        map.put("mapList",mapList);
-        map.put("list",list);
+        map.put("gid",gid);
+        map.put("gdw",gdw);
+        map.put("gsex",psex);
 
+        List<Map<String, Object>> condition = cs.getCondition(map);
+
+        map.put("condition",condition);
         return map;
     }
 
