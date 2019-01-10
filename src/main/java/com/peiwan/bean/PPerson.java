@@ -3,6 +3,8 @@ package com.peiwan.bean;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
+
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
@@ -18,6 +20,7 @@ import lombok.experimental.Accessors;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
+//@TableName("p_person")
 public class PPerson implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -42,6 +45,11 @@ public class PPerson implements Serializable {
      * 密码
      */
     private String personPwd;
+
+    /**
+     * 加密的密码
+     */
+    private String personPwdencry;
 
     /**
      * 电话
@@ -119,9 +127,14 @@ public class PPerson implements Serializable {
     private String personCreatetime;
 
     /**
-     * 标识(0用户1主播2)
+     * 标识(0用户1主播2管理员3boss)
      */
     private Integer personFlate;
+
+    /**
+     * 用户状态（0未认证1正常状态2用户锁定）
+     */
+    private Integer personStatus;
 
     /**
      * 登录时间

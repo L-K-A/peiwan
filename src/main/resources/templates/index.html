@@ -67,6 +67,13 @@
             src="/plugins/jquery-2.2.3.min.js?bust=201901040104"></script>
     <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="resource"
             src="/plugins/vue-resource.js?bust=201901040104"></script>
+<!--登陆弹窗-->
+    <link rel="stylesheet" href="\bootstrap\css\bootstrap.css">
+    <script src="\jquery-3.3.1\jquery-3.3.1.js"></script>
+    <script src="\bootstrap\js\bootstrap.min.js"></script>
+
+
+
 
 </head>
 <body>
@@ -109,17 +116,17 @@
                         上分专区
                     </a>
                 </div>
-                                <div :class="[navIndex === 'index_recharge'?'active':'']">
+                <div :class="[navIndex === 'index_recharge'?'active':'']">
                                            <!-- 未登录-->
-                        <a href="javascript:;" @click="login_fn">充值</a>
-                                        
+                <a href="javascript:;" @click="login_fn">充值</a>
+
                 </div>
                 <div :class="[navIndex === 'index_service'?'active':'']">
                                              <!--未登录-->
                         <a href="javascript:;" @click="login_fn">申请入驻</a>
                                     </div>
                 <div :class="[navIndex === 'activity'?'active':'']">
-                    <a href="/ac tivity/list.html" >
+                    <a href="/activity/list.html" >
                         活动
                     </a>
                 </div>
@@ -174,8 +181,13 @@
                     </div>
                 </a>
                 <div @click="login_fn" class="login style1">
-                    <p></p>
-                    <span>登录&nbsp;&nbsp;|&nbsp;&nbsp;注册</span>
+                    <ul class="nav navbar-nav navbar-right">
+
+                        <li><a data-toggle="modal" data-target="#login" href=""><span class="glyphicon glyphicon-log-in"></span> 登录</a></li>
+
+                        <li><a data-toggle="modal" data-target="#register" href=""><span class="glyphicon glyphicon-user"></span> 注册</a></li>
+
+                    </ul>
                 </div>
 
             </div>
@@ -1915,6 +1927,104 @@ var _hmt = _hmt || [];
         </div>
     </div>
 </div>
+
+
+
+
+<!-- 登录窗口 -->
+<div id="login" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button class="close" data-dismiss="modal">
+                    <span>&times;</span>
+                </button>
+            </div>
+            <div class="modal-title">
+                <h1 class="text-center">登录</h1>
+            </div>
+            <div class="modal-body">
+                <form class="form-group" action="/toIndex" method="post">
+                    <div class="form-group">
+                        <label for="">用户名</label>
+                        <input name="personName" class="form-control" type="text" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label for="">密码</label>
+                        <input name="personPwd" class="form-control" type="password" placeholder="">
+                    </div>
+                    <div class="text-right">
+                        <button class="btn btn-primary" type="submit">登录</button>
+                        <button class="btn btn-danger" data-dismiss="modal">取消</button>
+                    </div>
+                    <a href="" data-toggle="modal" data-dismiss="modal" data-target="#register">还没有账号？点我注册</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+
+
+</script>
+
+
+
+<!-- 注册窗口 -->
+<div id="register" class="modal fade" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button class="close" data-dismiss="modal">
+                    <span>&times;</span>
+                </button>
+            </div>
+            <!--头部-->
+            <div class="modal-title">
+                <h1 class="text-center">注册</h1>
+            </div>
+            <!--表格主题-->
+            <div class="modal-body">
+                <!--form表格-->
+                <form class="form-group" action="">
+                    <div class="form-group">
+                        <label for="">用户名</label>
+                        <input class="form-control" type="text" placeholder="6-15位字母或数字">
+                    </div>
+                    <div class="form-group">
+                        <label for="">密码</label>
+                        <input class="form-control" type="password" placeholder="至少6位字母或数字">
+                    </div>
+                    <div class="form-group">
+                        <label for="">再次输入密码</label>
+                        <input class="form-control" type="password" placeholder="至少6位字母或数字">
+                    </div>
+                    <div class="form-group">
+                        <label for="">邮箱</label>
+                        <input class="form-control" type="email" placeholder="例如:123@123.com">
+                    </div>
+                    <div class="text-right">
+                        <button class="btn btn-primary" type="submit">提交</button>
+                        <button class="btn btn-danger" data-dismiss="modal">取消</button>
+                    </div>
+                    <a href="" data-toggle="modal" data-dismiss="modal" data-target="#login">已有账号？点我登录</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
 <script>
 
     function totop(){
@@ -1922,8 +2032,233 @@ var _hmt = _hmt || [];
         document.documentElement.scrollTop = 0;
     }
 </script>
+<!-- 登录弹窗 -->
+<!--v-if="isshow"-->
+<div id="tel_login_v1" v-cloak v-if="0=0" >
+    <!-- 弹窗背景 -->
+    <div class="bg" @click="close"></div>
+    <!-- 登录注册弹窗 -->
+    <!-- v-if="popShow==1" -->
+    <div class="login-reg-wrapper" >
+        <!-- 诱导浏览器自动填充密码 -->
+        <input type="text" style="display:none;">
+        <input type="password" style="display:none;">
+        <div class="close-wrapper" @click="close()"><img src="/picture/close.png" class="close"></div>
+        <div class="login-reg-title">
+            <span class="text" :class="{on:loginTabShow===0||loginTabShow===1}" @click="showTab(0)">登录</span>
+            <span class="text" :class="{on:loginTabShow===2}"@click="showTab(2)">注册</span>
+        </div>
+        <div class="login-content-wrapper">
+            <!-- 账号登录 -->
+            <!--   v-show="loginTabShow===0"    -->
 
+            <div class="login-content-item" style="display: none" >
+                <div class="left">
+                    <div class="login-inp">
+                        <input class="user_mobile" type="text" v-model.trim='user_mobile' maxlength="11" placeholder="手机号/靓号登录">
+                    </div>
+                    <div class="login-inp">
+                        
+                        <input class="user_pwd" v-model.trim='user_pwd' onfocus="this.type='password'" maxlength="20" @keyup.enter='userLoginFun' placeholder="请输入密码">
+                    </div>
+                    <div class="auto_login">
+                        <span class="check-btn-wrapper" :class="{on:checked}" @click="checked=!checked"><span class="check-btn"></span><span class="check-text">下次自动登录</span></span>
+                        <span class="find-pwd" @click="forgetFun(2)">找回密码</span>
+                    </div>
+                    <div class="login-inp "><a href="javascript:;" @click="userLoginFun" class="login-btn">登录</a></div>
+                </div>
+                <div class="right">
+                    <span class="right-title">其它登录方式</span>
+                    <div class="login-mode-wrapper ">
+                        <div class="login-mode-item one"  @click="changeLogin(1)">
+                            <img src="/picture/phone.png" alt="" class="icon">
+                            <span class="text">短信登录</span>
+                        </div>
+                        <div class="login-mode-item two">
+                            <a href="/user/connect/authorize/platform/wechat">
+                                <img src="/picture/wx.png" alt="" class="icon">
+                                <span class="text">微信登录</span>
+                            </a>
+                        </div>
+                        <div class="login-mode-item three">
+                            <a href="/user/connect/authorize/platform/qq">
+                                <img src="/picture/qq.png" alt="" class="icon">
+                                <span class="text">QQ登录</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="bottom">
+                    <span class="text">使用即为同意<span class="agreement" @click.stop.prevent='agreement_fn()'>《用户服务协议》</span></span>
+                </div>
+            </div>
+            <!-- 短信登录 -->
+            <div class="login-content-item" v-if="loginTabShow===1">
+                <div class="left">
+                    <div class="login-inp msg-inp">
+                        <div class="regist_phone_code regist_phone_code1"   v-model.trim='regist_msg_code' @click="regist_ul_show(1)">+{{regist_msg_code}} <img src="picture/jt.png" alt=""></div>
 
+                        <ul class="regist_phone_ul regist_phone_ul1"  style="display: none;">
+                            <li @click="regist_li_data(86,1)">中国大陆 <span>+86</span></li>
+                            <li @click="regist_li_data(886,1)">中国台湾 <span>+886</span></li>
+                        </ul>
+                        <input class="msg_mobile" type="text" v-model.trim='msg_mobile' maxlength="11" placeholder="请输入手机号">
+                    </div>
+                    <div class="login-inp img-code">
+                        <div class="code-wrapper w200 msg-inp">
+                            <input class="w177 msg_captcha_code" type="text" v-model.trim="msg_captcha_code" placeholder="请输入图形验证码" :readonly="code_readonly">
+                        </div>
+                        <i class="code_txt">
+                            <img :src="picture/b72fc88107de48c2b745631624f9fde5.gif" class="security-code" @click="refreshImgCode()">
+                        </i>
+                        
+                    </div>
+                    <div class="login-inp">
+                        <div class="code-wrapper w240 msg-inp">
+                            <input class="msg_message_code w218" type="text" v-model='msg_message_code' onfocus="this.type='number'" placeholder="请输入短信验证码" @keyup.enter='msgLoginFun'>
+                        </div>
+                        <i class="code_txt">
+                            <input type="button"  v-bind:value="msg_message_code_btn" class="msg_phone-security-code" @click='sendmessageFun(1)' :disabled='msgIsdisabled'/>
+                        </i>
+                    </div>
+                    <div class="login-inp  msg-inp" style="display: none" v-show="msgNoPwdShow">
+                        <input class="msg_pwd" v-model.trim='msg_pwd' maxlength="20" onfocus="this.type='password'" placeholder="请输入密码">
+                    </div>
+                    <div class="login-inp" style="display: none;" v-show="!msgNoPwdShow"><a href="javascript:;" @click="msgLoginFun" class="login-btn">登录</a></div>
+                    <div class="login-inp" style="display: none;" v-show="msgNoPwdShow"><a href="javascript:;" @click="setPassword(1)" class="login-btn">登录</a></div>
+                </div>
+                <div class="right">
+                    <span class="right-title">其它登录方式</span>
+                    <div class="login-mode-wrapper">
+                        <div class="login-mode-item one"  @click="changeLogin(0)">
+                            <img src="picture/user.png" alt="" class="icon">
+                            <span class="text">账号登录</span>
+                        </div>
+                        <div class="login-mode-item two">
+                            <a href="/user/connect/authorize/platform/wechat">
+                                <img src="picture/wx.png" alt="" class="icon">
+                                <span class="text">微信登录</span>
+                            </a>
+                        </div>
+                        <div class="login-mode-item three">
+                            <a href="/user/connect/authorize/platform/qq">
+                                <img src="picture/qq.png" alt="" class="icon">
+                                <span class="text">QQ登录</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="bottom">
+                    <span class="text">使用即为同意<span class="agreement" @click.stop.prevent='agreement_fn()'>《用户服务协议》</span></span>
+                </div>
+            </div>
+            <!-- 注册 -->
+            <div class="login-content-item" v-if="loginTabShow===2">
+                <div class="left">
+                    <div class="login-inp regist-inp">
+                        <div class="regist_phone_code regist_phone_code2" v-model.trim='regist_phone_code' @click="regist_ul_show(2)">+{{regist_phone_code}} <img src="picture/jt.png" alt=""></div>
+                        <ul class="regist_phone_ul regist_phone_ul2" style="display: none;">
+                            <li @click="regist_li_data(86,2)">中国大陆 <span>+86</span></li>
+                            <li @click="regist_li_data(886,2)">中国台湾 <span>+886</span></li>
+                        </ul>
+                        <input class="regist_mobile" type="text" v-model.trim='regist_mobile' maxlength="11" placeholder="请输入手机号">
+                    </div>
+                    <div class="login-inp img-code">
+                        <div class="code-wrapper w200 regist-inp">
+                            <input class="w177 regist_captcha_code" type="text" v-model.trim="regist_captcha_code" placeholder="请输入图形验证码" :readonly="code_readonly">
+                        </div>
+                        <i class="code_txt">
+                                    <img :src="/picture/b72fc88107de48c2b745631624f9fde5.gif" class="security-code" @click="refreshImgCode()">
+                                </i>
+                    </div>
+                    <div class="login-inp">
+
+                        <div class="code-wrapper w240 regist-inp">
+                            <input class="regist_message_code w218 " type="text" v-model='regist_message_code' onfocus="this.type='number'" placeholder="请输入短信验证码">
+                        </div>
+                        <i class="code_txt">
+                            <input type="button"  v-bind:value="regist_message_code_btn" class="regist_phone-security-code" @click='sendmessageFun(2)' :disabled='registIsdisabled'/>
+                        </i>
+                    </div>
+                    <div class="login-inp regist-inp">
+                        <input class="regist_pwd" v-model.trim='regist_pwd' maxlength="20" onfocus="this.type='password'" placeholder="请输入密码">
+                    </div>
+                    <div class="login-inp"><a href="javascript:;" @click="register()" class="login-btn">注册</a></div>
+                </div>
+                <div class="right">
+                    <span class="right-title">其它登录方式</span>
+                    <div class="login-mode-wrapper">
+                        <div class="login-mode-item one" @click="changeLogin(1)">
+                            <img src="/picture/phone.png" alt="" class="icon">
+                            <span class="text">短信登录</span>
+                        </div>
+                        <div class="login-mode-item two">
+                            <a href="/user/connect/authorize/platform/wechat">
+                                <img src="/picture/wx.png" alt="" class="icon">
+                                <span class="text">微信登录</span>
+                            </a>
+                        </div>
+                        <div class="login-mode-item three">
+                            <a href="/user/connect/authorize/platform/qq">
+                                <img src="/picture/qq.png" alt="" class="icon">
+                                <span class="text">QQ登录</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="bottom">
+                    <span class="check-btn-wrapper" :class="{on:agreementChecked}" @click="agreementChecked=!agreementChecked"><span class="check-btn"></span><span class="check-text">注册即同意<span class="agreement" @click.stop.prevent='agreement_fn()'>《用户服务协议》</span></span></span>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 忘记密码 -->
+    <div class="login-reg-wrapper forget" v-if="popShow==2">
+        <div class="close-wrapper" @click="close()"><img src="/picture/close.png" class="close"></div>
+        <div class="login-reg-title">
+            <span class="return-btn" @click="forgetFun(1)"><img class="icon" src="/picture/back.png" alt="">返回</span>
+            <span class="text">找回密码</span>
+        </div>
+        <div class="login-content-wrapper">
+            <div class="login-content-item ">
+                <div class="left">
+                    <div class="login-inp reset-inp">
+                        <div class="regist_phone_code regist_phone_code3" v-model.trim='regist_reset_code' @click="regist_ul_show(3)">+{{regist_reset_code}} <img src="/picture/jt.png" alt=""></div>
+                        <ul class="regist_phone_ul regist_phone_ul3" style="display: none;">
+                            <li @click="regist_li_data(86,3)">中国大陆 <span>+86</span></li>
+                            <li @click="regist_li_data(886,3)">中国台湾 <span>+886</span></li>
+                        </ul>
+                        <input class="reset_mobile" type="text" v-model.trim='reset_mobile' maxlength="11" placeholder="请输入手机号">
+                    </div>
+                    <div class="login-inp img-code">
+                        <div class="code-wrapper w200 reset-inp">
+                            <input class="w177 reset_captcha_code" type="text" v-model.trim="reset_captcha_code" placeholder="请输入图形验证码" :readonly="code_readonly">
+                        </div>
+                        <i class="code_txt">
+                                    <img :src="/picture/b72fc88107de48c2b745631624f9fde5.gif" class="security-code" @click="refreshImgCode()">
+                                </i>
+                    </div>
+                    <div class="login-inp">
+
+                        <div class="code-wrapper w240 reset-inp">
+                            <input class="reset_message_code w218 " type="text" v-model='reset_message_code' onfocus="this.type='number'" placeholder="请输入短信验证码">
+                        </div>
+                        <i class="code_txt">
+                            <input type="button"  v-bind:value="reset_message_code_btn" class="reset_phone-security-code" @click='sendmessageFun(5)' :disabled='resetIsdisabled'/>
+                        </i>
+                    </div>
+                    <div class="login-inp reset-inp">
+                        <input class="reset_pwd" v-model.trim='reset_pwd' maxlength="20" onfocus="this.type='password'" placeholder="请输入密码">
+                    </div>
+                    <div class="login-inp reset-inp">
+                        <input class="reset_re_pwd" v-model.trim='reset_re_pwd' maxlength="20" onfocus="this.type='password'" placeholder="请输入密码">
+                    </div>
+                    <div class="login-inp "><a href="javascript:;" @click="password_find()" class="login-btn">重置密码</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- 绑定手机号 -->
     <div class="login-reg-wrapper forget bind" v-if="popShow==3">
         <div class="close-wrapper" @click="close()"><img src="picture/close.png" class="close"></div>
@@ -2129,6 +2464,11 @@ var _hmt = _hmt || [];
         </div>
     </div>
 </div>
+
+
+
+
+
 <!-- 意见反馈 -->
 <div id="yijianfankui" v-if="feedbackShow" v-cloak>
     <div class="info">

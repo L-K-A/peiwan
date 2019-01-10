@@ -2,6 +2,9 @@ package com.peiwan.service;
 
 import com.peiwan.bean.AAttention;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.peiwan.bean.PPerson;
+
+import java.util.List;
 
 /**
  * <p>
@@ -11,6 +14,10 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @author bjlz
  * @since 2019-01-02
  */
-public interface AAttentionService extends IService<AAttention> {
+public interface AAttentionService extends IService<PPerson> {
+
+    List<PPerson> namepperson(PPerson pPerson);
+    List<PPerson> addpperson(int id);
+
 
 }

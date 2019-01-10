@@ -92,11 +92,26 @@
         <!-- end:kaptcha验证码 -->
 
 
+        <!--开始 张家明  springboot整合shiro-->
+        <!--　NekoHTML 是一个简单地HTML扫描器和标签补偿器(tag balancer) ,使得程序能解析HTML文档并用标准的XML接口来访问其中的信息。这个解析器能投扫描HTML文件并“修正”许多作者（人或机器）在编写HTML文档过程中常犯的错误。NekoHTML 能增补缺失的父元素、自动用结束标签关闭相应的元素，以及不匹配的内嵌元素标签。NekoHTML 的开发使用了Xerces Native Interface (XNI)，后者是Xerces2的实现基础。-->
         <dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
-            <version>1.2.17</version>
+            <groupId>net.sourceforge.nekohtml</groupId>
+            <artifactId>nekohtml</artifactId>
+            <version>1.9.22</version>
         </dependency>
+      <!---->
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-spring</artifactId>
+            <version>1.4.0</version>
+        </dependency>
+
+        <!---->
+
+
+        <!--结束-->
+
+
 
 
         <!--配置log4j-->
@@ -135,6 +150,13 @@
                 </exclusion>
             </exclusions>
         </dependency>
+
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.17</version>
+        </dependency>
+
         <!--结束-->
 
 
@@ -147,8 +169,6 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
         </plugins>
-
-
     </build>
 
 </project>
