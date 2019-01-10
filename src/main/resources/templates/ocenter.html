@@ -15,6 +15,7 @@
             src="https://c.cnzz.com/core.php?web_id=1000286078&amp;t=q"></script>
     <script src="./js/jquery-1.12.3.min.js"></script>
     <script src="./js/jquery.zclip.js"></script>
+    <script src="https://cdn.bootcss.com/vue/2.5.21/vue.js"></script>
     <script>
         function imgNoFound(that) {
             that.src = "/images/noavatar_middle.gif";
@@ -948,7 +949,7 @@
             </div>
             <div class="classify_box">
                 <a href="javascript:void(0)" class="left_border">我的订单</a>
-                <a href="/attent">我的关注</a>
+                <a href="/atten">我的关注</a>
                 <!--<a href="https://y.tuwan.com/home/medal/">聊天室特权</a>-->
                 <!--<a href="https://y.tuwan.com/home/blackroom/">黑名单管理</a>-->
 
@@ -1011,7 +1012,7 @@
                     </a>
                 </div>
                 <div class="fl ml10 vip_text">
-                    <div class="vip_01">普通用户</div>
+                    <div class="vip_01">主播、用户</div>
                     <div class="vip_02">
                         <a href="/data" id="name_href" >xxx</a>
                     </div>
@@ -1056,12 +1057,36 @@
 <iframe width="0" height="0" id="_QD_STATUS_MANAGE_SOCKET_IFRAME" scrolling="no" frameborder="0"
         allowtransparency="true" src="https://webpage.qidian.qq.com/2/chat/statusManager/index.html"
         style="width: 0px; height: 0px; position: fixed; right: 0px; bottom: 0px;"></iframe>-->
+
+
 <script>
     function avatarNoFound(that) {
         that.src = "./img/noavatar_middle.gif";
         that.onerror = null;
-    }
+                }
+            /*进页面加载订单start*/
+    var countorder;
+    var  app = new Vue({
+        el: '#app',
+        data: {
+            result: []
+        }
+    });
 
+    var getOrderList =function(){
+        $.ajax({
+            type: 'get',
+            dataType: 'json',
+            url: '/userorder',
+            data:{},
+            success:function (res) {
+                app.result=res.result;
+                app.countorder=res.count;
+            }
+        });
+    };
+                getOrderList();
+            /*进页面加载订单end*/
     /*消息判断*/
     $(function () {
         msg();
@@ -1095,7 +1120,7 @@
             success: function (obj) {
                 url = window.location.href;
                 if (url.indexOf('home') > 0) {
-                    window.location.href = "https://y.tuwan.com";
+                    window.location.href = "m";
                 } else {
                     location.reload(true);
                 }
@@ -1107,7 +1132,7 @@
             url: "/report?type=myteach",
             dataType: "jsonp",
             success: function (obj) {
-                window.location.href = "https://y.tuwan.com";
+                window.location.href = "";
             }
         })
     })
@@ -1119,10 +1144,10 @@
         success: function (obj) {
             if (obj.code == 0) {
                 if ("0" == "1") {
-                    $('.head_img').html('<a href="/playerinfo"><img src="https://ucavatar.tuwan.com/data/avatar/001/75/87/28_avatar_middle.jpg?random=20181228" alt="头像" title="" onerror="avatarNoFound(this)"/></a>');
-                    $('.vip_02').html('<a href="https://y.tuwan.com/home/playerinfo/" id="name_href" title="假如dd">xx</a>');
+                    $('.head_img').html('<a href="/playerinfo"><img src="" alt="头像" title="" onerror="avatarNoFound(this)"/></a>');
+                    $('.vip_02').html('<a href="/playerinfo/" id="name_href" title="假如dd">xx</a>');
                 } else {
-                    $('.head_img').html('<a href="/data"><img src="https://ucavatar.tuwan.com/data/avatar/001/75/87/28_avatar_middle.jpg?random=20181228" alt="头像" title="" onerror="avatarNoFound(this)"/></a>');
+                    $('.head_img').html('<a href="/data"><img src="" alt="头像" title="" onerror="avatarNoFound(this)"/></a>');
                     $('.vip_02').html('<a href="/data" id="name_href" title="">xxx</a>');
                 }
             }
@@ -1149,51 +1174,132 @@
 
 <!--top-box-end-->
 
+<!--订单start-->
 
-<div id="user_content" class="left_margin">
+<div id="user_content" class="left_margin" >
     <ul class="menu">
-        <a href="https://y.tuwan.com/home/ocenter/?type=0">
-            <li class="menu_add">全部订单</li>
-        </a>
-        <a href="https://y.tuwan.com/home/ocenter/?type=2">
+        <a href="#"><li class="menu_add">全部订单{{countorder}}</li></a>
+        <!--<a href="https://y.tuwan.com/home/ocenter/?type=2">
             <li class="">约玩订单</li>
-        </a>
+        </a>-->
         <div class="clearfix"></div>
     </ul>
-    <div>
-        <div class="order_goods_box">
+        <div class="order_goods_box" id="app"  >
+            <!--订单-->
+            <div class="order_goods " style=" height: 192px;" v-for="(item,index) in result">
+                <div class="help_bigbox pt10 pb10">
+                    <div class="fl ml20 up_down_box">
+                        <span class="fl">订单号:{{item.oid}}</span>
+                    </div>
+                    <a class="fl help_box lianxikefu" href="javascript:void(0)" title="客服QQ:xxxx">
+                        <i class="icon_bg fl help"><img src="./img/icon_uid.png"> </i><span class="fl telephone">联系客服</span>
+                        <div class="clearfix"></div>
+                    </a>
+                    <div class="fr refuse_box pr15 off" order="xxx">
+                        <i class="icon_bg fl refuse"></i>
+                        <span class="fl">取消订单</span>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
 
+                <div class="mt30 pb30">
+                    <div class="fl head_samllimg_box">
+                        <div class="fl">
+                            <div class="head_samll_box">
+                                <a href="https://y.tuwan.com/play/420073/?gameid=20014" target="_blank" class="head_samllimg ml20" style="display: block;">
+                                    <img :src="'./impupload/'+item.person_coverphoto" onerror="imgNoFound(this)"></a>
+                                <!-- <div class="head_samll_01">V5</div> -->
+                            </div>
+                        </div>
+                        <div class="fl  head_samlltext ml30">
+                            <div> {{item.gid}}（1小时）</div>
+                            <div><span>导师:</span>{{item.person_nickname}}
+                                <div class="grade_box">
+                                    <img src="./img/grade.png" class="grade_img">
+                                    <!--<span class="grade_span">VIP2</span>-->
+                                </div>
+                            </div>
+                            <div><span>PID:</span>{{item.pid}}</div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="fl refuse_01_box mt30">
+                        <span class="fl">联系导师</span>
+                        <i class="icon_bg fl refuse_01 ml10 lxdaoshi" qq="qq" desc="导师" :title="'导师QQ:'+item.person_qq"></i>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="time_order fl mt20"><div class="yuyuetime">预约时间:</div> {{item.o_xiadanshijian}}
+                    </div>
+                    <div class="fl Orders_box zf Orders_box_zhifu">
+                        <div>{{item.o_status}}:{{item.o_money}}</div>
+                        <div name="主播nick" class="Orders Orders_05" order="订单">去支付</div>
+                        <div class="time_box" id="zf_202019010919382302111">还剩07分39秒,逾期自动取消订单</div>
+                        <!--订单计时-->
+                        <script type="text/javascript">
+                            var t202019010919382302111 = 574;
+                            function timeShow202019010919382302111(){
+                                t202019010919382302111--;
+                                i = Math.floor(t202019010919382302111/60);
+                                s = t202019010919382302111%60;
+                                if(i<10){
+                                    i = "0"+i;
+                                }
+                                if(s<10){
+                                    s = "0"+s;
+                                }
+                                str = "还剩"+i+"分"+s+"秒,逾期自动取消订单";
+                                $("#zf_202019010919382302111").html(str);
+                                if(t202019010919382302111==0){
+                                    location.href = location.href;
+                                }
+                            };
+                            setInterval(timeShow202019010919382302111,1000);
+                        </script>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
 
+            <!--订单end-->
         </div>
-    </div>
-    <div id="paging_box">
+        <div id="paging_box">
         <ul class="paging_box mt30 mb50">
 
             <div class="clearfix"></div>
         </ul>
     </div>
 </div>
+
+<!--订单end-->
 <!--分页-->
-<script type="text/javascript" src="http://res.tuwan.com/templet/play/public/js/ywpingjia.js?201806251618"></script>
+<script type="text/javascript" src="./js/ywpingjia.js?201806251618"></script>
 <div id="ywpj_mask" style="display:none;">
     <div class="ywpj-main" id="ywpj_main"><p class="ywpj-title">订单评价</p>
         <p class="ywpj-title-item" style="margin-top: 20px;">选择对导师服务的评分</p>
-        <p class="ywpj-starts"><span index="0" class="star0"></span><span index="1" class="star0"></span><span index="2"
-                                                                                                               class="star0"></span><span
-                index="3" class="star0"></span><span index="4" class="star0"></span></p>
+        <p class="ywpj-starts">
+            <span index="0" class="star0"></span>
+            <span index="1" class="star0"></span>
+            <span index="2" class="star0"></span>
+            <span index="3" class="star0"></span>
+            <span index="4" class="star0"></span>
+        </p>
         <p class="ywpj-title-item ywpj-title-item-tags" style="margin-top: 22px;">选择对TA的印象<span
                 id="ywpj_change">换一批</span></p>
         <ul></ul>
         <div style="clear: both;"></div>
-        <div class="ywpj-tag-custom"><em>+自定义</em><span class="ywpj-custom-hidden">×</span></div>
-        <div class="ywpj-tag-custom-input" style="display: none;"><input id="ywpj_tag_input" type="text" maxlength="4"
-                                                                         placeholder="输入标签（最多4个字）">
-            <div class="ywpj-tag-submit-div"><span id="ywpj_custom_btnok" style="cursor: pointer;">确定</span><span
-                    class="ywpj-tag-submit-div-line"></span><span id="ywpj_custom_btncancle"
-                                                                  style="cursor: pointer;">取消</span></div>
+        <div class="ywpj-tag-custom"><em>+自定义</em>
+            <span class="ywpj-custom-hidden">×</span></div>
+        <div class="ywpj-tag-custom-input" style="display: none;">
+            <input id="ywpj_tag_input" type="text" maxlength="4" placeholder="输入标签（最多4个字）">
+            <div class="ywpj-tag-submit-div"><span id="ywpj_custom_btnok" style="cursor: pointer;">确定</span>
+                <span class="ywpj-tag-submit-div-line"></span>
+                <span id="ywpj_custom_btncancle" style="cursor: pointer;">取消</span>
+            </div>
         </div>
         <div style="clear: both;"></div>
-        <p class="ywpj-title-item" style="margin-top: 22px;">输入对导师评价</p><textarea id="ywpj_desc"></textarea>
+        <p class="ywpj-title-item" style="margin-top: 22px;">输入对导师评价</p>
+        <textarea id="ywpj_desc"></textarea>
         <div class="ywpj-submit">
             <button id="ywpj_submit">提交</button>
             <p><label><input name="yupj_niming" type="checkbox">匿名评价</label></p></div>
@@ -1201,9 +1307,7 @@
         <div class="ywpj-tips"></div>
     </div>
 </div>
-<script>
 
-</script>
 
 <script type="text/javascript">
     var code = '';
@@ -1400,8 +1504,8 @@
     $('.Orders_05').click(function () {
         code = $(this).attr('order');
         $('#buyorder .title').html('支付订单号:' + code);
-        $('#alihref').attr('href', 'https://pay.tuwan.com/?type=alipay&aid=' + code + '&typeid=2000');
-        $('#wxhref').attr('href', 'https://t.tuwan.com/play/wechat/' + code + '/');
+        $('#alihref').attr('href', '/?type=alipay&aid=' + code + '&typeid=2000');
+        $('#wxhref').attr('href', '/wechat/' + code + '/');
         $('#order-type').hide();
         $('#buyorder').show();
         $('#order-confirm').show();
@@ -1430,7 +1534,7 @@
         var star = Math.floor($('#showb').css('width').replace(/px/g, "") * 1 / 24);
         if (decs != '' && star > 0 && star <= 5) {
             $.ajax({
-                url: 'https://y.tuwan.com/m/Order/getAddCommentApi',
+                url: '/getAddCommentApi',
                 data: "order=" + code + "&decs=" + decs + "&star=" + star + "&type=" + comanonymous,
                 type: "get",
                 dataType: "jsonp",
@@ -1471,7 +1575,7 @@
             return;
         }
         $.ajax({
-            url: 'https://y.tuwan.com/m/Order/getOffOrderApi?order=' + code + '&decs=' + encodeURIComponent(offstr),
+            url: '/getOffOrderApi?order=' + code + '&decs=' + encodeURIComponent(offstr),
             type: "get",
             dataType: "jsonp",
             success: function (obj) {
@@ -1539,14 +1643,14 @@
         $("#service").show();
         fuzhi();
         //动态创建script
-        addScript("qd285216172382bcaaf974deca5614a80a529372a1e4", "https://wp.qiye.qq.com/qidian/2852161723/82bcaaf974deca5614a80a529372a1e4");
+        addScript("qd285216172382bcaaf974deca5614a80a529372a1e4", "/qidian/2852161723/82bcaaf974deca5614a80a529372a1e4");
     })
 
     $(".lxdaoshi").click(function () {
         $(".kefuqqqq").hide();
         $("#service .phone_title").html('联系' + $(this).attr('desc') + 'QQ');
         $("#service #share_link").val($(this).attr('qq'));
-        $("#service #lianxidaoshi").attr('href', 'https://wpa.qq.com/msgrd?v=3&uin=' + $(this).attr('qq') + '&site=qq&menu=yes');
+        $("#service #lianxidaoshi").attr('href', 'msgrd?v=3&uin=' + $(this).attr('qq') + '&site=qq&menu=yes');
         $("#service #lianxidaoshi").show();
         $("#service #lianxidaoshi").attr('title', $(this).attr('title'));
         $("#service").show();
@@ -1558,7 +1662,7 @@
         $("#service .phone_title").html('联系' + $(this).attr('desc') + 'QQ');
         $("#service #share_link").val($(this).attr('qq'));
         $("#service #lianxiyonghu").show();
-        $("#service #lianxiyonghu").attr('href', 'https://wpa.qq.com/msgrd?v=3&uin=' + $(this).attr('qq') + '&site=qq&menu=yes');
+        $("#service #lianxiyonghu").attr('href', '/msgrd?v=3&uin=' + $(this).attr('qq') + '&site=qq&menu=yes');
         $("#service #lianxiyonghu").attr('title', $(this).attr('title'));
         $("#service").show();
         fuzhi();
@@ -1576,7 +1680,7 @@
         $("#service").show();
         fuzhi();
         //动态创建script
-        addScript("qd2852161723b8f4663d1ede413d64c08b2800303f08", "https://wp.qiye.qq.com/qidian/2852161723/b8f4663d1ede413d64c08b2800303f08");
+        addScript("qd2852161723b8f4663d1ede413d64c08b2800303f08", "/qidian/2852161723/b8f4663d1ede413d64c08b2800303f08");
 
     })
 
@@ -1597,7 +1701,7 @@
         if (confirm("你确定要用余额支付吗？")) {
             code = $(this).attr('order');
             $.ajax({
-                url: 'https://y.tuwan.com/m/Order/PayBalance',
+                url: '/Order/PayBalance',
                 data: "code=" + code,
                 type: "get",
                 dataType: "jsonp",
@@ -1624,7 +1728,7 @@
         $(document).ready(function () {
             /* 定义所有class为copy-input标签，点击后可复制class为input的文本 */
             $(".copy-input").zclip({
-                path: "https://res.tuwan.com/templet/teach/admin/ocenter/js/ZeroClipboard.swf",
+                path: "/js/ZeroClipboard.swf",
                 copy: function () {
                     return $(this).parent().find("#share_link").val();
                 },

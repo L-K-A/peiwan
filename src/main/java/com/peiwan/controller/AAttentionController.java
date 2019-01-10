@@ -7,8 +7,12 @@ import com.peiwan.bean.PAlity;
 import com.peiwan.bean.PPerson;
 import com.peiwan.dao.AAttentionMapper;
 import com.peiwan.service.AAttentionService;
+import io.micrometer.core.ipc.http.HttpSender;
 import jdk.management.resource.internal.inst.SocketOutputStreamRMHooks;
+import jdk.nashorn.internal.ir.RuntimeNode;
+import org.omg.CORBA.Request;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.actuate.trace.http.HttpTrace;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,6 +22,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -48,23 +53,74 @@ public class AAttentionController {
     private PAlity pAlity;
 
     private GService gService;
+    @Resource
+    private HttpServletRequest request;
     /**
      * 测试
+     *
      * @return
+     * @auther lxq
      */
     @RequestMapping("/userinfo")
     public String getlist() {
         //List list = aAttentionMapper.getAAttentionList();
-        List list = aAttentionService.queryAAttentionList();
-        System.out.println(list);
-        return "test";
+        /*List list = aAttentionService.queryAAttentionList();
+        System.out.println(list);*/
+        return "";
     }
 
+    /**
+     * 我的关注
+     *
+     * @return
+     * @auther lxq
+     */
+    @RequestMapping("/atten")
+    public  String getAttention(){
+        return "attention";
+    }
+    @RequestMapping("/attentio")
+    @ResponseBody
+    public Map userAttention() {
+        List list= aAttentionMapper.getSelectAttention();
+        int a=aAttentionMapper.getSelectAttentionCount();
+        /*System.out.println(a);
+        System.out.println(list);*/
+        Map map=new HashMap();
+        map.put("result",list);
+        map.put("count",a);
+
+        return map;
+    }
+
+    /**
+     * 订单记录查询
+     * @author lxq
+     */
+    @RequestMapping("/userorder")
+    @ResponseBody
+    public Map userOrder(){
+       List list= aAttentionMapper.getSelectOrder();
+        System.out.println(list);
+        Map map=new HashMap();
+        map.put("result",list);
+        return map;
+    }
+
+    /**
+     * 消费记录
+     * @auther lxq
+     * @return
+     */
+    @RequestMapping("/trecord")
+    public String userTrecord() {
+        return "trecord";
+    }
 
 
     /**
      * 申请表单
-     * @AUther lxq
+     *
      * @param tag
      * @param organ
      * @param himage
@@ -73,15 +129,18 @@ public class AAttentionController {
      * @param gService
      * @return
      * @throws Exception
+     * @AUther lxq
      */
     @PostMapping("/playinfosubmit")
     @ResponseBody
-    public Map sek(String tag, String organ,MultipartFile himage, PPerson pPerson, PAlity pAlity, GService gService) throws Exception {
+    public Map sek(String tag, String organ, MultipartFile himage, PPerson pPerson, PAlity pAlity, GService gService) throws Exception {
         //System.out.println(himage.getOriginalFilename());
-        int pid =4;
-
-        String filePath ="F:\\upload\\"+himage.getOriginalFilename();
-        BufferedOutputStream outputStream=new BufferedOutputStream(new FileOutputStream(filePath));
+        int pid = 4;
+        /*String filePath = "F:\\upload\\" + himage.getOriginalFilename();*/
+        String filePath = "C:\\Users\\Administrator\\Desktop\\peiwan\\src\\main\\resources\\static\\imgupload\\" + himage.getOriginalFilename();
+        //String filePath = request.getSession().getServletContext().getRealPath("imgupload") +File.separator +himage.getOriginalFilename();
+        System.out.println(filePath);
+        BufferedOutputStream outputStream = new BufferedOutputStream(new FileOutputStream(filePath));
         outputStream.write(himage.getBytes());
         outputStream.flush();
         outputStream.close();
@@ -109,54 +168,68 @@ public class AAttentionController {
         //aAttentionMapper.getPPersonInsert(pPerson);
         //aAttentionMapper.getInsertAlity(pAlity);
         //aAttentionMapper.getInsertGservice(gService);
-        Map map=new HashMap();
-        map.put("succ",1);
-        return  map;
+        Map map = new HashMap();
+        map.put("succ", 1);
+        return map;
     }
+
     /**
      * 用户名检查
+     *
+     * @auther lxq
      */
     @RequestMapping("/checkoutPersonNick")
     @ResponseBody
-    public Map checkNickname(String personNickname){
-        List list= aAttentionMapper.getCheckoutPersonNickname(personNickname);
-        if(list.size()>0){
-            Map map=new HashMap();
-            map.put("result",1);
-            return  map;
-        }else {
-            Map map=new HashMap();
-            map.put("result",2);
+    public Map checkNickname(String personNickname) {
+        List list = aAttentionMapper.getCheckoutPersonNickname(personNickname);
+        if (list.size() > 0) {
+            Map map = new HashMap();
+            map.put("result", 1);
+            return map;
+        } else {
+            Map map = new HashMap();
+            map.put("result", 2);
             return map;
         }
     }
+
     /**
      * 用户中心
+     *
      * @return
+     * @auther lxq
      */
     @RequestMapping("/indexw")
     public String fir() {
         return "ocenter";
     }
+
     /**
      * 安全
+     *
      * @return
      */
     @RequestMapping("/secur")
     public String security() {
         return "secur";
     }
+
     /**
      * 资料
+     *
      * @return
+     * @auther lxq
      */
     @RequestMapping("/data")
     public String logi() {
         return "data";
     }
+
     /**
      * 主播申请
+     *
      * @return
+     * @auther lxq
      */
     @RequestMapping("/playinfo")
     public String plays() {

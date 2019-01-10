@@ -10,6 +10,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * <p>
@@ -59,4 +60,28 @@ public interface AAttentionMapper extends BaseMapper<AAttention> {
      */
     @Insert("insert into g_service(pid,gid,g_name,g_daqu,g_duanwei,p_gid) values (#{pid},#{gid},#{gName},#{gDaqu},#{gDuanwei},#{pGid})")
     int getInsertGservice(GService gService);
+
+    /**
+     * 关注主播查询
+     * @auther lxq
+     * @return
+     */
+    @Select("select p.person_nickname,p.person_coverphoto,a.zid from p_person p,(select zid,z_zhubo from a_attention where pid=1) as a where a.zid=p.pid and a.z_zhubo=p.z_zhubo")
+    List<Map<String,Object>> getSelectAttention();
+
+    /**
+     * 关注主播数量
+     * @author lxq
+     *
+     */
+    @Select("select count(*) from a_attention where pid=1 and z_zhubo=1")
+    int getSelectAttentionCount();
+
+    /**
+     * 用户订单查询
+     * @author lxq
+     */
+    @Select("SELECT p.pid,p.person_nickname,p.person_coverphoto,p.person_qq,o.* FROM p_person p,(SELECT * FROM o_order WHERE pid=5) o WHERE o.aid=p.pid GROUP BY p.pid")
+    List<Map<String,Object>> getSelectOrder();
 }
+

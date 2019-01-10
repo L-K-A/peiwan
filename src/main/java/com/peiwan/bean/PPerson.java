@@ -5,13 +5,15 @@ import com.baomidou.mybatisplus.annotation.TableId;
 
 import java.beans.PropertyVetoException;
 import java.io.Serializable;
+import java.util.List;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 /**
  * <p>
- * 
+ *
  * </p>
  *
  * @author bjlz
@@ -45,6 +47,10 @@ public class PPerson implements Serializable {
      */
     private String personPwd;
 
+    /**
+     * 密码加密
+     */
+    private String personPwdencry;
     /**
      * 电话
      */
@@ -131,6 +137,11 @@ public class PPerson implements Serializable {
     private Integer personFlate;
 
     /**
+     * 状态标识
+     */
+    private Integer personStatus;
+
+    /**
      * 登录时间
      */
     private String personLogintime;
@@ -140,5 +151,5 @@ public class PPerson implements Serializable {
      */
     private Integer zZhubo;
 
-
+private List<AAttention> aAttentions;
 }

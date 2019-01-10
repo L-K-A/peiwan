@@ -10,7 +10,7 @@ import lombok.experimental.Accessors;
 
 /**
  * <p>
- * 
+ *
  * </p>
  *
  * @author bjlz
@@ -27,45 +27,23 @@ public class AAttention implements Serializable {
     /**
      * 用户id
      */
-    @TableId(value = "pid")
+
     private Integer pid;
 
     /**
      * 关注列表id
      */
-
+    @TableId(value = "pid")
     private Integer aid;
 
+    /**
+     *
+     */
+    private Integer zid;
     /**
      * 主播标识
      */
     private Integer zZhubo;
 
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
-    }
 
-    public Integer getPid() {
-        return pid;
-    }
-
-    public void setPid(Integer pid) {
-        this.pid = pid;
-    }
-
-    public Integer getAid() {
-        return aid;
-    }
-
-    public void setAid(Integer aid) {
-        this.aid = aid;
-    }
-
-    public Integer getzZhubo() {
-        return zZhubo;
-    }
-
-    public void setzZhubo(Integer zZhubo) {
-        this.zZhubo = zZhubo;
-    }
 }
