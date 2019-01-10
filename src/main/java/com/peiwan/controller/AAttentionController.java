@@ -17,22 +17,6 @@ import org.springframework.stereotype.Controller;
 public class AAttentionController {
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     //测试内容
     @RequestMapping("/hello")
     public String hello() {

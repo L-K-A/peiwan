@@ -4,16 +4,18 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.peiwan.bean.AAttention;
+
 import com.peiwan.bean.PComment;
 import com.peiwan.bean.PPerson;
 import com.peiwan.dao.AAttentionMapper;
 import com.peiwan.dao.TeacherInfoMapper;
 import com.peiwan.service.TeacherInfoService;
+import org.apache.ibatis.jdbc.Null;
 import org.springframework.stereotype.Service;
-
 import javax.annotation.Resource;
 import java.util.List;
 import java.util.Map;
+
 
 import static com.peiwan.peiUtils.ConstellationUtil.calculateConstellation;
 
@@ -35,7 +37,6 @@ public class TeacherInfoServiceImpl implements TeacherInfoService {
     public PPerson getInfo(int pid) {
         PPerson pPerson = teacherInfoMapper.selectById(pid);
         String personBirthday = pPerson.getPersonBirthday();
-
         String s = calculateConstellation(personBirthday);
         pPerson.setPersonBirthday(s);
         return pPerson;
@@ -101,6 +102,7 @@ public class TeacherInfoServiceImpl implements TeacherInfoService {
         Integer integer = teacherInfoMapper.selectJiedanCount(zid, gid);
         return integer;
     }
+
 
 
     public TeacherInfoMapper getTeacherInfoMapper() {

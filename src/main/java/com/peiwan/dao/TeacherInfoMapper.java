@@ -7,10 +7,8 @@ import com.peiwan.bean.PPerson;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
-
 import java.util.List;
 import java.util.Map;
-
 /**
  * @Author: zhangwanli
  * @Despriction:
@@ -35,7 +33,9 @@ public interface TeacherInfoMapper extends BaseMapper<PPerson> {
    @Select("select g_price, g_duanwei from g_service where pid=#{zid} and gid=#{gid}")
     Map<String,Object> selectZhudp(Integer zid ,Integer gid);
 
+
     /* 依据 zid  gid   获取主播的  指定服务 的 接单次数*/
     @Select("select count(oid) from o_order_z where pid = #{zid} and gid = #{gid} ")
     Integer selectJiedanCount(Integer zid ,Integer gid);
+
 }

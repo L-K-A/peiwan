@@ -3,7 +3,6 @@ package com.peiwan.service;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.peiwan.bean.PComment;
 import com.peiwan.bean.PPerson;
-
 import java.util.List;
 import java.util.Map;
 
@@ -35,4 +34,5 @@ public interface TeacherInfoService {
 
     /* 依据 zid  gid   获取主播的  指定服务 的 接单次数*/
     Integer selectJiedanCount(Integer zid ,Integer gid);
+
 }
