@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -220,48 +220,60 @@
     <!-- 等级分类 -->
     <div class="nav_box_border" id="grade">
         <div class="nav_title_bottom fl">等级分类</div>
-        <div class="fl" style="display:inline-block" v-for="item in games">
+        <div v-for="item in grades" v-on:click="clickfun()" class="fl" style="display:inline-block">
             <div class="fl mt18 ml13" style="width: 90px;height: 36px;text-align: center;line-height: 36px">
-                {{item.g_dw}},{{item.gid}}
+                <i>{{item.g_dw}}</i>
             </div>
         </div>
         <div class="clearfix"></div>
     </div>
     <!-- 性别 -->
-    <div>
+    <div id="sex">
         <div class="nav_title_bottom fl">导师性别</div>
-        <div class="fl grade_icon grade_sex grade_icon_add">全部</div>
-        <div class="fl grade_icon grade_sex">女神</div>
-        <div class="fl grade_icon grade_sex">男神</div>
+        <span>
+            <div class="fl grade_icon grade_sex grade_icon_add">全部</div>
+        </span>
+        <span>
+            <div class="fl grade_icon grade_sex">女神</div>
+        </span>
+        <span>
+            <div class="fl grade_icon grade_sex">男神</div>
+        </span>
         <div class="clearfix"></div>
     </div>
 </div>
 <!-- 综合、热门、新人排序 -->
-<div class="sort_nav_box">
-    <div class="fl sort_nav sort_nav_add">综合排序</div>
-    <div class="fl sort_nav">热门</div>
-    <div class="fl sort_nav">新人</div>
+<div class="sort_nav_box" id="sort">
+    <span>
+        <div class="fl sort_nav sort_nav_add">综合排序</div>
+    </span>
+    <span>
+        <div class="fl sort_nav">热门</div>
+    </span>
+    <span>
+        <div class="fl sort_nav">新人</div>
+    </span>
     <div class="clearfix"></div>
 </div>
 <!-- 信息展示 -->
 <div class="list_box" id="xxzs">
     <div class="list_left_box fl" style="border: #9b9ca8 0px solid;width: 1060px">
-        <div v-for="item in grades" class="div2 fl mr29 mb30" style="width: 236px;height: 338px" id="jd"
-             onmouseover="changediv('t');" onmouseout="changediv('f')">
-            <span style="display: none" id="pidgid">{{index.pid}},{{item.gid}}</span>
+        <div v-for="item in zbxx" class="div2 fl mr29 mb30" style="width: 236px;height: 338px"
+             onmouseover="changediv('t')" onmouseout="changediv('f')">
+            <span style="display: none" id="pidgid">{{item.gid}}</span>
             <!-- 主播头像的遍历 -->
-            <img style="background-image: url('images/touxiang.png');width: 236px;height: 233px"/>
+            <img :src="'imgupload/'+item.person_coverphoto" style="width: 236px;height: 233px"/>
             <div class="mt15 mr10 ml10" style="width: 216px;height: 27px">
                 <!-- 昵称的遍历 -->
                 <span class="fl" style="width: 150px;height: 27px;font-size: 20px">{{item.person_nickname}}</span>
                 <!-- 段位的遍历 -->
-                <span class="fr mt5 ml6" style="width: 34px;height: 18px;background-color: #fcc171">{{item.gdw}}</span>
+                <span class="fr mt5 ml6" style="width: 34px;height: 18px;background-color: #fcc171">{{item.g_duanwei}}</span>
             </div>
             <div class="mt10 ml10" style="width: 110px;height: 18px">
                 <div style="width: 109px;height: 18px">
                     <!-- 性别和年龄 -->
                     <div class="fl" style="width: 21.078px;height: 18px;padding: 0px 5px 0px 5px;margin-right: 6px">
-                        <i class="fl" style="width: 7px;height: 18px">♀</i>
+                        <i class="fl" style="width: 7px;height: 18px">{{item.person_sex}}</i>
                         <span class="fl" style="width: 14.078px;height: 18px">{{item.person_age}}</span>
                     </div>
                     <!-- 地址的遍历 -->
@@ -363,24 +375,66 @@
     var gid = 0;
     var gdw = null;
     var psex = null;
+    var sorts = null;
 
 
     /*点击游戏服务的Vue*/
-    var game = new Vue({
-        el: '#game',
+    var gameservice = new Vue({
+        el: '#grade',
         data: {
-            games: []
+            grades: []
+        },
+        methods:{
+            clickfun(gdw){
+                console.log(gdw);
+                if (gdw==null){
+                    gdw="黑金V";
+                }
+
+                gdw=""+event.target.innerHTML;
+                console.log(gdw);
+                alert(gdw);
+                getCondition(gid,gdw,psex);
+            }
         }
     });
+
+
+
+
+
+    /*
+    * 点击导师性别改变性别选项事件
+    * */
+    $("#sex span").click(function () {
+        psex = $("#sex span").index(this).innerHTML;
+        if (psex=="全部") {
+            psex=null;
+        }
+        getCondition(gid,gdw,psex);
+    });
+
+
+
+    $("#sort span").click(function () {
+        sorts = $("#sort span").index(this).innerHTML;
+        if (sorts=="综合") {
+            sorts=null;
+        }
+        getCondition(gid,gdw,psex);
+    });
+
+
+
 
     /*点击游戏服务*/
     $("#game span").click(function () {
         var indexDiv = $("#game span").index(this);
         gid = indexDiv + 1001;
         alert(gid);
-
+        //console.log("点击游戏服务："+gameservice.clickfun(gdw));
         getEntry(gid);
-
+        getCondition(gid,gdw,psex);
     });
 
     var getEntry = function (gid) {
@@ -394,36 +448,31 @@
                 url: '/duanwei',
                 data: {gid:gid},
                 success: function (data) {
+                    console.log(data);
                     alert(gid);
-                    game.games = data.duanwei;
+                    gameservice.grades=data.duanWei;
                 }
             });
 
     };
 
-
-
-
-    $("#grade div div i").click(function () {
-        gdw = $("#grade div div i").html();
-        alert(gdw);
-        getCondition(gid,gdw,psex);
-    });
-    alert(gdw);
+    //getEntry(gid);
 
 
     /*等级分类的Vue*/
     var all = new Vue({
-        el: '#grade',
+        el: '#xxzs',
         data: {
-            grades: []
-        }
+            zbxx:[]
+        },
     });
 
-    var getCondition = function () {
+    var getCondition = function (gid,gdw,psex) {
+        console.log(gdw);
         $.ajax({
             type: 'Post',
             dataType: 'json',
+            async: true,
             url: '/getCondition',
             data: {
                 gid: gid,
@@ -431,24 +480,25 @@
                 psex: psex
             },
             success: function (data) {
-                all.grades = data.condition;
+                console.log(data);
+                all.zbxx=data.condition;
             }
-        })
-    }
+        });
+    };
 
 
 </script>
 
 <script>
 
-    function changediv(v) {
+    /*function changediv(v) {
         var jd = document.getElementById("jd");
         if (v == "t") {
             jd.className = "mydiv1";
         } else {
             jd.className = "mydiv2";
         }
-    }
+    }*/
 
 
 </script>

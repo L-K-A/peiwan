@@ -46,23 +46,32 @@ public class ClassifyController {
     public Map duanWei(int gid){
         List<Map<String, Object>> duanWei = cs.getDuanWei(gid);
         Map<String,Object> map = new HashMap<>();
-        map.put("duanwei",duanWei);
+        map.put("duanWei",duanWei);
+        for (Map<String, Object> stringObjectMap : duanWei) {
+            System.out.println(stringObjectMap);
+        }
         return map;
     }
 
 
     @RequestMapping("/getCondition")
-    public Map getCondition(int gid,String gdw,String psex){
+    public Map getCondition(int gid,String gdw,String psex,String sort){
+
+        System.out.println("从前台传回来的gid"+gid);
+        System.out.println("从前台传回来的gdw"+gdw);
+        System.out.println("从前台传回来的psex"+psex);
 
         Map<String,Object> map = new HashMap<>();
         map.put("gid",gid);
-        map.put("gdw",gdw);
+        map.put("gDw",gdw);
         map.put("gsex",psex);
+        map.put("sort",sort);
 
         List<Map<String, Object>> condition = cs.getCondition(map);
 
-        map.put("condition",condition);
-        return map;
+        Map<String,Object> map1 = new HashMap<>();
+        map1.put("condition",condition);
+        return map1;
     }
 
 
