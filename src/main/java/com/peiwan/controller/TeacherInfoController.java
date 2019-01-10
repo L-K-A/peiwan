@@ -36,6 +36,7 @@ public class TeacherInfoController {
         map.put("pperson", info);
         return map;
     }
+
     /*评论数据分页的实现*/
     @RequestMapping("/findComment")
     public List<Map<String, Object>> findComment() {
@@ -48,6 +49,7 @@ public class TeacherInfoController {
         System.out.println(iPage.getTotal());
         return iPage.getRecords();
     }
+
     /*增加关注 */
     @RequestMapping("/insertAttention")
     /*传入关注人和被关注人的id  返回1插入成功  返回零表示取消关注成功*/
@@ -84,8 +86,6 @@ public class TeacherInfoController {
         Integer integer = teacherInfoService.selectJiedanCount(zid, gid);
         return integer;
     }
-
-
 
 
     public TeacherInfoMapper getTeacherInfoMapper() {
