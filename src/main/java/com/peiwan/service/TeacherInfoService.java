@@ -3,6 +3,8 @@ package com.peiwan.service;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.peiwan.bean.PComment;
 import com.peiwan.bean.PPerson;
+
+import java.text.ParseException;
 import java.util.List;
 import java.util.Map;
 
@@ -15,7 +17,7 @@ import java.util.Map;
  */
 public interface TeacherInfoService {
     /*查询全部导师信息*/
-    PPerson getInfo(int pid);
+    PPerson getInfo(int pid) throws ParseException;
 
     /*分页 */
     IPage<Map<String, Object>> selectPageExt(PComment pComment, int page, int pageSize);

@@ -57,4 +57,9 @@ public class GService implements Serializable {
      */
     private String pGid;
 
+    /**
+     * 玩家游戏对应服务的介绍
+     */
+    private String gContent;
+
 }

@@ -1,0 +1,474 @@
+body{
+    background: url('../images/women.jpg');
+   
+}
+img{
+    display: block;
+}
+.body{
+    box-sizing: border-box;
+    font-size: 16px;
+    color: #333333;
+    width: 1226px;
+    margin:0 auto;
+}
+.body .zubo-title{
+    width: 1146px;
+    height:108px;
+    padding-left: 30px;
+    padding-right: 50px;
+    background-color: rgba(255,255,255,0.8);
+    border-radius: 50px;
+    box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.15);
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    margin-top:30px;
+}
+
+.zubo-title .title-meta{
+    display: flex;
+}
+ .zubo-title .title-meta .zuboImg img{
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.zubo-title .title-info .test{
+    width: 76px;
+    height:17px;
+}
+.zubo-title .title-info .credit{
+   color:#999999;
+   font-size: 14px;
+}
+.zubo-title .title-info .credit img{
+    width: 72px;
+    height:25px;
+}
+.zubo-title  .zubo-gift{
+    width: 400px;
+    height:85px;
+}
+.zubo-title  .zubo-gift p{
+    width: 360px;
+    height: 34px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: justify;
+}
+.zubo-title  .zubo-gift p span{
+    color:#ff593e;
+}
+.zubo-title .zubo-other{
+    width: 265px;
+    height:83px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+.zubo-title .zubo-other div{
+    width: 73px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+}
+.zubo-title .zubo-other .wechart{
+    border: 1px solid #3eb135;
+    color:#3eb135;
+}
+.zubo-title .zubo-other .share{
+    border: 1px solid #ff593e;
+    color:#ff593e;
+    margin: 0 20px;
+}
+.zubo-title .zubo-other .like{
+    background-color:#ff593e;
+    color:white;
+}
+.zubo-title .zubo-other>span{
+    font-size: 12px;
+    color:#999999;
+    margin-left: 15px;
+}
+/* ===================内容区左侧头部 */
+.body .zubo-cont{
+    width: 1226px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+.body .zubo-cont .left{
+    width: 446px;
+
+}
+.zubo-cont .zuboTab .tabCont{
+    width: 446px;
+    height:446px;
+}
+.zubo-cont .zuboTab .tabCont img{
+    width: 100%;
+    height:100%;
+}
+.zubo-cont .zuboTab .tabDot {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-around;
+}
+.zubo-cont .zuboTab .tabDot .tabDotImg{
+    width: 446px;
+    margin-bottom: 15px;
+    width: 72px;
+    height: 72px;
+    /* border: #ff6147 solid 2px; */
+    /* border-radius: 2px;
+    display: flex; */
+    
+}
+.zubo-cont .zuboTab .tabDotImg img{
+    width: 72px;
+    height:72px;
+}
+.zubo-cont .giftTab {
+    /* border:1px solid red; */
+}
+.zubo-cont .giftTab .tabDot{
+   display: flex;
+   align-items: center;
+   width: 100%;
+   height:56px;
+   background: #ccc;
+}
+.zubo-cont .giftTab .tabDot>div{
+   padding: 3px 10px;
+   height:26px;
+   line-height: 26px;
+}
+.zubo-cont .giftTab .tabCont {
+    position: relative;
+    width:100%;
+    height:324px;
+}
+.zubo-cont .giftTab .tabCont .tabCont-box{
+   display: flex;
+   flex-wrap: wrap;
+   width: 406px;
+   height:304px;
+   font-size: 12px;
+   position: absolute;
+   top:20px;
+   left:20px;
+}
+.zubo-cont .giftTab .tabCont .tabCont-box li{
+    width: 64px;
+    height:84px;
+    margin: 0 7px;
+    border-radius: 4px;
+    /* border:1px solid red; */
+}
+.zubo-cont .giftTab .tabCont .tabCont-box li>img{
+    width: 64px;
+    height:60px;
+    display: block;
+}
+.zubo-cont .giftTab .tabCont .tabCont-box li>div{
+   font-size: 12px;
+   width: 100%;
+   text-align: center;
+   line-height: 24px;
+}
+.zubo-cont .giftTab .last{
+   line-height:30px;
+   width: 406px;
+   padding-left:  20px ;
+   font-size: 12px;
+}
+.zubo-cont .left-top {
+    width: 100%;
+    background-color: white;
+}
+.zubo-cont .left-top .sendGift{
+    width: 100%;
+    height:64px;
+    font-size: 14px;
+    background-color: #ccc;
+    display: flex;
+    align-items: center;
+}
+.zubo-cont .left-top .sendGift .left{
+    width: 134px;
+    line-height: 64px;
+    text-align: center;
+    border-right: 1px solid #aaa;
+}
+.zubo-cont .left-top .sendGift .ipt{
+    margin:0 10px;
+    display: flex;
+    height:34px;
+    width: 178px;
+    border:1px solid rgb(146, 143, 143);
+    background: white;
+}
+.zubo-cont .left-top .sendGift .ipt>input{
+    border:none;
+    outline: none;
+    background: none;
+    width: 100px;
+    padding-left: 5px;
+    font-size: 14px;
+}
+.zubo-cont .left-top .sendGift .ipt>div{
+    height:34px;
+    width: 44px;
+    line-height: 34px;
+    text-align: center;
+}
+.zubo-cont .left-top .sendGift .ipt>.img{
+     width: 34px;
+}
+.zubo-cont .left-top .sendGift .ipt img{
+     display: block;
+     margin: 0 auto;
+     margin-top: 10px;
+}
+.zubo-cont .left-top .sendGift .send{
+    background-color: #ff593e;
+    width: 100px;
+    height: 34px;
+    border-radius: 4px;
+    line-height: 34px;
+    display:flex;
+}
+.zubo-cont .left-top .sendGift .send img{
+   display: block;
+   margin: 0 auto;
+}
+.zubo-cont .left-top .sendGift .send .img{
+   width: 30px;
+   margin:auto;
+}
+.zubo-cont .left-top .sendGift .send .sendgift{
+   width: 70px;
+   text-align: center;
+}
+.zubo-cont .left-bottom{
+    margin-top: 20px;
+    padding: 25px;
+    background-color: rgba(255,255,255,0.96);
+    width: 400px;
+    height:336px;
+}
+/* // ==================内容区：左侧底部  */
+.zubo-cont .left-bottom .zuboInfo-title{
+    width: 36px;
+    height:24px;
+    font-size: 18px;
+    color:#ff593e;
+    border-bottom: 2px solid #ff593e;
+    padding: 5px;
+    line-height: 24px;
+    text-align: center;
+}
+.zubo-cont .left-bottom .zuboCont li{ 
+    line-height: 50px;
+    font-size: 14px;
+    color:#666666;
+}
+.zubo-cont .left-bottom .zuboCont li>img{ 
+   display: inline-block;
+   vertical-align: middle;
+}
+.zubo-cont .left-bottom .zuboCont li>span{ 
+   vertical-align: middle;
+   margin-left: 10px;
+   color:#333333;
+}
+
+/* ===========右侧头部 */
+
+/* =====右侧头部 礼物 */
+.zubo-cont .right{
+    width: 770px;
+}
+.zubo-cont .right .right-top{
+    width: 748px;
+    height:200px;
+    padding: 0 10px;
+    box-shadow:0px 1px 8px 0px rgba(0,0,0,0.1);
+    background-color: rgba(255,255,255,0.8);
+    border:1px solid #dddddd;
+    border:1px solid red;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 12px;
+}
+.zubo-cont .right .right-top .right-protecter{
+    border-bottom: 1px dashed #ccc;
+}
+.zubo-cont .right .right-top .right-protecter,
+.zubo-cont .right .right-top .right-gifts{
+    height: 50%;
+    display: flex;
+    align-items: center;
+}
+.zubo-cont .right .right-top .pro-tit,
+.zubo-cont .right .right-top .gifts-tit {
+    margin-left: 17px;
+}
+.zubo-cont .right .right-top .pro-tit>div,
+.zubo-cont .right .right-top .gifts-tit>div {
+    margin-top: 5px;
+    color:#333333;
+    text-align: center;
+}
+.zubo-cont .right-top .proCont-list{
+    display: flex;
+    justify-content: space-around;
+}
+.zubo-cont .right-top .proCont-list li{
+    position: relative;
+    height:63px;
+    width: 50px;
+    margin-left: 19px;
+}
+.zubo-cont .right-top  .proCont-item>img{
+    position: absolute;
+}
+.zubo-cont .right-top  .proCont-item .avatar{
+    top:0px;
+    left:5px;
+    width: 45px;
+    height:45px;
+    border-radius: 50%;
+}
+.zubo-cont .right-top  .proCont-item .top{
+    top:-10px;
+    left:0px;
+}
+.zubo-cont .right-top  .proCont-item .bottom{
+    top:31px;
+    left:0px;
+}
+.zubo-cont .right-top  .proCont-item >div{
+    position: absolute;
+    left:0px;
+    bottom:0px;
+    width:54px ;
+    text-align: center;
+}
+.zubo-cont .right-top  .proCont-list .contri{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.zubo-cont .right-top  .proCont-list .contri>div{
+    width: 50px;
+    height: 5px;
+    border-radius: 5px;
+    background-color: #999999;
+}
+.zubo-cont .right-top  .proCont-list .contri>div>div{
+    /* width: 40px; */
+    height: 5px;
+    border-radius: 5px;
+    background-color: #ff593e;
+}
+
+.zubo-cont .right-top  .proCont-list :nth-child(2)>div>div{
+    width: 45px;
+}
+.zubo-cont .right-top  .proCont-list :nth-child(4)>div>div{
+    width: 35px;
+}
+.zubo-cont .right-top  .proCont-list :nth-child(6)>div>div{
+    width: 25px;
+}
+.zubo-cont .right-top  .proCont-list :nth-child(8)>div>div{
+    width: 15px;
+}
+.zubo-cont .right-top  .proCont-list :nth-child(10)>div>div{
+    width: 5px;
+}
+
+/* ================头部礼物部分 */
+.zubo-cont .right-top .gifts-list{
+    width: 690px;
+    padding: 0 10px;
+    display: flex;
+    justify-content: space-around;
+}
+.zubo-cont .right-top .gifts-list>li{
+    width: 74px;
+    height:87px;
+}
+.zubo-cont .right-top .gifts-list>li>img{
+    width: 65px;
+    height:65px;
+    margin: 0 auto;
+}
+.zubo-cont .right-top .gifts-list>li>div{
+    width: 36px;
+    text-align: center;
+    background-color: #cbcbcb;
+    color:white;
+    margin: 0 auto;
+}
+/* =============右侧tab */
+.zubo-cont .right .right-tab{
+    width: 100%;
+    margin-top: 20px;
+    border: #dddddd solid 1px;
+    box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255,255,255,0.96);
+}
+.zubo-cont .right .right-tab .rightTab-nav{
+    width: 100%;
+    height:50px;
+    background-color: #f2f2f2;
+    color:#666;
+    font-size: 16px;
+    display: flex;
+}
+.zubo-cont .right .right-tab .rightTab-nav>div{
+    width: 108px;
+    line-height: 50px;
+    text-align: center;
+}
+.zubo-cont .right-tab .rightTab-cont{
+    padding: 30px;
+    border:1px solid red;
+}
+.zubo-cont .rightTab-cont .onlineLol .lol-head{
+    display: flex;
+    justify-content: space-between;
+}
+.zubo-cont .right-tab .rightTab-cont .lol-head .left{
+    display: flex;
+}
+.zubo-cont .right-tab .rightTab-cont .lol-head .radio{
+    margin-right: 20px;
+}
+.zubo-cont .rightTab-cont .lol-head .Lol-meta .name{
+    font-size: 24px;
+}
+.zubo-cont .rightTab-cont .lol-head .Lol-meta .garde{
+    font-size: 14px;
+    background: #999999;
+    width: 86px;
+    height: 25px;
+    text-align: center;
+    line-height: 25px;
+    margin: 0 
+}
+.zubo-cont .rightTab-cont .lol-head .Lol-meta .order-btn{
+    font-size: 14px;
+}
+ 
+

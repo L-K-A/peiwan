@@ -44,6 +44,11 @@ public class PPerson implements Serializable {
      * 密码
      */
     private String personPwd;
+    /**
+     * 隐藏密码
+     */
+    private String person_pwdencry;
+
 
     /**
      * 电话
@@ -134,5 +139,10 @@ public class PPerson implements Serializable {
      * 成为主播同时修改
      */
     private Integer zZhubo;
+
+    /**
+     * 0 未认证 1正常 2锁定
+     */
+    private Integer person_status;
 
 }

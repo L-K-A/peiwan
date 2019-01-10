@@ -2,7 +2,7 @@ package com.peiwan.peiUtils;
 
 /**
  * @Author: zhangwanli
- * @Despriction:  通过 String 类型的 yyyyMMdd  获取星座
+ * @Despriction: 通过 String 类型的 yyyyMMdd  获取星座
  * @Date:Created in 13:53 2019/1/5
  * @Modify by:
  */
@@ -17,12 +17,14 @@ public class ConstellationUtil {
             this.code = code;
             this.chineseName = chineseName;
         }
+
         private int code;
         private String chineseName;
 
         public int getCode() {
             return this.code;
         }
+
         public String getChineseName() {
             return this.chineseName;
         }
@@ -36,14 +38,13 @@ public class ConstellationUtil {
             Constellation.Capricorn
     };
 
-    public static final int[] constellationEdgeDay = { 21, 20, 21, 21, 22, 22,
-            23, 24, 24, 24, 23, 22 };
+    public static final int[] constellationEdgeDay = {21, 20, 21, 21, 22, 22,
+            23, 24, 24, 24, 23, 22};
 
     public static String calculateConstellation(String birthday) {
-
         if (birthday == null || birthday.trim().length() == 0)
             throw new IllegalArgumentException("the birthday can not be null");
-        String  LockDates= birthday.substring(0, 4) + "-" + birthday.substring(4, 6) + "-" + birthday.substring(6, 8);
+        String LockDates = birthday.substring(0, 4) + "-" + birthday.substring(4, 6) + "-" + birthday.substring(6, 8);
         String[] birthdayElements = LockDates.split("-");
         if (birthdayElements.length != 3)
             throw new IllegalArgumentException(
@@ -52,8 +53,7 @@ public class ConstellationUtil {
         int day = Integer.parseInt(birthdayElements[2]);
         if (month == 0 || day == 0 || month > 12)
             return "";
-        month = day < constellationEdgeDay[month - 1] ? month - 1:month;
-        return month > 0 ? constellationArr[month - 1].getChineseName(): constellationArr[11].getChineseName();
+        month = day < constellationEdgeDay[month - 1] ? month - 1 : month;
+        return month > 0 ? constellationArr[month - 1].getChineseName() : constellationArr[11].getChineseName();
     }
-
 }

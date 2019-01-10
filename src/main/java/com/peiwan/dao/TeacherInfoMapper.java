@@ -29,8 +29,8 @@ public interface TeacherInfoMapper extends BaseMapper<PPerson> {
     @Select("select g_name from g_service where pid=#{zid}")
     List<String> selectZhuboService(Integer zid);
 
-    /* 依据 zid  gid   获取主播的  指定服务 的 段位 价格 */
-   @Select("select g_price, g_duanwei from g_service where pid=#{zid} and gid=#{gid}")
+    /* 依据 zid  gid   获取主播的  指定服务 的 段位 价格 服务介绍 */
+   @Select("select g_price, g_duanwei,g_content from g_service where pid=#{zid} and gid=#{gid}")
     Map<String,Object> selectZhudp(Integer zid ,Integer gid);
 
 

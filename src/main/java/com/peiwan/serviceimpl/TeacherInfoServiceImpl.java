@@ -9,10 +9,13 @@ import com.peiwan.bean.PComment;
 import com.peiwan.bean.PPerson;
 import com.peiwan.dao.AAttentionMapper;
 import com.peiwan.dao.TeacherInfoMapper;
+import com.peiwan.peiUtils.AgeByBirthUtil;
+import com.peiwan.peiUtils.ConstellationUtil;
 import com.peiwan.service.TeacherInfoService;
-import org.apache.ibatis.jdbc.Null;
 import org.springframework.stereotype.Service;
+
 import javax.annotation.Resource;
+import java.text.ParseException;
 import java.util.List;
 import java.util.Map;
 
@@ -34,11 +37,16 @@ public class TeacherInfoServiceImpl implements TeacherInfoService {
 
     /*获取导师全部信息*/
     @Override
-    public PPerson getInfo(int pid) {
+    public PPerson getInfo(int pid) throws ParseException {
         PPerson pPerson = teacherInfoMapper.selectById(pid);
+        /*获取星座  暂存person_sex字段内*/
         String personBirthday = pPerson.getPersonBirthday();
         String s = calculateConstellation(personBirthday);
-        pPerson.setPersonBirthday(s);
+        pPerson.setPersonSex(s);
+        /*获取年龄   暂存personBirthday 字段内*/
+        int age = AgeByBirthUtil.getAgeByBirth(personBirthday);
+        String s1 = String.valueOf(age);
+        pPerson.setPersonBirthday(s1);
         return pPerson;
     }
 
@@ -108,9 +116,7 @@ public class TeacherInfoServiceImpl implements TeacherInfoService {
     public TeacherInfoMapper getTeacherInfoMapper() {
         return teacherInfoMapper;
     }
-
     public void setTeacherInfoMapper(TeacherInfoMapper teacherInfoMapper) {
         this.teacherInfoMapper = teacherInfoMapper;
     }
-
 }

@@ -4,12 +4,12 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 
 import com.peiwan.bean.PComment;
 import com.peiwan.bean.PPerson;
-import com.peiwan.dao.TeacherInfoMapper;
 import com.peiwan.service.TeacherInfoService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.text.ParseException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -24,15 +24,13 @@ import java.util.Map;
 @RequestMapping("/teacherPage")
 public class TeacherInfoController {
     @Resource
-    private TeacherInfoMapper teacherInfoMapper;
-    @Resource
     private TeacherInfoService teacherInfoService;
+
     /*获取导师表全部信息*/
     @RequestMapping("/getInfo")
-    public Map getInfo(Integer pid) {
+    public Map getInfo(Integer pid) throws ParseException {
         HashMap<String, PPerson> map = new HashMap<>();
-        PPerson info = teacherInfoMapper.selectById(pid);
-        System.out.println(info);
+        PPerson info = teacherInfoService.getInfo(pid);
         map.put("pperson", info);
         return map;
     }
@@ -58,9 +56,9 @@ public class TeacherInfoController {
         return integer;
     }
 
-/*获取主播的评价  分数 */
+    /*获取主播的评价  分数 */
     @RequestMapping("/getCommentavg")
-    public double getComment(Integer zid){
+    public double getComment(Integer zid) {
         double avg = teacherInfoService.selectAvg(zid);
         System.out.println(avg);
         return avg;
@@ -68,33 +66,26 @@ public class TeacherInfoController {
 
     /*获取主播服务类型*/
     @RequestMapping("/selectZhuboService")
-    public List<String> selectZhuboService(Integer zid){
+    public List<String> selectZhuboService(Integer zid) {
         List<String> stri = teacherInfoService.selectZhuboService(zid);
         return stri;
     }
 
-    /*依据 zid  gid   获取主播的  指定服务 的 段位 价格*/
+    /*依据 zid  gid   获取主播的  指定服务 的 段位 价格 服务介绍*/
     @RequestMapping("/selectZhudp")
-    public Map<String, Object> selectZhudp(Integer zid, Integer gid){
+    public Map<String, Object> selectZhudp(Integer zid, Integer gid) {
         Map<String, Object> map = teacherInfoService.selectZhudp(zid, gid);
         return map;
     }
 
     /* 依据 zid  gid   获取主播的  指定服务 的 接单次数*/
     @RequestMapping("/selectJiedanCount")
-    public Integer selectJiedanCount(Integer zid, Integer gid){
+    public Integer selectJiedanCount(Integer zid, Integer gid) {
         Integer integer = teacherInfoService.selectJiedanCount(zid, gid);
         return integer;
     }
 
 
-    public TeacherInfoMapper getTeacherInfoMapper() {
-        return teacherInfoMapper;
-    }
-
-    public void setTeacherInfoMapper(TeacherInfoMapper teacherInfoMapper) {
-        this.teacherInfoMapper = teacherInfoMapper;
-    }
 
     public TeacherInfoService getTeacherInfoService() {
         return teacherInfoService;
