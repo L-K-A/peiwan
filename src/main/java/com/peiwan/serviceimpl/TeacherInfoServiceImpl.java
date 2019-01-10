@@ -12,6 +12,7 @@ import com.peiwan.service.TeacherInfoService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 import java.util.Map;
 
 import static com.peiwan.peiUtils.ConstellationUtil.calculateConstellation;
@@ -78,6 +79,27 @@ public class TeacherInfoServiceImpl implements TeacherInfoService {
     public double selectAvg(Integer zid) {
         double selectavg = teacherInfoMapper.selectavg(zid);
         return selectavg;
+    }
+
+    /*获取主播服务类型*/
+    @Override
+    public List<String> selectZhuboService(Integer zid) {
+        List<String> str = teacherInfoMapper.selectZhuboService(zid);
+        return str;
+    }
+
+    /*依据 zid  gid   获取主播的  指定服务 的 段位 价格*/
+    @Override
+    public Map<String, Object> selectZhudp(Integer zid, Integer gid) {
+        Map<String, Object> map = teacherInfoMapper.selectZhudp(zid, gid);
+        return map;
+    }
+
+    /* 依据 zid  gid   获取主播的  指定服务 的 接单次数*/
+    @Override
+    public Integer selectJiedanCount(Integer zid, Integer gid) {
+        Integer integer = teacherInfoMapper.selectJiedanCount(zid, gid);
+        return integer;
     }
 
 

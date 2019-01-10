@@ -36,9 +36,9 @@ public class OOrderZ implements Serializable {
     private String personName;
 
     /**
-     * 服务类型=板块名
+     * 服务类型id
      */
-    private String oService;
+    private Integer gid;
 
     /**
      * 约定时间

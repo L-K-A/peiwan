@@ -64,6 +64,28 @@ public class TeacherInfoController {
         return avg;
     }
 
+    /*获取主播服务类型*/
+    @RequestMapping("/selectZhuboService")
+    public List<String> selectZhuboService(Integer zid){
+        List<String> stri = teacherInfoService.selectZhuboService(zid);
+        return stri;
+    }
+
+    /*依据 zid  gid   获取主播的  指定服务 的 段位 价格*/
+    @RequestMapping("/selectZhudp")
+    public Map<String, Object> selectZhudp(Integer zid, Integer gid){
+        Map<String, Object> map = teacherInfoService.selectZhudp(zid, gid);
+        return map;
+    }
+
+    /* 依据 zid  gid   获取主播的  指定服务 的 接单次数*/
+    @RequestMapping("/selectJiedanCount")
+    public Integer selectJiedanCount(Integer zid, Integer gid){
+        Integer integer = teacherInfoService.selectJiedanCount(zid, gid);
+        return integer;
+    }
+
+
 
 
     public TeacherInfoMapper getTeacherInfoMapper() {

@@ -26,4 +26,16 @@ public interface TeacherInfoMapper extends BaseMapper<PPerson> {
     /*获取主播评分的平均数*/
     @Select("select avg(c_rank) from p_comment where zid =#{zid} ")
     double selectavg(Integer zid);
+
+    /*获取主播服务类型*/
+    @Select("select g_name from g_service where pid=#{zid}")
+    List<String> selectZhuboService(Integer zid);
+
+    /* 依据 zid  gid   获取主播的  指定服务 的 段位 价格 */
+   @Select("select g_price, g_duanwei from g_service where pid=#{zid} and gid=#{gid}")
+    Map<String,Object> selectZhudp(Integer zid ,Integer gid);
+
+    /* 依据 zid  gid   获取主播的  指定服务 的 接单次数*/
+    @Select("select count(oid) from o_order_z where pid = #{zid} and gid = #{gid} ")
+    Integer selectJiedanCount(Integer zid ,Integer gid);
 }

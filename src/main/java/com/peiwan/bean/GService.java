@@ -1,13 +1,15 @@
 package com.peiwan.bean;
 
 import java.io.Serializable;
+
+import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 /**
  * <p>
- * 
+ *
  * </p>
  *
  * @author bjlz
@@ -28,8 +30,13 @@ public class GService implements Serializable {
     /**
      * 游戏板块id
      */
+    @TableId("gid")
     private Integer gid;
 
+    /**
+     * 服务价格
+     */
+    private double gPrice;
     /**
      * 游戏名
      */
@@ -49,6 +56,5 @@ public class GService implements Serializable {
      * 玩家游戏id
      */
     private String pGid;
-
 
 }
