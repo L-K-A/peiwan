@@ -39,7 +39,7 @@
             <div class="follow_code_subbox" v-for="(item,index) in result">
                 <div class="follow_code_box fl">
                 <div class="follow_code_input">
-                    <input type="checkbox" value="420073" class="follow_code_input_01">
+                    <input type="checkbox" :value="item.zid" class="follow_code_input_01">
                 </div>
                 <a class="fl pr25 follow_code_headimg_border" :href="'/#'+item.zid" target="_blank">
                     <div class="follow_code_headimg mt20" >
@@ -57,8 +57,8 @@
                         <div class="clearfix"></div>
                     </div>
 
-                    <div class="follow_hover_box" tid="420073">
-                        <img src="./img/follow_hover.png" class="follow_hover_01">&nbsp;取消关注
+                    <div class="follow_hover_box" :ttid="item.zid">
+                        <img src="./img/follow_hover.png" class="follow_hover_01" >&nbsp;取消关注
                     </div>
                 </div>
                     <div class="clearfix"></div>
@@ -66,10 +66,7 @@
             <div class="nofollow"><img src="./img/blank.png"></div>
             <div class="clearfix"></div>
         </div>
-        <!--<div class="tcdPageCode">
-            <span class="disabled">上一页</span>
-            <span class="current">1</span>
-            <span class="disabled">下一页</span></div>-->
+        <div class="pagenav"></div>
     </div>
 </div>
     <script type="text/javascript">
@@ -100,8 +97,8 @@
 
 
 
-        initfollowGIft();
-        /*分页*/
+        /*initfollowGIft();
+        /!*分页*!/
         function followGift(p){
             $.ajax({
                 url: "/lists?page="+p+"&size=12",
@@ -187,25 +184,29 @@
 
         }
 
-    }
+    }*/
 
 
 
     $(document).on("click",".follow_hover_box",function(){
-        var n=$(this).attr("tid");
+        var n=$(this).attr("ttid");
         var r=confirm("您确定取消吗？");
         if (r==true){
             removefollow(n);
         }
-    })
+    });
         /*取消关注*/
     function removefollow(n){
         $.ajax({
-            url: "/Attention/cencel?teacherid="+n,
-            type: "get",
-            dataType: "jsonp",
+            url: '/cencelAttention',
+            type: "post",
+            dataType: "json",
+            data:{zid:n},
             success: function (obj){
-                if(obj.error == 0){
+                if(obj.result>0){
+                    getAttentionList();
+                }
+                /*if(obj.error == 0){
                     n= n.toString();
                     var idsArr = n.split(",");
                     var num=$(".follow_code_box").length-idsArr.length
@@ -219,7 +220,7 @@
                     }
                     $(".gift_list_allnumber").html(num);
 
-                }
+                }*/
 
             }
         });

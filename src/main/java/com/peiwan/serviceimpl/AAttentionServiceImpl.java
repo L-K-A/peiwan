@@ -1,5 +1,8 @@
 package com.peiwan.serviceimpl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.peiwan.bean.AAttention;
 import com.peiwan.bean.PPerson;
 import com.peiwan.dao.AAttentionMapper;
@@ -9,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.Map;
 
 /**
  * <p>
@@ -33,6 +37,20 @@ public class AAttentionServiceImpl extends ServiceImpl<AAttentionMapper, AAttent
     public int queryPPersonInsert(PPerson pPerson) {
         int a=aAttentionMapper.getPPersonInsert(pPerson);
         return a;
+    }
+
+    /**
+     * 分页查询关注
+     * @param page
+     * @param
+     * @return
+     */
+    @Override
+    public List<Map<String,Object>> queryAttentionPage(Page page, int pid) {
+//        QueryWrapper<PPerson> wrapper=new QueryWrapper<>();
+
+        List list= aAttentionMapper.getSelectAttention(page,pid);
+        return list;
     }
 
     public AAttentionMapper getaAttentionMapper() {

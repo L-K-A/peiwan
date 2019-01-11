@@ -1,7 +1,9 @@
 package com.peiwan.controller;
 
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.peiwan.Utils.baseCoverString;
+import com.peiwan.bean.AAttention;
 import com.peiwan.bean.GService;
 import com.peiwan.bean.PAlity;
 import com.peiwan.bean.PPerson;
@@ -14,10 +16,7 @@ import org.omg.CORBA.Request;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.actuate.trace.http.HttpTrace;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -30,6 +29,7 @@ import java.io.FileOutputStream;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 /**
  * <p>
@@ -79,20 +79,42 @@ public class AAttentionController {
     public  String getAttention(){
         return "attention";
     }
+
     @RequestMapping("/attentio")
     @ResponseBody
-    public Map userAttention() {
-        List list= aAttentionMapper.getSelectAttention();
+    public Map userAttention(int pageCurrent, int pageSize,int pid) {
+//        Page page=new Page(pageCurrent,pageSize);
+        Page<Map<String,Object>> mapPage = new Page<>(pageCurrent,pageSize);
+        Page<Map<String, Object>> mapPage1 = mapPage.setRecords(aAttentionMapper.getSelectAttention(mapPage, pid));
+        System.out.println(mapPage1);
+        //       List list= aAttentionService.queryAttentionPage(page,pid);
         int a=aAttentionMapper.getSelectAttentionCount();
         /*System.out.println(a);
         System.out.println(list);*/
         Map map=new HashMap();
-        map.put("result",list);
+//        map.put("result",list);
         map.put("count",a);
 
+        map.put("result",mapPage1);
         return map;
     }
-
+    /**
+     * 取消关注
+     * @author lxq
+      */
+    @RequestMapping("/cencelAttention")
+    @ResponseBody
+    public  Map userAttentionCancer(String zid){
+        //字符串拆分并循环删除操作
+        String[] ua=zid.split(",");
+        int a=0;
+        for(int i=0;i<ua.length;i++){
+          a += aAttentionMapper.getUpdateAttention(ua[i]);
+        }
+        Map map=new HashMap();
+        map.put("result",a);
+        return map;
+    }
     /**
      * 订单记录查询
      * @author lxq
@@ -101,7 +123,6 @@ public class AAttentionController {
     @ResponseBody
     public Map userOrder(){
        List list= aAttentionMapper.getSelectOrder();
-        System.out.println(list);
         Map map=new HashMap();
         map.put("result",list);
         return map;
@@ -133,19 +154,19 @@ public class AAttentionController {
      */
     @PostMapping("/playinfosubmit")
     @ResponseBody
-    public Map sek(String tag, String organ, MultipartFile himage, PPerson pPerson, PAlity pAlity, GService gService) throws Exception {
+    public Map sek(String gname,String tag, String organ, MultipartFile himage, PPerson pPerson, PAlity pAlity, GService gService) throws Exception {
         //System.out.println(himage.getOriginalFilename());
         int pid = 4;
         /*String filePath = "F:\\upload\\" + himage.getOriginalFilename();*/
-        String filePath = "C:\\Users\\Administrator\\Desktop\\peiwan\\src\\main\\resources\\static\\imgupload\\" + himage.getOriginalFilename();
+        String filePath = "C:\\Users\\Administrator\\Desktop\\peiwan\\src\\main\\resources\\static\\imgupload\\" + new Random().nextInt(100)+ himage.getOriginalFilename();
         //String filePath = request.getSession().getServletContext().getRealPath("imgupload") +File.separator +himage.getOriginalFilename();
         System.out.println(filePath);
         BufferedOutputStream outputStream = new BufferedOutputStream(new FileOutputStream(filePath));
         outputStream.write(himage.getBytes());
         outputStream.flush();
         outputStream.close();
-        pPerson.setPersonCoverphoto(filePath);
         pPerson.setPid(pid);
+        pPerson.setPersonCoverphoto(filePath);
         /*才艺标签*/
         //System.out.println("标签:"+tag);
         /*才艺表赋值*/
@@ -160,7 +181,7 @@ public class AAttentionController {
         /*游戏版块*/
         //System.out.println("游戏"+gService);
         //gService.setPid(pid);
-        //gService.setGName("lol");
+        //gService.setGName(gname);
         //System.out.println(pPerson);
         /*base64转码*/
         //System.out.println("转码:"+new baseCoverString().baseCoverStr(pPerson.getPersonCoverphoto()));

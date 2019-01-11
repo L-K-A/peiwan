@@ -576,7 +576,7 @@
                 </div>
                 <!--服务-->
                 <div class="lol_bigbox" id="dj">
-                    <span name="gid" value="31540"></span>
+
                     <div class="fl lol_box"  >
                         <div class="lol_img" dtid="31540" flag="0"  >
                             <img src="./img/playinfo/apply_31540.png" class="status_lol"
@@ -588,8 +588,9 @@
                         <div class="lol_status">（未开通）</div>
                     </div>
 
-                    <span name="gid" value="20002"></span >
-                    <div class="fl lol_box">
+
+
+                    <div class="fl lol_box" >
                         <div class="lol_img" dtid="20002"  flag="0">
                             <img src="./img/playinfo/apply_20002.png" class="status_lol"
                                  style="width:80px;height:80px;display:block;">
@@ -601,7 +602,7 @@
                     </div>
 
 
-                    <div class="fl lol_box">
+                    <div class="fl lol_box" >
                         <div class="lol_img" dtid="20004"  flag="0">
                             <!--<input type="checkbox" name="gid" value="20004" hidden="hidden">-->
                             <!--<input name="gName" value="talker" hidden="hidden">-->
@@ -613,7 +614,7 @@
                         <div class="lol_title">声优聊天</div>
                         <div class="lol_status">（未开通）</div>
                     </div>
-                    <div class="fl lol_box">
+                    <div class="fl lol_box" >
                         <div class="lol_img" dtid="20008" flag="0">
                             <input type="checkbox" name="gid" value="20008" hidden="hidden">
                             <!--<input name="gName" value="wangzhe" hidden="hidden">-->
@@ -1062,8 +1063,8 @@
 
 <script type="text/javascript">
 
-    var dtid = null;
-
+    var gName=null;
+    var dtid=null;
 
     /*开通服务*/
     function changeService(that, dtid) {
@@ -1292,8 +1293,7 @@
                 callback(img.width, img.height);
                 img.onload = null;
             };
-        }
-        ;
+        };
         $('#shiliimg').find('.dtidimginfo').attr("src", val);
     };
 
@@ -1372,20 +1372,30 @@
 
 
         /*游戏名判断*/
-        /*$("#dj span").click(function () {
-            /!*var indexDiv = $("#dj span").index(this);
+        $(".fl.lol_box").click(function () {
+            /*var indexDiv = $("#dj div").index(this);
             gid = indexDiv + 1000;
-            alert(gid);*!/
-            var gameid=$("#dj span").attr("value");
-            var gName=null;
-            alert(gameid);
-        });*/
+            alert(gid);*/
+            var gameid=$(".fl.lol_box").index(this);
+            gameid=gameid+10001;
+            switch (gameid) {
+                case 10001:gName='线上lol';break;
+                case 10002:gName='线上歌手';break;
+                case 10003:gName='声优聊天';break;
+                case 10004:gName='王者荣耀';break;
+                case 10005:gName='虚拟恋人';break;
+                case 10006:gName='哄睡觉';break;
+                case 10007:gName='叫醒';break;
+                case 10008:gName='绝地求生';break;
+                case 10009:gName='荒野行动';break;
+                case 100010:gName='刺激战场';break;
+                case 100011:gName='全军出击';break;
+                case 100012:gName='第五人格';break;
+                case 100013:gName='视频游戏';break;
+            }
+            alert(gName);
+        });
 
-        /*$("#gna").click(function () {
-            var gameid=$('input[name="gid"]').val();
-            var gName=null;
-            alert(gameid);
-        });*/
         /*判断checkout选中个数*/
         $(document).ready(function() {
 
@@ -1465,6 +1475,7 @@
 
             if(flag==true){
                 var fomFile = new FormData($("#personform")[0]);
+                fomFile.append("gname",gName);
                 //获取上传文件的路径和名称
                 var filePath=$("input[name='himage']").val();
                 Helper.ui.dialogSuccess( "提交成功", "请耐心等待审核,页面将返回!!" );

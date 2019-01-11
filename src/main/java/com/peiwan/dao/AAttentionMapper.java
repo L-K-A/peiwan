@@ -1,13 +1,12 @@
 package com.peiwan.dao;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.peiwan.bean.AAttention;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.peiwan.bean.GService;
 import com.peiwan.bean.PAlity;
 import com.peiwan.bean.PPerson;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 import java.util.Map;
@@ -66,8 +65,8 @@ public interface AAttentionMapper extends BaseMapper<AAttention> {
      * @auther lxq
      * @return
      */
-    @Select("select p.person_nickname,p.person_coverphoto,a.zid from p_person p,(select zid,z_zhubo from a_attention where pid=1) as a where a.zid=p.pid and a.z_zhubo=p.z_zhubo")
-    List<Map<String,Object>> getSelectAttention();
+    @Select("select p.person_nickname,p.person_coverphoto,a.zid from p_person p,(select zid,z_zhubo from a_attention where pid=#{pid}) as a where a.zid=p.pid and a.z_zhubo=p.z_zhubo")
+    List<Map<String,Object>> getSelectAttention(Page page,int pid);
 
     /**
      * 关注主播数量
@@ -81,7 +80,14 @@ public interface AAttentionMapper extends BaseMapper<AAttention> {
      * 用户订单查询
      * @author lxq
      */
-    @Select("SELECT p.pid,p.person_nickname,p.person_coverphoto,p.person_qq,o.* FROM p_person p,(SELECT * FROM o_order WHERE pid=5) o WHERE o.aid=p.pid GROUP BY p.pid")
+    @Select("SELECT p.pid,p.person_nickname,p.person_coverphoto,p.person_qq,o.* FROM p_person p,(SELECT * FROM o_order WHERE pid=5) o WHERE o.aid=p.pid GROUP BY o.oid")
     List<Map<String,Object>> getSelectOrder();
+
+    /**
+     * 取消关注
+     * @author lxq
+     */
+    @Update("update a_attention set z_zhubo=0 where pid=1 and zid=#{zid}")
+    int getUpdateAttention(String zid);
 }
 
