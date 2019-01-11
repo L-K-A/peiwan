@@ -1,10 +1,12 @@
 package com.peiwan;
 
-import com.baomidou.mybatisplus.generator.config.DataSourceConfig;
+import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
+import com.baomidou.mybatisplus.extension.plugins.PerformanceInterceptor;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.context.annotation.Bean;
+
 @MapperScan("com.peiwan.dao")
 @SpringBootApplication
 public class PeiwanApplication {
@@ -12,6 +14,8 @@ public class PeiwanApplication {
     public static void main(String[] args) {
         SpringApplication.run(PeiwanApplication.class, args);
     }
+
+
 
 }
 

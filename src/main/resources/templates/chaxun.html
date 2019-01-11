@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户列表</title>
+    <link rel="stylesheet" href="/test/bootstrap.min.css">
+    <!--<link rel="stylesheet" href="/home/css/searchplayer/search.css">-->
+    <link rel="stylesheet" href="/test/laypage.css">
+    <script type="text/javascript" src="/plugins/vue.min.js"></script>
+    <script type="text/javascript" src="/test/jquery.min.js"></script>
+    <script type="text/javascript" src="/plugins/layer/layer.js"></script>
+    <script type="text/javascript" src="/plugins/laypage/laypage.js"></script>
+</head>
+<body>
+<div id="app" class="container">
+
+    <form class="form-inline bg-danger" role="form">
+        查询条件：
+        <div class="form-group">
+            <label class="sr-only" for="personNickname">用户名称</label>
+            <input type="text" class="form-control" id="personNickname" placeholder="用户名称">
+        </div>
+        <button type="button" id="findUserBtn" class="btn btn-danger">查询用户</button>
+    </form>
+
+</div>
+<script>
+
+    var app = new Vue({
+        el: '#app',
+        data: {
+            result: []
+        }
+    });
+
+
+    //查询用户
+    $("#findUserBtn").click(function () {
+        layer.open({
+            type: 2,
+            title: '查询',
+            fix: false,
+            maxmin: true,
+            shadeClose: true,
+            area: ['1000px', '600px'],
+            content: 'user_list.html',
+            end: function () {
+                getUserPageList();
+            }
+        });
+    });
+
+
+
+
+    var getUserPageList = function (curr) {
+        $.ajax({
+            type: 'POST',
+            dataType: 'json',
+            url: '/person/searchPerson',
+            data: {
+                pageNum: curr || 1,
+                //pageSize: 6,
+                personNickname: $("#person_nickname").val()
+            },
+            success: function (msg) {
+                app.result = msg.personList;
+                laypage({
+                    cont: 'pagenav', //容器
+                    pages: msg.totalPage,
+                    first: '首页',
+                    last: '尾页',
+                    skin: '#00A0E9',
+                    curr: curr || 1,
+                    jump: function (obj, first) {
+                        if (!first) {
+                            getUserPageList(obj.curr);
+                        }
+                    }
+                });
+            }
+
+        });
+    }
+
+    getUserPageList();
+
+    $("#findUser").click(function () {
+        getUserPageList();
+    });
+
+
+
+
+
+</script>
+</body>
+</html>

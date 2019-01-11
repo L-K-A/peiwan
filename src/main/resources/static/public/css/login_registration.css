@@ -1,0 +1,586 @@
+@charset 'UTF-8';
+/**
+* @create çŽ‹æ™“ç¨
+* @time 2018-06-06
+* ç™»å½•å¼¹çª—
+ */
+#tel_login_v1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99999;
+  font-family: "Microsoft YaHei" !important;
+  /*é’ˆå¯¹è¡¨å•éªŒè¯æç¤ºä¿¡æ¯æ ·å¼*/
+}
+#tel_login_v1 .bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 100000;
+}
+#tel_login_v1 .Prompt_msg_style {
+  position: absolute;
+  z-index: 100002;
+  height: 20px;
+  line-height: 20px;
+  border: solid 1px #ffe7cf;
+  border-radius: 3px;
+  font-size: 12px;
+  color: red;
+  background: #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  padding: 0 10px;
+}
+#tel_login_v1 .check-btn-wrapper {
+  display: inline-block;
+  height: 13px;
+  cursor: pointer;
+}
+#tel_login_v1 .check-btn-wrapper .check-btn {
+  display: inline-block;
+  width: 13px;
+  height: 13px;
+  background-image: url("../img/checkbox.png");
+  background-position: 0 0;
+}
+#tel_login_v1 .check-btn-wrapper.on .check-btn {
+  background-position: 13px 13px;
+}
+#tel_login_v1 .check-btn-wrapper .check-text {
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 10px;
+}
+#tel_login_v1 .close-wrapper {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
+  webkit-transition: all .5s;
+  -moz-transition: all .5s;
+  -o-transition: all .5s;
+  transition: all .5s;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+#tel_login_v1 .close-wrapper:hover {
+  webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+#tel_login_v1 .close-wrapper img {
+  vertical-align: top;
+}
+#tel_login_v1 .login-reg-wrapper {
+  position: fixed;
+  width: 620px;
+  height: auto;
+  min-height: 322px;
+  padding: 40px 40px 28px;
+  margin: 15% auto 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  z-index: 100001;
+}
+#tel_login_v1 .login-reg-wrapper .login-reg-title {
+  position: relative;
+  width: 100%;
+  border-bottom: 1px solid #f2f2f2;
+  text-align: left;
+  font-size: 0;
+}
+#tel_login_v1 .login-reg-wrapper .login-reg-title .text {
+  display: inline-block;
+  width: 65px;
+  padding-bottom: 12px;
+  font-size: 22px;
+  color: #666;
+  text-align: center;
+  cursor: pointer;
+}
+#tel_login_v1 .login-reg-wrapper .login-reg-title .text.on {
+  color: #FC7888;
+  border-bottom: 3px solid #FC7888;
+}
+#tel_login_v1 .login-reg-wrapper .login-content-wrapper .login-content-item {
+  padding-top: 20px;
+}
+#tel_login_v1 .login-reg-wrapper .login-content-wrapper .login-content-item .left {
+  display: inline-block;
+  padding-top: 10px;
+}
+#tel_login_v1 .login-reg-wrapper .login-content-wrapper .login-content-item .left .login-inp {
+  display: block;
+  width: 340px;
+  height: 46px;
+  margin-bottom: 22px;
+  line-height: 44px;
+  font-size: 0;
+  position: relative;
+}
+#tel_login_v1 .login-reg-wrapper .login-content-wrapper .login-content-item .left .login-inp:last-child {
+  margin-bottom: 0;
+}
+#tel_login_v1 .login-reg-wrapper .login-content-wrapper .login-content-item .left .login-inp .regist_phone_code {
+  width: 80px;
+  height: 44px;
+  float: left;
+  font-size: 14px;
+  color: #333;
+  text-align: center;
+  cursor: pointer;
+  display: inline-block;
+  border: 1px solid #FFE1D1;
+  border-right: none;
+  background: #FFFBF7;
+  position: relative;
+}
+#tel_login_v1 .login-reg-wrapper .login-content-wrapper .login-content-item .left .login-inp .regist_phone_code img {
+  width: 8px;
+  height: 4px;
+  display: inline-block;
+  position: absolute;
+  top: 20px;
+  right: 10px;
+}
+#tel_login_v1 .login-reg-wrapper .login-content-wrapper .login-content-item .left .login-inp .regist_phone_ul {
+  position: absolute;
+  top: 50px;
+  left: 0px;
+  width: 340px;
+  height: 88px;
+  border: 1px solid #FFE1D1;
+  background: #FFFBF7;
+  z-index: 999;
+}
+#tel_login_v1 .login-reg-wrapper .login-content-wrapper .login-content-item .left .login-inp .regist_phone_ul li {
+  width: 300px;
+  height: 44px;
+  line-height: 44px;
+  font-size: 14px;
+  padding: 0px 20px;
+  color: #333;
+  cursor: pointer;
+}
+#tel_login_v1 .login-reg-wrapper .login-content-wrapper .login-content-item .left .login-inp .regist_phone_ul li span {
+  float: right;
+}
+#tel_login_v1 .login-reg-wrapper .login-content-wrapper .login-content-item .left .login-inp .regist_phone_ul li:hover {
+  background-color: #FFE1D1;
+}
+#tel_login_v1 .login-reg-wrapper .login-content-wrapper .login-content-item .left .login-inp input {
+  width: 318px;
+  height: 44px;
+  padding-left: 20px;
+  line-height: 44px;
+  font-size: 14px;
+  color: #333;
+  border: 1px solid #FFE1D1;
+  background: #FFFBF7;
+}
+#tel_login_v1 .login-reg-wrapper .login-content-wrapper .login-content-item .left .login-inp input:focus {
+  border: 1px solid #FFC6A8;
+  outline: none;
+  background: #fff;
+}
+#tel_login_v1 .login-reg-wrapper .login-content-wrapper .login-content-item .left .login-inp .regist_mobile,
+#tel_login_v1 .login-reg-wrapper .login-content-wrapper .login-content-item .left .login-inp .msg_mobile,
+#tel_login_v1 .login-reg-wrapper .login-content-wrapper .login-content-item .left .login-inp .reset_mobile,
+#tel_login_v1 .login-reg-wrapper .login-content-wrapper .login-content-item .left .login-inp .bind_mobile,
+#tel_login_v1 .login-reg-wrapper .login-content-wrapper .login-content-item .left .login-inp .bind_other_mobile {
+  width: 237px;
+  height: 44px;
+  padding-left: 20px;
+  line-height: 44px;
+  font-size: 14px;
+  color: #333;
+  border: 1px solid #FFE1D1;
+  background: #FFFBF7;
+}
+#tel_login_v1 .login-reg-wrapper .login-content-wrapper .login-content-item .left .login-inp .regist_mobile:focus,
+#tel_login_v1 .login-reg-wrapper .login-content-wrapper .login-content-item .left .login-inp .msg_mobile:focus,
+#tel_login_v1 .login-reg-wrapper .login-content-wrapper .login-content-item .left .login-inp .reset_mobile:focus,
+#tel_login_v1 .login-reg-wrapper .login-content-wrapper .login-content-item .left .login-inp .bind_mobile:focus,
+#tel_login_v1 .login-reg-wrapper .login-content-wrapper .login-content-item .left .login-inp .bind_other_mobile:focus {
+  border: 1px solid #FFC6A8;
+  outline: none;
+  background: #fff;
+}
+#tel_login_v1 .login-reg-wrapper .login-content-wrapper .login-content-item .left .login-inp .login-btn {
+  display: block;
+  width: 200px;
+  height: 42px;
+  margin-top: 25px;
+  border-radius: 20px;
+  line-height: 42px;
+  font-size: 16px;
+  color: #fff;
+  text-align: center;
+  background: #FC7888;
+}
+#tel_login_v1 .login-reg-wrapper .login-content-wrapper .login-content-item .left .login-inp .login-btn:hover {
+  background: #FF596C ;
+}
+#tel_login_v1 .login-reg-wrapper .login-content-wrapper .login-content-item .left .login-inp .w240 {
+  display: inline-block;
+  vertical-align: top;
+  width: 240px;
+}
+#tel_login_v1 .login-reg-wrapper .login-content-wrapper .login-content-item .left .login-inp .w218 {
+  width: 218px;
+}
+#tel_login_v1 .login-reg-wrapper .login-content-wrapper .login-content-item .left .login-inp .w200 {
+  display: inline-block;
+  vertical-align: top;
+  width: 200px;
+}
+#tel_login_v1 .login-reg-wrapper .login-content-wrapper .login-content-item .left .login-inp .w177 {
+  width: 177px;
+}
+#tel_login_v1 .login-reg-wrapper .login-content-wrapper .login-content-item .left .login-inp .code_txt {
+  min-width: 90px;
+  height: 44px;
+  margin-left: 6px;
+  display: inline-block;
+  overflow: hidden;
+}
+#tel_login_v1 .login-reg-wrapper .login-content-wrapper .login-content-item .left .login-inp .code_txt img {
+  width: 100%;
+}
+#tel_login_v1 .login-reg-wrapper .login-content-wrapper .login-content-item .left .login-inp .code_txt input {
+  width: 100%;
+  height: 44px;
+  padding: 0;
+  border-radius: 5px;
+  line-height: 44px;
+  text-align: center;
+  font-size: 14px;
+  color: #fff;
+  cursor: pointer;
+  background: #FC7888;
+}
+#tel_login_v1 .login-reg-wrapper .login-content-wrapper .login-content-item .left .login-inp .code_txt input:hover {
+  background: #FF596C ;
+}
+#tel_login_v1 .login-reg-wrapper .login-content-wrapper .login-content-item .left .auto_login {
+  margin-top: 13px;
+  text-align: left;
+  font-size: 14px;
+  color: #666;
+}
+#tel_login_v1 .login-reg-wrapper .login-content-wrapper .login-content-item .left .auto_login .find-pwd {
+  display: inline-block;
+  float: right;
+  cursor: pointer;
+}
+#tel_login_v1 .login-reg-wrapper .login-content-wrapper .login-content-item .left .auto_login .find-pwd:hover {
+  color: #FC7888;
+}
+#tel_login_v1 .login-reg-wrapper .login-content-wrapper .login-content-item .right {
+  display: inline-block;
+  vertical-align: top;
+  height: 220px;
+  margin-left: 40px;
+  padding-left: 34px;
+  border-left: 1px solid #f2f2f2;
+}
+#tel_login_v1 .login-reg-wrapper .login-content-wrapper .login-content-item .right .right-title {
+  display: block;
+  margin-bottom: 26px;
+  font-size: 16px;
+  color: #888;
+}
+#tel_login_v1 .login-reg-wrapper .login-content-wrapper .login-content-item .right .login-mode-wrapper .login-mode-item {
+  width: 200px;
+  height: 42px;
+  margin-bottom: 21px;
+  border-radius: 20px;
+  line-height: 42px;
+  text-align: center;
+  font-size: 14px;
+  color: #fff;
+  cursor: pointer;
+}
+#tel_login_v1 .login-reg-wrapper .login-content-wrapper .login-content-item .right .login-mode-wrapper .login-mode-item .text {
+  display: inline-block;
+  margin-left: 11px;
+}
+#tel_login_v1 .login-reg-wrapper .login-content-wrapper .login-content-item .right .login-mode-wrapper .login-mode-item a {
+  color: #fff;
+}
+#tel_login_v1 .login-reg-wrapper .login-content-wrapper .login-content-item .right .login-mode-wrapper .login-mode-item.one {
+  background: #EF6E75;
+}
+#tel_login_v1 .login-reg-wrapper .login-content-wrapper .login-content-item .right .login-mode-wrapper .login-mode-item.one:hover {
+  background: #e15b62;
+}
+#tel_login_v1 .login-reg-wrapper .login-content-wrapper .login-content-item .right .login-mode-wrapper .login-mode-item.two {
+  background: #11D41D;
+}
+#tel_login_v1 .login-reg-wrapper .login-content-wrapper .login-content-item .right .login-mode-wrapper .login-mode-item.two:hover {
+  background: #06c112;
+}
+#tel_login_v1 .login-reg-wrapper .login-content-wrapper .login-content-item .right .login-mode-wrapper .login-mode-item.three {
+  background: #35A1D8;
+}
+#tel_login_v1 .login-reg-wrapper .login-content-wrapper .login-content-item .right .login-mode-wrapper .login-mode-item.three:hover {
+  background: #229ad7;
+}
+#tel_login_v1 .login-reg-wrapper .login-content-wrapper .login-content-item .bottom {
+  width: 100%;
+  margin-top: 27px;
+  padding-top: 14px;
+  border-top: 1px solid #f2f2f2;
+  font-size: 14px;
+  color: #888;
+}
+#tel_login_v1 .login-reg-wrapper .login-content-wrapper .login-content-item .bottom .agreement {
+  color: #438099;
+  cursor: pointer;
+}
+#tel_login_v1 .login-reg-wrapper.forget {
+  width: 338px;
+}
+#tel_login_v1 .login-reg-wrapper.forget.bind .login-reg-title .text {
+  width: 100%;
+}
+#tel_login_v1 .login-reg-wrapper.forget.setpwd {
+  min-height: 185px;
+}
+#tel_login_v1 .login-reg-wrapper.forget .login-reg-title .return-btn {
+  font-size: 14px;
+  color: #888;
+  cursor: pointer;
+}
+#tel_login_v1 .login-reg-wrapper.forget .login-reg-title .return-btn .icon {
+  margin-right: 6px;
+}
+#tel_login_v1 .login-reg-wrapper.forget .login-reg-title .text {
+  width: 84%;
+}
+#tel_login_v1 .login-reg-wrapper.forget .login-content-wrapper .login-content-item .left .login-inp .login-btn {
+  width: 100%;
+}
+#tel_login_v1 .bind-success-wrapper {
+  position: relative;
+  width: 360px;
+  height: 235px;
+  margin: 15% auto 0;
+  background: #fff;
+  z-index: 100001;
+}
+#tel_login_v1 .bind-success-wrapper .content-wrapper {
+  padding-top: 20px;
+}
+#tel_login_v1 .bind-success-wrapper .content-wrapper .icon-wrapper {
+  width: 100%;
+  text-align: center;
+}
+#tel_login_v1 .bind-success-wrapper .content-wrapper .icon-wrapper .icon {
+  width: 96px;
+  height: 96px;
+  margin: 0 auto;
+}
+#tel_login_v1 .bind-success-wrapper .content-wrapper .title {
+  display: block;
+  margin: 20px auto 10px;
+  font-size: 18px;
+  color: #333;
+  text-align: center;
+}
+#tel_login_v1 .bind-success-wrapper .content-wrapper .text {
+  display: block;
+  font-size: 14px;
+  color: #736a61;
+  text-align: center;
+}
+#tel_login_v1 .bind-success-wrapper .content-wrapper .desc {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  font-size: 14px;
+  color: #fff;
+  text-align: center;
+  background: #FF7348;
+}
+#tel_login_v1 .pop-wrapper {
+  position: relative;
+  width: 400px;
+  min-height: 200px;
+  margin: 15% auto 0;
+  padding-bottom: 40px;
+  border-radius: 10px;
+  background: #fff;
+  z-index: 100001;
+}
+#tel_login_v1 .pop-wrapper .content-wrapper .pop-title {
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 101px;
+  min-height: 115px;
+  margin: -48px auto 0;
+}
+#tel_login_v1 .pop-wrapper .content-wrapper .pop-title .icon-warn {
+  max-width: 100%;
+}
+#tel_login_v1 .pop-wrapper .content-wrapper .desc-wrapper {
+  position: relative;
+  width: 266px;
+  margin: 0 auto;
+  padding-top: 84px;
+}
+#tel_login_v1 .pop-wrapper .content-wrapper .desc-wrapper .title {
+  display: block;
+  margin-bottom: 17px;
+  font-size: 22px;
+  color: #666;
+  text-align: center;
+}
+#tel_login_v1 .pop-wrapper .content-wrapper .desc-wrapper .desc {
+  display: block;
+  font-size: 16px;
+  color: #888;
+  text-align: center;
+}
+#tel_login_v1 .pop-wrapper .content-wrapper .btn-wrapper {
+  position: relative;
+  margin: 30px auto 0;
+  width: 100%;
+  text-align: center;
+}
+#tel_login_v1 .pop-wrapper .content-wrapper .btn-wrapper .btn {
+  display: inline-block;
+  width: 110px;
+  height: 34px;
+  line-height: 34px;
+  border: 1px solid #DCDCDC;
+  border-radius: 5px;
+  font-size: 14px;
+  color: #888;
+  text-align: center;
+  background: #F4F4F4;
+  cursor: pointer;
+}
+#tel_login_v1 .pop-wrapper .content-wrapper .btn-wrapper .btn.url-btn {
+  margin-left: 30px;
+  border: 1px solid #FF681E;
+  color: #fff;
+  background: #FF681E;
+}
+#tel_login_v1 .pop-wrapper .content-wrapper .btn-wrapper .btn.url-btn:hover {
+  background: #FF596C ;
+}
+.public_new_receive_tc {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 2100;
+}
+.public_new_receive_tc .receive_body {
+  text-align: center;
+  width: 816px;
+  height: 478px;
+  background-image: url('../../home/img/activity/red_6.png');
+  margin: 0 auto;
+}
+.public_new_receive_tc .receive_body .receive_top {
+  margin-top: 290px;
+}
+.public_new_receive_tc .receive_body .receive_btn {
+  width: 743px;
+  margin: 0 auto;
+  padding-top: 70px;
+}
+.public_new_receive_tc .receive_body .receive_btn .receive_close {
+  width: 23px;
+  height: 23px;
+  float: right;
+  cursor: pointer;
+}
+.public_new_receive_tc .receive_body .receive_btn .receive_bottom {
+  width: 405px;
+  margin: 0 auto;
+  padding-top: 280px;
+}
+.public_new_receive_tc .receive_body .receive_btn .receive_bottom .receive_left {
+  width: 180px;
+  float: left;
+  height: 45px;
+  display: inline-block;
+  cursor: pointer;
+}
+.public_new_receive_tc .receive_body .receive_btn .receive_bottom .receive_right {
+  width: 180px;
+  float: right;
+  height: 45px;
+  border-radius: 25px;
+  display: inline-block;
+  cursor: pointer;
+}
+.public_old_oldUser_tc {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 2100;
+}
+.public_old_oldUser_tc .receive_body {
+  text-align: center;
+  width: 557px;
+  height: 392px;
+  background-image: url('../../home/img/activity/red_8.png');
+  margin: 0 auto;
+}
+.public_old_oldUser_tc .receive_body .receive_top {
+  margin-top: 290px;
+}
+.public_old_oldUser_tc .receive_body .receive_btn {
+  width: 500px;
+  margin: 0 auto;
+  padding-top: 28px;
+}
+.public_old_oldUser_tc .receive_body .receive_btn .receive_close {
+  width: 23px;
+  height: 23px;
+  float: right;
+  cursor: pointer;
+}
+.public_old_oldUser_tc .receive_body .receive_btn .receive_bottom {
+  width: 405px;
+  margin: 0 auto;
+  padding-top: 272px;
+  text-align: center;
+}
+.public_old_oldUser_tc .receive_body .receive_btn .receive_bottom .receive_left {
+  width: 195px;
+  height: 40px;
+  display: inline-block;
+  cursor: pointer;
+}
+.public_old_oldUser_tc .receive_body .receive_btn .receive_bottom .receive_left a {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+}

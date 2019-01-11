@@ -1,8 +1,12 @@
 package com.peiwan.bean;
 
 import java.io.Serializable;
+
+import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 /**
@@ -14,8 +18,11 @@ import lombok.experimental.Accessors;
  * @since 2019-01-02
  */
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
+@TableName("p_ality")
 public class PAlity implements Serializable {
 
     private static final long serialVersionUID = 1L;

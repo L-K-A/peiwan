@@ -1,0 +1,347 @@
+<!DOCtype html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>陪玩搜索-刀锋电竞</title>
+    <meta name="keywords" content="刀锋电竞陪玩,游戏陪玩,约玩,陪玩入驻,绝地求生陪玩,LOL陪玩,王者荣耀陪玩,美女陪玩,大神陪玩,导师陪玩">
+    <meta name="description" itemprop="description" content="刀锋电竞，是（国内）专业的游戏陪玩交友平台。刀锋电竞致力于为您提供贴心的专属陪伴；平台内百万大神美女导师24小时待命，随时陪你游戏，和你聊天，还可以哄你睡觉；游戏类型多样，妹子风格各异，任你选择。">
+    <!-- 禁止IE强制识别手机号 -->
+    <meta name="format-detection" content="telephone=no">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/public/css/public.css?version=201901091505">
+    <link rel="stylesheet" href="/public/css/public_nav_v2.css?version=201901091505">
+    <link rel="stylesheet" href="/plugins/layer/layer.css">
+    <!--v2侧边栏样式-->
+    <link rel="stylesheet" href="/public/css/sidebar.css?version=201901091505">
+    <!--登录注册模板样式-->
+    <link rel="stylesheet" href="/public/css/login_registration.css">
+    <!--  <script src="https://yundown.daofengdj.com/static/plugins/jquery-2.2.3.min.js"></script> -->
+    <script charset="utf-8" src="https://tag.baidu.com/vcard/v.js?siteid=11627430&url=https%3A%2F%2Fwww.daofengdj.com%2Fpeiwan%2Fsearch.html&;source=&rnd=1064007418&hm=1"></script><script src="/js/hm.js?92ccc5eceb3aa1534ed26f5ce1a7acd2"></script><script>
+    window.website_version = "201901091505";//网站版本号用于处理js的缓存1
+    var loginstatus = 0;
+    var pw_status = 0;
+    //图形验证码地址
+    var img_code = '/captcha.html';
+    var mobileValue = 0; //判断用户是否绑定手机号：0|未绑定；1|已绑定
+</script>
+
+    <link rel="stylesheet" href="/public/css/public_frame_v2.css?version=201901091505">
+    <link rel="stylesheet" href="/home/css/searchplayer/search.css?version=201901091505">
+
+    <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="search"
+            src="/home/js/searchPlayer/search.js?bust=201901091505"></script>
+    <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="common"
+            src="/public/js/common.js?bust=201901091505"></script>
+    <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="vue"
+            src="/plugins/vue.min.js?bust=201901091505"></script>
+    <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="store"
+            src="/plugins/store.legacy.min.js?bust=201901091505"></script>
+    <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="layer"
+            src="/plugins/layer/layer.js?bust=201901091505"></script>
+    <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="laypage"
+            src="/plugins/laypage/laypage.js?bust=201901091505"></script>
+    <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_"
+            data-requiremodule="/public/js/login_registration.js"
+            src="/public/js/login_registration.js?bust=201901091505"></script>
+    <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_"
+            data-requiremodule="/show/js/websocket.js"
+            src="/show/js/websocket.js?bust=201901091505"></script>
+    <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_"
+            data-requiremodule="/show/js/message.js"
+            src="/show/js/message.js?bust=201901091505"></script>
+    <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_"
+            data-requiremodule="/show/js/chat.js"
+            src="/show/js/chat.js?bust=201901091505"></script>
+    <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="resource"
+            src="/plugins/vue-resource.js?bust=201901091505"></script>
+    <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="jquery"
+            src="/plugins/jquery-2.2.3.min.js?bust=201901091505"></script>
+</head>
+<body>
+
+<span>
+    <div>
+        <input type="text" @keyup.13="inputShow" v-model.trim="val" placeholder="请输入陪玩昵称、ID、靓号" style="display: none;">
+    </div>
+    <input type="password" style="display: none;">
+    <input type="password" style="display: none;">
+</span>
+
+<!--改版新的页面-->
+<div class="public_nav_new"><div class="info_v2 position"><div class="info"><div style="height: 0px; width: 100%;"></div> <h1><a href="/"><img alt="刀锋电竞陪玩" src="/images/yuewanlogo.png?123" class="logo"></a></h1> <div class="p_nav"><div class=""><a href="/">
+    首页
+</a></div> <div class="active"><a href="/peiwan/lol/">
+    找陪玩
+</a></div> <div class=""><a href="/peiwan/price/">
+    9.9专区
+    <img src="/picture/price.gif" alt="" class="icon"></a></div> <div class=""><a href="/peiwan/shangfen/">
+    上分专区
+</a></div> <div class=""><a href="javascript:;">充值</a></div> <div class=""><a href="javascript:;">申请入驻</a></div> <div class=""><a href="/activity/list.html">
+    活动
+</a></div>
+</div>
+    <div class="seach_Box">
+        <img src="/picture/ico_28_hover.png" alt="" style="display: none;">
+        <input placeholder="陪玩昵称、ID、靓号" type="text">
+        <p class="seach_p"></p>
+        <div class="msg_info" style="display: none;">
+            <ul></ul>
+        </div>
+    </div>
+    <div class="right">
+        <img src="/picture/ico_29_hover.png" style="display: none;">
+        <img src="/picture/ico_30_hover.png" style="display: none;">
+        <img src="/picture/ico_31_hover.png" style="display: none;">
+        <div style="height: 0px; width: 100%;"></div>
+        <a href="#" class="practice style1"><p></p> <span>高级代练</span></a> <a href="#" class="clent style1"><p></p>
+            <span>客户端下载</span>
+            <div></div>
+            <div class="clent_div">
+                <div class="clent_div_left">
+                    <div class="clent_div_left_img"></div>
+                    <span class="clent_div_left_span">APP客户端</span></div>
+                <div class="clent_div_right">
+                    <div class="clent_div_right_img"></div>
+                    <span class="clent_div_right_span">语音客户端</span></div>
+            </div>
+        </a>
+        <div class="login style1"><p></p> <span>登录&nbsp;&nbsp;|&nbsp;&nbsp;注册</span></div>
+    </div>
+</div>
+</div>
+</div>
+
+
+<!-- main-wrap -->
+<div id="search">
+    <div class="searchTop">
+        <div class="topcon">
+            <a href="/service/verify.html"><img src="/images/searchbanner.png"></a><!--判断是否登录，如果登录进入申请成为主播的页面-->
+            <div class="restit">搜索“a”的结果</div>
+        </div>
+    </div>
+    <div class="swrap">
+        <div class="player">
+            <div class="hot-player-con">
+                <div>
+                    <a href="/item/1197427.html">
+                    <div class="frame_logo_wrapper">
+                        <div class="pic_box">
+                            <img src="https://img1.daofengdj.com//uploads/avatar/20181102/d9wu8le2gwpk5ocdf1bw1uk9g3r19428.gif" alt="" class="pic">
+                        </div>
+                    </div>
+                    <div class="player-info"><span><!----><i class="text">手手是王者rap</i></span> <span>最强王者</span></div>
+                    <div class="player-money">
+                        <div><p class="on_line"><i></i><span>在线</span></p>
+                            <p class="working" style="display: none;"><i></i><span>接单中</span></p>
+                            <p class="off_line" style="display: none;"><i></i><span>离线</span></p></div>
+                        <p><span>¥60.00</span>/小时
+                        </p></div>
+                    </a>
+                </div>
+                <div>
+                    <a href="/item/1167486.html">
+                    <div class="frame_logo_wrapper"><!----> <!---->
+                        <div class="pic_box"><img
+                                src="https://img1.daofengdj.com//uploads/avatar/20180820/v5qjuo46eqhdfvhlf104odlj7ejhg8r4.jpg"
+                                alt="" class="pic"></div> <!----> <!----></div>
+                    <div class="player-info"><span><!----><i class="text">Cola</i></span> <span>高级</span></div>
+                    <div class="player-money">
+                        <div><p class="on_line"><i></i><span>在线</span></p>
+                            <p class="working" style="display: none;"><i></i><span>接单中</span></p>
+                            <p class="off_line" style="display: none;"><i></i><span>离线</span></p></div>
+                        <p><span>¥55.00</span>/半小时
+                        </p></div>
+                    </a>
+                </div>
+                <div>
+                    <a href="/item/1223543.html">
+                    <div class="frame_logo_wrapper"><p class="discount_wrapper"><img
+                            src="https://yundown.daofengdj.com/static/home/img/index_v2/ico-14.png"
+                            class="discount_icon"> <span class="discount_text">低至7折，限时折扣</span></p> <!---->
+                        <div class="pic_box"><img
+                                src="https://img1.daofengdj.com//uploads/avatar/20181122/1tqyr1e0wt9t40e9p5evjk35zce751yv.jpg"
+                                alt="" class="pic"></div> <!----> <!----></div>
+                    <div class="player-info"><span><!----><i class="text">星⭐爱笑最强AD</i></span> <span>最强王者</span></div>
+                    <div class="player-money">
+                        <div><p class="on_line"><i></i><span>在线</span></p>
+                            <p class="working" style="display: none;"><i></i><span>接单中</span></p>
+                            <p class="off_line" style="display: none;"><i></i><span>离线</span></p></div>
+                        <p><span>¥50.00</span>/小时
+                        </p></div>
+                    </a>
+                </div>
+                <ul style="padding-bottom: 27px; display: none;">
+                    <li style="text-align: center;">
+                        <img src="https://yundown.daofengdj.com/static/public/img/search.png">
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<footer>
+    <div class="box">
+        <div class="foot">
+            <!--隐藏掉提现(隐藏提现)字样（2017-12-18）margin-left:-->
+            <ul>
+                <li>
+                    <img src="https://yundown.daofengdj.com/static/public/img/ico_ft01.png">
+                    <p>极速接单</p>
+                    <span class="desc">秒接单 八分钟未接单立即退款</span>
+                </li>
+                <li>
+                    <img src="https://yundown.daofengdj.com/static/public/img/ico_ft02.png">
+                    <p>信息提醒</p>
+                    <span class="desc">来单短信提醒 不错过订单</span>
+                </li>
+                <li>
+                    <img src="https://yundown.daofengdj.com/static/public/img/ico_ft03.png">
+                    <p>品质保障</p>
+                    <span class="desc">服务不满意为您来免单</span>
+                </li>
+                <li>
+                    <img src="https://yundown.daofengdj.com/static/public/img/ico_ft04.png">
+                    <p>资金日结算</p>
+                    <span class="desc">实时掌控工资 给你安心</span>
+                </li>
+                <li>
+                    <img src="https://yundown.daofengdj.com/static/public/img/ico_ft05.png">
+                    <p>7*24小时服务</p>
+                    <span class="desc">自助下单 7*24小时客服答疑</span>
+                </li>
+            </ul>
+        </div>
+
+        <ul class="footCenter">
+            <li class="li1">
+                <div>
+                    <img src="https://yundown.daofengdj.com/static/public/img/link.png">
+                    <div style="line-height: 19px; margin-top: -2px;">
+                        <a style="display:none;" target="_blank" href="https://www.zuhaowan.com"><img src="https://yundown.daofengdj.com/static/public/img/zuhaowna.png" style="margin-top: 0px;"></a>
+                        <a target="_blank" href="https://www.zuhaowan.com"><p>租<i style="display:inline-block;width:.5em;"></i>号<i style="display:inline-block;width:.5em;"></i>玩 - 账号租借平台</p></a>
+                        <a target="_blank" href="http://www.mayidailian.com/"><p>蚂蚁代练 - 专业代练平台</p></a>
+                        <a target="_blank" href="http://www.irollfun.com/"><p>rollfun游戏站</p></a>
+                        <a target="_blank" href="http://www.99173.com/"><p>99173-游戏交易平台</p></a>
+                        <a target="_blank" href="http://www.wyaq.com/"><p>无忧安全</p></a>
+                    </div>
+                </div>
+            </li>
+            <li class="sp"></li>
+            <li class="li2">
+                <div>
+                    <img src="https://yundown.daofengdj.com/static/public/img/kefu.png">
+                    <div>
+                        <p>客服电话：0558-5885561</p>
+                        <p>咨询时间：7 x 24 小时</p>
+                    </div>
+                </div>
+            </li>
+            <li class="sp"></li>
+            <li class="li3">
+                <div>
+                    <img src="https://yundown.daofengdj.com/static/public/img/qq.png">
+                    <div>
+                        <p>客服QQ：3003120628</p>
+                        <p>咨询时间：7 x 24 小时</p>
+                    </div>
+                </div>
+            </li>
+            <li msg="新需求隐藏" class="sp" style="display:none;"></li>
+            <li msg="新需求隐藏" style="display:none;">
+                <div>
+                    <img src="https://yundown.daofengdj.com/static/public/img/new.png">
+                    <div>
+                        <a target="_blank" href="/help/peiwan.html"><p>陪玩新手引导</p></a>
+                        <a target="_blank" href="/help/novice.html"><p>玩家新手引导</p></a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="box">
+        <div class="footBottom">
+            <div class="f_tx">
+                <a target="_blank" href="/help/contact_us.html">联系我们</a>
+                <a target="_blank" href="/help/company_profile.html">公司简介</a>
+                <a target="_blank" href="/help/disclaimer.html">免责声明</a>
+            </div>
+            <p>版权所有 © 2017 安徽省刀锋网络科技有限公司 <a href="http://www.miitbeian.gov.cn">晥B2-20170045-5</a></p>
+        </div>
+    </div>
+</footer>
+
+
+<script defer="true" src="/js/dsQIsvEEt22a2B72.js"></script>
+<script>
+    //声明一个全局变量原来存放当前的导航索引值
+    var nav_focus_index = 'index_peiwan';
+</script>
+<script>
+    //百度统计
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        var s = document.getElementsByTagName("script")[0];
+        hm.src = "/js/hm.js?92ccc5eceb3aa1534ed26f5ce1a7acd2";
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+<script src="/plugins/require.js" data-main="https://yundown.daofengdj.com/static/home/js/searchPlayer/search" saync="true"></script>
+
+<script src="/plugins/require.config.js"></script>
+<!-- 侧边导航 -->
+
+
+
+
+<div id="sidebar-vm" class="flying-vm"><aside class="live-sidebar-ctnr a-move-in-left ts-dot-4"><span><div title="聊天和系统信息" onclick="tel_login_v1.bindPopShowFun(1)" class="sidebar-btn a-move-in-left message"><div class="icon-ctnr"><i class="btn-icon svg-icon menu-live-hover icon_message "></i></div> <div class="label-ctnr"><span>私信</span></div></div> <div title="在线客服" onclick="kefuWindow()" class="sidebar-btn a-move-in-left"><div class="icon-ctnr"><i class="btn-icon svg-icon menu-live-hover icon_service"></i></div> <div class="label-ctnr"><span>在线客服</span></div></div> <div title="APP下载" class="sidebar-btn a-move-in-left app_download"><div class="icon-ctnr"><i class="btn-icon svg-icon live-room icon_app"></i></div> <div class="label-ctnr"><span>APP下载</span></div> <div class="side-bar-popup-cntr ts-dot-4 click-open app_dw_content"><div data-v-7e05456a="" class="follow-cntr"><img src="https://yundown.daofengdj.com/static/public/img/sidebar/ico_12.png" alt="" class="icon"></div></div></div> <div title="公众号" class="sidebar-btn a-move-in-left wechat_box"><div class="icon-ctnr"><i class="btn-icon svg-icon live-room icon_wechat"></i></div> <div class="label-ctnr"><span>公众号</span></div> <div class="side-bar-popup-cntr ts-dot-4 click-open"><div data-v-7e05456a="" class="follow-cntr"><img src="https://yundown.daofengdj.com/static/public/img/gzh_code_1.png" alt="" class="icon"></div></div></div> <div title="陪玩群" class="sidebar-btn a-move-in-left"><a target="_blank" href="https://jq.qq.com/?_wv=1027&amp;k=5W4hoPw"><div class="icon-ctnr"><i class="btn-icon svg-icon ranking icon_QQ"></i></div> <div class="label-ctnr"><span>陪玩群</span></div></a></div> <div title="意见反馈" class="sidebar-btn a-move-in-left"><div class="icon-ctnr"><i class="btn-icon svg-icon concerned icon_notice"></i></div> <div class="label-ctnr"><span>意见反馈</span></div></div> <div title="回到顶部" onclick="totop()" class="sidebar-btn a-move-in-left no-label"><div class="icon-ctnr"><i class="btn-icon svg-icon s-top icon_top"></i></div></div></span></aside></div>
+<!-- 聊天消息面板 -->
+<div id="msg_chat_pop" class="msg_chat_w" style="display:none">
+    <div class="chat_wrapper on">
+        <div class="close_box">
+            <div class="btn close_btn"></div>
+        </div>
+        <div class="top_title">
+            <div class="title"></div>
+        </div>
+        <div class="chat_box">
+            <div class="chat_left">
+
+                <div class="chat_l_w"></div>
+            </div>
+            <div class="chat_right">
+                <!-- <div class="chat_right_i chat_r_id_999999 on">
+                    <div class="show_msg_list"></div>
+                    <div class="show_msg_empty">暂无消息</div>
+                    <div id="show_msg_page_info" class="page"></div>
+                </div> -->
+                <div class="chat_r_w"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+
+    function totop(){
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+</script>
+<!-- 登录弹窗 -->
+<!---->
+<!-- 意见反馈 -->
+<!---->
+<!-- 新人红包 -->
+<div id="public_new_receiveId" class="public_new_receive_tc" style="display: none;"><div class="receive_body"><div class="receive_top"></div> <div class="receive_btn"><div class="receive_close"></div> <div class="receive_bottom"><div class="receive_left"></div> <a href="http://yundown.daofengdj.com/dianjing/dianjing_1.5.0.13690_offline.exe" class="receive_right"></a></div></div></div></div>
+<!-- 老用户活动奖励 -->
+<div id="public_old_oldUserId" class="public_old_oldUser_tc" style="display: none;"><div class="receive_body"><div class="receive_top"></div> <div class="receive_btn"><div class="receive_close"></div> <div class="receive_bottom"><div class="receive_left"><a href="/user/account/gold_pool.html"></a></div></div></div></div></div>
+
+
+<!-- 公共登录模块+ 意见反馈 -->
+
+</body>
