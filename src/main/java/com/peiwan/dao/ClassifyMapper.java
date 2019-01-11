@@ -1,6 +1,7 @@
 package com.peiwan.dao;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.peiwan.bean.GService;
 import com.peiwan.bean.GSortDuanwei;
 import org.apache.ibatis.annotations.Param;
@@ -27,6 +28,11 @@ public interface ClassifyMapper extends BaseMapper<GSortDuanwei> {
     /*
     * 分类查询，目前有gid、gDw、psex三个，综合排序、热门、新人暂无；
     * */
-    List<Map<String,Object>> getCondition(Map map);
+    List<Map<String,Object>> getCondition(Map map,Page page);
+
+
+    /*测试分页
+    @Select("select gid,g_dw from g_sort_duanwei where gid=#{map.gid}")
+    List<Map<String,Object>> seachPage(Map map, Page page);*/
 
 }

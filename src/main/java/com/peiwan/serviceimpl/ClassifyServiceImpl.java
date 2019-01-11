@@ -1,6 +1,7 @@
 package com.peiwan.serviceimpl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.peiwan.bean.GService;
 import com.peiwan.bean.GSortDuanwei;
 import com.peiwan.dao.ClassifyMapper;
@@ -49,8 +50,16 @@ public class ClassifyServiceImpl implements ClassifyService {
     * 根据游戏服务、等级分类、性别分类
     * */
     @Override
-    public List<Map<String, Object>> getCondition(Map map) {
-        List<Map<String, Object>> condition = cm.getCondition(map);
+    public List<Map<String, Object>> getCondition(Map map,Page page) {
+        List<Map<String, Object>> condition = cm.getCondition(map,page);
         return condition;
     }
+
+    /*@Override
+    public List<Map<String, Object>> seachPage(Map map, Page page) {
+
+        List<Map<String, Object>> mapList = cm.seachPage(map, page);
+
+        return mapList;
+    }*/
 }

@@ -1,5 +1,6 @@
 package com.peiwan.service;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.peiwan.bean.GService;
 import com.peiwan.bean.GSortDuanwei;
 
@@ -17,6 +18,8 @@ public interface ClassifyService {
 
     List<Map<String,Object>> getDuanWei(int gid);
 
-    List<Map<String,Object>> getCondition(Map map);
+    List<Map<String,Object>> getCondition(Map map,Page page);
+
+    /*List<Map<String,Object>> seachPage(Map map, Page page);*/
 
 }

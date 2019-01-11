@@ -22,13 +22,18 @@
 <script src="js/sendtgid.js"></script>
 <script src="js/gt.js"></script>
 <!-- <script charset="utf-8" src="js/kfqq.js"></script> -->
-<!--<link rel="stylesheet" href="css/common_index_1.css" type="text/css">-->
+<link rel="stylesheet" href="css/common_index_1.css" type="text/css">
 <link rel="stylesheet" href="css/top_footer.css" type="text/css">
 <link rel="stylesheet" href="css/geeteststyle.css" type="text/css">
 <link rel="stylesheet" href="css/common_head.css" type="text/css">
 
+<!--laypage的-->
 
-<body>
+<script src="laypage/laypage.js"></script>
+<script src="layer/layer.js"></script>
+<link rel="stylesheet" href="laypage/skin/laypage.css" type="text/css">
+<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+<link rel="stylesheet" href="css/laypage.css" type="text/css">
 
 <!-- 这个是控制左边弹窗和主播展示头像的边框的 -->
 <style type="text/css">
@@ -40,7 +45,7 @@
     /*为某些指定用户的展示头像添加边框 images/border_list.png是边框图片*/
     /*增加bg*/
     #entry_box .play_box_bg {
-        /*background: (F:\yunhe\peiwan\src\main\resources\static\images\border_list.png) no-repeat center top;*/
+        background: (images/border_list.png) no-repeat center top;
         width: 300px;
         height: 400px;
         margin-left: -27px;
@@ -48,6 +53,111 @@
         z-index: 1;
         top: -24px;
         left: 0;
+    }
+
+    /*以下左边弹窗的代码没有调用*/
+    /*左边弹窗*/
+    .fixed-nav-cell {
+        position: fixed;
+        right: 14%;
+        top: 60%;
+        margin-top: -204px;
+        width: 50px;
+        z-index: 9999;
+    }
+
+    @media screen and (max-width:1600px) and (min-width:1365px) {
+        .fixed-nav-cell {
+            position: fixed;
+            right: 7%;
+            top: 50%;
+            margin-top: -204px;
+            width: 50px;
+            z-index: 9999;
+        }
+    }
+
+    @media screen and (max-width:1366px) {
+        .fixed-nav-cell {
+            position: fixed;
+            right: 0;
+            top: 50%;
+            z-index: 9999;
+        }
+    }
+
+    .fixed-nav-cell .fixed_bg {
+        height: 180px;
+        width: 100px;
+        background-color: #f33b52;
+        border-radius: 50px;
+        margin-top: -80px;
+        margin-left: 9px;
+    }
+
+    .fixed-nav-cell .aqt {
+        padding-top: 94px;
+        display: block;
+        text-align: center;
+        color: #fff;
+        font-size: 13px;
+    }
+
+    .fixed-nav-cell .top {
+        text-align: center;
+        display: block;
+        margin-top: 20px;
+    }
+
+    .service_hover {
+        display: block;
+        position: relative;
+        z-index: 2;
+    }
+
+    .service_hover2 {
+        display: none;
+    }
+
+    .service_hover:hover .service_hover1 {
+        display: none;
+    }
+
+    .service_hover:hover .service_hover2 {
+        display: inline-block;
+    }
+
+    .fixed_bg:hover {
+        background-color: #dd1c40;
+    }
+
+    .festival_icon {
+        width: 24px;
+        display: inline-block;
+        margin-right: 4px;
+    }
+
+    /*左边浮窗*/
+    .fixed-nav-left {
+        position: fixed;
+        top: 60%;
+        margin-top: -204px;
+        width: 50px;
+        z-index: 9999;
+        left: 10%
+    }
+
+    .fixed-nav-left:hover {
+        opacity: 0.8
+    }
+</style>
+
+
+
+<!-- 这个是控制左边弹窗和主播展示头像的边框的 -->
+<style type="text/css">
+    #common_top_box {
+        background: #fff;
     }
 
     /*float的设置*/
@@ -78,6 +188,9 @@
 
     .mt18 {
         margin-top: 18px;
+    }
+    .mt20 {
+        margin-top: 20px;
     }
 
     .mr6 {
@@ -132,6 +245,10 @@
 
 </style>
 
+<body>
+
+
+
 
 <!-- 游戏服务、娱乐服务、等级分类、导师性别四个板块 -->
 
@@ -139,91 +256,74 @@
     <!-- 游戏服务 -->
     <div class="nav_box_border">
         <div class="fl nav_title nav_title_add">游戏服务</div>
-        <span>
+
         <div class="fl icon_box" gameid="1001" _class="lolup_icon">
             <i class="listicon lolup_icon"></i><br>线上LOL
         </div>
-        </span>
-        <span>
+
+
         <div class="fl icon_box" gameid="1002" _class="pubg_icon">
             <i class="listicon pubg_icon"></i><br>绝地求生
         </div>
-        </span>
-        <span>
+
         <div class="fl icon_box" gameid="1003" _class="hizi_icon">
             <i class="listicon hizi_icon"></i><br>王者荣耀
         </div>
-        </span>
-        <span>
+
         <div class="fl icon_box" gameid="1004" _class="ciji_icon">
             <i class="listicon ciji_icon"></i><br>刺激战场
         </div>
-        </span>
-        <span>
+
         <div class="fl icon_box" gameid="1005" _class="quanjun_icon">
             <i class="listicon quanjun_icon"></i><br>全军出击
         </div>
-        </span>
-        <span>
+
         <div class="fl icon_box" gameid="1006" _class="huangye_icon">
             <i class="listicon huangye_icon"></i><br>荒野行动
         </div>
-        </span>
-        <span>
+
         <div class="fl icon_box" gameid="1007" _class="five_icon">
             <i class="listicon five_icon"></i><br>第五人格
         </div>
-        </span>
-        <span>
+
         <div class="fl icon_box" gameid="1008" _class="video_icon">
             <i class="listicon video_icon"></i><br>视频游戏
         </div>
-        </span>
+
         <div class="clearfix"></div>
     </div>
     <!-- 娱乐服务 -->
 
     <div class="nav_box_border">
         <div class="fl  nav_title">娱乐服务</div>
-        <span>
+
         <div class="fl icon_box" gameid="1009" _class="audio_icon">
             <i class="listicon audio_icon"></i><br>声优聊天
         </div>
-        </span>
-        <span>
+
         <div class="fl icon_box" gameid="1010" _class="sleep_icon">
             <i class="listicon sleep_icon"></i><br>哄睡觉
         </div>
-        </span>
-        <span>
+
         <div class="fl icon_box" gameid="1011" _class="songster_icon">
             <i class="listicon songster_icon"></i><br>线上歌手
         </div>
-        </span>
-        <span>
+
         <div class="fl icon_box" gameid="1012" _class="wake_icon">
             <i class="listicon wake_icon"></i><br>叫醒
         </div>
-        </span>
-        <span>
+
         <div class="fl icon_box" gameid="1013" _class="lover_icon">
             <i class="listicon lover_icon"></i><br>虚拟恋人
         </div>
-        </span>
-        <span>
-        <div class="fl icon_box" gameid="1014" _class="jianding_icon">
-            <i class="listicon jianding_icon"></i><br>声音鉴定
-        </div>
-        </span>
+
         <div class="clearfix"></div>
     </div>
     <!-- 等级分类 -->
     <div class="nav_box_border" id="grade">
         <div class="nav_title_bottom fl">等级分类</div>
-        <div v-for="item in grades" v-on:click="clickfun()" class="fl" style="display:inline-block">
-            <div class="fl mt18 ml13" style="width: 90px;height: 36px;text-align: center;line-height: 36px">
-                <i>{{item.g_dw}}</i>
-            </div>
+        <div v-for="item in grades" class="fl" style="display:inline-block">
+            <div class="fl mt18 ml13" style="width: 90px;height: 36px;text-align: center;line-height: 36px" v-on:click="clickfun()">{{item.g_dw}}</div>
         </div>
         <div class="clearfix"></div>
     </div>
@@ -256,13 +356,12 @@
     <div class="clearfix"></div>
 </div>
 <!-- 信息展示 -->
-<div class="list_box" id="xxzs">
+<div class="list_box mt20" id="xxzs">
     <div class="list_left_box fl" style="border: #9b9ca8 0px solid;width: 1060px">
-        <div v-for="item in zbxx" class="div2 fl mr29 mb30" style="width: 236px;height: 338px"
-             onmouseover="changediv('t')" onmouseout="changediv('f')">
+        <div v-for="item in zbxx" class="div2 fl mr29 mb30" style="width: 236px;height: 338px">
             <span style="display: none" id="pidgid">{{item.gid}}</span>
             <!-- 主播头像的遍历 -->
-            <img :src="'imgupload/'+item.person_coverphoto" style="width: 236px;height: 233px"/>
+            <img :src="'./imgupload/'+item.person_coverphoto" style="width: 236px;height: 233px"/>
             <div class="mt15 mr10 ml10" style="width: 216px;height: 27px">
                 <!-- 昵称的遍历 -->
                 <span class="fl" style="width: 150px;height: 27px;font-size: 20px">{{item.person_nickname}}</span>
@@ -341,6 +440,7 @@
         </div>
     </div>
     <div class="clearfix"></div>
+    <div id="pagenav"></div>
 </div>
 
 <!-- 最下面的客服电话、帮助中心等 -->
@@ -368,13 +468,23 @@
         <div class="Copy">(京)字第05536号Copyright 2014-2020 TUWAN Corporation,All Rights Reserved</div>
     </div>
 </div>
+<div style="display:none">
+    <script type="text/javascript">
+        var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " https://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1000286078'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "w.cnzz.com/q_stat.php%3Fid%3D1000286078' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " https://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1261314581'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "w.cnzz.com/q_stat.php%3Fid%3D1261314581' type='text/javascript'%3E%3C/script%3E"));</script>
+</div>
+<!-- WPA start -->
+<script id="qd28521617238326075327d1c513a4a384b1e7d01503" src="js/2877e50102f64b0bbd53a6eb7f750008.js" charset="utf-8" async defer></script>
+<!-- WPA end -->
+<script src="js/tuwan_message.js"></script>
 
 <!-- 使用VUE遍历的代码 -->
 <script>
 
     var gid = 0;
     var gdw = null;
-    var psex = null;
+    var psex = "sex";
     var sorts = null;
 
 
@@ -394,7 +504,7 @@
                 gdw=""+event.target.innerHTML;
                 console.log(gdw);
                 alert(gdw);
-                getCondition(gid,gdw,psex);
+                getCondition(gid,gdw,psex,curr);
             }
         }
     });
@@ -406,14 +516,33 @@
     /*
     * 点击导师性别改变性别选项事件
     * */
-    $("#sex span").click(function () {
-        psex = $("#sex span").index(this).innerHTML;
-        if (psex=="全部") {
-            psex=null;
+    $(".fl.grade_icon.grade_sex").click(function () {
+        psex = $(".fl.grade_icon.grade_sex").index(this);
+        alert("第一个"+psex);
+        switch (psex) {
+            case 0:
+                psex=null;
+                break;
+            case 1:
+                psex="女";
+                break;
+            case 2:
+                psex="男";
+                break;
+            default:
+                psex=null;
+                break;
+
         }
-        getCondition(gid,gdw,psex);
+            alert("第二个："+psex);
+            getCondition(gid,gdw,psex,curr);
+            console.log("这是psex="+psex);
+
+
     });
 
+    console.log("第三个："+psex);
+    alert(psex);
 
 
     $("#sort span").click(function () {
@@ -421,20 +550,21 @@
         if (sorts=="综合") {
             sorts=null;
         }
-        getCondition(gid,gdw,psex);
+        getCondition(gid,gdw,psex,curr);
     });
 
 
 
 
     /*点击游戏服务*/
-    $("#game span").click(function () {
-        var indexDiv = $("#game span").index(this);
+    $(".fl.icon_box").click(function () {
+        var indexDiv = $(".fl.icon_box").index(this);
         gid = indexDiv + 1001;
         alert(gid);
         //console.log("点击游戏服务："+gameservice.clickfun(gdw));
         getEntry(gid);
-        getCondition(gid,gdw,psex);
+        getCondition(gid,gdw,psex,curr);
+        //getUserPageList();
     });
 
     var getEntry = function (gid) {
@@ -467,7 +597,7 @@
         },
     });
 
-    var getCondition = function (gid,gdw,psex) {
+    var getCondition = function (gid,gdw,psex,curr) {
         console.log(gdw);
         $.ajax({
             type: 'Post',
@@ -477,19 +607,65 @@
             data: {
                 gid: gid,
                 gdw: gdw,
-                psex: psex
+                psex: psex,
+                pageNum:curr || 1,
+                pageSize:1
+
             },
             success: function (data) {
                 console.log(data);
-                all.zbxx=data.condition;
+                all.zbxx=data.mapPage;
+                laypage({
+                    cont:'pagenav',
+                    pages:all.zbxx,
+                    first:'首页',
+                    last:'尾页',
+                    curr:curr || 1,
+                    jump:function (obj,first) {
+                        if (!first){
+                            getCondition(obj.curr);
+                        }
+                    }
+                });
             }
         });
     };
 
+    /*var getUserPageList = function (curr) {
+        $.ajax({
+            type:'POST',
+            dataType:'json',
+            url:'/getCondition',
+            data:{
+                pageNum:curr || 1,
+                pageSize:1
+
+            },
+            success:function (msg) {
+                app.result = msg.page;
+                laypage({
+                    cont:'pagenav',
+                    pages:msg.totalPage,
+                    first:'首页',
+                    last:'尾页',
+                    curr:curr || 1,
+                    jump:function (obj,first) {
+                        if (!first){
+                            getUserPageList(obj.curr);
+                        }
+                    }
+                });
+            }
+        });
+    };
+
+    getUserPageList();*/
 
 </script>
 
 <script>
+
+    /* onmouseover="changediv('t')" onmouseout="changediv('f')*/
 
     /*function changediv(v) {
         var jd = document.getElementById("jd");
@@ -498,6 +674,16 @@
         } else {
             jd.className = "mydiv2";
         }
+    }*/
+
+    /*for (var i = 0; i < $(".icon_box").length; i++) {
+        var _gameid = $(".icon_box").eq(i).attr("gameid");
+        var _class = $(".icon_box").eq(i).attr("_class");
+        if (_gameid == gameid) {
+            $(".icon_box i").eq(i).addClass(_class + "_click");
+            $(".icon_box").eq(i).css("color", "#fa6543");
+        }
+
     }*/
 
 

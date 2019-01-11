@@ -1,5 +1,6 @@
 package com.peiwan.controller;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.peiwan.bean.GService;
 import com.peiwan.bean.GSortDuanwei;
 import com.peiwan.service.ClassifyService;
@@ -55,23 +56,29 @@ public class ClassifyController {
 
 
     @RequestMapping("/getCondition")
-    public Map getCondition(int gid,String gdw,String psex,String sort){
+    public Map getCondition(int gid,String gdw,String psex,String sort,int pageNum,int pageSize){
 
         System.out.println("从前台传回来的gid"+gid);
         System.out.println("从前台传回来的gdw"+gdw);
         System.out.println("从前台传回来的psex"+psex);
+
+        System.out.println("从前台传回来的pagecurr:"+pageNum);
+        System.out.println("从前台传回来的pagesize:"+pageSize);
 
         Map<String,Object> map = new HashMap<>();
         map.put("gid",gid);
         map.put("gDw",gdw);
         map.put("gsex",psex);
         map.put("sort",sort);
+        Page<Map<String, Object>> page = new Page<Map<String, Object>>(pageNum,pageSize);
 
-        List<Map<String, Object>> condition = cs.getCondition(map);
+        List<Map<String, Object>> condition = cs.getCondition(map,page);
+        Page<Map<String, Object>> mapPage = page.setRecords(cs.getCondition(map, page));
+        map.put("mapPage",mapPage);
 
-        Map<String,Object> map1 = new HashMap<>();
-        map1.put("condition",condition);
-        return map1;
+//        Map<String,Object> map1 = new HashMap<>();
+        map.put("condition",condition);
+        return map;
     }
 
 

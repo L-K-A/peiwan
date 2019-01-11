@@ -24,14 +24,14 @@
         FROM p_person p
         LEFT JOIN g_service g ON p.pid=g.pid
         WHERE p.z_zhubo=1
-        <if test="gid != null and gid != ''">
-            and g.gid = #{gid}
+        <if test="map.gid != null and map.gid != ''">
+            and g.gid = #{map.gid}
         </if>
-        <if test="gDw != null and gDw != ''">
-            and g.g_duanwei like "%"#{gDw}"%"
+        <if test="map.gDw != null and map.gDw != ''">
+            and g.g_duanwei like concat("%",#{map.gDw},"%")
         </if>
-        <if test="psex != null and psex != ''">
-            and p.person_sex = #{psex}
+        <if test="map.psex != null and map.psex != ''">
+            and p.person_sex = #{map.psex}
         </if>
     </select>
 
