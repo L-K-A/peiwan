@@ -146,5 +146,14 @@ public class PPerson implements Serializable {
      */
     private Integer zZhubo;
 
+    /**
+     * 密码盐.
+     * 张家明  写     权限管理  密码加密
+     * @return
+     */
+    public String getCredentialspersonPwdencry(){
+        return this.personName+this.personPwdencry;
+    }
+
 
 }

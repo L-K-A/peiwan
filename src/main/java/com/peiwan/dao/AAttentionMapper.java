@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.peiwan.bean.PPerson;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
 
@@ -17,7 +18,7 @@ import java.util.List;
  * @since 2019-01-02
  */
 @Mapper
-public interface AAttentionMapper extends BaseMapper<PPerson> {
+public interface AAttentionMapper extends BaseMapper<PPerson> , CrudRepository<PPerson,Long> {
 
 //    测试根据用户名进行查询全部信息
 
@@ -27,5 +28,10 @@ public interface AAttentionMapper extends BaseMapper<PPerson> {
 //    测试是否能链接数据库  查询用户表的所有字段
     @Select("select * from p_person")
     List<PPerson> addpperson(int id);
+
+//    权限管理
+    PPerson findBypersonName(String personName);
+
+    PPerson save(PPerson pPerson);
 
 }

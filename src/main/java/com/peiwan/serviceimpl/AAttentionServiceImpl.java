@@ -24,6 +24,7 @@ public class AAttentionServiceImpl extends ServiceImpl<AAttentionMapper, PPerson
     @Resource
     private AAttentionMapper aAttentionMapper;
 
+//    测试
     @Override
     public List<PPerson> namepperson(PPerson pPerson) {
         List<PPerson> pPersonList=aAttentionMapper.namepperson(pPerson);
@@ -34,6 +35,14 @@ public class AAttentionServiceImpl extends ServiceImpl<AAttentionMapper, PPerson
     @Override
     public List<PPerson> addpperson(int id) {
         return aAttentionMapper.addpperson(id);
+    }
+
+
+    //    权限管理
+    @Override
+    public PPerson findBypersonName(String personName) {
+        System.out.println("aAttentionMapper.findBypersonName");
+        return aAttentionMapper.findBypersonName(personName);
     }
 
 }
