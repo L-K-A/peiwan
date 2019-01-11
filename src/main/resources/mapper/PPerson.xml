@@ -34,6 +34,7 @@
         pid, person_nickname, person_name, person_pwd, person_tel, person_sex, person_age, person_qq, person_wexin, person_image, person_adress, person_content, person_height, person_weight, person_career, person_interest, person_coverphoto, person_servicedescription, person_createtime, person_flate, person_logintime, z_zhubo
     </sql>
 
+    <!--导航栏根据昵称和Id模糊查询-->
     <select id="selectPersonByNameAndId" parameterType="map" resultType="map">
             SELECT
             p.pid,p.person_nickname,p.person_image,g.g_name,g.g_price
@@ -46,4 +47,19 @@
                 AND p.person_nickname like "%"#{personNickname}"%"
             </if>
     </select>
+
+    <!--热度榜查询主播订单数：先按照订单数排序，再查询主播详细信息-->
+    <select id="selectOrderList" parameterType="map" resultType="map">
+      SELECT p.pid,p.person_nickname,p.person_image,p.person_adress,p.person_sex,p.person_age,COUNT(o.oid)
+      FROM p_person p LEFT JOIN o_order_z o ON p.pid=o.pid
+      WHERE o_flate=1 GROUP by p.pid
+    </select>
+    <!--热度榜查询主播接单数-->
+    <select id="selectOrderCount" parameterType="int" resultType="int" >
+        SELECT COUNT(o.oid)
+        FROM p_person p LEFT JOIN o_order_z o ON p.pid=o.pid
+        WHERE o_flate=1
+    </select>
+
+
 </mapper>

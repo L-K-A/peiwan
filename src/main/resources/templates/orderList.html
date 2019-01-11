@@ -2,15 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>用户列表</title>
+    <title>热度榜</title>
     <link rel="stylesheet" href="/test/bootstrap.min.css">
     <!--<link rel="stylesheet" href="/home/css/searchplayer/search.css">-->
     <link rel="stylesheet" href="/test/laypage.css">
     <link rel="stylesheet" href="/plugins/layer/layer.css">
     <script type="text/javascript" src="/plugins/vue.min.js"></script>
     <script type="text/javascript" src="/plugins/jquery-2.2.3.min.js"></script>
-   <script type="text/javascript" src="/plugins/layer/layer.js"></script>
-   <script type="text/javascript" src="/plugins/laypage/laypage.js"></script>
+    <!--<script type="text/javascript" src="/plugins/layer/layer.js"></script>-->
+    <script type="text/javascript" src="/plugins/laypage/laypage.js"></script>
 
     <script src="/test/jquery.validate.min.js"></script>
     <script src="/test/messages_zh.min.js"></script>
@@ -25,51 +25,58 @@
             <label class="sr-only" for="personNickname">用户名称</label>
             <input type="text" class="form-control" id="personNickname" placeholder="用户名称">
         </div>
-        <button type="button" id="findUserBtn" class="btn btn-danger">查询用户</button>
+        <button type="button" id="findUser" class="btn btn-success">查询用户</button>
     </form>
-
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+            <tr class="success">
+                <td>主播id</td>
+                <td>主播昵称</td>
+                <td>主播头像</td>
+                <td>主播地址</td>
+                <td>性别</td>
+                <td>年龄</td>
+                <td>接单数</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="active" v-for="(item,index) in result">
+                <td>{{index+1}}</td>
+                <td>{{item.person_nickname}}</td>
+                <td><img :src="'/picture/'+item.person_image"></td>
+                <td>{{item.person_adress}}</td>
+                <td>{{item.person_sex}}</td>
+                <td>{{item.person_age}}</td>
+                <td>{{count}}</td>
+                <td><a href="#" @click="editEvent(item.pId)">编辑</a> <a href="#" @click="delEvent(item.pId)">删除</a></td>
+            </tr>
+            </tbody>
+        </table>
+        <div id="pagenav"></div>
+    </div>
 </div>
 <script>
-
     var app = new Vue({
         el: '#app',
         data: {
             result: []
         }
     });
-
-
-    //查询用户
-    $("#findUserBtn").click(function () {
-        layer.open({
-            type: 2,
-            title: '查询',
-            fix: false,
-            maxmin: true,
-            shadeClose: true,
-            area: ['600px'],
-            content: 'personList',
-            success: function () {
-                getUserPageList();
-            }
-        });
-    });
-
-
-
-
+var count;
     var getUserPageList = function (curr) {
         $.ajax({
             type: 'POST',
             dataType: 'json',
-            url: '/person/searchPerson',
+            url: '/person/getOrderCountList',
             data: {
                 currentPage: curr || 1,
                 pageNum: 2,
                 personNickname: $("#person_nickname").val()
             },
             success: function (msg) {
-                app.result = msg.searchPersonList;
+                app.result = msg.orderList;
+                app.count = msg.orderCount;
                 laypage({
                     cont: 'pagenav', //容器
                     pages: msg.totalPage,
@@ -86,7 +93,7 @@
             }
 
         });
-    }
+    };
 
     getUserPageList();
 

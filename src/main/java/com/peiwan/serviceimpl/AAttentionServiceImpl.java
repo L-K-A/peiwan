@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import javax.persistence.criteria.CriteriaBuilder;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -46,13 +47,23 @@ public class AAttentionServiceImpl extends ServiceImpl<AAttentionMapper, PPerson
     }
 
 
-
     //根据昵称和id查询
     @Override
-    public List<PPerson> selectPersonByNameId(PPerson person) {
-        List<PPerson> list = attentionMapper.selectPersonByNameAndId(person);
-        return list;
+    public List<Map<String,Object>> selectPersonByNameId(PPerson person) {
+        List<Map<String, Object>> maps = attentionMapper.selectPersonByNameAndId(person);
+        return maps;
     }
+
+    //热度榜查询主播订单数：先按照订单数排序，再查询主播详细信息
+    @Override
+    public Page<Map<String, Object>> selectPersonOrder(int currentPage, int pageNum) {
+        Page<Map<String,Object>> page = new Page<Map<String,Object>>(currentPage,pageNum);
+        Page<Map<String, Object>> orderList = page.setRecords(this.baseMapper.selectOrderList(page, 1));
+        System.out.println("service:"+orderList);
+        return orderList;
+    }
+
+
 
     public AAttentionMapper getAttentionMapper() {
         return attentionMapper;

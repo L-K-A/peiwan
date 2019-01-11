@@ -1,9 +1,6 @@
 package com.peiwan.controller;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.peiwan.bean.GService;
 import com.peiwan.bean.PPerson;
 import com.peiwan.dao.AAttentionMapper;
 import com.peiwan.service.AAttentionService;
@@ -81,7 +78,6 @@ public class AAttentionController {
         PPerson p= new PPerson();
         p.setPersonName(personName);
         p.setPersonPwd(personPwd);
-        System.out.println("进来了吗？"+p);
 
         PPerson person = attentionService.selectPersonByNameAndPwd(p);
         System.out.println("数据库查到："+ person);
@@ -94,33 +90,52 @@ public class AAttentionController {
     }
 
     //主播列表
-    @RequestMapping("/addPage")
-    public Object getPage(){
+    @RequestMapping("/getPersonList")
+    public Map<String,Object> getPage(){
         Page<Map<String, Object>> page = attentionService.selectPersonList(1, 2);
-        System.out.println("controller:"+page);
         List<Map<String, Object>> records = page.getRecords();
-        return records;
+        Map map = new HashMap();
+        map.put("personPage",records);
+        System.out.println("controller:"+map);
+        return map;
     }
 
 
-
-
-    //根据昵称和Id查询主播
+    //根据昵称和Id模糊查询主播
     @RequestMapping("/searchPerson")
-    public List<PPerson> searchPerson(String personNickname,Integer pid){
+    public Map<String,Object> searchPerson(String personNickname,Integer pid){
         PPerson person = new PPerson();
         person.setPersonNickname(personNickname);
         person.setPid(pid);
-        List<PPerson> personList = attentionService.selectPersonByNameId(person);
-        System.out.println("数据库查到的"+personList);
-        return personList;
+        List<Map<String, Object>> searchPersonList = attentionService.selectPersonByNameId(person);
+        Map map = new HashMap();
+        map.put("searchPersonList",searchPersonList);
+        System.out.println("数据库查到的:"+map);
+        return map;
     }
 
-    //测试迷糊查询
-    @RequestMapping("/toList")
-    public ModelAndView chaxun(){
-        return new ModelAndView("user_list");
+
+    //热度榜查询主播订单数：先按照订单数排序，再查询主播详细信息
+    @RequestMapping("/getOrderCountList")
+    public Map<String,Object> getOrderList(){
+        Page<Map<String, Object>> page = attentionService.selectPersonOrder(1, 2);
+        Integer orderCount = attentionMapper.selectOrderCount(2);
+        List<Map<String, Object>> records = page.getRecords();
+        Map map = new HashMap();
+        map.put("orderList",records);
+        map.put("orderCount",orderCount);
+        System.out.println("controller:"+map);
+        return map;
     }
+
+
+
+    //测试主播列表查询
+    @RequestMapping("/toList")
+    public ModelAndView select(){
+        return new ModelAndView("personList");
+    }
+
 
 
     public AAttentionMapper getAttentionMapper() {

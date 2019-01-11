@@ -26,7 +26,11 @@ public interface AAttentionService extends IService<PPerson> {
 
 
     //根据昵称和id查询
-    List<PPerson> selectPersonByNameId(PPerson person);
+    List<Map<String,Object>> selectPersonByNameId(PPerson person);
+
+    //热度榜查询主播订单数：先按照订单数排序，再查询主播详细信息
+    Page<Map<String,Object>> selectPersonOrder(int currentPage,int pageNum);
+
 
 
 
