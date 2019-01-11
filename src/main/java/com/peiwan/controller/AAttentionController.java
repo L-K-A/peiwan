@@ -23,5 +23,9 @@ public class AAttentionController {
     public ModelAndView hello() {
         return new ModelAndView("zhuBoInfo");
     }
+    @RequestMapping("/hello1")
+    public ModelAndView hello1() {
+        return new ModelAndView("testTwo");
+    }
 
 }

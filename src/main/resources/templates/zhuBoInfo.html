@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="css/zuboInfo.css">
     <link rel="stylesheet" type="text/css" href="css/reset.css">
     <link rel="stylesheet" type="text/css" href="css/top_footer.css">
+    <script src="/js/vue.min.js"></script>
 </head>
 
 <body>
@@ -17,12 +18,12 @@
     <div class="zubo-title" id="qweqwe">
         <div class="title-meta">
             <div class="zuboImg">
-                <img src="/picture/30_avatar_middle.jpg" alt="">
+                <img :src="'./picture/'+result.personImage" alt="">
             </div>
             <div class="title-info">
-                <div class="name">奶味030</div>
-                <img class="test" src="/images/8.gif">
-                <div class="credit">信用值：<img src="/picture/1.png"></div>
+                <div class="name">{{result.personNickname}}</div>
+               <!-- <img class="test" src="/images/8.gif">目前没有冠名功能-->
+                <div class="credit">信用值：{{result.personWeight}}<img src="/picture/1.png"></div>
             </div>
         </div>
         <div class="zubo-gift">
@@ -34,17 +35,17 @@
             <div class="wechart">微信下单</div>
             <div class="share">
                 <i></i>
-                <span>分享</span>
+                <span><a href="#" @click="editEvent()">分享</a></span>
             </div>
             <div class="like">
                 <i></i>
                 <span>关注</span>
             </div>
             <span class="age">
-                    <i></i>&nbsp;&nbsp;22
+                    <i></i>&nbsp;&nbsp;{{result.personBirthday}}<!--年龄-->
                 </span>
             <span class="ad">
-                    <i></i>&nbsp;&nbsp;乌鲁木齐市
+                    <i></i>&nbsp;&nbsp;{{result.personAdress}}<!--住址-->
                 </span>
             <span class="data">
                     <i></i>&nbsp;&nbsp;48天前
@@ -52,23 +53,23 @@
         </div>
     </div>
 
-    <div class="zubo-cont">
+    <div class="zubo-cont" id="zhubotouxaing">
         <div class="left">
             <!-- 内容区：左侧头部 -->
             <div class="left-top">
                 <div class="zuboTab">
                     <div class="tabCont">
-                        <img src="/picture/90_avatar_large.jpg" alt="">
+                        <img :src="'./picture/'+zbt.personImage" alt="">
                     </div>
                     <div class="tabDot">
                         <div class="tabDotImg">
-                            <img src="/picture/30_avatar_middle.jpg" alt="">
+                            <img :src="'./picture/'+zbt.personImage" alt="">
                         </div>
                         <div class="tabDotImg">
-                            <img src="/picture/30_avatar_middle.jpg" alt="">
+                            <img :src="'./picture/'+zbt.personImage" alt="">
                         </div>
                         <div class="tabDotImg">
-                            <img src="/picture/30_avatar_middle.jpg" alt="">
+                            <img :src="'./picture/'+zbt.personImage" alt="">
                         </div>
                         <div class="tabDotImg">
                             <img src="/picture/30_avatar_middle.jpg" alt="">
@@ -154,34 +155,33 @@
                     <ul class="zuboCont">
                         <li>
                             <img src="/picture/data_01.png" alt="">
-                            <span>身高</span>:168cm
+                            <span>身高</span>:{{zbt.personHeight}}
                         </li>
                         <li>
                             <img src="/picture/data_02.png" alt="">
-                            <span>星座</span>:双鱼座
+                            <span>星座</span>:{{zbt.personSex}}
                         </li>
                         <li>
                             <img src="/picture/data_03.png" alt="">
-                            <span>职业</span>:主播
+                            <span>职业</span>:{{zbt.personCareer}}
                         </li>
                         <li>
                             <img src="/picture/data_04.png" alt="">
-                            <span>魅力部位</span>:鼻子、耳朵
+                            <span>魅力部位</span>:{{zbt.personHeight}}
                         </li>
                         <li>
                             <img src="/picture/data_05.png" alt="">
-                            <span>个性标签</span>:逗比闲聊、乖巧粘人
+                            <span>个性标签</span>:{{zbt.personContent}}
                         </li>
                         <li>
                             <img src="/picture/data_06.png" alt="">
-                            <span>兴趣爱好</span>:吃饭睡觉打豆豆顺便看点文艺术
+                            <span>兴趣爱好</span>:{{zbt.personInterest}}
                         </li>
-
                     </ul>
-
                 </div>
             </div>
         </div>
+        <!---->
         <div class="right">
             <div class="right-top">
                 <div class="right-protecter">
@@ -337,14 +337,29 @@
                                 <div class="order">下单约她</div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-</body>
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<div class="bshare-custom" id="fenxiang">
+    <div class="bsPromo bsPromo2"></div>
+    <a title="分享到微信" class="bshare-weixin" href="javascript:void(0);"></a>
+    <a title="分享到QQ好友" class="bshare-qqim" href="javascript:void(0);"></a>
+    <a title="分享到新浪微博" class="bshare-sinaminiblog" href="javascript:void(0);"></a>
+    <a title="分享到QQ空间" class="bshare-qzone"></a>
+    <a title="更多平台" class="bshare-more bshare-more-icon more-style-addthis"></a>
+    <span class="BSHARE_COUNT bshare-share-count" style="float: none;">OK思密达</span>
+</div>
+<script src="/js/jquery.min.js"></script>
+<script src="/js/vue.min.js"></script>
+<script src="/js/layer.js"></script>
+<!--<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>-->
 <script src="/js/zuboInfo.js"></script>
+<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=&amp;pophcol=2&amp;lang=zh"></script>
+<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC0.js"></script>
+</body>
+
+
 </html>

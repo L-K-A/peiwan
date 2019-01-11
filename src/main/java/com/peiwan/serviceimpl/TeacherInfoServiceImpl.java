@@ -47,6 +47,10 @@ public class TeacherInfoServiceImpl implements TeacherInfoService {
         int age = AgeByBirthUtil.getAgeByBirth(personBirthday);
         String s1 = String.valueOf(age);
         pPerson.setPersonBirthday(s1);
+        /*获取主播评分   暂存person_qq*/
+        double v = this.selectAvg(pid);
+        String s2 = String.valueOf(v);
+        pPerson.setPersonWeight(s2);
         return pPerson;
     }
 
