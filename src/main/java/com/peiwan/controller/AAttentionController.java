@@ -6,6 +6,7 @@ import com.peiwan.bean.PPerson;
 import com.peiwan.dao.AAttentionMapper;
 import com.peiwan.serviceimpl.AAttentionServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -41,7 +42,9 @@ public class AAttentionController {
     public ModelAndView toIndex(PPerson pPerson){
         return new ModelAndView("index");
     }
-
+// 登录
+    public ModelAndView to
+// 注册
 
 
 

@@ -38,11 +38,6 @@ public class AAttentionServiceImpl extends ServiceImpl<AAttentionMapper, PPerson
     }
 
 
-    //    权限管理
-    @Override
-    public PPerson findBypersonName(String personName) {
-        System.out.println("aAttentionMapper.findBypersonName");
-        return aAttentionMapper.findBypersonName(personName);
-    }
+
 
 }

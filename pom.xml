@@ -15,48 +15,48 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>peiwan</name>
     <description>Demo project for Spring Boot</description>
-
+<!--版本控制器 修改参数-->
     <properties>
+        <!--修改JDk的编译版本为1.8-->
         <java.version>1.8</java.version>
     </properties>
 
     <dependencies>
+<!--web支持 ： SpringMVC,Servlet支持等.....-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
         <!--SpringAOP的配置-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-aop</artifactId>
         </dependency>
+        <!---->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
+        <!--Test支持 支持测试-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-redis</artifactId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-freemarker</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-thymeleaf</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        
+
+
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.7</version>
         </dependency>
+
+<!--数据库需要的jar-->
         <!--mysql -->
         <dependency>
             <groupId>mysql</groupId>
@@ -76,89 +76,31 @@
             <version>3.0.3</version>
         </dependency>
 
+<!--模版-->
+        <!--freemarker模版-->
         <dependency>
-        <groupId>org.apache.commons</groupId>
-        <artifactId>commons-lang3</artifactId>
-        <version>3.7</version>
-    </dependency>
-
-        <!--引入验证码的插件  张家明-->
-        <!-- begin:kaptcha验证码 -->
-        <dependency>
-            <groupId>com.github.penggle</groupId>
-            <artifactId>kaptcha</artifactId>
-            <version>2.3.2</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-freemarker</artifactId>
         </dependency>
-        <!-- end:kaptcha验证码 -->
-
-
-        <!--开始 张家明  springboot整合shiro-->
-        <!--　NekoHTML 是一个简单地HTML扫描器和标签补偿器(tag balancer) ,使得程序能解析HTML文档并用标准的XML接口来访问其中的信息。这个解析器能投扫描HTML文件并“修正”许多作者（人或机器）在编写HTML文档过程中常犯的错误。NekoHTML 能增补缺失的父元素、自动用结束标签关闭相应的元素，以及不匹配的内嵌元素标签。NekoHTML 的开发使用了Xerces Native Interface (XNI)，后者是Xerces2的实现基础。-->
+        <!--thymeleaf模版-->
         <dependency>
-            <groupId>net.sourceforge.nekohtml</groupId>
-            <artifactId>nekohtml</artifactId>
-            <version>1.9.22</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
-      <!---->
+
+<!--缓存 redis-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+
+<!--权限管理-->
+        <!--Shiro依赖-->
         <dependency>
             <groupId>org.apache.shiro</groupId>
             <artifactId>shiro-spring</artifactId>
             <version>1.4.0</version>
         </dependency>
-
-        <!---->
-
-
-        <!--结束-->
-
-
-
-
-        <!--配置log4j-->
-        <!--开始-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-log4j2</artifactId>
-        </dependency>
-        <!-- 加上这个才能辨认到log4j2.yml文件 -->
-        <dependency>
-            <groupId>com.fasterxml.jackson.dataformat</groupId>
-            <artifactId>jackson-dataformat-yaml</artifactId>
-            <version>2.9.3</version>
-        </dependency>
-        <!--去除其他log依赖-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-logging</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.mybatis.spring.boot/mybatis-spring-boot-starter -->
-        <dependency>
-            <groupId>org.mybatis.spring.boot</groupId>
-            <artifactId>mybatis-spring-boot-starter</artifactId>
-            <version>1.3.2</version>
-            <exclusions>
-                <exclusion>
-                    <!--配置log4j-->
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-logging</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-
-        <dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
-            <version>1.2.17</version>
-        </dependency>
-
-        <!--结束-->
-
 
     </dependencies>
 

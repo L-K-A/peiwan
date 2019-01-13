@@ -29,9 +29,5 @@ public interface AAttentionMapper extends BaseMapper<PPerson> , CrudRepository<P
     @Select("select * from p_person")
     List<PPerson> addpperson(int id);
 
-//    权限管理
-    PPerson findBypersonName(String personName);
-
-    PPerson save(PPerson pPerson);
 
 }

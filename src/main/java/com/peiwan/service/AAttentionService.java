@@ -18,9 +18,4 @@ public interface AAttentionService extends IService<PPerson> {
 //   测试
     List<PPerson> namepperson(PPerson pPerson);
     List<PPerson> addpperson(int id);
-
-//    权限管理
-    PPerson findBypersonName(String personName);
-
-
 }
