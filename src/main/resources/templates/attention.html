@@ -8,6 +8,8 @@
     <script src="./js/jquery-1.11.3.min.js"></script>
     <!--<script src="./js/jquery-3.3.1.min.js"></script>-->
     <script src="./js/jquery.page.js"></script>
+    <script src="./js/laypage.js"></script>
+    <script src="./css/laypage.css"></script>
     <script src="https://cdn.bootcss.com/vue/2.5.21/vue.js"></script>
 </head>
 <body>
@@ -15,9 +17,10 @@
 
     <div class="gift_title mb20">我的关注</div>
 
-    <div class="gift_list_box" id="app" >
+    <div class="gift_list_box" id="app">
         <div class="gift_list_border">
-            <div class="gift_list_title ml10 fl">全部关注(<span class="gift_list_allnumber">{{countattention}}个</span>)</div>
+            <div class="gift_list_title ml10 fl">全部关注(<span class="gift_list_allnumber">{{countattention}}个</span>)
+            </div>
             <div class="fr m130">
                 <div class="fl all_pitch">
                     <label>
@@ -28,182 +31,198 @@
                 </div>
                 <div class="fl follow_box">
                     <img src="./img/follow.png" class="follow">
-                    <img src="./img/follow_hover.png" class="follow_hover">&nbsp;取消关注</div>
+                    <img src="./img/follow_hover.png" class="follow_hover">&nbsp;取消关注
+                </div>
                 <div class="clearfix"></div>
             </div>
             <div class="clearfix"></div>
         </div>
 
-        <div class="follow_code_bigbox"  >
+        <div class="follow_code_bigbox">
 
             <div class="follow_code_subbox" v-for="(item,index) in result">
                 <div class="follow_code_box fl">
-                <div class="follow_code_input">
-                    <input type="checkbox" :value="item.zid" class="follow_code_input_01">
-                </div>
-                <a class="fl pr25 follow_code_headimg_border" :href="'/#'+item.zid" target="_blank">
-                    <div class="follow_code_headimg mt20" >
-                        <img :src="'./imgupload/'+item.person_coverphoto" onerror="this.src=''">
+                    <div class="follow_code_input">
+                        <input type="checkbox" :value="item.zid" class="follow_code_input_01">
                     </div>
-                </a>
-                <div class="fl ml25 mt10">用户昵称:
-                    <a class="follow_code_name" :href="'/#'+item.zid" target="_blank">{{item.person_nickname}}</a>
-                    <div class="follow_runk">
-                        <div class="fl  mr10">
-                            <div class="vip_runk_02">5</div>
-                            <img src="./img/jibie_02.png">
+                    <a class="fl pr25 follow_code_headimg_border" :href="'/#'+item.zid" target="_blank">
+                        <div class="follow_code_headimg mt20">
+                            <img :src="'./imgupload/'+item.person_coverphoto" onerror="this.src=''">
                         </div>
-                        <div class="fl like_runk">PID:{{item.zid}}</div>
-                        <div class="clearfix"></div>
-                    </div>
+                    </a>
+                    <div class="fl ml25 mt10">用户昵称:
+                        <a class="follow_code_name" :href="'/#'+item.zid" target="_blank">{{item.person_nickname}}</a>
+                        <div class="follow_runk">
+                            <div class="fl  mr10">
+                                <div class="vip_runk_02">5</div>
+                                <img src="./img/jibie_02.png">
+                            </div>
+                            <div class="fl like_runk">PID:{{item.zid}}</div>
+                            <div class="clearfix"></div>
+                        </div>
 
-                    <div class="follow_hover_box" :ttid="item.zid">
-                        <img src="./img/follow_hover.png" class="follow_hover_01" >&nbsp;取消关注
+                        <div class="follow_hover_box" :ttid="item.zid">
+                            <img src="./img/follow_hover.png" class="follow_hover_01">&nbsp;取消关注
+                        </div>
                     </div>
-                </div>
                     <div class="clearfix"></div>
-                </div></div>
+                </div>
+            </div>
             <div class="nofollow"><img src="./img/blank.png"></div>
             <div class="clearfix"></div>
         </div>
-        <div class="pagenav"></div>
+        <div id="pagenave"></div>
     </div>
 </div>
-    <script type="text/javascript">
-        var countattention;
-        var  app = new Vue({
-            el: '#app',
+<script type="text/javascript">
+    var countattention;
+
+    var app = new Vue({
+        el: '#app',
+        data: {
+            result: []
+        }
+    });
+
+
+    var getAttentionList = function (curr) {
+        $.ajax({
+            type: 'POST',
+            dataType: 'json',
+            url: '/attentio',
             data: {
-                result: []
+                current: curr || 0,
+                size: 2,
+                pid: 1
+            },
+            success: function (res) {
+                app.result = res.result;
+                app.countattention = res.count;
+                laypage({
+                    cont: 'pagenave',
+                    skip: true,
+                    skin: '#52A34C',
+                    pages: res.count,
+                    curr: curr || 0,
+                    jump: function (obj, first) {
+                        if (!first) {
+                            getAttentionList(obj.curr);
+                        }
+                    }
+                });
             }
         });
+    }
+    getAttentionList();
 
 
-
-        var getAttentionList =function(){
-            $.ajax({
-                type: 'get',
-                dataType: 'json',
-                url: '/attentio',
-                data:{},
-                success:function (res) {
-                    app.result=res.result;
-                    app.countattention=res.count;
-                }
-            });
-        };
-        getAttentionList();
-
-
-
-
-        /*initfollowGIft();
-        /!*分页*!/
-        function followGift(p){
-            $.ajax({
-                url: "/lists?page="+p+"&size=12",
-                type: "get",
-                dataType: "jsonp",
-                success: function (obj){
-                    setData(obj);
-                }
-            });
-        }
-
-        function initfollowGIft() {
-            $.ajax({
-                url: "/Attention/lists?page=1&size=12",
-                type: "get",
-                dataType: "jsonp",
-                success: function (obj){
-                    $(".tcdPageCode").createPage({
-                        pageCount:obj.totalPage,
-                        current:1,
-                        backFn:function(p){
-                            followGift(p);
-                        }
-                    });
-                    setData(obj);
-                }
-            });
-        }
-
-    var arr = new Array();
-    function setData(obj){
-        var nianguan='♕'
-        var data=obj.data;
-        var str = '';
-        var like_runk_box="";
-        var vip_runk="";
-        if(data.length>0){
-            for(var i=0;i<data.length;i++){
-                if(data[i].level==0){
-                    like_runk_box="like_runk_box";
-                }else{
-                    like_runk_box="";
-                }
-                if(data[i].levelicon==1){
-                    vip_runk="vip_runk_01";
-                }else if(data[i].levelicon==2){
-                    vip_runk="vip_runk_02";
-                }else if(data[i].levelicon==3){
-                    vip_runk="vip_runk_03";
-                }
-                var teacherid=data[i].teacherid;
-                arr.push(teacherid)
-                var user_nickname=''
-                if(data[i].nickname.indexOf(nianguan)==-1){
-                    user_nickname=data[i].nickname
-                }else {
-                    user_nickname=data[i].nickname.split(nianguan)[0]+'<img style="width:15px;height:15px;margin-top:-3px;" src="/play/fanli4/nianguan.gif?v=1">'+data[i].nickname.split(nianguan)[1]
-                }
-                str+= '<div class="follow_code_box fl">\
-					<div class="follow_code_input"><input type="checkbox" value="'+ data[i].teacherid +'" class="follow_code_input_01"></div>\
-					<a class="fl pr25 follow_code_headimg_border"  href="/play/'+data[i].teacherid+'/?gameid=31540" target="_blank"><div class="follow_code_headimg mt20"><img src="'+data[i].avatar+'" onerror="this.src=\'https://uc.tuwan.com/images/noavatar_1.jpg\'"></div></a>\
-					<div class="fl ml25 mt10">\
-						<a class="follow_code_name"  href="/play/'+data[i].teacherid+'/?gameid=31540" target="_blank">'+user_nickname+'</a>\
-						<div class="follow_runk">\
-							<div class="fl '+like_runk_box+' mr10">\
-								<div class="'+vip_runk+'">'+data[i].level+'</div>\
-								<img src="https://res.tuwan.com/templet/play/teacher/images/jibie_0'+data[i].levelicon+'.png?0009">\
-							</div>\
-							<div class="fl like_runk">魅力值：'+data[i].score+'</div>\
-							<div class="clearfix"></div>\
-						</div>\
-						<div class="follow_hover_box" tid="'+ data[i].teacherid +'"><img src="./img/follow_hover.png" class="follow_hover_01">&nbsp;取消关注</div>\
-					</div>\
-					<div class="clearfix"></div>\
-				</div>'
+    /*initfollowGIft();
+    /!*分页*!/
+    function followGift(p){
+        $.ajax({
+            url: "/lists?page="+p+"&size=12",
+            type: "get",
+            dataType: "jsonp",
+            success: function (obj){
+                setData(obj);
             }
-            $('.follow_code_subbox').html(str);
-            $(".gift_list_allnumber").html(obj.total);
-        }else{
-            $(".nofollow").show();
-            $(".tcdPageCode").hide();
-            $(".gift_list_allnumber").html(0);
+        });
+    }
 
+    function initfollowGIft() {
+        $.ajax({
+            url: "/Attention/lists?page=1&size=12",
+            type: "get",
+            dataType: "jsonp",
+            success: function (obj){
+                $(".tcdPageCode").createPage({
+                    pageCount:obj.totalPage,
+                    current:1,
+                    backFn:function(p){
+                        followGift(p);
+                    }
+                });
+                setData(obj);
+            }
+        });
+    }
+
+var arr = new Array();
+function setData(obj){
+    var nianguan='♕'
+    var data=obj.data;
+    var str = '';
+    var like_runk_box="";
+    var vip_runk="";
+    if(data.length>0){
+        for(var i=0;i<data.length;i++){
+            if(data[i].level==0){
+                like_runk_box="like_runk_box";
+            }else{
+                like_runk_box="";
+            }
+            if(data[i].levelicon==1){
+                vip_runk="vip_runk_01";
+            }else if(data[i].levelicon==2){
+                vip_runk="vip_runk_02";
+            }else if(data[i].levelicon==3){
+                vip_runk="vip_runk_03";
+            }
+            var teacherid=data[i].teacherid;
+            arr.push(teacherid)
+            var user_nickname=''
+            if(data[i].nickname.indexOf(nianguan)==-1){
+                user_nickname=data[i].nickname
+            }else {
+                user_nickname=data[i].nickname.split(nianguan)[0]+'<img style="width:15px;height:15px;margin-top:-3px;" src="/play/fanli4/nianguan.gif?v=1">'+data[i].nickname.split(nianguan)[1]
+            }
+            str+= '<div class="follow_code_box fl">\
+                <div class="follow_code_input"><input type="checkbox" value="'+ data[i].teacherid +'" class="follow_code_input_01"></div>\
+                <a class="fl pr25 follow_code_headimg_border"  href="/play/'+data[i].teacherid+'/?gameid=31540" target="_blank"><div class="follow_code_headimg mt20"><img src="'+data[i].avatar+'" onerror="this.src=\'https://uc.tuwan.com/images/noavatar_1.jpg\'"></div></a>\
+                <div class="fl ml25 mt10">\
+                    <a class="follow_code_name"  href="/play/'+data[i].teacherid+'/?gameid=31540" target="_blank">'+user_nickname+'</a>\
+                    <div class="follow_runk">\
+                        <div class="fl '+like_runk_box+' mr10">\
+                            <div class="'+vip_runk+'">'+data[i].level+'</div>\
+                            <img src="https://res.tuwan.com/templet/play/teacher/images/jibie_0'+data[i].levelicon+'.png?0009">\
+                        </div>\
+                        <div class="fl like_runk">魅力值：'+data[i].score+'</div>\
+                        <div class="clearfix"></div>\
+                    </div>\
+                    <div class="follow_hover_box" tid="'+ data[i].teacherid +'"><img src="./img/follow_hover.png" class="follow_hover_01">&nbsp;取消关注</div>\
+                </div>\
+                <div class="clearfix"></div>\
+            </div>'
         }
+        $('.follow_code_subbox').html(str);
+        $(".gift_list_allnumber").html(obj.total);
+    }else{
+        $(".nofollow").show();
+        $(".tcdPageCode").hide();
+        $(".gift_list_allnumber").html(0);
 
-    }*/
+    }
+
+}*/
 
 
-
-    $(document).on("click",".follow_hover_box",function(){
-        var n=$(this).attr("ttid");
-        var r=confirm("您确定取消吗？");
-        if (r==true){
+    $(document).on("click", ".follow_hover_box", function () {
+        var n = $(this).attr("ttid");
+        var r = confirm("您确定取消吗？");
+        if (r == true) {
             removefollow(n);
         }
     });
-        /*取消关注*/
-    function removefollow(n){
+
+    /*取消关注*/
+    function removefollow(n) {
         $.ajax({
             url: '/cencelAttention',
             type: "post",
             dataType: "json",
-            data:{zid:n},
-            success: function (obj){
-                if(obj.result>0){
+            data: {zid: n},
+            success: function (obj) {
+                if (obj.result > 0) {
                     getAttentionList();
                 }
                 /*if(obj.error == 0){
@@ -225,40 +244,40 @@
             }
         });
     };
-        /*全选*/
-    jQuery(document).ready(function(){
-        var flag=0;
-        $("#checkAll").on("change",function(){
-            if(flag==0){
+    /*全选*/
+    jQuery(document).ready(function () {
+        var flag = 0;
+        $("#checkAll").on("change", function () {
+            if (flag == 0) {
 
                 $(".follow_code_input_01").show();
-                $(".follow_code_input_01").prop("checked",true);
-                flag=1;
-            }else{
+                $(".follow_code_input_01").prop("checked", true);
+                flag = 1;
+            } else {
                 $(".follow_code_input_01").hide();
-                $(".follow_code_input_01").prop("checked",false);
-                flag=0;
+                $(".follow_code_input_01").prop("checked", false);
+                flag = 0;
             }
         });
-        $(document).on("click",".follow_code_input_01",function(){
-            var allLength=$(".follow_code_input_01").length
-            var checkedLength=$(".follow_code_input_01:checked").length;
-            if(allLength==checkedLength){
-                $("#checkAll").prop("checked",true);
-            }else{
-                $("#checkAll").prop("checked",false);
-                flag=0
+        $(document).on("click", ".follow_code_input_01", function () {
+            var allLength = $(".follow_code_input_01").length
+            var checkedLength = $(".follow_code_input_01:checked").length;
+            if (allLength == checkedLength) {
+                $("#checkAll").prop("checked", true);
+            } else {
+                $("#checkAll").prop("checked", false);
+                flag = 0
             }
 
         });
         /*全选取消关注*/
-        $(document).on("click",".follow_box",function(){
-            if($(".follow_code_input_01:checked").length>0){
-                var r=confirm("您确定取消吗？");
-                if (r){
+        $(document).on("click", ".follow_box", function () {
+            if ($(".follow_code_input_01:checked").length > 0) {
+                var r = confirm("您确定取消吗？");
+                if (r) {
                     var ids = [];
-                    $(".follow_code_input_01:checked").each(function(){
-                        if($(this).prop("checked")){
+                    $(".follow_code_input_01:checked").each(function () {
+                        if ($(this).prop("checked")) {
                             ids.push($(this).val());
                         }
                     })

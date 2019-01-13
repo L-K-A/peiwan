@@ -82,20 +82,20 @@ public class AAttentionController {
 
     @RequestMapping("/attentio")
     @ResponseBody
-    public Map userAttention(int pageCurrent, int pageSize,int pid) {
+    public Map userAttention(int current, int size,int pid) {
 //        Page page=new Page(pageCurrent,pageSize);
-        Page<Map<String,Object>> mapPage = new Page<>(pageCurrent,pageSize);
-        Page<Map<String, Object>> mapPage1 = mapPage.setRecords(aAttentionMapper.getSelectAttention(mapPage, pid));
-        System.out.println(mapPage1);
-        //       List list= aAttentionService.queryAttentionPage(page,pid);
-        int a=aAttentionMapper.getSelectAttentionCount();
-        /*System.out.println(a);
-        System.out.println(list);*/
-        Map map=new HashMap();
-//        map.put("result",list);
-        map.put("count",a);
+        Page<Map<String,Object>> mapPage = new Page(current,size);
+        System.out.println(mapPage.getCurrent());
+        System.out.println(mapPage.getSize());
+        Page<Map<String, Object>> mappage = mapPage.setRecords(aAttentionMapper.getSelectAttention(mapPage, pid));
 
-        map.put("result",mapPage1);
+        System.out.println(mappage.getTotal());
+        System.out.println(mappage.getRecords());
+
+        int a=aAttentionMapper.getSelectAttentionCount();
+        Map map=new HashMap();
+        map.put("result",mappage.getRecords());
+        map.put("count",a);
         return map;
     }
     /**
