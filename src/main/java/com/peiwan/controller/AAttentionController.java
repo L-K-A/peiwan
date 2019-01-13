@@ -43,8 +43,15 @@ public class AAttentionController {
         return new ModelAndView("index");
     }
 // 登录
-    public ModelAndView to
+    @RequestMapping("/toLogin")
+    public ModelAndView tologin(){
+        return new ModelAndView("login");
+    }
 // 注册
+    @RequestMapping("/toRegister")
+    public ModelAndView toregister(){
+        return  new ModelAndView("register");
+    }
 
 
 

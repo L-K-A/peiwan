@@ -55,14 +55,15 @@ public class TestController {
     public String update(){
         return "user/update";
     }
-
     /**
-     *调到登录页面
+     * 弹窗登录页面
      */
-    @RequestMapping("toLogin")
-    public String toLogin(){
-        return "login";
+    @RequestMapping("/tocheshi")
+    public String tocheshi(){
+        return "cheshi";
     }
+
+
 
 
     /**
@@ -92,10 +93,10 @@ public class TestController {
             //出现异常登录失败
 //            e.printStackTrace();
             model.addAttribute("msg","用户名不存在");
-            return "login";
+            return "loginJC";
         }catch (IncorrectCredentialsException e){
             model.addAttribute("mag","密码错误");
-            return "login";
+            return "loginJC";
         }
 
     }

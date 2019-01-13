@@ -138,7 +138,7 @@ define([
                     if (!common.form_Verification({
                             type: "login_number",
                             el: ".user_mobile",
-                            parset:".login-inp",
+                            parset:".loginJC-inp",
                             value: this.user_mobile
                         })) {
                         //手机号未通过
@@ -147,7 +147,7 @@ define([
                     if (!common.form_Verification({
                             type: "password",
                             el: ".user_pwd",
-                            parset:".login-inp",
+                            parset:".loginJC-inp",
                             value: this.user_pwd
                         })) {
                         //密码未通过

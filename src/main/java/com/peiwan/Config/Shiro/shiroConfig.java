@@ -37,10 +37,14 @@ public class shiroConfig {
          */
         Map<String,String> filterMap = new LinkedHashMap<String,String>();
 
-        //        这样可以 但是他同时也把总页面也进行了拦截下面是要放行的页面
+         /* 需要放行的页面*/
+        //测试的
         filterMap.put("/testThymeleaf","anon");
+        //主页面
         filterMap.put("/","anon");
-        filterMap.put("/login","anon");
+        filterMap.put("/toIndex","anon");
+        //注册页面
+        filterMap.put("/toRegister","anon");
 
 
        /* filterMap.put("/add","authc");
@@ -52,7 +56,7 @@ public class shiroConfig {
 
 
 //        authc:必须认证（登录）才可以访问  这里拦截成功  但是
-//        如果不设置默认会自动寻找Web工程根目录下的"/login.jsp"页面
+//        如果不设置默认会自动寻找Web工程根目录下的"/loginJC.jsp"页面
 //        下面进行设设置
         shiroFilterFactoryBean.setLoginUrl("/toLogin");
 
