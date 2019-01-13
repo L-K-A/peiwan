@@ -40,6 +40,7 @@ public class shiroConfig {
          /* 需要放行的页面*/
         //测试的
         filterMap.put("/testThymeleaf","anon");
+        filterMap.put("/tocheshi","anon");
         //主页面
         filterMap.put("/","anon");
         filterMap.put("/toIndex","anon");
