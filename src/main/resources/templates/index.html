@@ -68,16 +68,11 @@
     <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="resource"
             src="/plugins/vue-resource.js?bust=201901040104"></script>
 
+
+
 </head>
 <body>
 
-<!--<span>
-    <div>
-        <input type="text" @keyup.13="inputShow" v-model.trim="val" placeholder="请输入陪玩昵称、ID、靓号" style="display: none;">
-    </div>
-    <input type="password" style="display: none;">
-    <input type="password" style="display: none;">
-</span>-->
     
 <!--改版新的页面-->
 <div class="public_nav_new">
@@ -276,7 +271,7 @@
                     </span>
                 </div>
                 <div class="gift_wrapper">
-                    <img src="picture/img_20.png" alt="" class="icon_bg">
+                    <img src="/picture/img_20.png" alt="" class="icon_bg">
                     <div class="gift_content">
                         <div class="swiper-container">
                             <div class="swiper-wrapper">
@@ -885,18 +880,18 @@
                     </ul>
 
 
-        <ul class="hot_content_wrapper" v-cloak v-if="hot_status" :class="{loading:loadingShow}">
-            <li class="hot_content_item " v-for="(item,index) in hotList" :key="index" @click="hotDetailUrl(item)">
+        <ul class="hot_content_wrapper" v-cloak v-if="hot_status" :class="{loading:loadingShow}"><!--v-cloak是解决网速缓慢时，在使用vue绑定数据的时候，渲染页面时会出现变量闪烁，配合display:none使用-->
+            <li class="hot_content_item " v-for="(item,index) in result" :key="index" @click="hotDetailUrl(item)"><!--触发事件-->
                 <div class="frame_logo_wrapper" :class="item.tags"> <!--tags是什么-->
 
                     <!-- frame -->
                     <img v-if="item.tags.frame" :src="item.tags.frame.path" alt="" class="img_frame"><!--主播id代表的详情页面-->
                     <!-- logo -->
                     <div class="pic_box">
-                        <img :src="item.person_image" alt="" class="pic"><!--主播头像-->
-                        <i class="compensation" v-if="item.compensation"></i>
+                        <img :src="'/picture/'+item.person_image" alt="" class="pic"><!--主播头像-->
+                        <i class="compensation" v-if="item.compensation"></i><!--超时赔-->
                     </div>
-                    <!-- 角标，不知道什么时候用 -->
+                    <!-- 角标 -->
                     <div class="mark_wrapper" v-if="item.tags.mark">
                         <img v-if="item.tags.mark" :src="item.tags.mark.path" alt="" class="icon">
                         <div class="span text">{{item.tags.mark.explain}}</div>
@@ -911,10 +906,10 @@
                 </div>
                 <!-- 用户信息 -->
                 <div class="info_wrapper">                                                  <!--此处显示主播昵称-->
-                    <span class="nick_name"><span class="guan_ming" v-if="item.sponser" >{{item.sponser.personNickname}}<img :title="item.sponser.name" :src="item.sponser.path"></span>{{item.personNickname}}</span>
+                    <span class="nick_name"><span class="guan_ming" v-if="item.sponser" >{{item.sponser.person_nickname}}<img :title="item.sponser.name" :src="item.sponser.path"></span>{{item.person_nickname}}</span>
                     <span class="btn_wrapper">
                     	<span class="btn_item" v-for="(iitem,ii) in item.icon" v-if="ii<3">
-                    		<img :src="iitem.path" alt="" class="btn_icon" :title="iitem.person_career"><!--iitem.name是游戏名字-->
+                    		<img :src="iitem.path" alt="" class="btn_icon" :title="iitem.name"><!--iitem.name是游戏名字-->
                     	</span>
 
 					</span>
@@ -926,7 +921,7 @@
                     <span class="text">{{item.person_career}}</span><!--total热度值-->
                     </span>
                     <span class="price_wrapper">
-							<span class="num">￥{{item.o_money}}</span><!--价格-->
+							<span class="num">￥{{item.g_price}}</span><!--价格-->
                     <span class="company" style="margin-left: 2px;">起</span>
                     </span>
                 </div>
@@ -934,7 +929,6 @@
             </li>
 
         </ul>
-
 
         <!-- 更多 -->
         <div class="hot_more_wrapper" >
@@ -1693,7 +1687,7 @@ var first_coupons = 9999;
 <footer>
     <div class="box">
         <div class="foot">
-            &lt;!&ndash;隐藏掉提现(隐藏提现)字样（2017-12-18）margin-left:&ndash;&gt;
+           <!--隐藏掉提现(隐藏提现)字样（2017-12-18）margin-left:-->
             <ul>
                 <li>
                     <img src="/picture/ico_ft01.png">
