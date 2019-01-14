@@ -26,8 +26,8 @@ public class AAttentionServiceImpl extends ServiceImpl<AAttentionMapper, PPerson
 
 //    测试
     @Override
-    public List<PPerson> namepperson(PPerson pPerson) {
-        List<PPerson> pPersonList=aAttentionMapper.namepperson(pPerson);
+    public PPerson namepperson(PPerson pPerson) {
+        PPerson pPersonList=aAttentionMapper.namepperson(pPerson);
         return pPersonList;
     }
 

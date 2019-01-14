@@ -16,6 +16,6 @@ import java.util.List;
  */
 public interface AAttentionService extends IService<PPerson> {
 //   测试
-    List<PPerson> namepperson(PPerson pPerson);
+    PPerson namepperson(PPerson pPerson);
     List<PPerson> addpperson(int id);
 }

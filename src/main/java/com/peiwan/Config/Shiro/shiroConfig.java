@@ -43,9 +43,14 @@ public class shiroConfig {
         filterMap.put("/tocheshi","anon");
         //主页面
         filterMap.put("/","anon");
+        filterMap.put("/MyIndex","anon");
         filterMap.put("/toIndex","anon");
         //注册页面
         filterMap.put("/toRegister","anon");
+        //登陆逻辑
+        filterMap.put("/sqlLogin","anon");
+        //2
+        filterMap.put("/sqlLoginShiro","anon");
 
 
        /* filterMap.put("/add","authc");
