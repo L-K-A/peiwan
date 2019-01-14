@@ -19,7 +19,6 @@
 
     <script src="./js/es6-shim.min.js"></script>
     <script src="./js/jquery.min.js"></script>
-
     <script src="./js/jquery-3.3.1.min.js"></script>
     <script src="./js/jquery.transit.min.js"></script>
     <script src="./js/easyhelper.min.js"></script>
@@ -30,20 +29,19 @@
     <script type="text/javascript" src="./js/jsencrypt.min.js"></script>
     <script type="text/javascript" src="./js/getRSAKey.js"></script>
     <script type="text/javascript" src="./js/encryption.js"></script>
-    <!--<script type="text/javascript" src="./js/calendar.js"></script>-->
+
     <script type="text/javascript" src="./js/personal_data1.js"></script>
     <script type="text/javascript" src="./js/lrz.js"></script>
     <script type="text/javascript" src="./js/exif.js"></script>
-    <!--<script type="text/javascript" src="./js/tuwan_message.js"></script>-->
+
     <script type="text/javascript" src="./js/moxie.js"></script>
     <script type="text/javascript" src="./js/plupload.dev.js"></script>
     <script type="text/javascript" src="./js/upload_playerinfo.js"></script>
     <script type="text/javascript" src="./js/laydate/laydate.js"></script>
     <script type="text/javascript" src="./js/layui/layui.all.js"></script>
     <script type="text/javascript" src="./js/pick-pcc.min.1.0.1.js"></script>
-    <!--<script type="text/javascript" src="./js/umeditor.config.js"></script>
-    <script type="text/javascript" src="./js/umeditor.min.js"></script>
-    <script type="text/javascript" src="./js/layer/layer.js"></script>-->
+
+    <script type="text/javascript" src="./js/layer/layer.js"></script>
 </head>
 <style>
     .keep_box {
@@ -379,8 +377,9 @@
                     <select id="city" name="personAdress" class="fl pl10 pr10">
                         <option value="0" selected>选择城市</option>
                     </select>-->
-                    <a href="javascript:void(0)" class="pick-area pick-area2" name=""></a>
-                    <input type="text" placeholder="调用元素pick-area2，显示值的地方，方法在参数getVal中">
+                    <a href="javascript:void(0)" class="pick-area pick-area2" name="" style="margin-left: 138px;"></a>
+                    <!--<div style="margin-top: -39px;margin-left: 350px"></div>-->
+                        <input type="text" placeholder="省/市" style="margin:2px 0 0 138px">
 
                     <div class="clearfix"></div>
                 </div>
@@ -1312,40 +1311,7 @@
 
     $(document).ready(function () {
 
-        $("#saveAvatar").click(function () {
-            if ($(".container .cropped img")[0] != null) {
-                var imgClip = $(".container .cropped img")[0].src;
-                $.ajax({
-                    type: "post",
-                    url: "",
-                    crossDomain: true,
-                    xhrFields: {
-                        withCredentials: true
-                    },
-                    data: {img: imgClip},
-                    success: function (data) {
 
-                        var ret = JSON.parse(data);
-
-                        if (ret.code == 0) {
-
-                            if (ret.data.small != null) {
-                                $(".pop_up").hide();
-                                $("body").css('overflow-y', 'scroll');
-
-                                $(".head_samllimg img")[0].src = imgClip;
-                                $("#img64").val('1');
-                            }
-
-                        } else {
-                            alert(ret.msg);
-                        }
-                    }
-                });
-            } else {
-                alert("请先裁剪图片!");
-            }
-        });
 
         //图片大小验证
         /*function verificationPicFile(file) {
@@ -1385,14 +1351,14 @@
 
             /*省市start*/
         $(".pick-area2").pickArea({
-            "format":"北京市/市辖区", //格式
-            "width":"300",
-            "borderColor":"#7b68ee",//文本边框的色值
-            "arrowColor":"#7b68ee",//箭头颜色
-            "listBdColor":"#7b68ee",//下拉框父元素ul的border色值
-            "color":"#7b68ee",//字体颜色
-            "fontSize":"16px",//字体大小
-            "hoverColor":"#7b68ee",
+            "format":"北京市/市区", //格式
+            "width":"200",
+            "borderColor":"#25e198",//文本边框的色值
+            "arrowColor":"#aaaaaa",//箭头颜色
+            "listBdColor":"#25e198",//下拉框父元素ul的border色值
+            "color":"#aaaaaa",//字体颜色
+            "fontSize":"14px",//字体大小
+            "hoverColor":"#aaaaaa",
             "paddingLeft":"10px",
             "arrowRight":"10px",
             //"preSet":"北京市/市辖区/东城区",

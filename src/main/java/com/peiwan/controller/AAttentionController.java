@@ -85,9 +85,7 @@ public class AAttentionController {
     public Map userAttention(int current, int size,int pid) {
 //        Page page=new Page(pageCurrent,pageSize);
         Page<Map<String,Object>> mapPage = new Page(current,size);
-
         Page<Map<String, Object>> mappage = mapPage.setRecords(aAttentionMapper.getSelectAttention(mapPage, pid));
-
         int a=aAttentionMapper.getSelectAttentionCount();
         Map map=new HashMap();
         map.put("result",mappage);
@@ -156,7 +154,7 @@ public class AAttentionController {
         /*String filePath = "F:\\upload\\" + himage.getOriginalFilename();*/
         String filePath = "C:\\Users\\Administrator\\Desktop\\peiwan\\src\\main\\resources\\static\\imgupload\\" + new Random().nextInt(100)+ himage.getOriginalFilename();
         //String filePath = request.getSession().getServletContext().getRealPath("imgupload") +File.separator +himage.getOriginalFilename();
-        System.out.println(filePath);
+
         BufferedOutputStream outputStream = new BufferedOutputStream(new FileOutputStream(filePath));
         outputStream.write(himage.getBytes());
         outputStream.flush();

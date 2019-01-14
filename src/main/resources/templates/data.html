@@ -221,6 +221,36 @@
             cropper.zoomOut();
         })
     });
+    $("#saveAvatar").click(function () {
+        if ($(".container .cropped img")[0] != null) {
+            var imgClip = $(".container .cropped img")[0].src;
+            $.ajax({
+                type: "post",
+                url: "/personimg",
+                crossDomain: true,
+                xhrFields: {
+                    withCredentials: true
+                },
+                data: {img: imgClip},
+                success: function (data) {
+                    var ret = JSON.parse(data);
+                    if (ret.code == 0) {
+                        if (ret.data.small != null) {
+                            $(".pop_up").hide();
+                            $("body").css('overflow-y', 'scroll');
+                            $(".head_samllimg img")[0].src = imgClip;
+                            $("#img64").val('1');
+                        }
+                    } else {
+                        alert(ret.msg);
+                    }
+                }
+            });
+        } else {
+            alert("请先裁剪图片!");
+        }
+    });
+
     /*form*/
     $('#form').submit(function(){
         var flag = true;
