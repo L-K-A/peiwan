@@ -9,7 +9,7 @@
     <!--<script src="./js/jquery-3.3.1.min.js"></script>-->
     <script src="./js/jquery.page.js"></script>
     <script src="./js/laypage.js"></script>
-    <script src="./css/laypage.css"></script>
+    <!--<script src="./css/laypage.css"></script>-->
     <script src="https://cdn.bootcss.com/vue/2.5.21/vue.js"></script>
 </head>
 <body>
@@ -91,19 +91,21 @@
             dataType: 'json',
             url: '/attentio',
             data: {
-                current: curr || 0,
+                current: curr || 1,
                 size: 2,
                 pid: 1
             },
             success: function (res) {
-                app.result = res.result;
-                app.countattention = res.count;
+                app.result = res.result.records;
+                app.countattention = res.result.total;
                 laypage({
                     cont: 'pagenave',
                     skip: true,
                     skin: '#52A34C',
-                    pages: res.count,
-                    curr: curr || 0,
+                    first:'首页',
+                    last:'尾页',
+                    pages: res.result.pages,
+                    curr: curr || 1,
                     jump: function (obj, first) {
                         if (!first) {
                             getAttentionList(obj.curr);

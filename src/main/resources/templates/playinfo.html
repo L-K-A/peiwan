@@ -12,7 +12,14 @@
     <!--<link href="./css/calendar-green.css" type="text/css" rel="stylesheet">-->
     <!--<link href="./js/layer/mobile/need/layer.css" type="text/css" rel="stylesheet">-->
     <link rel="stylesheet" href="./css/easyhelper.min.css">
+    <link rel="stylesheet" href="./js/layui/css/layui.css">
+    <link rel="stylesheet" href="./js/laydate/theme/default/laydate.css">
+    <link rel="stylesheet" href="./css/pick-pcc.min.1.0.1.css">
+
+
     <script src="./js/es6-shim.min.js"></script>
+    <script src="./js/jquery.min.js"></script>
+
     <script src="./js/jquery-3.3.1.min.js"></script>
     <script src="./js/jquery.transit.min.js"></script>
     <script src="./js/easyhelper.min.js"></script>
@@ -31,6 +38,9 @@
     <script type="text/javascript" src="./js/moxie.js"></script>
     <script type="text/javascript" src="./js/plupload.dev.js"></script>
     <script type="text/javascript" src="./js/upload_playerinfo.js"></script>
+    <script type="text/javascript" src="./js/laydate/laydate.js"></script>
+    <script type="text/javascript" src="./js/layui/layui.all.js"></script>
+    <script type="text/javascript" src="./js/pick-pcc.min.1.0.1.js"></script>
     <!--<script type="text/javascript" src="./js/umeditor.config.js"></script>
     <script type="text/javascript" src="./js/umeditor.min.js"></script>
     <script type="text/javascript" src="./js/layer/layer.js"></script>-->
@@ -327,9 +337,11 @@
                            name="personBirthday">
                     <div class="clearfix"></div>
                 </div>
-                <div class="mt30">
-                    <div class="fl name_title  mt10"><span class="star">*</span>所在地：</div>
-                    <select id="province" name="personAdress" class="fl mr10 pl10 pr10">
+                <div class="mt30" onload="init()">
+                    <div class="fl name_title  mt10">
+                        <span class="star">*</span>所在地:
+                    </div>
+                    <!--<select id="province" name="personAdress" class="fl mr10 pl10 pr10" onchange="getCity()">
                         <option value="0" selected="selected" name="personAdress">选择省份</option>
                         <option value="100000">北京市</option>
                         <option value="100020">天津市</option>
@@ -366,10 +378,10 @@
                     </select>
                     <select id="city" name="personAdress" class="fl pl10 pr10">
                         <option value="0" selected>选择城市</option>
-                        <option value="1" name="personAdress">上海</option>
-                        <option value="2" name="personAdress">北京</option>
-                        <option value="3" name="personAdress">重庆</option>
-                    </select>
+                    </select>-->
+                    <a href="javascript:void(0)" class="pick-area pick-area2" name=""></a>
+                    <input type="text" placeholder="调用元素pick-area2，显示值的地方，方法在参数getVal中">
+
                     <div class="clearfix"></div>
                 </div>
                 <div class="mt30">
@@ -741,19 +753,16 @@
                         <span class="star">*</span> 封面照：
                     </div>
                     <div class="fl" style="position: relative;">
-                        <!--<input class="name_text pl10" type="button"  value="上传图片"
-                               style="background-color: #5ecfba;color: #ffffff;height:32px;line-height:32px;">
-                        <input type="file" name="himage" class="file_01" id="upimg"
-                               style="height:32px;line-height:32px;display:block;">
-                        <input type="hidden"  id="upimgfile" value="">
-                         <div class="diagram diagram1">示例图</div>
-                        -->
-
-                        <input type="file" name="himage" id="imagefile" style="float: left" >
-                        <div class="imgdiv">
-                            <img src="./img/breviary.png" id="imgd" style="padding-left: 20px;" class="upfilebreviary breviary">
+                        <input type="button" id="btn_add2" value="选择图片" class="layui-btn layui-btn-primary" style="float: left">
+                        <input type="file"  name="himage"  accept="image/*" id="imagefile" style="display: none" >
+                        <div class="imgdiv" style="float:left;margin-left: 15px ">
+                            <img src="./img/breviary.png" id="imgd"  class="upfilebreviary breviary">
                         </div>
-
+                        <!--<BUTTON type="button" class="layui-btn" name="himage" id="imagefile" >图片上传</BUTTON>
+                        <div class="layui-upload-list">
+                            <img class="upfilebreviary breviary" id="imgsrc">
+                            <p id="dText"></p>
+                        </div>-->
                     </div>
                     <div class="voice_01 mt10 gameExplain" style="float: right;margin-top: -140px;margin-right: 60px;">
                         请上传您的段位截图（需包含个人ID）,并填写<br>
@@ -765,18 +774,13 @@
                 </div>
                 <div class="mt30" style="margin-bottom: 43px;width:100%">
                     <div class="fl mt10" style="width:13%">
-                        <span class="star"></span>服务描述：<br/>
-                        <div class="diagram diagram2" style="margin-top:10px;margin-right:16px;">示例图</div>
+                        <span class="star"></span>服务描述:<br/>
+                        <div class="diagram diagram2" style="margin-top:10px;margin-right:16px;"></div>
                     </div>
                     <!--富文本编辑器-->
-                    <!--<div class="fr" id="ieflag" style="width:85%">
-                        <script type="text/plain" id="myEditor" style="width:1024px;height:500px;"></script>
-
-                    </div>-->
-                    富文本编辑器
-
-
+                    <textarea  id="servicetext" style="display: none"></textarea>
                     <div class="clearfix"></div>
+
                 </div>
                 <div class="mt30" id="gamelist" style="display: none;">
                     <div class="fl mt10 name_title"><span class="star"></span>QQ/微信 可接段位:</div>
@@ -1062,6 +1066,10 @@
 </div>
 
 <script type="text/javascript">
+
+    $("#btn_add2").click(function(){
+        $("#imagefile").trigger("click");
+    });
 
     var gName=null;
     var dtid=null;
@@ -1369,6 +1377,39 @@
                 flag = false;
             }
         });*/
+        /*年选择器*/
+            laydate.render({
+                elem: '#birthday'
+                ,format: 'yyyyMMdd'
+            });
+
+            /*省市start*/
+        $(".pick-area2").pickArea({
+            "format":"北京市/市辖区", //格式
+            "width":"300",
+            "borderColor":"#7b68ee",//文本边框的色值
+            "arrowColor":"#7b68ee",//箭头颜色
+            "listBdColor":"#7b68ee",//下拉框父元素ul的border色值
+            "color":"#7b68ee",//字体颜色
+            "fontSize":"16px",//字体大小
+            "hoverColor":"#7b68ee",
+            "paddingLeft":"10px",
+            "arrowRight":"10px",
+            //"preSet":"北京市/市辖区/东城区",
+            "getVal":function(){
+                //console.log($(".pick-area-hidden").val())
+                //console.log($(".pick-area-dom").val())
+                var thisdom = $("."+$(".pick-area-dom").val());
+                thisdom.next().val($(".pick-area-hidden").val());
+            }
+        });
+        /*省市end*/
+
+        /*富文本编辑器*/
+        layui.use('layedit', function(){
+            var layedit = layui.layedit;
+            layedit.build('servicetext'); //建立编辑器
+        });
 
 
         /*游戏名判断*/
@@ -1437,6 +1478,38 @@
             }
             return url ;
         }
+
+        /*layui.use('upload', function() {
+            var $ = layui.jquery
+                , upload = layui.upload;
+
+            //普通图片上传
+            var uploadInst = upload.render({
+                elem: '#imagefile'
+                , url: '/imgupload/'
+                , before: function (obj) {
+                    //预读本地文件示例，不支持ie8
+                    obj.preview(function (index, file, result) {
+                        $('#imgsrc').attr('src', result); //图片链接（base64）
+                    });
+                }
+                , done: function (res) {
+                    //如果上传失败
+                    if (res.code > 0) {
+                        return layer.msg('上传失败');
+                    }
+                    //上传成功
+                }
+                , error: function () {
+                    //演示失败状态，并实现重传
+                    var demoText = $('#dText');
+                    demoText.html('<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-xs demo-reload">重试</a>');
+                    demoText.find('.demo-reload').on('click', function () {
+                        uploadInst.upload();
+                    });
+                }
+            });
+        });*/
         /*图片预览-end*/
         /*表单提交*/
         $(".sure_box1").click(function () {

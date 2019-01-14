@@ -47,8 +47,6 @@ public class AAttentionServiceImpl extends ServiceImpl<AAttentionMapper, AAttent
      */
     @Override
     public List<Map<String,Object>> queryAttentionPage(Page page, int pid) {
-//        QueryWrapper<PPerson> wrapper=new QueryWrapper<>();
-
         List list= aAttentionMapper.getSelectAttention(page,pid);
         return list;
     }

@@ -4,7 +4,7 @@
 
     function a(d) {
         var e = "laypagecss";
-        a.dir = "dir" in a ? a.dir : f.getpath + "skin/laypage.css", new f(d), a.dir && !b[c](e) && f.use(a.dir, e)
+        a.dir = "dir" in a ? a.dir : f.getpath + "laypage.css", new f(d), a.dir && !b[c](e) && f.use(a.dir, e)
     }
 
     a.v = "1.3";

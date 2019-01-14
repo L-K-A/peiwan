@@ -85,16 +85,12 @@ public class AAttentionController {
     public Map userAttention(int current, int size,int pid) {
 //        Page page=new Page(pageCurrent,pageSize);
         Page<Map<String,Object>> mapPage = new Page(current,size);
-        System.out.println(mapPage.getCurrent());
-        System.out.println(mapPage.getSize());
-        Page<Map<String, Object>> mappage = mapPage.setRecords(aAttentionMapper.getSelectAttention(mapPage, pid));
 
-        System.out.println(mappage.getTotal());
-        System.out.println(mappage.getRecords());
+        Page<Map<String, Object>> mappage = mapPage.setRecords(aAttentionMapper.getSelectAttention(mapPage, pid));
 
         int a=aAttentionMapper.getSelectAttentionCount();
         Map map=new HashMap();
-        map.put("result",mappage.getRecords());
+        map.put("result",mappage);
         map.put("count",a);
         return map;
     }

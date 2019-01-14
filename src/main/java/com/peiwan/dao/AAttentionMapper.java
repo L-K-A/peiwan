@@ -65,7 +65,7 @@ public interface AAttentionMapper extends BaseMapper<AAttention> {
      * @auther lxq
      * @return
      */
-    @Select("select p.person_nickname,p.person_coverphoto,a.zid from p_person p,(select zid,z_zhubo from a_attention where pid=#{pid}) as a where a.zid=p.pid and a.z_zhubo=p.z_zhubo limit #{mapPage.current},#{mapPage.size}")
+    @Select("select p.person_nickname,p.person_coverphoto,a.zid from p_person p,(select zid,z_zhubo from a_attention where pid=#{pid}) as a where a.zid=p.pid and a.z_zhubo=p.z_zhubo ")
     List<Map<String,Object>> getSelectAttention(Page mapPage,int pid);
 
     /**
