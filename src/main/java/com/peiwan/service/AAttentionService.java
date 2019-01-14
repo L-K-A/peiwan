@@ -22,14 +22,14 @@ public interface AAttentionService extends IService<PPerson> {
     PPerson selectPersonByNameAndPwd(PPerson person);
 
     //查询主播列表
-    Page<Map<String,Object>> selectPersonList(int currentPage,int pageNum);
+    Page<Map<String,Object>> selectPersonList(int curPage);
 
 
     //根据昵称和id查询
     List<Map<String,Object>> selectPersonByNameId(PPerson person);
 
     //热度榜查询主播订单数：先按照订单数排序，再查询主播详细信息
-    Page<Map<String,Object>> selectPersonOrder(int currentPage,int pageNum);
+    Page<Map<String,Object>> selectPersonOrder(int curPage,int pageNum);
 
 
 

@@ -60,42 +60,41 @@
         }
     });
 
-    var getUserPageList = function () {
+    var getUserPageList = function (curr) {
         $.ajax({
             type: 'POST',
             dataType: 'json',
-            url: '/person/searchPerson',
+            url: '/person/getPersonList',
             data: {
-                //currentPage: curr || 1,
+                curPage: curr || 1,
                 //pageNum: 10,
                 personNickname: $("#personNickname").val()
             },
             success: function (msg) {
-                app.result = msg.searchPersonList;
-                // laypage({
-                //     cont: 'pagenav', //容器
-                //     pages: msg.totalPage,
-                //     first: '首页',
-                //     last: '尾页',
-                //     skin: '#00A0E9',
-                //     curr: curr || 1,
-                //     jump: function (obj, first) {
-                //         if (!first) {
-                //             getUserPageList(obj.curr);
-                //         }
-                //     }
-                // });
+                app.result = msg.data;
+                laypage({
+                    cont: 'pagenav', //容器
+                    pages: msg.totalPage,
+                    first: '首页',
+                    last: '尾页',
+                    skin: '#00A0E9',
+                    curr: curr || 1,
+                    jump: function (obj, first) {
+                        if (!first) {
+                            getUserPageList(obj.curr);
+                        }
+                    }
+                });
             }
 
         });
     };
 
-    //getUserPageList();
+    getUserPageList();
 
     $("#findUser").click(function () {
         getUserPageList();
     });
-
 
 </script>
 </body>

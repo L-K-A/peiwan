@@ -1,6 +1,6 @@
 // window.public_domain = "http://dj.com";
 // window.public_domain = "https://test.daofengdj.com";
-window.public_domain = "https://yundown.daofengdj.com";
+//window.public_domain = "https://yundown.daofengdj.com";
 window.pay_switch = 3;//0|隐藏微信支付宝，1|显示微信，2|显示支付宝，3|全部显示
 requirejs.config({
     paths:{

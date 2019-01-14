@@ -28,7 +28,7 @@ public interface AAttentionMapper extends BaseMapper<PPerson> {
 
     //查询主播列表
     @Select("select p.pid,p.person_nickname,p.person_image,g.g_name,g.g_price from p_person p,g_service g where p.pid=g.pid")
-    List<Map<String,Object>> selectPersonPage(Page<Map<String,Object>> page,Integer id);
+    List<Map<String,Object>> selectPersonPage(int curPage);
 
 
     //根据昵称和id查询

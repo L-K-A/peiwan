@@ -39,9 +39,9 @@ public class AAttentionServiceImpl extends ServiceImpl<AAttentionMapper, PPerson
 
     //查询主播列表
     @Override
-    public Page<Map<String, Object>> selectPersonList(int currentPage, int pageNum) {
-        Page<Map<String,Object>> page = new Page<Map<String,Object>>(currentPage,pageNum);
-        Page<Map<String, Object>> mapPage = page.setRecords(this.baseMapper.selectPersonPage(page, 1));
+    public Page<Map<String, Object>> selectPersonList(int curPage) {
+        Page<Map<String,Object>> page = new Page<Map<String,Object>>();
+        Page<Map<String, Object>> mapPage = page.setRecords(this.baseMapper.selectPersonPage(curPage));
         System.out.println("service:"+mapPage);
         return mapPage;
     }
@@ -56,8 +56,8 @@ public class AAttentionServiceImpl extends ServiceImpl<AAttentionMapper, PPerson
 
     //热度榜查询主播订单数：先按照订单数排序，再查询主播详细信息
     @Override
-    public Page<Map<String, Object>> selectPersonOrder(int currentPage, int pageNum) {
-        Page<Map<String,Object>> page = new Page<Map<String,Object>>(currentPage,pageNum);
+    public Page<Map<String, Object>> selectPersonOrder(int curPage, int pageNum) {
+        Page<Map<String,Object>> page = new Page<Map<String,Object>>(curPage,pageNum);
         Page<Map<String, Object>> orderList = page.setRecords(this.baseMapper.selectOrderList(page, 1));
         System.out.println("service:"+orderList);
         return orderList;

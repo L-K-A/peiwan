@@ -91,12 +91,12 @@ public class AAttentionController {
 
     //主播列表
     @RequestMapping("/getPersonList")
-    public Map<String,Object> getPage(){
-        Page<Map<String, Object>> page = attentionService.selectPersonList(1, 2);
+    public Map<String,Object> getPage(int curPage){
+        Page<Map<String, Object>> page = attentionService.selectPersonList(curPage);
         List<Map<String, Object>> records = page.getRecords();
         Map map = new HashMap();
-        map.put("personPage",records);
-        System.out.println("controller:"+map);
+        map.put("data",records);
+        System.out.println("数据库查到的:"+map);
         return map;
     }
 
@@ -122,7 +122,7 @@ public class AAttentionController {
         Integer orderCount = attentionMapper.selectOrderCount(2);
         List<Map<String, Object>> records = page.getRecords();
         Map map = new HashMap();
-        map.put("orderList",records);
+        map.put("data",records);
         map.put("orderCount",orderCount);
         System.out.println("controller:"+map);
         return map;
@@ -133,7 +133,7 @@ public class AAttentionController {
     //测试主播列表查询
     @RequestMapping("/toList")
     public ModelAndView select(){
-        return new ModelAndView("personList");
+        return new ModelAndView("personList2");
     }
 
 

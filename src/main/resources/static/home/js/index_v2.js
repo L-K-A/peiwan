@@ -130,8 +130,6 @@ require([
                         }else {
                         	_this.starImgUrl = "";
                         };
-                        
-
                     };
                 });
             },
@@ -157,7 +155,7 @@ require([
 			curPage:0,//当前页数
 			hot_status:false,//热门推荐是否被第一次点击
 			moreShow:false,//更多按钮显示
-			loadingShow:true,//loading效果
+			loadingShow:true,  //loading效果
 		},
 		mounted: function(){
 			this.$nextTick(function(){
@@ -220,7 +218,7 @@ require([
 				
 				_this.hotList = [];
 				//this.$http.post("/index/index/hotpw",{"page":page}).then(function(res) {
-                this.$http.post("person/addPage",{"page":page}).then(function(res) {
+                this.$http.post("/person/getPersonList",{"page":page}).then(function(res) {
 					res = res.data;
 					if(res.code ==1){
 						var json = res.data;
