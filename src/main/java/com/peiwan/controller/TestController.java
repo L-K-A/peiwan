@@ -1,8 +1,6 @@
 package com.peiwan.controller;
 
-import com.peiwan.bean.PPerson;
 import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.authc.UsernamePasswordToken;
@@ -70,7 +68,7 @@ public class TestController {
      *  登录的业务处理
      */
     @RequestMapping("/login")
-    public String login(PPerson pPerson,Model model){
+    public String login(String personName,String personPwd,Model model){
 
         /**
          * 使用Shiro编写认证操作
@@ -79,7 +77,7 @@ public class TestController {
         Subject subject = SecurityUtils.getSubject();
 
         //2.封装用户数据
-        UsernamePasswordToken token = new UsernamePasswordToken(pPerson.getPersonName(),pPerson.getPersonPwd());
+        UsernamePasswordToken token = new UsernamePasswordToken(personName,personPwd);
 
         //3.执行登录方法
         try {
@@ -93,10 +91,10 @@ public class TestController {
             //出现异常登录失败
 //            e.printStackTrace();
             model.addAttribute("msg","用户名不存在");
-            return "loginJC";
+            return "login";
         }catch (IncorrectCredentialsException e){
             model.addAttribute("mag","密码错误");
-            return "loginJC";
+            return "login";
         }
 
     }

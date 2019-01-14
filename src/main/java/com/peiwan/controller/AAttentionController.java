@@ -1,32 +1,19 @@
 package com.peiwan.controller;
 
 
-import com.peiwan.bean.AAttention;
 import com.peiwan.bean.PPerson;
 import com.peiwan.dao.AAttentionMapper;
 import com.peiwan.serviceimpl.AAttentionServiceImpl;
 import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
-
 import javax.annotation.Resource;
 import javax.lang.model.element.UnknownElementException;
 import javax.servlet.http.HttpSession;
-import java.util.List;
 
 /**
  * <p>
@@ -100,36 +87,6 @@ public class AAttentionController {
         }
     }
 */
-//shiro的验证方法
-    @RequestMapping("/sqlLoginShiro")
-    public ModelAndView sqlLoginShiro(PPerson pPerson){
-        ModelAndView model = new ModelAndView();
-        /**
-         * 使用Shiro编写认证操作
-         */
-        //1.获取Subject
-        Subject subject = SecurityUtils.getSubject();
-        //2.封装用户数据
-        UsernamePasswordToken token = new UsernamePasswordToken(pPerson.getPersonName(),pPerson.getPersonPwd());
-        //执行登陆方法
-        System.out.println("ssssss");
-        try {
-            subject.login(token);
-            //没有异常 登陆成功
-            model.setViewName("redirect/MyIndex");
-
-
-        } catch (UnknownElementException e) {
-            model.addObject("msg","用户名不存在");
-            model.setViewName("login");
-
-        }catch (IncorrectCredentialsException e) {
-            model.addObject("msg","用户密码不正确");
-            model.setViewName("login");
-        }
-        return model;
-    }
-
 
 
 

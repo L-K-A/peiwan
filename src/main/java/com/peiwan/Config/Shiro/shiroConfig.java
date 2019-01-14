@@ -41,6 +41,7 @@ public class shiroConfig {
         //测试的
         filterMap.put("/testThymeleaf","anon");
         filterMap.put("/tocheshi","anon");
+        filterMap.put("/login","anon");
         //主页面
         filterMap.put("/","anon");
         filterMap.put("/MyIndex","anon");
@@ -51,6 +52,9 @@ public class shiroConfig {
         filterMap.put("/sqlLogin","anon");
         //2
         filterMap.put("/sqlLoginShiro","anon");
+        //放行页面
+
+
 
 
        /* filterMap.put("/add","authc");

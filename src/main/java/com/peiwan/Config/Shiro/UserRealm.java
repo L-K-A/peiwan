@@ -1,14 +1,10 @@
 package com.peiwan.Config.Shiro;
-
-import com.peiwan.service.AAttentionService;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
-
-import javax.annotation.Resource;
 
 /**
  * 自定义一个Realm
@@ -23,13 +19,12 @@ public class UserRealm extends AuthorizingRealm {
      * @return
      */
 
-    @Resource
-    private AAttentionService aAttentionService;
+//    @Resource
+//    private AAttentionService aAttentionService;
 
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
         System.out.println("执行授权逻辑");
-
         return null;
     }
 
@@ -43,8 +38,6 @@ public class UserRealm extends AuthorizingRealm {
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
         System.out.println("执行认证逻辑");
         //获取数据库的用户名和密码
-
-
 
         return null;
     }

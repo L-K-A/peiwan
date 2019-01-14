@@ -19,7 +19,7 @@
 							登录
 						</div>
 						<h3 th:text="${msg}" style="color: red;"></h3>
-						<form action="/sqlLoginShiro" method="post">
+						<form action="/login" method="post">
 							
 							<div class="form_text_ipt">
 								<input name="personName" type="text" placeholder="用户名">
@@ -39,7 +39,7 @@
 							</div>
 							<div class="form_btn">
 								<!--onclick="javascript:window.location.href=''"-->
-								<button type="submit">登录</button>
+                                <button type="submit">登录</button>
 							</div>
 							<div class="form_reg_btn">
 								<span>还没有帐号？</span><a href="/toRegister">马上注册</a>
