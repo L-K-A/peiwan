@@ -56,11 +56,14 @@ public class ClassifyController {
 
 
     @RequestMapping("/getCondition")
-    public Map getCondition(int gid,String gdw,String psex,String sort,int pageNum,int pageSize){
+    public Map getCondition(Integer gid,String gdw,String psex,String sort,String hot,String newest,Integer pageNum,Integer pageSize){
 
         System.out.println("从前台传回来的gid"+gid);
         System.out.println("从前台传回来的gdw"+gdw);
         System.out.println("从前台传回来的psex"+psex);
+        System.out.println("从前台传回来的sort"+sort);
+        System.out.println("从前台传回来的hot"+hot);
+        System.out.println("从前台传回来的newest"+newest);
 
         System.out.println("从前台传回来的pagecurr:"+pageNum);
         System.out.println("从前台传回来的pagesize:"+pageSize);
@@ -68,8 +71,13 @@ public class ClassifyController {
         Map<String,Object> map = new HashMap<>();
         map.put("gid",gid);
         map.put("gDw",gdw);
-        map.put("gsex",psex);
+        map.put("psex",psex);
         map.put("sort",sort);
+        map.put("hot",hot);
+        map.put("newest",newest);
+        map.put("pageNum",pageNum);
+        map.put("pageSize",pageSize);
+
         Page<Map<String, Object>> page = new Page<Map<String, Object>>(pageNum,pageSize);
 
         List<Map<String, Object>> condition = cs.getCondition(map,page);

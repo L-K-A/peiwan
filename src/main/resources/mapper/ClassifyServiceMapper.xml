@@ -19,11 +19,13 @@
 
     <!-- 动态查询 -->
     <select id="getCondition" parameterType="map" resultType="map">
-        SELECT
-        p.pid,p.person_nickname,p.person_sex,p.person_age,p.person_adress,p.person_coverphoto,g.gid,g.g_name,g.g_duanwei
+        SELECT po.pid,po.person_nickname,po.person_sex,po.person_age,po.person_adress,po.person_coverphoto,po.pos,po.person_createtime
+        FROM(
+        SELECT p.pid,p.person_nickname,p.person_sex,p.person_age,p.person_adress,p.person_coverphoto,p.person_createtime,p.z_zhubo,COUNT(o.pid) pos
         FROM p_person p
-        LEFT JOIN g_service g ON p.pid=g.pid
+        INNER JOIN o_order_z o ON p.pid=o.pid
         WHERE p.z_zhubo=1
+        GROUP BY o.pid) po inner join g_service g on po.pid=g.pid where po.z_zhubo=1
         <if test="map.gid != null and map.gid != ''">
             and g.gid = #{map.gid}
         </if>
@@ -31,7 +33,19 @@
             and g.g_duanwei like concat("%",#{map.gDw},"%")
         </if>
         <if test="map.psex != null and map.psex != ''">
-            and p.person_sex = #{map.psex}
+            and po.person_sex = #{map.psex}
+        </if>
+        <if test="map.hot !=null and map.hot !=''">
+            group by po.pos
+        </if>
+        <if test="map.newest != null and map.newest !='' and map.hot !=null and map.hot !=''">
+            ,
+        </if>
+        <if test="map.newest != null and map.newest !='' and (map.hot = null or map.hot = '')">
+            group by po.person_createtime desc
+        </if>
+        <if test="map.newest != null and map.newest !='' and map.hot != null and map.hot != ''">
+            po.person_createtime desc
         </if>
     </select>
 
