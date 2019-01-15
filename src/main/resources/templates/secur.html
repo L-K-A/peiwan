@@ -41,7 +41,6 @@
     <div class="Bound_cell">
         <div class="layer-cell-close"></div>
         <div class="input_title mb40">绑定手机</div>
-
         <div class="mb10 input_text">手机号(请输入11位手机号码)</div>
         <input type="text" class="input_box" id="ctl00_mainContent_txt_phone">
         <div class="mb10 input_text mt30">密码(账户密码)</div>
@@ -55,12 +54,12 @@
     </div>
 </div>
 <!--修改密码弹窗-->
-<div id="Modify_password" style="display:none;">
+<div id="Modify_password"  style="display:none;">
     <div class="pop_up_bg"></div>
     <div class="password_cell">
         <div class="layer-cell-close"></div>
         <div class="input_title mb40 mt20">修改密码</div>
-        <div class="mb10 input_text">旧密码<span>（请输入旧密码）</span></div>
+        <div class="mb10 input_text" >旧密码<span>（请输入旧密码）</span></div>
         <input type="password" id="oldpwd"  class="input_box">
         <div class="mb10 input_text mt30">新密码<span>（密码长度6-20位）</span></div>
         <input type="password" id="ctl00_mainContent_txt_password" class="input_box">
@@ -107,16 +106,54 @@
     </div>
 </div>
 <script src="./js/Security_Center_2.js"></script>
-<script>
+<script type="text/javascript">
     var point = 2;
+
+    $(".layer-cell-close").click(function () {
+        $("#Bound_phone").hide();
+        $("#Modify_password").hide();
+        $("body").css('overflow-y', 'scroll');
+    });
+
+    function changepwd(){
+
+    }
+
+    $("#oldpwd").blur(function () {
+        var oldpwd = $(this).val();
+        var len = oldpwd.length;
+        if (len < 2 ) {
+            alert("昵称过短,至少2字符");
+            $(".sure_box1").attr("disabled", true);
+            return;
+        }else if(len > 10){
+            alert("昵称过长,不得大于10字符");
+            $(".sure_box1").attr("disabled", true);
+            return;
+        }
+
+        $.ajax({
+            url: "/checkoutPersonPwd",
+            data:{
+                personPwd:$("#oldpwd").val()
+            },
+            type: "post",
+            dataType: "json",
+            success: function (obj) {
+                if (obj.result == 1) {
+                    alert("密码错误");
+                    $(".sure_box1").attr("disabled", true);
+                }
+            }
+        });
+    });
+
     $.ajax({
         url: "/userepwd",
         dataType: 'jsonp',
         success: function (obj) {
             if (obj.code == 0) {
-
                 $('#username').html(obj.data['username']);
-
                 if (obj.data['tel'].length > 0) {
                     point++;
                     $('#telnum, .input_box01').html(obj.data['tel']);
@@ -124,11 +161,9 @@
                     $('#edittel1').show();
                     $('.display_none03').click(function() {
                         $('#Modify_alipay').show();
-
                     })
                     $('.display_none02').click(function() {
                         $('#Modify_wechat').show();
-
                     })
                     $('.user_name002').removeClass('user_name002');
                 } else {
@@ -166,7 +201,8 @@
                 $('#pointclass').addClass(pointclass);
             }
         }
-    })
+    });
+
 
 </script>
 </body>
