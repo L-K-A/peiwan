@@ -80,7 +80,7 @@ public interface AAttentionMapper extends BaseMapper<AAttention> {
      * 用户订单查询
      * @author lxq
      */
-    @Select("SELECT p.pid,p.person_nickname,p.person_coverphoto,p.person_qq,o.* FROM p_person p,(SELECT * FROM o_order WHERE pid=5) o WHERE o.aid=p.pid GROUP BY o.oid")
+    @Select("SELECT p.pid,p.person_nickname,p.person_coverphoto,p.person_qq,o.* FROM p_person p,(SELECT * FROM o_order WHERE pid=1) o WHERE o.aid=p.pid GROUP BY o.oid")
     List<Map<String,Object>> getSelectOrder();
 
     /**
@@ -89,5 +89,32 @@ public interface AAttentionMapper extends BaseMapper<AAttention> {
      */
     @Update("update a_attention set z_zhubo=0 where pid=1 and zid=#{zid}")
     int getUpdateAttention(String zid);
+
+    /**
+     * 修改头像
+     * @author lxq
+     */
+    @Update("update p_person set person_image=#{pPerson.personImage} where pid=#{pid}")
+    int getUpdateUserImage(PPerson pPerson,int pid);
+
+    /**
+     * 信息查询
+     * @author lxq
+     */
+    @Select("select pid,person_name,person_nickname,person_image,person_qq from p_person where pid=#{pid}")
+    List<Map<String,Object>> getUserInfo(int pid);
+
+    /**
+     * 用户信息修改
+     * @author lxq
+     */
+    @Update("update p_person set person_nickname=#{personNickname},person_qq=#{personQq} where pid=#{pid}")
+    int getUpdateUserInfo(PPerson pPerson);
+    /**
+     * 用户密码修改
+     * @author lxq
+     */
+    @Update("update p_person set personpwd=#{personPwd} where pid=#{pid}")
+    int getUpdateUserPwd(PPerson pPerson);
 }
 

@@ -15,17 +15,18 @@ import jdk.nashorn.internal.ir.RuntimeNode;
 import org.omg.CORBA.Request;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.actuate.trace.http.HttpTrace;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import sun.misc.BASE64Decoder;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
+import java.io.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -55,6 +56,9 @@ public class AAttentionController {
     private GService gService;
     @Resource
     private HttpServletRequest request;
+
+
+
     /**
      * 测试
      *
@@ -121,7 +125,71 @@ public class AAttentionController {
         map.put("result",list);
         return map;
     }
+    /**
+     *当前用户信息查看
+     * @author lxq
+     */
+    @ResponseBody
+    @RequestMapping("/getuserinfo")
+    public Map userInfo(int pid){
+        List list=aAttentionMapper.getUserInfo(pid);
+        Map map=new HashMap();
+        map.put("results",list);
+        return map;
+    }
 
+
+    /**
+     * 用户头像img修改
+     * @author lxq
+     * @return
+     */
+    @RequestMapping("/personimg")
+    @ResponseBody
+    public Map personImg(@RequestParam("userimage")String userimage,int pid,PPerson pPerson) {
+        Map map=new HashMap();
+        String filePath = "C:\\Users\\Administrator\\Desktop\\peiwan\\src\\main\\resources\\static\\imgupload\\" + new Random().nextInt(1000000)+ ".png";
+        if (userimage != null) {
+            BASE64Decoder decoder = new BASE64Decoder();
+            byte[] b;
+            try {
+                    b = decoder.decodeBuffer(userimage.split(",")[1]);
+                for (int i = 0; i < b.length; ++i) {
+                    if (b[i] < 0) {// 调整异常数据
+                        b[i] += 256;
+                    }
+                }
+                // 生成jpeg图片
+                OutputStream out = new FileOutputStream(filePath);
+                out.write(b);
+                out.flush();
+                out.close();
+                pPerson.setPid(pid);
+                pPerson.setPersonImage(filePath.substring(74));
+                int a= aAttentionMapper.getUpdateUserImage(pPerson,pid);
+                System.out.println(a);
+                List list=aAttentionMapper.getUserInfo(pid);
+                map.put("resuls",list);
+
+            }catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return map;
+    }
+
+    /**
+     * 用户简单信息修改
+     * @param pPerson
+     * @return
+     */
+    @RequestMapping("/updateuserinfo")
+    public String updateUserInfo(PPerson pPerson){
+        System.out.println(pPerson);
+        pPerson.setPid(4);
+        aAttentionMapper.getUpdateUserInfo(pPerson);
+        return "redirect:ocenter";
+    }
     /**
      * 消费记录
      * @auther lxq

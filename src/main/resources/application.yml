@@ -13,6 +13,7 @@ spring:
     multipart:
       max-request-size: 2MB
       max-file-size: 2MB
+
 mybatis-plus:
   mapper-locations: classpath:mapper/*.xml
   type-aliases-package: com.peiwan.bean

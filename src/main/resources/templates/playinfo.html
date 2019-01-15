@@ -1313,36 +1313,8 @@
 
 
 
-        //图片大小验证
-        /*function verificationPicFile(file) {
-            var fileSize = 0;
-            var fileMaxSize = 1024;//1M
-            var filePath =file.value;
-            if(filePath){
-                fileSize =file.files[0].size;
-                var size = fileSize / 1024;
-                if (size > fileMaxSize) {
-                    alert("文件大小不能大于1M！");
-                    file.value = "";
-                    return false;
-                }else if (size <= 0) {
-                    alert("文件大小不能为0M!");
-                    file.value = "";
-                    return false;
-                }
-            }else{
-                return false;
-            }
-        }*/
-        /*生日*/
-        /*$("#birthday").blur(function () {
-            var personbirthday = /^\d{4}\d{2}\d{2}$/;
-            if (!personbirthday.test($('#birthday').val())) {
-                alert("日期错误");
-                $('#birthday').addClass('add_input');
-                flag = false;
-            }
-        });*/
+
+
         /*年选择器*/
             laydate.render({
                 elem: '#birthday'
@@ -1354,11 +1326,11 @@
             "format":"北京市/市区", //格式
             "width":"200",
             "borderColor":"#25e198",//文本边框的色值
-            "arrowColor":"#aaaaaa",//箭头颜色
+            "arrowColor":"#666666",//箭头颜色
             "listBdColor":"#25e198",//下拉框父元素ul的border色值
-            "color":"#aaaaaa",//字体颜色
+            "color":"#666666",//字体颜色
             "fontSize":"14px",//字体大小
-            "hoverColor":"#aaaaaa",
+            "hoverColor":"#666666",
             "paddingLeft":"10px",
             "arrowRight":"10px",
             //"preSet":"北京市/市辖区/东城区",
@@ -1376,7 +1348,6 @@
             var layedit = layui.layedit;
             layedit.build('servicetext'); //建立编辑器
         });
-
 
         /*游戏名判断*/
         $(".fl.lol_box").click(function () {
