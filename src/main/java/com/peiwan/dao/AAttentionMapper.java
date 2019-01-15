@@ -35,7 +35,7 @@ public interface AAttentionMapper extends BaseMapper<PPerson> {
     List<Map<String,Object>> selectPersonByNameAndId(PPerson person);
 
     //热度榜查询主播订单数：先按照订单数排序，再查询主播详细信息
-    List<Map<String,Object>> selectOrderList(Page<Map<String,Object>> page,Integer id);
+    List<Map<String,Object>> selectOrderList(int curPage);
     //热度榜查询主播接单数
-    Integer selectOrderCount(Integer oid);
+    Integer selectOrderCount();
 }

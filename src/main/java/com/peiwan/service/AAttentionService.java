@@ -29,7 +29,7 @@ public interface AAttentionService extends IService<PPerson> {
     List<Map<String,Object>> selectPersonByNameId(PPerson person);
 
     //热度榜查询主播订单数：先按照订单数排序，再查询主播详细信息
-    Page<Map<String,Object>> selectPersonOrder(int curPage,int pageNum);
+    Page<Map<String,Object>> selectPersonOrder(int curPage);
 
 
 

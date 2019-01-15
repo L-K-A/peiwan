@@ -56,9 +56,9 @@ public class AAttentionServiceImpl extends ServiceImpl<AAttentionMapper, PPerson
 
     //热度榜查询主播订单数：先按照订单数排序，再查询主播详细信息
     @Override
-    public Page<Map<String, Object>> selectPersonOrder(int curPage, int pageNum) {
-        Page<Map<String,Object>> page = new Page<Map<String,Object>>(curPage,pageNum);
-        Page<Map<String, Object>> orderList = page.setRecords(this.baseMapper.selectOrderList(page, 1));
+    public Page<Map<String, Object>> selectPersonOrder(int curPage) {
+        Page<Map<String,Object>> page = new Page<Map<String,Object>>();
+        Page<Map<String, Object>> orderList = page.setRecords(this.baseMapper.selectOrderList(curPage));
         System.out.println("service:"+orderList);
         return orderList;
     }

@@ -70,12 +70,12 @@ var count;
             dataType: 'json',
             url: '/person/getOrderCountList',
             data: {
-                currentPage: curr || 1,
+                curPage: curr || 1,
                 pageNum: 2,
-                personNickname: $("#person_nickname").val()
+                personNickname: $("#personNickname").val()
             },
             success: function (msg) {
-                app.result = msg.orderList;
+                app.result = msg.data;
                 app.count = msg.orderCount;
                 laypage({
                     cont: 'pagenav', //容器
@@ -100,7 +100,6 @@ var count;
     $("#findUser").click(function () {
         getUserPageList();
     });
-
 
 
 

@@ -2,102 +2,59 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>用户列表</title>
-    <link rel="stylesheet" href="/test/bootstrap.min.css">
-    <!--<link rel="stylesheet" href="/home/css/searchplayer/search.css">-->
-    <link rel="stylesheet" href="/test/laypage.css">
-    <link rel="stylesheet" href="/plugins/layer/layer.css">
-    <script type="text/javascript" src="/plugins/vue.min.js"></script>
-    <script type="text/javascript" src="/plugins/jquery-2.2.3.min.js"></script>
-   <script type="text/javascript" src="/plugins/layer/layer.js"></script>
-   <script type="text/javascript" src="/plugins/laypage/laypage.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>电竞陪玩|约玩_刀锋电竞_绝地求生陪玩_LOL陪玩_王者荣耀陪玩</title>
+    <meta name="keywords" content="刀锋电竞陪玩,游戏陪玩,约玩,陪玩入驻,绝地求生陪玩,LOL陪玩,王者荣耀陪玩,美女陪玩,大神陪玩,导师陪玩">
+    <meta name="description" itemprop="description"
+          content="刀锋电竞，是（国内）专业的游戏陪玩交友平台。刀锋电竞致力于为您提供贴心的专属陪伴；平台内百万大神美女导师24小时待命，随时陪你游戏，和你聊天，还可以哄你睡觉；游戏类型多样，妹子风格各异，任你选择。">
+    <!-- 禁止IE强制识别手机号 -->
+    <meta name="format-detection" content="telephone=no"/>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/public.css">
+    <link rel="stylesheet" href="/css/public_nav_v2.css">
+    <link rel="stylesheet" href="/css/animate.css">
+    <link rel="stylesheet" href="/css/index_v2.css">
+    <link rel="stylesheet" href="/css/public_frame_v2.css">
+    <link rel="stylesheet" href="/css/swiper.min.css">
+    <link rel="stylesheet" href="/home/css/searchplayer/search.css">
 
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>-->
+    <script type="text/javascript" src="/plugins/vue.min.js"></script>
+    <script type="text/javascript" src="/test/jquery.min.js"></script>
     <script src="/test/jquery.validate.min.js"></script>
     <script src="/test/messages_zh.min.js"></script>
 
+
+    <script charset="utf-8" src="/js/v.js"></script>
+    <script src="/home/js/push.js"></script>
+    <script src="/js/hm.js"></script>
+
 </head>
 <body>
-<div id="app" class="container">
 
-    <form class="form-inline bg-danger" role="form">
-        查询条件：
-        <div class="form-group">
-            <label class="sr-only" for="personNickname">用户名称</label>
-            <input type="text" class="form-control" id="personNickname" placeholder="用户名称">
+<div class="public_nav_new">
+    <div class="info_v2 position">
+        <div class="info">
+            <div class="seach_Box">
+                <img src="/picture/ico_28_hover.png" style="display: none;">
+                <input id="personNickname" placeholder="陪玩昵称、ID、靓号" type="text" >
+                <p @click="inputShow" id="searchinfo" class="seach_p"></p>
+            </div>
         </div>
-        <button type="button" id="findUserBtn" class="btn btn-danger">查询用户</button>
-    </form>
-
+    </div>
 </div>
+
+
+
 <script>
-
-    var app = new Vue({
-        el: '#app',
-        data: {
-            result: []
-        }
+    $("#searchinfo").click(function () {
+        var keyname= $("#personNickname").val();
+        window.location.href = 'toSearch';
+        sessionStorage.setItem("keyname",keyname);
     });
-
-
-    //查询用户
-    $("#findUserBtn").click(function () {
-        layer.open({
-            type: 2,
-            title: '查询',
-            fix: false,
-            maxmin: true,
-            shadeClose: true,
-            area: ['600px'],
-            content: 'personList',
-            success: function () {
-                getUserPageList();
-            }
-        });
-    });
-
-
-
-
-    var getUserPageList = function (curr) {
-        $.ajax({
-            type: 'POST',
-            dataType: 'json',
-            url: '/person/searchPerson',
-            data: {
-                currentPage: curr || 1,
-                pageNum: 2,
-                personNickname: $("#person_nickname").val()
-            },
-            success: function (msg) {
-                app.result = msg.searchPersonList;
-                laypage({
-                    cont: 'pagenav', //容器
-                    pages: msg.totalPage,
-                    first: '首页',
-                    last: '尾页',
-                    skin: '#00A0E9',
-                    curr: curr || 1,
-                    jump: function (obj, first) {
-                        if (!first) {
-                            getUserPageList(obj.curr);
-                        }
-                    }
-                });
-            }
-
-        });
-    };
-
-    getUserPageList();
-
-    $("#findUser").click(function () {
-        getUserPageList();
-    });
-
-
-
-
 
 </script>
+
 </body>
 </html>

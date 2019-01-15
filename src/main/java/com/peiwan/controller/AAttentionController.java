@@ -117,9 +117,9 @@ public class AAttentionController {
 
     //热度榜查询主播订单数：先按照订单数排序，再查询主播详细信息
     @RequestMapping("/getOrderCountList")
-    public Map<String,Object> getOrderList(){
-        Page<Map<String, Object>> page = attentionService.selectPersonOrder(1, 2);
-        Integer orderCount = attentionMapper.selectOrderCount(2);
+    public Map<String,Object> getOrderList(int curPage){
+        Page<Map<String, Object>> page = attentionService.selectPersonOrder(curPage);
+        Integer orderCount = attentionMapper.selectOrderCount();
         List<Map<String, Object>> records = page.getRecords();
         Map map = new HashMap();
         map.put("data",records);
@@ -133,7 +133,12 @@ public class AAttentionController {
     //测试主播列表查询
     @RequestMapping("/toList")
     public ModelAndView select(){
-        return new ModelAndView("personList2");
+        return new ModelAndView("search");
+    }
+
+    @RequestMapping("/toSearch")
+    public ModelAndView list(){
+        return new ModelAndView("search");
     }
 
 
