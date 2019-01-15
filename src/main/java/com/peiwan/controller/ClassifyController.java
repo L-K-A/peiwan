@@ -80,12 +80,12 @@ public class ClassifyController {
 
         Page<Map<String, Object>> page = new Page<Map<String, Object>>(pageNum,pageSize);
 
-        List<Map<String, Object>> condition = cs.getCondition(map,page);
+//        List<Map<String, Object>> condition = cs.getCondition(map,page);
         Page<Map<String, Object>> mapPage = page.setRecords(cs.getCondition(map, page));
         map.put("mapPage",mapPage);
 
 //        Map<String,Object> map1 = new HashMap<>();
-        map.put("condition",condition);
+//        map.put("condition",condition);
         return map;
     }
 

@@ -26,7 +26,7 @@ public interface ClassifyMapper extends BaseMapper<GSortDuanwei> {
     List<Map<String,Object>> getDuanWei(int gid);
 
     /*
-    * 分类查询，目前有gid、gDw、psex三个，综合排序、热门、新人暂无；
+    * 分类查询，可以使用gid、gDw、psex进行分类，以及热门和新人进行排序；
     * */
     List<Map<String,Object>> getCondition(Map map,Page page);
 

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+
+    function btnAction() {
+        var titleNValue = document.getElementById("titleN").value;
+        var complaintValue = document.getElementById("complaint").value;
+        if (titleNValue == "") {
+            alert("标题不能为空!");
+            return false;
+        }
+        if (complaintValue == "") {
+            alert("内容不能为空!");
+            return false;
+        }
+    }
+
+    function $(obj) {
+        return document.getElementById(obj);
+    }
+
+    function change(n) {
+        for (var i = 1; i < 3; i++) {
+            if (n == i) {
+                /* $("a"+i).style.zIndex="100"; */
+                $("a" + i).style.background = "red";
+            } else {
+                /* $("a"+i).style.zIndex="0"; */
+                $("a" + i).style.background = "#ddd";
+            }
+        }
+    }
+
+    //addEventListener 是JS自带函数
+    // attachEvent 是JS自带函数
+    /* var EventUtil = new Object;
+    EventUtil.addEventHandler = function (oTarget, sEventType, fnHandler) {
+    if (oTarget.addEventListener) { // 如果还没有绑定click事件，则进行绑定。页面载入时候会执行这里。
+    oTarget.addEventListener(sEventType, fnHandler, false);
+    } else if (oTarget.attachEvent) { // 查看绑定了什么事件
+    oTarget.attachEvent("on" + sEventType, fnHandler);
+    } else {
+    oTarget["on" + sEventType] = fnHandler;
+    }
+    };
+    EventUtil.removeEventHandler = function (oTarget, sEventType, fnHandler) {
+    if (oTarget.removeEventListener) {
+    oTarget.removeEventListener(sEventType, fnHandler, false);
+    } else if (oTarget.detachEvent) {
+    oTarget.detachEvent("on" + sEventType, fnHandler);
+    } else {
+    oTarget["on" + sEventType] = null;
+    }
+    };
+    // 最后起作用的函数
+    function handleClick() {
+    alert("Click!\nd");
+    var oDiv = document.getElementById("div1");
+    oDiv.style.background = '#ddd';
+
+    var oDiv2 = document.getElementById("div2");
+    oDiv2.style.background = 'red';
+    /* oDiv.attr("style","background-color: red"); */
+    // EventUtil.removeEventHandler(oDiv, "click", handleClick);
+    // }
+    // 绑定DIV与触发事件，以及函数体
+    /*
+    window.onload = function() {
+    var oDiv = document.getElementById("div1");
+    EventUtil.addEventHandler(oDiv, "click", handleClick);
+
+    var Div = document.getElementById("div2");
+    EventUtil.addEventHandler(Div, "click", handleClick);
+    }
+    */
+
+    /*另一个绑定事件*/
+
+    function div1() {
+        var mydiv2 = document.getElementById('div2');
+        mydiv2.style.background = 'white';
+
+        var mydiv1 = document.getElementById('div1');
+        mydiv1.style.background = 'red';
+
+        /* var div2 = document.getElementById('div2');
+        if(typeof ActiveXObject !='undefined'){//ie
+        var myevent = document.createEventObject();
+        div2.fireEvent('onclick',myevent);//如果需要在onclick中使用myevent的某些属性，得另外添加
+        }else{//chrome,ff等
+        var myevent = document.createEvent('MouseEvents');
+        myevent.initEvent('click',true,true,document.defaultView,0,0,0,0,0,false,false,false,false,0,null);
+        div2.dispatchEvent(myevent);
+        } */
+    }
+
+    function div2() {
+        var mydiv2 = document.getElementById('div2');
+        mydiv2.style.background = 'red';
+
+
+        var mydiv1 = document.getElementById('div1');
+        mydiv1.style.background = 'white';
+    }
+
+</script>
+
+
+<
+/body>
+< /html>

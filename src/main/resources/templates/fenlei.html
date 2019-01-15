@@ -45,7 +45,7 @@
     /*为某些指定用户的展示头像添加边框 images/border_list.png是边框图片*/
     /*增加bg*/
     #entry_box .play_box_bg {
-        background: (images/border_list.png) no-repeat center top;
+        background: (images / border_list . png) no-repeat center top;
         width: 300px;
         height: 400px;
         margin-left: -27px;
@@ -66,7 +66,7 @@
         z-index: 9999;
     }
 
-    @media screen and (max-width:1600px) and (min-width:1365px) {
+    @media screen and (max-width: 1600px) and (min-width: 1365px) {
         .fixed-nav-cell {
             position: fixed;
             right: 7%;
@@ -77,7 +77,7 @@
         }
     }
 
-    @media screen and (max-width:1366px) {
+    @media screen and (max-width: 1366px) {
         .fixed-nav-cell {
             position: fixed;
             right: 0;
@@ -153,7 +153,6 @@
 </style>
 
 
-
 <!-- 这个是控制左边弹窗和主播展示头像的边框的 -->
 <style type="text/css">
     #common_top_box {
@@ -189,6 +188,7 @@
     .mt18 {
         margin-top: 18px;
     }
+
     .mt20 {
         margin-top: 20px;
     }
@@ -246,8 +246,6 @@
 </style>
 
 <body>
-
-
 
 
 <!-- 游戏服务、娱乐服务、等级分类、导师性别四个板块 -->
@@ -323,7 +321,9 @@
     <div class="nav_box_border" id="grade">
         <div class="nav_title_bottom fl">等级分类</div>
         <div v-for="item in grades" class="fl" style="display:inline-block">
-            <div class="fl mt18 ml13" style="width: 90px;height: 36px;text-align: center;line-height: 36px" v-on:click="clickfun()">{{item.g_dw}}</div>
+            <div class="fl mt18 ml13" style="width: 90px;height: 36px;text-align: center;line-height: 36px"
+                 v-on:click="clickfun()">{{item.g_dw}}
+            </div>
         </div>
         <div class="clearfix"></div>
     </div>
@@ -358,6 +358,7 @@
 <!-- 信息展示 -->
 <div class="list_box mt20" id="xxzs">
     <div class="list_left_box fl" style="border: #9b9ca8 0px solid;width: 1060px">
+        <a href="#">
         <div v-for="item in zbxx" class="div2 fl mr29 mb30" style="width: 236px;height: 338px">
             <span style="display: none" id="gid">{{item.gid}}</span>
             <span style="display: none" id="pid">{{item.gid}}</span>
@@ -367,7 +368,8 @@
                 <!-- 昵称的遍历 -->
                 <span class="fl" style="width: 150px;height: 27px;font-size: 20px">{{item.person_nickname}}</span>
                 <!-- 段位的遍历 -->
-                <span class="fr mt5 ml6" style="width: 34px;height: 18px;background-color: #fcc171">{{item.g_duanwei}}</span>
+                <span class="fr mt5 ml6"
+                      style="width: 34px;height: 18px;background-color: #fcc171">{{item.g_duanwei}}</span>
             </div>
             <div class="mt10 ml10" style="width: 110px;height: 18px">
                 <div style="width: 109px;height: 18px">
@@ -382,7 +384,7 @@
                 </div>
                 <!-- 每小时费用的遍历 -->
                 <div class="mt8 mr6 ml145" style="width: 74.016px;height: 30px;font-size: 15px">
-                    ￥<span>50/</span>小时
+                    ￥<span>{{item.g_price}}</span>/小时
                 </div>
             </div>
             <!-- 是否在线 -->
@@ -390,9 +392,9 @@
                 <i style="width: 12px;height: 12px">☺</i>
                 <span style="width: 28px;height: 19px">在线</span>
             </div>
-
         </div>
-        <div id="pagenav"></div>
+        </a>
+        <div id="pagenav" style="margin: 0px 350px 20px 350px;width: 360px;text-align: center"></div>
     </div>
     <div class="list_right_box fr">
         <div class="cv-rank-area">
@@ -474,12 +476,15 @@
 </div>
 <div style="display:none">
     <script type="text/javascript">
-        var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " https://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1000286078'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "w.cnzz.com/q_stat.php%3Fid%3D1000286078' type='text/javascript'%3E%3C/script%3E"));
+        var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " https://");
+        document.write(unescape("%3Cspan id='cnzz_stat_icon_1000286078'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "w.cnzz.com/q_stat.php%3Fid%3D1000286078' type='text/javascript'%3E%3C/script%3E"));
     </script>
-    <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " https://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1261314581'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "w.cnzz.com/q_stat.php%3Fid%3D1261314581' type='text/javascript'%3E%3C/script%3E"));</script>
+    <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " https://");
+    document.write(unescape("%3Cspan id='cnzz_stat_icon_1261314581'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "w.cnzz.com/q_stat.php%3Fid%3D1261314581' type='text/javascript'%3E%3C/script%3E"));</script>
 </div>
 <!-- WPA start -->
-<script id="qd28521617238326075327d1c513a4a384b1e7d01503" src="js/2877e50102f64b0bbd53a6eb7f750008.js" charset="utf-8" async defer></script>
+<script id="qd28521617238326075327d1c513a4a384b1e7d01503" src="js/2877e50102f64b0bbd53a6eb7f750008.js" charset="utf-8"
+        async defer></script>
 <!-- WPA end -->
 <script src="js/tuwan_message.js"></script>
 
@@ -501,23 +506,20 @@
         data: {
             grades: []
         },
-        methods:{
-            clickfun(gdw){
-                console.log(gdw);
-                if (gdw==null){
-                    gdw="黑铁V";
+        methods: {
+            clickfun(gdw) {
+                // console.log(gdw);
+                if (gdw == null) {
+                    gdw = "黑铁V";
                 }
-                    gdw=event.target.innerHTML;
-                    console.log(gdw);
-                    alert(gdw);
-                    getCondition(gid,gdw,psex,sort,hot,newest,curr);
+                gdw = event.target.innerHTML;
+                // console.log(gdw);
+                // alert(gdw);
+                getCondition(gid, gdw, psex, sort, hot, newest, curr);
 
             }
         }
     });
-
-
-
 
 
     /*
@@ -525,109 +527,95 @@
     * */
     $(".fl.grade_icon.grade_sex").click(function () {
         psex = $(".fl.grade_icon.grade_sex").index(this);
-        alert("第一个"+psex);
+        //$(".fl.grade_icon.grade_sex").index(this).className="fl grade_icon grade_sex grade_icon_add";
+        /*$(".fl.grade_icon.grade_sex").index(this).hover(function () {
+            $(".fl grade_icon grade_sex grade_icon_add");
+        })*/
+        // alert("第一个" + psex);
         switch (psex) {
             case 0:
-                psex=null;
+                psex = null;
                 break;
             case 1:
-                psex="女";
+                psex = "女";
                 break;
             case 2:
-                psex="男";
+                psex = "男";
                 break;
             default:
-                psex=null;
+                psex = null;
                 break;
 
         }
-            alert("第二个："+psex);
-            getCondition(gid,gdw,psex,sort,hot,newest,curr);
-            console.log("这是psex="+psex);
+        // alert("第二个：" + psex);
+        getCondition(gid, gdw, psex, sort, hot, newest, curr);
+        // console.log("这是psex=" + psex);
 
 
     });
 
-    console.log("第三个："+psex);
-    alert(psex);
+    /*测试
+    console.log("第三个：" + psex);
+    alert(psex);*/
 
 
+    /*排序的点击事件，点击过后赋值，向后台调用数据，然后重置三个为空*/
     $("#sorts span").click(function () {
         var i = $("#sorts span").index(this);
-        alert(i);
+        // alert(i);
         switch (i) {
             case 0:
-                sort=i;
+                sort = i;
                 break;
             case 1:
-                hot=i;
+                hot = i;
                 break;
             case 2:
-                newest=i;
+                newest = i;
                 break;
             default:
-                sort,hot,newest=null;
+                sort, hot, newest = null;
                 break;
         }
-        alert(sort);
+        /*alert(sort);
         alert(hot);
-        alert(newest);
-        getCondition(gid,gdw,psex,sort,hot,newest,curr);
-        sort,hot,newest=null;
+        alert(newest);*/
+        getCondition(gid, gdw, psex, sort, hot, newest, curr);
+        sort, hot, newest = null;
     });
-
-    /*/!*综合，热门，新人的点击事件*!/
-    $("#sort span").click(function () {
-        sort = $("#sort span").index(this).innerHTML;
-        if (sort=="综合") {
-            sort=null;
-        }
-        getCondition(gid,gdw,psex,sort,hot,newest,curr);
-    });
-    /!*热门*!/
-    $("#hot span").click(function () {
-        hot = $("#hot span").index(this).innerHTML;
-        getCondition(gid,gdw,psex,sort,hot,newest,curr);
-    });
-    /!*新人*!/
-    $("#newest span").click(function () {
-        newest = $("#newest span").index(this).innerHTML;
-        getCondition(gid,gdw,psex,sort,hot,newest,curr);
-    });*/
-
-
 
 
     /*点击游戏服务*/
     $(".fl.icon_box").click(function () {
         var indexDiv = $(".fl.icon_box").index(this);
-        gid =1001+indexDiv;
-        alert(gid);
+        gid = 1001 + indexDiv;
+        // alert(gid);
         //console.log("点击游戏服务："+gameservice.clickfun(gdw));
         getEntry(gid);
-        getCondition(gid,gdw,psex,sort,hot,newest,curr);
+        getCondition(gid, gdw, psex, sort, hot, newest, curr);
         //getUserPageList();
-        psex=null;
-        gdw=null;
-        sort=null;
+        psex = null;
+        gdw = null;
+        sort = null;
     });
 
+    /*从后台获取游戏板块对应的段位*/
     var getEntry = function (gid) {
         /*if (gid == 0) {
             gid = 1001;
         }*/
-            $.ajax({
-                type: 'POST',
-                dataType: 'json',
-                async: true,
-                url: '/duanwei',
-                data: {gid:gid},
-                success: function (data) {
-                    console.log(data);
-                    alert(gid);
-                    gameservice.grades=data.duanWei;
-                }
-            });
+        $.ajax({
+            type: 'POST',
+            dataType: 'json',
+            async: true,
+            url: '/duanwei',
+            data: {gid: gid},
+            success: function (data) {
+                // console.log(data);
+                // alert(gid);
+                gameservice.grades = data.duanWei;
+            }
+        });
 
     };
 
@@ -638,11 +626,15 @@
     var all = new Vue({
         el: '#xxzs',
         data: {
-            zbxx:[]
+            zbxx: []
         }
     });
 
-    var getCondition = function (gid,gdw,psex,sort,hot,newest,curr) {
+    /*
+    * 向后台传递gid,gdw,psex三个跟类,和sort、hot、newest三种排序方式，以及当前页数
+    *
+    * */
+    var getCondition = function (gid, gdw, psex, sort, hot, newest, curr) {
         console.log(gdw);
         $.ajax({
             type: 'Post',
@@ -653,25 +645,29 @@
                 gid: gid,
                 gdw: gdw,
                 psex: psex,
-                sort:sort,
-                hot:hot,
-                newest:newest,
-                pageNum:curr || 1,
-                pageSize:2
+                sort: sort,
+                hot: hot,
+                newest: newest,
+                pageNum: curr || 1,
+                pageSize: 4
 
             },
             success: function (data) {
                 console.log(data);
-                all.zbxx=data.mapPage.records;
+                all.zbxx = data.mapPage.records;
                 laypage({
-                    cont:'pagenav',
-                    pages:data.mapPage.pages,
-                    first:'首页',
-                    last:'尾页',
-                    curr:curr || 1,
-                    jump:function (obj,first) {
-                        if (!first){
-                            getCondition(gid,gdw,psex,obj.curr);
+                    cont: 'pagenav',
+                    pages: data.mapPage.pages,
+                    skip:true,      //是否开启跳页
+                    first: '<<',
+                    last: '>>',
+                    skin:'molv',    //加载内置皮肤
+                    prev:'<',
+                    next:'>',
+                    curr: curr || 1,
+                    jump: function (obj, first) {
+                        if (!first) {
+                            getCondition(gid, gdw, psex, sort, hot, newest, obj.curr);
                         }
                     }
                 });
@@ -679,8 +675,8 @@
         });
     };
 
-    var pid = $("#pid").event.target.innerHTML;
-    alert(pid);
+    /*var pid = $("#pid").event.target.innerHTML;
+    alert(pid);*/
 
     $(".list_left_box fl").click(function () {
         $.ajax({
@@ -690,40 +686,11 @@
             url: '/PidGid',
             data: {
                 gid: gid,
-                pid:pid
+                pid: pid
             }
         });
     });
 
-    /*var getUserPageList = function (curr) {
-        $.ajax({
-            type:'POST',
-            dataType:'json',
-            url:'/getCondition',
-            data:{
-                pageNum:curr || 1,
-                pageSize:1
-
-            },
-            success:function (msg) {
-                app.result = msg.page;
-                laypage({
-                    cont:'pagenav',
-                    pages:msg.totalPage,
-                    first:'首页',
-                    last:'尾页',
-                    curr:curr || 1,
-                    jump:function (obj,first) {
-                        if (!first){
-                            getUserPageList(obj.curr);
-                        }
-                    }
-                });
-            }
-        });
-    };
-
-    getUserPageList();*/
 
 </script>
 
@@ -749,6 +716,9 @@
         }
 
     }*/
+
+
+
 
 
 </script>
