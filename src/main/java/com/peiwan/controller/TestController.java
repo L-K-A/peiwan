@@ -1,5 +1,7 @@
 package com.peiwan.controller;
 
+import com.peiwan.bean.PPerson;
+import com.peiwan.service.AAttentionService;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.UnknownAccountException;
@@ -9,7 +11,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
+import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
+import java.util.HashMap;
+import java.util.Map;
 
 
 /**
@@ -20,6 +27,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
  */
 @Controller
 public class TestController {
+
+    @Resource
+    private AAttentionService aAttentionService;
+
     /**
      * 测试方法
      */
@@ -54,51 +65,136 @@ public class TestController {
         return "user/update";
     }
     /**
-     * 弹窗登录页面
+     * 登录页面
      */
     @RequestMapping("/tocheshi")
     public String tocheshi(){
         return "cheshi";
     }
 
+    /**
+     * 未授权显示页面
+     */
+    @RequestMapping("/toAccredit")
+    public String toAccredit(){
+        return "accredit";
+    }
+
+    @RequestMapping("/tologint")
+    public String logint(){
+        Subject subject = SecurityUtils.getSubject();
+        return "/MyIndex";
+    }
+
+
+//
+  @RequestMapping("/toIndex")
+   public ModelAndView toIndex(HttpSession session){
+      System.out.println(session.isNew());
+      ModelAndView modelAndView =new ModelAndView();
+      if (session.isNew()){
+          modelAndView.setViewName("/toLogin");
+      }else {
+          //数据库获取的值
+          PPerson namepperson = (PPerson) session.getAttribute("namepperson");
+          System.out.println(namepperson.getPersonName());
+          modelAndView.addObject("namepperson",namepperson);
+          session.setAttribute("namepperson",namepperson);
+          modelAndView.setViewName("index");
+      }
+      return modelAndView;
+  }
+
+
+    /**
+     * 用户名的异步检查
+     * 张家明
+     * 开始
+     */
+    @RequestMapping("/Yname")
+    @ResponseBody
+    public Map Yname(String personName){
+        //存放返回的数据
+        Map map=new HashMap();
+        //
+        String ippersonname = aAttentionService.ippersonname(personName);
+        map.put("ippersonname",ippersonname);
+        return map;
+    }
+
+    /**
+     * 用户名的异步检查
+     * 张家明
+     * 结束
+     */
+
+    /**
+     * 密码的异步检查
+     * 张家明
+     * 开始
+     */
+
+    @RequestMapping("/Ypwd")
+    @ResponseBody
+    public Map Ypwd(String personName,String personPwd){
+        //存放返回的数据
+        Map map=new HashMap();
+        //
+        String ippersonpwd = aAttentionService.ippersonpwd(personName, personPwd);
+        System.out.println(ippersonpwd);
+        map.put("ippersonpwd",ippersonpwd);
+        return map;
+    }
+
+
+    /**
+     * 密码的异步检查
+     * 张家明
+     * 开始
+     */
+
 
 
 
     /**
-     *  登录的业务处理
+     *  登录的业务处理（登陆按钮的fom表单提交）
+     *  张家明
+     *  开始
      */
-    @RequestMapping("/login")
-    public String login(String personName,String personPwd,Model model){
+    @RequestMapping("/logins")
+    public String logins(HttpSession session,PPerson pPerson,Model model){
+                /**
+                 * 使用Shiro编写认证操作
+                 */
+                //1.获取Subject
+                Subject subject = SecurityUtils.getSubject();
+                String personName = pPerson.getPersonName();
+                String personPwd = pPerson.getPersonPwd();
+                //2.封装用户数据
+                UsernamePasswordToken token = new UsernamePasswordToken(personName,personPwd);
+                //3.执行登录方法
+                try {
+                    //没有异常登录成功
+                    subject.login(token);
+                    PPerson namepperson = aAttentionService.namepperson(pPerson);
+                    session.setAttribute("namepperson",namepperson);
+                    return "redirect:/toIndex";
 
-        /**
-         * 使用Shiro编写认证操作
-         */
-        //1.获取Subject
-        Subject subject = SecurityUtils.getSubject();
-
-        //2.封装用户数据
-        UsernamePasswordToken token = new UsernamePasswordToken(personName,personPwd);
-
-        //3.执行登录方法
-        try {
-
-            //没有异常登录成功
-            subject.login(token);
-
-            return "redirect:/testThymeleaf";
-
-        }catch (UnknownAccountException e){
-            //出现异常登录失败
+                }catch (UnknownAccountException e){
+                    //出现异常登录失败
 //            e.printStackTrace();
-            model.addAttribute("msg","用户名不存在");
-            return "login";
-        }catch (IncorrectCredentialsException e){
-            model.addAttribute("mag","密码错误");
-            return "login";
-        }
-
+                    model.addAttribute("msg","用户名不存在");
+                    return "login";
+                }catch (IncorrectCredentialsException e){
+                    model.addAttribute("msg","密码错误");
+                    return "login";
+                }
     }
-
+    /**
+     *  登录的业务处理（登陆按钮的fom表单提交）
+     *  张家明
+     *  结束
+     */
 
 
 

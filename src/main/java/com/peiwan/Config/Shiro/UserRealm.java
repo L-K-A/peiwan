@@ -1,10 +1,11 @@
 package com.peiwan.Config.Shiro;
-import org.apache.shiro.authc.AuthenticationException;
-import org.apache.shiro.authc.AuthenticationInfo;
-import org.apache.shiro.authc.AuthenticationToken;
+import com.peiwan.bean.PPerson;
+import com.peiwan.service.AAttentionService;
+import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * 自定义一个Realm
@@ -28,6 +29,9 @@ public class UserRealm extends AuthorizingRealm {
         return null;
     }
 
+    @Autowired
+    private AAttentionService aAttentionService;
+
     /**
      * 执行一些认证逻辑
      * @param authenticationToken
@@ -37,9 +41,19 @@ public class UserRealm extends AuthorizingRealm {
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
         System.out.println("执行认证逻辑");
-        //获取数据库的用户名和密码
 
-        return null;
+
+        //编写shiro判断逻辑 ，判断用户名和密码
+        //1判断用户名
+        UsernamePasswordToken token = (UsernamePasswordToken) authenticationToken;
+        PPerson myppersonname = aAttentionService.myppersonname(token.getUsername());
+        String personName = myppersonname.getPersonName();
+        String personPwd = myppersonname.getPersonPwd();
+        if (!token.getUsername().equals(personName)){
+            return null;
+        }
+
+        return new SimpleAuthenticationInfo("",personPwd,"");
     }
 
 }

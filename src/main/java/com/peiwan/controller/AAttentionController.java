@@ -38,21 +38,24 @@ public class AAttentionController {
         return new ModelAndView("index");
     }
 
-//  业务主页
-    @RequestMapping("/toIndex")
-    public ModelAndView toIndex(HttpSession session,PPerson pPerson){
+//
+////  业务主页
+//    @RequestMapping("/toIndex")
+//    public ModelAndView toIndex(HttpSession session,PPerson pPerson){
+//
+//        //取session的值
+//        PPerson sqlLoginpPerson = (PPerson) session.getAttribute("sqlLoginpPerson");
+//        //数据库获取的值
+//        PPerson namepperson = (PPerson) session.getAttribute("namepperson");
+//        System.out.println(namepperson.getPersonName());
+//        ModelAndView modelAndView =new ModelAndView();
+////        modelAndView.addObject("namepperson",namepperson);
+//        session.setAttribute("namepperson",namepperson);
+//        modelAndView.setViewName("index");
+//        return modelAndView;
+//    }
 
-        //取session的值
-        PPerson sqlLoginpPerson = (PPerson) session.getAttribute("sqlLoginpPerson");
-        //数据库获取的值
-        PPerson namepperson = (PPerson) session.getAttribute("namepperson");
-        System.out.println(namepperson.getPersonName());
-        ModelAndView modelAndView =new ModelAndView();
-//        modelAndView.addObject("namepperson",namepperson);
-        session.setAttribute("namepperson",namepperson);
-        modelAndView.setViewName("index");
-        return modelAndView;
-    }
+
 // 登录
     @RequestMapping("/toLogin")
     public ModelAndView tologin(){

@@ -111,12 +111,12 @@
                 </div>
                 <div :class="[navIndex === 'index_recharge'?'active':'']">
                                            <!-- 未登录-->
-                <a href="javascript:;" @click="login_fn">充值</a>
+                <a href="/add" @click="login_fn">充值</a>
 
                 </div>
                 <div :class="[navIndex === 'index_service'?'active':'']">
                                              <!--未登录-->
-                        <a href="javascript:;" @click="login_fn">申请入驻</a>
+                        <a href="/update" @click="login_fn">申请入驻</a>
                                     </div>
                 <div :class="[navIndex === 'activity'?'active':'']">
                     <a href="/activity/list.html" >
@@ -197,16 +197,11 @@
                     function LandingHide() {
                         $("#afterTheLanding").hide();
                     }
-                    function LandingShow() {
-                        $("#afterTheLanding").show();
-                    }
+
                     
 <!--登陆过后隐藏显示-->
                     function LandingHides() {
                         $("#beforeLanding").hide();
-                    }
-                    function  LandingShows() {
-                        $("#beforeLanding").show();
                     }
                   var namepperson = [[${session.namepperson?.personName}]];
                   alert(namepperson);

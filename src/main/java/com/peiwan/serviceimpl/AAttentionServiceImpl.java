@@ -37,7 +37,39 @@ public class AAttentionServiceImpl extends ServiceImpl<AAttentionMapper, PPerson
         return aAttentionMapper.addpperson(id);
     }
 
-
+    @Override
+    public PPerson myppersonname(String personName) {
+        return aAttentionMapper.myppersonname(personName);
+    }
+//给据用户名返回是否存在 0 不出存在 用户名不存在，请先去注册！  大于0 用户名存在  不用提示
+    @Override
+    public String ippersonname(String personName) {
+        String msg;
+        Integer ippersonname = aAttentionMapper.ippersonname(personName);
+        if(ippersonname==0){
+            msg="用户名不存在，请先去注册！";
+            return msg;
+        }else {
+            msg="可登陆";
+            return msg;
+        }
+    }
+//  根据用户名和密码 判断密码是否正确  0 不正确  大于0正确
+    @Override
+    public String ippersonpwd(String personName, String personPwd) {
+        String msg="";
+        Integer ippersonpwd = aAttentionMapper.ippersonpwd(personName, personPwd);
+        System.out.println("查看数据库是否正确"+ippersonpwd);
+        if (ippersonpwd==0){
+            msg = "密码不正确,请输入正确密码";
+            return msg;
+        }
+        if (ippersonpwd>0){
+            msg = "密码输入正确,可登陆";
+            return msg;
+        }
+        return msg;
+    }
 
 
 }

@@ -18,4 +18,10 @@ public interface AAttentionService extends IService<PPerson> {
 //   测试
     PPerson namepperson(PPerson pPerson);
     List<PPerson> addpperson(int id);
+    PPerson myppersonname(String personName);
+
+    String ippersonname(String personName);
+
+    String ippersonpwd(String personName,String personPwd);
+
 }
