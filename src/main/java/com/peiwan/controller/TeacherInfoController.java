@@ -37,15 +37,16 @@ public class TeacherInfoController {
 
     /*评论数据分页的实现*/
     @RequestMapping("/findComment")
-    public List<Map<String, Object>> findComment() {
+    public Map<String, Object> findComment(Integer pageNum ,Integer zid,Integer gid) {
         PComment ppc = new PComment();
-        int page = 1;//当前页
-        int pageSize = 2;//页面接收数据大小
-        IPage<Map<String, Object>> iPage = teacherInfoService.selectPageExt(ppc, page, pageSize);
+        int pageSize = 4;//页面接收数据大小
+        IPage<Map<String, Object>> iPage = teacherInfoService.selectPageExt(ppc, pageNum, pageSize,zid,gid);
         iPage.getRecords();
         System.out.println(iPage.getRecords());
         System.out.println(iPage.getTotal());
-        return iPage.getRecords();
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("content",iPage);
+        return map;
     }
 
     /*增加关注 */
@@ -66,25 +67,19 @@ public class TeacherInfoController {
 
     /*获取主播服务类型*/
     @RequestMapping("/selectZhuboService")
-    public List<String> selectZhuboService(Integer zid) {
-        List<String> stri = teacherInfoService.selectZhuboService(zid);
-        return stri;
-    }
-
-    /*依据 zid  gid   获取主播的  指定服务 的 段位 价格 服务介绍*/
-    @RequestMapping("/selectZhudp")
-    public Map<String, Object> selectZhudp(Integer zid, Integer gid) {
-        Map<String, Object> map = teacherInfoService.selectZhudp(zid, gid);
+    public Map<String,Object> selectZhuboService(Integer zid) {
+        List<Map<String,Object>> stri = teacherInfoService.selectZhuboService(zid);
+        Map<String,Object> map= new HashMap<>();
+        map.put("strin",stri);
         return map;
     }
 
-    /* 依据 zid  gid   获取主播的  指定服务 的 接单次数*/
-    @RequestMapping("/selectJiedanCount")
-    public Integer selectJiedanCount(Integer zid, Integer gid) {
-        Integer integer = teacherInfoService.selectJiedanCount(zid, gid);
-        return integer;
+    /*依据 zid  gid   获取主播的  指定服务 的 段位 价格 服务介绍   服务次数*/
+    @RequestMapping("/selectZhudp")
+    public Map<String, Object> selectZhudp(Integer zid) {
+        Map<String, Object> map = teacherInfoService.selectZhudp(zid);
+        return map;
     }
-
 
 
     public TeacherInfoService getTeacherInfoService() {

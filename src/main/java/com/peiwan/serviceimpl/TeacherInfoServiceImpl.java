@@ -10,12 +10,12 @@ import com.peiwan.bean.PPerson;
 import com.peiwan.dao.AAttentionMapper;
 import com.peiwan.dao.TeacherInfoMapper;
 import com.peiwan.peiUtils.AgeByBirthUtil;
-import com.peiwan.peiUtils.ConstellationUtil;
 import com.peiwan.service.TeacherInfoService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.text.ParseException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -56,10 +56,10 @@ public class TeacherInfoServiceImpl implements TeacherInfoService {
 
     /*分页实现*/
     @Override
-    public IPage<Map<String, Object>> selectPageExt(PComment pComment, int page, int pageSize) throws RuntimeException {
+    public IPage<Map<String, Object>> selectPageExt(PComment pComment, int page, int pageSize ,Integer zid,Integer gid) throws RuntimeException {
         try {
             Page<Map<String, Object>> p = new Page<Map<String, Object>>(page, pageSize);
-            p.setRecords(teacherInfoMapper.selectPageExt(p, pComment));
+            p.setRecords(teacherInfoMapper.selectPageExt(p, pComment,zid,gid));
             return p;
         } catch (Exception e) {
             throw new RuntimeException(e.getMessage());
@@ -96,25 +96,22 @@ public class TeacherInfoServiceImpl implements TeacherInfoService {
 
     /*获取主播服务类型*/
     @Override
-    public List<String> selectZhuboService(Integer zid) {
-        List<String> str = teacherInfoMapper.selectZhuboService(zid);
-        return str;
+    public List<Map<String,Object>> selectZhuboService(Integer zid) {
+        List<Map<String,Object>> list = teacherInfoMapper.selectZhuboService(zid);
+        return list;
     }
 
-    /*依据 zid  gid   获取主播的  指定服务 的 段位 价格*/
+    /*依据 zid   获取主播的  指定服务 的游戏 段位 价格 描述 评价g_name,g_price,g_duanwei,g_content*/
     @Override
-    public Map<String, Object> selectZhudp(Integer zid, Integer gid) {
-        Map<String, Object> map = teacherInfoMapper.selectZhudp(zid, gid);
-        return map;
+    public Map<String,Object> selectZhudp(Integer zid) {
+        List<Map<String,Object>> map = teacherInfoMapper.selectZhudp(zid);
+        Map<String, Object> map1 = new HashMap<>();
+        double pingjiafen = teacherInfoMapper.selectavg(zid);
+        map1.put("mapList",map);
+        /*封入平价分*/
+        map1.put("pingjiafen",pingjiafen);
+        return map1;
     }
-
-    /* 依据 zid  gid   获取主播的  指定服务 的 接单次数*/
-    @Override
-    public Integer selectJiedanCount(Integer zid, Integer gid) {
-        Integer integer = teacherInfoMapper.selectJiedanCount(zid, gid);
-        return integer;
-    }
-
 
 
     public TeacherInfoMapper getTeacherInfoMapper() {

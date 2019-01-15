@@ -17,7 +17,6 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class AAttentionController {
 
-
     //测试内容
     @RequestMapping("/hello")
     public ModelAndView hello() {

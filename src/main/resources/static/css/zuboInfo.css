@@ -49,13 +49,23 @@ img{
     width: 72px;
     height:25px;
 }
+
+.zubo-title  .zubo-giftBox{
+    width: 400px;
+    height:78px;
+    margin-left: 260px;
+    /* border:1px solid red; */
+    overflow: hidden;
+}
 .zubo-title  .zubo-gift{
     width: 400px;
-    height:85px;
+    height:68px;
+    margin-top: 36px;
 }
 .zubo-title  .zubo-gift p{
     width: 360px;
     height: 34px;
+    line-height: 34px;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -97,13 +107,14 @@ img{
 }
 /* ===================内容区左侧头部 */
 .body .zubo-cont{
-    width: 1226px;
+    /* width: 1226px; */
     display: flex;
     justify-content: space-between;
     margin-top: 30px;
 }
 .body .zubo-cont .left{
     width: 446px;
+    margin-right: 10px;
 
 }
 .zubo-cont .zuboTab .tabCont{
@@ -124,18 +135,12 @@ img{
     margin-bottom: 15px;
     width: 72px;
     height: 72px;
-    /* border: #ff6147 solid 2px; */
-    /* border-radius: 2px;
-    display: flex; */
-    
 }
 .zubo-cont .zuboTab .tabDotImg img{
     width: 72px;
     height:72px;
 }
-.zubo-cont .giftTab {
-    /* border:1px solid red; */
-}
+
 .zubo-cont .giftTab .tabDot{
    display: flex;
    align-items: center;
@@ -147,6 +152,8 @@ img{
    padding: 3px 10px;
    height:26px;
    line-height: 26px;
+   font-size: 16px;
+   margin-left: 5px;
 }
 .zubo-cont .giftTab .tabCont {
     position: relative;
@@ -291,9 +298,7 @@ img{
 /* ===========右侧头部 */
 
 /* =====右侧头部 礼物 */
-.zubo-cont .right{
-    width: 770px;
-}
+
 .zubo-cont .right .right-top{
     width: 748px;
     height:200px;
@@ -301,7 +306,7 @@ img{
     box-shadow:0px 1px 8px 0px rgba(0,0,0,0.1);
     background-color: rgba(255,255,255,0.8);
     border:1px solid #dddddd;
-    border:1px solid red;
+    /* border:1px solid red; */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -422,14 +427,14 @@ img{
 }
 /* =============右侧tab */
 .zubo-cont .right .right-tab{
-    width: 100%;
+    /* width: 100%; */
     margin-top: 20px;
     border: #dddddd solid 1px;
     box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.1);
     background-color: rgba(255,255,255,0.96);
 }
 .zubo-cont .right .right-tab .rightTab-nav{
-    width: 100%;
+    /* width: 100%; */
     height:50px;
     background-color: #f2f2f2;
     color:#666;
@@ -442,16 +447,32 @@ img{
     text-align: center;
 }
 .zubo-cont .right-tab .rightTab-cont{
+    /*border:1px solid red;*/
+    overflow: hidden;
+    width:770px;
+}
+.zubo-cont .rightTab-cont .rightTab-cont-box{
+    display: flex;
+}
+
+.zubo-cont .rightTab-cont .rightTab-cont-box .onlineLol{
+    background-color: white;
+    width: 710px;
     padding: 30px;
-    border:1px solid red;
+    /*border:1px solid red;*/
+     float:left;
+    /* border:1px solid red; */
 }
 .zubo-cont .rightTab-cont .onlineLol .lol-head{
-    display: flex;
-    justify-content: space-between;
+     display: flex;
+     width: 710px;
+     justify-content: space-between;
+     margin-bottom: 20px;
 }
-.zubo-cont .right-tab .rightTab-cont .lol-head .left{
+ .zubo-cont .right-tab .rightTab-cont .lol-head .left{
     display: flex;
-}
+} 
+
 .zubo-cont .right-tab .rightTab-cont .lol-head .radio{
     margin-right: 20px;
 }
@@ -465,10 +486,173 @@ img{
     height: 25px;
     text-align: center;
     line-height: 25px;
-    margin: 0 
+    margin: 10px 0;
+    color: #666666
 }
 .zubo-cont .rightTab-cont .lol-head .Lol-meta .order-btn{
-    font-size: 14px;
+    display: flex;
+    font-size: 12px;
+    color: #666666
 }
- 
+.zubo-cont .rightTab-cont .lol-head .Lol-meta .order-btn img{
+    margin-right: 5px;    
+}
+.zubo-cont .right-tab .rightTab-cont .lol-head .right{
+    width: 145px;
+    margin-top: 20px;
+   
+} 
+.zubo-cont .rightTab-cont .lol-head .right .price{
+    font-size: 19px;
+    color: #999999;
+   
+}
+.zubo-cont .rightTab-cont .lol-head .right .price span{
+     font-size: 36px;
+    color: #ff593e;
+    margin-left: 20px;
+}
+.zubo-cont .rightTab-cont .lol-head .right .order{
+    background-color: #ff593e;
+    border-bottom: #da4e38 solid 4px;
+    /* margin-right: 20px; */
+    margin-top: 10px;
+    width: 150px;
+    height: 38px;
+    line-height: 38px;
+    text-align: center;
+    border-radius: 25px;
+    color: #fff;
+    cursor: pointer;
+}
+.zubo-cont .rightTab-cont .onlineLol .intro{
+     border-top: #dddddd 1px dashed;
+     border-bottom: #dddddd 1px dashed;
+     padding: 25px 0;
+}
+.zubo-cont .rightTab-cont .onlineLol .intro .intro-title  {
+    font-size: 14px;
+    color: #999999;
+    display: flex;
+}
+.zubo-cont .rightTab-cont .intro .intro-title h3{
+    font-size: 18px;
+    color: #333333;
+    font-weight: bold;
+    margin-right: 10px;   
+}
+.zubo-cont .rightTab-cont .intro .intro-info {
+    font-size: 14px;
+    color: #666666;
+    line-height: 40px;
+    margin-top: 15px;
+}
+.zubo-cont .rightTab-cont .lol-comments .comm-title {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+}
+.zubo-cont .rightTab-cont .lol-comments .comm-title .comm{
+    font-size: 18px;
+    color: #333333;
+    font-weight: bold;
+    margin-right: 10px;
+}
+.zubo-cont .rightTab-cont .lol-comments .comm-title .comm span{
+    font-size: 14px;
+    color: #999999;
+}
+.zubo-cont .rightTab-cont .lol-comments .comm-title .gard {
+    font-size: 14px;
+    color: #666666;
+}
+.zubo-cont .rightTab-cont .lol-comments .comm-title .gard span{
+    color: #ff593e;
+    font-size: 22px;
+}
+.zubo-cont .rightTab-cont .lol-comments .comm-lebal{
+    background: #f5f5f5;
+    padding: 10px 13px;
+    margin-top: 20px;
+}
+.zubo-cont .rightTab-cont .lol-comments .comm-lebal .label-title{
+    border-left: solid 4px #fc831a;
+    height: 16px;
+    line-height: 16px;
+    font-size: 14px;
+    color: #666;
+    text-indent: 8px;
+    margin-bottom: 16px;
+}
+.zubo-cont .rightTab-cont .lol-comments .comm-lebal .label-item{
+    display: flex;
+}
+.zubo-cont .rightTab-cont .lol-comments .comm-lebal .label-item li{
+    height: 28px;
+    border: solid 1px #e6e6e6;
+    text-align: center;
+    border-radius: 28px;
+    line-height: 28px;
+    padding: 0 10px;
+    background: #fff;
+    margin-right: 24px;
+    margin-bottom: 10px;
+    cursor: default;
+    font-size: 12px;
+}
 
+.zubo-cont .rightTab-cont .lol-comments .comm-lebal .label-item li span{
+   color:#fc831a;
+}
+
+.zubo-cont .lol-comments .comm-item li .comm-info{
+    display: flex;
+    margin-top: 25px;
+}
+.zubo-cont .lol-comments .comm-item li .comm-info .author-pic{
+    width: 62px;
+    height: 62px;
+    border-radius: 50%;
+    font-size: 14px;
+    font-weight: bold;
+    color: #333333;
+}
+.zubo-cont .lol-comments .comm-item li .comm-info .name{
+    
+    font-size: 14px;
+    font-weight: bold;
+    color: #333333;
+}
+.zubo-cont .lol-comments .comm-item li .comm-info .reply-time{
+    
+    font-size: 12px;
+    color: #999;
+    line-height: 20px;
+    
+}
+.zubo-cont .lol-comments .comm-item li .comm-info .comm-cont{
+    margin-top: 10px;
+    width: 510px;
+    line-height: 24px;
+    word-break: break-all;
+    font-size: 14px;
+    color: #666666;
+}
+.zubo-cont .lol-comments .comm-item li  .stars{
+   display: flex;
+   justify-content: flex-end;
+   margin-bottom: 20px;
+   
+}
+.zubo-cont .lol-comments .comm-item li  img{
+   margin-left: 3px;
+}
+ .playActive{
+    background-color: white;
+    border-top: #da4e38 2px solid;
+}
+.giftActive{
+    color:white;
+    border-bottom: 2px solid white;
+    
+}

@@ -20,7 +20,7 @@ public interface TeacherInfoService {
     PPerson getInfo(int pid) throws ParseException;
 
     /*分页 */
-    IPage<Map<String, Object>> selectPageExt(PComment pComment, int page, int pageSize);
+    IPage<Map<String, Object>> selectPageExt(PComment pComment, int page, int pageSize ,Integer zid,Integer gid);
 
     /*增加关注*/
     Integer insertAttention(Integer pid, Integer zid);
@@ -28,13 +28,10 @@ public interface TeacherInfoService {
     /*查询导师当前评分*/
     double selectAvg(Integer zid);
 
-    /*获取主播服务类型*/
-    List<String> selectZhuboService(Integer zid);
+    /*获取主播的多个服务类型*/
+    List<Map<String,Object>> selectZhuboService(Integer zid);
 
-    /*依据 zid  gid   获取主播的  指定服务 的 段位 价格*/
-    Map<String, Object> selectZhudp(Integer zid, Integer gid);
-
-    /* 依据 zid  gid   获取主播的  指定服务 的 接单次数*/
-    Integer selectJiedanCount(Integer zid ,Integer gid);
+    /*依据 zid  gid   获取主播的  服务 的 段位 价格*/
+    Map<String,Object> selectZhudp(Integer zid);
 
 }
