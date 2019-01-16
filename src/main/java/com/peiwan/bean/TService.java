@@ -1,9 +1,13 @@
 package com.peiwan.bean;
 
-import java.io.Serializable;
+import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
+
+import java.io.Serializable;
 
 /**
  * <p>
@@ -12,10 +16,14 @@ import lombok.experimental.Accessors;
  *
  * @author 
  * @since 2019-01-16
+ * @date 2019/1/10 16:32
  */
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
+@TableName("t_service")
 public class TService implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -51,7 +59,7 @@ public class TService implements Serializable {
     private String pGid;
 
     /**
-     * 元/小时
+     * /元/小时
      */
     private Double gPrice;
 

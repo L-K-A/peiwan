@@ -23,7 +23,7 @@ import java.util.Map;
 @Mapper
 public interface LxqUserInfoMapper extends BaseMapper<TAttention> {
     /*@Select(" select  * from a_attention")*/
-    List<TAttention> getAAttentionList();
+    /*List<TAttention> getAAttentionList();*/
 
     /**
      * 申请表字段 pperson插入

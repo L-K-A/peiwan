@@ -1,0 +1,800 @@
+.show_none {
+  display: none !important;
+}
+@keyframes reward_gold_move {
+  0% {
+    left: 5px;
+  }
+  100% {
+    left: 28px;
+  }
+}
+@-moz-keyframes reward_gold_move {
+  0% {
+    left: 5px;
+  }
+  100% {
+    left: 28px;
+  }
+}
+@-webkit-keyframes reward_gold_move {
+  0% {
+    left: 5px;
+  }
+  100% {
+    left: 28px;
+  }
+}
+@-o-keyframes reward_gold_move {
+  0% {
+    left: 5px;
+  }
+  100% {
+    left: 28px;
+  }
+}
+.public_nav_new {
+  position: relative;
+  z-index: 99999;
+  width: 100%;
+  min-width: 1470px;
+  height: 70px;
+  background: #fff;
+  /*æ–°çš„å¤´éƒ¨*/
+}
+.public_nav_new .info_v2 {
+  width: 100%;
+  min-width: 1470px;
+  height: 70px;
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.public_nav_new .info_v2.hide {
+  opacity: 0;
+}
+.public_nav_new .info_v2.position {
+  position: fixed;
+  top: 0;
+  left: 0;
+  -webkit-transition: opacity .5s;
+  /* Safari å’Œ Chrome */
+  -moz-transition: opacity .5s;
+  /* Firefox 4 */
+  -o-transition: opacity .5s;
+  transition: opacity .5s;
+  opacity: 1;
+}
+.public_nav_new .info_v2 .info {
+  width: 1470px;
+  margin: 0 auto;
+}
+.public_nav_new .info_v2 .info > h1 {
+  position: relative;
+  float: left;
+  overflow: hidden;
+  width: 168px;
+  height: 70px;
+}
+.public_nav_new .info_v2 .info > h1 .logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.public_nav_new .info_v2 .info .p_nav {
+  float: left;
+  height: 40px;
+  margin-top: 21px;
+  margin-left: 0px;
+}
+.public_nav_new .info_v2 .info .p_nav > div {
+  position: relative;
+  float: left;
+  height: 30px;
+  margin: 0 1px;
+  padding: 0 10px;
+  font-size: 14px;
+  line-height: 30px;
+  text-align: center;
+  border-radius: 50px;
+}
+.public_nav_new .info_v2 .info .p_nav > div:nth-child(3) {
+  padding: 0 20px;
+}
+.public_nav_new .info_v2 .info .p_nav > div.active {
+  background: #fc7888;
+  box-shadow: 0 1px 2px rgba(253, 121, 138, 0.4);
+}
+.public_nav_new .info_v2 .info .p_nav > div.active a {
+  color: #fff;
+}
+.public_nav_new .info_v2 .info .p_nav > div.active a .icon {
+  display: none;
+}
+.public_nav_new .info_v2 .info .p_nav > div:hover {
+  background: #fc7888;
+}
+.public_nav_new .info_v2 .info .p_nav > div:hover a {
+  color: #fff;
+}
+.public_nav_new .info_v2 .info .p_nav > div:hover a .icon {
+  display: none;
+}
+.public_nav_new .info_v2 .info .p_nav > div a {
+  display: block;
+  color: #666;
+}
+.public_nav_new .info_v2 .info .p_nav > div a .icon {
+  position: absolute;
+  top: -5px;
+  right: -6px;
+}
+.public_nav_new .info_v2 .info .p_nav > div.show_nav_img {
+  width: 100px;
+}
+.public_nav_new .info_v2 .info .p_nav > div.show_nav_img.active {
+  display: none;
+}
+.public_nav_new .info_v2 .info .p_nav > div.show_nav_img:hover {
+  background: none;
+}
+.public_nav_new .info_v2 .info .p_nav > div.show_nav_img a {
+  position: absolute;
+  top: -19px;
+  left: 18px;
+  display: block;
+  width: 107px;
+  height: 64px;
+  max-height: 64px;
+}
+.public_nav_new .info_v2 .info .p_nav > div.show_nav_img a .show_bar_img {
+  width: 107px;
+  height: 64px;
+}
+.public_nav_new .info_v2 .info .p_nav > div.show_nav_img .show_bar_img_close {
+  position: absolute;
+  top: -19px;
+  right: -5px;
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+.public_nav_new .info_v2 .info .seach_Box {
+  position: relative;
+  float: left;
+  width: 170px;
+  height: 24px;
+  margin-top: 24px;
+  margin-left: 13px;
+  border-radius: 50px;
+  background: #f0f0f0;
+}
+.public_nav_new .info_v2 .info .seach_Box input {
+  float: left;
+  width: 128px;
+  height: 24px;
+  padding-left: 10px;
+  line-height: 24px;
+  border: none;
+  outline: none;
+  background: none;
+}
+.public_nav_new .info_v2 .info .seach_Box .seach_p {
+  float: right;
+  width: 13px;
+  height: 15px;
+  margin-top: 4px;
+  margin-right: 12px;
+  cursor: pointer;
+  background: url('../img/nav_v2/download.png') no-repeat;
+  background-position: -71px -22px;
+}
+.public_nav_new .info_v2 .info .seach_Box .seach_p:hover {
+  background: url(../img/nav_v2/download.png) no-repeat;
+  background-position: -88px -22px;
+}
+.public_nav_new .info_v2 .info .seach_Box .msg_info {
+  position: absolute;
+  top: 26px;
+  left: 9px;
+  overflow: auto;
+  width: 154px;
+  font-size: 12px;
+  line-height: 26px;
+  background: #fff;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+}
+.public_nav_new .info_v2 .info .seach_Box .msg_info li {
+  padding-left: 10px;
+}
+.public_nav_new .info_v2 .info .seach_Box .msg_info li.active {
+  color: #333;
+  background: #f0f0f0;
+}
+.public_nav_new .info_v2 .info .right {
+  position: relative;
+  float: right;
+  height: 24px;
+  margin-top: 18px;
+  /*é¢†å–å¥–åŠ±é‡‘æ ·å¼*/
+}
+.public_nav_new .info_v2 .info .right .style1 {
+  float: left;
+  margin-top: 5px;
+  line-height: 24px;
+  cursor: pointer;
+}
+.public_nav_new .info_v2 .info .right .style1 span {
+  color: #777;
+}
+.public_nav_new .info_v2 .info .right .style1:hover span {
+  color: #ff6477;
+}
+.public_nav_new .info_v2 .info .right .clent {
+  position: relative;
+}
+.public_nav_new .info_v2 .info .right .clent span {
+  color: #ff6477;
+}
+.public_nav_new .info_v2 .info .right .clent p {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  margin-top: 3px;
+  margin-right: 3px;
+  vertical-align: text-top;
+  background: url('../img/nav_v2/download.png') no-repeat;
+  background-position: -111px 0px;
+}
+.public_nav_new .info_v2 .info .right .clent div {
+  display: inline-block;
+  width: 7px;
+  height: 4px;
+  margin: 9px 3px 0px 1px;
+  vertical-align: text-top;
+  background: url('../img/nav_v2/download.png') no-repeat;
+  background-position: -60px 0px;
+}
+.public_nav_new .info_v2 .info .right .clent .clent_div {
+  position: absolute;
+  top: 15px;
+  left: -50px;
+  display: none;
+  width: 212px;
+  height: 117px;
+  background: url('../img/nav_v2/download.png') no-repeat;
+  background-position: 0px -62px;
+}
+.public_nav_new .info_v2 .info .right .clent .clent_div .clent_div_left,
+.public_nav_new .info_v2 .info .right .clent .clent_div .clent_div_right {
+  display: inline-block;
+  float: left;
+  width: 98px;
+  height: 99px;
+  margin-top: 11px;
+  margin-top: 15px;
+  text-align: center;
+  background: none;
+}
+.public_nav_new .info_v2 .info .right .clent .clent_div .clent_div_left .clent_div_left_img,
+.public_nav_new .info_v2 .info .right .clent .clent_div .clent_div_right .clent_div_left_img,
+.public_nav_new .info_v2 .info .right .clent .clent_div .clent_div_left .clent_div_right_img,
+.public_nav_new .info_v2 .info .right .clent .clent_div .clent_div_right .clent_div_right_img {
+  margin: 20px 0px 0px 0px;
+}
+.public_nav_new .info_v2 .info .right .clent .clent_div .clent_div_left .clent_div_left_img,
+.public_nav_new .info_v2 .info .right .clent .clent_div .clent_div_right .clent_div_left_img {
+  width: 26px;
+  height: 30px;
+  background: url('../img/nav_v2/download.png') no-repeat;
+  background-position: -28px 0px;
+}
+.public_nav_new .info_v2 .info .right .clent .clent_div .clent_div_left .clent_div_right_img,
+.public_nav_new .info_v2 .info .right .clent .clent_div .clent_div_right .clent_div_right_img {
+  width: 32px;
+  height: 28px;
+  background: url('../img/nav_v2/download.png') no-repeat;
+  background-position: 0px -32px;
+}
+.public_nav_new .info_v2 .info .right .clent .clent_div .clent_div_left span,
+.public_nav_new .info_v2 .info .right .clent .clent_div .clent_div_right span {
+  display: block;
+  margin-top: 10px;
+  color: #777;
+}
+.public_nav_new .info_v2 .info .right .clent .clent_div .clent_div_left {
+  margin-left: 6px;
+  border-radius: 7px 0px 0px 4px;
+}
+.public_nav_new .info_v2 .info .right .clent .clent_div .clent_div_left span {
+  color: #ff6477;
+}
+.public_nav_new .info_v2 .info .right .clent .clent_div .clent_div_right {
+  border-radius: 0px 7px 4px 0px;
+  background-color: #f7f7f7;
+}
+.public_nav_new .info_v2 .info .right .clent:hover .clent_div {
+  display: block;
+}
+.public_nav_new .info_v2 .info .right .app {
+  margin-right: 20px;
+}
+.public_nav_new .info_v2 .info .right .app span {
+  color: #ff6477;
+}
+.public_nav_new .info_v2 .info .right .app p {
+  display: inline-block;
+  width: 15px;
+  height: 16px;
+  margin-top: 3px;
+  margin-right: 3px;
+  vertical-align: text-top;
+  background: url('../img/nav_v2/ico_32_hover.png') no-repeat;
+}
+.public_nav_new .info_v2 .info .right .app:hover p {
+  background: url('../img/nav_v2/ico_32_hover.png') no-repeat;
+}
+.public_nav_new .info_v2 .info .right .practice {
+  margin-right: 10px;
+}
+.public_nav_new .info_v2 .info .right .practice span {
+  font-size: 14px;
+  font-weight: 600;
+  color: #2ea0f8;
+}
+.public_nav_new .info_v2 .info .right .practice p {
+  display: inline-block;
+  width: 15px;
+  height: 19px;
+  margin-top: 0px;
+  margin-right: 3px;
+  vertical-align: text-top;
+  background: url('../img/nav_v2/download.png') no-repeat;
+  background-position: -70px -41px;
+}
+.public_nav_new .info_v2 .info .right .practice:hover span {
+  color: #2ea0f8;
+}
+.public_nav_new .info_v2 .info .right .msg {
+  margin-left: 10px;
+}
+.public_nav_new .info_v2 .info .right .msg p {
+  position: relative;
+  display: inline-block;
+  width: 16px;
+  height: 18px;
+  margin-top: 2px;
+  margin-right: 3px;
+  vertical-align: top;
+  background: url(../img/nav_v2/download.png) no-repeat;
+  background-position: -71px 0px;
+}
+.public_nav_new .info_v2 .info .right .msg p i {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  display: block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: red;
+}
+.public_nav_new .info_v2 .info .right .msg:hover p {
+  background: url(../img/nav_v2/download.png) no-repeat;
+  background-position: -91px 0px;
+}
+.public_nav_new .info_v2 .info .right .login {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+.public_nav_new .info_v2 .info .right .login p {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  margin-top: 1px;
+  margin-right: 3px;
+  background: url(../img/nav_v2/download.png) no-repeat;
+  background-position: -163px 0px;
+}
+.public_nav_new .info_v2 .info .right .login:hover p {
+  background: url(../img/nav_v2/download.png) no-repeat;
+  background-position: -180px 0px;
+}
+.public_nav_new .info_v2 .info .right .loginBox {
+  position: relative;
+  float: left;
+  width: 74px;
+  height: 50px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+.public_nav_new .info_v2 .info .right .loginBox .r_pic {
+  position: relative;
+  display: inline-block;
+  width: 33px;
+  height: 33px;
+  margin-left: 10px;
+  border: #efefef solid 1px;
+  border-radius: 50%;
+}
+.public_nav_new .info_v2 .info .right .loginBox .r_pic img {
+  display: block;
+  width: 100%;
+  border-radius: 50%;
+}
+.public_nav_new .info_v2 .info .right .loginBox .r_pic span {
+  position: absolute;
+  top: -1px;
+  left: -5px;
+  width: 43px;
+  height: 43px;
+}
+.public_nav_new .info_v2 .info .right .loginBox .r_pic span.frame_1 {
+  background: url('../../public/img/frame_1.png');
+  background-size: 100% 100%;
+}
+.public_nav_new .info_v2 .info .right .loginBox .r_pic span.frame_2 {
+  background: url('../../public/img/frame_2.png');
+  background-size: 100% 100%;
+}
+.public_nav_new .info_v2 .info .right .loginBox .r_pic span.frame_3 {
+  background: url('../../public/img/frame_3.png');
+  background-size: 100% 100%;
+}
+.public_nav_new .info_v2 .info .right .loginBox .r_pic span.frame_4 {
+  background: url('../../public/img/frame_4.png');
+  background-size: 100% 100%;
+}
+.public_nav_new .info_v2 .info .right .loginBox .r_pic span.frame_5 {
+  background: url('../../public/img/frame_5.png');
+  background-size: 100% 100%;
+}
+.public_nav_new .info_v2 .info .right .loginBox .r_pic span.frame_6 {
+  background: url('../../public/img/frame_6.png');
+  background-size: 100% 100%;
+  top: -5px;
+}
+.public_nav_new .info_v2 .info .right .loginBox .r_pic span.frame_7 {
+  background: url('../../public/img/frame_7.gif');
+  background-size: 100% 100%;
+  top: -5px;
+}
+.public_nav_new .info_v2 .info .right .loginBox .r_icoImg {
+  display: inline-block;
+  margin-top: 16px;
+  vertical-align: top;
+}
+.public_nav_new .info_v2 .info .right .loginBox .r_info {
+  position: absolute;
+  z-index: 2;
+  top: 49px;
+  right: 0;
+  display: none;
+  width: 260px;
+  min-height: 179px;
+  line-height: 70px;
+  border: solid 1px #dbdbdb;
+  background: #fff;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+}
+.public_nav_new .info_v2 .info .right .loginBox .r_info a {
+  color: #6d6d6d;
+}
+.public_nav_new .info_v2 .info .right .loginBox .r_info .avatar {
+  margin: 0 20px;
+  font-size: 12px;
+  line-height: 20px;
+  color: #6d6d6d;
+}
+.public_nav_new .info_v2 .info .right .loginBox .r_info .avatar .ico {
+  position: relative;
+  display: block;
+  width: 50px;
+  height: 60px;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+.public_nav_new .info_v2 .info .right .loginBox .r_info .avatar .ico img {
+  width: 50px;
+  height: 50px;
+  border: #efefef solid 1px;
+  border-radius: 50%;
+}
+.public_nav_new .info_v2 .info .right .loginBox .r_info .avatar .ico span {
+  position: absolute;
+  top: -1px;
+  left: -7px;
+  width: 65px;
+  height: 65px;
+}
+.public_nav_new .info_v2 .info .right .loginBox .r_info .avatar .ico span.frame_1 {
+  background: url('../../public/img/frame_1.png');
+  background-size: 100% 100%;
+}
+.public_nav_new .info_v2 .info .right .loginBox .r_info .avatar .ico span.frame_2 {
+  background: url('../../public/img/frame_2.png');
+  background-size: 100% 100%;
+}
+.public_nav_new .info_v2 .info .right .loginBox .r_info .avatar .ico span.frame_3 {
+  background: url('../../public/img/frame_3.png');
+  background-size: 100% 100%;
+}
+.public_nav_new .info_v2 .info .right .loginBox .r_info .avatar .ico span.frame_4 {
+  background: url('../../public/img/frame_4.png');
+  background-size: 100% 100%;
+}
+.public_nav_new .info_v2 .info .right .loginBox .r_info .avatar .ico span.frame_5 {
+  background: url('../../public/img/frame_5.png');
+  background-size: 100% 100%;
+}
+.public_nav_new .info_v2 .info .right .loginBox .r_info .avatar .ico span.frame_6 {
+  background: url('../../public/img/frame_6.png');
+  background-size: 100% 100%;
+  top: -5px;
+}
+.public_nav_new .info_v2 .info .right .loginBox .r_info .avatar .ico span.frame_7 {
+  background: url('../../public/img/frame_7.gif');
+  background-size: 100% 100%;
+  top: -5px;
+}
+.public_nav_new .info_v2 .info .right .loginBox .r_info .avatar .text1 {
+  margin-top: 5px;
+  text-align: center;
+}
+.public_nav_new .info_v2 .info .right .loginBox .r_info .avatar .text1 p {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  vertical-align: top;
+}
+.public_nav_new .info_v2 .info .right .loginBox .r_info .avatar .text1 p img {
+  vertical-align: top;
+  border: 0;
+}
+.public_nav_new .info_v2 .info .right .loginBox .r_info .avatar .text1 p.l1 img:nth-child(1) {
+  display: block;
+}
+.public_nav_new .info_v2 .info .right .loginBox .r_info .avatar .text1 p.l2 img:nth-child(2) {
+  display: block;
+}
+.public_nav_new .info_v2 .info .right .loginBox .r_info .avatar .text1 p.l3 img:nth-child(3) {
+  display: block;
+}
+.public_nav_new .info_v2 .info .right .loginBox .r_info .avatar .text1 p.l4 img:nth-child(4) {
+  display: block;
+}
+.public_nav_new .info_v2 .info .right .loginBox .r_info .avatar .text1 p.l5 img:nth-child(5) {
+  display: block;
+}
+.public_nav_new .info_v2 .info .right .loginBox .r_info .avatar .text1 p.l6 img:nth-child(6) {
+  display: block;
+}
+.public_nav_new .info_v2 .info .right .loginBox .r_info .avatar .text1 p.l7 img:nth-child(7) {
+  display: block;
+}
+.public_nav_new .info_v2 .info .right .loginBox .r_info .avatar .text1 p.l8 img:nth-child(8) {
+  display: block;
+}
+.public_nav_new .info_v2 .info .right .loginBox .r_info .avatar .text2 {
+  font-size: 12px;
+  text-align: center;
+  color: #666;
+}
+.public_nav_new .info_v2 .info .right .loginBox .r_info .avatar .text2.vip_num {
+  width: 74px;
+  height: 24px;
+  margin: 0 auto;
+  background-image: url('../img/frame/ico_pretty.png');
+  background-position: center center;
+  background-size: 100% 100%;
+}
+.public_nav_new .info_v2 .info .right .loginBox .r_info .avatar .text2.vip_num .text {
+  position: relative;
+  z-index: 12;
+  display: block;
+  height: 24px;
+  margin-left: 23px;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 24px;
+  transition: transform .8s,opacity .8s;
+  -webkit-transform: scale(0.8);
+  animation: flowlight 2s linear infinite;
+  color: transparent;
+  background-image: -webkit-linear-gradient(left, #fc7888, #ffabc5 10%, #ffbc42 20%, #ffe04e 30%, #fd8aac 40%, #f9779e 50%, #ffa8c2 60%, #ffbc42 70%, #f592b0 80%, #ffe04e 90%, #ffffff);
+  -webkit-background-clip: text;
+  background-size: 200%;
+}
+.public_nav_new .info_v2 .info .right .loginBox .r_info .avatar .grade_box {
+  margin-top: 3px;
+  font-size: 12px;
+  line-height: 20px;
+  text-align: center;
+}
+.public_nav_new .info_v2 .info .right .loginBox .r_info .avatar .grade_box > * {
+  display: inline-block;
+}
+.public_nav_new .info_v2 .info .right .loginBox .r_info .avatar .grade_box .s1 {
+  color: #ff7c25;
+}
+.public_nav_new .info_v2 .info .right .loginBox .r_info .avatar .grade_box .s2 {
+  color: #666;
+}
+.public_nav_new .info_v2 .info .right .loginBox .r_info .avatar .grade_box div {
+  position: relative;
+  overflow: hidden;
+  width: 150px;
+  height: 10px;
+  margin: 0 5px;
+  border-radius: 30px;
+  background: #f1f1f1;
+}
+.public_nav_new .info_v2 .info .right .loginBox .r_info .avatar .grade_box div p {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  border-radius: 30px;
+  background: #ff7c25;
+}
+.public_nav_new .info_v2 .info .right .loginBox .r_info .status {
+  margin: 5px 20px 0;
+  line-height: 30px;
+  cursor: pointer;
+  text-align: center;
+}
+.public_nav_new .info_v2 .info .right .loginBox .r_info .status div {
+  color: #fff;
+  border-radius: 200px;
+}
+.public_nav_new .info_v2 .info .right .loginBox .r_info .status .on {
+  background-color: #ffa423;
+}
+.public_nav_new .info_v2 .info .right .loginBox .r_info .status .on.hover {
+  background-color: #b7b7b7;
+}
+.public_nav_new .info_v2 .info .right .loginBox .r_info .status .hand {
+  background-color: #ffa423;
+}
+.public_nav_new .info_v2 .info .right .loginBox .r_info .status .off {
+  background-color: #b7b7b7;
+}
+.public_nav_new .info_v2 .info .right .loginBox .r_info .status .off:hover {
+  background-color: #ffa423;
+}
+.public_nav_new .info_v2 .info .right .loginBox .r_info .status .busy {
+  color: #fff;
+  border-radius: 200px;
+  background-color: #ff5e39;
+}
+.public_nav_new .info_v2 .info .right .loginBox .r_info .balance_box {
+  margin-top: 10px;
+  padding: 0 20px;
+  font-size: 12px;
+  color: #666;
+}
+.public_nav_new .info_v2 .info .right .loginBox .r_info .balance_box > div {
+  overflow: hidden;
+  height: 24px;
+  line-height: 24px;
+}
+.public_nav_new .info_v2 .info .right .loginBox .r_info .balance_box > div img {
+  vertical-align: sub;
+}
+.public_nav_new .info_v2 .info .right .loginBox .r_info .balance_box > div i {
+  display: inline-block;
+  width: 21px;
+}
+.public_nav_new .info_v2 .info .right .loginBox .r_info .balance_box > div p:nth-child(1) {
+  float: left;
+}
+.public_nav_new .info_v2 .info .right .loginBox .r_info .balance_box > div p:nth-child(2) {
+  float: right;
+}
+.public_nav_new .info_v2 .info .right .loginBox .r_info .nav_list {
+  margin: 16px 20px 0 20px;
+  font-size: 12px;
+  line-height: 70px;
+  text-align: center;
+}
+.public_nav_new .info_v2 .info .right .loginBox .r_info .nav_list div {
+  float: left;
+  width: 30%;
+  height: 60px;
+}
+.public_nav_new .info_v2 .info .right .loginBox .r_info .nav_list i {
+  float: left;
+  width: 1px;
+  height: 42px;
+  margin: 0 5px 0 5px;
+  background-color: #dbdbdb;
+}
+.public_nav_new .info_v2 .info .right .loginBox .r_info .nav_list .order {
+  background: #ffffff url('../img/order.png') 22px 0px no-repeat;
+}
+.public_nav_new .info_v2 .info .right .loginBox .r_info .nav_list .order:hover {
+  background: #ffffff url('../img/order_hover.png') 22px 0px no-repeat;
+}
+.public_nav_new .info_v2 .info .right .loginBox .r_info .nav_list .info {
+  background: #ffffff url('../img/set_info.png') 22px 0px no-repeat;
+}
+.public_nav_new .info_v2 .info .right .loginBox .r_info .nav_list .info:hover {
+  background: #ffffff url('../img/set_info_hover.png') 22px 0px no-repeat;
+}
+.public_nav_new .info_v2 .info .right .loginBox .r_info .nav_list .money {
+  background: #ffffff url('../img/ico_money.png') 24px 2px no-repeat;
+}
+.public_nav_new .info_v2 .info .right .loginBox .r_info .nav_list .money:hover {
+  background: #ffffff url('../img/ico_money_hover.png') 24px 2px no-repeat;
+}
+.public_nav_new .info_v2 .info .right .loginBox .r_info .logout {
+  clear: both;
+  height: 40px;
+  padding-right: 20px;
+  line-height: 40px;
+  text-align: right;
+  color: #6d6d6d;
+  border-top: #f1f1f1 solid 1px;
+  background-color: #f8f8f8;
+}
+.public_nav_new .info_v2 .info .right .loginBox .r_info .logout a {
+  color: #6d6d6d;
+}
+.public_nav_new .info_v2 .info .right .loginBox .r_info .logout a:hover {
+  color: #f5511e;
+}
+.public_nav_new .info_v2 .info .right .loginBox .r_info .logout .logout_a {
+  display: inline-block;
+  float: left;
+}
+.public_nav_new .info_v2 .info .right .loginBox .r_info .logout .logout_a span {
+  display: inline-block;
+  float: left;
+  width: 14px;
+  height: 14px;
+  margin: 12px 10px 0px 25px;
+  background: url(../img/nav_v2/download.png) no-repeat;
+  background-position: -129px 0px;
+}
+.public_nav_new .info_v2 .info .right .loginBox .r_info .logout .logout_a:hover span {
+  background: url(../img/nav_v2/download.png) no-repeat;
+  background-position: -147px 0px;
+}
+.public_nav_new .info_v2 .info .right .loginBox:hover .r_info {
+  display: block;
+}
+.public_nav_new .info_v2 .info .right .receive_gold {
+  position: absolute;
+  top: -4px;
+  right: -106px;
+  width: 109px;
+  height: 50px;
+  cursor: pointer;
+}
+.public_nav_new .info_v2 .info .right .receive_gold .gold_img1 {
+  position: absolute;
+  top: -3px;
+  left: 5px;
+  width: 68px;
+  height: 50px;
+  cursor: pointer;
+}
+@media screen and (max-width: 1500px) {
+  .public_nav_new {
+    min-width: 1260px;
+  }
+  .public_nav_new .info_v2 {
+    min-width: 1260px;
+  }
+  .public_nav_new .info_v2 .info {
+    width: 1260px;
+  }
+}
+@keyframes flowlight {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}

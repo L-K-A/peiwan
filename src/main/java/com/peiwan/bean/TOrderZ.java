@@ -1,8 +1,14 @@
 package com.peiwan.bean;
 
 import java.io.Serializable;
+
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 /**
@@ -14,9 +20,13 @@ import lombok.experimental.Accessors;
  * @since 2019-01-16
  */
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
+@TableName("t_order_z")
 public class TOrderZ implements Serializable {
+
 
     private static final long serialVersionUID = 1L;
 
@@ -28,6 +38,7 @@ public class TOrderZ implements Serializable {
     /**
      * 订单id
      */
+    @TableId(value = "oid", type = IdType.AUTO)
     private String oid;
 
     /**
@@ -71,12 +82,20 @@ public class TOrderZ implements Serializable {
     private Integer oFlate;
 
     /**
+<<<<<<< HEAD:src/main/java/com/peiwan/bean/TOrderZ.java
      * 订单开始时间
+=======
+     * 订单对应标识
+>>>>>>> de378c9f2bcaf53aed3c0a6707957b7fd921cdbf:src/main/java/com/peiwan/bean/OOrderZ.java
      */
     private String oStarttime;
 
     /**
+<<<<<<< HEAD:src/main/java/com/peiwan/bean/TOrderZ.java
      * 订单开始日期
+=======
+     * 订单对应标识
+>>>>>>> de378c9f2bcaf53aed3c0a6707957b7fd921cdbf:src/main/java/com/peiwan/bean/OOrderZ.java
      */
     private String oDatetime;
 

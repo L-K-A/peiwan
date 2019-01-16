@@ -1,23 +1,25 @@
 package com.peiwan.bean;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
+
+import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
-
 /**
- * <p>
- * 
- * </p>
  *
- * @author 
- * @since 2019-01-16
  */
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
+@TableName("t_person")
 public class TPerson implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -114,7 +116,7 @@ public class TPerson implements Serializable {
     private String personInterest;
 
     /**
-     * 封面桌面
+     * 封面图片
      */
     private String personCoverphoto;
 

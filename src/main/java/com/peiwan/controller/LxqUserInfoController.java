@@ -229,20 +229,23 @@ public class LxqUserInfoController {
     @PostMapping("/playinfosubmit")
     @ResponseBody
     public Map sek(String gname,String tag, String organ, MultipartFile himage, TPerson pPerson, TAlity pAlity, TService gService) throws Exception {
-        //System.out.println(himage.getOriginalFilename());
+        System.out.println(pPerson);
+        System.out.println(himage);
+
         int pid = 4;
         /*String filePath = "F:\\upload\\" + himage.getOriginalFilename();*/
-        String filePath = "C:\\Users\\Administrator\\Desktop\\peiwan\\src\\main\\resources\\static\\imgupload\\" + new Random().nextInt(100)+ himage.getOriginalFilename();
+        //String filePath = "C:\\Users\\Administrator\\Desktop\\peiwan\\src\\main\\resources\\static\\imgupload\\" + new Random().nextInt(100)+ himage.getOriginalFilename();
         //String filePath = request.getSession().getServletContext().getRealPath("imgupload") +File.separator +himage.getOriginalFilename();
 
-        BufferedOutputStream outputStream = new BufferedOutputStream(new FileOutputStream(filePath));
+        /*BufferedOutputStream outputStream = new BufferedOutputStream(new FileOutputStream(filePath));
         outputStream.write(himage.getBytes());
         outputStream.flush();
         outputStream.close();
         pPerson.setPid(pid);
-        pPerson.setPersonCoverphoto(filePath);
+        pPerson.setPersonCoverphoto(filePath);*/
         /*才艺标签*/
-        //System.out.println("标签:"+tag);
+        System.out.println("标签:"+tag);
+        System.out.println(organ);
         /*才艺表赋值*/
         //pAlity.setPid(pid);
         //pAlity.setAlityOne(tag.substring(0,1));
