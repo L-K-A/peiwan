@@ -1,7 +1,5 @@
 package com.peiwan.dao;
 
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.peiwan.bean.AAttention;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.peiwan.bean.PPerson;
 import org.apache.ibatis.annotations.Mapper;
@@ -19,7 +17,7 @@ import java.util.Map;
  * @since 2019-01-02
  */
 @Mapper
-public interface AAttentionMapper extends BaseMapper<PPerson> {
+public interface ZYFMapper extends BaseMapper<PPerson> {
 
     //登录时根据用户名和密码查询是否存在
     @Select("select * from p_person p where p.person_name=#{personName} and p.person_pwd=#{personPwd}")
@@ -36,6 +34,6 @@ public interface AAttentionMapper extends BaseMapper<PPerson> {
 
     //热度榜查询主播订单数：先按照订单数排序，再查询主播详细信息
     List<Map<String,Object>> selectOrderList(int curPage);
-    //热度榜查询主播接单数
-    Integer selectOrderCount();
+
+
 }

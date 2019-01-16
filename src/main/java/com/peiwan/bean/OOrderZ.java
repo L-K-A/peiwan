@@ -1,9 +1,17 @@
 package com.peiwan.bean;
 
 import java.io.Serializable;
+
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
+
+import javax.persistence.Table;
 
 /**
  * <p>
@@ -14,8 +22,11 @@ import lombok.experimental.Accessors;
  * @since 2019-01-02
  */
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
+@TableName("o_order_z")
 public class OOrderZ implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -28,6 +39,7 @@ public class OOrderZ implements Serializable {
     /**
      * 订单id
      */
+    @TableId(value = "oid", type = IdType.AUTO)
     private String oid;
 
     /**

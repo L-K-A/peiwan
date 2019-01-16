@@ -22,8 +22,8 @@
     <form class="form-inline bg-danger" role="form">
         查询条件：
         <div class="form-group">
-            <label class="sr-only" for="personNickname">用户名称</label>
-            <input type="text" class="form-control" id="personNickname" placeholder="用户名称">
+            <label class="sr-only" for="pid">用户名称</label>
+            <input type="text" class="form-control" id="pid" placeholder="用户名称">
         </div>
         <button type="button" id="findUser" class="btn btn-success">查询用户</button>
     </form>
@@ -41,14 +41,14 @@
             </tr>
             </thead>
             <tbody>
-            <tr class="active" v-for="(item,index) in result">
-                <td>{{index+1}}</td>
+            <tr class="active" v-for="item in result">
+                <td>{{item.pid}}</td>
                 <td>{{item.person_nickname}}</td>
                 <td><img :src="'/picture/'+item.person_image"></td>
                 <td>{{item.person_adress}}</td>
                 <td>{{item.person_sex}}</td>
                 <td>{{item.person_age}}</td>
-                <td>{{count}}</td>
+                <td>{{item.oo}}</td>
                 <td><a href="#" @click="editEvent(item.pId)">编辑</a> <a href="#" @click="delEvent(item.pId)">删除</a></td>
             </tr>
             </tbody>
@@ -63,20 +63,16 @@
             result: []
         }
     });
-var count;
     var getUserPageList = function (curr) {
         $.ajax({
             type: 'POST',
             dataType: 'json',
             url: '/person/getOrderCountList',
             data: {
-                curPage: curr || 1,
-                pageNum: 2,
-                personNickname: $("#personNickname").val()
+                curPage: curr | 1
             },
             success: function (msg) {
                 app.result = msg.data;
-                app.count = msg.orderCount;
                 laypage({
                     cont: 'pagenav', //容器
                     pages: msg.totalPage,
@@ -97,9 +93,9 @@ var count;
 
     getUserPageList();
 
-    $("#findUser").click(function () {
+    /*$("#findUser").click(function () {
         getUserPageList();
-    });
+    });*/
 
 
 

@@ -2,8 +2,8 @@ package com.peiwan.controller;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.peiwan.bean.PPerson;
-import com.peiwan.dao.AAttentionMapper;
-import com.peiwan.service.AAttentionService;
+import com.peiwan.dao.ZYFMapper;
+import com.peiwan.service.ZYFService;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RestController;
@@ -25,13 +25,13 @@ import java.util.Map;
  */
 @RestController
 @RequestMapping("/person")
-public class AAttentionController {
+public class ZYFController {
 
     @Resource
-    private AAttentionMapper attentionMapper;
+    private ZYFMapper attentionMapper;
 
     @Resource
-    private AAttentionService attentionService;
+    private ZYFService attentionService;
 
     //首页
     @RequestMapping("/toIndex")
@@ -119,43 +119,45 @@ public class AAttentionController {
     @RequestMapping("/getOrderCountList")
     public Map<String,Object> getOrderList(int curPage){
         Page<Map<String, Object>> page = attentionService.selectPersonOrder(curPage);
-        Integer orderCount = attentionMapper.selectOrderCount();
         List<Map<String, Object>> records = page.getRecords();
+        System.out.println("所有数据"+records);
         Map map = new HashMap();
         map.put("data",records);
-        map.put("orderCount",orderCount);
         System.out.println("controller:"+map);
         return map;
     }
 
-
-
-    //测试主播列表查询
-    @RequestMapping("/toList")
-    public ModelAndView select(){
-        return new ModelAndView("search");
-    }
-
+    //首页导航栏模糊查询跳转到search页面
     @RequestMapping("/toSearch")
     public ModelAndView list(){
         return new ModelAndView("search");
     }
 
 
+    //测试主播列表查询
+    @RequestMapping("/toList")
+    public ModelAndView select(){
+        return new ModelAndView("orderList");
+    }
 
-    public AAttentionMapper getAttentionMapper() {
+
+
+
+
+
+    public ZYFMapper getAttentionMapper() {
         return attentionMapper;
     }
 
-    public void setAttentionMapper(AAttentionMapper attentionMapper) {
+    public void setAttentionMapper(ZYFMapper attentionMapper) {
         this.attentionMapper = attentionMapper;
     }
 
-    public AAttentionService getAttentionService() {
+    public ZYFService getAttentionService() {
         return attentionService;
     }
 
-    public void setAttentionService(AAttentionService attentionService) {
+    public void setAttentionService(ZYFService attentionService) {
         this.attentionService = attentionService;
     }
 }

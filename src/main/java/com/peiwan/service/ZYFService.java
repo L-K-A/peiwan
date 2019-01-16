@@ -16,7 +16,7 @@ import java.util.Map;
  * @author Zhou先生
  * @since 2019-01-02
  */
-public interface AAttentionService extends IService<PPerson> {
+public interface ZYFService extends IService<PPerson> {
 
     //登录时根据用户名和密码查询是否存在
     PPerson selectPersonByNameAndPwd(PPerson person);

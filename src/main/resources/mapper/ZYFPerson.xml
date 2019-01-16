@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.peiwan.dao.AAttentionMapper">
+<mapper namespace="com.peiwan.dao.ZYFMapper">
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.peiwan.bean.PPerson">
@@ -35,7 +35,7 @@
     </sql>
 
     <!--导航栏根据昵称和Id模糊查询-->
-    <select id="selectPersonByNameAndId" parameterType="map" resultType="map">
+    <select id="selectPersonByNameAndId" parameterType="int" resultType="int">
             SELECT
             p.pid,p.person_nickname,p.person_image,g.g_name,g.g_price
             FROM p_person p LEFT JOIN g_service g ON p.pid=g.pid
@@ -48,17 +48,13 @@
             </if>
     </select>
 
-    <!--热度榜查询主播订单数：先按照订单数排序，再查询主播详细信息-->
+    <!--热度榜查询主播订单数：先筛选规定时间，然后按照订单数排序，再查询主播详细信息-->
     <select id="selectOrderList" parameterType="map" resultType="map">
-      SELECT p.pid,p.person_nickname,p.person_image,p.person_adress,p.person_sex,p.person_age,COUNT(o.oid)
-      FROM p_person p LEFT JOIN o_order_z o ON p.pid=o.pid
-      WHERE o_flate=1 GROUP by p.pid
-    </select>
-    <!--热度榜查询主播接单数-->
-    <select id="selectOrderCount" parameterType="int" resultType="int" >
-        SELECT COUNT(o.oid)
-        FROM p_person p LEFT JOIN o_order_z o ON p.pid=o.pid
-        WHERE o_flate=1
+        SELECT op.pid,op.person_nickname,op.person_image,op.person_adress,op.person_sex,op.person_age,op.o_createtime,op.oo
+        FROM(SELECT p.pid,p.person_nickname,p.person_image,p.person_adress,p.person_sex,p.person_age,o.o_createtime,COUNT(o.oid) oo
+             FROM p_person p LEFT JOIN o_order_z o ON p.pid=o.pid
+             WHERE o.o_createtime>DATE_SUB(CURDATE(), INTERVAL 4 DAY)
+             AND o.o_flate=1 GROUP BY o.pid ORDER BY COUNT(o.oid) DESC)op
     </select>
 
 

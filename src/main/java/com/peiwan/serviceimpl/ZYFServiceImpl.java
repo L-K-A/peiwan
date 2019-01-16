@@ -1,18 +1,13 @@
 package com.peiwan.serviceimpl;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.peiwan.bean.PPerson;
-import com.peiwan.dao.AAttentionMapper;
-import com.peiwan.service.AAttentionService;
+import com.peiwan.dao.ZYFMapper;
+import com.peiwan.service.ZYFService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import javax.persistence.criteria.CriteriaBuilder;
-import java.util.Collection;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -25,10 +20,10 @@ import java.util.Map;
  * @since 2019-01-02
  */
 @Service
-public class AAttentionServiceImpl extends ServiceImpl<AAttentionMapper, PPerson> implements AAttentionService {
+public class ZYFServiceImpl extends ServiceImpl<ZYFMapper, PPerson> implements ZYFService {
 
     @Resource
-    private AAttentionMapper attentionMapper;
+    private ZYFMapper attentionMapper;
 
     //登录时根据用户名和密码查询是否存在
     @Override
@@ -65,7 +60,7 @@ public class AAttentionServiceImpl extends ServiceImpl<AAttentionMapper, PPerson
 
 
 
-    public AAttentionMapper getAttentionMapper() {
+    public ZYFMapper getAttentionMapper() {
         return attentionMapper;
     }
 
