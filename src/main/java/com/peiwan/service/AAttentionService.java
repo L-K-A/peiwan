@@ -18,10 +18,18 @@ public interface AAttentionService extends IService<PPerson> {
 //   测试
     PPerson namepperson(PPerson pPerson);
     List<PPerson> addpperson(int id);
-    PPerson myppersonname(String personName);
+    PPerson myppersonname(String personNickname);
 
-    String ippersonname(String personName);
+    String ippersonname(String personNickname);
 
-    String ippersonpwd(String personName,String personPwd);
+    String ippersonpwd(String personNickname,String personPwd);
+
+    Integer checkRegisterName(String personNickname);
+
+    /**
+     * 注册功能
+     * @return
+     */
+     boolean registerData(PPerson pPerson);
 
 }

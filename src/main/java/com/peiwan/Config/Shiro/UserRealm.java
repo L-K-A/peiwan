@@ -5,6 +5,7 @@ import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
+import org.apache.shiro.util.ByteSource;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
@@ -32,6 +33,8 @@ public class UserRealm extends AuthorizingRealm {
     @Autowired
     private AAttentionService aAttentionService;
 
+    private SimpleAuthenticationInfo info = null;
+
     /**
      * 执行一些认证逻辑
      * @param authenticationToken
@@ -47,13 +50,16 @@ public class UserRealm extends AuthorizingRealm {
         //1判断用户名
         UsernamePasswordToken token = (UsernamePasswordToken) authenticationToken;
         PPerson myppersonname = aAttentionService.myppersonname(token.getUsername());
-        String personName = myppersonname.getPersonName();
-        String personPwd = myppersonname.getPersonPwd();
-        if (!token.getUsername().equals(personName)){
-            return null;
-        }
+        if(myppersonname.getPersonNickname()!=null||myppersonname.getPersonPwd()!=null){
+            // 获取用户名即可
+            String personName = myppersonname.getPersonName();
+            String personPwd = myppersonname.getPersonPwd();
 
-        return new SimpleAuthenticationInfo("",personPwd,"");
+            ByteSource salt = ByteSource.Util.bytes(token.getUsername());
+            String realmName = this.getName();
+            info = new SimpleAuthenticationInfo(personName, personPwd, salt,realmName);
+        }
+        return info;
     }
 
 }

@@ -1,5 +1,6 @@
 package com.peiwan.Config.Shiro;
 
+import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.codec.Base64;
 import org.apache.shiro.mgt.RememberMeManager;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
@@ -71,7 +72,7 @@ public class shiroConfig {
        /* filterMap.put("/add","authc");
         filterMap.put("/update","authc");*/
        //可以简介化直接要根下的都要进行登录
-        filterMap.put("/*","authc");
+        //filterMap.put("/*","authc");
 
 //        authc:必须认证（登录）才可以访问  这里拦截成功  但是
 //        如果不设置默认会自动寻找Web工程根目录下的"/loginJC.jsp"页面
@@ -88,53 +89,75 @@ public class shiroConfig {
         return shiroFilterFactoryBean;
     }
 
+    /**
+     * 创建Realm
+     */
+    @Bean(name = "userRealm")
+    public UserRealm getRealm(HashedCredentialsMatcher matcher){
+        UserRealm userRealm = new UserRealm();
+        userRealm.setCredentialsMatcher(matcher);
+        return userRealm;
+    }
+
+
 
     /**
      * 创建DefaultWebSecusrityManager
      */
     @Bean(name = "securityManager")
-    public DefaultWebSecurityManager getDefaultWebSecurityManager(@Qualifier("userRealm")UserRealm userRealm){
+    public DefaultWebSecurityManager getDefaultWebSecurityManager(@Qualifier("hashedCredentialsMatcher") HashedCredentialsMatcher matcher){
         DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
-        securityManager.setRealm(userRealm);
-        //注入记住我管理器;
-        securityManager.setRememberMeManager(rememberMeManager());
+        securityManager.setRealm(getRealm(matcher));
+//        //注入记住我管理器;
+//        securityManager.setRememberMeManager(rememberMeManager());
         return securityManager;
     }
 
 
-
-
     /**
-     * 创建Realm
-     */
-    @Bean(name = "userRealm")
-    public UserRealm getRealm(){
-        return new UserRealm();
-    }
-
-
-    /**
-     * cookie对象;
+     * 密码匹配凭证管理器
+     *
      * @return
      */
-    public SimpleCookie rememberMeCookie(){
-        //这个参数是cookie的名称，对应前端的checkbox的name = rememberMe
-        SimpleCookie simpleCookie = new SimpleCookie("rememberMe");
-        //<!-- 记住我cookie生效时间30天 ,单位秒;-->
-        simpleCookie.setMaxAge(2592000);
-        return simpleCookie;
+    @Bean(name = "hashedCredentialsMatcher")
+    public HashedCredentialsMatcher hashedCredentialsMatcher() {
+        HashedCredentialsMatcher hashedCredentialsMatcher = new HashedCredentialsMatcher();
+        // 采用MD5方式加密
+        hashedCredentialsMatcher.setHashAlgorithmName("MD5");
+        // 设置加密次数
+        hashedCredentialsMatcher.setHashIterations(1024);
+        return hashedCredentialsMatcher;
     }
-    /**
-     * cookie管理对象;记住我功能
-     * @return
-     */
-    public CookieRememberMeManager rememberMeManager(){
-        CookieRememberMeManager cookieRememberMeManager = new CookieRememberMeManager();
-        cookieRememberMeManager.setCookie(rememberMeCookie());
-        //rememberMe cookie加密的密钥 建议每个项目都不一样 默认AES算法 密钥长度(128 256 512 位)
-        cookieRememberMeManager.setCipherKey(Base64.decode("3AvVhmFLUs0KTA3Kprsdag=="));
-        return cookieRememberMeManager;
-    }
+
+
+
+
+
+
+
+
+//    /**
+//     * cookie对象;
+//     * @return
+//     */
+//    public SimpleCookie rememberMeCookie(){
+//        //这个参数是cookie的名称，对应前端的checkbox的name = rememberMe
+//        SimpleCookie simpleCookie = new SimpleCookie("rememberMe");
+//        //<!-- 记住我cookie生效时间30天 ,单位秒;-->
+//        simpleCookie.setMaxAge(2592000);
+//        return simpleCookie;
+//    }
+//    /**
+//     * cookie管理对象;记住我功能
+//     * @return
+//     */
+//    public CookieRememberMeManager rememberMeManager(){
+//        CookieRememberMeManager cookieRememberMeManager = new CookieRememberMeManager();
+//        cookieRememberMeManager.setCookie(rememberMeCookie());
+//        //rememberMe cookie加密的密钥 建议每个项目都不一样 默认AES算法 密钥长度(128 256 512 位)
+//        cookieRememberMeManager.setCipherKey(Base64.decode("3AvVhmFLUs0KTA3Kprsdag=="));
+//        return cookieRememberMeManager;
+//    }
 
 
 }

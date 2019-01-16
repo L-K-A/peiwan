@@ -1,4 +1,4 @@
-package com.myz.shirodemo.common.utils;
+package com.peiwan.common.utils;
 
 import java.util.UUID;
 
