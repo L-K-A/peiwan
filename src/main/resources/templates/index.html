@@ -1098,25 +1098,10 @@
             data: {
                 curPage: curr || 1
                 //pageNum: 10,
-                //personNickname: $("#personNickname").val()
             },
             success: function (msg) {
-                app.result = msg.data;
-                /*laypage({
-                    cont: 'pagenav', //容器
-                    pages: msg.totalPage,
-                    first: '首页',
-                    last: '尾页',
-                    skin: '#00A0E9',
-                    curr: curr || 1,
-                    jump: function (obj, first) {
-                        if (!first) {
-                            getUserPageList(obj.curr);
-                        }
-                    }
-                });*/
+                app.result = msg.personList;
             }
-
         });
     };
 

@@ -18,14 +18,10 @@ import java.util.Map;
  */
 public interface ZYFService extends IService<PPerson> {
 
-    //登录时根据用户名和密码查询是否存在
-    PPerson selectPersonByNameAndPwd(PPerson person);
-
     //查询主播列表
     Page<Map<String,Object>> selectPersonList(int curPage);
 
-
-    //根据昵称和id查询
+    //导航栏根据昵称和Id模糊查询
     List<Map<String,Object>> selectPersonByNameId(PPerson person);
 
     //热度榜查询主播订单数：先按照订单数排序，再查询主播详细信息

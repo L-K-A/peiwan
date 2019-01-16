@@ -23,29 +23,21 @@ import java.util.Map;
 public class ZYFServiceImpl extends ServiceImpl<ZYFMapper, PPerson> implements ZYFService {
 
     @Resource
-    private ZYFMapper attentionMapper;
+    private ZYFMapper zyfMapper;
 
-    //登录时根据用户名和密码查询是否存在
-    @Override
-    public PPerson selectPersonByNameAndPwd(PPerson person) {
-        PPerson people = attentionMapper.selectPersonByNameAndPwd(person);
-        return people;
-    }
 
     //查询主播列表
     @Override
     public Page<Map<String, Object>> selectPersonList(int curPage) {
         Page<Map<String,Object>> page = new Page<Map<String,Object>>();
         Page<Map<String, Object>> mapPage = page.setRecords(this.baseMapper.selectPersonPage(curPage));
-        System.out.println("service:"+mapPage);
         return mapPage;
     }
 
-
-    //根据昵称和id查询
+    //导航栏根据昵称和Id模糊查询
     @Override
     public List<Map<String,Object>> selectPersonByNameId(PPerson person) {
-        List<Map<String, Object>> maps = attentionMapper.selectPersonByNameAndId(person);
+        List<Map<String, Object>> maps =zyfMapper.selectPersonByNameAndId(person);
         return maps;
     }
 
@@ -54,17 +46,14 @@ public class ZYFServiceImpl extends ServiceImpl<ZYFMapper, PPerson> implements Z
     public Page<Map<String, Object>> selectPersonOrder(int curPage) {
         Page<Map<String,Object>> page = new Page<Map<String,Object>>();
         Page<Map<String, Object>> orderList = page.setRecords(this.baseMapper.selectOrderList(curPage));
-        System.out.println("service:"+orderList);
         return orderList;
     }
 
-
-
-    public ZYFMapper getAttentionMapper() {
-        return attentionMapper;
+    public ZYFMapper getZyfMapper() {
+        return zyfMapper;
     }
 
-    public void setAttentionMapper() {
-        this.attentionMapper = attentionMapper;
+    public void setZyfMapper(ZYFMapper zyfMapper) {
+        this.zyfMapper = zyfMapper;
     }
 }

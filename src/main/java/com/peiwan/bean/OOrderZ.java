@@ -26,7 +26,7 @@ import javax.persistence.Table;
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@TableName("o_order_z")
+@TableName("t_order_z")
 public class OOrderZ implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -46,6 +46,11 @@ public class OOrderZ implements Serializable {
      * 用户姓名
      */
     private String personName;
+
+    /**
+     * 服务id
+     */
+    private Integer gId;
 
     /**
      * 服务类型=板块名
@@ -76,6 +81,16 @@ public class OOrderZ implements Serializable {
      * 订单对应标识
      */
     private Integer oFlate;
+
+    /**
+     * 订单对应标识
+     */
+    private String oStarttime;
+
+    /**
+     * 订单对应标识
+     */
+    private String oDatetime;
 
 
 }

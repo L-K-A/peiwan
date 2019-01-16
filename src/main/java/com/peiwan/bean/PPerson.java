@@ -23,7 +23,7 @@ import javax.persistence.Column;
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@TableName("p_person")
+@TableName("t_person")
 public class PPerson implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -50,6 +50,11 @@ public class PPerson implements Serializable {
     private String personPwd;
 
     /**
+     * 密码加密
+     */
+    private String personPwdencry;
+
+    /**
      * 电话
      */
     private String personTel;
@@ -60,9 +65,9 @@ public class PPerson implements Serializable {
     private String personSex;
 
     /**
-     * 年龄
+     * 出生日期
      */
-    private Integer personAge;
+    private Integer personBirthday;
 
     /**
      * qq
@@ -105,6 +110,11 @@ public class PPerson implements Serializable {
     private String personCareer;
 
     /**
+     * 学校
+     */
+    private String personSchool;
+
+    /**
      * 兴趣
      */
     private String personInterest;
@@ -115,19 +125,24 @@ public class PPerson implements Serializable {
     private String personCoverphoto;
 
     /**
-     * 服务描述
-     */
-    private String personServicedescription;
-
-    /**
      * 创建时间
      */
     private String personCreatetime;
 
     /**
+     * 成为主播时间
+     */
+    private String personBecometime;
+
+    /**
      * 标识(0用户1主播2)
      */
     private Integer personFlate;
+
+    /**
+     * 用户申请状态
+     */
+    private Integer personStatus;
 
     /**
      * 登录时间

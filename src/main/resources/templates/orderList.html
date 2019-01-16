@@ -72,7 +72,7 @@
                 curPage: curr | 1
             },
             success: function (msg) {
-                app.result = msg.data;
+                app.result = msg.orderCountList;
                 laypage({
                     cont: 'pagenav', //容器
                     pages: msg.totalPage,
@@ -93,9 +93,6 @@
 
     getUserPageList();
 
-    /*$("#findUser").click(function () {
-        getUserPageList();
-    });*/
 
 
 
