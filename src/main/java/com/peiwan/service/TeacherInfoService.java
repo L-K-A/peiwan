@@ -26,12 +26,12 @@ public interface TeacherInfoService {
     Integer insertAttention(Integer pid, Integer zid);
 
     /*查询导师当前评分*/
-    double selectAvg(Integer zid);
+    Integer selectAvg(Integer zid );
 
     /*获取主播的多个服务类型*/
     List<Map<String,Object>> selectZhuboService(Integer zid);
 
     /*依据 zid  gid   获取主播的  服务 的 段位 价格*/
-    Map<String,Object> selectZhudp(Integer zid);
+    Map<String,Object> selectZhudp(Integer zid ,Integer pageNum);
 
 }

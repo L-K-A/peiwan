@@ -5,6 +5,7 @@
  */
 //游戏tab
 
+var usqls=1111;
 /*获取URL中的参数 查询导师信息  获取到Url里面的参数*/
 function GetQueryString(name) {
     var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
@@ -33,7 +34,7 @@ var gitTeacherInfo = function () {
     $.ajax({
         type: 'POST',
         dataType: 'json',
-        /*async:true,*/
+        async:false,
         url: "/teacherPage/getInfo",
         data: {
             "pid": 1,
@@ -42,6 +43,7 @@ var gitTeacherInfo = function () {
         success: function (data) {
             /*console.log(data);*/
             app.result = data.pperson;
+            usqls= data.pperson.personWeight
         }
     });
 };
@@ -98,24 +100,39 @@ var zhuservices = function () {
 };
 zhuservices();
 
-/*获取订单 服务 自诉 等内容 右下角*/
-var zhuboOrder =function(pid,gid){
+/*获取订单 服务 自述 评论 等内容 右下角*/
+var zhuboOrder =function(pid,gid,curr){
     $.ajax({
         type: 'POST',
         dataType: 'json',
         url: "/teacherPage/selectZhudp",
         data: {
             "zid": 1,
+            pageNum:curr || 1,
         },
         success: function (pingord) {
             console.log(1111+pingord);
-            touxiang.serviceInfo=pingord;
+
+            touxiang.serviceInfo=pingord.zuiduodenei;
+            tab('.zubo-cont .right-tab .rightTab-nav','.zubo-cont .right-tab .rightTab-cont-box','playActive')
+            /*laypage({
+                cont:'pagenav',
+                /!*pages:pingord.content.pages,*!/
+                first:'首页',
+                last:'尾页',
+                curr:curr || 1,
+                jump:function (obj,first) {
+                    if (!first){
+                        pinglun(pid,gid,obj.curr);
+                    }
+                }
+            });*/
         }
     });
 };
 zhuboOrder();
 
-/*请求类型遍历*/
+/* 暂时不用     请求评论类型遍历*/
 var pinglun = function (pid,gid,curr) {
     $.ajax({
         type: 'POST',
@@ -145,7 +162,6 @@ var pinglun = function (pid,gid,curr) {
         }
     });
 };
-pinglun();
 /*分享的  以及弹出层*/
 var editEvent = function (id) {
     layer.open({
@@ -173,11 +189,17 @@ var getLike = function () {
             "pid": 1,
             "zid": 5,
         },
-        success: function (data) {
-            /*console.log(data);*/
+        success: function (msg) {
+            if(msg > 0){
+                $(".guanzhubian").html("已关注")
+            }else{
+                $(".guanzhubian").html("关注")
+            }
+
         }
     });
 };
+getLike();
 //游戏tab切换
 function tab(tabDot,tabCont,cla){
     var tabDotItem=$(tabDot);
@@ -190,12 +212,11 @@ function tab(tabDot,tabCont,cla){
 
     tabDotItem.on('click','div',function(){
       var index=$(this).index();
-      console.log(index)
       tabContList.eq(index).show().siblings().hide();
       $(this).addClass(cla).siblings().removeClass(cla);
     })
 }
-tab('.zubo-cont .right-tab .rightTab-nav','.zubo-cont .right-tab .rightTab-cont-box','playActive')
+// tab('.zubo-cont .right-tab .rightTab-nav','.zubo-cont .right-tab .rightTab-cont-box','playActive')
 //左侧礼物tab
 tab('.zubo-cont .giftTab .tabDot','.zubo-cont .giftTab .tabCont','giftActive')
 
@@ -223,3 +244,4 @@ function titleAnimate(){
     },1000)
   },1000)
 }
+console.log(usqls);

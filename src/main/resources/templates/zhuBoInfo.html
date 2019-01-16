@@ -23,9 +23,8 @@
             </div>
             <div class="title-info">
                 <div class="name">{{result.personNickname}}</div>
-                <img class="test" src="images/8.gif">
-                <div class="credit">信用值：{{result.personWeight}}
-                    <img class="test" src="images/8.gif">
+                <div class="credit">信用值：<img :src="'./picture/xinyongTu/charm'+result.personWeight+'.png'"  class="image" alt="">
+
                     <!--<img :src="'/picture/xiyongTu/charm_'+result.personWeight+'.png'">-->
                 </div>
             </div>
@@ -36,14 +35,14 @@
                 </div>
             </div>
             <div class="zubo-other">
-                <div class="wechart">微信下单</div>
+                <div class="wechart"></div>
                 <div class="share">
-                    <i></i>
+                    <i><img src="/images/share.png" alt=""></i>
                     <span><a href="#" @click="editEvent()">分享</a></span>
                 </div>
-                <div class="like">
-                    <i></i>
-                    <span><a href="#" @click="getLike()">关注</a></span>
+                <div class="like" @click="getLike()">
+                    <i><img src="/images/follow.png" alt=""></i>
+                    <span><a href="#" class="guanzhubian">关注</a></span>
                 </div>
                 <span class="age">
           <i></i>&nbsp;&nbsp;{{result.personBirthday}}<!--年龄-->
@@ -342,26 +341,26 @@
                 </div>
 
                 <div class="rightTab-cont" >
-                    <div class="rightTab-cont-box">
+                    <div class="rightTab-cont-box" >
 
-                        <div class="onlineLol" v-for="(items,index) in services " >
+                        <div class="onlineLol"  v-for="(ite,index) in serviceInfo">
                             <div class="lol-head">
                                 <div class="left">
                                     <div class="radio">
                                         <img src="/picture/lol.png" alt="">
                                     </div>
                                     <div class="Lol-meta">
-                                        <div class="name">{{items.g_name}}</div>
-                                        <div class="garde">{{items.g_duanwei}}</div>
+                                        <div class="name">{{ite.g_name}}</div>
+                                        <div class="garde">{{ite.g_duanwei}}</div>
                                         <div class="order-btn">
                                             <img src="picture/order_btn.png" alt="">
-                                            <span>接单次数:{{items.countoid}}次</span>
+                                            <span>接单次数:{{ite.countdan}}次</span>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="right">
                                     <div class="price">
-                                        <span>￥{{items.g_price}}</span>/小时
+                                        <span>￥{{ite.g_price}}</span>/小时
                                     </div>
                                     <div class="order">下单约她</div>
                                 </div>
@@ -372,13 +371,13 @@
                                     <span>/INTRODUCE</span>
                                 </div>
                                 <P class="intro-info">
-                                    {{serviceInfo.g_content}}
+                                    {{ite.g_content}}
                                 </P>
                             </div>
                             <div class="lol-comments">
                                 <div class="comm-title">
                                     <div class="comm">评价<span>/COMMENTARIES</span></div>
-                                    <div class="gard">评分:<span>{{serviceInfo.pingjiafen}}</span></div>
+                                    <div class="gard">评分:<span>{{ite.pingjiafen}}</span></div>
                                 </div>
                                 <div class="comm-body">
                                     <div class="comm-lebal">
@@ -390,16 +389,16 @@
                                     </div>
                                     <ul class="comm-item">
 
-                                        <li v-for="(item,index) in contentList">
+                                        <li v-for="(reco,index) in ite.IPage.records">
                                             <div class="comm-info">
                                                 <img src="https://uc.tuwan.com/images/noavatar_2.jpg" alt=""
                                                      class="author-pic">
                                                 <div>
                                                     <div>
-                                                        <span class="name">{{item.person_nickname}}</span>
-                                                        <span class="reply-time">{{item.c_createtime}}</span>
+                                                        <span class="name">{{reco.person_nickname}}</span>
+                                                        <span class="reply-time">{{reco.c_createtime}}</span>
                                                     </div>
-                                                    <p class="comm-cont">{{item.c_context}}</p>
+                                                    <p class="comm-cont">{{reco.c_context}}</p>
                                                 </div>
                                             </div>
                                             <div class="stars">
@@ -415,6 +414,7 @@
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>

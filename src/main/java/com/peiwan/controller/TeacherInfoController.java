@@ -1,5 +1,6 @@
 package com.peiwan.controller;
 
+import com.alibaba.druid.sql.ast.expr.SQLCaseExpr;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 
 import com.peiwan.bean.PComment;
@@ -57,7 +58,7 @@ public class TeacherInfoController {
         return integer;
     }
 
-    /*获取主播的评价  分数 */
+    /*获取主播的评价分数 */
     @RequestMapping("/getCommentavg")
     public double getComment(Integer zid) {
         double avg = teacherInfoService.selectAvg(zid);
@@ -76,8 +77,8 @@ public class TeacherInfoController {
 
     /*依据 zid  gid   获取主播的  指定服务 的 段位 价格 服务介绍   服务次数*/
     @RequestMapping("/selectZhudp")
-    public Map<String, Object> selectZhudp(Integer zid) {
-        Map<String, Object> map = teacherInfoService.selectZhudp(zid);
+    public Map<String, Object> selectZhudp(Integer zid,Integer pageNum) {
+        Map<String, Object> map = teacherInfoService.selectZhudp(zid,pageNum);
         return map;
     }
 

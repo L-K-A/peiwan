@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -48,7 +49,7 @@ public class TeacherInfoServiceImpl implements TeacherInfoService {
         String s1 = String.valueOf(age);
         pPerson.setPersonBirthday(s1);
         /*获取主播评分   暂存person_qq*/
-        double v = this.selectAvg(pid);
+        Integer v = this.selectAvg(pid);
         String s2 = String.valueOf(v);
         pPerson.setPersonWeight(s2);
         return pPerson;
@@ -87,12 +88,32 @@ public class TeacherInfoServiceImpl implements TeacherInfoService {
         return 0;
     }
 
-    /*获取主播当前评分*/
+    /*获取主播全部评分的平均分  */
     @Override
-    public double selectAvg(Integer zid) {
+    public Integer selectAvg(Integer zid) {
         double selectavg = teacherInfoMapper.selectavg(zid);
-        return selectavg;
+        Integer zong = teacherInfoMapper.countzongdan(zid);
+        if (zong != null && zong < 20) {
+            return 0;
+        } else if ((zong * 0.6 + selectavg * 0.4) >= 12 && (zong * 0.6 + selectavg * 0.4) < 40) {
+            return 1;
+        } else if ((zong * 0.6 + selectavg * 0.4) >= 40 && (zong * 0.6 + selectavg * 0.4) < 60) {
+            return 2;
+        } else if ((zong * 0.6 + selectavg * 0.4) >= 60 && (zong * 0.6 + selectavg * 0.4) < 80) {
+            return 3;
+        } else if ((zong * 0.6 + selectavg * 0.4) >= 80 && (zong * 0.6 + selectavg * 0.4) < 100) {
+            return 4;
+        } else if ((zong * 0.6 + selectavg * 0.4) >= 100 && (zong * 0.6 + selectavg * 0.4) < 120) {
+            return 5;
+        } else if ((zong * 0.6 + selectavg * 0.4) >= 120 && (zong * 0.6 + selectavg * 0.4) < 140) {
+            return 6;
+        } else if ((zong * 0.6 + selectavg * 0.4) >= 140 && (zong * 0.6 + selectavg * 0.4) < 180) {
+            return 7;
+        } else {
+            return 8;
+        }
     }
+
 
     /*获取主播服务类型*/
     @Override
@@ -103,14 +124,29 @@ public class TeacherInfoServiceImpl implements TeacherInfoService {
 
     /*依据 zid   获取主播的  指定服务 的游戏 段位 价格 描述 评价g_name,g_price,g_duanwei,g_content*/
     @Override
-    public Map<String,Object> selectZhudp(Integer zid) {
-        List<Map<String,Object>> map = teacherInfoMapper.selectZhudp(zid);
-        Map<String, Object> map1 = new HashMap<>();
-        double pingjiafen = teacherInfoMapper.selectavg(zid);
-        map1.put("mapList",map);
-        /*封入平价分*/
-        map1.put("pingjiafen",pingjiafen);
-        return map1;
+    public Map<String,Object> selectZhudp(Integer zid, Integer pageNum) {
+        Map<String, Object> map= new HashMap<>();
+        List<Map<String,Object>> list = teacherInfoMapper.selectZhudp(zid);
+        for (Map<String, Object> st : list) {
+            Integer gid =(Integer)st.get("gid");
+            System.out.println("gid="+gid);
+            /*接单次数*/
+            Integer countdan = teacherInfoMapper.countdan(zid, gid);
+            st.put("countdan",countdan);
+            Double pingjiafen = teacherInfoMapper.selectfuwuavg(zid,gid);
+            System.out.println("评分"+pingjiafen);
+            /*封入平价分*/
+            st.put("pingjiafen",pingjiafen);
+            /*评论分页*/
+            PComment ppc = new PComment();
+            Integer pageSize=2;
+            Page<Map<String, Object>> p = new Page<Map<String, Object>>(pageNum, pageSize);
+            p.setRecords(teacherInfoMapper.selectPageExt(p, ppc,zid,gid));
+            p.getRecords();
+            st.put("IPage",p);
+        }
+        map.put("zuiduodenei",list);
+        return map;
     }
 
 

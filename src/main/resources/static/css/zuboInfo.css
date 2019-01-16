@@ -1,6 +1,5 @@
 body{
     background: url('../images/women.jpg');
-   
 }
 img{
     display: block;
@@ -30,6 +29,7 @@ img{
 .zubo-title .title-meta{
     display: flex;
 }
+
  .zubo-title .title-meta .zuboImg img{
     display: inline-block;
     width: 80px;
@@ -37,20 +37,26 @@ img{
     border-radius: 50%;
     margin-right: 10px;
 }
-.zubo-title .title-info .test{
-    width: 76px;
-    height:17px;
+.zubo-title .title-info{
+    margin-left: 5px;
+    width: 150px;
+    height:80px;
+}
+.zubo-title .title-info .name{
+    margin-top: 13px;
 }
 .zubo-title .title-info .credit{
+    margin-top: 5px;
    color:#999999;
    font-size: 14px;
 }
 .zubo-title .title-info .credit img{
     width: 72px;
     height:25px;
+    display: inline;
 }
 
-.zubo-title  .zubo-giftBox{
+.zubo-title .zubo-giftBox{
     width: 400px;
     height:78px;
     margin-left: 260px;
@@ -75,21 +81,23 @@ img{
     color:#ff593e;
 }
 .zubo-title .zubo-other{
-    width: 265px;
-    height:83px;
+    width: 290px;
+    height:85px;
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-end;
 }
 .zubo-title .zubo-other div{
-    width: 73px;
-    height: 28px;
+    margin-top: 2px;
+    width: 80px;
+    height: 30px;
+    border-radius: 3px;
     line-height: 28px;
     text-align: center;
 }
 .zubo-title .zubo-other .wechart{
-    border: 1px solid #3eb135;
-    color:#3eb135;
+    /*border: 1px solid #3eb135;
+    color:#3eb135;*/
 }
 .zubo-title .zubo-other .share{
     border: 1px solid #ff593e;
@@ -461,7 +469,6 @@ img{
     padding: 30px;
     /*border:1px solid red;*/
      float:left;
-    /* border:1px solid red; */
 }
 .zubo-cont .rightTab-cont .onlineLol .lol-head{
      display: flex;
