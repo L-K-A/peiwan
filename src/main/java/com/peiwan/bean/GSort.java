@@ -1,5 +1,4 @@
 package com.peiwan.bean;
-
 import java.io.Serializable;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
