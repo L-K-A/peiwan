@@ -1,9 +1,7 @@
 package com.peiwan.serviceimpl;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.peiwan.bean.GService;
-import com.peiwan.bean.GSortDuanwei;
 import com.peiwan.dao.ClassifyMapper;
 import com.peiwan.service.ClassifyService;
 import org.springframework.stereotype.Service;

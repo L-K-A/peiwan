@@ -239,6 +239,12 @@ i {
     cursor: pointer;
     background-color: #fff;
 }
+.grade_icon_add{
+    /*width:40px;
+    height:30px;*/
+    background-color: #fa6543!important;
+    color: #fff;
+}
 
 .grade_icon:hover, .grade_icon_add, .sort_nav:hover, .sort_nav_add {
     background-color: #fa6543;

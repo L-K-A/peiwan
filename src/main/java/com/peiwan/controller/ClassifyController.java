@@ -1,17 +1,10 @@
 package com.peiwan.controller;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.peiwan.bean.GService;
-import com.peiwan.bean.GSortDuanwei;
 import com.peiwan.service.ClassifyService;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
-
 import javax.annotation.Resource;
 import java.util.HashMap;
 import java.util.List;

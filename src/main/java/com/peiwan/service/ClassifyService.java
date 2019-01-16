@@ -1,9 +1,6 @@
 package com.peiwan.service;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.peiwan.bean.GService;
-import com.peiwan.bean.GSortDuanwei;
-
 import java.util.List;
 import java.util.Map;
 

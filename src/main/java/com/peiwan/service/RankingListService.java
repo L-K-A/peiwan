@@ -1,5 +1,8 @@
 package com.peiwan.service;
 
+import java.util.List;
+import java.util.Map;
+
 /**
  * @Author: 秦世昌
  * @Despriction:
@@ -7,4 +10,8 @@ package com.peiwan.service;
  * @Modify by:
  */
 public interface RankingListService {
+
+
+    List<Map<String,Object>> getHotRanking(Map map);
+
 }

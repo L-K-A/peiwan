@@ -322,37 +322,30 @@
         <div class="nav_title_bottom fl">等级分类</div>
         <div v-for="item in grades" class="fl" style="display:inline-block">
             <div class="fl mt18 ml13" style="width: 90px;height: 36px;text-align: center;line-height: 36px"
-                 v-on:click="clickfun()">{{item.g_dw}}
-            </div>
+                 v-on:click="clickfun()">{{item.g_dw}}</div>
         </div>
         <div class="clearfix"></div>
     </div>
     <!-- 性别 -->
     <div id="sex">
         <div class="nav_title_bottom fl">导师性别</div>
-        <span>
-            <div class="fl grade_icon grade_sex grade_icon_add">全部</div>
-        </span>
-        <span>
-            <div class="fl grade_icon grade_sex">女神</div>
-        </span>
-        <span>
-            <div class="fl grade_icon grade_sex">男神</div>
-        </span>
+        <div class="sex-box">
+            <div class="fl grade_icon grade_sex grade_icon_add">全部
+            </div>
+            <div class="fl grade_icon grade_sex">女神
+            </div>
+            <div class="fl grade_icon grade_sex">男神
+            </div>
+        </div>
+
         <div class="clearfix"></div>
     </div>
 </div>
 <!-- 综合、热门、新人排序 -->
 <div class="sort_nav_box" id="sorts">
-    <span>
-        <div class="fl sort_nav sort_nav_add" id="sort">综合排序</div>
-    </span>
-    <span>
-        <div class="fl sort_nav" id="hot">热门</div>
-    </span>
-    <span>
-        <div class="fl sort_nav" id="newest">新人</div>
-    </span>
+    <div class="fl sort_nav sort_nav_add" id="sort">综合排序</div>
+    <div class="fl sort_nav" id="hot">热门</div>
+    <div class="fl sort_nav" id="newest">新人</div>
     <div class="clearfix"></div>
 </div>
 <!-- 信息展示 -->
@@ -396,21 +389,35 @@
         </a>
         <div id="pagenav" style="margin: 0px 350px 20px 350px;width: 360px;text-align: center"></div>
     </div>
-    <div class="list_right_box fr">
+    <div class="list_right_box fr" id="Rank">
         <div class="cv-rank-area">
             <div class="cv-rank">
                 <div class="cv-rank-head">
                     <span>热度榜</span>
-                    <ul class="sub-nav">
+                    <ul class="sub-nav" id="hotClick">
                         <li><a href="javascript:;" rela="week" data-index="2" class="on sub-nav-call">7天</a></li>
                         <li><a href="javascript:;" rela="month" data-index="3" class="sub-nav-call">30天</a></li>
                     </ul>
                 </div>
             </div>
             <div class="cv-rank-box">
-                <div class="cv-rank-list" id="cv-rank-call" data-index="1" style="opacity: 1;display: block;">
-                </div>
+                <!--<div class="cv-rank-list" id="cv-rank-call" data-index="1" style="opacity: 1;display: block;">
+                </div>-->
                 <div class="cv-rank-list" id="cv-rank-call2" data-index="1" style="opacity: 1;display: block;">
+                    <dl class="first" v-for="item in hotrank">
+                        <dt>
+                            <a href="'http://localhost:8080/fenlei/?gid='+item.gid">
+                                <img :src="'./imgupload/'+item.person_image">
+                                <span class="avatar-mask"></span>
+                            </a>
+                        </dt>
+                        <dd>
+                            <h3 class="name">
+                                <a href="'http://localhost:8080/fenlei/?gid='+item.gid">{{item.person_nickname}}</a>
+                            </h3>
+                            <p>接单：{{item.pos}}</p>
+                        </dd>
+                    </dl>
                 </div>
             </div>
         </div>
@@ -426,6 +433,20 @@
             </div>
             <div class="cv-rank-box">
                 <div class="cv-rank-list" id="cv-rank-gift" data-index="1" style="opacity: 1;display: block;">
+                    <!--<dl class="first">
+                        <dt>
+                            <a href="'http://localhost:8080/fenlei/?gid='+item.gid">
+                                <img :src="'./imgupload/'+item.person_image">
+                                <span class="avatar-mask"></span>
+                            </a>
+                        </dt>
+                        <dd>
+                            <h3 class="name">
+                                <a href="'http://localhost:8080/fenlei/?gid='+item.gid">{{item.person_nickname}}</a>
+                            </h3>
+                            <p>接单：{{item.pos}}</p>
+                        </dd>
+                    </dl>-->
                 </div>
             </div>
         </div>
@@ -433,7 +454,7 @@
             <div class="cv-rank">
                 <div class="cv-rank-head">
                     <span>富豪榜</span>
-                    <ul class="sub-nav">
+                    <ul class="sub-nav" id="magnateClick">
                         <li><a href="javascript:;" rela="week" data-index="2" class="on sub-nav-rich">7天</a></li>
                         <li><a href="javascript:;" rela="month" data-index="3" class="sub-nav-rich">30天</a></li>
                     </ul>
@@ -441,6 +462,20 @@
             </div>
             <div class="cv-rank-box">
                 <div class="cv-rank-list" id="cv-rank-rich" data-index="1" style="opacity: 1;display: block;">
+                    <!--<dl class="first">
+                        <dt>
+                            <a href="'http://localhost:8080/fenlei/?gid='+item.gid">
+                                <img :src="'./imgupload/'+item.person_image">
+                                <span class="avatar-mask"></span>
+                            </a>
+                        </dt>
+                        <dd>
+                            <h3 class="name">
+                                <a href="'http://localhost:8080/fenlei/?gid='+item.gid">{{item.person_nickname}}</a>
+                            </h3>
+                            <p>接单：{{item.pos}}</p>
+                        </dd>
+                    </dl>-->
                 </div>
             </div>
         </div>
@@ -511,7 +546,12 @@
                 // console.log(gdw);
                 if (gdw == null) {
                     gdw = "黑铁V";
-                }
+                }/*测试添加动画特效未完成
+                $(".fl.mt18.ml13").on('click','div',function () {
+                    $(this).addClass("fl mt18 ml13 grade_icon_add").sibling().removeClass("grade_icon_add")
+                })*/
+                // event.target.addClass("fl mt18 ml13 grade_icon_add").sibling().removeClass("grade_icon_add");
+                //addClass('fl mt18 ml13 grade_icon_add').siblings().removeClass('grade_icon_add');
                 gdw = event.target.innerHTML;
                 // console.log(gdw);
                 // alert(gdw);
@@ -526,6 +566,7 @@
     * 点击导师性别改变性别选项事件
     * */
     $(".fl.grade_icon.grade_sex").click(function () {
+        $(this).addClass('fl grade_icon grade_sex grade_icon_add').siblings().removeClass('grade_icon_add');
         psex = $(".fl.grade_icon.grade_sex").index(this);
         //$(".fl.grade_icon.grade_sex").index(this).className="fl grade_icon grade_sex grade_icon_add";
         /*$(".fl.grade_icon.grade_sex").index(this).hover(function () {
@@ -551,7 +592,6 @@
         getCondition(gid, gdw, psex, sort, hot, newest, curr);
         // console.log("这是psex=" + psex);
 
-
     });
 
     /*测试
@@ -560,8 +600,9 @@
 
 
     /*排序的点击事件，点击过后赋值，向后台调用数据，然后重置三个为空*/
-    $("#sorts span").click(function () {
-        var i = $("#sorts span").index(this);
+    $(".fl.sort_nav").click(function () {
+        $(this).addClass('fl sort_nav sort_nav_add').siblings().removeClass('sort_nav_add');
+        var i = $(".fl.sort_nav").index(this);
         // alert(i);
         switch (i) {
             case 0:
@@ -659,11 +700,11 @@
                     cont: 'pagenav',
                     pages: data.mapPage.pages,
                     skip:true,      //是否开启跳页
-                    first: '<<',
-                    last: '>>',
                     skin:'molv',    //加载内置皮肤
                     prev:'<',
                     next:'>',
+                    first: '<<',
+                    last: '>>',
                     curr: curr || 1,
                     jump: function (obj, first) {
                         if (!first) {
@@ -692,9 +733,100 @@
     });
 
 
+
+
+
 </script>
 
 <script>
+
+
+    var hotday = null;     //热度榜的天数
+    var magnateday = null; //富豪榜的天数
+
+    /*排行榜-----------*/
+    /*var rank = new Vue({
+        el: '#Rank',
+        data: {
+            hotrank: [],
+            magnate: []
+        }
+    });*/
+    var rank =new Vue({
+        el:'#Rank',
+        data:{
+            hotrank:[]
+        }
+    });
+
+
+    $("#hotClick li").click(function () {
+        hotday = $("#hotClick li").index(this);
+        switch (hotday) {
+            case 0:
+                hotday=7;
+                break;
+            case 1:
+                hotday=30;
+                break;
+            default:
+                hotday=7;
+                break;
+        }
+        console.log("hoday="+hotday);
+        getHotRank(gid,hotday);
+    });
+
+    $("#magnateClick li").click(function () {
+        magnateday = $("#magnateClick li").index(this);
+        switch (magnateday) {
+            case 0:
+                magnateday=7;
+                break;
+            case 1:
+                magnateday=30;
+                break;
+            default:
+                magnateday=7;
+                break;
+        }
+        alert(magnateday);
+        console.log("magnateday="+magnateday);
+    });
+
+
+    /*热度排行榜*/
+    var getHotRank = function (gid,hotday) {
+        $.ajax({
+            type: 'POST',
+            dataType: 'json',
+            async: true,
+            url: '/gethotrank',
+            data: {
+                gid: gid,
+                hotday:hotday
+            },
+            success: function (data) {
+                console.log(data);
+                alert(gid);
+                rank.hotrank = data.hotRank;
+            }
+        });
+
+    };
+
+
+</script>
+
+<script>
+    /*var dom=$('.nav_center_box #sex .sex-box');
+    var domChild=dom.children('div');
+    dom.on('click','div',function(){
+        console.log($(this).index());
+        $(this).addClass('fl grade_icon grade_sex grade_icon_add').siblings().removeClass('fl grade_icon grade_sex grade_icon_add');
+    })*/
+
+
 
     /* onmouseover="changediv('t')" onmouseout="changediv('f')*/
 
