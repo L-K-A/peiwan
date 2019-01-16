@@ -2,26 +2,14 @@ package com.peiwan.controller;
 
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.peiwan.Utils.baseCoverString;
-import com.peiwan.bean.AAttention;
-import com.peiwan.bean.GService;
-import com.peiwan.bean.PAlity;
-import com.peiwan.bean.PPerson;
-import com.peiwan.dao.AAttentionMapper;
-import com.peiwan.service.AAttentionService;
-import io.micrometer.core.ipc.http.HttpSender;
-import jdk.management.resource.internal.inst.SocketOutputStreamRMHooks;
-import jdk.nashorn.internal.ir.RuntimeNode;
-import org.omg.CORBA.Request;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.actuate.trace.http.HttpTrace;
-import org.springframework.context.annotation.Configuration;
+import com.peiwan.bean.TAlity;
+import com.peiwan.bean.TPerson;
+import com.peiwan.bean.TService;
+import com.peiwan.dao.LxqUserInfoMapper;
+import com.peiwan.service.LxqUserInfoService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import sun.misc.BASE64Decoder;
 
 import javax.annotation.Resource;
@@ -41,19 +29,19 @@ import java.util.Random;
  * @since 2019-01-02
  */
 @Controller
-public class AAttentionController {
+public class LxqUserInfoController {
 
     @Resource
-    private AAttentionMapper aAttentionMapper;
+    private LxqUserInfoMapper lxqUserInfoMapper;
 
     @Resource
-    private AAttentionService aAttentionService;
+    private LxqUserInfoService lxqUserInfoService;
 
-    private PPerson pPerson;
+    private TPerson pPerson;
 
-    private PAlity pAlity;
+    private TAlity pAlity;
 
-    private GService gService;
+    private TService gService;
     @Resource
     private HttpServletRequest request;
 
@@ -67,8 +55,8 @@ public class AAttentionController {
      */
     @RequestMapping("/userinfo")
     public String getlist() {
-        //List list = aAttentionMapper.getAAttentionList();
-        /*List list = aAttentionService.queryAAttentionList();
+        //List list = lxqUserInfoMapper.getAAttentionList();
+        /*List list = lxqUserInfoService.queryAAttentionList();
         System.out.println(list);*/
         return "";
     }
@@ -89,8 +77,8 @@ public class AAttentionController {
     public Map userAttention(int current, int size,int pid) {
 //        Page page=new Page(pageCurrent,pageSize);
         Page<Map<String,Object>> mapPage = new Page(current,size);
-        Page<Map<String, Object>> mappage = mapPage.setRecords(aAttentionMapper.getSelectAttention(mapPage, pid));
-        int a=aAttentionMapper.getSelectAttentionCount();
+        Page<Map<String, Object>> mappage = mapPage.setRecords(lxqUserInfoMapper.getSelectAttention(mapPage, pid));
+        int a= lxqUserInfoMapper.getSelectAttentionCount();
         Map map=new HashMap();
         map.put("result",mappage);
         map.put("count",a);
@@ -107,7 +95,7 @@ public class AAttentionController {
         String[] ua=zid.split(",");
         int a=0;
         for(int i=0;i<ua.length;i++){
-          a += aAttentionMapper.getUpdateAttention(ua[i]);
+          a += lxqUserInfoMapper.getUpdateAttention(ua[i]);
         }
         Map map=new HashMap();
         map.put("result",a);
@@ -120,7 +108,7 @@ public class AAttentionController {
     @RequestMapping("/userorder")
     @ResponseBody
     public Map userOrder(){
-       List list= aAttentionMapper.getSelectOrder();
+       List list= lxqUserInfoMapper.getSelectOrder();
         Map map=new HashMap();
         map.put("result",list);
         return map;
@@ -132,7 +120,7 @@ public class AAttentionController {
     @ResponseBody
     @RequestMapping("/getuserinfo")
     public Map userInfo(int pid){
-        List list=aAttentionMapper.getUserInfo(pid);
+        List list= lxqUserInfoMapper.getUserInfo(pid);
         Map map=new HashMap();
         map.put("results",list);
         return map;
@@ -146,7 +134,7 @@ public class AAttentionController {
      */
     @RequestMapping("/personimg")
     @ResponseBody
-    public Map personImg(@RequestParam("userimage")String userimage,int pid,PPerson pPerson) {
+    public Map personImg(@RequestParam("userimage")String userimage,int pid,TPerson pPerson) {
         Map map=new HashMap();
         String filePath = "C:\\Users\\Administrator\\Desktop\\peiwan\\src\\main\\resources\\static\\imgupload\\" + new Random().nextInt(1000000)+ ".png";
         if (userimage != null) {
@@ -166,9 +154,9 @@ public class AAttentionController {
                 out.close();
                 pPerson.setPid(pid);
                 pPerson.setPersonImage(filePath.substring(74));
-                int a= aAttentionMapper.getUpdateUserImage(pPerson,pid);
+                int a= lxqUserInfoMapper.getUpdateUserImage(pPerson,pid);
                 System.out.println(a);
-                List list=aAttentionMapper.getUserInfo(pid);
+                List list= lxqUserInfoMapper.getUserInfo(pid);
                 map.put("resuls",list);
 
             }catch (Exception e) {
@@ -184,11 +172,35 @@ public class AAttentionController {
      * @return
      */
     @RequestMapping("/updateuserinfo")
-    public String updateUserInfo(PPerson pPerson){
+    public String updateUserInfo(TPerson pPerson){
         System.out.println(pPerson);
         pPerson.setPid(4);
-        aAttentionMapper.getUpdateUserInfo(pPerson);
+        lxqUserInfoMapper.getUpdateUserInfo(pPerson);
         return "redirect:ocenter";
+    }
+    /**
+     * 用户密码检查
+     * @author lxq
+     */
+    @RequestMapping("/checkoutPersonPwd")
+    @ResponseBody
+    public Map checkUserPwd(String personPwd,int  pid){
+        Map map=new HashMap();
+       List list= lxqUserInfoMapper.getSelectUserPwd(personPwd,pid);
+       if(list.size()>0){
+           map.put("result",1);
+       }else {
+           map.put("result",0);
+       }
+       return map;
+    }
+    @ResponseBody
+    @RequestMapping("/updatepersonpwd")
+    public Map updateUserPwd(String personPwd,int pid){
+        Map map=new HashMap();
+       int a= lxqUserInfoMapper.getUpdateUserPwd(personPwd,pid);
+        map.put("result",a);
+        return map;
     }
     /**
      * 消费记录
@@ -216,7 +228,7 @@ public class AAttentionController {
      */
     @PostMapping("/playinfosubmit")
     @ResponseBody
-    public Map sek(String gname,String tag, String organ, MultipartFile himage, PPerson pPerson, PAlity pAlity, GService gService) throws Exception {
+    public Map sek(String gname,String tag, String organ, MultipartFile himage, TPerson pPerson, TAlity pAlity, TService gService) throws Exception {
         //System.out.println(himage.getOriginalFilename());
         int pid = 4;
         /*String filePath = "F:\\upload\\" + himage.getOriginalFilename();*/
@@ -245,12 +257,10 @@ public class AAttentionController {
         //gService.setPid(pid);
         //gService.setGName(gname);
         //System.out.println(pPerson);
-        /*base64转码*/
-        //System.out.println("转码:"+new baseCoverString().baseCoverStr(pPerson.getPersonCoverphoto()));
         /*插入操作*/
-        //aAttentionMapper.getPPersonInsert(pPerson);
-        //aAttentionMapper.getInsertAlity(pAlity);
-        //aAttentionMapper.getInsertGservice(gService);
+        //lxqUserInfoMapper.getPPersonInsert(pPerson);
+        //lxqUserInfoMapper.getInsertAlity(pAlity);
+        //lxqUserInfoMapper.getInsertGservice(gService);
         Map map = new HashMap();
         map.put("succ", 1);
         return map;
@@ -264,7 +274,7 @@ public class AAttentionController {
     @RequestMapping("/checkoutPersonNick")
     @ResponseBody
     public Map checkNickname(String personNickname) {
-        List list = aAttentionMapper.getCheckoutPersonNickname(personNickname);
+        List list = lxqUserInfoMapper.getCheckoutPersonNickname(personNickname);
         if (list.size() > 0) {
             Map map = new HashMap();
             map.put("result", 1);
@@ -322,43 +332,51 @@ public class AAttentionController {
 
     /*get set*/
 
-    public PPerson getpPerson() {
+    public LxqUserInfoMapper getLxqUserInfoMapper() {
+        return lxqUserInfoMapper;
+    }
+
+    public void setLxqUserInfoMapper(LxqUserInfoMapper lxqUserInfoMapper) {
+        this.lxqUserInfoMapper = lxqUserInfoMapper;
+    }
+
+    public LxqUserInfoService getLxqUserInfoService() {
+        return lxqUserInfoService;
+    }
+
+    public void setLxqUserInfoService(LxqUserInfoService lxqUserInfoService) {
+        this.lxqUserInfoService = lxqUserInfoService;
+    }
+
+    public TPerson getpPerson() {
         return pPerson;
     }
 
-    public void setpPerson(PPerson pPerson) {
+    public void setpPerson(TPerson pPerson) {
         this.pPerson = pPerson;
     }
 
-    public PAlity getpAlity() {
+    public TAlity getpAlity() {
         return pAlity;
     }
 
-    public void setpAlity(PAlity pAlity) {
+    public void setpAlity(TAlity pAlity) {
         this.pAlity = pAlity;
     }
 
-    public GService getgService() {
+    public TService getgService() {
         return gService;
     }
 
-    public void setgService(GService gService) {
+    public void setgService(TService gService) {
         this.gService = gService;
     }
 
-    public AAttentionMapper getaAttentionMapper() {
-        return aAttentionMapper;
+    public HttpServletRequest getRequest() {
+        return request;
     }
 
-    public void setaAttentionMapper(AAttentionMapper aAttentionMapper) {
-        this.aAttentionMapper = aAttentionMapper;
-    }
-
-    public AAttentionService getaAttentionService() {
-        return aAttentionService;
-    }
-
-    public void setaAttentionService(AAttentionService aAttentionService) {
-        this.aAttentionService = aAttentionService;
+    public void setRequest(HttpServletRequest request) {
+        this.request = request;
     }
 }

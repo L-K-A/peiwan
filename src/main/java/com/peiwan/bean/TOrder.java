@@ -10,20 +10,25 @@ import lombok.experimental.Accessors;
  * 
  * </p>
  *
- * @author bjlz
- * @since 2019-01-02
+ * @author 
+ * @since 2019-01-16
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-public class OOrderZ implements Serializable {
+public class TOrder implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     /**
-     * 主播id
+     * 用户id
      */
     private Integer pid;
+
+    /**
+     * 主播id
+     */
+    private Integer aid;
 
     /**
      * 订单id
@@ -31,17 +36,17 @@ public class OOrderZ implements Serializable {
     private String oid;
 
     /**
-     * 用户姓名
+     * 服务类型=板块名
+     */
+    private String gid;
+
+    /**
+     * 主播姓名(不用)
      */
     private String personName;
 
     /**
-     * 服务类型=板块名
-     */
-    private String oService;
-
-    /**
-     * 约定时间
+     * 约定时长
      */
     private String oXiadanshijian;
 
@@ -64,6 +69,16 @@ public class OOrderZ implements Serializable {
      * 订单对应标识
      */
     private Integer oFlate;
+
+    /**
+     * 订单开始时间(小时)
+     */
+    private String oStarttime;
+
+    /**
+     * 订单开始日期(年月日)
+     */
+    private String oDatetime;
 
 
 }

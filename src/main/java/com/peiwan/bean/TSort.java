@@ -10,35 +10,35 @@ import lombok.experimental.Accessors;
  * 
  * </p>
  *
- * @author bjlz
- * @since 2019-01-02
+ * @author 
+ * @since 2019-01-16
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-public class CCommodityZ implements Serializable {
+public class TSort implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     /**
-     * 主播id
+     * 板块id
      */
-    private Integer pid;
+    private Integer gid;
 
     /**
-     * 收到礼物钱
+     * 板块名
      */
-    private Double cMonrey;
+    private String gName;
 
     /**
-     * 收到时间
+     * 游戏大区
      */
-    private String cGettime;
+    private String gDaqu;
 
     /**
-     * 对应标识
+     * 游戏段位
      */
-    private Integer cFlate;
+    private String gDuanwei;
 
 
 }

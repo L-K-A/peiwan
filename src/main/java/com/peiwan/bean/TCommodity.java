@@ -10,13 +10,13 @@ import lombok.experimental.Accessors;
  * 
  * </p>
  *
- * @author bjlz
- * @since 2019-01-02
+ * @author 
+ * @since 2019-01-16
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-public class GService implements Serializable {
+public class TCommodity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -26,29 +26,19 @@ public class GService implements Serializable {
     private Integer pid;
 
     /**
-     * 游戏板块id
+     * 礼物钱
      */
-    private Integer gid;
+    private Double cMoney;
 
     /**
-     * 游戏名
+     * 赠送时间
      */
-    private String gName;
+    private String cGivetime;
 
     /**
-     * 游戏大区
+     * 对应标识
      */
-    private String gDaqu;
-
-    /**
-     * 游戏段位
-     */
-    private String gDuanwei;
-
-    /**
-     * 玩家游戏id
-     */
-    private String pGid;
+    private Integer cFlate;
 
 
 }

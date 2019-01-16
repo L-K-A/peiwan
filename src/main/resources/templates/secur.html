@@ -60,7 +60,7 @@
         <div class="layer-cell-close"></div>
         <div class="input_title mb40 mt20">修改密码</div>
         <div class="mb10 input_text" >旧密码<span>（请输入旧密码）</span></div>
-        <input type="password" id="oldpwd"  class="input_box">
+        <input type="password" id="oldpwd"  class="input_box"><span></span>
         <div class="mb10 input_text mt30">新密码<span>（密码长度6-20位）</span></div>
         <input type="password" id="ctl00_mainContent_txt_password" class="input_box">
         <div class="mb10 input_text  mt30">确认新密码<span>（密码长度6-20位）</span></div>
@@ -116,33 +116,59 @@
     });
 
     function changepwd(){
-
-    }
-
-    $("#oldpwd").blur(function () {
-        var oldpwd = $(this).val();
-        var len = oldpwd.length;
-        if (len < 2 ) {
-            alert("昵称过短,至少2字符");
-            $(".sure_box1").attr("disabled", true);
-            return;
-        }else if(len > 10){
-            alert("昵称过长,不得大于10字符");
-            $(".sure_box1").attr("disabled", true);
-            return;
-        }
-
         $.ajax({
-            url: "/checkoutPersonPwd",
+            url: "/updatepersonpwd",
             data:{
-                personPwd:$("#oldpwd").val()
+                personPwd:$("#ctl00_mainContent_txt_password").val(),
+                pid:3
             },
             type: "post",
             dataType: "json",
             success: function (obj) {
-                if (obj.result == 1) {
-                    alert("密码错误");
+                if(obj.result>0){
+                    alert("修改成功");
+                    $("#Modify_password").hide();
+                    window.location.href="/secur";
+                }
+            }
+        })
+    }
+    /*密码长度判断*/
+    $("#ctl00_mainContent_txt_password").blur(function () {
+        var password1 = $(this).val();
+        var len = password1.length;
+        if (len < 6) {
+            alert("昵称过短,至少6个");
+            $(".sure_box1").attr("disabled", true);
+            return;
+        } else if (len > 15) {
+            alert("昵称过长,不得大于15个");
+            $(".sure_box1").attr("disabled", true);
+            return;
+        }
+    });
+    $("#repeatpwd").blur(function () {
+        var pwd1=$("#ctl00_mainContent_txt_password").val();
+        var pwd2=$("#repeatpwd").val();
+        if(pwd2!=pwd1){
+            alert("两次密码不一致。");
+        }
+    })
+    /*原密码判断*/
+    $("#oldpwd").blur(function () {
+        $.ajax({
+            url: "/checkoutPersonPwd",
+            data:{
+                personPwd:$("#oldpwd").val(),
+                pid:3
+            },
+            type: "post",
+            dataType: "json",
+            success: function (obj) {
+                if (obj.result == 0) {
+                   alert("原密码错误,重试!");
                     $(".sure_box1").attr("disabled", true);
+                    /*$(".sure_box1").attr("disabled", true);*/
                 }
             }
         });

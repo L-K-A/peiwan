@@ -10,13 +10,13 @@ import lombok.experimental.Accessors;
  * 
  * </p>
  *
- * @author bjlz
- * @since 2019-01-02
+ * @author 
+ * @since 2019-01-16
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-public class XConsume implements Serializable {
+public class TComment implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -26,24 +26,39 @@ public class XConsume implements Serializable {
     private Integer pid;
 
     /**
+     * 主播id
+     */
+    private Integer zid;
+
+    /**
      * 订单id
      */
-    private Integer oid;
+    private byte[] oid;
 
     /**
-     * 消费id
+     * 板块id
      */
-    private Integer xid;
+    private Integer gid;
 
     /**
-     * 消费金额
+     * 评论id
      */
-    private Double xMoney;
+    private Integer cid;
 
     /**
-     * 消费时间
+     * 评价内容
      */
-    private String xConsumetime;
+    private String cContext;
+
+    /**
+     * 评论时间
+     */
+    private String cCreatetime;
+
+    /**
+     * 评分(好评，中评，差评)
+     */
+    private String cRank;
 
 
 }

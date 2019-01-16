@@ -10,13 +10,13 @@ import lombok.experimental.Accessors;
  * 
  * </p>
  *
- * @author bjlz
- * @since 2019-01-02
+ * @author 
+ * @since 2019-01-16
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-public class OOrder implements Serializable {
+public class TService implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -26,44 +26,44 @@ public class OOrder implements Serializable {
     private Integer pid;
 
     /**
-     * 订单id
+     * 板块id
      */
-    private String oid;
+    private Integer gid;
 
     /**
-     * 主播姓名
+     * 板块名
      */
-    private String personName;
+    private String gName;
 
     /**
-     * 服务类型=板块名
+     * 游戏大区
      */
-    private String oService;
+    private String gDaqu;
 
     /**
-     * 约定时间
+     * 游戏段位
      */
-    private String oXiadanshijian;
+    private String gDuanwei;
 
     /**
-     * 订单留言
+     * 玩家游戏id
      */
-    private String oContent;
+    private String pGid;
 
     /**
-     * 订单金额
+     * 元/小时
      */
-    private Double oMoney;
+    private Double gPrice;
 
     /**
-     * 订单创建时间
+     * 服务介绍
      */
-    private String oCreatetime;
+    private String gServicedescription;
 
     /**
-     * 订单对应标识
+     * 服务类别
      */
-    private Integer oFlate;
+    private Integer gFlate;
 
 
 }
