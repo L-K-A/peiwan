@@ -2,8 +2,8 @@ package com.peiwan.serviceimpl;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.peiwan.bean.TPerson;
-import com.peiwan.dao.ZYFMapper;
-import com.peiwan.service.ZYFService;
+import com.peiwan.dao.ZyfIndexMapper;
+import com.peiwan.service.ZyfIndexService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
@@ -20,10 +20,10 @@ import java.util.Map;
  * @since 2019-01-02
  */
 @Service
-public class ZYFServiceImpl extends ServiceImpl<ZYFMapper, TPerson> implements ZYFService {
+public class ZyfIndexServiceImpl extends ServiceImpl<ZyfIndexMapper, TPerson> implements ZyfIndexService {
 
     @Resource
-    private ZYFMapper zyfMapper;
+    private ZyfIndexMapper zyfIndexMapper;
 
 
     //查询主播列表
@@ -37,7 +37,7 @@ public class ZYFServiceImpl extends ServiceImpl<ZYFMapper, TPerson> implements Z
     //导航栏根据昵称和Id模糊查询
     @Override
     public List<Map<String,Object>> selectPersonByNameId(TPerson person) {
-        List<Map<String, Object>> maps =zyfMapper.selectPersonByNameAndId(person);
+        List<Map<String, Object>> maps =zyfIndexMapper.selectPersonByNameAndId(person);
         return maps;
     }
 
@@ -58,12 +58,11 @@ public class ZYFServiceImpl extends ServiceImpl<ZYFMapper, TPerson> implements Z
     }
 
 
-
-    public ZYFMapper getZyfMapper() {
-        return zyfMapper;
+    public ZyfIndexMapper getZyfIndexMapper() {
+        return zyfIndexMapper;
     }
 
-    public void setZyfMapper(ZYFMapper zyfMapper) {
-        this.zyfMapper = zyfMapper;
+    public void setZyfIndexMapper(ZyfIndexMapper zyfIndexMapper) {
+        this.zyfIndexMapper = zyfIndexMapper;
     }
 }

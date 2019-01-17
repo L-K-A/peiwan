@@ -2,7 +2,7 @@ package com.peiwan.controller;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.peiwan.bean.TPerson;
-import com.peiwan.service.ZYFService;
+import com.peiwan.service.ZyfIndexService;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RestController;
@@ -23,10 +23,10 @@ import java.util.Map;
  */
 @RestController
 @RequestMapping("/person")
-public class ZYFController {
+public class ZyfIndexController {
 
     @Resource
-    private ZYFService zyfService;
+    private ZyfIndexService zyfIndexService;
 
     //首页
     @RequestMapping("/toIndex")
@@ -38,7 +38,7 @@ public class ZYFController {
     //主播列表
     @RequestMapping("/getPersonList")
     public Map<String,Object> getPage(int curPage){
-        Page<Map<String, Object>> page = zyfService.selectPersonList(curPage);
+        Page<Map<String, Object>> page = zyfIndexService.selectPersonList(curPage);
         List<Map<String, Object>> records = page.getRecords();
         Map map = new HashMap();
         map.put("personList",records);
@@ -53,7 +53,7 @@ public class ZYFController {
         TPerson person = new TPerson();
         person.setPersonNickname(personNickname);
         person.setPid(pid);
-        List<Map<String, Object>> searchPersonList = zyfService.selectPersonByNameId(person);
+        List<Map<String, Object>> searchPersonList = zyfIndexService.selectPersonByNameId(person);
         Map map = new HashMap();
         map.put("searchPersonList",searchPersonList);
         System.out.println("数据库查到的:"+map);
@@ -70,10 +70,9 @@ public class ZYFController {
     //热度榜 周榜：查询主播订单数，先筛选规定时间，然后按照订单数排序
     @RequestMapping("/getOrderCountList")
     public Map<String,Object> getOrderList(int curPage){
-        Page<Map<String, Object>> page = zyfService.selectPersonOrder(curPage);
+        Page<Map<String, Object>> page = zyfIndexService.selectPersonOrder(curPage);
         List<Map<String, Object>> personOrderList = page.getRecords();
         Map map = new HashMap();
-        //map.put("personOrderList",personOrderList);
         map.put("personOrderList",personOrderList);
         System.out.println("数据库查到的:"+map);
         return map;
@@ -81,7 +80,7 @@ public class ZYFController {
     //热度榜 总榜：查询主播总订单数
     @RequestMapping("/getOrderCountListAll")
     public Map<String,Object> getOrderListAll(int curPage){
-        Page<Map<String, Object>> page = zyfService.selectPersonOrderAll(curPage);
+        Page<Map<String, Object>> page = zyfIndexService.selectPersonOrderAll(curPage);
         List<Map<String, Object>> personOrderListAll = page.getRecords();
         Map map = new HashMap();
         map.put("personOrderListAll",personOrderListAll);
@@ -96,12 +95,11 @@ public class ZYFController {
     }
 
 
-
-    public ZYFService getZyfService() {
-        return zyfService;
+    public ZyfIndexService getZyfIndexService() {
+        return zyfIndexService;
     }
 
-    public void setZyfService(ZYFService zyfService) {
-        this.zyfService = zyfService;
+    public void setZyfIndexService(ZyfIndexService zyfIndexService) {
+        this.zyfIndexService = zyfIndexService;
     }
 }

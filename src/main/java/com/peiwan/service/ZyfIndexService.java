@@ -15,7 +15,7 @@ import java.util.Map;
  * @author Zhou先生
  * @since 2019-01-02
  */
-public interface ZYFService extends IService<TPerson> {
+public interface ZyfIndexService extends IService<TPerson> {
 
     //查询主播列表
     Page<Map<String,Object>> selectPersonList(int curPage);

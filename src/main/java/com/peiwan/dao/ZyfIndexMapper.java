@@ -17,7 +17,7 @@ import java.util.Map;
  * @since 2019-01-02
  */
 @Mapper
-public interface ZYFMapper extends BaseMapper<TPerson> {
+public interface ZyfIndexMapper extends BaseMapper<TPerson> {
 
     //查询主播列表
     @Select("select p.pid,p.person_nickname,p.person_image,s.g_name,s.g_price from t_person p,t_service s where p.pid=s.pid")
