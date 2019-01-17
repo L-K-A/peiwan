@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="/css/login_registration.css">
 
 
+
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <!--<script type="text/javascript" src="/js/vue.min.js"></script>-->
     <script type="text/javascript" src="/js/jquery.min.js"></script>
@@ -31,7 +32,6 @@
     <script type="text/javascript" src="/js/layer/layer.js"></script>
     <!--<script type="text/javascript" src="/js/swiper/swiper.min.css"></script>-->
    <!-- <script type="text/javascript" src="/js/laypage/laypage.js"></script>-->
-
     <script type="text/javascript" src="/js/fzjs/websocket.js"></script>
     <script type="text/javascript" src="/js/fzjs/message.js"></script>
     <script type="text/javascript" src="/js/fzjs/chat.js"></script>
@@ -109,11 +109,49 @@
                 <img src="/images/ico_30_hover.png" style="display: none;">
                 <img src="/images/ico_31_hover.png" style="display: none;">
                 <div style="height: 0px;width: 100%;"></div>
+                <!--beforeLanding(登陆之前) -->
+                <div class="login style1" id="beforeLanding">
+                    <ul class="nav navbar-nav navbar-right">
 
-                <div @click="login_fn" class="login style1">
-                    <p></p>
-                    <span>登录&nbsp;&nbsp;|&nbsp;&nbsp;注册</span>
+                        <li>
+                            <a data-toggle="modal" data-target="#login" href="/toLogin"><span class="glyphicon glyphicon-log-in"></span>登录</a>
+                            |
+                            <a data-toggle="modal" data-target="#register" href="/toRegister"><span class="glyphicon glyphicon-user"></span>注册</a>
+                        </li>
+                    </ul>
                 </div>
+                <!--afterTheLanding(登陆过后)-->
+                <div class="login style1" id="afterTheLanding">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a id="personnames" href="" th:text="${session.nameTPerson?.personNickname}"></a>&nbsp;&nbsp;<a data-toggle="modal" data-target="#login" href="/logout"><span class="glyphicon glyphicon-log-in"></span>退出登陆</a></li>
+                    </ul>
+                </div>
+
+                <script th:inline="javascript">
+
+                    <!--登陆隐藏-->
+                    function LandingHide() {
+                        $("#afterTheLanding").hide();
+                    }
+
+
+                    <!--登陆过后隐藏显示-->
+                    function LandingHides() {
+                        $("#beforeLanding").hide();
+                    }
+                    var nameTPerson = [[${session.nameTPerson?.personNickname}]];
+                    alert(nameTPerson);
+                    if (nameTPerson==null||nameTPerson==0) {
+                        LandingHide();
+                    } else{
+                        LandingHides();
+                    }
+
+
+
+
+
+                </script>
 
             </div>
         </div>

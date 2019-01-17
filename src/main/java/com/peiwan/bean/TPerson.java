@@ -13,11 +13,6 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 /**
  *
-<<<<<<< HEAD:src/main/java/com/peiwan/bean/TPerson.java
- * @author 
- * @since 2019-01-16
-=======
->>>>>>> 5cadebb7e07cd613289802de774e68e93c34234a:src/main/java/com/peiwan/bean/TPerson.java
  */
 @Data
 @NoArgsConstructor
@@ -121,11 +116,7 @@ public class TPerson implements Serializable {
     private String personInterest;
 
     /**
-<<<<<<< HEAD:src/main/java/com/peiwan/bean/TPerson.java
-     * 封面桌面
-=======
      * 封面图片
->>>>>>> 5cadebb7e07cd613289802de774e68e93c34234a:src/main/java/com/peiwan/bean/TPerson.java
      */
     private String personCoverphoto;
 
@@ -159,10 +150,10 @@ public class TPerson implements Serializable {
      */
     private Integer zZhubo;
 
-
     /**
      * 服务描述
      */
     private String  personServicedescription;
+
 
 }

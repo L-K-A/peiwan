@@ -16,10 +16,7 @@ import java.io.Serializable;
  *
  * @author 
  * @since 2019-01-16
-<<<<<<< HEAD:src/main/java/com/peiwan/bean/TService.java
-=======
  * @date 2019/1/10 16:32
->>>>>>> 5cadebb7e07cd613289802de774e68e93c34234a:src/main/java/com/peiwan/bean/TService.java
  */
 @Data
 @NoArgsConstructor
@@ -62,11 +59,7 @@ public class TService implements Serializable {
     private String pGid;
 
     /**
-<<<<<<< HEAD:src/main/java/com/peiwan/bean/TService.java
-     * 元/小时
-=======
      * /元/小时
->>>>>>> 5cadebb7e07cd613289802de774e68e93c34234a:src/main/java/com/peiwan/bean/TService.java
      */
     private Double gPrice;
 
