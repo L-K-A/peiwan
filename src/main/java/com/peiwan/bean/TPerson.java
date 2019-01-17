@@ -24,10 +24,7 @@ import lombok.experimental.Accessors;
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-<<<<<<< HEAD:src/main/java/com/peiwan/bean/TPerson.java
-=======
 @TableName("t_person")
->>>>>>> 5cadebb7e07cd613289802de774e68e93c34234a:src/main/java/com/peiwan/bean/TPerson.java
 public class TPerson implements Serializable {
 
     private static final long serialVersionUID = 1L;

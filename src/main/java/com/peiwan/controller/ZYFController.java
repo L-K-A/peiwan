@@ -38,6 +38,7 @@ public class ZYFController {
     //主播列表
     @RequestMapping("/getPersonList")
     public Map<String,Object> getPage(int curPage){
+        System.out.println(1);
         Page<Map<String, Object>> page = zyfService.selectPersonList(curPage);
         List<Map<String, Object>> records = page.getRecords();
         Map map = new HashMap();
