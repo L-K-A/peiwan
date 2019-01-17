@@ -1,4 +1,4 @@
-﻿.show_none {
+.show_none {
   display: none !important;
 }
 @keyframes reward_gold_move {
@@ -40,7 +40,7 @@
   min-width: 1470px;
   height: 70px;
   background: #fff;
-  /*新的头部*/
+  /*æ–°çš„å¤´éƒ¨*/
 }
 .public_nav_new .info_v2 {
   width: 100%;
@@ -57,7 +57,7 @@
   top: 0;
   left: 0;
   -webkit-transition: opacity .5s;
-  /* Safari 和 Chrome */
+  /* Safari å’Œ Chrome */
   -moz-transition: opacity .5s;
   /* Firefox 4 */
   -o-transition: opacity .5s;
@@ -216,7 +216,7 @@
   float: right;
   height: 24px;
   margin-top: 18px;
-  /*领取奖励金样式*/
+  /*é¢†å–å¥–åŠ±é‡‘æ ·å¼*/
 }
 .public_nav_new .info_v2 .info .right .style1 {
   float: left;

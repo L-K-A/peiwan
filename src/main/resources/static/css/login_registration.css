@@ -1,8 +1,8 @@
-﻿@charset 'UTF-8';
+@charset 'UTF-8';
 /**
-* @create 王晓琨
+* @create çŽ‹æ™“ç¨
 * @time 2018-06-06
-* 登录弹窗
+* ç™»å½•å¼¹çª—
  */
 #tel_login_v1 {
   position: absolute;
@@ -12,7 +12,7 @@
   height: 100%;
   z-index: 99999;
   font-family: "Microsoft YaHei" !important;
-  /*针对表单验证提示信息样式*/
+  /*é’ˆå¯¹è¡¨å•éªŒè¯æç¤ºä¿¡æ¯æ ·å¼*/
 }
 #tel_login_v1 .bg {
   position: fixed;

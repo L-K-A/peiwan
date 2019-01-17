@@ -1,4 +1,4 @@
-﻿@charset 'UTF-8';
+
 .live-sidebar-ctnr {
   position: fixed;
   z-index: 88;
@@ -318,7 +318,8 @@
     opacity: 0.0;
   }
 }
-@-webkit-keyframes "warn" {
+/*不知道为什么会报错*/
+/*@-webkit-keyframes "warn" {
   0% {
     -webkit-transform: scale(0);
     opacity: 0.0;
@@ -339,12 +340,12 @@
     -webkit-transform: scale(1);
     opacity: 0.0;
   }
-}
+}*/
 /*
-* @Title: 聊天弹窗
-* @Author: 王晓琨
+* @Title: èŠå¤©å¼¹çª—
+* @Author: çŽ‹æ™“ç¨
 * @Date: 2018-08-17 11:14:42
- * @Last Modified by: 王晓琨
+ * @Last Modified by: çŽ‹æ™“ç¨
  * @Last Modified time: yyyy-08-dd 11:42:22
 */
 img {
@@ -370,12 +371,12 @@ img {
   max-width: 100%;
   max-height: 100%;
 }
-/*重置滚动条样式*/
+/*é‡ç½®æ»šåŠ¨æ¡æ ·å¼*/
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
-/*定义滚动条轨道 内阴影+圆角*/
+/*å®šä¹‰æ»šåŠ¨æ¡è½¨é“ å†…é˜´å½±+åœ†è§’*/
 ::-webkit-scrollbar-track {
   border-radius: 10px;
   background-color: #fff;
@@ -427,7 +428,7 @@ img {
   cursor: pointer;
 }
 .msg_chat_w .chat_wrapper .close_box .btn.close_btn {
-  background-image: url('../images/ico_8.png');
+  background-image: url('static/images/ico_8.png');
   background-repeat: no-repeat;
   background-position: 0 0;
   background-size: 100% 100%;
@@ -435,7 +436,7 @@ img {
 .msg_chat_w .chat_wrapper .top_title {
   height: 38px;
   line-height: 38px;
-  background-image: url('../images/ico_p_bj.png');
+  background-image: url('static/images/ico_p_bj.png');
   background-repeat: no-repeat;
   background-position: 0 0;
   background-size: 100% 100%;
@@ -566,7 +567,7 @@ img {
   width: 11px;
   height: 11px;
   cursor: pointer;
-  background-image: url('../images/close.png');
+  background-image: url('static/images/close.png');
   background-repeat: no-repeat;
   background-position: 0 0;
   background-size: 100% 100%;
@@ -672,7 +673,7 @@ img {
   height: 15px;
   margin-right: 5px;
   vertical-align: top;
-  background-image: url('../images/phone_b.png');
+  background-image: url('static/images/phone.png');
   background-repeat: no-repeat;
   background-position: 0 0;
   background-size: 100% 100%;
@@ -684,7 +685,7 @@ img {
   width: 18px;
   height: 18px;
   margin: 0 0 0 3px;
-  background-image: url('../images/ico_3.png');
+  background-image: url('static/images/ico_3.png');
   background-repeat: no-repeat;
   background-position: 0 0;
   background-size: 100% 100%;
@@ -693,7 +694,7 @@ img {
   display: inline-block;
 }
 .msg_chat_w .chat_wrapper .chat_box .chat_right .chat_right_i .chat_list .chat_item .chat_text_wrapper .send_fail.loading {
-  background-image: url('../images/loading.gif');
+  background-image: url('static/images/loading.gif');
   background-repeat: no-repeat;
   background-position: 0 0;
   background-size: 100% 100%;
@@ -719,7 +720,7 @@ img {
   cursor: pointer;
 }
 .msg_chat_w .chat_wrapper .chat_box .chat_right .chat_right_i .chat_list .chat_item.chat_img .chat_text_wrapper .chat_text .icon_scale_btn:hover {
-  background-image: url('../images/ico_5_hov.png');
+  background-image: url('static/images/ico_5_hov.png');
   background-repeat: no-repeat;
   background-position: 0 0;
   background-size: 100% 100%;
@@ -746,7 +747,7 @@ img {
   background: #54abde;
 }
 .msg_chat_w .chat_wrapper .chat_box .chat_right .chat_right_i .chat_list .chat_item.my .chat_text_wrapper .chat_text .icon_phone {
-  background-image: url('../images/phone_w.png');
+  background-image: url('static/images/phone.png');
   background-repeat: no-repeat;
   background-position: 0 0;
   background-size: 100% 100%;
@@ -774,7 +775,7 @@ img {
   display: inline-block;
   width: 9px;
   height: 9px;
-  background-image: url('../images/ico_6.png');
+  background-image: url('static/images/ico_6.png');
   background-repeat: no-repeat;
   background-position: 0 0;
   background-size: 100% 100%;
@@ -791,7 +792,7 @@ img {
   display: inline-block;
   width: 7px;
   height: 7px;
-  background-image: url('../images/ico_4.png');
+  background-image: url('static/images/ico_4.png');
   background-repeat: no-repeat;
   background-position: 0 0;
   background-size: 100% 100%;
@@ -846,7 +847,7 @@ img {
   display: block;
   width: 8px;
   height: 8px;
-  background-image: url('../images/ico_4.png');
+  background-image: url('static/images/ico_4.png');
   background-repeat: no-repeat;
   background-position: 0 0;
   background-size: 100% 100%;
@@ -887,13 +888,13 @@ img {
   cursor: pointer;
 }
 .msg_chat_w .chat_wrapper .chat_box .chat_right .chat_right_i .chat_input_wrapper .top_btn .btn.emoji_btn .icon {
-  background-image: url('../images/ico_1.png');
+  background-image: url('static/images/ico_1.png');
   background-repeat: no-repeat;
   background-position: 0 0;
   background-size: 100% 100%;
 }
 .msg_chat_w .chat_wrapper .chat_box .chat_right .chat_right_i .chat_input_wrapper .top_btn .btn.upload_img_btn .icon {
-  background-image: url('../images/ico_2.png');
+  background-image: url('static/images/ico_2.png');
   background-repeat: no-repeat;
   background-position: 0 0;
   background-size: 100% 100%;
