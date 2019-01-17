@@ -7,6 +7,7 @@ import com.peiwan.bean.TPerson;
 import com.peiwan.bean.TService;
 import com.peiwan.dao.LxqUserInfoMapper;
 import com.peiwan.service.LxqUserInfoService;
+import com.qiniu.util.Auth;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -15,10 +16,7 @@ import sun.misc.BASE64Decoder;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.io.*;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 
 /**
  * <p>
@@ -45,7 +43,54 @@ public class LxqUserInfoController {
     @Resource
     private HttpServletRequest request;
 
+    // ******的内容需要查看七牛云账号的相关信息
+    private static final String accessKey = "SpGkq03Mt4xfkzMS2s0pXW_mD_SYdracaRFt4y7g";    //访问秘钥
+    private static final String secretKey = "Hkrc7hZ5pRxgPY1lIBF8lV1h_6ua_o9oaMyDD6LG";    //授权秘钥
+    private static final String bucket = "l-k-a";       //存储空间名称
+    private static final String domain = "pleuof34m.bkt.clouddn.com";       //外链域名
 
+    /**
+     * 七牛云上传生成凭证
+     *
+     * @throws Exception
+     */
+    @RequestMapping("/QiniuUpToken")
+    @ResponseBody
+    public Map<String, Object> QiniuUpToken(@RequestParam String suffix) throws Exception{
+        Map<String, Object> result = new HashMap<String, Object>();
+        try {
+            //验证七牛云身份是否通过
+            Auth auth = Auth.create(accessKey, secretKey);
+            //生成凭证
+            String upToken = auth.uploadToken(bucket);
+            result.put("token", upToken);
+            //存入外链默认域名，用于拼接完整的资源外链路径
+            result.put("domain", domain);
+
+            // 是否可以上传的图片格式
+            /*boolean flag = false;
+            String[] imgTypes = new String[]{"jpg","jpeg","bmp","gif","png"};
+            for(String fileSuffix : imgTypes) {
+                if(suffix.substring(suffix.lastIndexOf(".") + 1).equalsIgnoreCase(fileSuffix)) {
+                    flag = true;
+                    break;
+                }
+            }
+            if(!flag) {
+                throw new Exception("图片：" + suffix + " 上传格式不对！");
+            }*/
+
+            //生成实际路径名
+            String randomFileName = UUID.randomUUID().toString() + suffix;
+            result.put("imgUrl","pleuof34m.bkt.clouddn.com/"+ randomFileName+"?imageView2/2/w/400/h/400/q/100");
+            result.put("success", 1);
+        } catch (Exception e) {
+            result.put("message", "获取凭证失败，"+e.getMessage());
+            result.put("success", 0);
+        } finally {
+            return result;
+        }
+    }
 
     /**
      * 测试
@@ -53,12 +98,12 @@ public class LxqUserInfoController {
      * @return
      * @auther lxq
      */
-    @RequestMapping("/userinfo")
+    @RequestMapping("/ceshi")
     public String getlist() {
         //List list = lxqUserInfoMapper.getAAttentionList();
         /*List list = lxqUserInfoService.queryAAttentionList();
         System.out.println(list);*/
-        return "";
+        return "qiniu";
     }
 
     /**
