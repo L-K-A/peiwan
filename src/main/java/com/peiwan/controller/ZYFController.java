@@ -1,8 +1,7 @@
 package com.peiwan.controller;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.peiwan.bean.PPerson;
-import com.peiwan.dao.ZYFMapper;
+import com.peiwan.bean.TPerson;
 import com.peiwan.service.ZYFService;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -10,7 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -26,7 +24,6 @@ import java.util.Map;
 @RestController
 @RequestMapping("/person")
 public class ZYFController {
-
 
     @Resource
     private ZYFService zyfService;
@@ -53,7 +50,7 @@ public class ZYFController {
     //根据昵称和Id模糊查询主播
     @RequestMapping("/searchPerson")
     public Map<String,Object> searchPerson(String personNickname,Integer pid){
-        PPerson person = new PPerson();
+        TPerson person = new TPerson();
         person.setPersonNickname(personNickname);
         person.setPid(pid);
         List<Map<String, Object>> searchPersonList = zyfService.selectPersonByNameId(person);
@@ -84,7 +81,7 @@ public class ZYFController {
     //测试主播列表查询
     @RequestMapping("/toList")
     public ModelAndView select(){
-        return new ModelAndView("searchList");
+        return new ModelAndView("reDuBang");
     }
 
 

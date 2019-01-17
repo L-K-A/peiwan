@@ -3,38 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>电竞陪玩|约玩_刀锋电竞_绝地求生陪玩_LOL陪玩_王者荣耀陪玩</title>
-    <meta name="keywords" content="刀锋电竞陪玩,游戏陪玩,约玩,陪玩入驻,绝地求生陪玩,LOL陪玩,王者荣耀陪玩,美女陪玩,大神陪玩,导师陪玩">
-    <meta name="description" itemprop="description" content="刀锋电竞，是（国内）专业的游戏陪玩交友平台。刀锋电竞致力于为您提供贴心的专属陪伴；平台内百万大神美女导师24小时待命，随时陪你游戏，和你聊天，还可以哄你睡觉；游戏类型多样，妹子风格各异，任你选择。">
+    <title>电竞陪玩|约玩_绝地求生陪玩_LOL陪玩_王者荣耀陪玩</title>
+    <meta name="keywords" content="电竞陪玩,游戏陪玩,约玩,陪玩入驻,绝地求生陪玩,LOL陪玩,王者荣耀陪玩,美女陪玩,大神陪玩,导师陪玩">
+    <meta name="description" itemprop="description" content="是（国内）专业的游戏陪玩交友平台。刀锋电竞致力于为您提供贴心的专属陪伴；平台内百万大神美女导师24小时待命，随时陪你游戏，和你聊天，还可以哄你睡觉；游戏类型多样，妹子风格各异，任你选择。">
     <!-- 禁止IE强制识别手机号 -->
     <meta name="format-detection" content="telephone=no"/>
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/css/public.css">
     <link rel="stylesheet" href="/css/public_nav_v2.css">
-   <!-- <link rel="stylesheet" href="/css/layer.css">-->
+    <link rel="stylesheet" href="/css/layer.css">
     <link rel="stylesheet" href="/css/animate.css">
-    <link rel="stylesheet" href="/css/index_v2.css">
     <link rel="stylesheet" href="/css/public_frame_v2.css">
+    <link rel="stylesheet" href="/css/index_v2.css">
     <link rel="stylesheet" href="/css/swiper.min.css">
+    <!-- v2侧边栏样式-->
+    <link rel="stylesheet" href="/css/sidebar.css">
+    <!--登录注册模板样式-->
+    <link rel="stylesheet" href="/css/login_registration.css">
 
 
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>-->
+    <script type="text/javascript" src="js/vue.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="/js/messages_zh.min.js"></script>
+    <script type="text/javascript" src="/js/store.legacy.min.js"></script>
+    <script type="text/javascript" src="/js/layer/layer.js"></script>
+    <script type="text/javascript" src="/js/swiper/swiper.min.css"></script>
+    <script type="text/javascript" src="/js/laypage/laypage.js"></script>
 
-   <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>-->
-   <script type="text/javascript" src="/plugins/vue.min.js"></script>
-    <script type="text/javascript" src="/test/jquery.min.js"></script>
-    <script src="/test/jquery.validate.min.js"></script>
-    <script src="/test/messages_zh.min.js"></script>
-
-   <!-- <script type="text/javascript" src="/public/js/common.js"></script>-->
-    <script type="text/javascript" src="/plugins/store.legacy.min.js"></script>
-   <!--<script type="text/javascript" src="/plugins/layer/layer.js"></script>-->
-  <!--<script type="text/javascript" src="/plugins/swiper/swiper.min.css"></script>-->
-    <script type="text/javascript" src="/plugins/laypage/laypage.js"></script>
-    <script type="text/javascript" src="/show/js/websocket.js"></script>
-    <script type="text/javascript" src="/show/js/message.js"></script>
-    <script type="text/javascript" src="/show/js/chat.js"></script>
-    <!-- <script type="text/javascript" src="/plugins/jquery-2.2.3.min.js"></script>-->
-    <script type="text/javascript" src="/plugins/vue-resource.js"></script>
+    <script type="text/javascript" src="/js/fzjs/websocket.js"></script>
+    <script type="text/javascript" src="/js/fzjs/message.js"></script>
+    <script type="text/javascript" src="/js/fzjs/chat.js"></script>
+    <script type="text/javascript" src="/js/fzjs/vue-resource.js"></script>
+    <script type="text/javascript" src="/js/fzjs/websocket.js"></script>
 
 </head>
 <body>
@@ -48,7 +50,7 @@
             <div class="left rankings_item">
                 <!-- 头 -->
                 <div class="list_title_wrapper">
-                    <img src="/picture/list_title_1.png" alt="" class="title">
+                    <img src="/images/list_title_1.png" alt="" class="title">
                     <!-- 波浪 -->
                     <div class="waves_wrapper">
 
@@ -64,12 +66,12 @@
                     <img src="/picture/mongolian_red.png" alt="" class="mongolian">
                 </div>-->
                 <!-- 选项卡 -->
-               <!-- <div class="tab_wrapper">
+               <div class="tab_wrapper">
                     <div class="tab_content">
                         <div class="tab_item" :class="{on:tabShow1===1}" @click="tabFun1(1)">周榜</div>
                         <div class="tab_item" :class="{on:tabShow1===2}" @click="tabFun1(2)">总榜</div>
                     </div>
-                </div>-->
+                </div>
                 <!-- 列表内容 -->
                 <div class="list_wrapper">
                     <!-- 周榜 -->
@@ -140,7 +142,7 @@
 
 </section>
 
-<script>
+<!--<script>
 
     var app = new Vue({
         el: '#app',
@@ -171,31 +173,26 @@
 
     getUserPageList();
 
-</script>
+</script>-->
 
-<!--<script>
+<script>
     var rank = new Vue({
         el: ".rankings_wrapper",
         data: {
             tabShow1: 1, //魅力榜 1|周榜 2|总榜
             tabShow2: 1, //人气榜 1|周榜 2|总榜
-            tabShow3: 1, //富豪榜 1|周榜 2|总榜
             // 总榜
             charm: [], //魅力
             pop: [], //人气
-            contribute: [], //富豪榜
             // 总榜前三
             top_charm: [], //魅力
             top_pop: [], //人气
-            top_contribute: [], //富豪榜
             // 周榜
             seven_charm: [], //魅力
             seven_pop: [], //人气
-            seven_contribute: [], //富豪榜
             // 周榜前三
             top_seven_charm: [], //魅力
             top_seven_pop: [], //人气
-            top_seven_contribute: [], //富豪榜
 
             // 榜单头像
             leftTopBgImg1:"",
@@ -209,50 +206,23 @@
 
 
         },
-        mounted: function() {
-            this.$nextTick(function() {
-                //this.get_charm(); //魅力总榜
-                //this.get_contribute(); //contribute 富豪榜
-                //this.get_pop(); //pop 人气总榜
-                //合并后的榜单接口
-                //this.ranking_all_list();
-                //rank.ranking_all_list();
-            });
-        },
+
         methods: {
             // 排行榜陪玩详情链接
-            detailUrl: function(uid,pw_status) {
+           /* detailUrl: function(uid,pw_status) {
                 if(pw_status == 1){
                     var url = "/item/"+uid+".html";
                     window.open(url);
                 }else{
                     return;
                 };
-            },
+            },*/
             // 周榜总榜切换
             // 魅力
             tabFun1: function(ind) {
                 this.tabShow1 = ind;
             },
-            // 人气
-            tabFun2: function(ind) {
-                this.tabShow2 = ind;
-            },
-            // 富豪
-            tabFun3: function(ind) {
-                this.tabShow3 = ind;
-            },
-            // 没有昵称转匿名
-            returnstr: function(itm) {
-                var str = "";
-                if (itm.nickname) {
-                    str = itm.nickname;
-                } else {
-                    var str1 = itm.uid + "";
-                    str = '匿名用户' + (str1.substring(0, (str1.length - 2))) + "**";
-                };
-                return str;
-            },
+
             //等级图片
             levelImgFun: function(level) {
                 if(level!=undefined){
@@ -270,15 +240,15 @@
             },
             // 排名框
             frameFun: function(ind) {
-                var imgUrl =  public_domain +"/static/home/img/index_v2/ico_num_";
+                var imgUrl =  public_domain +"/images/ico_num_";
                 var imgind = ind + 1;
                 return imgUrl + imgind + ".png";
             },
             //由于页面进行了优化排行榜的三个接口合并成一个接口
             ranking_all_list:function(){
                 var _this = this;
-                this.$http.post("/index/index/index_bang").then(function(res){
-                    res = res.body;
+                this.$http.post("/person/getOrderCountList").then(function(res){
+                    res = res.orderCountList;
                     if(res.code === 1){
                         //魅力榜
                         // 周榜
@@ -313,78 +283,11 @@
                         }
 
 
-                        //人气榜
-                        // 周榜
-                        $.each(res.data.pop.seven, function(index, item) {
-                            if (index > 2) {
-                                _this.seven_pop.push(item);
 
-                            } else {
-                                _this.top_seven_pop.push(item);
-                            };
-                        });
-                        if (_this.top_seven_pop[0]) {
-                            _this.middleTopBgImg1=_this.top_seven_pop[0].avatar;
-                        } else {
-                            _this.middleTopBgImg1= '';
-                        }
-
-                        // 总榜
-                        $.each(res.data.pop.all, function(index, item) {
-                            if (index > 2) {
-                                _this.pop.push(item);
-                            } else {
-                                _this.top_pop.push(item);
-                            };
-                        });
-                        if (_this.top_pop[0]) {
-                            _this.middleTopBgImg2=_this.top_pop[0].avatar;
-                        } else {
-                            _this.middleTopBgImg2 = '';
-                        }
-
-
-                        //富豪榜
-                        // 周榜
-                        $.each(res.data.contribute.seven, function(index, item) {
-                            if (index > 2) {
-                                _this.seven_contribute.push(item);
-
-                            } else {
-                                _this.top_seven_contribute.push(item);
-                            };
-                        });
-                        if (_this.top_seven_contribute[0]) {
-                            _this.rightTopBgImg1=_this.top_seven_contribute[0].avatar;
-                        } else {
-                            _this.rightTopBgImg1='';
-                        }
-
-                        // 总榜
-                        $.each(res.data.contribute.all, function(index, item) {
-                            if (index > 2) {
-                                _this.contribute.push(item);
-
-                            } else {
-                                _this.top_contribute.push(item);
-                            };
-                        });
-                        if (_this.top_contribute[0]) {
-                            _this.rightTopBgImg2=_this.top_contribute[0].avatar;
-                        } else {
-                            _this.rightTopBgImg2='';
-                        }
-
-                        setTimeout(function() {
-                            img_lazy_load(document.documentElement.scrollTop || document.body.scrollTop); //懒加载
-                        }, 500);
-                    };
-                });
-            },
             //魅力榜
             get_charm: function() {
                 var _this = this;
-                this.$http.post("/index/index/charm").then(function(res) {
+                this.$http.post("/person/getOrderCountList").then(function(res) {
                     res = res.data;
                     var json = res.data;
                     if (res.code === 1) {
@@ -420,84 +323,8 @@
                     img_lazy_load(document.documentElement.scrollTop || document.body.scrollTop); //懒加载
                 }, 100);
             },
-            //pop 人气总榜
-            get_pop: function() {
-                var _this = this;
-                this.$http.post("/index/index/pop").then(function(res) {
-                    res = res.data;
-                    var json = res.data;
-                    if (res.code === 1) {
-                        // 周榜
-                        $.each(json.seven, function(index, item) {
-                            if (index > 2) {
-                                _this.seven_pop.push(item);
-
-                            } else {
-                                _this.top_seven_pop.push(item);
-                            };
-                        });
-                        _this.middleTopBgImg1=_this.top_seven_pop[0].avatar;
-                        // 总榜
-                        $.each(json.all, function(index, item) {
-                            if (index > 2) {
-                                _this.pop.push(item);
-                            } else {
-                                _this.top_pop.push(item);
-                            };
-                        });
-                        _this.middleTopBgImg2=_this.top_pop[0].avatar;
-                    };
-                    setTimeout(function() {
-                        img_lazy_load(document.documentElement.scrollTop || document.body.scrollTop); //懒加载
-                    }, 500);
-                }, function() {
-                    //layer.msg("排行榜数据更新出错，请稍后再试");
-                });
-                setTimeout(function() {
-                    img_lazy_load(document.documentElement.scrollTop || document.body.scrollTop); //懒加载
-                }, 100);
-            },
-            //contribute 富豪榜
-            get_contribute: function() {
-                var _this = this;
-                this.$http.post("/index/index/contribute").then(function(res) {
-                    res = res.data;
-                    var json = res.data;
-                    if (res.code === 1) {
-                        // 周榜
-                        $.each(json.seven, function(index, item) {
-                            if (index > 2) {
-                                _this.seven_contribute.push(item);
-
-                            } else {
-                                _this.top_seven_contribute.push(item);
-                            };
-                        });
-                        _this.rightTopBgImg1=_this.top_seven_contribute[0].avatar;
-                        // 总榜
-                        $.each(json.all, function(index, item) {
-                            if (index > 2) {
-                                _this.contribute.push(item);
-
-                            } else {
-                                _this.top_contribute.push(item);
-                            };
-                        });
-                        _this.rightTopBgImg2=_this.top_contribute[0].avatar;
-                    };
-                    setTimeout(function() {
-                        img_lazy_load(document.documentElement.scrollTop || document.body.scrollTop); //懒加载
-                    }, 500);
-                }, function() {
-                    //layer.msg("排行榜数据更新出错，请稍后再试");
-                });
-                setTimeout(function() {
-                    img_lazy_load(document.documentElement.scrollTop || document.body.scrollTop); //懒加载
-                }, 100);
-            },
-        },
     });
-</script>-->
+</script>
 
 </body>
 </html>

@@ -1,4 +1,4 @@
-﻿img {
+img {
   max-width: 100%;
 }
 .wai {
@@ -76,9 +76,9 @@ body {
   cursor: pointer;
 }
 section {
-  /*每日任务*/
-  /*领取红包*/
-  /*软件下载*/
+  /*æ¯æ—¥ä»»åŠ¡*/
+  /*é¢†å–çº¢åŒ…*/
+  /*è½¯ä»¶ä¸‹è½½*/
 }
 section img {
   max-width: 100%;
@@ -90,7 +90,7 @@ section .top_wrapper {
   width: 100%;
   height: 610px;
   vertical-align: top;
-  background-image: url('../images/bj.jpg');
+  background-image: url('../images/newbannerbg_1.png');
   background-repeat: no-repeat;
   background-position: center center;
 }
@@ -892,7 +892,7 @@ section .bottom_wrapper .new_person_wrapper .info_box .right {
   height: 54px;
   margin-top: 98px;
   cursor: pointer;
-  background: url('../images/q_h_03.png') no-repeat;
+  background: url('..//images/q_h_03.png') no-repeat;
   background-position: left center;
 }
 section .bottom_wrapper .new_person_wrapper .info_box .right:hover {
@@ -1046,7 +1046,7 @@ section .bottom_wrapper .video_area .video_area_info .swiper-container-video .vi
   -moz-transition: opacity .3s;
   /* Firefox 4 */
   -webkit-transition: opacity .3s;
-  /* Safari 和 Chrome */
+  /* Safari å’Œ Chrome */
   -o-transition: opacity .3s;
 }
 section .bottom_wrapper .video_area .video_area_info .swiper-container-video .video_list .nickname {
@@ -1066,7 +1066,7 @@ section .bottom_wrapper .video_area .video_area_info .swiper-container-video .vi
   background: -moz-linear-gradient(rgba(0, 0, 0, 0) 5%, rgba(0, 0, 0, 0.4));
   /* Firefox 3.6 - 15 */
   background: linear-gradient(rgba(0, 0, 0, 0) 5%, rgba(0, 0, 0, 0.4));
-  /* 标准的语法 */
+  /* æ ‡å‡†çš„è¯­æ³• */
 }
 section .bottom_wrapper .video_area .video_area_info .swiper-container-video .video_list:hover .video_ico {
   opacity: 1;
@@ -1074,7 +1074,7 @@ section .bottom_wrapper .video_area .video_area_info .swiper-container-video .vi
   -moz-transition: opacity .3s;
   /* Firefox 4 */
   -webkit-transition: opacity .3s;
-  /* Safari 和 Chrome */
+  /* Safari å’Œ Chrome */
   -o-transition: opacity .3s;
 }
 section .bottom_wrapper .video_area .video_area_info .video_zhe {
@@ -1665,7 +1665,7 @@ section .daily_tasks ul li:nth-child(3) {
 }
 section .daily_tasks ul.num1 li:nth-child(1) .p3 {
   color: #fff;
-  background: url('../images/ico_07.png') no-repeat;
+  background: url('../../img/index/ico_07.png') no-repeat;
 }
 section .daily_tasks ul.num1 li:nth-child(1) .p4 {
   color: #ffc043;
@@ -1977,7 +1977,7 @@ section .gift_pop_wrapper .gift_pop_item.large .gift_pop_bg.bg_2 {
   animation-duration: 1s;
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
-  background-image: url('../images/gift_3_2.png');
+  background-image: url('../images/gift_3_1.png');
   background-repeat: no-repeat;
   background-position: 0 0;
   background-size: 100% 100%;

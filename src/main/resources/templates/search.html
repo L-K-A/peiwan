@@ -11,34 +11,32 @@
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/css/public.css">
     <link rel="stylesheet" href="/css/public_nav_v2.css">
+    <link rel="stylesheet" href="/css/layer.css">
     <link rel="stylesheet" href="/css/animate.css">
-    <link rel="stylesheet" href="/css/index_v2.css">
     <link rel="stylesheet" href="/css/public_frame_v2.css">
+    <link rel="stylesheet" href="/css/index_v2.css">
     <link rel="stylesheet" href="/css/swiper.min.css">
-    <link rel="stylesheet" href="/home/css/searchplayer/search.css">
+    <!-- v2侧边栏样式-->
+    <link rel="stylesheet" href="/css/sidebar.css">
+    <!--登录注册模板样式-->
+    <link rel="stylesheet" href="/css/login_registration.css">
 
 
     <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>-->
-    <script type="text/javascript" src="/plugins/vue.min.js"></script>
-    <script type="text/javascript" src="/test/jquery.min.js"></script>
-    <script src="/test/jquery.validate.min.js"></script>
-    <script src="/test/messages_zh.min.js"></script>
+    <script type="text/javascript" src="/js/vue.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="/js/messages_zh.min.js"></script>
+    <script type="text/javascript" src="/js/store.legacy.min.js"></script>
+    <script type="text/javascript" src="/js/layer/layer.js"></script>
+    <script type="text/javascript" src="/js/swiper/swiper.min.css"></script>
+    <script type="text/javascript" src="/js/laypage/laypage.js"></script>
 
-
-    <script src="/js/v.js"></script>
-    <script src="/home/js/push.js"></script>
-    <script src="/js/hm.js"></script>
-    <!--<script type="text/javascript" src="/home/js/searchPlayer/search.js"></script>-->
-    <!--<script type="text/javascript" src="/public/js/common.js"></script>-->
-    <script type="text/javascript" src="/plugins/store.legacy.min.js"></script>
-    <!--<script type="text/javascript" src="/plugins/layer/layer.js"></script>-->
-    <!--<script type="text/javascript" src="/plugins/swiper/swiper.min.css"></script>-->
-    <script type="text/javascript" src="/plugins/laypage/laypage.js"></script>
-    <script type="text/javascript" src="/show/js/websocket.js"></script>
-    <script type="text/javascript" src="/show/js/message.js"></script>
-    <script type="text/javascript" src="/show/js/chat.js"></script>
-    <!-- <script type="text/javascript" src="/plugins/jquery-2.2.3.min.js"></script>-->
-    <script type="text/javascript" src="/plugins/vue-resource.js"></script>
+    <script type="text/javascript" src="/js/fzjs/websocket.js"></script>
+    <script type="text/javascript" src="/js/fzjs/message.js"></script>
+    <script type="text/javascript" src="/js/fzjs/chat.js"></script>
+    <script type="text/javascript" src="/js/fzjs/vue-resource.js"></script>
+    <script type="text/javascript" src="/js/fzjs/websocket.js"></script>
 
 </head>
 <body>
@@ -87,44 +85,38 @@
                         活动
                     </a>
                 </div>
-
             </div>
 
-
             <div class="seach_Box">
-                <img src="/picture/ico_28_hover.png" style="display: none;">
+                <img src="/images/ico_28_hover.png" style="display: none;">
                 <input id="personNickname" placeholder="陪玩昵称、ID、靓号" type="text" >
                 <p @click="inputShow" id="searchinfo" class="seach_p"></p>
             </div>
 
-
             <div class="right">
-                <img src="/picture/ico_29_hover.png" style="display: none;">
-                <img src="/picture/ico_30_hover.png" style="display: none;">
-                <img src="/picture/ico_31_hover.png" style="display: none;">
+                <img src="/images/ico_29_hover.png" style="display: none;">
+                <img src="/images/ico_30_hover.png" style="display: none;">
+                <img src="/images/ico_31_hover.png" style="display: none;">
                 <div style="height: 0px;width: 100%;"></div>
 
                 <div @click="login_fn" class="login style1">
                     <p></p>
                     <span>登录&nbsp;&nbsp;|&nbsp;&nbsp;注册</span>
                 </div>
-
             </div>
         </div>
-
     </div>
 
+    <!--导航栏模糊查询的函数-->
+    <script>
+        $("#searchinfo").click(function () {
+            var keyname= $("#personNickname").val();
+            window.location.href = 'toSearch';
+            sessionStorage.setItem("keyname",keyname);
+        });
+    </script>
 
 </div>
-
-<!--导航栏模糊查询的函数-->
-<script>
-    $("#searchinfo").click(function () {
-        var keyname= $("#personNickname").val();
-        window.location.href = 'toSearch';
-        sessionStorage.setItem("keyname",keyname);
-    });
-</script>
 
 <section>
 <!-- main-wrap -->
@@ -235,15 +227,13 @@
                     <span class="line"></span>
                 </li>
             </ul>
-
         </div>
-
     </div>
 </div>
 </section>
+
 <!--模糊查询到的主播的函数-->
 <script>
-
     var search = new Vue({
         el: '#search',
         data: {
@@ -272,9 +262,7 @@
 
     }
 
-
 </script>
-
 
 <footer>
     <div class="box">
@@ -282,27 +270,27 @@
             <!--隐藏掉提现(隐藏提现)字样（2017-12-18）margin-left:-->
             <ul>
                 <li>
-                    <img src="/picture/ico_ft01.png">
+                    <img src="/images/ico_ft01.png">
                     <p>极速接单</p>
                     <span class="desc">秒接单 八分钟未接单立即退款</span>
                 </li>
                 <li>
-                    <img src="/picture/ico_ft02.png">
+                    <img src="/images/ico_ft02.png">
                     <p>信息提醒</p>
                     <span class="desc">来单短信提醒 不错过订单</span>
                 </li>
                 <li>
-                    <img src="/picture/ico_ft03.png">
+                    <img src="/images/ico_ft03.png">
                     <p>品质保障</p>
                     <span class="desc">服务不满意为您来免单</span>
                 </li>
                 <li>
-                    <img src="/picture/ico_ft04.png">
+                    <img src="/images/ico_ft04.png">
                     <p>资金日结算</p>
                     <span class="desc">实时掌控工资 给你安心</span>
                 </li>
                 <li>
-                    <img src="/picture/ico_ft05.png">
+                    <img src="/images/ico_ft05.png">
                     <p>7*24小时服务</p>
                     <span class="desc">自助下单 7*24小时客服答疑</span>
                 </li>
@@ -312,9 +300,8 @@
         <ul class="footCenter">
             <li class="li1">
                 <div>
-                    <img src="/picture/link.png">
+                    <img src="/images/link.png">
                     <div style="line-height: 19px; margin-top: -2px;">
-                        <a style="display:none;" target="_blank" href="https://www.zuhaowan.com"><img src="/picture/zuhaowna.png"  style="margin-top: 0px;"></a>
                         <a target="_blank" href="https://www.zuhaowan.com"><p>租<i style="display:inline-block;width:.5em;"></i>号<i style="display:inline-block;width:.5em;"></i>玩 - 账号租借平台</p></a>
                         <a target="_blank" href="http://www.mayidailian.com/"><p>蚂蚁代练 - 专业代练平台</p></a>
                         <a target="_blank" href="http://www.irollfun.com/"><p>rollfun游戏站</p></a>
@@ -326,7 +313,7 @@
             <li class="sp"></li>
             <li class="li2">
                 <div>
-                    <img src="/picture/kefu.png">
+                    <img src="/images/kefu.png">
                     <div>
                         <p>客服电话：0371-55637968</p>
                         <p>咨询时间：7 x 24 小时</p>
@@ -336,7 +323,7 @@
             <li class="sp"></li>
             <li class="li3">
                 <div>
-                    <img src="/picture/qq.png">
+                    <img src="/images/qq.png">
                     <div>
                         <p>客服QQ：3003120628</p>
                         <p>咨询时间：7 x 24 小时</p>
@@ -346,7 +333,7 @@
             <li msg="新需求隐藏" class="sp" style="display:none;"></li>
             <li msg="新需求隐藏" style="display:none;">
                 <div>
-                    <img src="/picture/new.png">
+                    <img src="/images/new.png">
                     <div>
                         <a target="_blank" href="/help/peiwan.html"><p>陪玩新手引导</p></a>
                         <a target="_blank" href="/help/novice.html"><p>玩家新手引导</p></a>
@@ -367,6 +354,5 @@
     </div>
 
 </footer>
-
 </body>
 </html>

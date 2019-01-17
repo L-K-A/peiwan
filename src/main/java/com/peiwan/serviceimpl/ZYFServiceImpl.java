@@ -1,7 +1,7 @@
 package com.peiwan.serviceimpl;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.peiwan.bean.PPerson;
+import com.peiwan.bean.TPerson;
 import com.peiwan.dao.ZYFMapper;
 import com.peiwan.service.ZYFService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -20,7 +20,7 @@ import java.util.Map;
  * @since 2019-01-02
  */
 @Service
-public class ZYFServiceImpl extends ServiceImpl<ZYFMapper, PPerson> implements ZYFService {
+public class ZYFServiceImpl extends ServiceImpl<ZYFMapper, TPerson> implements ZYFService {
 
     @Resource
     private ZYFMapper zyfMapper;
@@ -36,7 +36,7 @@ public class ZYFServiceImpl extends ServiceImpl<ZYFMapper, PPerson> implements Z
 
     //导航栏根据昵称和Id模糊查询
     @Override
-    public List<Map<String,Object>> selectPersonByNameId(PPerson person) {
+    public List<Map<String,Object>> selectPersonByNameId(TPerson person) {
         List<Map<String, Object>> maps =zyfMapper.selectPersonByNameAndId(person);
         return maps;
     }

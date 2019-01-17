@@ -1,4 +1,4 @@
-﻿body,ol,ul,h1,h2,h3,h4,h5,h6,p,th,td,dl,dd,form,fieldset,legend,input,textarea,select{margin:0;padding:0}
+body,ol,ul,h1,h2,h3,h4,h5,h6,p,th,td,dl,dd,form,fieldset,legend,input,textarea,select{margin:0;padding:0}
 body{font:14px "Microsoft YaHei","Arial Narrow",HELVETICA;background:#fff;-webkit-text-size-adjust:100%;color:#333;/*box-sizing:border-box;*/}
 a{color:#172c45;text-decoration:none}
 /*a:hover{color:#ff425c;}*/
@@ -10,7 +10,7 @@ p{word-wrap:break-word}
 .show_none{
 	display:none !important;
 }
-/*去掉input number类型的小箭头*/
+/*åŽ»æŽ‰input numberç±»åž‹çš„å°ç®­å¤´*/
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button{
     -webkit-appearance: none !important;
@@ -24,16 +24,16 @@ input[type="number"]{-moz-appearance:textfield;}
 	float: right;
 }
 [v-cloak]{
-	/*头部未渲染出来的先隐藏出来后显示（避免闪屏）*/
+	/*å¤´éƒ¨æœªæ¸²æŸ“å‡ºæ¥çš„å…ˆéšè—å‡ºæ¥åŽæ˜¾ç¤ºï¼ˆé¿å…é—ªå±ï¼‰*/
 	display:none !important;
 }
-/*头像上传框的头*/
+/*å¤´åƒä¸Šä¼ æ¡†çš„å¤´*/
 body .layui-layer-title{
 	background-color:#fff;
 	color: #0a001f;
 	font-weight: 700;
 }
-/*禁止文本选中*/
+/*ç¦æ­¢æ–‡æœ¬é€‰ä¸­*/
 .no-pick{
 	-webkit-touch-callout: none; /* iOS Safari */
 	-webkit-user-select: none; /* Chrome/Safari/Opera */
@@ -43,13 +43,13 @@ body .layui-layer-title{
 	user-select: none;
 }
 
-/*单行溢出*/
+/*å•è¡Œæº¢å‡º*/
 .one-txt-cut{
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
 }
-/*上下flex*/
+/*ä¸Šä¸‹flex*/
 .flex-top{
 	display: -webkit-flex;
 	display: -moz-flex;
@@ -67,7 +67,7 @@ body .layui-layer-title{
 	-ms-box-orient:vertical;
 	box-orient:vertical;
 	height: 100%;}
-/*左右布局*/
+/*å·¦å³å¸ƒå±€*/
 .flex-left{
 	display:flex;
 	display: -webkit-flex;
@@ -83,7 +83,7 @@ body .layui-layer-title{
 	 flex: 1;
 	 overflow: auto;
 }
-/*多行溢出 手机端使用*/
+/*å¤šè¡Œæº¢å‡º æ‰‹æœºç«¯ä½¿ç”¨*/
 .txt-cut{
     overflow : hidden;
     text-overflow: ellipsis;
@@ -105,7 +105,7 @@ a:hover{
 	color:#ff501e;
 }
 
-/*尾部*/
+/*å°¾éƒ¨*/
 footer{
 	width:100%;
 	min-width:1200px;
@@ -180,7 +180,7 @@ footer .footCenter{
 footer .footCenter li{
 	display: inline-block;
 	width:31.9%;
-	font-family: "Microsoft YaHei","Arial","黑体","宋体",sans-serif;
+	font-family: "Microsoft YaHei","Arial","é»‘ä½“","å®‹ä½“",sans-serif;
 	font-size: 12px;
 	color: #787878;
 	vertical-align: top;
@@ -225,7 +225,7 @@ footer .footBottom p a{
 	color:#787878;
 }
 
-/*针对表单验证提示信息样式*/
+/*é’ˆå¯¹è¡¨å•éªŒè¯æç¤ºä¿¡æ¯æ ·å¼*/
 .Prompt_msg_style{
 	position:absolute;
 	z-index:5;
@@ -239,7 +239,7 @@ footer .footBottom p a{
 	box-shadow:0 0 5px rgba(0,0,0,.3);
 	padding:0 10px;
 }
-/*统一的弹窗样式*/
+/*ç»Ÿä¸€çš„å¼¹çª—æ ·å¼*/
 .g-mask{
 	position:fixed;
 	left:0;
@@ -301,7 +301,7 @@ footer .footBottom p a{
 .g-mask .g-maskBox .btn-box .btn-determine:hover{
 	background:#FF596C;
 }
-/*会员中心主体内容的头部*/
+/*ä¼šå‘˜ä¸­å¿ƒä¸»ä½“å†…å®¹çš„å¤´éƒ¨*/
 aside .top.info-style {
 	overflow: hidden;
 	background: #fff;
@@ -314,9 +314,9 @@ aside .top.info-style h3 {
 	font-size: 18px;
 	border-bottom: 1px solid #f4f4f4;
 }
-/*form 的样式*/
+/*form çš„æ ·å¼*/
 #form{
-	font-family: "YaHei Consolas Hybrid", Consolas, "微软雅黑", "Meiryo UI", "Malgun Gothic", "Segoe UI", "Trebuchet MS", Helvetica, "Monaco", courier, monospace;
+	font-family: "YaHei Consolas Hybrid", Consolas, "å¾®è½¯é›…é»‘", "Meiryo UI", "Malgun Gothic", "Segoe UI", "Trebuchet MS", Helvetica, "Monaco", courier, monospace;
 }
 #form label{
 	width: 80px;
@@ -373,34 +373,34 @@ aside .top.info-style h3 {
 	background: #ff7e20;
 }
 
-/*陪玩标签颜色*/
-/*甜美佳人*/
+/*é™ªçŽ©æ ‡ç­¾é¢œè‰²*/
+/*ç”œç¾Žä½³äºº*/
 .color1{
 	background-color: #ff8282;
 }
-/*萝莉音*/
+/*èèŽ‰éŸ³*/
 .color2{
 	background-color: #d8679f;
 }
-/*幽默逗比：#72abcc*/
+/*å¹½é»˜é€—æ¯”ï¼š#72abcc*/
 .color3{
 	background-color: #72abcc;
 }
-/*颜值担当：#e0a961*/
+/*é¢œå€¼æ‹…å½“ï¼š#e0a961*/
 .color4{
 	background-color: #e0a961;
 }
-/*情感知心 ：#78b99f*/
+/*æƒ…æ„ŸçŸ¥å¿ƒ ï¼š#78b99f*/
 .color5{
 	background-color: #78b99f;
 }
-/*加载中*/
+/*åŠ è½½ä¸­*/
 .loading{
-	background: url(../fonts/loading.svg)center center no-repeat;
+	background: url(../images/loading.svg)center center no-repeat;
 }
 
 
-/*意见反馈*/
+/*æ„è§åé¦ˆ*/
 #yijianfankui{
 	position:fixed;
 	width:100%;
