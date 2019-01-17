@@ -10,13 +10,13 @@ import lombok.experimental.Accessors;
  * 
  * </p>
  *
- * @author bjlz
- * @since 2019-01-02
+ * @author 
+ * @since 2019-01-16
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-public class CCommodity implements Serializable {
+public class TConsume implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -26,19 +26,24 @@ public class CCommodity implements Serializable {
     private Integer pid;
 
     /**
-     * 礼物钱
+     * 订单id
      */
-    private Double cMoney;
+    private Integer oid;
 
     /**
-     * 赠送时间
+     * 消费id
      */
-    private String cGivetime;
+    private Integer xid;
 
     /**
-     * 对应标识
+     * 消费金额
      */
-    private Integer cFlate;
+    private Double xMoney;
+
+    /**
+     * 消费时间
+     */
+    private String xConsumetime;
 
 
 }

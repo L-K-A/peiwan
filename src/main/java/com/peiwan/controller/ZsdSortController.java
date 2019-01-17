@@ -1,12 +1,12 @@
 package com.peiwan.controller;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.peiwan.bean.GSort;
-import com.peiwan.bean.PComment;
 import com.peiwan.bean.Result;
-import com.peiwan.dao.AAttentionMapper;
-import com.peiwan.service.AAttentionService;
-import com.peiwan.service.PCommentService;
+import com.peiwan.bean.TComment;
+import com.peiwan.bean.TSort;
+import com.peiwan.dao.ZsdSortMapper;
+import com.peiwan.service.ZsdSortService;
+import com.peiwan.service.ZsdCommentService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
@@ -24,7 +24,7 @@ import java.util.Map;
  * @since 2019-01-02
  */
 @RestController
-public class AAttentionController {
+public class ZsdSortController {
 
     /**
     * @description: 板块管理
@@ -46,9 +46,9 @@ public class AAttentionController {
     }
 
     @Resource
-    private AAttentionService aAttentionService;
+    private ZsdSortService zsdSortService;
     @Resource
-    private PCommentService pCommentService;
+    private ZsdCommentService zsdCommentService;
 
     /**
     * @description: 分页查询板块数据
@@ -59,20 +59,20 @@ public class AAttentionController {
         return new ModelAndView("service-game");
     }
     @RequestMapping("/getGamePage")
-    public Map queryGameList(int pageCurrent, int pageSize, GSort gSort){
+    public Map queryGameList(int pageCurrent, int pageSize, TSort tSort){
         Map map = new HashMap();
-        Page<GSort> page = new Page<>(pageCurrent,pageSize);
-        IPage<GSort> gSortIPage = aAttentionService.queryGamePage(page,gSort);
+        Page<TSort> page = new Page<>(pageCurrent,pageSize);
+        IPage<TSort> tSortIPage = zsdSortService.queryGamePage(page,tSort);
         /**得到板块数据*/
-        List<GSort> gSortList = gSortIPage.getRecords();
-        map.put("page",gSortList);
+        List<TSort> tSortList = tSortIPage.getRecords();
+        map.put("page",tSortList);
         /**板块总条数*/
-        map.put("totalPage",gSortIPage.getPages());
-        /**System.out.println("板块数据"+gSortList);*/
+        map.put("totalPage",tSortIPage.getPages());
+        /**System.out.println("板块数据"+tSortList);*/
         return map;
     }
     @Resource
-    private AAttentionMapper aAttentionMapper;
+    private ZsdSortMapper zsdSortMapper;
 
     /**
      * @description: 查询板块id最大值+1
@@ -81,7 +81,7 @@ public class AAttentionController {
     @RequestMapping("/selectGameId")
     public ModelAndView selectGameId(){
         Map map=new HashMap<>();
-        int gId = aAttentionService.selectGameId();
+        int gId = zsdSortService.selectGameId();
         map.put("id",gId);
         return new ModelAndView("add-board",map);
     }
@@ -91,9 +91,9 @@ public class AAttentionController {
     * @author: 张帅东
     */
     @RequestMapping("/selectGameName")
-    public Map selectGameName(GSort gSort){
+    public Map selectGameName(TSort tSort){
         Map map=new HashMap();
-        boolean result = aAttentionService.selectGameName(gSort);
+        boolean result = zsdSortService.selectGameName(tSort);
         map.put("result",result);
         /**System.out.println(map.get("result"));*/
         return map;
@@ -104,9 +104,9 @@ public class AAttentionController {
     * @author: 张帅东
     */
     @RequestMapping("/addGame")
-    public String addGame(GSort gSort){
-        gSort.setGid(aAttentionService.selectGameId());
-        aAttentionService.addGame(gSort);
+    public String addGame(TSort tSort){
+        tSort.setGid(zsdSortService.selectGameId());
+        zsdSortService.addGame(tSort);
         return "";
     }
 
@@ -115,9 +115,9 @@ public class AAttentionController {
     * @author: 张帅东
     */
     @RequestMapping("/deleteGame")
-    public Result deleteGsort(GSort gSort){
-        aAttentionService.deleteGsort(gSort);
-        /**System.out.println("传的值:"+gSort.getGName());*/
+    public Result deleteGsort(TSort tSort){
+        zsdSortService.deleteGsort(tSort);
+        /**System.out.println("传的值:"+tSort.getGName());*/
         return new Result();
     }
 
@@ -130,18 +130,18 @@ public class AAttentionController {
         return new ModelAndView("comment-list");
     }
     @RequestMapping("/getCommentPage")
-    public Map queryCommentList(int pageCurrent, int pageSize, PComment pComment,String minTime, String maxTime){
+    public Map queryCommentList(int pageCurrent, int pageSize, TComment tComment, String minTime, String maxTime){
         String min=minTime.replaceAll("-","");
         String max=maxTime.replaceAll("-","");
         /**System.out.println(min+"-"+max);*/
         Map map = new HashMap();
-        Page<PComment> page = new Page<>(pageCurrent,pageSize);
-        IPage<PComment> pCommentIPage =pCommentService.queryCommentPage(page,pComment,min,max);
+        Page<TComment> page = new Page<>(pageCurrent,pageSize);
+        IPage<TComment> tCommentIPage = zsdCommentService.queryCommentPage(page,tComment,min,max);
         /**得到评论数据*/
-        List<PComment> pCommentList = pCommentIPage.getRecords();
-        map.put("page",pCommentList);
+        List<TComment> tCommentList = tCommentIPage.getRecords();
+        map.put("page",tCommentList);
         /**评论总条数*/
-        map.put("totalPage",pCommentIPage.getPages());
+        map.put("totalPage",tCommentIPage.getPages());
         return map;
     }
 
@@ -150,34 +150,34 @@ public class AAttentionController {
     * @author: 张帅东
     */
     @RequestMapping("/deleteComment")
-    public Result deleteComment(PComment pComment){
-        pCommentService.deleteComment(pComment);
+    public Result deleteComment(TComment tComment){
+        zsdCommentService.deleteComment(tComment);
         return new Result();
     }
 
 
-    public AAttentionService getaAttentionService() {
-        return aAttentionService;
+    public ZsdSortService getZsdSortService() {
+        return zsdSortService;
     }
 
-    public void setaAttentionService(AAttentionService aAttentionService) {
-        this.aAttentionService = aAttentionService;
+    public void setZsdSortService(ZsdSortService zsdSortService) {
+        this.zsdSortService = zsdSortService;
     }
 
 
-    public PCommentService getpCommentService() {
-        return pCommentService;
+    public ZsdCommentService getZsdCommentService() {
+        return zsdCommentService;
     }
 
-    public void setpCommentService(PCommentService pCommentService) {
-        this.pCommentService = pCommentService;
+    public void setZsdCommentService(ZsdCommentService zsdCommentService) {
+        this.zsdCommentService = zsdCommentService;
     }
 
-    public AAttentionMapper getaAttentionMapper() {
-        return aAttentionMapper;
+    public ZsdSortMapper getZsdSortMapper() {
+        return zsdSortMapper;
     }
 
-    public void setaAttentionMapper(AAttentionMapper aAttentionMapper) {
-        this.aAttentionMapper = aAttentionMapper;
+    public void setZsdSortMapper(ZsdSortMapper zsdSortMapper) {
+        this.zsdSortMapper = zsdSortMapper;
     }
 }

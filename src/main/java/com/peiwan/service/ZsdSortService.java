@@ -2,7 +2,7 @@ package com.peiwan.service;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.peiwan.bean.GSort;
+import com.peiwan.bean.TSort;
 import org.apache.ibatis.annotations.Param;
 
 
@@ -14,19 +14,19 @@ import org.apache.ibatis.annotations.Param;
  * @author bjlz
  * @since 2019-01-02
  */
-public interface AAttentionService extends IService<GSort> {
+public interface ZsdSortService extends IService<TSort> {
 
     /**
     * @description: 分页查询板块数据
     * @author: 张帅东
     */
-    IPage<GSort> queryGamePage(@Param("pg") Page<GSort> page, GSort gSort);
+    IPage<TSort> queryGamePage(@Param("pg") Page<TSort> page, TSort tSort);
 
     /**
     * @description: 根据板块名删除板块信息
     * @author: 张帅东
     */
-    int deleteGsort(GSort gSort);
+    int deleteGsort(TSort tSort);
 
     /**
     * @description: 查询板块id最大值+1
@@ -38,11 +38,11 @@ public interface AAttentionService extends IService<GSort> {
     * @description: 校验板块名是否存在
     * @author: 张帅东
     */
-    Boolean selectGameName(GSort gSort);
+    Boolean selectGameName(TSort tSort);
 
     /**
      * @description: 增加新板块
      * @author: 张帅东
      */
-    void addGame(GSort gSort);
+    void addGame(TSort tSort);
 }

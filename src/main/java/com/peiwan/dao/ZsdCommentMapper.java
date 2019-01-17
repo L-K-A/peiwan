@@ -1,7 +1,6 @@
 package com.peiwan.dao;
-
-import com.peiwan.bean.PComment;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.peiwan.bean.TComment;
 import org.apache.ibatis.annotations.Select;
 import java.util.List;
 
@@ -13,13 +12,13 @@ import java.util.List;
  * @author bjlz
  * @since 2019-01-02
  */
-public interface PCommentMapper extends BaseMapper<PComment> {
+public interface ZsdCommentMapper extends BaseMapper<TComment> {
 
     /**
     * @description: 查询所有的评论
     * @author: 张帅东
     */
-    @Select("select * from p_comment")
-    List<PComment> selectComment();
+    @Select("select * from t_comment")
+    List<TComment> selectComment();
 
 }
