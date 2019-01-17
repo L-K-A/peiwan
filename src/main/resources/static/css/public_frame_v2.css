@@ -1,0 +1,185 @@
+.frame_logo_wrapper {
+  position: relative;
+  width: 216px;
+  height: 216px;
+}
+.frame_logo_wrapper .img_frame {
+  position: absolute;
+  top: -16px;
+  left: -1px;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: 100% 100%;
+  width: 230px;
+  height: 240px;
+  z-index: 888;
+  max-width: 230px;
+}
+.frame_logo_wrapper .discount_wrapper {
+  position: absolute;
+  width: 100%;
+  height: 28px;
+  left: 0;
+  bottom: 0;
+  line-height: 28px;
+  color: #fff;
+  font-size: 12px;
+  background-image: url("../images/black_bg.png");
+  background-size: 100% 100%;
+  z-index: 2;
+}
+.frame_logo_wrapper .discount_wrapper .discount_icon {
+  display: inline-block;
+  vertical-align: text-top;
+  margin-left: 13px;
+  margin-right: 3px;
+  margin-top: 3px;
+}
+.frame_logo_wrapper .pic_box {
+  overflow: hidden;
+  position: relative;
+}
+.frame_logo_wrapper .pic_box .pic {
+  width: 216px;
+  height: 216px;
+  border-radius: 4px 4px 0 0;
+  transition: 0.36s ease;
+}
+.frame_logo_wrapper .pic_box .compensation {
+  display: block;
+  position: absolute;
+  right: 2px;
+  bottom: 22px;
+  width: 68px;
+  height: 25px;
+  z-index: 20;
+  background: url("../images/ico_compensation.png") no-repeat;
+}
+.frame_logo_wrapper .recommend_wrapper {
+  display: none;
+  position: absolute;
+  top: 4px;
+  left: 9px;
+  width: 73px;
+  height: 26px;
+  background-image: url("../images/ico_boss.png");
+  background-size: 100% 100%;
+  background-position: center center;
+}
+.frame_logo_wrapper.recommend_on .recommend_wrapper {
+  display: block;
+}
+.frame_logo_wrapper .num_wrapper {
+  position: absolute;
+  top: 8px;
+  right: 9px;
+  width: 74px;
+  height: 24px;
+  background-image: url("../images/ico_pretty.png");
+  background-size: 100% 100%;
+  background-position: center center;
+}
+.frame_logo_wrapper .num_wrapper .text {
+  display: block;
+  font-weight: 700;
+  font-size: 12px;
+  position: relative;
+  z-index: 12;
+  margin-left: 23px;
+  height: 24px;
+  line-height: 24px;
+  transform: scale(0.8);
+  -webkit-transform: scale(0.8);
+  -moz-transform: scale(0.8);
+  -o-transform: scale(0.8);
+  -ms-transform: scale(0.8);
+  background-image: -webkit-linear-gradient(left, #fc7888, #ffabc5 10%, #ffbc42 20%, #ffe04e 30%, #fd8aac 40%, #f9779e 50%, #ffa8c2 60%, #ffbc42 70%, #f592b0 80%, #ffe04e 90%, #ffffff);
+  background-image: -o-linear-gradient(left, #fc7888, #ffabc5 10%, #ffbc42 20%, #ffe04e 30%, #fd8aac 40%, #f9779e 50%, #ffa8c2 60%, #ffbc42 70%, #f592b0 80%, #ffe04e 90%, #ffffff);
+  background-image: -moz-linear-gradient(left, #fc7888, #ffabc5 10%, #ffbc42 20%, #ffe04e 30%, #fd8aac 40%, #f9779e 50%, #ffa8c2 60%, #ffbc42 70%, #f592b0 80%, #ffe04e 90%, #ffffff);
+  background-image: -ms-linear-gradient(left, #fc7888, #ffabc5 10%, #ffbc42 20%, #ffe04e 30%, #fd8aac 40%, #f9779e 50%, #ffa8c2 60%, #ffbc42 70%, #f592b0 80%, #ffe04e 90%, #ffffff);
+  color: rgba(0, 0, 0, 0);
+  color: #333\0;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -o-background-clip: text;
+  -ms-background-clip: text;
+  background-size: 200%;
+  -webkit-animation: flowlight 2s linear infinite;
+  -moz-animation: flowlight 2s linear infinite;
+  -o-animation: flowlight 2s linear infinite;
+  -ms-animation: flowlight 2s linear infinite;
+  animation: flowlight 2s linear infinite;
+  -webkit-transition: -webkit-transform 0.8s, opacity 0.8s;
+  -moz-transition: -moz-transform 0.8s, opacity 0.8s;
+  -o-transition: -o-transform 0.8s, opacity 0.8s;
+  -ms-transition: -ms-transform 0.8s, opacity 0.8s;
+  transition: transform .8s,opacity .8s;
+}
+.frame_logo_wrapper .mark_wrapper {
+  position: absolute;
+  top: -3px;
+  left: -5px;
+  width: 62px;
+  height: 62px;
+  background-size: 100% 100%;
+  z-index: 88888;
+}
+.frame_logo_wrapper .mark_wrapper .icon {
+  width: 62px;
+  height: 62px;
+}
+.frame_logo_wrapper .mark_wrapper .text {
+  position: absolute;
+  left: -3px;
+  top: 15px;
+  font-size: 12px;
+  color: #fff;
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(-44deg);
+  width: 50px;
+  display: block;
+  text-align: center;
+}
+@keyframes flowlight {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
+@-webkit-keyframes flowlight {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
+@-o-keyframes flowlight {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
+@-ms-keyframes flowlight {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
+@-moz-keyframes flowlight {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}

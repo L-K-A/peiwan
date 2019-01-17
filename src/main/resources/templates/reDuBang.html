@@ -1,0 +1,330 @@
+<!DOCtype html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>电竞陪玩|约玩_绝地求生陪玩_LOL陪玩_王者荣耀陪玩</title>
+    <meta name="keywords" content="电竞陪玩,游戏陪玩,约玩,陪玩入驻,绝地求生陪玩,LOL陪玩,王者荣耀陪玩,美女陪玩,大神陪玩,导师陪玩">
+    <meta name="description" itemprop="description" content="是（国内）专业的游戏陪玩交友平台。刀锋电竞致力于为您提供贴心的专属陪伴；平台内百万大神美女导师24小时待命，随时陪你游戏，和你聊天，还可以哄你睡觉；游戏类型多样，妹子风格各异，任你选择。">
+    <!-- 禁止IE强制识别手机号 -->
+    <meta name="format-detection" content="telephone=no"/>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/public.css">
+    <link rel="stylesheet" href="/css/public_nav_v2.css">
+    <link rel="stylesheet" href="/css/layer.css">
+    <link rel="stylesheet" href="/css/animate.css">
+    <link rel="stylesheet" href="/css/public_frame_v2.css">
+    <link rel="stylesheet" href="/css/index_v2.css">
+    <link rel="stylesheet" href="/css/swiper.min.css">
+    <!-- v2侧边栏样式-->
+    <link rel="stylesheet" href="/css/sidebar.css">
+    <!--登录注册模板样式-->
+    <link rel="stylesheet" href="/css/login_registration.css">
+
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>-->
+    <script type="text/javascript" src="js/vue.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="/js/messages_zh.min.js"></script>
+    <script type="text/javascript" src="/js/store.legacy.min.js"></script>
+    <script type="text/javascript" src="/js/layer/layer.js"></script>
+    <script type="text/javascript" src="/js/swiper/swiper.min.css"></script>
+    <script type="text/javascript" src="/js/laypage/laypage.js"></script>
+
+    <script type="text/javascript" src="/js/fzjs/websocket.js"></script>
+    <script type="text/javascript" src="/js/fzjs/message.js"></script>
+    <script type="text/javascript" src="/js/fzjs/chat.js"></script>
+    <script type="text/javascript" src="/js/fzjs/vue-resource.js"></script>
+    <script type="text/javascript" src="/js/fzjs/websocket.js"></script>
+
+</head>
+<body>
+
+<section>
+    <!-- 新人推荐和排行榜 -->
+    <div class="bottom_wrapper" >
+        <!-- 排行榜 -->
+        <div class="rankings_wrapper" id="app">
+            <!-- 魅力榜 -->
+            <div class="left rankings_item">
+                <!-- 头 -->
+                <div class="list_title_wrapper">
+                    <img src="/images/list_title_1.png" alt="" class="title">
+                    <!-- 波浪 -->
+                    <div class="waves_wrapper">
+
+                    </div>
+                </div>
+                <!-- 头背景 -->
+                <!--<div class="top_bg_wrapper" style="display: none" v-show="tabShow1===1">
+                    <img :src="leftTopBgImg1" alt="" class="top_bg_img" >
+                    <img src="/picture/mongolian_red.png" alt="" class="mongolian">
+                </div>
+                <div class="top_bg_wrapper" style="display: none" v-show="tabShow1===2">
+                    <img :src="leftTopBgImg2" alt="" class="top_bg_img" >
+                    <img src="/picture/mongolian_red.png" alt="" class="mongolian">
+                </div>-->
+                <!-- 选项卡 -->
+               <div class="tab_wrapper">
+                    <div class="tab_content">
+                        <div class="tab_item" :class="{on:tabShow1===1}" @click="tabFun1(1)">周榜</div>
+                        <div class="tab_item" :class="{on:tabShow1===2}" @click="tabFun1(2)">总榜</div>
+                    </div>
+                </div>
+                <!-- 列表内容 -->
+                <div class="list_wrapper">
+                    <!-- 周榜 -->
+                    <div class="list_item" style="display: none">
+                        <div class="top">
+                            <ul class="list_top_wrapper">
+                                <li class="list_top_item url_point" v-cloak v-for="(item,index) in result" :key="index" @click="detailUrl(item.uid,item.pw_status)">
+                                    <!--<div class="logo_wrapper">
+                                       <img v-cloak :data-path="_P_H(item.avatar,60)" alt="" class="logo">
+                                        <img :src="frameFun(index)" alt="" class="logo_frame">
+                                    </div>-->
+                                    <span class="text"><span class="guan_ming" v-if="item.s_nickname">{{item.person_nickname}}<img :title="item.s_name" :src="item.path"></span></span>
+                                   <!-- <div class="icon_wrapper">
+                                        <img v-if="jewelImgFun(item.noble_id)" :src="jewelImgFun(item.noble_id)" alt="" class="icon_title">
+                                        <img v-if="levelImgFun(item.level)" :src="levelImgFun(item.level)" alt="" class="icon_level">
+                                        &lt;!&ndash; 靓号 &ndash;&gt;
+                                        <span class="num_wrapper" v-if="item.vip_uid">
+                                            <img src="/picture/ico_pretty_min.png" alt="" class="icon">
+                                            <span class="text">靓号:{{item.vip_uid}}</span>
+                                        </span>
+                                    </div>-->
+                                    <div class="hot_wrapper">
+                                        <i class="icon"></i>
+                                        <span class="hot_text">{{count}}</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="bottom">
+                            <ul class="list_bottom_wrapper">
+                                <li class="list_bottom_item url_point" v-cloak v-for="(item,index) in result" :key="index" @click="detailUrl(item.uid,item.pw_status)">
+                                    <i class="num_wrapper"><i class="num_item"><i class="num">{{index+1}}</i></i>
+                                    </i>
+                                  <!--  <div class="logo_wrapper"><img v-cloak :data-path="_P_H(item.avatar,60)" alt="" class="logo"></div>-->
+                                    <div class="info_wrapper">
+                                        <span class="nick_name"><span class="guan_ming" v-if="item.person_nickname">{{item.person_nickname}}<img :title="item.person_nickname" :src="item.path"></span></span>
+                                        <!--<div class="icon_wrapper">
+                                          <img v-if="jewelImgFun(item.noble_id)" :src="jewelImgFun(item.noble_id)" alt="" class="icon_title">
+                                            <img v-if="levelImgFun(item.level)" :src="levelImgFun(item.level)" alt="" class="icon_level">
+                                        </div>-->
+                                    </div>
+                                    <div class="right_wrapper">
+                                        <div class="right_box">
+                                            <div class="right_content">
+                                                <!-- 热度值 -->
+                                                <div class="hot_wrapper">
+                                                    <span class="icon">魅力:</span>
+                                                    <!--<span class="hot_text">{{item.value}}</span>-->
+                                                    <span class="hot_text">{{count}}</span>
+                                                </div>
+                                                <!-- 靓号 -->
+                                                <div class="pretty_num_wrapper" style="display: none" v-show="item.vip_uid">
+                                                    <span class="text">{{item.vip_uid}}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</section>
+
+<!--<script>
+
+    var app = new Vue({
+        el: '#app',
+        data: {
+            result: []
+        }
+    });
+
+    var count;
+    var getUserPageList = function (curr) {
+        $.ajax({
+            type: 'POST',
+            dataType: 'json',
+            url: '/person/getOrderCountList',
+            data: {
+                curPage: curr || 1
+                //pageNum: 10,
+                //personNickname: $("#personNickname").val()
+            },
+            success: function (msg) {
+                app.result = msg.data;
+                app.count = msg.orderCount;
+
+            }
+
+        });
+    };
+
+    getUserPageList();
+
+</script>-->
+
+<script>
+    var rank = new Vue({
+        el: ".rankings_wrapper",
+        data: {
+            tabShow1: 1, //魅力榜 1|周榜 2|总榜
+            tabShow2: 1, //人气榜 1|周榜 2|总榜
+            // 总榜
+            charm: [], //魅力
+            pop: [], //人气
+            // 总榜前三
+            top_charm: [], //魅力
+            top_pop: [], //人气
+            // 周榜
+            seven_charm: [], //魅力
+            seven_pop: [], //人气
+            // 周榜前三
+            top_seven_charm: [], //魅力
+            top_seven_pop: [], //人气
+
+            // 榜单头像
+            leftTopBgImg1:"",
+            leftTopBgImg2:"",
+
+            middleTopBgImg1:"",
+            middleTopBgImg2:"",
+
+            rightTopBgImg1:"",
+            rightTopBgImg2:"",
+
+
+        },
+
+        methods: {
+            // 排行榜陪玩详情链接
+           /* detailUrl: function(uid,pw_status) {
+                if(pw_status == 1){
+                    var url = "/item/"+uid+".html";
+                    window.open(url);
+                }else{
+                    return;
+                };
+            },*/
+            // 周榜总榜切换
+            // 魅力
+            tabFun1: function(ind) {
+                this.tabShow1 = ind;
+            },
+
+            //等级图片
+            levelImgFun: function(level) {
+                if(level!=undefined){
+                    return common.levelImgFun(level);
+                };
+            },
+            //爵位图片
+            jewelImgFun: function(noble) {
+                if(noble!=undefined){
+                    if(!common.jewelImgFun(noble)){
+                        return 0;
+                    };
+                    return common.jewelImgFun(noble);
+                };
+            },
+            // 排名框
+            frameFun: function(ind) {
+                var imgUrl =  public_domain +"/images/ico_num_";
+                var imgind = ind + 1;
+                return imgUrl + imgind + ".png";
+            },
+            //由于页面进行了优化排行榜的三个接口合并成一个接口
+            ranking_all_list:function(){
+                var _this = this;
+                this.$http.post("/person/getOrderCountList").then(function(res){
+                    res = res.orderCountList;
+                    if(res.code === 1){
+                        //魅力榜
+                        // 周榜
+                        $.each(res.data.charm.seven, function(index, item) {
+                            if (index > 2) {
+                                _this.seven_charm.push(item);
+
+                            } else {
+                                _this.top_seven_charm.push(item);
+                            };
+                        });
+                        if (_this.top_seven_charm[0]) {
+                            _this.leftTopBgImg1=_this.top_seven_charm[0].avatar;
+                        } else {
+                            _this.leftTopBgImg1= '';
+                        }
+
+                        // console.log(_this.seven_charm);
+                        // 总榜
+                        $.each(res.data.charm.all, function(index, item) {
+
+                            if (index > 2) {
+                                _this.charm.push(item);
+                            } else {
+                                _this.top_charm.push(item);
+                            };
+                        });
+                        if (_this.top_charm[0]) {
+                            _this.leftTopBgImg2=_this.top_charm[0].avatar;
+                        } else {
+                            _this.leftTopBgImg2='';
+                        }
+
+
+
+            //魅力榜
+            get_charm: function() {
+                var _this = this;
+                this.$http.post("/person/getOrderCountList").then(function(res) {
+                    res = res.data;
+                    var json = res.data;
+                    if (res.code === 1) {
+                        // 周榜
+                        $.each(json.seven, function(index, item) {
+                            if (index > 2) {
+                                _this.seven_charm.push(item);
+
+                            } else {
+                                _this.top_seven_charm.push(item);
+                            };
+                        });
+                        _this.leftTopBgImg1=_this.top_seven_charm[0].avatar;
+                        // console.log(_this.seven_charm);
+                        // 总榜
+                        $.each(json.all, function(index, item) {
+
+                            if (index > 2) {
+                                _this.charm.push(item);
+                            } else {
+                                _this.top_charm.push(item);
+                            };
+                        });
+                        _this.leftTopBgImg2=_this.top_charm[0].avatar;
+                    };
+                    setTimeout(function() {
+                        img_lazy_load(document.documentElement.scrollTop || document.body.scrollTop); //懒加载
+                    }, 500);
+                }, function() {
+                    //layer.msg("排行榜数据更新出错，请稍后再试");
+                });
+                setTimeout(function() {
+                    img_lazy_load(document.documentElement.scrollTop || document.body.scrollTop); //懒加载
+                }, 100);
+            },
+    });
+</script>
+
+</body>
+</html>

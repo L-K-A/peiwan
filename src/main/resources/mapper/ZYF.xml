@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.peiwan.dao.ZYFMapper">
+
+    <!-- 通用查询映射结果 -->
+   <!-- <resultMap id="BaseResultMap" type="com.peiwan.bean.PPerson">
+        <id column="pid" property="pid" />
+        <result column="person_nickname" property="personNickname" />
+        <result column="person_name" property="personName" />
+        <result column="person_pwd" property="personPwd" />
+        <result column="person_tel" property="personTel" />
+        <result column="person_sex" property="personSex" />
+        <result column="person_age" property="personAge" />
+        <result column="person_qq" property="personQq" />
+        <result column="person_wexin" property="personWexin" />
+        <result column="person_image" property="personImage" />
+        <result column="person_adress" property="personAdress" />
+        <result column="person_content" property="personContent" />
+        <result column="person_height" property="personHeight" />
+        <result column="person_weight" property="personWeight" />
+        <result column="person_career" property="personCareer" />
+        <result column="person_interest" property="personInterest" />
+        <result column="person_coverphoto" property="personCoverphoto" />
+        <result column="person_servicedescription" property="personServicedescription" />
+        <result column="person_createtime" property="personCreatetime" />
+        <result column="person_flate" property="personFlate" />
+        <result column="person_logintime" property="personLogintime" />
+        <result column="z_zhubo" property="zZhubo" />
+    </resultMap>-->
+
+
+    <!-- 通用查询结果列 -->
+    <!--<sql id="Base_Column_List">
+        pid, person_nickname, person_name, person_pwd, person_tel, person_sex, person_age, person_qq, person_wexin, person_image, person_adress, person_content, person_height, person_weight, person_career, person_interest, person_coverphoto, person_servicedescription, person_createtime, person_flate, person_logintime, z_zhubo
+    </sql>-->
+
+    <!--导航栏根据昵称和Id模糊查询-->
+    <select id="selectPersonByNameAndId" parameterType="map" resultType="map">
+            SELECT
+            p.pid,p.person_nickname,p.person_image,s.g_name,s.g_price
+            FROM t_person p LEFT JOIN t_service s ON p.pid=s.pid
+            WHERE p.z_zhubo=1
+            <if test="pid != null and pid != ''">
+                AND p.pid=#{pid}
+            </if>
+            <if test="personNickname != null and personNickname != ''">
+                AND p.person_nickname like "%"#{personNickname}"%"
+            </if>
+    </select>
+
+    <!--热度榜查询主播订单数：先筛选规定时间，然后按照订单数排序，再查询主播详细信息-->
+    <select id="selectOrderList" parameterType="map" resultType="map">
+        SELECT op.pid,op.person_nickname,op.person_image,op.person_adress,op.person_sex,op.o_createtime,op.oo
+        FROM(SELECT p.pid,p.person_nickname,p.person_image,p.person_adress,p.person_sex,o.o_createtime,COUNT(o.oid) oo
+             FROM t_person p LEFT JOIN t_order_z o ON p.pid=o.pid
+             WHERE o.o_createtime>DATE_SUB(CURDATE(), INTERVAL 1 WEEK)
+             AND o.o_flate=1 GROUP BY o.pid ORDER BY COUNT(o.oid) DESC)op
+    </select>
+
+
+</mapper>

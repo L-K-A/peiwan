@@ -1,23 +1,33 @@
 package com.peiwan.bean;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
+
+import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
-
 /**
- * <p>
- * 
- * </p>
  *
+<<<<<<< HEAD:src/main/java/com/peiwan/bean/TPerson.java
  * @author 
  * @since 2019-01-16
+=======
+>>>>>>> 5cadebb7e07cd613289802de774e68e93c34234a:src/main/java/com/peiwan/bean/TPerson.java
  */
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
+<<<<<<< HEAD:src/main/java/com/peiwan/bean/TPerson.java
+=======
+@TableName("t_person")
+>>>>>>> 5cadebb7e07cd613289802de774e68e93c34234a:src/main/java/com/peiwan/bean/TPerson.java
 public class TPerson implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -114,7 +124,11 @@ public class TPerson implements Serializable {
     private String personInterest;
 
     /**
+<<<<<<< HEAD:src/main/java/com/peiwan/bean/TPerson.java
      * 封面桌面
+=======
+     * 封面图片
+>>>>>>> 5cadebb7e07cd613289802de774e68e93c34234a:src/main/java/com/peiwan/bean/TPerson.java
      */
     private String personCoverphoto;
 
@@ -148,5 +162,10 @@ public class TPerson implements Serializable {
      */
     private Integer zZhubo;
 
+
+    /**
+     * 服务描述
+     */
+    private String  personServicedescription;
 
 }
