@@ -10,13 +10,13 @@ import lombok.experimental.Accessors;
  * 
  * </p>
  *
- * @author bjlz
- * @since 2019-01-02
+ * @author 
+ * @since 2019-01-16
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-public class PAlity implements Serializable {
+public class TAlity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

@@ -1,5 +1,7 @@
 package com.peiwan.bean;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -10,15 +12,21 @@ import lombok.experimental.Accessors;
  * 
  * </p>
  *
- * @author bjlz
- * @since 2019-01-02
+ * @author 
+ * @since 2019-01-16
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-public class YService implements Serializable {
+public class TAttention implements Serializable {
 
     private static final long serialVersionUID = 1L;
+
+    /**
+     * 关注列表id
+     */
+    @TableId(value = "aid", type = IdType.AUTO)
+    private Integer aid;
 
     /**
      * 用户id
@@ -26,14 +34,14 @@ public class YService implements Serializable {
     private Integer pid;
 
     /**
-     * 娱乐板块id
+     * 主播id
      */
-    private Integer yid;
+    private Integer zid;
 
     /**
-     * 娱乐版块名
+     * 主播标识
      */
-    private String yName;
+    private Integer zZhubo;
 
 
 }

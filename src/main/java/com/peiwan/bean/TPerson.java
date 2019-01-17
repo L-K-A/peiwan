@@ -1,27 +1,26 @@
 package com.peiwan.bean;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
 
 import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
-
 /**
- * <p>
- * 
- * </p>
  *
- * @author bjlz
- * @since 2019-01-02
  */
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-//@TableName("p_person")
-public class PPerson implements Serializable {
+@TableName("t_person")
+public class TPerson implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -37,7 +36,7 @@ public class PPerson implements Serializable {
     private String personNickname;
 
     /**
-     * 用户名
+     * 用户姓名
      */
     private String personName;
 
@@ -47,7 +46,7 @@ public class PPerson implements Serializable {
     private String personPwd;
 
     /**
-     * 加密的密码
+     * 密码加密
      */
     private String personPwdencry;
 
@@ -62,9 +61,9 @@ public class PPerson implements Serializable {
     private String personSex;
 
     /**
-     * 年龄
+     * 出生日期
      */
-    private Integer personAge;
+    private String personBirthday;
 
     /**
      * qq
@@ -74,7 +73,7 @@ public class PPerson implements Serializable {
     /**
      * 微信
      */
-    private String personWexin;
+    private String personWeixin;
 
     /**
      * 头像
@@ -107,19 +106,19 @@ public class PPerson implements Serializable {
     private String personCareer;
 
     /**
+     * 学校
+     */
+    private String personSchool;
+
+    /**
      * 兴趣
      */
     private String personInterest;
 
     /**
-     * 封面
+     * 封面图片
      */
     private String personCoverphoto;
-
-    /**
-     * 服务描述
-     */
-    private String personServicedescription;
 
     /**
      * 创建时间
@@ -127,12 +126,17 @@ public class PPerson implements Serializable {
     private String personCreatetime;
 
     /**
-     * 标识(0用户1主播2管理员3boss)
+     * 成为主播时间
+     */
+    private String personBecometime;
+
+    /**
+     * 标识(0用户1主播2管理员)
      */
     private Integer personFlate;
 
     /**
-     * 用户状态（0未认证1正常状态2用户锁定）
+     * 用户申请状态(0未认证，正常)
      */
     private Integer personStatus;
 
@@ -142,18 +146,14 @@ public class PPerson implements Serializable {
     private String personLogintime;
 
     /**
-     * 成为主播同时修改
+     * 修改(1)成为主播()
      */
     private Integer zZhubo;
 
     /**
-     * 密码盐.
-     * 张家明  写     权限管理  密码加密
-     * @return
+     * 服务描述
      */
-    public String getCredentialspersonPwdencry(){
-        return this.personName+this.personPwdencry;
-    }
+    private String  personServicedescription;
 
 
 }

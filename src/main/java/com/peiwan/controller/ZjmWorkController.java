@@ -1,11 +1,12 @@
 package com.peiwan.controller;
 
-import com.peiwan.bean.PPerson;
-import com.peiwan.service.AAttentionService;
+import com.peiwan.bean.TPerson;
+import com.peiwan.service.ZjmLoginService;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,10 +27,10 @@ import java.util.Map;
  * @author LiXuekai on 2019/1/12/23:50
  */
 @Controller
-public class TestController {
+public class ZjmWorkController {
 
     @Resource
-    private AAttentionService aAttentionService;
+    private ZjmLoginService zjmLoginService;
 
 
     /**
@@ -40,7 +41,7 @@ public class TestController {
     @ResponseBody
     public Map registerName(String personNickname){
         Map map = new HashMap();
-        Integer integer = aAttentionService.checkRegisterName(personNickname);
+        Integer integer = zjmLoginService.checkRegisterName(personNickname);
         //返回的是查询的个数  0  表示用户名不存在 可用  1 表示用户名存在
         map.put("nameState",integer);
         return map;
@@ -50,9 +51,9 @@ public class TestController {
      * 注册  把表格数据插入数据
      */
     @RequestMapping("/registers")
-    public String registers(PPerson pPerson){
-        if (pPerson.getPersonNickname()!=null||pPerson.getPersonPwd()!=null){
-            boolean result=aAttentionService.registerData(pPerson);
+    public String registers(TPerson TPerson){
+        if (TPerson.getPersonNickname()!=null||TPerson.getPersonPwd()!=null){
+            boolean result= zjmLoginService.registerData(TPerson);
             if (result){
                 return "login";
             }else {
@@ -77,8 +78,8 @@ public class TestController {
             //存放返回的数据
             Map map=new HashMap();
             //
-            String ippersonname = aAttentionService.ippersonname(personNickname);
-            map.put("ippersonname",ippersonname);
+            String iTPersonname = zjmLoginService.iTPersonname(personNickname);
+            map.put("iTPersonname",iTPersonname);
             return map;
 
     }
@@ -97,9 +98,9 @@ public class TestController {
         Map map=new HashMap();
         //
         if (personPwd!=null){
-            String ippersonpwd = aAttentionService.ippersonpwd(personNickname, personPwd);
-            System.out.println(ippersonpwd);
-            map.put("ippersonpwd",ippersonpwd);
+            String iTPersonpwd = zjmLoginService.iTPersonpwd(personNickname, personPwd);
+            System.out.println(iTPersonpwd);
+            map.put("iTPersonpwd",iTPersonpwd);
             return map;
         }
         return map;
@@ -114,14 +115,14 @@ public class TestController {
      *  开始
      */
     @RequestMapping("/logins")
-    public String logins(HttpSession session,PPerson pPerson,Model model){
+    public String logins(TPerson TPerson,Model model){
         /**
          * 使用Shiro编写认证操作
          */
         //1.获取Subject
         Subject subject = SecurityUtils.getSubject();
-        String personNickname = pPerson.getPersonNickname();
-        String personPwd = pPerson.getPersonPwd();
+        String personNickname = TPerson.getPersonNickname();
+        String personPwd = TPerson.getPersonPwd();
         //2.封装用户数据
         UsernamePasswordToken token = new UsernamePasswordToken(personNickname,personPwd);
         //3.执行登录方法
@@ -129,13 +130,21 @@ public class TestController {
             //没有异常登录成功
             subject.login(token);
 
+
             //判断当前用户是否登陆
             if(subject.isAuthenticated()==true){
+//                System.out.println("测试555555555555");
+//                System.out.println("zhang"+personNickname);
+//                System.out.println("mi"+personPwd);
+                TPerson.setPersonNickname(personNickname);
+                TPerson.setPersonPwd(personPwd);
+                TPerson nameTPerson = zjmLoginService.nameTPerson(TPerson);
+                Session session = subject.getSession();
+                session.setAttribute("nameTPerson",nameTPerson);
                 return "index";//待修改
             }
-
-//                    PPerson namepperson = aAttentionService.namepperson(pPerson);
-//                    session.setAttribute("namepperson",namepperson);
+//                    TPerson nameTPerson = zjmLoginService.nameTPerson(TPerson);
+//                    session.setAttribute("nameTPerson",nameTPerson);
 //                    return "redirect:/toIndex";
 
         }catch (UnknownAccountException e){
@@ -235,10 +244,10 @@ public class TestController {
           modelAndView.setViewName("/toLogin");
       }else {
           //数据库获取的值
-          PPerson namepperson = (PPerson) session.getAttribute("namepperson");
-          System.out.println(namepperson.getPersonName());
-          modelAndView.addObject("namepperson",namepperson);
-          session.setAttribute("namepperson",namepperson);
+          TPerson nameTPerson = (TPerson) session.getAttribute("nameTPerson");
+          System.out.println(nameTPerson.getPersonName());
+          modelAndView.addObject("nameTPerson",nameTPerson);
+          session.setAttribute("nameTPerson",nameTPerson);
           modelAndView.setViewName("index");
       }
       return modelAndView;

@@ -1,6 +1,6 @@
 package com.peiwan.Config.Shiro;
-import com.peiwan.bean.PPerson;
-import com.peiwan.service.AAttentionService;
+import com.peiwan.bean.TPerson;
+import com.peiwan.service.ZjmLoginService;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
@@ -22,7 +22,7 @@ public class UserRealm extends AuthorizingRealm {
      */
 
 //    @Resource
-//    private AAttentionService aAttentionService;
+//    private ZjmLoginService zjmLoginService;
 
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
@@ -31,7 +31,7 @@ public class UserRealm extends AuthorizingRealm {
     }
 
     @Autowired
-    private AAttentionService aAttentionService;
+    private ZjmLoginService zjmLoginService;
 
     private SimpleAuthenticationInfo info = null;
 
@@ -49,11 +49,11 @@ public class UserRealm extends AuthorizingRealm {
         //编写shiro判断逻辑 ，判断用户名和密码
         //1判断用户名
         UsernamePasswordToken token = (UsernamePasswordToken) authenticationToken;
-        PPerson myppersonname = aAttentionService.myppersonname(token.getUsername());
-        if(myppersonname.getPersonNickname()!=null||myppersonname.getPersonPwd()!=null){
+        TPerson myTPersonname = zjmLoginService.myTPersonname(token.getUsername());
+        if(myTPersonname.getPersonNickname()!=null||myTPersonname.getPersonPwd()!=null){
             // 获取用户名即可
-            String personName = myppersonname.getPersonName();
-            String personPwd = myppersonname.getPersonPwd();
+            String personName = myTPersonname.getPersonName();
+            String personPwd = myTPersonname.getPersonPwd();
 
             ByteSource salt = ByteSource.Util.bytes(token.getUsername());
             String realmName = this.getName();

@@ -1,19 +1,12 @@
 package com.peiwan.controller;
 
 
-import com.peiwan.bean.PPerson;
-import com.peiwan.dao.AAttentionMapper;
-import com.peiwan.serviceimpl.AAttentionServiceImpl;
-import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.authc.IncorrectCredentialsException;
-import org.apache.shiro.authc.UsernamePasswordToken;
-import org.apache.shiro.subject.Subject;
+import com.peiwan.dao.ZjmLoginMapper;
+import com.peiwan.serviceimpl.ZjmLoginServiceImpl;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 import javax.annotation.Resource;
-import javax.lang.model.element.UnknownElementException;
-import javax.servlet.http.HttpSession;
 
 /**
  * <p>
@@ -24,13 +17,13 @@ import javax.servlet.http.HttpSession;
  * @since 2019-01-02
  */
 @RestController
-public class AAttentionController {
+public class ZjmLoginController {
 
     @Resource
-    private AAttentionMapper aAttentionMapper;
+    private ZjmLoginMapper zjmLoginMapper;
 
     @Resource
-    private AAttentionServiceImpl aAttentionService;
+    private ZjmLoginServiceImpl aAttentionService;
 
 //    主页
     @RequestMapping({"/","/MyIndex"})
@@ -41,16 +34,16 @@ public class AAttentionController {
 //
 ////  业务主页
 //    @RequestMapping("/toIndex")
-//    public ModelAndView toIndex(HttpSession session,PPerson pPerson){
+//    public ModelAndView toIndex(HttpSession session,TPerson TPerson){
 //
 //        //取session的值
-//        PPerson sqlLoginpPerson = (PPerson) session.getAttribute("sqlLoginpPerson");
+//        TPerson sqlLoginTPerson = (TPerson) session.getAttribute("sqlLoginTPerson");
 //        //数据库获取的值
-//        PPerson namepperson = (PPerson) session.getAttribute("namepperson");
-//        System.out.println(namepperson.getPersonName());
+//        TPerson nameTPerson = (TPerson) session.getAttribute("nameTPerson");
+//        System.out.println(nameTPerson.getPersonName());
 //        ModelAndView modelAndView =new ModelAndView();
-////        modelAndView.addObject("namepperson",namepperson);
-//        session.setAttribute("namepperson",namepperson);
+////        modelAndView.addObject("nameTPerson",nameTPerson);
+//        session.setAttribute("nameTPerson",nameTPerson);
 //        modelAndView.setViewName("index");
 //        return modelAndView;
 //    }
@@ -70,21 +63,21 @@ public class AAttentionController {
 /*
 //  链接数据库进行登陆业务(逻辑  根据用户名和密码查询数据的所有信息  两个都正确跳到首页 并且把用户名传到首页)
     @RequestMapping("/sqlLogin")
-    public ModelAndView sqlLogin(HttpSession session, PPerson pPerson){
+    public ModelAndView sqlLogin(HttpSession session, TPerson TPerson){
         //@RestController 反回的都是json格式  所有需要转换一下
         ModelAndView modelAndView = new ModelAndView();
         //更具获取的用户名和密码 进行校验
-        PPerson namepperson = aAttentionService.namepperson(pPerson);
+        TPerson nameTPerson = aAttentionService.nameTPerson(TPerson);
 
         //校验
-        if (namepperson==null){
+        if (nameTPerson==null){
             modelAndView.setViewName("redirect:toLogin");
             return modelAndView;
         }else {
             //把从页面获取的值重定向到toIndex这个方法中
-            session.setAttribute("sqlLoginpPerson",pPerson);
+            session.setAttribute("sqlLoginTPerson",TPerson);
             //把从数据库查到的值重定向到toIndex这个方法中
-            session.setAttribute("namepperson",namepperson);
+            session.setAttribute("nameTPerson",nameTPerson);
             modelAndView.setViewName("redirect:toIndex");
             return modelAndView;
         }
@@ -105,16 +98,16 @@ public class AAttentionController {
 //
 //    //登陆测试
 //    @RequestMapping("/touser")
-//    public ModelAndView touser(PPerson pPerson){
+//    public ModelAndView touser(TPerson TPerson){
 //
-//        List<PPerson> namepperson = aAttentionService.namepperson(pPerson);
-//        for (PPerson person : namepperson) {
+//        List<TPerson> nameTPerson = aAttentionService.nameTPerson(TPerson);
+//        for (TPerson person : nameTPerson) {
 //            System.out.println(person);
 //        }
 //        ModelAndView modelAndView = new ModelAndView();
-//        PPerson qpPerson = aAttentionMapper.selectById(1);
+//        TPerson qTPerson = zjmLoginMapper.selectById(1);
 //        modelAndView.setView(new MappingJackson2JsonView());
-//        modelAndView.addObject("pPerson",qpPerson);
+//        modelAndView.addObject("TPerson",qTPerson);
 //        return modelAndView;
 //    }
 //
@@ -125,9 +118,9 @@ public class AAttentionController {
 //    @RequestMapping("/tosql")
 //    public ModelAndView tosql(){
 //        ModelAndView modelAndView = new ModelAndView();
-//        List<PPerson> addpperson = aAttentionService.addpperson(1);
+//        List<TPerson> addTPerson = aAttentionService.addTPerson(1);
 //        modelAndView.setView(new MappingJackson2JsonView());
-//        modelAndView.addObject("addpperson",addpperson);
+//        modelAndView.addObject("addTPerson",addTPerson);
 //        return modelAndView;
 //    }
 }
