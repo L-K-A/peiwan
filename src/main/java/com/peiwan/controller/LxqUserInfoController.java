@@ -82,7 +82,8 @@ public class LxqUserInfoController {
 
             //生成实际路径名
             String randomFileName = UUID.randomUUID().toString() + suffix;
-            result.put("imgUrl","pleuof34m.bkt.clouddn.com/"+ randomFileName+"?imageView2/2/w/400/h/400/q/100");
+            /*result.put("imgUrl","pleuof34m.bkt.clouddn.com/"+ randomFileName+"?imageView2/2/w/400/h/400/q/100");*/
+            result.put("imgUrl", randomFileName);
             result.put("success", 1);
         } catch (Exception e) {
             result.put("message", "获取凭证失败，"+e.getMessage());
@@ -221,7 +222,7 @@ public class LxqUserInfoController {
         System.out.println(pPerson);
         pPerson.setPid(4);
         lxqUserInfoMapper.getUpdateUserInfo(pPerson);
-        return "redirect:ocenter";
+        return "redirect:data";
     }
     /**
      * 用户密码检查

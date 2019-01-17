@@ -77,7 +77,7 @@
         <!--ActiveMq-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starer-activemqx</artifactId>
+            <artifactId>spring-boot-starer-activemq</artifactId>
         </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>

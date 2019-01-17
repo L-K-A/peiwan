@@ -41,7 +41,8 @@
                             complete(res){                       //成功后
                                 // ?imageView2/2/h/100：展示缩略图，不加显示原图
                                 // ?vframe/jpg/offset/0/w/480/h/360：用于获取视频截图的后缀，0：秒，w：宽，h：高
-                                $("#image").attr("src",result.imgUrl);
+                                /*$("#image").attr("src",result.imgUrl);*/
+                                $("#image")[0].src= "pleuof34m.bkt.clouddn.com/"+ result.imgUrl+"?imageView2/2/w/400/h/400/q/100";
                             }
                         };
                         var putExtra = {
