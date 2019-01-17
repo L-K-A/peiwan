@@ -50,5 +50,16 @@ public class GService implements Serializable {
      */
     private String pGid;
 
+    /*
+    * 主播的价位
+    * */
+    private Double gPrice;
 
+    public Double getgPrice() {
+        return gPrice;
+    }
+
+    public void setgPrice(Double gPrice) {
+        this.gPrice = gPrice;
+    }
 }

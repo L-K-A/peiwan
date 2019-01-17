@@ -12,6 +12,10 @@ import java.util.Map;
 public interface RankingListService {
 
 
+    /*热度榜的service*/
     List<Map<String,Object>> getHotRanking(Map map);
+
+    /*排行榜的service*/
+    List<Map<String,Object>> getMagnateRanking(Map map);
 
 }

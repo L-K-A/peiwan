@@ -2,6 +2,7 @@ package com.peiwan.controller;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.peiwan.service.ClassifyService;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
@@ -24,9 +25,33 @@ public class ClassifyController {
     @Resource
     private ClassifyService cs;
 
-    @RequestMapping("/fenlei")
+    @RequestMapping("/togame")
     public ModelAndView fenLei(){
+        /*
+        测试接收跳转页面的数据
+        Integer gid
+
+
         System.out.println("进入分类控制层，返回分类前台页面");
+        System.out.println("gid:"+gid);
+
+        Integer pageNum = 1;
+        Integer pageSize=8;
+
+        Map<String,Object> map = new HashMap<>();
+        map.put("gid",gid);
+        Page<Map<String, Object>> page = new Page<Map<String, Object>>(pageNum,pageSize);
+
+        List<Map<String, Object>> duanWei = cs.getDuanWei(gid);
+
+        ModelMap modelMap = new ModelMap();
+        Page<Map<String, Object>> mapPage = page.setRecords(cs.getCondition(map, page));
+        map.put("duanWei",duanWei);
+        modelMap.addAttribute("mapPage",mapPage);
+
+        ,modelMap
+
+        */
         return new ModelAndView("fenlei");
     }
 

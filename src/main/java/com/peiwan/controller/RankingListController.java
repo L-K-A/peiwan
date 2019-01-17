@@ -21,6 +21,7 @@ public class RankingListController {
     private RankingListService rls;
 
 
+    /*热度榜*/
     @RequestMapping("/gethotrank")
     public Map<String,Object> getHotRank(Integer gid,Integer hotday){
 
@@ -29,13 +30,32 @@ public class RankingListController {
 
         Map<String,Object> map = new HashMap<>();
         map.put("gid",gid);
-        map.put("days",hotday);
+        map.put("hotday",hotday);
         List<Map<String, Object>> hotRank = rls.getHotRanking(map);
         for (Map<String, Object> stringObjectMap : hotRank) {
             System.out.println(stringObjectMap);
         }
         map.put("hotRank",hotRank);
 
+        return map;
+    }
+
+
+    /*富豪榜*/
+    @RequestMapping("/gemagnaterank")
+    public Map<String,Object> getMagnateRank(Integer gid,Integer magnateday){
+
+        System.out.println(gid);
+        System.out.println(magnateday);
+
+        Map<String,Object> map = new HashMap<>();
+        map.put("gid",gid);
+        map.put("magnateday",magnateday);
+        List<Map<String, Object>> magnateRank = rls.getMagnateRanking(map);
+        for (Map<String, Object> stringObjectMap : magnateRank) {
+            System.out.println(stringObjectMap);
+        }
+        map.put("magnateRank",magnateRank);
         return map;
     }
 

@@ -16,6 +16,10 @@ import java.util.Map;
 public interface RankingListMapper extends BaseMapper {
 
 
+    /*热度榜的dao*/
     List<Map<String,Object>> getHotRanking(Map map);
+
+    /*富豪榜的dao*/
+    List<Map<String,Object>> getMagnateRanking(Map map);
 
 }

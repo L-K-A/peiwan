@@ -34,4 +34,11 @@ public class RankingListServiceImpl implements RankingListService {
         return mapList;
     }
 
+    /*富豪榜*/
+    @Override
+    public List<Map<String, Object>> getMagnateRanking(Map map) {
+        List<Map<String, Object>> mapList = rlm.getMagnateRanking(map);
+        return mapList;
+    }
+
 }

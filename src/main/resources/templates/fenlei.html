@@ -403,17 +403,17 @@
             <div class="cv-rank-box">
                 <!--<div class="cv-rank-list" id="cv-rank-call" data-index="1" style="opacity: 1;display: block;">
                 </div>-->
-                <div class="cv-rank-list" id="cv-rank-call2" data-index="1" style="opacity: 1;display: block;">
-                    <dl class="first" v-for="item in hotrank">
+                <div v-for="(item,index) in hotrank" class="cv-rank-list" id="cv-rank-call2" data-index="1" style="opacity: 1;display: block;">
+                    <dl :class="{'first':index==0,'second':index==1,'third':index==2}" >
                         <dt>
-                            <a href="'http://localhost:8080/fenlei/?gid='+item.gid">
+                            <a :href="'./fenlei/?pid='+item.pid">
                                 <img :src="'./imgupload/'+item.person_image">
                                 <span class="avatar-mask"></span>
                             </a>
                         </dt>
-                        <dd>
-                            <h3 class="name">
-                                <a href="'http://localhost:8080/fenlei/?gid='+item.gid">{{item.person_nickname}}</a>
+                        <dd style="width: 120px;height: 46px;margin-top: 28px">
+                            <h3 class="name" style="margin-top: -18px">
+                                <a :href="'./fenlei/?pid='+item.pid">{{item.person_nickname}}</a>
                             </h3>
                             <p>接单：{{item.pos}}</p>
                         </dd>
@@ -421,7 +421,7 @@
                 </div>
             </div>
         </div>
-        <div class="cv-rank-area">
+        <!--<div class="cv-rank-area">
             <div class="cv-rank">
                 <div class="cv-rank-head">
                     <span>礼物榜</span>
@@ -433,7 +433,7 @@
             </div>
             <div class="cv-rank-box">
                 <div class="cv-rank-list" id="cv-rank-gift" data-index="1" style="opacity: 1;display: block;">
-                    <!--<dl class="first">
+                    &lt;!&ndash;<dl class="first">
                         <dt>
                             <a href="'http://localhost:8080/fenlei/?gid='+item.gid">
                                 <img :src="'./imgupload/'+item.person_image">
@@ -446,10 +446,10 @@
                             </h3>
                             <p>接单：{{item.pos}}</p>
                         </dd>
-                    </dl>-->
+                    </dl>&ndash;&gt;
                 </div>
             </div>
-        </div>
+        </div>-->
         <div class="cv-rank-area">
             <div class="cv-rank">
                 <div class="cv-rank-head">
@@ -461,21 +461,21 @@
                 </div>
             </div>
             <div class="cv-rank-box">
-                <div class="cv-rank-list" id="cv-rank-rich" data-index="1" style="opacity: 1;display: block;">
-                    <!--<dl class="first">
+                <div v-for="item in magnaterank" class="cv-rank-list" id="cv-rank-rich" data-index="1" style="opacity: 1;display: block;">
+                    <dl :class="{'first':index==0,'second':index==1,'third':index==2}">
                         <dt>
-                            <a href="'http://localhost:8080/fenlei/?gid='+item.gid">
+                            <a :href="'./fenlei/?pid='+item.pid">
                                 <img :src="'./imgupload/'+item.person_image">
                                 <span class="avatar-mask"></span>
                             </a>
                         </dt>
-                        <dd>
-                            <h3 class="name">
-                                <a href="'http://localhost:8080/fenlei/?gid='+item.gid">{{item.person_nickname}}</a>
+                        <dd style="width: 120px;height: 46px;margin-top: 28px">
+                            <h3 class="name" style="margin-top: -18px">
+                                <a :href="'./fenlei/?pid='+item.pid">{{item.person_nickname}}</a>
                             </h3>
-                            <p>接单：{{item.pos}}</p>
+                            <p>富豪值：{{item.oms}}</p>
                         </dd>
-                    </dl>-->
+                    </dl>
                 </div>
             </div>
         </div>
@@ -533,6 +533,8 @@
     var hot = null;
     var newest = null;
     var curr;
+    var hotday = 7;     //热度榜的天数
+    var magnateday = 7; //富豪榜的天数
 
 
     /*点击游戏服务的Vue*/
@@ -561,6 +563,18 @@
         }
     });
 
+    /*等级分类的Vue
+    * 以及排行榜的Vue
+    * */
+    var all = new Vue({
+        el: '#xxzs',
+        data: {
+            zbxx: [],
+            hotrank:[],
+            magnaterank: []
+        }
+    });
+
 
     /*
     * 点击导师性别改变性别选项事件
@@ -568,11 +582,6 @@
     $(".fl.grade_icon.grade_sex").click(function () {
         $(this).addClass('fl grade_icon grade_sex grade_icon_add').siblings().removeClass('grade_icon_add');
         psex = $(".fl.grade_icon.grade_sex").index(this);
-        //$(".fl.grade_icon.grade_sex").index(this).className="fl grade_icon grade_sex grade_icon_add";
-        /*$(".fl.grade_icon.grade_sex").index(this).hover(function () {
-            $(".fl grade_icon grade_sex grade_icon_add");
-        })*/
-        // alert("第一个" + psex);
         switch (psex) {
             case 0:
                 psex = null;
@@ -634,6 +643,8 @@
         //console.log("点击游戏服务："+gameservice.clickfun(gdw));
         getEntry(gid);
         getCondition(gid, gdw, psex, sort, hot, newest, curr);
+        getHotRank(gid,hotday);
+        getMagnateRank(gid,magnateday);
         //getUserPageList();
         psex = null;
         gdw = null;
@@ -663,14 +674,6 @@
     //getEntry(gid);
 
 
-    /*等级分类的Vue*/
-    var all = new Vue({
-        el: '#xxzs',
-        data: {
-            zbxx: []
-        }
-    });
-
     /*
     * 向后台传递gid,gdw,psex三个跟类,和sort、hot、newest三种排序方式，以及当前页数
     *
@@ -690,7 +693,7 @@
                 hot: hot,
                 newest: newest,
                 pageNum: curr || 1,
-                pageSize: 4
+                pageSize: 8
 
             },
             success: function (data) {
@@ -716,9 +719,8 @@
         });
     };
 
-    /*var pid = $("#pid").event.target.innerHTML;
-    alert(pid);*/
 
+    /*暂时没用*/
     $(".list_left_box fl").click(function () {
         $.ajax({
             type: 'Post',
@@ -737,29 +739,10 @@
 
 
 </script>
-
+<!--排行榜========================-->
 <script>
 
-
-    var hotday = null;     //热度榜的天数
-    var magnateday = null; //富豪榜的天数
-
-    /*排行榜-----------*/
-    /*var rank = new Vue({
-        el: '#Rank',
-        data: {
-            hotrank: [],
-            magnate: []
-        }
-    });*/
-    var rank =new Vue({
-        el:'#Rank',
-        data:{
-            hotrank:[]
-        }
-    });
-
-
+    /*热度榜的天数点击事件*/
     $("#hotClick li").click(function () {
         hotday = $("#hotClick li").index(this);
         switch (hotday) {
@@ -777,6 +760,7 @@
         getHotRank(gid,hotday);
     });
 
+    /*富豪榜的天数点击事件*/
     $("#magnateClick li").click(function () {
         magnateday = $("#magnateClick li").index(this);
         switch (magnateday) {
@@ -790,8 +774,8 @@
                 magnateday=7;
                 break;
         }
-        alert(magnateday);
         console.log("magnateday="+magnateday);
+        getMagnateRank(gid,magnateday);
     });
 
 
@@ -809,7 +793,27 @@
             success: function (data) {
                 console.log(data);
                 alert(gid);
-                rank.hotrank = data.hotRank;
+                all.hotrank = data.hotRank;
+            }
+        });
+
+    };
+
+    /*用户富豪榜*/
+    var getMagnateRank = function (gid,magnateday) {
+        $.ajax({
+            type: 'POST',
+            dataType: 'json',
+            async: true,
+            url: '/gemagnaterank',
+            data: {
+                gid: gid,
+                magnateday:magnateday
+            },
+            success: function (data) {
+                console.log(data);
+                alert(gid);
+                all.magnaterank = data.magnateRank;
             }
         });
 
