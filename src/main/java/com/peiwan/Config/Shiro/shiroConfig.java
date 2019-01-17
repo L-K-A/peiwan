@@ -64,6 +64,8 @@ public class shiroConfig {
         //密码的验证业务
         filterMap.put("/Ypwd","anon");
 
+        filterMap.put("/logout", "logout");
+
 
 //授权过滤器
         filterMap.put("/add","perms[user:add]");
