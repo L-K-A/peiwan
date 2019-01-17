@@ -2,11 +2,13 @@ package com.peiwan.bean;
 
 import java.io.Serializable;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
+import org.springframework.data.annotation.Id;
 
 /**
  * <p>
@@ -19,19 +21,30 @@ import lombok.experimental.Accessors;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@TableName("a_attention")
+@TableName(value = "a_attention")
 public class AAttention implements Serializable {
 
     private static final long serialVersionUID = 1L;
+
     /**
      * 用户id
+     * @Author : YJH
+     * @Date : 2019/1/7  9:59
+     * @Parm :
+     * @Return :
      */
-    @TableId(value = "pid")
+
+    @TableId(value = "pid",type = IdType.AUTO)
     private Integer pid;
 
     /**
      * 关注列表id
+     * @Author : YJH
+     * @Date : 2019/1/7  10:08
+     * @Parm :
+     * @Return :
      */
+
     private Integer aid;
 
     /**
@@ -39,31 +52,12 @@ public class AAttention implements Serializable {
      */
     private Integer zZhubo;
 
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
-    }
-
-    public Integer getPid() {
-        return pid;
-    }
-
-    public void setPid(Integer pid) {
-        this.pid = pid;
-    }
-
-    public Integer getAid() {
-        return aid;
-    }
-
-    public void setAid(Integer aid) {
-        this.aid = aid;
-    }
-
-    public Integer getzZhubo() {
-        return zZhubo;
-    }
-
-    public void setzZhubo(Integer zZhubo) {
-        this.zZhubo = zZhubo;
-    }
+    /**
+     * 主播id
+    * @Author : YJH
+    * @Date : 2019/1/11  11:34
+    * @Parm :
+    * @Return :
+    */
+    private Integer gid;
 }

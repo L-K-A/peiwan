@@ -1,6 +1,10 @@
 package com.peiwan.bean;
 
 import java.io.Serializable;
+
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
@@ -16,6 +20,7 @@ import lombok.experimental.Accessors;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
+@TableName(value = "o_order_z")
 public class OOrderZ implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -28,6 +33,7 @@ public class OOrderZ implements Serializable {
     /**
      * 订单id
      */
+    @TableId(value = "oid",type = IdType.AUTO)
     private String oid;
 
     /**
@@ -36,9 +42,9 @@ public class OOrderZ implements Serializable {
     private String personName;
 
     /**
-     * 服务类型=板块名
+     * 板块id
      */
-    private String oService;
+    private int gid;
 
     /**
      * 约定时间

@@ -1,6 +1,10 @@
 package com.peiwan.bean;
 
 import java.io.Serializable;
+
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
@@ -16,6 +20,7 @@ import lombok.experimental.Accessors;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
+@TableName(value = "m_money")
 public class MMomey implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -28,6 +33,7 @@ public class MMomey implements Serializable {
     /**
      * 账户id
      */
+    @TableId(value = "mid",type = IdType.AUTO)
     private Integer mid;
 
     /**
@@ -44,6 +50,16 @@ public class MMomey implements Serializable {
      * 充值时间
      */
     private String mChangetime;
+
+    /**
+     * 充值金额
+    * @Author : YJH
+    * @Date : 2019/1/11  11:45
+    * @Parm :
+    * @Return :
+    */
+
+    private Integer mCharge;
 
 
 }

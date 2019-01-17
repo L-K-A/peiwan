@@ -53,7 +53,16 @@ public class PComment implements Serializable {
     /**
      * 评分(好评，中评，差评)
      */
-    private String cRank;
+    private Integer cRank;
 
+    /**
+     * 主播id
+    * @Author : YJH
+    * @Date : 2019/1/11  11:38
+    * @Parm :
+    * @Return :
+    */
+
+    private Integer zid;
 
 }

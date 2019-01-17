@@ -35,5 +35,15 @@ public class YService implements Serializable {
      */
     private String yName;
 
+    /**
+     * 服务价格
+    * @Author : YJH
+    * @Date : 2019/1/11  11:42
+    * @Parm :
+    * @Return :
+    */
+
+    private double yService;
+
 
 }

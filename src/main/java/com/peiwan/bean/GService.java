@@ -50,5 +50,14 @@ public class GService implements Serializable {
      */
     private String pGid;
 
+    /**
+     * 服务价格
+    * @Author : YJH
+    * @Date : 2019/1/11  11:41
+    * @Parm :
+    * @Return :
+    */
+
+    private Double gService;
 
 }

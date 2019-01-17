@@ -1,5 +1,6 @@
 package com.peiwan.bean;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
 
@@ -19,7 +20,7 @@ import lombok.experimental.Accessors;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@TableName("p_person")
+@TableName(value = "p_person")
 public class PPerson implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -27,7 +28,7 @@ public class PPerson implements Serializable {
     /**
      * id
      */
-    @TableId(value = "pid")
+    @TableId(value = "pid", type = IdType.AUTO)
     private Integer pid;
 
     /**
@@ -58,7 +59,7 @@ public class PPerson implements Serializable {
     /**
      * 年龄
      */
-    private String personBirthday;
+    private Integer personAge;
 
     /**
      * qq
@@ -135,4 +136,6 @@ public class PPerson implements Serializable {
      */
     private Integer zZhubo;
 
+    public PPerson() {
+    }
 }
