@@ -13,6 +13,6 @@ import org.apache.ibatis.annotations.Mapper;
  * @since 2019-01-02
  */
 @Mapper
-public interface AAttentionMapper extends BaseMapper<TAttention> {
+public interface TAttentionMapper extends BaseMapper<TAttention> {
 
 }

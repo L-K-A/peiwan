@@ -1,9 +1,4 @@
 package com.peiwan.controller;
-
-import com.baomidou.mybatisplus.core.metadata.IPage;
-
-
-import com.peiwan.bean.TComment;
 import com.peiwan.bean.TPerson;
 import com.peiwan.service.TeacherInfoService;
 import org.springframework.web.bind.annotation.RequestMapping;

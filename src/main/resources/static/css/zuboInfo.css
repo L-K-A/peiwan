@@ -30,7 +30,7 @@ img{
     display: flex;
 }
 
- .zubo-title .title-meta .zuboImg img{
+.zubo-title .title-meta .zuboImg img{
     display: inline-block;
     width: 80px;
     height: 80px;
@@ -47,8 +47,8 @@ img{
 }
 .zubo-title .title-info .credit{
     margin-top: 5px;
-   color:#999999;
-   font-size: 14px;
+    color:#999999;
+    font-size: 14px;
 }
 .zubo-title .title-info .credit img{
     width: 72px;
@@ -152,18 +152,18 @@ img{
 }
 
 .zubo-cont .giftTab .tabDot{
-   display: flex;
-   align-items: center;
-   width: 100%;
-   height:56px;
-   background: #ccc;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height:56px;
+    background: #ccc;
 }
 .zubo-cont .giftTab .tabDot>div{
-   padding: 3px 10px;
-   height:26px;
-   line-height: 26px;
-   font-size: 16px;
-   margin-left: 5px;
+    padding: 3px 10px;
+    height:26px;
+    line-height: 26px;
+    font-size: 16px;
+    margin-left: 5px;
 }
 .zubo-cont .giftTab .tabCont {
     position: relative;
@@ -171,14 +171,14 @@ img{
     height:324px;
 }
 .zubo-cont .giftTab .tabCont .tabCont-box{
-   display: flex;
-   flex-wrap: wrap;
-   width: 406px;
-   height:304px;
-   font-size: 12px;
-   position: absolute;
-   top:20px;
-   left:20px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 406px;
+    height:304px;
+    font-size: 12px;
+    position: absolute;
+    top:20px;
+    left:20px;
 }
 .zubo-cont .giftTab .tabCont .tabCont-box li{
     width: 64px;
@@ -193,16 +193,16 @@ img{
     display: block;
 }
 .zubo-cont .giftTab .tabCont .tabCont-box li>div{
-   font-size: 12px;
-   width: 100%;
-   text-align: center;
-   line-height: 24px;
+    font-size: 12px;
+    width: 100%;
+    text-align: center;
+    line-height: 24px;
 }
 .zubo-cont .giftTab .last{
-   line-height:30px;
-   width: 406px;
-   padding-left:  20px ;
-   font-size: 12px;
+    line-height:30px;
+    width: 406px;
+    padding-left:  20px ;
+    font-size: 12px;
 }
 .zubo-cont .left-top {
     width: 100%;
@@ -245,12 +245,12 @@ img{
     text-align: center;
 }
 .zubo-cont .left-top .sendGift .ipt>.img{
-     width: 34px;
+    width: 34px;
 }
 .zubo-cont .left-top .sendGift .ipt img{
-     display: block;
-     margin: 0 auto;
-     margin-top: 10px;
+    display: block;
+    margin: 0 auto;
+    margin-top: 10px;
 }
 .zubo-cont .left-top .sendGift .send{
     background-color: #ff593e;
@@ -261,16 +261,16 @@ img{
     display:flex;
 }
 .zubo-cont .left-top .sendGift .send img{
-   display: block;
-   margin: 0 auto;
+    display: block;
+    margin: 0 auto;
 }
 .zubo-cont .left-top .sendGift .send .img{
-   width: 30px;
-   margin:auto;
+    width: 30px;
+    margin:auto;
 }
 .zubo-cont .left-top .sendGift .send .sendgift{
-   width: 70px;
-   text-align: center;
+    width: 70px;
+    text-align: center;
 }
 .zubo-cont .left-bottom{
     margin-top: 20px;
@@ -290,19 +290,19 @@ img{
     line-height: 24px;
     text-align: center;
 }
-.zubo-cont .left-bottom .zuboCont li{ 
+.zubo-cont .left-bottom .zuboCont li{
     line-height: 50px;
     font-size: 14px;
     color:#666666;
 }
-.zubo-cont .left-bottom .zuboCont li>img{ 
-   display: inline-block;
-   vertical-align: middle;
+.zubo-cont .left-bottom .zuboCont li>img{
+    display: inline-block;
+    vertical-align: middle;
 }
-.zubo-cont .left-bottom .zuboCont li>span{ 
-   vertical-align: middle;
-   margin-left: 10px;
-   color:#333333;
+.zubo-cont .left-bottom .zuboCont li>span{
+    vertical-align: middle;
+    margin-left: 10px;
+    color:#333333;
 }
 
 /* ===========右侧头部 */
@@ -470,17 +470,17 @@ img{
     width: 710px;
     padding: 30px;
     /*border:1px solid red;*/
-     float:left;
+    float:left;
 }
 .zubo-cont .rightTab-cont .onlineLol .lol-head{
-     display: flex;
-     width: 710px;
-     justify-content: space-between;
-     margin-bottom: 20px;
-}
- .zubo-cont .right-tab .rightTab-cont .lol-head .left{
     display: flex;
-} 
+    width: 710px;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.zubo-cont .right-tab .rightTab-cont .lol-head .left{
+    display: flex;
+}
 
 .zubo-cont .right-tab .rightTab-cont .lol-head .radio{
     margin-right: 20px;
@@ -504,20 +504,20 @@ img{
     color: #666666
 }
 .zubo-cont .rightTab-cont .lol-head .Lol-meta .order-btn img{
-    margin-right: 5px;    
+    margin-right: 5px;
 }
 .zubo-cont .right-tab .rightTab-cont .lol-head .right{
     width: 145px;
     margin-top: 20px;
-   
-} 
+
+}
 .zubo-cont .rightTab-cont .lol-head .right .price{
     font-size: 19px;
     color: #999999;
-   
+
 }
 .zubo-cont .rightTab-cont .lol-head .right .price span{
-     font-size: 36px;
+    font-size: 36px;
     color: #ff593e;
     margin-left: 20px;
 }
@@ -535,9 +535,9 @@ img{
     cursor: pointer;
 }
 .zubo-cont .rightTab-cont .onlineLol .intro{
-     border-top: #dddddd 1px dashed;
-     border-bottom: #dddddd 1px dashed;
-     padding: 25px 0;
+    border-top: #dddddd 1px dashed;
+    border-bottom: #dddddd 1px dashed;
+    padding: 25px 0;
 }
 .zubo-cont .rightTab-cont .onlineLol .intro .intro-title  {
     font-size: 14px;
@@ -548,7 +548,7 @@ img{
     font-size: 18px;
     color: #333333;
     font-weight: bold;
-    margin-right: 10px;   
+    margin-right: 10px;
 }
 .zubo-cont .rightTab-cont .intro .intro-info {
     font-size: 14px;
@@ -611,7 +611,7 @@ img{
 }
 
 .zubo-cont .rightTab-cont .lol-comments .comm-lebal .label-item li span{
-   color:#fc831a;
+    color:#fc831a;
 }
 
 .zubo-cont .lol-comments .comm-item li .comm-info{
@@ -627,17 +627,17 @@ img{
     color: #333333;
 }
 .zubo-cont .lol-comments .comm-item li .comm-info .name{
-    
+
     font-size: 14px;
     font-weight: bold;
     color: #333333;
 }
 .zubo-cont .lol-comments .comm-item li .comm-info .reply-time{
-    
+
     font-size: 12px;
     color: #999;
     line-height: 20px;
-    
+
 }
 .zubo-cont .lol-comments .comm-item li .comm-info .comm-cont{
     margin-top: 10px;
@@ -648,20 +648,20 @@ img{
     color: #666666;
 }
 .zubo-cont .lol-comments .comm-item li  .stars{
-   display: flex;
-   justify-content: flex-end;
-   margin-bottom: 20px;
-   
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+
 }
 .zubo-cont .lol-comments .comm-item li  img{
-   margin-left: 3px;
+    margin-left: 3px;
 }
- .playActive{
+.playActive{
     background-color: white;
     border-top: #da4e38 2px solid;
 }
 .giftActive{
     color:white;
     border-bottom: 2px solid white;
-    
+
 }

@@ -116,7 +116,7 @@ var zhuboOrder =function(pid,gid,curr){
             console.log(1111+pingord);
 
             touxiang.serviceInfo=pingord.zuiduodenei;
-            // tab('.zubo-cont .right-tab .rightTab-nav','.zubo-cont .right-tab .rightTab-cont-box','playActive')
+            tab('.zubo-cont .right-tab .rightTab-nav','.zubo-cont .right-tab .rightTab-cont-box','playActive')
             /*laypage({
                 cont:'pagenav',
                 /!*pages:pingord.content.pages,*!/
@@ -135,35 +135,35 @@ var zhuboOrder =function(pid,gid,curr){
 zhuboOrder();
 
 /* 暂时不用     请求评论类型遍历*/
-/*var pinglun = function (pid,gid,curr) {
+var pinglun = function (pid,gid,curr) {
     $.ajax({
         type: 'POST',
         dataType: 'json',
         url: "/teacherPage/findComment",
-        async:true,
+        async: true,
         data: {
-            pageNum:curr || 1,
+            pageNum: curr || 1,
             "zid": 1,
-            "gid":1,
+            "gid": 1,
         },
         success: function (pings) {
             console.log(pings);
-            touxiang.contentList=pings.content.records;
+            touxiang.contentList = pings.content.records;
             laypage({
-                cont:'pagenav',
-                pages:pings.content.pages,
-                first:'首页',
-                last:'尾页',
-                curr:curr || 1,
-                jump:function (obj,first) {
-                    if (!first){
-                        pinglun(pid,gid,obj.curr);
+                cont: 'pagenav',
+                pages: pings.content.pages,
+                first: '首页',
+                last: '尾页',
+                curr: curr || 1,
+                jump: function (obj, first) {
+                    if (!first) {
+                        pinglun(pid, gid, obj.curr);
                     }
                 }
             });
         }
     });
-};*/
+}
 /*分享的  以及弹出层*/
 var editEvent = function (id) {
     layer.open({
@@ -221,6 +221,7 @@ var getLike = function () {
         }
     });
 };
+getLike();
 //游戏tab切换
 function tab(tabDot,tabCont,cla){
     var tabDotItem=$(tabDot);
@@ -265,5 +266,4 @@ function titleAnimate(){
     },1000)
   },1000)
 }
-console.log(usqls);
 

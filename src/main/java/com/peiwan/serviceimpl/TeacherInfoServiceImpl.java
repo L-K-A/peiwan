@@ -4,9 +4,8 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.peiwan.bean.TAttention;
-import com.peiwan.bean.TComment;
 import com.peiwan.bean.TPerson;
-import com.peiwan.dao.AAttentionMapper;
+import com.peiwan.dao.TAttentionMapper;
 import com.peiwan.dao.TeacherInfoMapper;
 import com.peiwan.peiUtils.AgeByBirthUtil;
 import com.peiwan.service.TeacherInfoService;
@@ -30,7 +29,7 @@ import static com.peiwan.peiUtils.ConstellationUtil.calculateConstellation;
 @Service
 public class TeacherInfoServiceImpl implements TeacherInfoService {
     @Resource
-    private AAttentionMapper aAttentionMapper;
+    private TAttentionMapper aAttentionMapper;
     @Resource
     private TeacherInfoMapper teacherInfoMapper;
 
@@ -100,7 +99,6 @@ public class TeacherInfoServiceImpl implements TeacherInfoService {
         return 0;
     }
 
-    /* 权重分类 获取主播全部评分的平均分  */
     @Override
     public Integer selectAvg(Integer zid) {
         double selectavg = teacherInfoMapper.selectavg(zid);

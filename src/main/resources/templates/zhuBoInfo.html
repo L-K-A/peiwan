@@ -345,6 +345,7 @@
                     <div class="rightTab-cont-box" >
 
                         <div class="onlineLol"  v-for="(ite,index) in serviceInfo" v-if="index===num">
+
                             <div class="lol-head">
                                 <div class="left">
                                     <div class="radio">
@@ -415,31 +416,11 @@
         </div>
     </div>
 </div>
-<div class="stars">
-    <div id="test3" style="margin-top: 30px;"></div>
-</div>
+</body>
 <script src="/js/jquery.min.js"></script>
-<script src="js/layui.js" charset="utf-8"></script>
 <script src="/js/vue.min.js"></script>
 <script src="/js/layer.js"></script>
 <script src="/js/laypage.js"></script>
 <!--<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>-->
 <script src="/js/zuboInfo.js"></script>
-<script>
-    layui.use(['rate'], function(){
-        var rate = layui.rate;
-
-        //半星效果
-        rate.render({
-            elem: '#test3'
-            ,value: 3.5 //初始值
-            ,half: true //开启半星
-        })
-    });
-</script>
-</body>
-
-
-
-
 </html>
