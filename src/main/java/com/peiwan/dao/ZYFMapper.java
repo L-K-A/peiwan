@@ -26,8 +26,10 @@ public interface ZYFMapper extends BaseMapper<TPerson> {
     //导航栏根据昵称和Id模糊查询
     List<Map<String,Object>> selectPersonByNameAndId(TPerson person);
 
-    //热度榜查询主播订单数：先按照订单数排序，再查询主播详细信息
+    //热度榜 周榜：查询主播订单数，先筛选规定时间，然后按照订单数排序
     List<Map<String,Object>> selectOrderList(int curPage);
+    //热度榜 总榜：查询主播总订单数
+    List<Map<String,Object>> selectOrderListAll(int curPage);
 
 
 }

@@ -23,8 +23,10 @@ public interface ZYFService extends IService<TPerson> {
     //导航栏根据昵称和Id模糊查询
     List<Map<String,Object>> selectPersonByNameId(TPerson person);
 
-    //热度榜查询主播订单数：先按照订单数排序，再查询主播详细信息
+    //热度榜 周榜：查询主播订单数，先筛选规定时间，然后按照订单数排序
     Page<Map<String,Object>> selectPersonOrder(int curPage);
+    //热度榜 总榜：查询主播总订单数
+    Page<Map<String,Object>> selectPersonOrderAll(int curPage);
 
 
 

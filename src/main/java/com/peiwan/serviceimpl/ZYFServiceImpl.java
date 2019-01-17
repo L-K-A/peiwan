@@ -16,7 +16,7 @@ import java.util.Map;
  *  服务实现类
  * </p>
  *
- * @author bjlz
+ * @author Zhou先生
  * @since 2019-01-02
  */
 @Service
@@ -41,13 +41,23 @@ public class ZYFServiceImpl extends ServiceImpl<ZYFMapper, TPerson> implements Z
         return maps;
     }
 
-    //热度榜查询主播订单数：先按照订单数排序，再查询主播详细信息
+
+    //热度榜 周榜：查询主播订单数，先筛选规定时间，然后按照订单数排序
     @Override
     public Page<Map<String, Object>> selectPersonOrder(int curPage) {
         Page<Map<String,Object>> page = new Page<Map<String,Object>>();
         Page<Map<String, Object>> orderList = page.setRecords(this.baseMapper.selectOrderList(curPage));
         return orderList;
     }
+    //热度榜 总榜：查询主播总订单数
+    @Override
+    public Page<Map<String, Object>> selectPersonOrderAll(int curPage) {
+        Page<Map<String,Object>> page = new Page<Map<String, Object>>();
+        Page<Map<String, Object>> orderListAll = page.setRecords(this.baseMapper.selectOrderListAll(curPage));
+        return orderListAll;
+    }
+
+
 
     public ZYFMapper getZyfMapper() {
         return zyfMapper;

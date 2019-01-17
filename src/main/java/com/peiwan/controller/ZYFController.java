@@ -38,7 +38,6 @@ public class ZYFController {
     //主播列表
     @RequestMapping("/getPersonList")
     public Map<String,Object> getPage(int curPage){
-        System.out.println(1);
         Page<Map<String, Object>> page = zyfService.selectPersonList(curPage);
         List<Map<String, Object>> records = page.getRecords();
         Map map = new HashMap();
@@ -68,14 +67,25 @@ public class ZYFController {
 
 
 
-    //热度榜查询主播订单数：先按照订单数排序，再查询主播详细信息
+    //热度榜 周榜：查询主播订单数，先筛选规定时间，然后按照订单数排序
     @RequestMapping("/getOrderCountList")
     public Map<String,Object> getOrderList(int curPage){
         Page<Map<String, Object>> page = zyfService.selectPersonOrder(curPage);
-        List<Map<String, Object>> records = page.getRecords();
+        List<Map<String, Object>> personOrderList = page.getRecords();
         Map map = new HashMap();
-        map.put("orderCountList",records);
+        //map.put("personOrderList",personOrderList);
+        map.put("personOrderList",personOrderList);
         System.out.println("数据库查到的:"+map);
+        return map;
+    }
+    //热度榜 总榜：查询主播总订单数
+    @RequestMapping("/getOrderCountListAll")
+    public Map<String,Object> getOrderListAll(int curPage){
+        Page<Map<String, Object>> page = zyfService.selectPersonOrderAll(curPage);
+        List<Map<String, Object>> personOrderListAll = page.getRecords();
+        Map map = new HashMap();
+        map.put("personOrderListAll",personOrderListAll);
+        System.out.println("数据库查到的："+map);
         return map;
     }
 
@@ -84,6 +94,7 @@ public class ZYFController {
     public ModelAndView select(){
         return new ModelAndView("reDuBang");
     }
+
 
 
     public ZYFService getZyfService() {
