@@ -14,12 +14,10 @@ import java.util.Date;
 public class AgeByBirthUtil {
     /*将出生日期转化为年龄*/
     public static int getAgeByBirth(String birthday) throws ParseException {
-        if (birthday == null || birthday.trim().length() == 0)
-            throw new IllegalArgumentException("the birthday can not be null");
-        String LockDates = birthday.substring(0, 4) + "-" + birthday.substring(4, 6) + "-" + birthday.substring(6, 8);
+        //String LockDates = birthday.substring(0, 4) + "-" + birthday.substring(4, 6) + "-" + birthday.substring(6, 8);
         // 格式化传入的时间
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-        Date parse = format.parse(LockDates);
+        Date parse = format.parse(birthday);
         int age = 0;
         try {
             Calendar now = Calendar.getInstance();

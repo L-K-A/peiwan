@@ -44,8 +44,8 @@ public class ConstellationUtil {
     public static String calculateConstellation(String birthday) {
         if (birthday == null || birthday.trim().length() == 0)
             throw new IllegalArgumentException("the birthday can not be null");
-        String LockDates = birthday.substring(0, 4) + "-" + birthday.substring(4, 6) + "-" + birthday.substring(6, 8);
-        String[] birthdayElements = LockDates.split("-");
+        //String LockDates = birthday.substring(0, 4) + "-" + birthday.substring(4, 6) + "-" + birthday.substring(6, 8);
+        String[] birthdayElements = birthday.split("-");
         if (birthdayElements.length != 3)
             throw new IllegalArgumentException(
                     "the birthday form is not invalid");
