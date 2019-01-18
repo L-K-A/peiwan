@@ -14,6 +14,7 @@ public class PeiwanApplication<componenScan> {
 
     public static void main(String[] args) {
         SpringApplication.run(PeiwanApplication.class, args);
+		
     }
 
 }
