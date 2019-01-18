@@ -13,10 +13,10 @@ import lombok.experimental.Accessors;
 
 /**
  * <p>
- * 
+ *
  * </p>
  *
- * @author 
+ * @author
  * @since 2019-01-16
  */
 @Data
@@ -82,20 +82,20 @@ public class TOrderZ implements Serializable {
     private Integer oFlate;
 
     /**
-<<<<<<< HEAD:src/main/java/com/peiwan/bean/TOrderZ.java
+     * <<<<<<< HEAD:src/main/java/com/peiwan/bean/TOrderZ.java
      * 订单开始时间
-=======
+     * =======
      * 订单对应标识
->>>>>>> de378c9f2bcaf53aed3c0a6707957b7fd921cdbf:src/main/java/com/peiwan/bean/OOrderZ.java
+     * >>>>>>> de378c9f2bcaf53aed3c0a6707957b7fd921cdbf:src/main/java/com/peiwan/bean/OOrderZ.java
      */
     private String oStarttime;
 
     /**
-<<<<<<< HEAD:src/main/java/com/peiwan/bean/TOrderZ.java
+     * <<<<<<< HEAD:src/main/java/com/peiwan/bean/TOrderZ.java
      * 订单开始日期
-=======
+     * =======
      * 订单对应标识
->>>>>>> de378c9f2bcaf53aed3c0a6707957b7fd921cdbf:src/main/java/com/peiwan/bean/OOrderZ.java
+     * >>>>>>> de378c9f2bcaf53aed3c0a6707957b7fd921cdbf:src/main/java/com/peiwan/bean/OOrderZ.java
      */
     private String oDatetime;
 

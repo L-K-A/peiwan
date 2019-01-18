@@ -6,11 +6,12 @@ import com.peiwan.serviceimpl.ZjmLoginServiceImpl;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
+
 import javax.annotation.Resource;
 
 /**
  * <p>
- *  前端控制器
+ * 前端控制器
  * </p>
  *
  * @author bjlz
@@ -25,9 +26,9 @@ public class ZjmLoginController {
     @Resource
     private ZjmLoginServiceImpl aAttentionService;
 
-//    主页
-    @RequestMapping({"/","/MyIndex"})
-    public ModelAndView MyIndex(){
+    //    主页
+    @RequestMapping({"/", "/MyIndex"})
+    public ModelAndView MyIndex() {
         return new ModelAndView("index");
     }
 
@@ -49,15 +50,16 @@ public class ZjmLoginController {
 //    }
 
 
-// 登录
+    // 登录
     @RequestMapping("/toLogin")
-    public ModelAndView tologin(){
+    public ModelAndView tologin() {
         return new ModelAndView("login");
     }
-// 注册
+
+    // 注册
     @RequestMapping("/toRegister")
-    public ModelAndView toregister(){
-        return  new ModelAndView("register");
+    public ModelAndView toregister() {
+        return new ModelAndView("register");
     }
 
 /*
@@ -83,9 +85,6 @@ public class ZjmLoginController {
         }
     }
 */
-
-
-
 
 
 //

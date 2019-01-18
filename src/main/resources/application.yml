@@ -1,7 +1,14 @@
 server:
   port: 8080
 
+#(发短信秘钥)
+accessKeyId: LTAIWtbx9AzI12pX
+accessKeySecrt: HyEV759TWReTVO5J0dbfivUGVCR6iH
+
 spring:
+  #消息mq的地址 如果上传还需要修改  （张家明）
+  activemq:
+    broker-url: tcp://127.0.0.1:61616
   datasource:
     name: mysql_test
     type: com.alibaba.druid.pool.DruidDataSource

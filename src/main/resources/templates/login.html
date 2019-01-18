@@ -2,144 +2,145 @@
 <html xmlns:th="http://www.w3.org/1999/xhtml">
 <!---需要技术支持联系QQ：44312658--->
 <head>
-		<meta charset="utf-8">
-		<title>登录界面</title>
-		<link rel="stylesheet" href="/loginJC/css/reset.css" />
-		<link rel="stylesheet" href="/loginJC/css/common.css" />
-		<link rel="stylesheet" href="/loginJC/css/font-awesome.min.css" />
-        <link rel="stylesheet" href="/plugins/layer/layer.css" />
-	</head>
-	<body>
-		<div class="wrap login_wrap">
-			<div class="content">
-				<div class="logo"></div>
-				<div class="login_box">	
-					
-					<div class="login_form">
-						<div class="login_title">
-							登录<br/>
-						</div>
+    <meta charset="utf-8">
+    <title>登录界面</title>
+    <link rel="stylesheet" href="/loginJC/css/reset.css"/>
+    <link rel="stylesheet" href="/loginJC/css/common.css"/>
+    <link rel="stylesheet" href="/loginJC/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="/plugins/layer/layer.css"/>
+</head>
+<body>
+<div class="wrap login_wrap">
+    <div class="content">
+        <div class="logo"></div>
+        <div class="login_box">
 
-						<form name="form" action="/logins" method="post" onSubmit="return beforeSubmit(this);">
-							
-							<div class="form_text_ipt">
-								<input id="personNickname" name="personNickname" type="text" placeholder="用户名" onblur="pname()">
-							</div>
-							<div class="form_text_ipt">
-								<input id="personPwd" name="personPwd" type="password" placeholder="密码" onblur="ppwd()">
-							</div>
-							<div class="form_check_ipt">
-								<div class="left check_left">
-									<label><input name="" type="checkbox">下次自动登录</label>
-								</div>
-								<div class="right check_right">
-									<a href="#">忘记密码</a>
-								</div>
-							</div>
-							<div class="form_btn">
-								<!--onclick="javascript:window.location.href=''"-->
-                                <button type="submit">登录</button>
-							</div>
-							<div class="form_reg_btn">
-								<span>还没有帐号？</span><a href="/toRegister">马上注册</a>
-							</div>
-						</form>
-						<div class="other_login">
-							<div class="left other_left">
-								<span>其它登录方式</span>
-							</div>
-							<div class="right other_right">
-								<a href="#"><i class="fa fa-qq fa-2x"></i></a>
-								<a href="#"><i class="fa fa-weixin fa-2x"></i></a>
-								<a href="#"><i class="fa fa-weibo fa-2x"></i></a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<script type="text/javascript" src="/loginJC/js/jquery.min.js" ></script>
-		<script type="text/javascript" src="/loginJC/js/common.js" ></script>
-		<script type="text/javascript" src="/plugins/layer/layer.js" ></script>
-		<script>
-            var personNickname = document.getElementById("personNickname");
-            var personPwd = document.getElementById("personPwd");
-			//用户名和密码为空 不能提交点单
-			function beforeSubmit(form) {
-				if (personNickname.value==""){
-				    //layer.msg('用户名不能为空！');
-                    form.personNickname.focus();//然后输入焦点或者光标定位到这个为空的文本框里。
-                    return false;
-				}
-				if (personPwd.value==""){
-				    //layer.msg('密码不能为空！');
-				    form.personPwd.focus();//然后输入焦点或者光标定位到这个为空的文本框里。
-					return false;
-				}
-            }
-			//用ajax异步验证用户名
-			function pname() {
-			    if (personNickname.value==""){
-                    layer.tips("用户名不能为空！",'#personNickname');
-				}else{
-                    $.ajax({
-                        url: '/Yname',//跳到业务层
-                        type: 'get',
-                        dataType: 'json',
-                        data:{
-                            personNickname:personNickname.value
-						},
-                        success: function (msg) {
-                            //layer.tips(msg.iTPersonname,'#personNickname');
-                        },
-                        error: function () {
-                        }
-                    });
-				}
-            }
-            //用Ajax异步验证密码
-			function ppwd() {
-			    if (personPwd.value=="") {
-                    layer.tips("密码不能为空！",'#personPwd');
-				}else{
-			        $.ajax({
-						url: "/Ypwd",
-						type: "get",
-						dataType: "json",
-						data:{
-                            personNickname:personNickname.value,
-                            personPwd:personPwd.value
-						},
-						success: function (msg) {
-                            layer.tips(msg.iTPersonpwd,'#personPwd');
-                        },
-                        error: function () {
-                        }
-					});
-				}
-            }
+            <div class="login_form">
+                <div class="login_title">
+                    登录<br/>
+                </div>
 
+                <form name="form" action="/logins" method="post" onSubmit="return beforeSubmit(this);">
 
-
-            // //登陆事件
-            // function button() {
-            // 	$.ajax({
-            // 		type: "POST",//方法类型
-            // 		dataType: "json",//预期服务器返回的数据类型
-            // 		url: "/MyIndex",
-            // 		data: $('#form1').serialize(),
-            // 		success: function (result) {
-            // 		    //测试用
-            // 			layer.msg(result);
-            //         },
-            //         error: function () {
-            // 			layer.msg("异常！");
-            //         }
-            // 	});
-            // }
-
-		</script>
-		<div style="text-align:center;">
+                    <div class="form_text_ipt">
+                        <input id="personNickname" name="personNickname" type="text" placeholder="用户名" onblur="pname()">
+                    </div>
+                    <div class="form_text_ipt">
+                        <input id="personPwd" name="personPwd" type="password" placeholder="密码" onblur="ppwd()">
+                    </div>
+                    <div class="form_check_ipt">
+                        <div class="left check_left">
+                            <label><input name="" type="checkbox">下次自动登录</label>
+                        </div>
+                        <div class="right check_right">
+                            <a href="#">忘记密码</a>
+                        </div>
+                    </div>
+                    <div class="form_btn">
+                        <!--onclick="javascript:window.location.href=''"-->
+                        <button type="submit">登录</button>
+                    </div>
+                    <div class="form_reg_btn">
+                        <span>还没有帐号？</span><a href="/toRegister">马上注册</a>
+                    </div>
+                </form>
+                <div class="other_login">
+                    <div class="left other_left">
+                        <span>其它登录方式</span>
+                    </div>
+                    <div class="right other_right">
+                        <a href="#"><i class="fa fa-qq fa-2x"></i></a>
+                        <a href="#"><i class="fa fa-weixin fa-2x"></i></a>
+                        <a href="#"><i class="fa fa-weibo fa-2x"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-	</body>
+<script type="text/javascript" src="/loginJC/js/jquery.min.js"></script>
+<script type="text/javascript" src="/plugins/layer/layer.js"></script>
+<script>
+    var personNickname = document.getElementById("personNickname");
+    var personPwd = document.getElementById("personPwd");
+
+    //用户名和密码为空 不能提交点单
+    function beforeSubmit(form) {
+        if (personNickname.value == "") {
+            //layer.msg('用户名不能为空！');
+            form.personNickname.focus();//然后输入焦点或者光标定位到这个为空的文本框里。
+            return false;
+        }
+        if (personPwd.value == "") {
+            //layer.msg('密码不能为空！');
+            form.personPwd.focus();//然后输入焦点或者光标定位到这个为空的文本框里。
+            return false;
+        }
+    }
+
+    //用ajax异步验证用户名
+    function pname() {
+        if (personNickname.value == "") {
+            layer.tips("用户名不能为空！", '#personNickname');
+        } else {
+            $.ajax({
+                url: '/Yname',//跳到业务层
+                type: 'get',
+                dataType: 'json',
+                data: {
+                    personNickname: personNickname.value
+                },
+                success: function (msg) {
+                    //layer.tips(msg.iTPersonname,'#personNickname');
+                },
+                error: function () {
+                }
+            });
+        }
+    }
+
+    //用Ajax异步验证密码
+    function ppwd() {
+        if (personPwd.value == "") {
+            layer.tips("密码不能为空！", '#personPwd');
+        } else {
+            $.ajax({
+                url: "/Ypwd",
+                type: "get",
+                dataType: "json",
+                data: {
+                    personNickname: personNickname.value,
+                    personPwd: personPwd.value
+                },
+                success: function (msg) {
+                    layer.tips(msg.iTPersonpwd, '#personPwd');
+                },
+                error: function () {
+                }
+            });
+        }
+    }
+
+
+    // //登陆事件
+    // function button() {
+    // 	$.ajax({
+    // 		type: "POST",//方法类型
+    // 		dataType: "json",//预期服务器返回的数据类型
+    // 		url: "/MyIndex",
+    // 		data: $('#form1').serialize(),
+    // 		success: function (result) {
+    // 		    //测试用
+    // 			layer.msg(result);
+    //         },
+    //         error: function () {
+    // 			layer.msg("异常！");
+    //         }
+    // 	});
+    // }
+
+</script>
+<div style="text-align:center;">
+</div>
+</body>
 </html>

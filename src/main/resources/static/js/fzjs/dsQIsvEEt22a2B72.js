@@ -15,6 +15,7 @@ if (!nickname) {
 if (!group) {
     var group = '';
 }
+
 function kefuWindow() {
     var iHeight = 600;
     var iWidth = 800;
