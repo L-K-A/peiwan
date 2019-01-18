@@ -3,9 +3,10 @@
  * 张万里
  * 2019-1-10
  */
-//游戏tab
+var zid = 0;
+var gid = 0;
+var pid =1;
 
-var usqls=1111;
 /*获取URL中的参数 查询导师信息  获取到Url里面的参数*/
 function GetQueryString(name) {
     var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
@@ -14,14 +15,14 @@ function GetQueryString(name) {
     return null;
 }
 
-// 调用方法  传入参数名可获得
-//alert(GetQueryString("name"));
-//alert(GetQueryString("id"));
-//避免无参数是出现异常
+// 调用方法
+zid = GetQueryString("zid");
+gid = GetQueryString("gid");
+
 var myurl = GetQueryString("url");
-/*if (myurl != null && myurl.toString().length > 1) {
-    alert("请求参数为空")
-}*/
+if (myurl != null && myurl.toString().length > 1) {
+    alert(GetQueryString("url"));
+}
 
 /*vue的导师头部*/
 var app = new Vue({
@@ -34,34 +35,33 @@ var gitTeacherInfo = function () {
     $.ajax({
         type: 'POST',
         dataType: 'json',
-        async:false,
+        async: false,
         url: "/teacherPage/getInfo",
         data: {
-            "pid": 1,
-            "gid": 1,
+            "pid": pid,
+            "gid": gid,
         },
         success: function (data) {
             /*console.log(data);*/
-            app.result = data.pperson;
-            usqls= data.pperson.personWeight
+            app.result = data;
         }
     });
 };
 gitTeacherInfo();
-var gid=0;
+var gid = 0;
 
 var touxiang = new Vue({
     el: '#zhubotouxaing',
     data: {
         zbt: [],
         services: [],
-        serviceInfo:[],
-        contentList:[],
-        num:0
+        serviceInfo: [],
+        contentList: [],
+        num: 0
     },
-    methods:{
-        zhubofuwu(index){
-            this.num=index
+    methods: {
+        zhubofuwu(index) {
+            this.num = index
         }
 
     }
@@ -71,15 +71,15 @@ var gettouxiang = function () {
     $.ajax({
         type: 'POST',
         dataType: 'json',
-        async:true,
+        async: true,
         url: "/teacherPage/getInfo",
         data: {
-            "pid": 1,
-            "gid": 1
+            "pid": pid,
+            "gid": gid
         },
         success: function (data) {
             /*console.log(data);*/
-            touxiang.zbt = data.pperson;
+            touxiang.zbt = data;
         }
     });
 };
@@ -96,27 +96,27 @@ var zhuservices = function () {
         },
         success: function (msgs) {
             /*console.log(msgs);*/
-            touxiang.services=msgs.strin;
+            touxiang.services = msgs.strin;
         }
     });
 };
 zhuservices();
 
 /*获取订单 服务 自述 评论 等内容 右下角*/
-var zhuboOrder =function(pid,gid,curr){
+var zhuboOrder = function (pid, gid, curr) {
+
     $.ajax({
         type: 'POST',
         dataType: 'json',
         url: "/teacherPage/selectZhudp",
         data: {
-            "zid": 1,
-            pageNum:curr || 1,
+            "zid": zid,
+            pageNum: curr || 1,
         },
         success: function (pingord) {
-            console.log(1111+pingord);
+            console.log(1111 + pingord);
 
-            touxiang.serviceInfo=pingord.zuiduodenei;
-            tab('.zubo-cont .right-tab .rightTab-nav','.zubo-cont .right-tab .rightTab-cont-box','playActive')
+            touxiang.serviceInfo = pingord.zuiduodenei;
             /*laypage({
                 cont:'pagenav',
                 /!*pages:pingord.content.pages,*!/
@@ -135,7 +135,7 @@ var zhuboOrder =function(pid,gid,curr){
 zhuboOrder();
 
 /* 暂时不用     请求评论类型遍历*/
-var pinglun = function (pid,gid,curr) {
+var pinglun = function (pid, gid, curr) {
     $.ajax({
         type: 'POST',
         dataType: 'json',
@@ -187,13 +187,13 @@ var selectAtt = function () {
         dataType: 'json',
         url: "/teacherPage/selectAttention",
         data: {
-            "pid": 1,
-            "zid": 5,
+            "pid": pid,
+            "zid": zid,
         },
         success: function (msg) {
-            if(msg > 0){
+            if (msg > 0) {
                 $(".guanzhubian").html("已关注")
-            }else{
+            } else {
                 $(".guanzhubian").html("关注")
             }
 
@@ -208,13 +208,13 @@ var getLike = function () {
         dataType: 'json',
         url: "/teacherPage/insertAttention",
         data: {
-            "pid": 1,
-            "zid": 5,
+            "pid": pid,
+            "zid": zid,
         },
         success: function (msg) {
-            if(msg > 0){
+            if (msg > 0) {
                 $(".guanzhubian").html("已关注")
-            }else{
+            } else {
                 $(".guanzhubian").html("关注")
             }
 
@@ -222,48 +222,51 @@ var getLike = function () {
     });
 };
 getLike();
+
 //游戏tab切换
-function tab(tabDot,tabCont,cla){
-    var tabDotItem=$(tabDot);
-    var tabDotList=tabDotItem.children();
-    var tabContItem=$(tabCont);
-    var tabContList=tabContItem.children();
+function tab(tabDot, tabCont, cla) {
+    var tabDotItem = $(tabDot);
+    var tabDotList = tabDotItem.children();
+    var tabContItem = $(tabCont);
+    var tabContList = tabContItem.children();
 
     tabDotList.eq(0).addClass(cla);
     tabContList.eq(0).show().siblings().hide();
 
-    tabDotItem.on('click','div',function(){
-      var index=$(this).index();
-      tabContList.eq(index).show().siblings().hide();
-      $(this).addClass(cla).siblings().removeClass(cla);
+    tabDotItem.on('click', 'div', function () {
+        var index = $(this).index();
+        tabContList.eq(index).show().siblings().hide();
+        $(this).addClass(cla).siblings().removeClass(cla);
     })
 }
+
 // tab('.zubo-cont .right-tab .rightTab-nav','.zubo-cont .right-tab .rightTab-cont-box','playActive')
 //左侧礼物tab
-tab('.zubo-cont .giftTab .tabDot','.zubo-cont .giftTab .tabCont','giftActive')
+tab('.zubo-cont .giftTab .tabDot', '.zubo-cont .giftTab .tabCont', 'giftActive')
 
 //图片tab
-function picTab(){
-  var tabDotItem=$('.zuboTab .tabDot');
-  var tabDotList=tabDotItem.children();
-  var tabContItem=$('.zuboTab .tabCont');
+function picTab() {
+    var tabDotItem = $('.zuboTab .tabDot');
+    var tabDotList = tabDotItem.children();
+    var tabContItem = $('.zuboTab .tabCont');
 
-  tabDotItem.on('click','div',function(){
-    var src=$(this).children('img').attr("src")
-    tabContItem.children('img').attr('src',src)
-  })
+    tabDotItem.on('click', 'div', function () {
+        var src = $(this).children('img').attr("src")
+        tabContItem.children('img').attr('src', src)
+    })
 }
+
 picTab();
 
-function titleAnimate(){
-  var contBoxitem=$('.zubo-title  .zubo-gift');
-  var contBoxlist=contBoxitem.children();
-  var time=setInterval(function(){
-    // contBoxitem.marginTop="5px"
-  contBoxitem.animate({
-      // opacity:'0',
-      marginTop:"-=30px"
-    },1000)
-  },1000)
+function titleAnimate() {
+    var contBoxitem = $('.zubo-title  .zubo-gift');
+    var contBoxlist = contBoxitem.children();
+    var time = setInterval(function () {
+        // contBoxitem.marginTop="5px"
+        contBoxitem.animate({
+            // opacity:'0',
+            marginTop: "-=30px"
+        }, 1000)
+    }, 1000)
 }
 

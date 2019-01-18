@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.w3.org/1999/xhtml">
 
 <head>
     <meta charset="UTF-8">
@@ -20,13 +21,13 @@
     <div class="zubo-title">
         <div class="title-meta" id="qweqwe" style="scoped:scoped">
             <div class="zuboImg">
-                <img :src="'./picture/'+result.personImage" alt="">
+                <img :src="'./picture/'+result.person_image" alt="">
             </div>
             <div class="title-info">
-                <div class="name">{{result.personNickname}}</div>
+                <div class="name">{{result.person_nickname}}</div>
                 <div class="credit">
                     <span>信用值：</span>
-                    <img :src="'./picture/xinyongTu/charm'+result.personWeight+'.png'" class="image" alt="">
+                    <img :src="'./picture/xinyongTu/charm'+result.person_weight+'.png'" class="image" alt="">
                 </div>
             </div>
             <div class="zubo-giftBox">
@@ -46,10 +47,10 @@
                     <span><a href="#" class="guanzhubian">关注</a></span>
                 </div>
                 <span class="age">
-          <i></i>&nbsp;&nbsp;{{result.personBirthday}}<!--年龄-->
+          <i></i>&nbsp;&nbsp;{{result.person_birthday}}<!--年龄-->
         </span>
                 <span class="ad">
-          <i></i>&nbsp;&nbsp;{{result.personAdress}}<!--住址-->
+          <i></i>&nbsp;&nbsp;{{result.person_adress}}<!--住址-->
         </span>
                 <span class="data">
           <i></i>&nbsp;&nbsp;48天前
@@ -64,14 +65,14 @@
 
                 <div class="zuboTab">
                     <div class="tabCont">
-                        <img :src="'./picture/'+zbt.personImage" alt="">
+                        <img :src="'./picture/'+zbt.person_image" alt="">
                     </div>
                     <div class="tabDot">
                         <div class="tabDotImg">
-                            <img :src="'./picture/'+zbt.personImage" alt="">
+                            <img :src="'./picture/'+zbt.person_image" alt="">
                         </div>
                         <div class="tabDotImg">
-                            <img :src="'./picture/'+zbt.personImage" alt="">
+                            <img :src="'./picture/'+zbt.person_image" alt="">
                         </div>
                         <div class="tabDotImg">
                             <img src="/picture/30_avatar_middle.jpg" alt="">
@@ -185,27 +186,27 @@
                     <ul class="zuboCont">
                         <li>
                             <img src="picture/data_01.png" alt="">
-                            <span>身高</span>:{{zbt.personHeight}}
+                            <span>身高</span>:{{zbt.person_height}}
                         </li>
                         <li>
                             <img src="picture/data_02.png" alt="">
-                            <span>星座</span>:{{zbt.personSex}}
+                            <span>星座</span>:{{zbt.person_sex}}
                         </li>
                         <li>
                             <img src="picture/data_03.png" alt="">
-                            <span>职业</span>:{{zbt.personCareer}}
+                            <span>职业</span>:{{zbt.person_career}}
                         </li>
                         <li>
                             <img src="picture/data_04.png" alt="">
-                            <span>魅力部位</span>:鼻子、耳朵
+                            <span>魅力部位</span>:{{zbt.charm_two}} {{zbt.charm_one}} {{zbt.charm_three}}
                         </li>
                         <li>
                             <img src="picture/data_05.png" alt="">
-                            <span>个性标签</span>:{{zbt.personContent}}
+                            <span>个性标签</span>:{{zbt.person_content}}
                         </li>
                         <li>
                             <img src="picture/data_06.png" alt="">
-                            <span>兴趣爱好</span>:{{zbt.personInterest}}
+                            <span>兴趣爱好</span>:{{zbt.person_interest}}
                         </li>
 
                     </ul>
@@ -379,7 +380,7 @@
                             <div class="lol-comments">
                                 <div class="comm-title">
                                     <div class="comm">评价<span>/COMMENTARIES</span></div>
-                                    <div class="gard">评分:<span>{{ite.pingjiafen}}</span></div>
+                                    <div class="gard">评分:<span>{{ite.pingfeng}}</span></div>
                                 </div>
                                 <div class="comm-body">
                                     <div class="comm-lebal">
@@ -389,7 +390,7 @@
                                             <li>吃鸡大神<span>(1)</span></li>
                                         </ul>
                                     </div>
-                                    <ul class="comm-item">
+                                    <ul v-if="ite.IPage.records.length" class="comm-item">
 
                                         <li v-for="(reco,index) in ite.IPage.records">
                                             <div class="comm-info">
@@ -401,16 +402,13 @@
                                                     </div>
                                                     <p class="comm-cont">{{reco.c_context}}</p>
                                                 </div>
-                                                <div class="stars">
-                                                    <img src="/picture/star1.png" alt="">
-                                                    <img src="/picture/star1.png" alt="">
-                                                    <img src="/picture/star1.png" alt="">
-                                                    <img src="/picture/star1.png" alt="">
-                                                    <img src="/picture/star1.png" alt="">
+                                                <div class="stars" v-for=" (item,index) in reco.c_rank">
+                                                    <img width="30" height="30" src="/picture/star1.png" alt=""  >
                                                 </div>
                                             </div>
                                         </li>
                                     </ul>
+                                    <div v-else>暂无评论</div>
                                     <div  style=""></div>
                                 </div>
                             </div>
@@ -429,4 +427,7 @@
 <script src="/js/laypage.js"></script>
 <!--<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>-->
 <script src="/js/zuboInfo.js"></script>
+<script th:inline="javascript">
+    var pid = [[${session.nameTPerson?.pid}]];
+</script>
 </html>

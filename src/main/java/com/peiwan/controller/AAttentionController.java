@@ -19,8 +19,12 @@ public class AAttentionController {
 
     //测试内容
     @RequestMapping("/hello")
-    public ModelAndView hello() {
-        return new ModelAndView("zhuBoInfo");
+    public ModelAndView hello(Integer pid,Integer gid) {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("pid",pid);
+        modelAndView.addObject("gid",gid);
+        modelAndView.setViewName("zhuBoInfo");
+        return modelAndView;
     }
     @RequestMapping("/hello1")
     public ModelAndView hello1() {

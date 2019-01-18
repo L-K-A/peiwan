@@ -25,9 +25,7 @@ public class TeacherInfoController {
     /*获取导师表全部信息*/
     @RequestMapping("/getInfo")
     public Map getInfo(Integer pid) throws ParseException {
-        HashMap<String, TPerson> map = new HashMap<>();
-        TPerson info = teacherInfoService.getInfo(pid);
-        map.put("pperson", info);
+        Map<String, Object> map = teacherInfoService.getInfo(pid);
         return map;
     }
 

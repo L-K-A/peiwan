@@ -33,28 +33,31 @@ public class TeacherInfoServiceImpl implements TeacherInfoService {
     @Resource
     private TeacherInfoMapper teacherInfoMapper;
 
+
+
     /*获取导师全部信息*/
     @Override
-    public TPerson getInfo(int pid) throws ParseException {
-        TPerson tPerson = teacherInfoMapper.selectById(pid);
-        /*获取星座  暂存person_sex字段内*/
-        String personBirthday = tPerson.getPersonBirthday();
+    public Map<String, Object> getInfo(int pid) throws ParseException {
+        Map<String, Object> map = teacherInfoMapper.selectInfo(pid);
+        System.out.println(map);
+        /* 获取星座  暂存person_sex字段内*/
+       String personBirthday =(String)map.get("person_birthday");
         String s = calculateConstellation(personBirthday);
-        tPerson.setPersonSex(s);
-        /*获取年龄   暂存personBirthday 字段内*/
+        map.put("person_sex",s);
+        /*获取年龄   暂存person_birthday 字段内*/
         int age = AgeByBirthUtil.getAgeByBirth(personBirthday);
         String s1 = String.valueOf(age);
-        tPerson.setPersonBirthday(s1);
-        /*获取主播评分   暂存setPersonWeight*/
+        map.put("person_birthday",s1);
+        /*获取主播评分   暂存person_weight*/
         Integer v = this.selectAvg(pid);
         String s2 = String.valueOf(v);
-        tPerson.setPersonWeight(s2);
-        return tPerson;
+        map.put("person_weight",s2);
+        return map;
     }
 
     /*分页实现*/
     @Override
-    public IPage<Map<String, Object>> selectPageExt( int page, int pageSize, Integer zid, Integer gid) throws RuntimeException {
+    public IPage<Map<String, Object>> selectPageExt(int page, int pageSize, Integer zid, Integer gid) throws RuntimeException {
         try {
             Page<Map<String, Object>> p = new Page<Map<String, Object>>(page, pageSize);
             Page<Map<String, Object>> mapPage = p.setRecords(teacherInfoMapper.selectPageExt(p, zid, gid));
@@ -139,20 +142,24 @@ public class TeacherInfoServiceImpl implements TeacherInfoService {
         List<Map<String, Object>> list = teacherInfoMapper.selectZhudp(zid);
         for (Map<String, Object> st : list) {
             Integer gid = (Integer) st.get("gid");
-            System.out.println("gid=" + gid);
             /*接单次数*/
             Integer countdan = teacherInfoMapper.countdan(zid, gid);
             st.put("countdan", countdan);
-            Double pingjiafen = teacherInfoMapper.selectfuwuavg(zid, gid);
-            /*封入平价分*/
-            st.put("pingjiafen", pingjiafen);
+            Double pingfeng = teacherInfoMapper.selectfuwuavg(zid, gid);
+            /*避免pingfeng过长 在前台显示不必要*/
+            String pingfengstring = String.valueOf(pingfeng).substring(0,3);
+            /*封入当前zid 和gid 下的评价分*/
+            st.put("pingfeng", pingfeng);
             /*评论分页*/
             Integer pageSize = 1;
             Page<Map<String, Object>> p = new Page<>(pageNum, pageSize);
             Page<Map<String, Object>> mapPage = p.setRecords(teacherInfoMapper.selectPageExt(p, zid, gid));
-            System.out.println("service:"+mapPage);
+            System.out.println("service:" + mapPage);
             mapPage.getRecords();
-            System.out.println( mapPage.getRecords());
+            /*将每一条评价分取出  除 2  获取多少个星*/
+            Double dou = (Double) mapPage.getRecords().get(0).get("c_rank");
+            mapPage.getRecords().get(0).put("c_rank",Math.round(dou / 2));
+            System.out.println(dou / 2);
             st.put("IPage", mapPage);
         }
         map.put("zuiduodenei", list);

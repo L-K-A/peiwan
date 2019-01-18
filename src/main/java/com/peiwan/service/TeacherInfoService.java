@@ -17,7 +17,7 @@ import java.util.Map;
  */
 public interface TeacherInfoService {
     /*查询全部导师信息*/
-    TPerson getInfo(int pid) throws ParseException;
+    Map<String, Object> getInfo(int pid) throws ParseException;
 
     /*分页 */
     IPage<Map<String, Object>> selectPageExt(int page, int pageSize , Integer zid, Integer gid);
