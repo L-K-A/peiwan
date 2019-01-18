@@ -858,6 +858,7 @@ section .plute_wrapper .info_box .swiper-container2 .swiper-wrapper .swiper-slid
   animation: pulse .5s;
   -webkit-animation: pulse .5s;
 }
+/*新人推荐和排行榜的样式*/
 section .bottom_wrapper {
   width: 100%;
   padding-bottom: 20px;
@@ -1160,7 +1161,7 @@ section .bottom_wrapper .rankings_wrapper .rankings_item {
 section .bottom_wrapper .rankings_wrapper .rankings_item:last-child {
   margin-right: 0;
 }
-section .bottom_wrapper .rankings_wrapper .rankings_item.left .waves_wrapper {
+/*section .bottom_wrapper .rankings_wrapper .rankings_item.left .waves_wrapper {
   background-image: url('../images/ico_wave_4.png');
 }
 section .bottom_wrapper .rankings_wrapper .rankings_item.middle .waves_wrapper {
@@ -1168,7 +1169,7 @@ section .bottom_wrapper .rankings_wrapper .rankings_item.middle .waves_wrapper {
 }
 section .bottom_wrapper .rankings_wrapper .rankings_item.right .waves_wrapper {
   background-image: url('../images/ico_wave_6.png');
-}
+}*/
 section .bottom_wrapper .rankings_wrapper .rankings_item .list_title_wrapper {
   position: relative;
   width: 100%;
@@ -1195,7 +1196,7 @@ section .bottom_wrapper .rankings_wrapper .rankings_item .list_title_wrapper .wa
   width: 100%;
   height: 54px;
 }
-section .bottom_wrapper .rankings_wrapper .rankings_item .list_title_wrapper .waves_wrapper .waves_item.wave1 {
+/*section .bottom_wrapper .rankings_wrapper .rankings_item .list_title_wrapper .waves_wrapper .waves_item.wave1 {
   z-index: 55;
   background-image: url('../images/ico_wave_1.png');
   background-repeat: no-repeat;
@@ -1212,7 +1213,7 @@ section .bottom_wrapper .rankings_wrapper .rankings_item .list_title_wrapper .wa
   background-image: url('../images/ico_wave_3.png');
   background-repeat: no-repeat;
   background-position: 0 0;
-}
+}*/
 section .bottom_wrapper .rankings_wrapper .rankings_item .top_bg_wrapper {
   position: absolute;
   top: 56px;
@@ -1318,10 +1319,10 @@ section .bottom_wrapper .rankings_wrapper .rankings_item .list_wrapper .list_ite
   left: 0;
   width: 115px;
 }
-section .bottom_wrapper .rankings_wrapper .rankings_item .list_wrapper .list_item .top .list_top_wrapper .list_top_item > .text {
+section .bottom_wrapper .rankings_wrapper .rankings_item .list_wrapper .list_item .top .list_top_wrapper .list_top_item .text {
   display: inline-block;
   width: 100%;
-  margin: 6px 0;
+  margin-top: 100px;
   font-size: 14px;
   text-align: center;
   overflow: hidden;

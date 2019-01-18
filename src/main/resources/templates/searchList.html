@@ -1,0 +1,149 @@
+<!DOCtype html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>电竞陪玩|约玩_电竞_绝地求生陪玩_LOL陪玩_王者荣耀陪玩</title>
+    <meta name="keywords" content="电竞陪玩,游戏陪玩,约玩,陪玩入驻,绝地求生陪玩,LOL陪玩,王者荣耀陪玩,美女陪玩,大神陪玩,导师陪玩">
+    <meta name="description" itemprop="description" content="电竞，是（国内）专业的游戏陪玩交友平台。电竞致力于为您提供贴心的专属陪伴；平台内百万大神美女导师24小时待命，随时陪你游戏，和你聊天，还可以哄你睡觉；游戏类型多样，妹子风格各异，任你选择。">
+    <!-- 禁止IE强制识别手机号 -->
+    <meta name="format-detection" content="telephone=no"/>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/public.css">
+    <link rel="stylesheet" href="/css/public_nav_v2.css">
+    <link rel="stylesheet" href="/css/layer.css">
+    <link rel="stylesheet" href="/css/animate.css">
+    <link rel="stylesheet" href="/css/public_frame_v2.css">
+    <link rel="stylesheet" href="/css/index_v2.css">
+    <link rel="stylesheet" href="/css/swiper.min.css">
+    <!-- v2侧边栏样式-->
+    <link rel="stylesheet" href="/css/sidebar.css">
+    <!--登录注册模板样式-->
+    <link rel="stylesheet" href="/css/login_registration.css">
+
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>-->
+    <script type="text/javascript" src="/js/vue.min.js"></script>
+    <script type="text/javascript" src="/js/vue-resource.js"></script>
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="/js/messages_zh.min.js"></script>
+    <script type="text/javascript" src="/js/store.legacy.min.js"></script>
+    <script type="text/javascript" src="/js/layer/layer.js"></script>
+    <script type="text/javascript" src="/js/swiper/swiper.min.css"></script>
+    <script type="text/javascript" src="/js/laypage/laypage.js"></script>
+
+    <script type="text/javascript" src="/js/fzjs/websocket.js"></script>
+    <script type="text/javascript" src="/js/fzjs/message.js"></script>
+    <script type="text/javascript" src="/js/fzjs/chat.js"></script>
+   
+
+</head>
+<body>
+
+<div class="public_nav_new">
+    <div class="info_v2 position">
+        <div class="info">
+            <div class="seach_Box">
+                <img src="/picture/ico_28_hover.png" style="display: none;" alt="">
+                <input @keyup.13="inputShow" @click.stop="" @focus="input_focus" @keyup.38.prevent="input_key_38" @keyup.40.prevent="input_key_40" v-model.trim="val" placeholder="陪玩昵称、ID、靓号" type="text" id="keyname">
+                <p @click="inputShow" id="searchinfo" class="seach_p"></p>
+                <div class="msg_info" v-show="msg_info_show" v-cloak>
+                    <ul>
+                        <li v-for="item in result" @mouseover="msg_li_mouseover(item)" :key="item.index" @click="msg_li_click(item)" :class="{'active':msg_info_index===item.index}">{{item.person_nickname}}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<section>
+    <div class="searchTop">
+        <div class="topcon">
+            <a href="/service/verify.html">
+                <img src="/images/searchbanner.png">
+            </a>
+        </div>
+    </div>
+    <!-- 查询到的主播列表 -->
+    <div class="hot_box hot_list_wrapper" id="search">
+        <!-- 列表 -->
+        <ul class="hot_content_wrapper">
+            <li class="hot_content_item " v-for="(item,index) in result" :key="index" @click="hotDetailUrl(item)"><!--触发事件-->
+                <div class="frame_logo_wrapper" :class="item.tags"> <!--tags是什么-->
+
+                    <!-- frame -->
+                    <!--  <img v-if="item.tags.frame" :src="item.tags.frame.path" alt="" class="img_frame">--><!--主播id代表的详情页面-->
+                    <!-- logo -->
+                    <div class="pic_box">
+                        <img :src="'/picture/'+item.person_image" alt="" class="pic"><!--主播头像-->
+                        <i class="compensation" v-if="item.compensation"></i><!--超时赔-->
+                    </div>
+
+                </div>
+                <!-- 用户信息 -->
+                <div class="info_wrapper">                                                  <!--此处显示主播昵称-->
+                    <span class="nick_name"><span class="guan_ming" v-if="item.sponser" >{{item.sponser.person_nickname}}<img :title="item.sponser.name" :src="item.sponser.path"></span>{{item.person_nickname}}</span>
+                    <span class="btn_wrapper">
+                    	<span class="btn_item" v-for="(iitem,ii) in item.icon" v-if="ii<3"><!--item.icon里很可能是存放主播的所有服务-->
+                    		<img :src="iitem.path" alt="" class="btn_icon" :title="iitem.name"><!--iitem.name是游戏名字-->
+                    	</span>
+
+					</span>
+                </div>
+                <!-- 价格 -->
+                <div class="desc_wrapper">
+                    <span class="hot_degree">
+							<span class="icon"></span>
+                    <span class="text">{{item.person_career}}</span><!--total热度值-->
+                    </span>
+                    <span class="price_wrapper">
+							<span class="num">￥{{item.g_price}}</span><!--价格-->
+                    <span class="company" style="margin-left: 2px;">起</span>
+                    </span>
+                </div>
+                <span class="line"></span>
+            </li>
+        </ul>
+
+    </div>
+
+</section>
+
+<!--模糊查询到的主播的函数-->
+<script>
+
+    var search = new Vue({
+        el: '#search',
+        data: {
+            result: []
+        }
+    });
+
+    window.onload = function(){
+        var keyname = sessionStorage.getItem("keyname");
+        console.log(keyname);
+        getUserPageList(keyname);
+
+        function getUserPageList(keyname) {
+        $.ajax({
+            type: 'POST',
+            dataType: 'json',
+            url: '/person/searchPerson',
+            data: {
+                personNickname:keyname
+            },
+            success: function (msg) {
+                search.result = msg.searchPersonList;
+            }
+        });
+    }
+
+    }
+
+
+</script>
+</body>
+</html>

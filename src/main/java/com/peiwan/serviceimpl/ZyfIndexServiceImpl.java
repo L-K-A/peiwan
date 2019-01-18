@@ -42,20 +42,72 @@ public class ZyfIndexServiceImpl extends ServiceImpl<ZyfIndexMapper, TPerson> im
     }
 
 
-    //热度榜 周榜：查询主播订单数，先筛选规定时间，然后按照订单数排序
+
+    //热度榜 周榜 前三：先筛选规定时间，然后按照订单数排序
     @Override
-    public Page<Map<String, Object>> selectPersonOrder(int curPage) {
+    public Page<Map<String, Object>> selectPersonOrderTop(int curPage,int pageSize) {
         Page<Map<String,Object>> page = new Page<Map<String,Object>>();
-        Page<Map<String, Object>> orderList = page.setRecords(this.baseMapper.selectOrderList(curPage));
+        Page<Map<String, Object>> orderListTop = page.setRecords(this.baseMapper.selectOrderListTop(curPage,pageSize));
+        return orderListTop;
+    }
+    //热度榜 周榜 第四到第十：先筛选规定时间，然后按照订单数排序
+    @Override
+    public Page<Map<String, Object>> selectPersonOrder(int curPage,int pageSize) {
+        Page<Map<String,Object>> page = new Page<Map<String,Object>>();
+        Page<Map<String, Object>> orderList = page.setRecords(this.baseMapper.selectOrderList(curPage,pageSize));
         return orderList;
     }
-    //热度榜 总榜：查询主播总订单数
+
+    //热度榜 总榜 前三 ：查询主播总订单数
     @Override
-    public Page<Map<String, Object>> selectPersonOrderAll(int curPage) {
+    public Page<Map<String, Object>> selectPersonOrderAllTop(int curPage, int pageSize) {
         Page<Map<String,Object>> page = new Page<Map<String, Object>>();
-        Page<Map<String, Object>> orderListAll = page.setRecords(this.baseMapper.selectOrderListAll(curPage));
+        Page<Map<String, Object>> orderListAllTop = page.setRecords(this.baseMapper.selectOrderListAllTop(curPage, pageSize));
+        return orderListAllTop;
+    }
+    //热度榜 总榜 第四到第十：查询主播总订单数
+    @Override
+    public Page<Map<String, Object>> selectPersonOrderAll(int curPage, int pageSize) {
+        Page<Map<String,Object>> page = new Page<Map<String, Object>>();
+        Page<Map<String, Object>> orderListAll = page.setRecords(this.baseMapper.selectOrderListAll(curPage,pageSize));
         return orderListAll;
     }
+
+
+
+
+    //富豪榜 周榜 前三 ：先按照规定时间筛选，然后按照用户充值总金额排序
+    @Override
+    public Page<Map<String, Object>> selectPersonMoneyTop(int curPage) {
+        Page<Map<String,Object>> page = new Page<Map<String,Object>>();
+        Page<Map<String, Object>> moneyListTop = page.setRecords(this.baseMapper.selectMoneyListTop(curPage));
+        return moneyListTop;
+    }
+    //富豪榜 周榜:先按照规定时间筛选，然后按照用户充值总金额排序
+    @Override
+    public Page<Map<String, Object>> selectPersonMoney(int curPage) {
+        Page<Map<String,Object>> page = new Page<Map<String,Object>>();
+        Page<Map<String, Object>> moneyList = page.setRecords(this.baseMapper.selectMoneyList(curPage));
+        return moneyList;
+    }
+
+    //富豪榜 总榜 前三 :查询用户充值总金额
+    @Override
+    public Page<Map<String, Object>> selectPersonMoneyAllTop(int curPage) {
+        Page<Map<String,Object>> page = new Page<Map<String,Object>>();
+        Page<Map<String, Object>> moneyListAllTop = page.setRecords(this.baseMapper.selectMoneyListAllTop(curPage));
+        return moneyListAllTop;
+    }
+    //富豪榜 总榜 第四到第十:查询用户充值总金额
+    @Override
+    public Page<Map<String, Object>> selectPersonMoneyAll(int curPage) {
+        Page<Map<String,Object>> page = new Page<Map<String,Object>>();
+        Page<Map<String, Object>> moneyListAll = page.setRecords(this.baseMapper.selectMoneyListAll(curPage));
+        return moneyListAll;
+    }
+
+
+
 
 
     public ZyfIndexMapper getZyfIndexMapper() {

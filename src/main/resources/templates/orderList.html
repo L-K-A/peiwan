@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>热度榜</title>
+    <link rel="stylesheet" href="/test/bootstrap.min.css">
+    <link rel="stylesheet" href="/test/laypage.css">
+    <link rel="stylesheet" href="/css/layer.css">
+    <script type="text/javascript" src="/js/vue.min.js"></script>
+    <script type="text/javascript" src="/js/jquery-2.2.3.min.js"></script>
+    <script type="text/javascript" src="/js/laypage.js"></script>
+    <script type="text/javascript" src="/js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="/js/messages_zh.min.js"></script>
+
+</head>
+<body>
+<div id="app" class="container">
+
+    <form class="form-inline bg-danger" role="form">
+        查询条件：
+        <div class="form-group">
+            <label class="sr-only" for="pid">用户名称</label>
+            <input type="text" class="form-control" id="pid" placeholder="用户名称">
+        </div>
+        <button type="button" id="findUser" class="btn btn-success">查询用户</button>
+    </form>
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+            <tr class="success">
+                <td>主播id</td>
+                <td>主播昵称</td>
+                <td>主播头像</td>
+                <td>主播地址</td>
+                <td>性别</td>
+                <td>接单数</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="active" v-for="item in result">
+                <td>{{item.pid}}</td>
+                <td>{{item.person_nickname}}</td>
+                <td><img :src="'/picture/'+item.person_image"></td>
+                <td>{{item.person_adress}}</td>
+                <td>{{item.person_sex}}</td>
+                <td>{{item.person_age}}</td>
+                <td>{{item.oo}}</td>
+                <td><a href="#" @click="editEvent(item.pId)">编辑</a> <a href="#" @click="delEvent(item.pId)">删除</a></td>
+            </tr>
+            </tbody>
+        </table>
+        <div id="pagenav"></div>
+    </div>
+</div>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            result: []
+        }
+    });
+    var getUserPageList = function (curr) {
+        $.ajax({
+            type: 'POST',
+            dataType: 'json',
+            url: '/person/getOrderCountList',
+            data: {
+                curPage: curr | 1
+            },
+            success: function (msg) {
+                app.result = msg.personOrderList;
+                laypage({
+                    cont: 'pagenav', //容器
+                    pages: msg.totalPage,
+                    first: '首页',
+                    last: '尾页',
+                    skin: '#00A0E9',
+                    curr: curr || 1,
+                    jump: function (obj, first) {
+                        if (!first) {
+                            getUserPageList(obj.curr);
+                        }
+                    }
+                });
+            }
+
+        });
+    };
+
+    getUserPageList();
+
+</script>
+</body>
+</html>
