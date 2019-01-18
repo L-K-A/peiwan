@@ -370,7 +370,7 @@
                         <!-- 性别和年龄 -->
                         <div class="fl" style="width: 25px;height: 18px;margin-right: 6px">
                             <i class="fl" style="width: 9px;height: 18px" v-html="item.person_sex=='女'?'♀':'♂'">{{item.person_sex}}</i>
-                            <span class="fl" style="width: 16px;height: 18px">{{item.person_age}}</span>
+                            <span class="fl" style="width: 16px;height: 18px">{{item.person_birthday}}</span>
                             <div class="clearfix"></div>
                         </div>
                         <!-- 地址的遍历 -->
@@ -574,6 +574,7 @@
         el: '#xxzs',
         data: {
             zbxx: [],
+            brith: [],
             hotrank:[],
             magnaterank: []
         }
@@ -835,113 +836,8 @@
     getMagnateRank(gid,magnateday);
 
 
-    /*var gd = location.search.substr(5);
-    alert(gd);
 
-    /!*热度排行榜*!/
-    var getHot = function (gd,hotday) {
-        $.ajax({
-            type: 'POST',
-            dataType: 'json',
-            async: true,
-            url: '/gethotrank',
-            data: {
-                gid: gd,
-                hotday:hotday
-            },
-            success: function (data) {
-                console.log(data);
-                alert(gd);
-                all.hotrank = data.hotRank;
-            }
-        });
 
-    };
-
-    /!*用户富豪榜*!/
-    var getMagnate = function (gd,magnateday) {
-        $.ajax({
-            type: 'POST',
-            dataType: 'json',
-            async: true,
-            url: '/gemagnaterank',
-            data: {
-                gid: gd,
-                magnateday:magnateday
-            },
-            success: function (data) {
-                console.log(data);
-                alert(gd);
-                all.magnaterank = data.magnateRank;
-            }
-        });
-
-    };
-    var Condition = function (gd, gdw, psex, sort, hot, newest, curr) {
-        console.log(gdw);
-        $.ajax({
-            type: 'Post',
-            dataType: 'json',
-            async: true,
-            url: '/getCondition',
-            data: {
-                gid: gd,
-                gdw: gdw,
-                psex: psex,
-                sort: sort,
-                hot: hot,
-                newest: newest,
-                pageNum: curr || 1,
-                pageSize: 8
-
-            },
-            success: function (data) {
-                console.log(data);
-                all.zbxx = data.mapPage.records;
-                laypage({
-                    cont: 'pagenav',
-                    pages: data.mapPage.pages,
-                    skip:true,      //是否开启跳页
-                    skin:'molv',    //加载内置皮肤
-                    prev:'<',
-                    next:'>',
-                    first: '<<',
-                    last: '>>',
-                    curr: curr || 1,
-                    jump: function (obj, first) {
-                        if (!first) {
-                            getCondition(gd, gdw, psex, sort, hot, newest, obj.curr);
-                        }
-                    }
-                });
-            }
-        });
-    };
-    /!*从后台获取游戏板块对应的段位*!/
-    var Entry = function (gd) {
-        /!*if (gid == 0) {
-            gid = 1001;
-        }*!/
-        $.ajax({
-            type: 'POST',
-            dataType: 'json',
-            async: true,
-            url: '/duanwei',
-            data: {gid: gd},
-            success: function (data) {
-                // console.log(data);
-                // alert(gid);
-                gameservice.grades = data.duanWei;
-            }
-        });
-
-    };
-
-    alert(gd);
-    Entry(gd);
-    Condition(gd, gdw, psex, sort, hot, newest, curr);
-    getHot(gd,hotday);
-    getMagnate(gd,magnateday);*/
 
 </script>
 

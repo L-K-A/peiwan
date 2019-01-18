@@ -1,6 +1,8 @@
 package com.peiwan.service;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+
+import java.text.ParseException;
 import java.util.List;
 import java.util.Map;
 
@@ -15,7 +17,7 @@ public interface ClassifyService {
 
     List<Map<String,Object>> getDuanWei(int gid);
 
-    List<Map<String,Object>> getCondition(Map map,Page page);
+    List<Map<String,Object>> getCondition(Map map,Page page) throws ParseException;
 
     /*List<Map<String,Object>> seachPage(Map map, Page page);*/
 

@@ -8,17 +8,17 @@
     <!-- 动态查询 -->
     <select id="getCondition" parameterType="map" resultType="map">
         SELECT
-        po.pid,po.person_nickname,po.person_name,po.person_sex,po.person_age,po.person_adress,po.person_coverphoto,po.person_createtime,po.z_zhubo,po.oid,po.o_money,g.gid,g.g_duanwei,g.g_price,po.pos
+        po.pid,po.person_nickname,po.person_name,po.person_sex,po.person_birthday,po.person_adress,po.person_coverphoto,po.person_createtime,po.z_zhubo,po.oid,po.o_money,g.gid,g.g_duanwei,g.g_price,po.pos
         FROM
         (
         SELECT
-        p.pid,p.person_nickname,p.person_name,p.person_sex,p.person_age,p.person_adress,p.person_coverphoto,p.person_createtime,p.z_zhubo,o.oid,o.o_money,
+        p.pid,p.person_nickname,p.person_name,p.person_sex,p.person_birthday,p.person_adress,p.person_coverphoto,p.person_createtime,p.z_zhubo,o.oid,o.o_money,
         COUNT(o.oid) pos
-        FROM p_person p
-        LEFT JOIN o_order_z o ON p.pid=o.pid
+        FROM t_person p
+        LEFT JOIN t_order_z o ON p.pid=o.pid
         WHERE p.z_zhubo=1
         GROUP BY p.pid) po
-        LEFT JOIN g_service g ON po.pid=g.pid
+        LEFT JOIN t_service g ON po.pid=g.pid
         WHERE po.z_zhubo=1
         <if test="map.gid != null and map.gid != ''">
             and g.gid = #{map.gid}

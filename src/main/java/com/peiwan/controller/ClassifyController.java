@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 import javax.annotation.Resource;
+import java.text.ParseException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -50,7 +51,7 @@ public class ClassifyController {
 
 
     @RequestMapping("/getCondition")
-    public Map getCondition(Integer gid,String gdw,String psex,String sort,String hot,String newest,Integer pageNum,Integer pageSize){
+    public Map getCondition(Integer gid,String gdw,String psex,String sort,String hot,String newest,Integer pageNum,Integer pageSize) throws ParseException {
 
         System.out.println("从前台传回来的gid"+gid);
         System.out.println("从前台传回来的gdw"+gdw);

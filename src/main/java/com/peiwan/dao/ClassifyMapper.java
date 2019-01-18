@@ -20,7 +20,7 @@ public interface ClassifyMapper extends BaseMapper<TSortDuanwei> {
     /*
     * qsc       @Param("gSortDuanwei")
     * */
-    @Select("select gid,g_dw from g_sort_duanwei where gid=#{gid}")
+    @Select("select gid,g_dw from t_sort_duanwei where gid=#{gid}")
     List<Map<String,Object>> getDuanWei(int gid);
 
     /*

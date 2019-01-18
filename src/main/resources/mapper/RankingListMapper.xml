@@ -11,11 +11,11 @@
         FROM
         (
         SELECT p.pid,p.person_nickname,p.person_image,p.z_zhubo,o.oid,o.o_createtime,o.o_money,COUNT(o.oid) pos
-        FROM p_person p
-        LEFT JOIN o_order_z o ON p.pid = o.pid
+        FROM t_person p
+        LEFT JOIN t_order_z o ON p.pid = o.pid
         WHERE p.z_zhubo = 1
         GROUP BY p.pid) po
-        LEFT JOIN g_service g ON po.pid = g.pid
+        LEFT JOIN t_service g ON po.pid = g.pid
         WHERE po.z_zhubo = 1
         <if test="gid != null and gid != ''">
             AND g.gid = #{gid}
@@ -30,18 +30,18 @@
 
     <!--用户富豪榜-->
     <select id="getMagnateRanking" parameterType="map" resultType="map">
-        SELECT po.pid,po.person_nickname,po.person_image,po.z_zhubo,po.oid,po.oms
+        SELECT po.pid,po.person_nickname,po.person_image,po.z_zhubo,po.oid,po.gid,po.oms
         FROM
         (
-        SELECT p.pid,p.person_nickname,p.person_image,p.z_zhubo,o.oid,o.o_createtime,o.o_money,o.o_service,sum(o_money) oms
-        FROM p_person p
-        LEFT JOIN o_order o ON p.pid=o.pid
+        SELECT p.pid,p.person_nickname,p.person_image,p.z_zhubo,o.oid,o.gid,o.o_createtime,o.o_money,sum(o_money) oms
+        FROM t_person p
+        LEFT JOIN t_order o ON p.pid=o.pid
         WHERE p.z_zhubo=0
         GROUP BY p.pid) po
-        LEFT JOIN g_service g ON po.pid=g.pid
+        LEFT JOIN t_service g ON po.pid=g.pid
         WHERE po.z_zhubo=0
         <if test="gid != null and gid != ''">
-            AND po.o_service=(select g_name from g_service where gid = #{gid} group by g_name)
+            AND po.gid = #{gid}
         </if>
         <if test="magnateday != null and magnateday !=''">
         and po.o_createtime &gt; date_sub(now(), interval #{magnateday} day)

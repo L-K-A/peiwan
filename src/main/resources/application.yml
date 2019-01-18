@@ -7,7 +7,7 @@ spring:
     name: mysql_test
 
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/peiwan?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    url: jdbc:mysql://172.16.35.152:3306/peiwan?useUnicode=true&characterEncoding=UTF-8&useSSL=false
     username: root
     password: root
     ###################以下为druid增加的配置###########################
