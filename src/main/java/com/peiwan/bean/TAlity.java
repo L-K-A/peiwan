@@ -10,40 +10,42 @@ import lombok.experimental.Accessors;
  * 
  * </p>
  *
- * @author bjlz
- * @since 2019-01-02
+ * @author 
+ * @since 2019-01-16
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-public class XConsume implements Serializable {
+public class TAlity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    /**
-     * 用户id
-     */
     private Integer pid;
 
     /**
-     * 订单id
+     * 才艺1
      */
-    private Integer oid;
+    private String alityOne;
 
     /**
-     * 消费id
+     * 才艺2
      */
-    private Integer xid;
+    private String alityTwo;
 
     /**
-     * 消费金额
+     * 魅力1
      */
-    private Double xMoney;
+    private String charmOne;
 
     /**
-     * 消费时间
+     * 魅力2
      */
-    private String xConsumetime;
+    private String charmTwo;
+
+    /**
+     * 魅力3
+     */
+    private String charmThree;
 
 
 }

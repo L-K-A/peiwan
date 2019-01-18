@@ -2,9 +2,7 @@ package com.peiwan.dao;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.peiwan.bean.GService;
-import com.peiwan.bean.GSortDuanwei;
-import org.apache.ibatis.annotations.Param;
+import com.peiwan.bean.TSortDuanwei;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
@@ -16,7 +14,7 @@ import java.util.Map;
  * @Date:Created in 15:24 2019/1/4
  * @Modify by:
  */
-public interface ClassifyMapper extends BaseMapper<GSortDuanwei> {
+public interface ClassifyMapper extends BaseMapper<TSortDuanwei> {
 
 
     /*

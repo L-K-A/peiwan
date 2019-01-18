@@ -1,22 +1,30 @@
 package com.peiwan.bean;
 
-import java.io.Serializable;
+import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
+
+import java.io.Serializable;
 
 /**
  * <p>
  * 
  * </p>
  *
- * @author bjlz
- * @since 2019-01-02
+ * @author 
+ * @since 2019-01-16
+ * @date 2019/1/10 16:32
  */
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-public class GService implements Serializable {
+@TableName("t_service")
+public class TService implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -26,12 +34,12 @@ public class GService implements Serializable {
     private Integer pid;
 
     /**
-     * 游戏板块id
+     * 板块id
      */
     private Integer gid;
 
     /**
-     * 游戏名
+     * 板块名
      */
     private String gName;
 
@@ -50,16 +58,20 @@ public class GService implements Serializable {
      */
     private String pGid;
 
-    /*
-    * 主播的价位
-    * */
+    /**
+     * /元/小时
+     */
     private Double gPrice;
 
-    public Double getgPrice() {
-        return gPrice;
-    }
+    /**
+     * 服务介绍
+     */
+    private String gServicedescription;
 
-    public void setgPrice(Double gPrice) {
-        this.gPrice = gPrice;
-    }
+    /**
+     * 服务类别
+     */
+    private Integer gFlate;
+
+
 }

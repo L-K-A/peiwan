@@ -351,42 +351,44 @@
 <!-- 信息展示 -->
 <div class="list_box mt20" id="xxzs">
     <div class="list_left_box fl" style="border: #9b9ca8 0px solid;width: 1060px">
-        <a href="#">
-        <div v-for="item in zbxx" class="div2 fl mr29 mb30" style="width: 236px;height: 338px">
-            <span style="display: none" id="gid">{{item.gid}}</span>
-            <span style="display: none" id="pid">{{item.gid}}</span>
-            <!-- 主播头像的遍历 -->
-            <img :src="'./imgupload/'+item.person_coverphoto" style="width: 236px;height: 233px"/>
-            <div class="mt15 mr10 ml10" style="width: 216px;height: 27px">
-                <!-- 昵称的遍历 -->
-                <span class="fl" style="width: 150px;height: 27px;font-size: 20px">{{item.person_nickname}}</span>
-                <!-- 段位的遍历 -->
-                <span class="fr mt5 ml6"
-                      style="width: 34px;height: 18px;background-color: #fcc171">{{item.g_duanwei}}</span>
-            </div>
-            <div class="mt10 ml10" style="width: 110px;height: 18px">
-                <div style="width: 109px;height: 18px">
-                    <!-- 性别和年龄 -->
-                    <div class="fl" style="width: 25px;height: 18px;margin-right: 6px">
-                        <i class="fl" style="width: 9px;height: 18px" v-html="item.person_sex=='女'?'♀':'♂'">{{item.person_sex}}</i>
-                        <span class="fl" style="width: 16px;height: 18px">{{item.person_age}}</span>
-                        <div class="clearfix"></div>
+
+        <div v-for="(item,index) in zbxx" class="div2 fl mr29 mb30" style="width: 236px;height: 338px">
+            <a :href="'./hello/?pid='+item.pid+'&gid='+item.gid">
+                <span style="display: none" id="gid">{{item.gid}}</span>
+                <span style="display: none" id="pid">{{item.gid}}</span>
+                <!-- 主播头像的遍历 -->
+                <img :src="'./imgupload/'+item.person_coverphoto" style="width: 236px;height: 233px"/>
+                <div class="mt15 mr10 ml10" style="width: 216px;height: 27px">
+                    <!-- 昵称的遍历 -->
+                    <span class="fl" style="width: 150px;height: 27px;font-size: 20px">{{item.person_nickname}}</span>
+                    <!-- 段位的遍历 -->
+                    <span class="fr mt5 ml6"
+                          style="width: 34px;height: 18px;background-color: #fcc171">{{item.g_duanwei}}</span>
+                </div>
+                <div class="mt10 ml10" style="width: 110px;height: 18px">
+                    <div style="width: 109px;height: 18px">
+                        <!-- 性别和年龄 -->
+                        <div class="fl" style="width: 25px;height: 18px;margin-right: 6px">
+                            <i class="fl" style="width: 9px;height: 18px" v-html="item.person_sex=='女'?'♀':'♂'">{{item.person_sex}}</i>
+                            <span class="fl" style="width: 16px;height: 18px">{{item.person_age}}</span>
+                            <div class="clearfix"></div>
+                        </div>
+                        <!-- 地址的遍历 -->
+                        <div class="fl" style="margin-right: 5px;width: 66px;height: 18px">{{item.person_adress}}</div>
                     </div>
-                    <!-- 地址的遍历 -->
-                    <div class="fl" style="margin-right: 5px;width: 66px;height: 18px">{{item.person_adress}}</div>
+                    <!-- 每小时费用的遍历 -->
+                    <div class="mt8 mr6 ml145" style="width: 74.016px;height: 30px;font-size: 15px">
+                        ￥<span>{{item.g_price}}</span>/小时
+                    </div>
                 </div>
-                <!-- 每小时费用的遍历 -->
-                <div class="mt8 mr6 ml145" style="width: 74.016px;height: 30px;font-size: 15px">
-                    ￥<span>{{item.g_price}}</span>/小时
+                <!-- 是否在线 -->
+                <div class="fl mt10 mr10 ml10" style="width: 109px;height: 21px">
+                    <i style="width: 12px;height: 12px">☺</i>
+                    <span style="width: 28px;height: 19px">在线</span>
                 </div>
-            </div>
-            <!-- 是否在线 -->
-            <div class="fl mt10 mr10 ml10" style="width: 109px;height: 21px">
-                <i style="width: 12px;height: 12px">☺</i>
-                <span style="width: 28px;height: 19px">在线</span>
-            </div>
+            </a>
         </div>
-        </a>
+
         <div id="pagenav" style="margin: 0px 350px 20px 350px;width: 360px;text-align: center"></div>
     </div>
     <div class="list_right_box fr" id="Rank">
@@ -406,14 +408,14 @@
                 <div v-for="(item,index) in hotrank" class="cv-rank-list" id="cv-rank-call2" data-index="1" style="opacity: 1;display: block;">
                     <dl :class="{'first':index==0,'second':index==1,'third':index==2}" >
                         <dt>
-                            <a :href="'./fenlei/?pid='+item.pid">
+                            <a :href="'./hello/?pid='+item.pid+'&gid='+item.gid">
                                 <img :src="'./imgupload/'+item.person_image">
                                 <span class="avatar-mask"></span>
                             </a>
                         </dt>
                         <dd style="width: 120px;height: 46px;margin-top: 28px">
                             <h3 class="name" style="margin-top: -18px">
-                                <a :href="'./fenlei/?pid='+item.pid">{{item.person_nickname}}</a>
+                                <a :href="'./hello/?pid='+item.pid+'&gid='+item.gid">{{item.person_nickname}}</a>
                             </h3>
                             <p>接单：{{item.pos}}</p>
                         </dd>
@@ -461,17 +463,17 @@
                 </div>
             </div>
             <div class="cv-rank-box">
-                <div v-for="item in magnaterank" class="cv-rank-list" id="cv-rank-rich" data-index="1" style="opacity: 1;display: block;">
+                <div v-for="(item,index) in magnaterank" class="cv-rank-list" id="cv-rank-rich" data-index="1" style="opacity: 1;display: block;">
                     <dl :class="{'first':index==0,'second':index==1,'third':index==2}">
                         <dt>
-                            <a :href="'./fenlei/?pid='+item.pid">
+                            <a href="javascript:;">
                                 <img :src="'./imgupload/'+item.person_image">
                                 <span class="avatar-mask"></span>
                             </a>
                         </dt>
                         <dd style="width: 120px;height: 46px;margin-top: 28px">
                             <h3 class="name" style="margin-top: -18px">
-                                <a :href="'./fenlei/?pid='+item.pid">{{item.person_nickname}}</a>
+                                <a href="javascript:;">{{item.person_nickname}}</a>
                             </h3>
                             <p>富豪值：{{item.oms}}</p>
                         </dd>
@@ -526,7 +528,9 @@
 <!-- 使用VUE遍历的代码 -->
 <script>
 
-    var gid = 0;
+
+
+    var gid = location.search.substr(5);
     var gdw = null;
     var psex = null;
     var sort = null;
@@ -638,6 +642,9 @@
     /*点击游戏服务*/
     $(".fl.icon_box").click(function () {
         var indexDiv = $(".fl.icon_box").index(this);
+        if (gid>1000){
+            gid=0;
+        }
         gid = 1001 + indexDiv;
         // alert(gid);
         //console.log("点击游戏服务："+gameservice.clickfun(gdw));
@@ -819,6 +826,122 @@
 
     };
 
+
+
+    alert(gid);
+    getEntry(gid);
+    getCondition(gid, gdw, psex, sort, hot, newest, curr);
+    getHotRank(gid,hotday);
+    getMagnateRank(gid,magnateday);
+
+
+    /*var gd = location.search.substr(5);
+    alert(gd);
+
+    /!*热度排行榜*!/
+    var getHot = function (gd,hotday) {
+        $.ajax({
+            type: 'POST',
+            dataType: 'json',
+            async: true,
+            url: '/gethotrank',
+            data: {
+                gid: gd,
+                hotday:hotday
+            },
+            success: function (data) {
+                console.log(data);
+                alert(gd);
+                all.hotrank = data.hotRank;
+            }
+        });
+
+    };
+
+    /!*用户富豪榜*!/
+    var getMagnate = function (gd,magnateday) {
+        $.ajax({
+            type: 'POST',
+            dataType: 'json',
+            async: true,
+            url: '/gemagnaterank',
+            data: {
+                gid: gd,
+                magnateday:magnateday
+            },
+            success: function (data) {
+                console.log(data);
+                alert(gd);
+                all.magnaterank = data.magnateRank;
+            }
+        });
+
+    };
+    var Condition = function (gd, gdw, psex, sort, hot, newest, curr) {
+        console.log(gdw);
+        $.ajax({
+            type: 'Post',
+            dataType: 'json',
+            async: true,
+            url: '/getCondition',
+            data: {
+                gid: gd,
+                gdw: gdw,
+                psex: psex,
+                sort: sort,
+                hot: hot,
+                newest: newest,
+                pageNum: curr || 1,
+                pageSize: 8
+
+            },
+            success: function (data) {
+                console.log(data);
+                all.zbxx = data.mapPage.records;
+                laypage({
+                    cont: 'pagenav',
+                    pages: data.mapPage.pages,
+                    skip:true,      //是否开启跳页
+                    skin:'molv',    //加载内置皮肤
+                    prev:'<',
+                    next:'>',
+                    first: '<<',
+                    last: '>>',
+                    curr: curr || 1,
+                    jump: function (obj, first) {
+                        if (!first) {
+                            getCondition(gd, gdw, psex, sort, hot, newest, obj.curr);
+                        }
+                    }
+                });
+            }
+        });
+    };
+    /!*从后台获取游戏板块对应的段位*!/
+    var Entry = function (gd) {
+        /!*if (gid == 0) {
+            gid = 1001;
+        }*!/
+        $.ajax({
+            type: 'POST',
+            dataType: 'json',
+            async: true,
+            url: '/duanwei',
+            data: {gid: gd},
+            success: function (data) {
+                // console.log(data);
+                // alert(gid);
+                gameservice.grades = data.duanWei;
+            }
+        });
+
+    };
+
+    alert(gd);
+    Entry(gd);
+    Condition(gd, gdw, psex, sort, hot, newest, curr);
+    getHot(gd,hotday);
+    getMagnate(gd,magnateday);*/
 
 </script>
 

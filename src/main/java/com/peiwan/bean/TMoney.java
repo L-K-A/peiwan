@@ -10,13 +10,13 @@ import lombok.experimental.Accessors;
  * 
  * </p>
  *
- * @author bjlz
- * @since 2019-01-02
+ * @author 
+ * @since 2019-01-16
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-public class PComment implements Serializable {
+public class TMoney implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -26,34 +26,29 @@ public class PComment implements Serializable {
     private Integer pid;
 
     /**
-     * 订单id
+     * 用户账户id
      */
-    private byte[] oid;
+    private Integer mid;
 
     /**
-     * 板块id
+     * 用户充值订单id
      */
-    private Integer gid;
+    private Integer oid;
 
     /**
-     * 评论id
+     * 钱包余额
      */
-    private Integer cid;
+    private Double mBalance;
 
     /**
-     * 评价内容
+     * 充值时间
      */
-    private String cContext;
+    private String mChangetime;
 
     /**
-     * 评论时间
+     * 充值金额
      */
-    private String cCreatetime;
-
-    /**
-     * 评分(好评，中评，差评)
-     */
-    private String cRank;
+    private Integer mCharge;
 
 
 }

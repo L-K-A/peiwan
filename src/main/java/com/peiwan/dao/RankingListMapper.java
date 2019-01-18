@@ -1,8 +1,6 @@
 package com.peiwan.dao;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.peiwan.bean.PPerson;
-import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
 import java.util.Map;

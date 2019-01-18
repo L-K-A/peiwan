@@ -10,42 +10,35 @@ import lombok.experimental.Accessors;
  * 
  * </p>
  *
- * @author bjlz
- * @since 2019-01-02
+ * @author 
+ * @since 2019-01-16
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-public class PAlity implements Serializable {
+public class TSort implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private Integer pid;
+    /**
+     * 板块id
+     */
+    private Integer gid;
 
     /**
-     * 才艺1
+     * 板块名
      */
-    private String alityOne;
+    private String gName;
 
     /**
-     * 才艺2
+     * 游戏大区
      */
-    private String alityTwo;
+    private String gDaqu;
 
     /**
-     * 魅力1
+     * 游戏段位
      */
-    private String charmOne;
-
-    /**
-     * 魅力2
-     */
-    private String charmTwo;
-
-    /**
-     * 魅力3
-     */
-    private String charmThree;
+    private String gDuanwei;
 
 
 }

@@ -1,9 +1,6 @@
 package com.peiwan;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.peiwan.bean.GSortDuanwei;
-import com.peiwan.bean.PPerson;
-import com.peiwan.dao.PersonMapper;
 import com.peiwan.service.ClassifyService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -19,6 +16,7 @@ import java.util.Map;
 @SpringBootTest
 public class PeiwanApplicationTests {
 
+/*
 
     @Autowired
     private ClassifyService cs;
@@ -43,13 +41,14 @@ public class PeiwanApplicationTests {
         gSortDuanwei.setGid(1001);
 
         Page<Map<String,Object>> page = new Page<Map<String,Object>>(1,5);
-//        page.setRecords(cs.seachPage(map,page));
+        page.setRecords(cs.seachPage(map,page));
         System.out.println(page);
-//        List<Map<String, Object>> mapList = cs.seachPage(map, page);
-//        for (Map<String, Object> stringObjectMap : mapList) {
-//            System.out.println(stringObjectMap);
-//        }
+        List<Map<String, Object>> mapList = cs.seachPage(map, page);
+        for (Map<String, Object> stringObjectMap : mapList) {
+            System.out.println(stringObjectMap);
+        }
     }
+*/
 
 }
 
