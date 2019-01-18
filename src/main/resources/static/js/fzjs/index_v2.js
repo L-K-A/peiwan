@@ -292,7 +292,7 @@ require([
 			middleTopBgImg2:"",
 
 			rightTopBgImg1:"",
-			rightTopBgImg2:"",
+			rightTopBgImg2:""
 
 
 		},
@@ -314,7 +314,7 @@ require([
 				 	window.open(url);
 				}else{
 					return;
-				};
+				}
 			},
 			// 周榜总榜切换
 			// 魅力

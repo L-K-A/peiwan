@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>电竞陪玩|约玩_刀锋电竞_绝地求生陪玩_LOL陪玩_王者荣耀陪玩</title>
-    <meta name="keywords" content="刀锋电竞陪玩,游戏陪玩,约玩,陪玩入驻,绝地求生陪玩,LOL陪玩,王者荣耀陪玩,美女陪玩,大神陪玩,导师陪玩">
-    <meta name="description" itemprop="description" content="刀锋电竞，是（国内）专业的游戏陪玩交友平台。刀锋电竞致力于为您提供贴心的专属陪伴；平台内百万大神美女导师24小时待命，随时陪你游戏，和你聊天，还可以哄你睡觉；游戏类型多样，妹子风格各异，任你选择。">
+    <title>电竞陪玩|约玩_电竞_绝地求生陪玩_LOL陪玩_王者荣耀陪玩</title>
+    <meta name="keywords" content="电竞陪玩,游戏陪玩,约玩,陪玩入驻,绝地求生陪玩,LOL陪玩,王者荣耀陪玩,美女陪玩,大神陪玩,导师陪玩">
+    <meta name="description" itemprop="description" content="电竞，是（国内）专业的游戏陪玩交友平台。电竞致力于为您提供贴心的专属陪伴；平台内百万大神美女导师24小时待命，随时陪你游戏，和你聊天，还可以哄你睡觉；游戏类型多样，妹子风格各异，任你选择。">
     <!-- 禁止IE强制识别手机号 -->
     <meta name="format-detection" content="telephone=no"/>
-    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/css/public.css">
     <link rel="stylesheet" href="/css/public_nav_v2.css">
     <link rel="stylesheet" href="/css/layer.css">
@@ -16,27 +16,33 @@
     <link rel="stylesheet" href="/css/public_frame_v2.css">
     <link rel="stylesheet" href="/css/index_v2.css">
     <link rel="stylesheet" href="/css/swiper.min.css">
+    <link rel="stylesheet" href="/css/search.css">
+    <link rel="stylesheet" href="/css/sidebar.css">
     <!-- v2侧边栏样式-->
     <link rel="stylesheet" href="/css/sidebar.css">
     <!--登录注册模板样式-->
     <link rel="stylesheet" href="/css/login_registration.css">
 
 
-
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <!--<script type="text/javascript" src="/js/vue.min.js"></script>-->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>-->
+    <script type="text/javascript" src="/js/vue.min.js"></script>
+    <script type="text/javascript" src="/js/vue-resource.js"></script>
     <script type="text/javascript" src="/js/jquery.min.js"></script>
     <script type="text/javascript" src="/js/jquery.validate.min.js"></script>
     <script type="text/javascript" src="/js/messages_zh.min.js"></script>
     <script type="text/javascript" src="/js/store.legacy.min.js"></script>
-    <script type="text/javascript" src="/js/layer/layer.js"></script>
-    <!--<script type="text/javascript" src="/js/swiper/swiper.min.css"></script>-->
-   <!-- <script type="text/javascript" src="/js/laypage/laypage.js"></script>-->
+<!--    <script type="text/javascript" src="/js/layer/layer.js"></script>-->
+    <script type="text/javascript" src="/js/swiper.min.js"></script>
+    <script type="text/javascript" src="/js/hm.js"></script>
+    <script type="text/javascript" src="/js/push.js"></script>
+    <script type="text/javascript" src="/js/require.js"></script>
+
+
+    <!--<script type="text/javascript" src="/js/fzjs/dsQIsvEEt22a2B72.js"></script>-->
     <script type="text/javascript" src="/js/fzjs/websocket.js"></script>
     <script type="text/javascript" src="/js/fzjs/message.js"></script>
     <script type="text/javascript" src="/js/fzjs/chat.js"></script>
-    <script type="text/javascript" src="/js/fzjs/vue-resource.js"></script>
-    <script type="text/javascript" src="/js/fzjs/websocket.js"></script>
+
 
     <script>
         window.website_version = "201901040104";//网站版本号用于处理js的缓存1
@@ -109,8 +115,9 @@
                 <img src="/images/ico_30_hover.png" style="display: none;">
                 <img src="/images/ico_31_hover.png" style="display: none;">
                 <div style="height: 0px;width: 100%;"></div>
+
                 <!--beforeLanding(登陆之前) -->
-                <div class="login style1" id="beforeLanding">
+                <!--<div class="login style1" id="beforeLanding">
                     <ul class="nav navbar-nav navbar-right">
 
                         <li>
@@ -119,23 +126,23 @@
                             <a data-toggle="modal" data-target="#register" href="/toRegister"><span class="glyphicon glyphicon-user"></span>注册</a>
                         </li>
                     </ul>
-                </div>
+                </div>-->
                 <!--afterTheLanding(登陆过后)-->
-                <div class="login style1" id="afterTheLanding">
+                <!--<div class="login style1" id="afterTheLanding">
                     <ul class="nav navbar-nav navbar-right">
                         <li><a id="personnames" href="/indexw"  th:text="${session.nameTPerson?.personNickname}"></a>&nbsp;&nbsp;<a data-toggle="modal" data-target="#login" href="/logout"><span class="glyphicon glyphicon-log-in"></span>退出登陆</a></li>
                     </ul>
-                </div>
+                </div>-->
 
-                <script th:inline="javascript">
+               <!-- <script th:inline="javascript">
 
-                    <!--登陆隐藏-->
+                    &lt;!&ndash;登陆隐藏&ndash;&gt;
                     function LandingHide() {
                         $("#afterTheLanding").hide();
                     }
 
 
-                    <!--登陆过后隐藏显示-->
+                    &lt;!&ndash;登陆过后隐藏显示&ndash;&gt;
                     function LandingHides() {
                         $("#beforeLanding").hide();
                     }
@@ -147,11 +154,14 @@
                         LandingHides();
                     }
 
+                </script>-->
 
 
+                <div @click="login_fn" class="login style1">
+                    <p></p>
+                    <span>登录&nbsp;&nbsp;|&nbsp;&nbsp;注册</span>
+                </div>
 
-
-                </script>
 
             </div>
         </div>
@@ -284,7 +294,7 @@
                 </div>
                 <ul class="service_list_wrapper">
                     <li class="service_list_item">
-                        <a href="/togame?gid=1002">
+                        <a href="/peiwan/pubg/">
                             <div class="wai">
                                 <div class="nei">
                                     <img src="/images/logo_1.png" alt="" class="icon">
@@ -294,7 +304,7 @@
                         </a>
                     </li>
                     <li class="service_list_item">
-                        <a href="/togame?gid=1001">
+                        <a href="/peiwan/lol/">
                             <div class="wai">
                                 <div class="nei">
                                     <img src="/images/logo_2.png" alt="" class="icon">
@@ -305,7 +315,7 @@
                     </li>
                     
                     <li class="service_list_item">
-                        <a href="/togame?gid=1009">
+                        <a href="/peiwan/syshengyouliaotian/">
                             <div class="wai">
                                 <div class="nei">
                                     <img src="/images/logo_5.png" alt="" class="icon">
@@ -315,7 +325,7 @@
                         </a>
                     </li>
                     <li class="service_list_item">
-                        <a href="/togame?gid=1003">
+                        <a href="/peiwan/wangzherongyao/">
                             <div class="wai">
                                 <div class="nei">
                                     <img src="/images/logo_4.png" alt="" class="icon">
@@ -325,7 +335,7 @@
                         </a>
                     </li>
                     <li class="service_list_item">
-                        <a href="/togame?gid=1008">
+                        <a href="/peiwan/shangfen/">
                             <div class="wai">
                                 <div class="nei">
                                     <img src="/images/logo_6.png" alt="" class="icon">
@@ -508,7 +518,7 @@
                 <div class="swiper-container2">
                     <img src="/images/img_1.png" alt="" class="icon_title">
                     <a href='/peiwan/lol/?type=new'>
-                        <img src="/picture/img_2.png" alt="" class="icon_more">
+                        <img sr  "/picture/img_2.png" alt="" class="icon_more">
                     </a>
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
@@ -590,25 +600,135 @@
         </div>
 
         <!-- 排行榜 -->
-        <div class="rankings_wrapper">
+        <div class="rankings_wrapper" id="rankings_wrapper">
+
             <!-- 魅力榜 -->
             <div class="left rankings_item">
                 <!-- 头 -->
                 <div class="list_title_wrapper">
                     <img src="/images/list_title_1.png" alt="" class="title">
-                    <!-- 波浪 -->
-                    <div class="waves_wrapper">
-
-                    </div>
                 </div>
                 <!-- 头背景 -->
                 <div class="top_bg_wrapper" style="display: none" v-show="tabShow1===1">
-                	<img :src="/picture/d6a7242fb86d4f628cd7240ef62e23d8.gif" alt="" class="top_bg_img" >
-                	<img src="/images/mongolian_red.png" alt="" class="mongolian">
+                    <!-- <img :src="leftTopBgImg1" alt="" class="top_bg_img" >-->
+                    <img src="/images/mongolian_red.png" alt="" class="mongolian">
                 </div>
-                 <div class="top_bg_wrapper" style="display: none" v-show="tabShow1===2">
-                	<img :src="/picture/fd1132aebf5741de98ec5e085c97ed1d.gif" alt="" class="top_bg_img" >
-                	<img src="/images/mongolian_red.png" alt="" class="mongolian">
+                <div class="top_bg_wrapper" style="display: none" v-show="tabShow1===2">
+                    <!--  <img :src="leftTopBgImg2" alt="" class="top_bg_img" >-->
+                    <img src="/images/mongolian_red.png" alt="" class="mongolian">
+                </div>
+                <!-- 选项卡 -->
+                <div class="tab_wrapper">
+                    <div class="tab_content">
+                        <div class="tab_item" :class="{on:tabShow1===1}" @click="tabFun1(1)">周榜</div>
+                        <div class="tab_item" :class="{on:tabShow1===2}" @click="tabFun1(2)">总榜</div>
+                    </div>
+                </div>
+                <!-- 列表内容 -->
+                <div class="list_wrapper">
+                    <!-- 魅力周榜 -->
+                    <div class="list_item" style="display: none" v-show="tabShow1===1">
+                        <div class="top">
+                            <ul class="list_top_wrapper">
+                                <li class="list_top_item url_point" v-for="(item,index) in seven_charm_top">
+                                    <div class="logo_wrapper">
+                                        <img :src="'/picture/'+item.person_image" class="logo_frame"><!--主播头像-->
+                                    </div>
+                                    <div class="text">{{item.person_nickname}}</div>
+                                    <div class="hot_wrapper">
+                                        <i class="icon"></i>
+                                        <span class="hot_text">{{item.oo}}</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <!--从第四名开始的列表-->
+                        <div class="bottom">
+                            <ul class="list_bottom_wrapper">
+                                <li class="list_bottom_item url_point" v-cloak v-for="(item,index) in seven_charm" :key="index" @click="detailUrl(item.uid,item.pw_status)">
+                                    <i class="num_wrapper"><i class="num_item"><i class="num">{{index+4}}</i></i>
+                                    </i>
+                                    <div class="logo_wrapper">
+                                        <img :src="'/picture/'+item.person_image" class="logo_frame"><!--主播头像-->
+                                    </div>
+                                    <div class="info_wrapper">
+                                        <span class="nick_name">{{item.person_nickname}}</span>
+                                    </div>
+                                    <div class="right_wrapper">
+                                        <div class="right_box">
+                                            <div class="right_content">
+                                                <!-- 热度值-->
+                                                <div class="hot_wrapper">
+                                                    <span class="icon">接单数:</span>
+                                                    <span class="hot_text">{{item.oo}}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- 魅力总榜 -->
+                    <div class="list_item" style="display: none" v-show="tabShow1===2">
+                        <div class="top"> <!--榜单前三-->
+                            <ul class="list_top_wrapper">
+                                <li class="list_top_item url_point" v-for="(item,index) in charm_top">
+                                    <div class="logo_wrapper">
+                                        <img :src="'/picture/'+item.person_image" class="logo_frame"><!--主播头像-->
+                                    </div>
+                                    <div class="text">{{item.person_nickname}}</div>
+                                    <div class="hot_wrapper">
+                                        <i class="icon"></i>
+                                        <span class="hot_text">{{item.oo}}</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <!--从第四名开始的列表-->
+                        <div class="bottom">
+                            <ul class="list_bottom_wrapper">
+                                <li class="list_bottom_item url_point" v-cloak v-for="(item,index) in charm" :key="index" @click="detailUrl(item.uid,item.pw_status)">
+                                    <i class="num_wrapper"><i class="num_item"><i class="num">{{index+4}}</i></i>
+                                    </i>
+                                    <div class="logo_wrapper">
+                                        <img :src="'/picture/'+item.person_image" class="logo_frame"><!--主播头像-->
+                                    </div>
+                                    <div class="info_wrapper">
+                                        <span class="nick_name">{{item.person_nickname}}</span>
+                                    </div>
+                                    <div class="right_wrapper">
+                                        <div class="right_box">
+                                            <div class="right_content">
+                                                <!-- 热度值-->
+                                                <div class="hot_wrapper">
+                                                    <span class="icon">接单数:</span>
+                                                    <span class="hot_text">{{item.oo}}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 人气榜 -->
+            <div class="middle rankings_item">
+                <!-- 头 -->
+                <div class="list_title_wrapper">
+                    <img src="/images/list_title_2.png" alt="" class="title">
+                </div>
+                <!-- 头背景 -->
+                <div class="top_bg_wrapper" style="display: none" v-show="tabShow1===1">
+                    <!-- <img :src="leftTopBgImg1" alt="" class="top_bg_img" >-->
+                    <img src="/images/mongolian_purple" alt="" class="mongolian">
+                </div>
+                <div class="top_bg_wrapper" style="display: none" v-show="tabShow1===2">
+                    <!--  <img :src="leftTopBgImg2" alt="" class="top_bg_img" >-->
+                    <img src="/images/mongolian_purple" alt="" class="mongolian">
                 </div>
                 <!-- 选项卡 -->
                 <div class="tab_wrapper">
@@ -623,52 +743,37 @@
                     <div class="list_item" style="display: none" v-show="tabShow1===1">
                         <div class="top">
                             <ul class="list_top_wrapper">
-                                <li class="list_top_item url_point" v-cloak v-for="(item,index) in top_seven_charm" :key="index" @click="detailUrl(item.uid,item.pw_status)">
+                                <li class="list_top_item url_point" v-for="(item,index) in money_seven_charm_top">
                                     <div class="logo_wrapper">
-                                        <img v-cloak :data-path="_P_H(item.avatar,60)" alt="" class="logo">
-                                        <img :src="/images/ico_num_1.png" alt="" class="logo_frame">
+                                        <img :src="'/picture/'+item.person_image" class="logo_frame"><!--主播头像-->
                                     </div>
-                                    <span class="text"><span class="guan_ming" v-if="item.s_nickname">{{item.s_nickname}}<img :title="item.s_name" :src="picture/item.path"></span>{{returnstr(item)}}</span>
-                                    <div class="icon_wrapper">
-                                        <img v-if="picture/jewelimgfun(item.noble_id)" :src="jewelImgFun(item.noble_id)" alt="" class="icon_title">
-                                        <img v-if="picture/levelimgfun(item.level)" :src="levelImgFun(item.level)" alt="" class="icon_level">
-                                        <!-- 靓号 -->
-                                        <span class="num_wrapper" v-if="item.vip_uid">
-                                            <img src="/images/ico_pretty_min.png" alt="" class="icon">
-                                            <span class="text">靓号:{{item.vip_uid}}</span>
-                                        </span>
-                                    </div>
+                                    <div class="text">{{item.person_nickname}}</div>
                                     <div class="hot_wrapper">
                                         <i class="icon"></i>
-                                        <span class="hot_text">{{item.value}}</span>
+                                        <span class="hot_text">{{item.om}}</span>
                                     </div>
                                 </li>
                             </ul>
                         </div>
+                        <!--从第四名开始的列表-->
                         <div class="bottom">
                             <ul class="list_bottom_wrapper">
-                                <li class="list_bottom_item url_point" v-cloak v-for="(item,index) in seven_charm" :key="index" @click="detailUrl(item.uid,item.pw_status)">
+                                <li class="list_bottom_item url_point" v-cloak v-for="(item,index) in money_seven_charm" :key="index" @click="detailUrl(item.uid,item.pw_status)">
                                     <i class="num_wrapper"><i class="num_item"><i class="num">{{index+4}}</i></i>
                                     </i>
-                                    <div class="logo_wrapper"><img v-cloak :data-path="_P_H(item.avatar,60)" alt="" class="logo"></div>
+                                    <div class="logo_wrapper">
+                                        <img :src="'/picture/'+item.person_image" class="logo_frame"><!--主播头像-->
+                                    </div>
                                     <div class="info_wrapper">
-                                        <span class="nick_name"><span class="guan_ming" v-if="item.s_nickname">{{item.s_nickname}}<img :title="item.s_name" :src="picture/item.path"></span>{{returnstr(item)}}</span>
-                                        <div class="icon_wrapper">
-                                            <img v-if="picture/jewelimgfun(item.noble_id)" :src="jewelImgFun(item.noble_id)" alt="" class="icon_title">
-                                            <img v-if="picture/levelimgfun(item.level)" :src="levelImgFun(item.level)" alt="" class="icon_level">
-                                        </div>
+                                        <span class="nick_name">{{item.person_nickname}}</span>
                                     </div>
                                     <div class="right_wrapper">
                                         <div class="right_box">
                                             <div class="right_content">
-                                                <!-- 热度值 -->
+                                                <!-- 热度值-->
                                                 <div class="hot_wrapper">
-                                                    <span class="icon">魅力:</span>
-                                                    <span class="hot_text">{{item.value}}</span>
-                                                </div>
-                                                <!-- 靓号 -->
-                                                <div class="pretty_num_wrapper" style="display: none" v-show="item.vip_uid">
-                                                    <span class="text">{{item.vip_uid}}</span>
+                                                    <span class="icon">贡献:</span>
+                                                    <span class="hot_text">{{item.om}}</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -679,54 +784,39 @@
                     </div>
                     <!-- 总榜 -->
                     <div class="list_item" style="display: none" v-show="tabShow1===2">
-                        <div class="top">
+                        <div class="top"> <!--榜单前三-->
                             <ul class="list_top_wrapper">
-                                <li class="list_top_item url_point" @click="detailUrl(item.uid,item.pw_status)" v-cloak v-for="(item,index) in top_charm">
+                                <li class="list_top_item url_point" v-for="(item,index) in money_charm_top">
                                     <div class="logo_wrapper">
-                                        <img v-cloak :data-path="_P_H(item.avatar,60)" alt="" class="logo">
-                                        <img :src="/images/ico_num_1.png" alt="" class="logo_frame">
+                                        <img :src="'/picture/'+item.person_image" class="logo_frame"><!--主播头像-->
                                     </div>
-                                    <span class="text"><span class="guan_ming" v-if="item.s_nickname">{{item.s_nickname}}<img :title="item.s_name" :src="picture/item.path"></span>{{returnstr(item)}}</span>
-                                    <div class="icon_wrapper">
-                                        <img v-if="picture/jewelimgfun(item.noble_id)" :src="jewelImgFun(item.noble_id)" alt="" class="icon_title">
-                                        <img v-if="picture/levelimgfun(item.level)" :src="levelImgFun(item.level)" alt="" class="icon_level">
-                                        <!-- 靓号 -->
-                                        <span class="num_wrapper" v-if="item.vip_uid">
-                                            <img src="/images/ico_pretty_min.png" alt="" class="icon">
-                                            <span class="text">靓号:{{item.vip_uid}}</span>
-                                        </span>
-                                    </div>
+                                    <div class="text">{{item.person_nickname}}</div>
                                     <div class="hot_wrapper">
                                         <i class="icon"></i>
-                                        <span class="hot_text">{{item.value}}</span>
+                                        <span class="hot_text">{{item.oo}}</span>
                                     </div>
                                 </li>
                             </ul>
                         </div>
+                        <!--从第四名开始的列表-->
                         <div class="bottom">
                             <ul class="list_bottom_wrapper">
-                                <li class="list_bottom_item url_point" @click="detailUrl(item.uid,item.pw_status)" v-cloak v-for="(item,index) in charm" :key="index">
+                                <li class="list_bottom_item url_point" v-cloak v-for="(item,index) in money_charm" :key="index" @click="detailUrl(item.uid,item.pw_status)">
                                     <i class="num_wrapper"><i class="num_item"><i class="num">{{index+4}}</i></i>
                                     </i>
-                                    <div class="logo_wrapper"><img v-cloak :data-path="_P_H(item.avatar,60)" alt="" class="logo"></div>
+                                    <div class="logo_wrapper">
+                                        <img :src="'/picture/'+item.person_image" class="logo_frame"><!--主播头像-->
+                                    </div>
                                     <div class="info_wrapper">
-                                        <span class="nick_name"><span class="guan_ming" v-if="item.s_nickname">{{item.s_nickname}}<img :title="item.s_name" :src="picture/item.path"></span>{{returnstr(item)}}</span>
-                                        <div class="icon_wrapper">
-                                            <img v-if="picture/jewelimgfun(item.noble_id)" :src="jewelImgFun(item.noble_id)" alt="" class="icon_title">
-                                            <img v-if="picture/levelimgfun(item.level)" :src="levelImgFun(item.level)" alt="" class="icon_level">
-                                        </div>
+                                        <span class="nick_name">{{item.person_nickname}}</span>
                                     </div>
                                     <div class="right_wrapper">
                                         <div class="right_box">
                                             <div class="right_content">
-                                                <!-- 热度值 -->
+                                                <!-- 热度值-->
                                                 <div class="hot_wrapper">
-                                                    <span class="icon">魅力:</span>
-                                                    <span class="hot_text">{{item.value}}</span>
-                                                </div>
-                                                <!-- 靓号 -->
-                                                <div class="pretty_num_wrapper" style="display: none" v-show="item.vip_uid">
-                                                    <span class="text">{{item.vip_uid}}</span>
+                                                    <span class="icon">接单数:</span>
+                                                    <span class="hot_text">{{item.oo}}</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -737,168 +827,22 @@
                     </div>
                 </div>
             </div>
-            <!-- 人气榜 -->
-            <div class="middle rankings_item">
-                <div class="list_title_wrapper">
-                    <img src="/images/list_title_2.png" alt="" class="title">
-                    <!-- 波浪 -->
-                    <div class="waves_wrapper">
 
-                    </div>
-                </div>
-                <!-- 头背景 -->
-                <div class="top_bg_wrapper" style="display: none" v-show="tabShow2===1">
-                	<img :src="picture/ab530759f7484aa0ba9f4519a7c7bb14.gif" alt="" class="top_bg_img" >
-                	<img src="/images/mongolian_purple.png" alt="" class="mongolian">
-                </div>
-                 <div class="top_bg_wrapper" style="display: none" v-show="tabShow2===2">
-                	<img :src="picture/95df5d85386e4113a39ab2b18ee7bd7e.gif" alt="" class="top_bg_img" >
-                	<img src="/images/mongolian_purple.png" alt="" class="mongolian">
-                </div>
-                <!-- 选项卡 -->
-                <div class="tab_wrapper">
-                    <div class="tab_content">
-                        <div class="tab_item" :class="{on:tabShow2===1}" @click="tabFun2(1)">周榜</div>
-                        <div class="tab_item" :class="{on:tabShow2===2}" @click="tabFun2(2)">总榜</div>
-                    </div>
-                </div>
-                <!-- 列表内容 -->
-                <div class="list_wrapper">
-                    <!-- 周榜 -->
-                    <div class="list_item" style="display: none" v-show="tabShow2===1">
-                        <div class="top">
-                            <ul class="list_top_wrapper">
-                                <li class="list_top_item url_point" @click="detailUrl(item.uid,item.pw_status)" v-cloak v-for="(item,index) in top_seven_pop">
-                                    <div class="logo_wrapper">
-                                        <img v-cloak :data-path="_P_H(item.avatar,60)" alt="" class="logo">
-                                        <img v-if="levelImgFun(item.level)" :src="/images/ico_num_1.png" alt="" class="logo_frame">
-                                    </div>
-                                    <span class="text"><span class="guan_ming" v-if="item.s_nickname">{{item.s_nickname}}<img :title="item.s_name" :src="picture/item.path"></span>{{returnstr(item)}}</span>
-                                    <div class="icon_wrapper">
-                                        <img v-if="picture/jewelimgfun(item.noble_id)" :src="jewelImgFun(item.noble_id)" alt="" class="icon_title">
-                                        <img v-if="picture/levelimgfun(item.level)" :src="levelImgFun(item.level)" alt="" class="icon_level">
-                                        <!-- 靓号 -->
-                                        <span class="num_wrapper" v-if="item.vip_uid">
-                                            <img src="/images/ico_pretty_min.png" alt="" class="icon">
-                                            <span class="text">靓号:{{item.vip_uid}}</span>
-                                        </span>
-                                    </div>
-                                    <div class="hot_wrapper">
-                                        <i class="icon"></i>
-                                        <span class="hot_text">{{item.value}}</span>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="bottom">
-                            <ul class="list_bottom_wrapper">
-                                <li class="list_bottom_item url_point" @click="detailUrl(item.uid,item.pw_status)" v-cloak v-for="(item,index) in seven_pop" :key="index">
-                                    <i class="num_wrapper"><i class="num_item"><i class="num">{{index+4}}</i></i>
-                                    </i>
-                                    <div class="logo_wrapper"><img v-cloak :data-path="_P_H(item.avatar,60)" alt="" class="logo"></div>
-                                    <div class="info_wrapper">
-                                        <span class="nick_name"><span class="guan_ming" v-if="item.s_nickname">{{item.s_nickname}}<img :title="item.s_name" :src="picture/item.path"></span>{{returnstr(item)}}</span>
-                                        <div class="icon_wrapper">
-                                            <img v-if="picture/jewelimgfun(item.noble_id)" :src="jewelImgFun(item.noble_id)" alt="" class="icon_title">
-                                            <img v-if="picture/levelimgfun(item.level)" :src="levelImgFun(item.level)" alt="" class="icon_level">
-                                        </div>
-                                    </div>
-                                    <div class="right_wrapper">
-                                        <div class="right_box">
-                                            <div class="right_content">
-                                                <!-- 热度值 -->
-                                                <div class="hot_wrapper">
-                                                    <span class="icon">时长:</span>
-                                                    <span class="hot_text">{{item.value}}</span>
-                                                </div>
-                                                <!-- 靓号 -->
-                                                <div class="pretty_num_wrapper" style="display: none" v-show="item.vip_uid">
-                                                    <span class="text">{{item.vip_uid}}</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!-- 总榜 -->
-                    <div class="list_item" style="display: none" v-show="tabShow2===2">
-                        <div class="top">
-                            <ul class="list_top_wrapper">
-                                <li class="list_top_item url_point" @click="detailUrl(item.uid,item.pw_status)" v-cloak v-for="(item,index) in top_pop">
-                                    <div class="logo_wrapper">
-                                        <img v-cloak :data-path="_P_H(item.avatar,60)" alt="" class="logo">
-                                        <img :src="/images/ico_num_1.png" alt="" class="logo_frame">
-                                    </div>
-                                    <span class="text"><span class="guan_ming" v-if="item.s_nickname">{{item.s_nickname}}<img :title="item.s_name" :src="picture/item.path"></span>{{returnstr(item)}}</span>
-                                    <div class="icon_wrapper">
-                                        <img v-if="picture/jewelimgfun(item.noble_id)" :src="jewelImgFun(item.noble_id)" alt="" class="icon_title">
-                                        <img v-if="picture/levelimgfun(item.level)" :src="levelImgFun(item.level)" alt="" class="icon_level">
-                                        <!-- 靓号 -->
-                                        <span class="num_wrapper" v-if="item.vip_uid">
-                                            <img src="/images/ico_pretty_min.png" alt="" class="icon">
-                                            <span class="text">靓号:{{item.vip_uid}}</span>
-                                        </span>
-                                    </div>
-                                    <div class="hot_wrapper">
-                                        <i class="icon"></i>
-                                        <span class="hot_text">{{item.value}}</span>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="bottom">
-                            <ul class="list_bottom_wrapper">
-                                <li class="list_bottom_item url_point" @click="detailUrl(item.uid,item.pw_status)" v-cloak v-for="(item,index) in pop" :key="index">
-                                    <i class="num_wrapper"><i class="num_item"><i class="num">{{index+4}}</i></i>
-                                    </i>
-                                    <div class="logo_wrapper"><img v-cloak :data-path="_P_H(item.avatar,60)" alt="" class="logo"></div>
-                                    <div class="info_wrapper">
-                                        <span class="nick_name"><span class="guan_ming" v-if="item.s_nickname">{{item.s_nickname}}<img :title="item.s_name" :src="picture/item.path"></span>{{returnstr(item)}}</span>
-                                        <div class="icon_wrapper">
-                                            <img v-if="picture/jewelimgfun(item.noble_id)" :src="jewelImgFun(item.noble_id)" alt="" class="icon_title">
-                                            <img v-if="picture/levelimgfun(item.level)" :src="levelImgFun(item.level)" alt="" class="icon_level">
-                                        </div>
-                                    </div>
-                                    <div class="right_wrapper">
-                                        <div class="right_box">
-                                            <div class="right_content">
-                                                <!-- 热度值 -->
-                                                <div class="hot_wrapper">
-                                                    <span class="icon">时长:</span>
-                                                    <span class="hot_text">{{item.value}}</span>
-                                                </div>
-                                                <!-- 靓号 -->
-                                                <div class="pretty_num_wrapper" style="display: none" v-show="item.vip_uid">
-                                                    <span class="text">{{item.vip_uid}}</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
             <!-- 富豪榜 -->
             <div class="right rankings_item">
+                <!-- 头 -->
                 <div class="list_title_wrapper">
                     <img src="/images/list_title_3.png" alt="" class="title">
-                    <!-- 波浪 -->
-                    <div class="waves_wrapper">
-
-                    </div>
                 </div>
                 <!-- 头背景 -->
                 <div class="top_bg_wrapper" style="display: none" v-show="tabShow3===1">
-                	<img :src="picture/1f37e02f89a845408da3553e4975f159.gif" alt="" class="top_bg_img" >
-                	<img src="/images/mongolian_yellow.png" alt="" class="mongolian">
+                    <!-- <img :src="leftTopBgImg1" alt="" class="top_bg_img" >-->
+                    <img src="/images/mongolian_yellow.png" alt="" class="mongolian">
                 </div>
-                 <div class="top_bg_wrapper" style="display: none" v-show="tabShow3===2">
-                	<img :src="picture/113b3d9baa214b38958267db98a8ae25.gif" alt="" class="top_bg_img" >
-                	<img src="/images/mongolian_yellow.png" alt="" class="mongolian">
+                <div class="top_bg_wrapper" style="display: none" v-show="tabShow3===2">
+                    <!--  <img :src="leftTopBgImg2" alt="" class="top_bg_img" >-->
+                    <img src="/images/mongolian_yellow.png.png" alt="" class="mongolian">
                 </div>
                 <!-- 选项卡 -->
                 <div class="tab_wrapper">
@@ -907,57 +851,43 @@
                         <div class="tab_item" :class="{on:tabShow3===2}" @click="tabFun3(2)">总榜</div>
                     </div>
                 </div>
+                <!-- 列表内容 -->
                 <div class="list_wrapper">
                     <!-- 周榜 -->
                     <div class="list_item" style="display: none" v-show="tabShow3===1">
                         <div class="top">
                             <ul class="list_top_wrapper">
-                                <li class="list_top_item" v-cloak v-for="(item,index) in top_seven_contribute">
+                                <li class="list_top_item" v-for="(item,index) in money_seven_charm_top">
                                     <div class="logo_wrapper">
-                                        <img v-cloak :data-path="_P_H(item.avatar,60)" alt="" class="logo">
-                                        <img :src="/images/ico_num_1.png" alt="" class="logo_frame">
+                                        <img :src="'/picture/'+item.person_image" class="logo_frame"><!--主播头像-->
                                     </div>
-                                    <span class="text"><span class="guan_ming" v-if="item.s_nickname">{{item.s_nickname}}<img :title="item.s_name" :src="picture/item.path"></span>{{returnstr(item)}}</span>
-                                    <div class="icon_wrapper">
-                                        <img v-if="picture/jewelimgfun(item.noble_id)" :src="jewelImgFun(item.noble_id)" alt="" class="icon_title">
-                                        <img v-if="picture/levelimgfun(item.level)" :src="levelImgFun(item.level)" alt="" class="icon_level">
-                                        <!-- 靓号 -->
-                                        <span class="num_wrapper" v-if="item.vip_uid">
-                                            <img src="/images/ico_pretty_min.png" alt="" class="icon">
-                                            <span class="text">靓号:{{item.vip_uid}}</span>
-                                        </span>
-                                    </div>
+                                    <div class="text">{{item.person_nickname}}</div>
                                     <div class="hot_wrapper">
                                         <i class="icon"></i>
-                                        <span class="hot_text">{{item.value}}</span>
+                                        <span class="hot_text">{{item.om}}</span>
                                     </div>
                                 </li>
                             </ul>
                         </div>
+                        <!--从第四名开始的列表-->
                         <div class="bottom">
                             <ul class="list_bottom_wrapper">
-                                <li class="list_bottom_item" v-cloak v-for="(item,index) in seven_contribute" :key="index">
+                                <li class="list_bottom_item" v-for="(item,index) in money_seven_charm" :key="index" @click="detailUrl(item.uid,item.pw_status)">
                                     <i class="num_wrapper"><i class="num_item"><i class="num">{{index+4}}</i></i>
                                     </i>
-                                    <div class="logo_wrapper"><img v-cloak :data-path="_P_H(item.avatar,60)" alt="" class="logo"></div>
+                                    <div class="logo_wrapper">
+                                        <img :src="'/picture/'+item.person_image" class="logo_frame"><!--主播头像-->
+                                    </div>
                                     <div class="info_wrapper">
-                                        <span class="nick_name"><span class="guan_ming" v-if="item.s_nickname">{{item.s_nickname}}<img :title="item.s_name" :src="picture/item.path"></span>{{returnstr(item)}}</span>
-                                        <div class="icon_wrapper">
-                                            <img v-if="picture/jewelimgfun(item.noble_id)" :src="jewelImgFun(item.noble_id)" alt="" class="icon_title">
-                                            <img v-if="picture/levelimgfun(item.level)" :src="levelImgFun(item.level)" alt="" class="icon_level">
-                                        </div>
+                                        <span class="nick_name">{{item.person_nickname}}</span>
                                     </div>
                                     <div class="right_wrapper">
                                         <div class="right_box">
                                             <div class="right_content">
-                                                <!-- 热度值 -->
+                                                <!-- 热度值-->
                                                 <div class="hot_wrapper">
                                                     <span class="icon">贡献:</span>
-                                                    <span class="hot_text">{{item.value}}</span>
-                                                </div>
-                                                <!-- 靓号 -->
-                                                <div class="pretty_num_wrapper" style="display: none" v-show="item.vip_uid">
-                                                    <span class="text">{{item.vip_uid}}</span>
+                                                    <span class="hot_text">{{item.om}}</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -968,54 +898,39 @@
                     </div>
                     <!-- 总榜 -->
                     <div class="list_item" style="display: none" v-show="tabShow3===2">
-                        <div class="top">
+                        <div class="top"> <!--榜单前三-->
                             <ul class="list_top_wrapper">
-                                <li class="list_top_item" v-cloak v-for="(item,index) in top_contribute">
+                                <li class="list_top_item" v-for="(item,index) in money_charm_top">
                                     <div class="logo_wrapper">
-                                        <img v-cloak :data-path="_P_H(item.avatar,60)" alt="" class="logo">
-                                        <img :src="/images/ico_num_1.png" alt="" class="logo_frame">
+                                        <img :src="'/picture/'+item.person_image" class="logo_frame"><!--主播头像-->
                                     </div>
-                                    <span class="text"><span class="guan_ming" v-if="item.s_nickname">{{item.s_nickname}}<img :title="item.s_name" :src="picture/item.path"></span>{{returnstr(item)}}</span>
-                                    <div class="icon_wrapper">
-                                        <img v-if="picture/jewelimgfun(item.noble_id)" :src="jewelImgFun(item.noble_id)" alt="" class="icon_title">
-                                        <img v-if="picture/levelimgfun(item.level)" :src="levelImgFun(item.level)" alt="" class="icon_level">
-                                        <!-- 靓号 -->
-                                        <span class="num_wrapper" v-if="item.vip_uid">
-                                            <img src="/images/ico_pretty_min.png" alt="" class="icon">
-                                            <span class="text">靓号:{{item.vip_uid}}</span>
-                                        </span>
-                                    </div>
+                                    <div class="text">{{item.person_nickname}}</div>
                                     <div class="hot_wrapper">
                                         <i class="icon"></i>
-                                        <span class="hot_text">{{item.value}}</span>
+                                        <span class="hot_text">{{item.om}}</span>
                                     </div>
                                 </li>
                             </ul>
                         </div>
+                        <!--从第四名开始的列表-->
                         <div class="bottom">
                             <ul class="list_bottom_wrapper">
-                                <li class="list_bottom_item" v-cloak v-for="(item,index) in contribute" :key="index">
+                                <li class="list_bottom_item url_point" v-cloak v-for="(item,index) in money_charm" :key="index" @click="detailUrl(item.uid,item.pw_status)">
                                     <i class="num_wrapper"><i class="num_item"><i class="num">{{index+4}}</i></i>
                                     </i>
-                                    <div class="logo_wrapper"><img v-cloak :data-path="_P_H(item.avatar,60)" alt="" class="logo"></div>
+                                    <div class="logo_wrapper">
+                                        <img :src="'/picture/'+item.person_image" class="logo_frame"><!--主播头像-->
+                                    </div>
                                     <div class="info_wrapper">
-                                        <span class="nick_name"><span class="guan_ming" v-if="item.s_nickname">{{item.s_nickname}}<img :title="item.s_name" :src="picture/item.path"></span>{{returnstr(item)}}</span>
-                                        <div class="icon_wrapper">
-                                            <img v-if="picture/jewelimgfun(item.noble_id)" :src="jewelImgFun(item.noble_id)" alt="" class="icon_title">
-                                            <img v-if="picture/levelimgfun(item.level)" :src="levelImgFun(item.level)" alt="" class="icon_level">
-                                        </div>
+                                        <span class="nick_name">{{item.person_nickname}}</span>
                                     </div>
                                     <div class="right_wrapper">
                                         <div class="right_box">
                                             <div class="right_content">
-                                                <!-- 热度值 -->
+                                                <!-- 热度值-->
                                                 <div class="hot_wrapper">
                                                     <span class="icon">贡献:</span>
-                                                    <span class="hot_text">{{item.value}}</span>
-                                                </div>
-                                                <!-- 靓号 -->
-                                                <div class="pretty_num_wrapper" style="display: none" v-show="item.vip_uid">
-                                                    <span class="text">{{item.vip_uid}}</span>
+                                                    <span class="hot_text">{{item.om}}</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -1026,11 +941,18 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 
 
-
+    <!--语音软件-->
+    <div class="clent_down">
+        <a href="http://yundown.daofengdj.com/dianjing/dianjing_1.5.0.13690_offline.exe">
+            <img src="https://yundown.daofengdj.com/static/home/img/index_v2/img-15.png">
+        </a>
+        <p class="close" onclick="javascript:document.querySelector('.clent_down').style.display='none';"></p>
+    </div>
     <!-- 注册开撩 -->
     <div class="register" style=""><a><img src="/images/img-16.png"></a>
         <p id="registerId" islogin="0" class="register_enter"></p>
@@ -1103,6 +1025,151 @@
     getUserPageList();
 
 </script>
+
+        <!--排行榜 热度榜和富豪榜的函数-->
+<script>
+
+    var app = new Vue({
+        el: '#rankings_wrapper',
+        data: {
+            tabShow1: 1, //魅力榜 1|周榜 2|总榜
+            tabShow3: 1, //富豪榜 1|周榜 2|总榜
+
+            // 魅力榜
+            seven_charm_top: [], //魅力榜周榜前三
+            seven_charm: [],  //魅力榜周榜第四到第十
+
+            charm_top: [], //魅力榜总榜前三
+            charm: [], //魅力榜总榜第四到第十
+
+
+            //富豪榜
+            money_seven_charm_top: [], //富豪榜周榜前三
+            money_seven_charm: [],  //富豪榜周榜第四到第十
+
+            money_charm_top: [], //富豪榜总榜前三
+            money_charm: [] //富豪榜总榜第四到第十
+
+            // 榜单头像
+            /* leftTopBgImg1:"",
+             leftTopBgImg2:"",
+
+             middleTopBgImg1:"",
+             middleTopBgImg2:"",
+
+             rightTopBgImg1:"",
+             rightTopBgImg2:""*/
+
+        },
+
+        methods: {
+            // 周榜总榜切换
+            // 魅力
+            tabFun1: function (ind) {
+                this.tabShow1 = ind;
+            },
+
+            // 富豪
+            tabFun3: function(ind) {
+                this.tabShow3 = ind;
+            }
+
+            // 排名框
+            /* frameFun: function (ind) {
+                 var imgUrl = public_domain + "/images/ico_num_";
+                 var imgind = ind + 1;
+                 return imgUrl + imgind + ".jpg";
+             }*/
+        }
+
+    });
+
+    //魅力周榜
+    var getOrderPageList = function (curr) {
+        $.ajax({
+            type: 'POST',
+            dataType: 'json',
+            url: '/person/getOrderCountList',
+            data: {
+                curPage: curr || 1 ,
+                pageSize: 3
+            },
+            success: function (msg) {
+                console.log(msg);
+                app.seven_charm_top = msg.personOrderListTop;
+                app.seven_charm = msg.personOrderList;
+
+            }
+        });
+    };
+    getOrderPageList();
+
+    //总榜
+    var getOrderPageListAll = function (curr) {
+        $.ajax({
+            type: 'POST',
+            dataType: 'json',
+            url: '/person/getOrderCountListAll',
+            data: {
+                curPage: curr || 1 ,
+                pageSize: 3
+            },
+            success: function (msg) {
+                console.log(msg);
+                app.charm_top = msg.personOrderListAllTop;
+                app.charm = msg.personOrderListAll;
+
+            }
+        });
+    };
+    getOrderPageListAll();
+
+
+    //富豪周榜
+    var getMoneyPageList = function (curr) {
+        $.ajax({
+            type: 'POST',
+            dataType: 'json',
+            url: '/person/getMoneySumList',
+            data: {
+                curPage: curr || 1 ,
+                pageSize: 3
+            },
+            success: function (msg) {
+                console.log(msg);
+                app.money_seven_charm_top = msg.personMoneyListTop;
+                app.money_seven_charm = msg.personMoneyList;
+
+            }
+        });
+    };
+
+    getMoneyPageList();
+
+    //富豪总榜
+    var getMoneyPageListAll = function (curr) {
+        $.ajax({
+            type: 'POST',
+            dataType: 'json',
+            url: '/person/getMoneySumListAll',
+            data: {
+                curPage: curr || 1 ,
+                pageSize: 3
+            },
+            success: function (msg) {
+                console.log(msg);
+                app.money_charm_top = msg.personMoneyListAllTop;
+                app.money_charm = msg.personMoneyListAll;
+
+            }
+        });
+    };
+
+    getMoneyPageListAll();
+
+</script>
+
+
 
 <div class="red_packet_tc">
     <div class="info">
