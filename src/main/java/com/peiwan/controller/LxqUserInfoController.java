@@ -56,7 +56,7 @@ public class LxqUserInfoController {
      */
     @RequestMapping("/QiniuUpToken")
     @ResponseBody
-    public Map<String, Object> QiniuUpToken(@RequestParam String suffix) throws Exception{
+    public Map<String, Object> QiniuUpToken(@RequestParam String suffix,int pid,TPerson pPerson) throws Exception{
         Map<String, Object> result = new HashMap<String, Object>();
         try {
             //验证七牛云身份是否通过
@@ -83,8 +83,14 @@ public class LxqUserInfoController {
             //生成实际路径名
             String randomFileName = UUID.randomUUID().toString() + suffix;
             /*result.put("imgUrl","pleuof34m.bkt.clouddn.com/"+ randomFileName+"?imageView2/2/w/400/h/400/q/100");*/
+            pPerson.setPersonImage(randomFileName);
+            int a= lxqUserInfoMapper.getUpdateUserImage(pPerson,pid);
+            System.out.println(a);
+            List list= lxqUserInfoMapper.getUserInfo(pid);
+            result.put("resuls",list);
             result.put("imgUrl", randomFileName);
             result.put("success", 1);
+
         } catch (Exception e) {
             result.put("message", "获取凭证失败，"+e.getMessage());
             result.put("success", 0);
@@ -153,8 +159,9 @@ public class LxqUserInfoController {
      */
     @RequestMapping("/userorder")
     @ResponseBody
-    public Map userOrder(){
-       List list= lxqUserInfoMapper.getSelectOrder();
+    public Map userOrder(int pid ){
+        System.out.println(pid);
+       List list= lxqUserInfoMapper.getSelectOrder(pid);
         Map map=new HashMap();
         map.put("result",list);
         return map;
@@ -275,8 +282,8 @@ public class LxqUserInfoController {
     @PostMapping("/playinfosubmit")
     @ResponseBody
     public Map sek(String gname,String tag, String organ, MultipartFile himage, TPerson pPerson, TAlity pAlity, TService gService) throws Exception {
-        //System.out.println(himage.getOriginalFilename());
-        int pid = 4;
+        Map map = new HashMap();
+        System.out.println(pPerson);
         /*String filePath = "F:\\upload\\" + himage.getOriginalFilename();*/
         String filePath = "C:\\Users\\Administrator\\Desktop\\peiwan\\src\\main\\resources\\static\\imgupload\\" + new Random().nextInt(100)+ himage.getOriginalFilename();
         //String filePath = request.getSession().getServletContext().getRealPath("imgupload") +File.separator +himage.getOriginalFilename();
@@ -285,30 +292,32 @@ public class LxqUserInfoController {
         outputStream.write(himage.getBytes());
         outputStream.flush();
         outputStream.close();
-        pPerson.setPid(pid);
         pPerson.setPersonCoverphoto(filePath);
         /*才艺标签*/
         //System.out.println("标签:"+tag);
         /*才艺表赋值*/
-        //pAlity.setPid(pid);
-        //pAlity.setAlityOne(tag.substring(0,1));
-        //pAlity.setAlityTwo(tag.substring(2,3));
+        pAlity.setPid(pPerson.getPid());
+        pAlity.setAlityOne(tag.substring(0,1));
+        pAlity.setAlityTwo(tag.substring(2,3));
         /*魅力部位*/
-        //pAlity.setCharmOne(organ.substring(0,1));
-        //pAlity.setCharmTwo(organ.substring(2,3));
-        //pAlity.setCharmThree(organ.substring(4,5));
+        pAlity.setCharmOne(organ.substring(0,1));
+        pAlity.setCharmTwo(organ.substring(2,3));
+        pAlity.setCharmThree(organ.substring(4,5));
         //System.out.println(pAlity);
         /*游戏版块*/
         //System.out.println("游戏"+gService);
-        //gService.setPid(pid);
-        //gService.setGName(gname);
-        //System.out.println(pPerson);
+        gService.setPid(pPerson.getPid());
+        gService.setGName(gname);
         /*插入操作*/
-        //lxqUserInfoMapper.getPPersonInsert(pPerson);
-        //lxqUserInfoMapper.getInsertAlity(pAlity);
-        //lxqUserInfoMapper.getInsertGservice(gService);
-        Map map = new HashMap();
-        map.put("succ", 1);
+        /*lxqUserInfoMapper.getPPersonInsert(pPerson);
+        lxqUserInfoMapper.getInsertAlity(pAlity);
+        lxqUserInfoMapper.getInsertGservice(gService);*/
+        int a=lxqUserInfoService.queryUpdateUserInfo(pPerson);
+        if(a>0){
+            lxqUserInfoService.queryUpdateUserAlity(pAlity);
+            lxqUserInfoService.queryUpdateUserService(gService);
+            map.put("succ", 1);
+        }
         return map;
     }
 

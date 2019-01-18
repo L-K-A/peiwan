@@ -21,7 +21,7 @@ import java.util.Map;
  * @since 2019-01-02
  */
 @Mapper
-public interface LxqUserInfoMapper extends BaseMapper<TAttention> {
+public interface LxqUserInfoMapper extends BaseMapper<TAttention>{
     /*@Select(" select  * from a_attention")*/
     List<TAttention> getAAttentionList();
 
@@ -32,8 +32,13 @@ public interface LxqUserInfoMapper extends BaseMapper<TAttention> {
      * @return
      */
 
-    @Insert("insert into t_person(person_nickname,person_sex,person_birthday,person_qq,person_adress,person_content,person_height,person_weight,person_career,person_school) values(#{personNickname},#{personSex},#{personBirthday},#{personQq},#{personAdress},#{personContent},#{personHeight},#{personWeight},#{personCareer},#{personSchool}) ")
-    int getPPersonInsert(TPerson pPerson);
+    @Update("update t_person set " +
+            "person_nickname=#{personNickname},person_sex=#{personSex}," +
+            "person_birthday=#{personBirthday},person_qq=#{personQq}," +
+            "person_adress=#{personAdress},person_content=#{personContent}," +
+            "person_height=#{personHeight},person_weight=#{personWeight}," +
+            "person_career=#{personCareer},person_school=#{personSchool},person_servicedescription=#{personServicedescription} where pid=#{pid}")
+    int getUpdatePPerson(TPerson pPerson);
 
     /**
      * 判断昵称是否存在
@@ -50,16 +55,19 @@ public interface LxqUserInfoMapper extends BaseMapper<TAttention> {
      * @param pAlity
      * @return
      */
+    /*@Update("update t_ality set pid=#{pid},ality_one=#{alityOne},ality_two=#{alityTwo}," +
+            "charm_one=#{charmOne},charm_two=#{charmTwo},charm_three=#{charmThree} where pid=#{pid}")*/
     @Insert("insert into t_ality(pid,ality_one,ality_two,charm_one,charm_two,charm_three) values (#{pid},#{alityOne},#{alityTwo},#{charmOne},#{charmTwo},#{charmThree})")
-    int getInsertAlity(TAlity pAlity);
+    int getUpdateAlity(TAlity pAlity);
 
     /**
      * 游戏表插入
      * @param gService
      * @return
      */
-    @Insert("insert into t_service(pid,gid,g_name,g_daqu,g_duanwei,p_gid) values (#{pid},#{gid},#{gName},#{gDaqu},#{gDuanwei},#{pGid})")
-    int getInsertGservice(TService gService);
+    /*@Update("update t_service(pid=#{pid},gid=#{gid},g_name=#{gName},g_daqu=#{gDaqu},g_duanwei=#{gDuanwei},p_gid=#{pGid}) ")*/
+    @Insert("insert into t_service(pid,gid,g_name,g_daqu,g_duanwei,p_gid) values (#{pid},#{gid},#{gName},#{gDaqu},#{gDuanwei},#{pGid}) ")
+    int getUpdateGservice(TService gService);
 
     /**
      * 关注主播查询
@@ -81,8 +89,8 @@ public interface LxqUserInfoMapper extends BaseMapper<TAttention> {
      * 用户订单查询
      * @author lxq
      */
-    @Select("SELECT p.pid,p.person_nickname,p.person_coverphoto,p.person_qq,o.* FROM t_person p,(SELECT * FROM t_order WHERE pid=1) o WHERE o.aid=p.pid GROUP BY o.oid")
-    List<Map<String,Object>> getSelectOrder();
+    @Select("SELECT p.pid,p.person_nickname,p.person_coverphoto,p.person_qq,o.* FROM t_person p,(SELECT * FROM t_order WHERE pid=#{pid}) o WHERE o.aid=p.pid GROUP BY o.oid")
+    List<Map<String,Object>> getSelectOrder(int pid);
 
     /**
      * 取消关注

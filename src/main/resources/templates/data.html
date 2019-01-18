@@ -19,6 +19,8 @@
     <script type="text/javascript" src="./js/getRSAKey.js"></script>
     <script type="text/javascript" src="./js/encryption.js "></script>
     <script src="https://cdn.bootcss.com/vue/2.5.21/vue.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/qiniu-js@2.5.3/dist/qiniu.min.js"></script>
+    <!--<script type="text/javascript" src="./js/jquery-3.3.1.min.js"></script>-->
 </head>
 <style>
     .keep_box {
@@ -152,9 +154,9 @@
             <div class="action">
                 <div class="new-contentarea tc">
                     <a href="javascript:void(0)" class="upload-img">
-                        <label for="upload-file">上传图像</label>
+                        <label for="upload-file" >上传图像</label>
                     </a>
-                    <input type="file" class="" name="upload-file" id="upload-file"/>
+                    <input type="file" class="" name="upload-file" id="upload-file" accept="image/*"/>
                 </div>
                 <input type="button" id="btnCrop" class="Btnsty_peyton" value="裁切">
                 <input type="button" id="btnZoomIn" class="Btnsty_peyton" value="+" style="font-size:30px;">
@@ -168,13 +170,13 @@
 </div>
 <!--content-->
 <div id="app">
-<form id="form" action="/updateuserinfo" method="post">
+<form id="form" action="/updateuserinfopid" method="post">
     <div class="money_box_bg" >
         <div class="courses_title left_margin">个人资料 </div>
         <div class="content_bg content_bg1 left_margin" v-for="(item,index) in result" >
             <div class="head_portrait_box" >
                 <div class="head_portrait" >
-                    <img :src="'./imgupload/'+item.person_image">
+                    <img :src="'http://pleuof34m.bkt.clouddn.com/'+item.person_image+'?imageView2/2/w/400/h/400/q/100'" id="image">
                 </div>
                 <ul class="portrait_text">
                     <li class="portrait_btn" v-on:click="clickfun()">上传头像</li>
@@ -182,6 +184,7 @@
                 </ul>
                 <div class="clearfix"></div>
             </div>
+            <input name="pid" style="display: none" value="pid">
             <div class="game_ID" >
                 <label class="fl"><span>*</span>&nbsp;&nbsp;用&nbsp;户&nbsp;名：</label>
                 <div style="margin-left: -3px;" >
@@ -215,6 +218,9 @@
     </div>
 </form>
 </div>
+<script th:inline="javascript">
+    var pid = [[${session.nameTPerson?.pid}]];
+</script>
 <script type="text/javascript">
     var personimage;
     var app = new Vue({
@@ -236,7 +242,7 @@
             dataType: 'json',
             url: '/getuserinfo',
             data: {
-                pid: 4
+                pid: pid
             },
             success: function (res) {
                 app.result = res.results;
@@ -300,7 +306,7 @@
     });
     $("#saveAvatar").click(function () {
         if ($(".container .cropped img")[0] != null) {
-            var imgClip = $(".container .cropped img")[0].src;
+            /*var imgClip = $(".container .cropped img")[0].src;
             $.ajax({
                 type: "post",
                 url: "/personimg",
@@ -308,24 +314,77 @@
                 xhrFields: {
                     withCredentials: true
                 },
-                data: {userimage: imgClip, pid: 4},
+                data: {userimage: imgClip, pid: pid},
                 success: function (data) {
                     personimage = data.resuls[0].person_image;
-                    /*if (data.result.pid > 0) {*/
-                        /*if (ret.data.small != null) {}*/
-                        /*$(".pop_up").hide();
+                    /!*if (data.result.pid > 0) {*!/
+                        /!*if (ret.data.small != null) {}*!/
+                        /!*$(".pop_up").hide();
                         $("body").css('overflow-y', 'scroll');
                         /!*$(".head_samllimg img")[0].src*!/
                          $(".container .cropped img")[0].src= imgClip;
-                        $("#img64").val('1');*/
+                        $("#img64").val('1');*!/
 
-                    /*} else {
+                    /!*} else {
                         alert("上传出现问题!稍后。");
-                    }*/
+                    }*!/
                     $(".pop_up_basicbox1").hide();
                     $("body").css('overflow-y', 'scroll');
-                    /*$(".container .cropped img")[0].src = "";*/
+                    /!*$(".container .cropped img")[0].src = "";*!/
                     $('.container .cropped img').attr('src', "'./imgupload/'+personimage");
+                }
+            });*/
+            var obj = $("#upload-file");
+            var fileName = obj.val();		                                           //上传的本地文件绝对路径
+            var suffix = fileName.substring(fileName.lastIndexOf("."),fileName.length);//后缀名
+            var file = obj.get(0).files[0];	                                           //上传的文件
+            var size = file.size > 1024 ? file.size / 1024 > 1024 ? file.size / (1024 * 1024) > 1024 ? (file.size / (1024 * 1024 * 1024)).toFixed(2) + 'GB' : (file.size
+                / (1024 * 1024)).toFixed(2) + 'MB' : (file.size
+                / 1024).toFixed(2) + 'KB' : (file.size).toFixed(2) + 'B';		   //文件上传大小
+            //七牛云上传
+            $.ajax({
+                type:'post',
+                url: "/QiniuUpToken",
+                data:{"suffix":suffix,pid: pid},
+                dataType:'json',
+                success: function(result){
+                    if(result.success == 1){
+                        var observer = {                         //设置上传过程的监听函数
+                            next(result){                        //上传中(result参数带有total字段的 object，包含loaded、total、percent三个属性)
+                                Math.floor(result.total.percent);//查看进度[loaded:已上传大小(字节);total:本次上传总大小;percent:当前上传进度(0-100)]
+                            },
+                            error(err){                          //失败后
+                                alert(err.message);
+                            },
+                            complete(res){                       //成功后
+                                // ?imageView2/2/h/100：展示缩略图，不加显示原图
+                                // ?vframe/jpg/offset/0/w/480/h/360：用于获取视频截图的后缀，0：秒，w：宽，h：高
+                                /*$("#image").attr("src",result.imgUrl);*/
+                                $(".pop_up_basicbox1").hide();
+                                $("body").css('overflow-y', 'scroll');
+                                $("#image")[0].src= "http://pleuof34m.bkt.clouddn.com/"+ result.imgUrl+"?imageView2/2/w/400/h/400/q/100";
+
+                            }
+                        };
+                        var putExtra = {
+                            fname: "",                          //原文件名
+                            params: {},                         //用来放置自定义变量
+                            mimeType: null                      //限制上传文件类型
+                        };
+                        var config = {
+                            region:qiniu.region.z0,             //存储区域(z0:代表华东;z2:代表华南,不写默认自动识别)
+                            concurrentRequestLimit:3            //分片上传的并发请求量
+                        };
+                        var observable = qiniu.upload(file,result.imgUrl,result.token,putExtra,config);
+                        var subscription = observable.subscribe(observer);          // 上传开始
+                        // 取消上传
+                        // subscription.unsubscribe();
+                        app.result = res.results;
+                    }else{
+                        alert(result.message);                  //获取凭证失败
+                    }
+                },error:function(){                             //服务器响应失败处理函数
+                    alert("服务器繁忙");
                 }
             });
         } else {

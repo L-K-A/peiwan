@@ -309,7 +309,7 @@ $("#saveAvatar").click(function () {
 $(document).ready(function () {
     /* 定义所有class为copy-input标签，点击后可复制class为input的文本 */
     $(".copy-input").zclip({
-        path: "https://res.tuwan.com/templet/teach/admin/ocenter/js/ZeroClipboard.swf",
+        path: "",
         copy: function () {
             return $("#share_link").val();
         },
@@ -348,7 +348,7 @@ $(window).load(function () {
         {
             thumbBox: '.thumbBox',
             spinner: '.spinner',
-            imgSrc: 'https://res.tuwan.com/templet/teach/admin/data/images/avatar.png'
+            imgSrc: ''
         }
     var cropper = $('.imageBox').cropbox(options);
     $('#upload-file').on('change', function () {
@@ -386,7 +386,7 @@ $('#province').change(function () {
     var id = $(this).val();
     if (id != 0) {
         $.ajax({
-            url: '?data=getchina&format=jsonp&id=' + id,
+            url: '' + id,
             dataType: "jsonp",
             success: function (obj) {
                 var str = '';
@@ -417,7 +417,7 @@ $('#gameID').blur(function () {
 
 function get_area_grading(gameID, area_id) {
     $.ajax({
-        url: "https://app.tuwan.com/lolapi/api/?player=" + gameID + "&areaid=" + area_id,
+        url: "?player=" + gameID + "&areaid=" + area_id,
         dataType: 'jsonp',
         success: function (obj) {
             if (obj.status == 0) {

@@ -8,8 +8,6 @@
     <link href="./css/personal_data.css" type="text/css" rel="stylesheet">
     <link href="./css/newcommon_admin.css" type="text/css" rel="stylesheet">
     <link href="./css/pot_up_settings.css" type="text/css" rel="stylesheet">
-    <!--<link href="./css/umeditor.css" type="text/css" rel="stylesheet">-->
-    <!--<link href="./css/calendar-green.css" type="text/css" rel="stylesheet">-->
     <!--<link href="./js/layer/mobile/need/layer.css" type="text/css" rel="stylesheet">-->
     <link rel="stylesheet" href="./css/easyhelper.min.css">
     <link rel="stylesheet" href="./js/layui/css/layui.css">
@@ -265,7 +263,7 @@
 </style>
 <body>
 <!--pop_up-->
-<div id="mailer_box" style="display:none">
+<!--<div id="mailer_box" style="display:none">
     <div class="pop_up_bg"></div>
     <div class="mailer">
         <img src="./img/close.png" class="fr close">
@@ -285,7 +283,7 @@
             <div class="clearfix"></div>
         </div>
     </div>
-</div>
+</div>-->
 <!--pop_up_end-->
 
 <!--info start-->
@@ -295,7 +293,8 @@
             <form method="post" enctype="multipart/form-data" id="personform">
                 <input type="hidden" name="dtid" class="dtid" value="31540"/>
                 <input type="hidden" name="loadflaghidden" id="loadflaghidden" value="0"/>
-                <div>
+                <!--头像-->
+                <!--<div>
                     <div class="head_samllimg">
                         <img id="headimg" src="">
                     </div>
@@ -303,7 +302,7 @@
                     <input type="hidden" name="img64" id="img64" value="">
                     <input type="hidden" name="ori_avatar" id="ori_avatar" value=""/>
                 </div>
-                <div class="care_text mt10">支持jpg/gif/png格式的图片，文件必须小于3M</div>
+                <div class="care_text mt10">支持jpg/gif/png格式的图片，文件必须小于3M</div>-->
                 <!--资料-->
                 <div class="mt50 border_text_box">
                     <div class="fl border_left"></div>
@@ -391,7 +390,7 @@
                 </div>
                 <div class="mt30">
                     <div class="fl mt10 name_title"><span class="star">*</span>QQ：</div>
-                    <input class="fl name_text pl10" id="qq" name="personQq" type="text" placeholder="重要联系方式" value="">
+                    <input class="fl name_text pl10" id="qq" name="personQq" type="number" maxlength="11" placeholder="重要联系方式(11位)" value="">
                     <div class="clearfix"></div>
                 </div>
                 <div class="mt50">
@@ -1063,7 +1062,9 @@
 
     </div>
 </div>
-
+<script th:inline="javascript">
+    var pid = [[${session.nameTPerson?.pid}]];
+</script>
 <script type="text/javascript">
 
     $("#btn_add2").click(function(){
@@ -1308,13 +1309,55 @@
         $('#shiliimg .Bound_cell').css("top", ($(window).height() - height) * 0.5)
         $('#shiliimg').show();
     }
-
+/*--------------------------------------------------------------------------------------------*/
     $(document).ready(function () {
 
+        $("#Sheight").blur(function () {
+            var Sheight = $('#Sheight').val();
+            var pregSheight = /^\d{1,3}$/;
+            if (Sheight !== '' && !pregSheight.test(Sheight)) {
+                alert('请填写正确的身高');
+                $('#Sheight').addClass('add_input');
+                flag = false;
+            }
+        });
+        $("#weight").blur(function () {
+            var weight = $('#weight').val();
+            var pregweight = /^\d{1,3}$/;
+            if (weight !== '' && !pregweight.test(weight)) {
+                alert('请填写正确的体重');
+                $('#weight').addClass('add_input');
+                flag = false;
+            }
+        });
+        $("#like").blur(function () {
+            var like = $('#like').val();
+            if (like !== '' && like.length > 20) {
+                alert('兴趣爱好不超过20个字');
+                $('#like').addClass('add_input');
+                flag = false;
+            }
+        });
 
-
-
-
+        /*个性签名判断*/
+        $("#short_desc").blur(function () {
+            var desc = $(this).val();
+            var len = desc.length;
+            if (len == 0 ) {
+                alert("必填,请认真填写。");
+                return;
+            }
+        })
+        /*qq长度判断*/
+        $("#qq").blur(function () {
+            var pqq = $(this).val();
+            var len = pqq.length;
+            if (len > 11 ) {
+                alert("长度出错,请认真填写。");
+                $(".sure_box1").attr("disabled", true);
+                return;
+            }
+        });
         /*年选择器*/
             laydate.render({
                 elem: '#birthday'
@@ -1371,7 +1414,6 @@
                 case 100012:gName='第五人格';break;
                 case 100013:gName='视频游戏';break;
             }
-            alert(gName);
         });
 
         /*判断checkout选中个数*/
@@ -1486,6 +1528,7 @@
             if(flag==true){
                 var fomFile = new FormData($("#personform")[0]);
                 fomFile.append("gname",gName);
+                fomFile.append("pid",pid);
                 //获取上传文件的路径和名称
                 var filePath=$("input[name='himage']").val();
                 Helper.ui.dialogSuccess( "提交成功", "请耐心等待审核,页面将返回!!" );
@@ -1501,23 +1544,17 @@
                     success: function (result) {
                         if(result.succ==1){
                            /!* Helper.ui.dialogSuccess( "提交成功", "页面将返回!" );*!/
-                            countDown(5);
+                            countDown(1);
                         }
-
-                            //window.location.href='indexw';
-
                     }
                 });
-
-
-                /*window.location.href='ocenter.html';*/
             }
         });
 
 
         function countDown(secs){
             if(secs>0){
-                setTimeout("countDown("+secs+")",5000);
+                setTimeout("countDown("+secs+")",10000);
                 location.href='/indexw';
             }else{
                 window.location.href='/indexw';

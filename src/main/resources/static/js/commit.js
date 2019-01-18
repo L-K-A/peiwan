@@ -41,7 +41,7 @@ function datacommit() {
 
     $.ajax({
         type: "post",
-        url: "http://192.168.1.240/api/method/teachdata",
+        url: "",
         dataType: "jsonp",
         jsonp: "callback",
         data: { data: content },

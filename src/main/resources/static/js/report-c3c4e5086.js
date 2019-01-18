@@ -225,7 +225,7 @@
         e.isMobile = g()
     }(window);
     var l = __domain || {chat: "chat"}, v = {
-        link: "https://" + l.chat + ".qidian.qq.com",
+        link: "",
         opts: {
             path: "/status",
             reconnectionDelay: 2e3,

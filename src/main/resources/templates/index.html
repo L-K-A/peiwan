@@ -123,7 +123,7 @@
                 <!--afterTheLanding(登陆过后)-->
                 <div class="login style1" id="afterTheLanding">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a id="personnames" href="" th:text="${session.nameTPerson?.personNickname}"></a>&nbsp;&nbsp;<a data-toggle="modal" data-target="#login" href="/logout"><span class="glyphicon glyphicon-log-in"></span>退出登陆</a></li>
+                        <li><a id="personnames" href="/indexw"  th:text="${session.nameTPerson?.personNickname}"></a>&nbsp;&nbsp;<a data-toggle="modal" data-target="#login" href="/logout"><span class="glyphicon glyphicon-log-in"></span>退出登陆</a></li>
                     </ul>
                 </div>
 
@@ -140,7 +140,7 @@
                         $("#beforeLanding").hide();
                     }
                     var nameTPerson = [[${session.nameTPerson?.personNickname}]];
-                    alert(nameTPerson);
+                    /*alert(nameTPerson);*/
                     if (nameTPerson==null||nameTPerson==0) {
                         LandingHide();
                     } else{
@@ -166,7 +166,7 @@
             sessionStorage.setItem("keyname",keyname);
         });
     </script>
-
+    <!---->
 
     <script>
         (function(){
@@ -469,7 +469,8 @@
                 </div>
                 <!-- 用户信息 -->
                 <div class="info_wrapper">                                                  <!--此处显示主播昵称-->
-                    <span class="nick_name"><span class="guan_ming" v-if="item.sponser" >{{item.sponser.person_nickname}}<img :title="item.sponser.name" :src="item.sponser.path"></span>{{item.person_nickname}}</span>
+                    <span class="nick_name"><span class="guan_ming" v-if="item.sponser" >{{item.sponser.person_nickname}}
+                        <img :title="item.sponser.name" :src="item.sponser.path"></span>{{item.person_nickname}}</span>
                     <span class="btn_wrapper">
                     	<span class="btn_item" v-for="(iitem,ii) in item.icon" v-if="ii<3"><!--item.icon里很可能是存放主播的所有服务-->
                     		<img :src="iitem.path" alt="" class="btn_icon" :title="iitem.name"><!--iitem.name是游戏名字-->

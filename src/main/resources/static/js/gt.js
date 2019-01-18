@@ -34,9 +34,9 @@ function Config(config) {
 }
 
 Config.prototype = {
-    api_server: 'api.geetest.com',
+    api_server: '',/*api.geetest.com*/
     protocol: 'http://',
-    typePath: '/gettype.php',
+    typePath: '/',
     fallback_config: {
         slide: {
             static_servers: ["static.geetest.com", "dn-staticdown.qbox.me"],

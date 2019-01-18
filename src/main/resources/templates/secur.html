@@ -106,6 +106,9 @@
     </div>
 </div>
 <script src="./js/Security_Center_2.js"></script>
+<script th:inline="javascript">
+    var pid = [[${session.nameTPerson?.pid}]];
+</script>
 <script type="text/javascript">
     var point = 2;
 
@@ -120,7 +123,7 @@
             url: "/updatepersonpwd",
             data:{
                 personPwd:$("#ctl00_mainContent_txt_password").val(),
-                pid:3
+                pid:pid
             },
             type: "post",
             dataType: "json",
@@ -160,7 +163,7 @@
             url: "/checkoutPersonPwd",
             data:{
                 personPwd:$("#oldpwd").val(),
-                pid:3
+                pid:pid
             },
             type: "post",
             dataType: "json",

@@ -66,7 +66,11 @@ public class shiroConfig {
 
         filterMap.put("/logout", "logout");
 
-
+        filterMap.put("/indexw","authc");
+        filterMap.put("/atten","authc");
+        filterMap.put("/secur","authc");
+        filterMap.put("/data","authc");
+        filterMap.put("/playinfo","authc");
 //授权过滤器
         filterMap.put("/add","perms[user:add]");
 

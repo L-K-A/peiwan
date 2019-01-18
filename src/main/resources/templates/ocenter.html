@@ -17,6 +17,7 @@
             that.src = "/images/noavatar_middle.gif";
             that.onerror = null;
         }
+
     </script>
     <style type="text/css">
         #user_content {
@@ -551,8 +552,6 @@
         font-family: uc-nexus-iconfont;
         src: url(./static/fonts/font_9qmmi8b8jsxxbt9.woff) format('woff'), url(chrome-extension://pogijhnlcfmcppgimcaccdkmbedjkmhi/res/font_9qmmi8b8jsxxbt9.ttf) format('truetype')
     }</style>
-    <script async=""
-            src="https://admin.qidian.qq.com/qbf/aBTest/getGrayLevel?kfuin=2852161723&amp;callback=JSONP_CB_2_1546000444184_604&amp;cb=JSONP_CB_2_1546000444184_604"></script>
 </head>
 
 <body>
@@ -975,7 +974,7 @@
 <div id="top_box">
     <div class="fr">
         <div class="mailbox_bigbox pt25 pb20 fl">
-            <a href="/home/msg/">
+            <a href="#">
                 <div class="fl mailbox_box">
                     <i class="icon_bgs fl mailbox"></i>
                     <span class="mailshu" style="display: none;">
@@ -984,11 +983,10 @@
                     <div class="clearfix"></div>
                 </div>
             </a>
-            <a href="https://wpa.qq.com/msgrd?v=3&amp;uin=775121240&amp;site=qq&amp;menu=yes" target="_blank">
+            <!--<a href="https://wpa.qq.com/msgrd?v=3&amp;uin=775121240&amp;site=qq&amp;menu=yes" target="_blank">
                 <div class="fl service_box course5" id="BizQQWPA" style="display: none;">
                 </div>
-
-            </a>
+            </a>-->
             <div class="fl service_box course5" id="dd_kefu_qidian">
                 <i class="icon_bgs fl service"></i><span class="fl">客服</span>
                 <div class="clearfix"></div>
@@ -1024,11 +1022,7 @@
 </div>
 <div id="c_top" class="content_top"></div>
 <div class="left_margin"></div>
-<!-- WPA start -->
-<script id="qd28521617238c30f79840d9dfdbcd7ab878868635a2"
-        src="https://wp.qiye.qq.com/qidian/2852161723/8c30f79840d9dfdbcd7ab878868635a2" charset="utf-8" async=""
-        defer=""></script>
-<!-- WPA end -->
+
 <!--<div style="display:none">
     <script type="text/javascript">
         var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " https://");
@@ -1188,7 +1182,7 @@
                             </div>
                         </div>
                         <div class="fl  head_samlltext ml30">
-                            <div> {{item.gid}}（1小时）</div>
+                            <div> {{item.gid}}（小时）</div>
                             <div><span>导师:</span>{{item.person_nickname}}
                                <!-- <div class="grade_box">
                                     <img src="./img/grade.png" class="grade_img">
@@ -1209,12 +1203,12 @@
                         {{item.o_xiadanshijian}}
                     </div>
                     <div class="fl Orders_box zf Orders_box_zhifu">
-                        <div>{{item.o_status}}:{{item.o_money}}</div>
-                        <div name="主播nick" class="Orders Orders_05" order="订单">去支付</div>
+                        <div>{{item.o_flate==0?'未支付':'已支付'}}::{{item.o_money}}</div>
+                        <div name="主播nick" class="Orders Orders_05" on:click="toorder()" order="订单">去支付</div>
                         <div class="time_box" id="zf_202019010919382302111">还剩07分39秒,逾期自动取消订单</div>
                         <!--订单计时-->
                         <script type="text/javascript">
-                            var t202019010919382302111 = 574;
+                            var t202019010919382302111 = 600;
                             function timeShow202019010919382302111(){
                                 t202019010919382302111--;
                                 i = Math.floor(t202019010919382302111/60);
@@ -1284,9 +1278,12 @@
         <div class="ywpj-tips"></div>
     </div>
 </div>
-
+<script th:inline="javascript">
+    var pid = [[${session.nameTPerson?.pid}]];
+    </script>
 
 <script type="text/javascript">
+
 
     /*进页面加载订单start*/
     var countorder;
@@ -1294,24 +1291,38 @@
         el: '#app',
         data: {
             result: []
+        },methods:{
+            toorder(){
+                //订单支付按钮
+                code = $(this).attr('order');
+                $('#buyorder .title').html('支付订单号:' + code);
+                $('#alihref').attr('href', '/?type=alipay&aid=' + code + '&typeid=2000');
+                $('#wxhref').attr('href', '/wechat/' + code + '/');
+                $('#order-type').hide();
+                $('#buyorder').show();
+                $('#order-confirm').show();
+                $('#paybalance').attr("order", code);
+            }
         }
     });
+    window.onload = function() {
+        /*var keyname = sessionStorage.getItem("keyname");*/
 
-    var getOrderList =function(){
-        $.ajax({
-            type: 'get',
-            dataType: 'json',
-            url: '/userorder',
-            data:{},
-            success:function (res) {
-                app.result=res.result;
-                app.countorder=res.count;
-            }
-        });
-    };
-    getOrderList();
-    /*进页面加载订单end*/
-
+        var getOrderList = function () {
+            $.ajax({
+                type: 'get',
+                dataType: 'json',
+                url: '/userorder',
+                data: {pid:pid},
+                success: function (res) {
+                    app.result = res.result;
+                    app.countorder = res.count;
+                }
+            });
+        };
+        getOrderList();
+        /*进页面加载订单end*/
+    }
     var code = '';
     $(function () {
         $(window).scroll(function () {
@@ -1614,7 +1625,7 @@
     //接单
     $("#order_form .botton_Orders").click(function () {
         $.ajax({
-            url: 'https://api.tuwan.com/playteach/?type=play&data=makeorder&format=jsonp',
+            url: '',/*https://api.tuwan.com/playteach/?type=play&data=makeorder&format=jsonp*/
             data: "order=" + $(this).attr('order'),
             type: "get",
             dataType: "jsonp",
