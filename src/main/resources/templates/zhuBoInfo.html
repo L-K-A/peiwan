@@ -394,7 +394,7 @@
 
                                         <li v-for="(reco,index) in ite.IPage.records">
                                             <div class="comm-info">
-                                                <img src="" alt="" class="author-pic">
+                                                <img :src="'./picture/'+reco.person_image" alt="" class="author-pic">
                                                 <div>
                                                     <div>
                                                         <span class="name">{{reco.person_nickname}}</span>

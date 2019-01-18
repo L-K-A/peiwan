@@ -30,8 +30,8 @@ public interface TeacherInfoMapper extends BaseMapper<TPerson> {
     double selectavg(Integer zid);
 
     /*获取主播指定服务评分的平均数*/
-    @Select("select avg(c_rank) from t_comment where zid =#{zid} and gid=#{gid}")
-    Double selectfuwuavg(Integer zid, Integer gid);
+    @Select("select count(gid) selectpagesize,avg(c_rank) avgrank from t_comment where zid =#{zid} and gid=#{gid}")
+    Map<String, Object> selectfuwuavg(Integer zid, Integer gid);
 
     /*多条数据获取主播服务类型*/
     @Select("select pid, gid ,g_name from t_service where pid=#{zid}")

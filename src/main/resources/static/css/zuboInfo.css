@@ -617,6 +617,7 @@ img{
 .zubo-cont .lol-comments .comm-item li .comm-info{
     display: flex;
     margin-top: 25px;
+
 }
 .zubo-cont .lol-comments .comm-item li .comm-info .author-pic{
     width: 62px;
@@ -624,8 +625,10 @@ img{
     border-radius: 50%;
     font-size: 14px;
     font-weight: bold;
+
     color: #333333;
 }
+
 .zubo-cont .lol-comments .comm-item li .comm-info .name{
 
     font-size: 14px;

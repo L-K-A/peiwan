@@ -145,22 +145,47 @@ public class TeacherInfoServiceImpl implements TeacherInfoService {
             /*接单次数*/
             Integer countdan = teacherInfoMapper.countdan(zid, gid);
             st.put("countdan", countdan);
-            Double pingfeng = teacherInfoMapper.selectfuwuavg(zid, gid);
-            /*避免pingfeng过长 在前台显示不必要*/
-            String pingfengstring = String.valueOf(pingfeng).substring(0,3);
-            /*封入当前zid 和gid 下的评价分*/
-            st.put("pingfeng", pingfeng);
+            Map<String, Object> selectfuwuavg = teacherInfoMapper.selectfuwuavg(zid, gid);
+            String avgrank =selectfuwuavg.get("avgrank").toString();
+            /*避免pingfeng过长 在前台显示不必要  封入当前zid 和gid 下的评价分*/
+            String pingfengstring =avgrank.substring(0,3);
+            st.put("pingfeng", pingfengstring);
+            /*获取到当前状态的评论数 用于分页*/
+            Integer selectpagesize =Integer.valueOf(String.valueOf(selectfuwuavg.get("selectpagesize")));
             /*评论分页*/
-            Integer pageSize = 1;
+            Integer pageSize = 0;
+            switch(selectpagesize) {
+                case 0:
+                    pageSize = 0;
+                    break;
+                case 1:
+                    pageSize = 1;
+                    break;
+                case 2:
+                    pageSize = 2;
+                    break;
+                case 3:
+                    pageSize = 3;
+                    break;
+                case 4:
+                    pageSize = 4;
+                    break;
+                case 5:
+                    pageSize = 5;
+                    break;
+                default:
+                    pageSize = 6;
+            }
             Page<Map<String, Object>> p = new Page<>(pageNum, pageSize);
             Page<Map<String, Object>> mapPage = p.setRecords(teacherInfoMapper.selectPageExt(p, zid, gid));
-            System.out.println("service:" + mapPage);
             mapPage.getRecords();
             /*将每一条评价分取出  除 2  获取多少个星*/
-            Double dou = (Double) mapPage.getRecords().get(0).get("c_rank");
-            mapPage.getRecords().get(0).put("c_rank",Math.round(dou / 2));
-            System.out.println(dou / 2);
-            st.put("IPage", mapPage);
+            for (int sta=0;sta<pageSize;sta++){
+                Double dou = (Double) mapPage.getRecords().get(sta).get("c_rank");
+                mapPage.getRecords().get(sta).put("c_rank",Math.round(dou / 2));
+                System.out.println(mapPage.getRecords().get(0).get("c_rank"));
+                st.put("IPage", mapPage);
+            }
         }
         map.put("zuiduodenei", list);
         return map;

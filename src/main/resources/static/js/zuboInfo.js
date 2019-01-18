@@ -114,9 +114,9 @@ var zhuboOrder = function (pid, gid, curr) {
             pageNum: curr || 1,
         },
         success: function (pingord) {
-            console.log(1111 + pingord);
-
+            /*console.log(1111 + pingord);*/
             touxiang.serviceInfo = pingord.zuiduodenei;
+            console.log(pingord.zuiduodenei)
             /*laypage({
                 cont:'pagenav',
                 /!*pages:pingord.content.pages,*!/
@@ -135,7 +135,7 @@ var zhuboOrder = function (pid, gid, curr) {
 zhuboOrder();
 
 /* 暂时不用     请求评论类型遍历*/
-var pinglun = function (pid, gid, curr) {
+/*var pinglun = function (pid, gid, curr) {
     $.ajax({
         type: 'POST',
         dataType: 'json',
@@ -163,7 +163,7 @@ var pinglun = function (pid, gid, curr) {
             });
         }
     });
-}
+}*/
 /*分享的  以及弹出层*/
 var editEvent = function (id) {
     layer.open({
@@ -221,8 +221,6 @@ var getLike = function () {
         }
     });
 };
-getLike();
-
 //游戏tab切换
 function tab(tabDot, tabCont, cla) {
     var tabDotItem = $(tabDot);
