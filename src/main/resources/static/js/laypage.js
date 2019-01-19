@@ -4,7 +4,11 @@
 
     function a(d) {
         var e = "laypagecss";
+<<<<<<< HEAD
         a.dir = "dir" in a ? a.dir : f.getpath + "laypage.css", new f(d), a.dir && !b[c](e) && f.use(a.dir, e)
+=======
+        a.dir = "dir" in a ? a.dir : f.getpath + "skin/laypage.css", new f(d), a.dir && !b[c](e) && f.use(a.dir, e)
+>>>>>>> 62f535f901c014b9188b44f6c4b3b6f12f87f396
     }
 
     a.v = "1.3";

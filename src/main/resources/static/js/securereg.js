@@ -1,3 +1,4 @@
+
 function sreg(b, c, d, e, f) {
     var a = {};
     a.n = b;

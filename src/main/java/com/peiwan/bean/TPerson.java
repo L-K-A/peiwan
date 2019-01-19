@@ -13,6 +13,8 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 /**
  *
+ * @author 
+ * @since 2019-01-16
  */
 @Data
 @NoArgsConstructor
@@ -117,6 +119,8 @@ public class TPerson implements Serializable {
 
     /**
      * 封面图片
+     * 封面桌面
+     * 封面图片
      */
     private String personCoverphoto;
 
@@ -154,7 +158,5 @@ public class TPerson implements Serializable {
      * 修改(1)成为主播()
      */
     private Integer zZhubo;
-
-
 
 }

@@ -16,14 +16,23 @@ import java.io.Serializable;
  *
  * @author 
  * @since 2019-01-16
+<<<<<<< HEAD
  * @date 2019/1/10 16:32
+=======
+<<<<<<< HEAD:src/main/java/com/peiwan/bean/TService.java
+=======
+ * @date 2019/1/10 16:32
+>>>>>>> 62f535f901c014b9188b44f6c4b3b6f12f87f396:src/main/java/com/peiwan/bean/TService.java
+>>>>>>> zwl
  */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
+
 @TableName("t_service")
+
 public class TService implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -59,7 +68,7 @@ public class TService implements Serializable {
     private String pGid;
 
     /**
-     * /元/小时
+     * 元/小时
      */
     private Double gPrice;
 
