@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -34,24 +35,23 @@ public class TeacherInfoServiceImpl implements TeacherInfoService {
     private TeacherInfoMapper teacherInfoMapper;
 
 
-
     /*获取导师全部信息*/
     @Override
     public Map<String, Object> getInfo(int pid) throws ParseException {
         Map<String, Object> map = teacherInfoMapper.selectInfo(pid);
         System.out.println(map);
         /* 获取星座  暂存person_sex字段内*/
-       String personBirthday =(String)map.get("person_birthday");
+        String personBirthday = (String) map.get("person_birthday");
         String s = calculateConstellation(personBirthday);
-        map.put("person_sex",s);
+        map.put("person_sex", s);
         /*获取年龄   暂存person_birthday 字段内*/
         int age = AgeByBirthUtil.getAgeByBirth(personBirthday);
         String s1 = String.valueOf(age);
-        map.put("person_birthday",s1);
+        map.put("person_birthday", s1);
         /*获取主播评分   暂存person_weight*/
         Integer v = this.selectAvg(pid);
         String s2 = String.valueOf(v);
-        map.put("person_weight",s2);
+        map.put("person_weight", s2);
         return map;
     }
 
@@ -104,7 +104,7 @@ public class TeacherInfoServiceImpl implements TeacherInfoService {
 
     @Override
     public Integer selectAvg(Integer zid) {
-        double selectavg = teacherInfoMapper.selectavg(zid);
+        Double selectavg = teacherInfoMapper.selectavg(zid);
         Integer zong = teacherInfoMapper.countzongdan(zid);
         if (zong != null && zong < 20) {
             return 0;
@@ -145,16 +145,21 @@ public class TeacherInfoServiceImpl implements TeacherInfoService {
             /*接单次数*/
             Integer countdan = teacherInfoMapper.countdan(zid, gid);
             st.put("countdan", countdan);
+            /*总评分*/
             Map<String, Object> selectfuwuavg = teacherInfoMapper.selectfuwuavg(zid, gid);
-            String avgrank =selectfuwuavg.get("avgrank").toString();
+            String pingfengstring = null;
+            if (selectfuwuavg.get("avgrank") == null || selectfuwuavg.get("avgrank").toString().isEmpty()) {
+                pingfengstring = "0.0";
+            } else {
+                pingfengstring = selectfuwuavg.get("avgrank").toString().substring(0, 3);
+            }
             /*避免pingfeng过长 在前台显示不必要  封入当前zid 和gid 下的评价分*/
-            String pingfengstring =avgrank.substring(0,3);
             st.put("pingfeng", pingfengstring);
             /*获取到当前状态的评论数 用于分页*/
-            Integer selectpagesize =Integer.valueOf(String.valueOf(selectfuwuavg.get("selectpagesize")));
+            Integer selectpagesize = Integer.valueOf(String.valueOf(selectfuwuavg.get("selectpagesize")));
             /*评论分页*/
             Integer pageSize = 0;
-            switch(selectpagesize) {
+            switch (selectpagesize) {
                 case 0:
                     pageSize = 0;
                     break;
@@ -177,15 +182,23 @@ public class TeacherInfoServiceImpl implements TeacherInfoService {
                     pageSize = 6;
             }
             Page<Map<String, Object>> p = new Page<>(pageNum, pageSize);
-            Page<Map<String, Object>> mapPage = p.setRecords(teacherInfoMapper.selectPageExt(p, zid, gid));
-            mapPage.getRecords();
-            /*将每一条评价分取出  除 2  获取多少个星*/
-            for (int sta=0;sta<pageSize;sta++){
-                Double dou = (Double) mapPage.getRecords().get(sta).get("c_rank");
-                mapPage.getRecords().get(sta).put("c_rank",Math.round(dou / 2));
-                System.out.println(mapPage.getRecords().get(0).get("c_rank"));
+            if(teacherInfoMapper.selectPageExt(p, zid, gid).isEmpty()){
+               /*List records = new ArrayList<>();
+               records.add(p);*/
+                Page<Map<String, Object>> mapPage = new Page<>();
+                /*mapPage.setRecords(records);*/
                 st.put("IPage", mapPage);
+            }else{
+                Page<Map<String, Object>> mapPage = p.setRecords(teacherInfoMapper.selectPageExt(p, zid, gid));
+                mapPage.getRecords();
+                /*将每一条评价分取出  除 2  获取多少个星*/
+                for (int sta = 0; sta < pageSize; sta++) {
+                    Double dou = (Double) mapPage.getRecords().get(sta).get("c_rank");
+                    mapPage.getRecords().get(sta).put("c_rank", Math.round(dou / 2));
+                    st.put("IPage", mapPage);
+                }
             }
+
         }
         map.put("zuiduodenei", list);
         return map;

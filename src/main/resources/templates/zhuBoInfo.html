@@ -390,8 +390,7 @@
                                             <li>吃鸡大神<span>(1)</span></li>
                                         </ul>
                                     </div>
-                                    <ul v-if="ite.IPage.records.length" class="comm-item">
-
+                                    <ul class="comm-item">
                                         <li v-for="(reco,index) in ite.IPage.records">
                                             <div class="comm-info">
                                                 <img :src="'./picture/'+reco.person_image" alt="" class="author-pic">
@@ -408,9 +407,9 @@
                                             </div>
                                         </li>
                                     </ul>
-                                    <div v-else>暂无评论</div>
                                     <div  style=""></div>
                                 </div>
+                            </div>
                             </div>
                         </div>
 

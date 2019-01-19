@@ -21,13 +21,14 @@ public interface TeacherInfoMapper extends BaseMapper<TPerson> {
     /*获取主播详情信息*/
     @Select("select * from t_person left join t_ality on t_person.pid=t_ality.pid where t_person.pid=#{zid}")
     Map<String, Object> selectInfo(Integer zid);
+
     /*分页查询  评论信息*/
     @Select("select ps.person_nickname ,ps.person_image ,pc.c_createtime,pc.c_context,pc.c_rank,pc.cid from t_comment pc left join t_person ps on pc.pid = ps.pid where pc.zid=#{zid} and pc.gid=#{gid}")
     List<Map<String, Object>> selectPageExt(Page<Map<String, Object>> page, Integer zid, Integer gid);
 
     /*获取主播总评分的平均数*/
     @Select("select avg(c_rank) from t_comment where zid =#{zid}")
-    double selectavg(Integer zid);
+    Double selectavg(Integer zid);
 
     /*获取主播指定服务评分的平均数*/
     @Select("select count(gid) selectpagesize,avg(c_rank) avgrank from t_comment where zid =#{zid} and gid=#{gid}")
