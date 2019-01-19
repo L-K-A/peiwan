@@ -1,6 +1,7 @@
 package com.peiwan.controller;
 
 
+import com.alibaba.druid.pool.DruidDataSource;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.peiwan.bean.TAlity;
 import com.peiwan.bean.TPerson;
@@ -16,6 +17,7 @@ import sun.misc.BASE64Decoder;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.sql.DataSource;
 import java.io.*;
 import java.util.*;
 
@@ -315,6 +317,7 @@ public class LxqUserInfoController {
         lxqUserInfoMapper.getInsertGservice(gService);*/
             try{
                 lxqUserInfoService.queryUpdateUserInfo(pPerson);
+                /*this.transaction.commit()*/
                 lxqUserInfoService.queryUpdateUserAlity(pAlity);
                 lxqUserInfoService.queryUpdateUserService(gService);
                 map.put("succ", 1);

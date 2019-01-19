@@ -1555,7 +1555,7 @@
                     data: fomFile,
                     success: function (result) {
                         if(result.succ==1){
-                           /!* Helper.ui.dialogSuccess( "提交成功", "页面将返回!" );*!/
+                            Helper.ui.dialogSuccess( "提交成功", "页面将返回!" );
                             countDown(5);
                         }else {
                             Helper.ui.dialogError( "出错了", "重新填写!" );
@@ -1568,7 +1568,7 @@
 
         function countDown(secs){
             if(secs>0){
-                Helper.ui.dialogSuccess( "提交成功", "页面将返回!" );
+                /*Helper.ui.dialogSuccess( "提交成功", "页面将返回!" );*/
                 setTimeout("countDown("+secs+")",10000);
                 location.href='/indexw';
             }else{
