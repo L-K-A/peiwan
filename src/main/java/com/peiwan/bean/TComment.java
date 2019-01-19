@@ -33,7 +33,7 @@ public class TComment implements Serializable {
     /**
      * 订单id
      */
-    private byte[] oid;
+    private String oid;
 
     /**
      * 板块id

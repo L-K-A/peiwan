@@ -1,3 +1,4 @@
+
 function encrypt(a) {
     var c = $("#publicKey")[0].innerHTML, b = new JSEncrypt;
     b.setPublicKey(c);

@@ -11,8 +11,10 @@
         moduleCache: k,
         moduleLoading: m,
         version: "3.3.20140328",
+
         srcRoot: "",
         srcPath: "",
+
         srcMap: {
             "util.getJSONP": "util.getScript,util.serialize",
             "util.onLoad": "util.events",
@@ -47,6 +49,7 @@
         debug: false,
         grey: false,
         logURL: ""
+
     };
     var d = function () {
         var p = /(^[\s�]+)|([\s�]+$)/g;
@@ -305,7 +308,9 @@
     h("util.speedReport", "util.report", function (r) {
         var p = r("report");
         var q = function (t, s, v, u) {
+
             this.url = "?flag1=" + t + "&flag2=" + s + "&flag3=" + v + "&";
+
             this.p0 = +new Date();
             this.points = [this.p0];
             this.rate = u || 1

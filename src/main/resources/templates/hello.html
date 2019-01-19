@@ -1,0 +1,2034 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>找陪玩 - 点点约玩</title>
+    <meta name="keywords" content="陪玩,lol陪玩,吃鸡陪玩,绝地求生陪玩,王者荣耀,刺激战场,声优聊天,虚拟恋人,asmr" />
+    <meta name="description" content="点点约玩为大家提供了游戏陪玩和娱乐陪玩，包括吃鸡、LOL、绝地求生、刺激战场、王者荣耀、声优聊天、虚拟恋人、asmr等众多陪玩服务，让美女大神陪您度过一段快乐的时光。" />
+    <link href="css/common_index.css" type="text/css" rel="stylesheet">
+    <link href="css/playlist.css" type="text/css" rel="stylesheet">
+    <script src="js/jquery-1.12.3.min.js"></script>
+</head>
+<body>
+
+<style type="text/css">
+    #common_top_box {
+        background: #fff;
+    }
+
+    /*为某些指定用户的展示头像添加边框 images/border_list.png是边框图片*/
+    /*增加bg*/
+    #entry_box .play_box_bg {
+        background: url(images/border_list.png) no-repeat center top;
+        width: 300px;
+        height: 400px;
+        margin-left: -27px;
+        position: absolute;
+        z-index: 1;
+        top: -24px;
+        left: 0;
+    }
+
+    /*左边弹窗*/
+    .fixed-nav-cell {
+        position: fixed;
+        right: 14%;
+        top: 60%;
+        margin-top: -204px;
+        width: 50px;
+        z-index: 9999;
+    }
+
+    @media screen and (max-width:1600px) and (min-width:1365px) {
+        .fixed-nav-cell {
+            position: fixed;
+            right: 7%;
+            top: 50%;
+            margin-top: -204px;
+            width: 50px;
+            z-index: 9999;
+        }
+    }
+
+    @media screen and (max-width:1366px) {
+        .fixed-nav-cell {
+            position: fixed;
+            right: 0;
+            top: 50%;
+            z-index: 9999;
+        }
+    }
+
+    .fixed-nav-cell .fixed_bg {
+        height: 180px;
+        width: 100px;
+        background-color: #f33b52;
+        border-radius: 50px;
+        margin-top: -80px;
+        margin-left: 9px;
+    }
+
+    .fixed-nav-cell .aqt {
+        padding-top: 94px;
+        display: block;
+        text-align: center;
+        color: #fff;
+        font-size: 13px;
+    }
+
+    .fixed-nav-cell .top {
+        text-align: center;
+        display: block;
+        margin-top: 20px;
+    }
+
+    .service_hover {
+        display: block;
+        position: relative;
+        z-index: 2;
+    }
+
+    .service_hover2 {
+        display: none;
+    }
+
+    .service_hover:hover .service_hover1 {
+        display: none;
+    }
+
+    .service_hover:hover .service_hover2 {
+        display: inline-block;
+    }
+
+    .fixed_bg:hover {
+        background-color: #dd1c40;
+    }
+
+    .festival_icon {
+        width: 24px;
+        display: inline-block;
+        margin-right: 4px;
+    }
+
+    /*左边浮窗*/
+    .fixed-nav-left {
+        position: fixed;
+        top: 60%;
+        margin-top: -204px;
+        width: 50px;
+        z-index: 9999;
+        left: 10%
+    }
+
+    .fixed-nav-left:hover {
+        opacity: 0.8
+    }
+</style>
+
+<script src="js/json2.js"></script>
+<script src="js/jsencrypt.min.js"></script>
+<script src="js/getrsakey.js"></script>
+<script src="js/function.js"></script>
+<script src="js/encryption.js"></script>
+<script src="js/securelogin.js"></script>
+<script src="js/securereg.js"></script>
+<script src="js/sendtgid.js"></script>
+<script src="js/gt.js"></script>
+<!-- <script charset="utf-8" src="js/kfqq.js"></script> -->
+<link rel="stylesheet" href="css/common_index_1.css" type="text/css">
+<link rel="stylesheet" href="css/top_footer.css" type="text/css">
+<link rel="stylesheet" href="css/geeteststyle.css" type="text/css">
+<link rel="stylesheet" href="css/common_head.css" type="text/css">
+<!--登录 start-->
+<style type="text/css">
+    /*声优右边浮窗*/
+    .audio_right {
+        position: fixed;
+        bottom: 3%;
+        right: 1%;
+        z-index: 3;
+    }
+
+    .audio_close {
+        float: right;
+        position: absolute;
+        margin-top: 24px;
+        margin-left: 268px;
+        cursor: pointer;
+        color: #333;
+        font-size: 30px;
+    }
+
+    #common_top_box .common_payfor {
+        padding: 2px 5px;
+    }
+
+    #common_top_box .common_top_nav {
+        margin-right: 26px;
+    }
+
+    @media all and (max-width: 1366px) {
+
+        #common_top_box .common_right {
+            margin-left: 16px;
+        }
+    }
+</style>
+
+<!-- <div class="audio_right">
+  <div class="audio_close">x</div>
+  <div class="clearfix"></div>
+  <a  href="https://y.tuwan.com/download/"  target="_balnk"><img src="picture/download0224.png"></a>
+</div> -->
+
+<!-- 登录 end -->
+<div id="common_top_box">
+    <div class="fl common_top_logo" style="margin-left: 78px;margin-left: calc((100% - 1366px)/6.9);">
+        <a href="#">
+            <img src="picture/yuewanlogo.png">
+        </a>
+    </div>
+    <div class="fl common_center_box">
+        <a href="#" target="_blank" class="fl common_top_nav">首页</a>
+        <a href="#" target="_blank" class="fl common_top_nav">约陪玩</a>
+        <!-- <a href="//y.tuwan.com/starplay" target="_blank" class="fl common_top_nav">明星陪玩</a> -->
+        <a href="#" target="_blank" class="fl common_top_nav">训练营</a>
+        <a href="#" target="_blank" class="fl common_top_nav">9.9专区</a>
+        <!-- <a href="//y.tuwan.com/fanli7/" target="_blank" class="fl common_top_nav" style="color: #ff0000; position: relative;">充值</a> -->
+        <a href="#" target="_blank" class="fl common_top_nav" style="color: #ff0000; position: relative;">充值</a>
+        <a href="#" target="_blank" class="fl common_top_nav">
+            <div class="common_wechat_box">
+                APP下载
+                <!-- <img src="picture/hot.png" class="hot_img"> -->
+                <div class="common_wechat" style="background: none; border:none; top: 20px; left: -152px; width: 338px;">
+                    <img src="picture/ewms.png">
+                </div>
+            </div>
+        </a>
+        <div class="search_box fl">
+            <div class="search_img_box">
+                <input type="text" placeholder="搜索昵称、uid、靓号" class="search_input">
+                <img style="right: 6px;" src="picture/search.png" class="search_img">
+            </div>
+        </div>
+    </div>
+    <div class="fl common_right mt15">
+        <a class="fl common_right_01 common_right_enter" id="apply">申请入驻</a>
+        <a class="fl common_right_01  common_right_hover" href="https://y.tuwan.com/chatroom" target="_blank">
+            <img src="picture/chaticon.png" class="qt">
+            <img src="picture/chaticon_hover.png" style="display: none;" class="qt_hover">
+            <br>
+            约玩大厅
+        </a>
+        <div class="common_right_02 fl"></div>
+        <a class="fl common_right_01  common_right_hover" href="//y.tuwan.com/home/msg/" target="_blank">
+            <img src="picture/message.png" class="qt">
+            <img src="picture/message_hover.png" style="display: none;" class="qt_hover">
+            <br>
+            消息中心
+            <div class="common_message" style="display:none;"></div>
+        </a>
+        <div class="common_right_02 fl"></div>
+        <div class="fl">
+            <a href="javascript:;" class="common_right_01 common_right_hover" style="display: none;" id="loginfalse">
+                <img src="picture/no_login.png" class="qt">
+                <img src="picture/no_login_hover.png" style="display: none;" class="qt_hover">
+                <br>
+                注册/登录
+            </a>
+            <div class="head_img_bigbox" id="logintrue">
+                <div class="head_img_hide_box">
+                    <a href="" class="ocenter_order" target="_blank">
+                        <div class="fl head_img_box"></div>
+                        <div class="fl ml10">
+                            <div>
+                                <div class="fl common_head_name nickname mr10" style="width:60px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"></div>
+                                <div class="fl mr10 common_head_name liangcode22" style="display:none;"><img src="picture/good.png"></div>
+                                <div class="fl common_runk_number" style="display:none;">
+
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="common_head_id"><span class="mr5 user_uid"></span><img src="picture/common_bottom.png"></div>
+                        </div>
+                    </a>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="common_login">
+                    <div class="common_wechat_img"><img src="picture/common_top.png"></div>
+                    <div>
+                        <div class="drop_out" id="dologout">退出</div>
+                        <div class="clearfix"></div>
+                        <a href="" class="ocenter_order" target="_blank">
+                            <div class="head_img_small"></div>
+                        </a>
+                        <div class="hide_common mt5 mb5 nickname"></div>
+                        <div class="fl common_runk_number  common_runk_number_01"></div>
+                        <a class="means_box fl ml10 mr10" href="" target="_blank"><img src="picture/means.png" class="means"><img src="picture/means_hover.png" class="means_hover">&nbsp;资料</a>
+                        <a class="order_box fl" href="//y.tuwan.com/home/ocenter/" target="_blank"><img src="picture/order.png" class="order"><img src="picture/order_hover.png" class="order_hover">&nbsp;订单</a>
+                        <div class="clearfix"></div>
+                        <div class="contribution_value mt15 mb10"></div>
+                        <div class="common_vip_box">
+                            <div class="common_vip_line_box">
+                                <div class="common_vip_line"></div>
+                            </div>
+                            <div class="fl vip_text v_top"></div>
+                            <div class="fr vip_text v_bottom"></div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="money_01_bigbox mt20">
+                            <a href="//y.tuwan.com/recharge/" target="_blank">
+                                <div class="fl money_01_box">
+                                    <div class="current_money"></div>
+                                    <div class="money_01"><img src="picture/money_01.png">&nbsp;账户余额</div>
+                                </div>
+                            </a>
+                            <a href="https://y.tuwan.com/recharge/" target="_blank">
+                                <div class="fl money_01_box">
+                                    <div class="current_value"></div>
+                                    <div class="money_01"><img src="picture/zuanshi.png">&nbsp;<span class="current_value_info"></span></div>
+                                </div>
+                            </a>
+                            <a class="fl common_payfor" href="//y.tuwan.com/recharge/" target="_blank">
+                                充值
+                            </a>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    var nianguan = "qin"
+    $(".common_right_hover").hover(
+        function() {
+            $(this).find(".qt").hide();
+            $(this).find(".qt_hover").show();
+            $(this).addClass("common_right_01_add")
+        },
+        function() {
+            $(this).find(".qt_hover").hide();
+            $(this).find(".qt").show();
+            $(this).removeClass("common_right_01_add")
+        }
+    );
+    $(".common_wechat_box").hover(
+        function() {
+            $(".common_wechat").stop().slideDown("fast");
+        },
+        function() {
+            $(".common_wechat").stop().slideUp("fast");
+        }
+    );
+    $(".head_img_bigbox").hover(
+        function() {
+            $(".common_login").stop().slideDown("fast");
+        },
+        function() {
+            $(".common_login").stop().slideUp("fast");
+        }
+    );
+
+    $('.landing_box').hover(function() {
+        $('.down_nav').stop().slideUp();
+        $('.develop_nav').stop().slideDown();
+
+    }, function() {
+        $('.develop_nav').stop().slideUp();
+        $('.down_nav').stop().slideDown();
+    })
+    $('#getcode').focus(function() {
+        $('.dislocation_01').html('');
+    })
+
+    var n = 0;
+    $(".bottom_border").click(function() {
+
+        $(this).addClass("bottom_add").siblings().removeClass("bottom_add");
+        n = $(".bottom_border").index(this);
+        $(".student").eq(n).show().siblings().hide();
+    })
+
+    function check_login() {
+        var username = $('#username').val();
+        var pwd = $('#pwd').val();
+        var check = $('#check').val();
+        slogin(username, pwd, check, 'pc', obj);
+    }
+
+    function slogin(username, password, code, platform, callback) {
+
+        var sendData = new Object();
+        sendData.username = username;
+        sendData.password = password;
+        sendData.code = code;
+        sendData.platform = platform;
+
+        var content = packSendData_general(sendData);
+        $.ajax({
+            type: "post",
+            url: "//user.tuwan.com/api/method/login",
+            dataType: "jsonp",
+            jsonp: "callback",
+            data: { data: content },
+            success: function(data) {
+                var ret = data;
+                if (ret.code != 0) {
+                    var publicKey = (ret.data);
+                }
+                var code = data.code * 1;
+
+                // callback(ret);
+                if (code == 0) {
+                    window.location.href = location.href;
+                }
+                if (code == -1003 || code == -1004) {
+                    $('.passwordMsg').html(data.msg);
+                }
+                if (code == -1005) {
+                    $('.codeMsg').html(data.msg);
+                }
+            }
+        });
+    }
+
+    function nameFormat(objname, picsize, picmargin) {
+        var user_nickname = "";
+        if (objname) {
+            user_nickname = objname.replace("qin", '<img style="width:' + picsize + 'px;height:' + picsize + 'px;margin-top:' + picmargin + 'px" src="picture/nianguan.gif">')
+        }
+        // user_nickname = user_nickname.replace("☬", '<img style="height:' + picsize + 'px;margin-top:' + picmargin + 'px" src="picture/nianduicon.png" />&nbsp;')
+        return user_nickname
+    }
+
+    strhref = location.href;
+    if (strhref.indexOf("?") > -1) strhref = strhref + '&success=1';
+    else strhref = strhref + '?success=1';
+
+
+
+    function obj(data) {
+        if (data.code == '0') {
+            window.location.href = strhref;
+        }
+        if (data.code == -1003 || data.code == -1004) {
+            $('.passwordMsg').html(data.msg);
+        }
+        if (data.code == -1005) {
+            $('.codeMsg').html(data.msg);
+        }
+
+    }
+    // BizQQWPA.addCustom({aty: '0', a: '0', nameAccount: 800186693, selector: 'BizQQWPA'});
+
+    function search() {
+        var keyword = $.trim($(".search_input").val());
+        if (keyword == '') {
+            return;
+        }
+
+        var url = '//y.tuwan.com/search/?kw=' + encodeURIComponent(keyword);
+        window.open(url);
+    }
+
+    function avatarNoFound(that) {
+        that.src = "https://uc.tuwan.com/images/noavatar_middle.gif";
+        that.onerror = null;
+    }
+
+    $('#apply').attr("flag", "0");
+    $(function() {
+        msg();
+
+        function msg() {
+            $.ajax({
+                url: "//app.tuwan.com/Message/GetMessage.ashx?classid=2",
+                dataType: 'json',
+                xhrFields: {
+                    withCredentials: true
+                },
+                crossDomain: true,
+                success: function(obj) {
+                    var obj = eval(obj);
+                    var result = obj.result;
+                    if (result == '失败') {
+                        $('.common_message').hide();
+                        return;
+                    }
+                    var TotalUnRead = result.TotalUnRead
+                    if (TotalUnRead < 1) {
+                        $('.common_message').hide();
+                    } else {
+                        $('.common_message').show();
+                        $('.common_message').html(TotalUnRead);
+                    }
+                }
+            })
+        }
+        $.ajax({
+            url: "//api.tuwan.com/playteach/?data=getuserinfo&format=jsonp",
+            type: "get",
+            dataType: "jsonp",
+            success: function(obj) {
+                if (obj == '' || obj == undefined || obj == null) return false;
+                var userinfo = obj.userinfo;
+                var vipinfo = obj.vipinfo;
+                var user_nickname = "";
+                var currencyinfo = obj.currency;
+                if (userinfo.code == 0) {
+                    $('#apply').attr("href", "//y.tuwan.com/home/playerinfo/");
+                    $('#apply').attr("target", "_blank");
+                    $('#apply').attr("flag", "1");
+                    $('.head_img_box').html('<img src="' + userinfo.data['avatar'] + '" onerror="avatarNoFound(this)">');
+                    $('.head_img_small').html('<img src="' + userinfo.data['avatar'] + '" onerror="avatarNoFound(this)">');
+                    if (userinfo.data['nickname'].indexOf(nianguan) == -1) {
+                        user_nickname = userinfo.data['nickname']
+                    } else {
+                        user_nickname = userinfo.data['nickname'].split(nianguan)[0] + '<img style="width:24px;height:24px;margin-top:-7px;" src="picture/nianguan.gif">' + userinfo.data['nickname'].split(nianguan)[1]
+                    }
+                    // user_nickname = user_nickname.replace("☬", '<img style="width:24px;height:24px;margin-top:-7px;" src="picture/igicon1.png" />')
+                    $('.nickname').html(user_nickname);
+                    if (vipinfo['vip'] > 0) {
+                        var vipclass = 'common_runk_01';
+                        if (vipinfo['vip'] == 2) {
+                            vipclass = 'common_runk_02';
+                        } else if (vipinfo['vip'] == 3) {
+                            vipclass = 'common_runk_03';
+                        } else if (vipinfo['vip'] == 4) {
+                            vipclass = 'common_runk_04';
+
+                        } else if (vipinfo['vip'] == 5) {
+                            vipclass = 'common_runk_05';
+
+                        } else if (vipinfo['vip'] == 6) {
+                            vipclass = 'common_runk_06';
+
+                        } else if (vipinfo['vip'] == 7) {
+                            vipclass = 'common_runk_07';
+
+                        } else if (vipinfo['vip'] == 8) {
+                            vipclass = 'common_runk_08';
+
+                        } else if (vipinfo['vip'] == 9) {
+                            vipclass = 'common_runk_09';
+
+                        } else if (vipinfo['vip'] == 10) {
+                            vipclass = 'common_runk_10';
+
+                        } else if (vipinfo['vip'] == 11) {
+                            vipclass = 'common_runk_11';
+
+                        } else if (vipinfo['vip'] == 12) {
+                            vipclass = 'common_runk_12';
+
+                        }
+
+                        $('.common_runk_number').addClass(vipclass);
+
+                        $('.common_runk_number').show();
+                    } else {
+                        vipclass = 'common_runk_00';
+                        $('.common_runk_number').addClass(vipclass);
+                        $('.common_runk_number').show();
+
+                    }
+
+                    var vipdengcha = parseInt(vipinfo['lowerplayhonor']) - parseInt(vipinfo['playhonor']);
+                    var vipbaofenbi = parseInt(vipinfo['playhonor']) / parseInt(vipinfo['lowerplayhonor']) * 100;
+                    if (vipinfo['vip'] >= 10) {
+                        $('.contribution_value').html('恭喜！您己满级');
+                        $('.v_top').html('<span>VIP' + vipinfo['vip'] + '</span>');
+                        $('.v_bottom').html('');
+                        $('.common_vip_line').css('width', '100%');
+                    } else {
+                        $('.contribution_value').html('升级还需<span>' + vipdengcha + '</span>贡献值');
+                        $('.v_top').html('VIP' + vipinfo['vip']);
+                        $('.v_bottom').html('VIP' + vipinfo['lowerplay']);
+                        $('.common_vip_line').css('width', vipbaofenbi + '%');
+                    }
+
+                    uidflag = userinfo.data['vipuserid'] > 0 ? userinfo.data['vipuserid'] : userinfo.data['uid'];
+                    $('.user_uid').html('UID:' + uidflag);
+
+                    var money = 0;
+                    if (currencyinfo) {
+                        if (currencyinfo.code == 0) money = currencyinfo.data;
+                    }
+                    $('.current_money').html(money);
+
+                    if (userinfo.data['vipuserid'] > 0) {
+                        $('.liangcode22').show();
+                        if (userinfo.data['viplevel'] == 1) {
+                            $('.liangcode22 img').attr("src", "//res.tuwan.com/templet/play/index/images/hao.png")
+                        } else {
+                            $('.liangcode22 img').attr("src", "//res.tuwan.com/templet/play/public/images/good.png")
+                        }
+                    } else {
+                        $('.liangcode22').hide();
+                    }
+
+                    if (obj.flag == 1) {
+                        $('.means_box').attr('href', '//y.tuwan.com/home/advisor/');
+
+                        $('.common_payfor').html('提现');
+                        $('.common_payfor').attr('href', '//y.tuwan.com/home/withdraw/');
+                        $('.ocenter_order').attr('href', '//y.tuwan.com/home/advisor/');
+                    } else {
+                        $('.means_box').attr('href', '//y.tuwan.com/home/data/');
+
+                        $('.common_payfor').html('充值');
+                        $('.common_payfor').attr('href', '//y.tuwan.com/recharge/');
+                        $('.ocenter_order').attr('href', '//y.tuwan.com/home/ocenter/');
+                    }
+
+                    $('.current_value_info').html('钻石');
+                    $('.current_value').html(obj.diamond);
+                    $('#loginfalse').hide();
+                    $('#logintrue').show();
+                } else {
+                    $('#apply').attr("flag", "0");
+                    $('#loginfalse').show();
+                    $('#logintrue').hide();
+                }
+            }
+        })
+        $('#apply').click(function() {
+            if ($(this).attr("flag") == 0) {
+                $('#index_pup_box').show();
+            }
+        })
+        $(document).on('click', '#dologout', function() {
+            $.ajax({
+                url: "//app.tuwan.com/comment2/api/useraction.ashx?method=loginout",
+                dataType: "jsonp",
+                success: function(obj) {
+                    location.reload(true);
+                }
+            })
+        })
+        // 回车键事件
+        $(document).keypress(function(e) {
+            if (e.which == 13) {
+                if ($('#index_pup_box').css('display') == 'block') {
+                    check_login();
+                } else {
+                    var isFocus = $(".search_input").is(":focus");
+                    if (isFocus) {
+                        search();
+                    }
+                }
+
+            }
+        })
+        $('#index_pup_box input').focus(function() {
+            $(this).next().html("");
+        })
+        //注册
+        //校验手机
+        function CheckPhone() {
+            var val = $('#ctl00_mainContent_txt_phone').val();
+            var reg_phone = /^1\d{10}$/;
+            if (!reg_phone.test(val)) {
+                $("#phone_tishi").text("手机号必须为11位数字");
+                $("#checkall_phone").val(0);
+                return;
+            }
+            var sendData = new Object();
+            sendData.username = val;
+            sendData.platform = 'mobile';
+            var content = packSendData_general(sendData);
+            $.ajax({
+                type: "post",
+                url: "//user.tuwan.com/api/method/chkuser",
+                dataType: 'jsonp',
+                data: {
+                    data: content
+                },
+                success: function(data) {
+                    if (data.code != 0) {
+                        publicKey = (data.data);
+                        $("#phone_tishi").text(data.msg);
+                        $("#checkall_phone").val(0);
+                        return;
+                    } else {
+                        $("#checkall_phone").val(1);
+                        $("#phone_tishi").html('<img src="picture/ture.png"/>');
+                    }
+                }
+            });
+        }
+        $('#ctl00_mainContent_txt_phone').blur(function() {
+            CheckPhone();
+        })
+        //校验用户名
+        function CheckUserName() {
+            var val = $("#user_name").val();
+            var pattern = new RegExp("[%--`~!\#@$^&*()\\s\=|{}':;',\\[\\].<>/?~！@￥……&*（）——|{}【】‘；：”“'。，、？\"]");
+            var pattern_2 = new RegExp("[0-9]+");
+            if (val.length > 15 || val.length < 3) {
+                $("#username_tishi").html("用户名格式不符合要求");
+                $("#checkall_name").val(0);
+                return;
+            }
+            if (val.match(pattern) != null) {
+                $("#username_tishi").html("用户名包含敏感字符");
+                $("#checkall_name").val(0);
+                return;
+            } else {
+                if (val.match(pattern_2) == val) {
+                    $("#username_tishi").html("用户名不能为纯数字");
+                    $("#checkall_name").val(0);
+                    return;
+                } else {
+                    var sendData = new Object();
+                    sendData.username = val;
+                    sendData.platform = 'pc';
+                    var content = packSendData_general(sendData);
+                    $.ajax({
+                        type: "post",
+                        url: "//user.tuwan.com/api/method/chkuser",
+                        dataType: 'jsonp',
+                        data: {
+                            data: content
+                        },
+                        success: function(data) {
+                            if (data.code != 0) {
+                                publicKey = (data.data);
+                                $("#username_tishi").text(data.msg);
+                                $("#checkall_name").val(0);
+                                return;
+                            } else {
+                                $("#checkall_name").val(1);
+                                $("#username_tishi").html('<img src="picture/ture.png"/>');
+                            }
+                        }
+                    });
+                }
+            }
+        }
+        $('#user_name').blur(function() {
+            $('.dislocation_box').eq(0).css('display', 'none');
+            CheckUserName();
+        })
+        //校验密码
+        function CheckUserPass() {
+            if ($("#userpwd").val() == '') {
+                $("#userpwd_tishi").html("密码不能为空");
+                $("#checkall_pwd").val(0);
+                return;
+            } else if ($("#userpwd").val().length > 20 || $("#userpwd").val().length < 6) {
+                $("#userpwd_tishi").html("密码不符合要求");
+                $("#checkall_pwd").val(0);
+                return;
+            } else if ($("#userpwd").val() == $("#user_name").val()) {
+                $("#userpwd_tishi").html("密码不能和用户名相同");
+                $("#checkall_pwd").val(0);
+                return;
+            } else if ($("#userpwd").val() == $("#ctl00_mainContent_txt_phone").val()) {
+                $("#userpwd_tishi").html("密码不能和手机号相同");
+                $("#checkall_pwd").val(0);
+                return;
+            } else {
+                $("#checkall_pwd").val(1);
+                $("#userpwd_tishi").html('<img src="picture/ture.png"/>');
+            }
+        }
+        $('#userpwd').blur(function() {
+            $('.dislocation_box').eq(1).css('display', 'none');
+            CheckUserPass();
+        })
+
+
+        var countdown = 60;
+
+        function settime(obj) {
+            if (countdown <= 0) {
+                obj.removeAttr("disabled");
+                obj.html("获取验证码");
+                countdown = 60;
+                return;
+            } else {
+                obj.attr("disabled", "disabled");
+                obj.html("重新发送(" + countdown + ")");
+                countdown--;
+            }
+            setTimeout(function() {
+                settime(obj)
+            }, 1000)
+        }
+        //验证码校验
+        var bindFlag = false;
+        var handler = function(captchaObj) {
+            // 将验证码加到id为captcha的元素里
+            $("#getcode").click(function() {
+                CheckPhone();
+                CheckUserName();
+                CheckUserPass();
+                var phone = $("#ctl00_mainContent_txt_phone").val(); //获取手机号
+                var username = $("#user_name").val(); //获取用户名
+                var userpwd = $("#userpwd").val(); //获取密码
+                if ($("#checkall_phone").val() == 1 && $("#checkall_name").val() == 1 && $("#checkall_pwd").val() == 1) {
+                    if (!bindFlag) {
+                        $(".gt_holder").addClass('gt_show');
+                        captchaObj.bindOn("#getcode");
+                        $('.gt_show').css('z-index', '9999999');
+                        bindFlag = true;
+                    }
+
+
+                    var validate = captchaObj.getValidate();
+                    if (!validate) { //判断回执
+                        return;
+                    }
+                    var sendData = new Object();
+                    sendData.t = phone;
+                    sendData.c = validate.geetest_challenge;
+                    sendData.v = validate.geetest_validate;
+                    sendData.s = validate.geetest_seccode;
+                    var content = packSendData_general(sendData);
+                    $.ajax({
+                        url: "//user.tuwan.com/api/requestCode.ashx?t\x3d" + (new Date).getTime(),
+                        dataType: "jsonp",
+                        jsonp: "callback",
+                        data: {
+                            data: content
+                        },
+                        success: function(data) {
+
+                        }
+                    });
+                    settime($("#getcode"));
+                }
+            });
+            captchaObj.appendTo("#captcha");
+        };
+
+        $.ajax({
+            // 获取id，challenge，success（是否启用failback）
+            url: "//user.tuwan.com/api/getSlider.ashx?t=" + (new Date()).getTime(),
+            type: "get",
+            dataType: "jsonp", // 使用jsonp格式
+            success: function(data) {
+                // 使用initGeetest接口
+                // 参数1：配置参数，与创建Geetest实例时接受的参数一致
+                // 参数2：回调，回调的第一个参数验证码对象，之后可以使用它做appendTo之类的事件
+                initGeetest({
+                    gt: data.gt,
+                    challenge: data.challenge,
+                    product: "popup", // 产品形式
+                    offline: !data.success
+                }, handler);
+            }
+        });
+        $("#phonecode").focus(function() {
+            $(".dislocation_0aa").html("");
+        })
+        //注册按钮
+        $("#button_post1").click(function() {
+            var phone = $("#ctl00_mainContent_txt_phone").val(); //获取手机号
+            var username = $("#user_name").val(); //获取用户名
+            var userpwd = $("#userpwd").val(); //获取密码
+            var phonecode = $("#phonecode").val(); //获取手机验证码
+            if ($("#checkall_phone").val() == 1 && $("#checkall_name").val() == 1 && $("#checkall_pwd").val() == 1) {
+
+
+
+                //console.info(publicKey);
+
+                var sendData = new Object();
+
+                sendData.n = username;
+                sendData.p = userpwd;
+                sendData.t = phone;
+                sendData.c = phonecode;
+
+
+                var content = packSendData_general(sendData);
+
+                console.info(content);
+
+                sreg(username, userpwd, phone, phonecode, callback);
+
+                function callback(data) {
+                    console.info(data);
+                    if (data.code == "0") {
+
+                        window.location.href = strhref;
+                    } else {
+                        $(".dislocation_0aa").html("验证码错误");
+                    }
+                }
+            }
+        });
+        $("#user_name").focus(function() {
+            $('.dislocation_box').eq(0).css('display', 'block');
+        })
+        $("#userpwd").focus(function() {
+            $('.dislocation_box').eq(1).css('display', 'block');
+        })
+
+        $('#loginfalse').click(function() {
+            $('#index_pup_box').show();
+            loadcode('code', 82, 30);
+        })
+        $('.search_img_box .search_img').click(function() {
+            search();
+        })
+
+        var n = 0;
+        $(".enroll").click(function() {
+            $(this).addClass("enroll_add").siblings().removeClass("enroll_add");
+            n = $(".enroll").index(this);
+            $(".enroll_content").eq(n).show().siblings().hide();
+        })
+        $(".close").click(function() {
+            $('#index_pup_box').hide()
+        })
+        $('.QQ').attr('href', '//user.tuwan.com/api/url.ashx?app=qq&redirect_uri=' + encodeURIComponent(strhref));
+        $('.Wechat').attr('href', '//user.tuwan.com/api/url.ashx?app=weixin&redirect_uri=' + encodeURIComponent(strhref));
+    });
+    $(".close_year").on("click", function() {
+        $(".year1130_box").hide();
+    })
+
+
+    var leng = $('.common_top_nav').length;
+    for (i = 0; i < leng; i++) {
+        var href = $('.common_top_nav').eq(i).attr('href');
+        if (href.indexOf(location.pathname) != -1 && location.pathname != '/') {
+            $(".common_top_nav").eq(i).addClass("common_top_nav_add");
+        }
+    }
+    if (location.pathname == '/') $(".common_top_nav").eq(0).addClass("common_top_nav_add");
+    $(".audio_close").on("click", function() {
+        $(".audio_right").hide();
+    })
+</script>
+<!-- 左侧弹窗 -->
+<!--  <div class="fixed-nav-cell fixed-nav-left" style="display:none;right: 14% ">
+<a  href="https://y.tuwan.com/lotterydraw" target="_blank" title="">
+    <img src="picture/zhuanpan.png" class="service_hover1">
+</a>
+</div>  -->
+<!--  <div class="fixed-nav-cell" style="display:none;">
+<a class="service_hover" href="//wpa.qq.com/msgrd?v=3&uin=775121240&site=qq&menu=yes" target="_blank" title=""><img src="picture/service.png" class="service_hover1"><img src="picture/service_hover.png" class="service_hover2"></a>
+<div class="fixed_bg">
+    <a class="aqt" href="//y.tuwan.com/is" target="_blank" title="语音下单"><img src="picture/aqt.png">&nbsp;语音下单</a>
+    <a class="top" style="font-size: 12px; color: #fff;" href="#"><img src="picture/top.png"><br />回到顶部</a>
+</div>
+</div>  -->
+<!-- 游戏服务、娱乐服务、等级分类、导师性别四个板块 -->
+<div class="nav_center_box">
+    <!-- 游戏服务 -->
+    <div class="nav_box_border">
+        <div class="fl nav_title nav_title_add">游戏服务</div>
+        <div class="fl icon_box" gameid="31540" _class="lolup_icon">
+            <i class="listicon lolup_icon"></i><br>线上LOL
+        </div>
+        <div class="fl icon_box" gameid="20014" _class="pubg_icon">
+            <i class="listicon pubg_icon"></i><br>绝地求生
+        </div>
+        <div class="fl icon_box" gameid="20008" _class="hizi_icon">
+            <i class="listicon hizi_icon"></i><br>王者荣耀
+        </div>
+        <div class="fl icon_box" gameid="20018" _class="ciji_icon">
+            <i class="listicon ciji_icon"></i><br>刺激战场
+        </div>
+        <div class="fl icon_box" gameid="20019" _class="quanjun_icon">
+            <i class="listicon quanjun_icon"></i><br>全军出击
+        </div>
+        <div class="fl icon_box" gameid="20016" _class="huangye_icon">
+            <i class="listicon huangye_icon"></i><br>荒野行动
+        </div>
+        <div class="fl icon_box" gameid="20020" _class="five_icon">
+            <i class="listicon five_icon"></i><br>第五人格
+        </div>
+        <div class="fl icon_box" gameid="20021" _class="video_icon">
+            <i class="listicon video_icon"></i><br>视频游戏
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <!-- 娱乐服务 -->
+    <div class="nav_box_border">
+        <div class="fl  nav_title">娱乐服务</div>
+        <div class="fl icon_box" gameid="20004" _class="audio_icon">
+            <i class="listicon audio_icon"></i><br>声优聊天
+        </div>
+        <div class="fl icon_box" gameid="20012" _class="sleep_icon">
+            <i class="listicon sleep_icon"></i><br>哄睡觉
+        </div>
+        <div class="fl icon_box" gameid="20002" _class="songster_icon">
+            <i class="listicon songster_icon"></i><br>线上歌手
+        </div>
+        <div class="fl icon_box" gameid="20013" _class="wake_icon">
+            <i class="listicon wake_icon"></i><br>叫醒
+        </div>
+        <div class="fl icon_box" gameid="20011" _class="lover_icon">
+            <i class="listicon lover_icon"></i><br>虚拟恋人
+        </div>
+        <div class="fl icon_box" gameid="20015" _class="jianding_icon">
+            <i class="listicon jianding_icon"></i><br>声音鉴定
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <!-- 等级分类 -->
+    <div class="nav_box_border">
+        <div class="nav_title_bottom fl">等级分类</div>
+        <div id="grade_icon" class="fl">
+
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <!-- 性别 -->
+    <div>
+        <div class="nav_title_bottom fl">导师性别</div>
+        <div class="fl grade_icon grade_sex grade_icon_add">全部</div>
+        <div class="fl grade_icon grade_sex">女神</div>
+        <div class="fl grade_icon grade_sex">男神</div>
+        <div class="clearfix"></div>
+    </div>
+</div>
+<!-- 综合、热门、新人排序 -->
+<div class="sort_nav_box">
+    <div class="fl sort_nav sort_nav_add">综合排序</div>
+    <div class="fl sort_nav">热门</div>
+    <div class="fl sort_nav">新人</div>
+    <div class="clearfix"></div>
+</div>
+<!-- 排行榜 -->
+<div class="list_box" id="entry_box">
+    <div class="list_left_box fl">
+    </div>
+    <div class="list_right_box fr">
+        <div class="cv-rank-area">
+            <div class="cv-rank">
+                <div class="cv-rank-head">
+                    <span>热度榜</span>
+                    <ul class="sub-nav">
+                        <li><a href="javascript:;" rela="week" data-index="2" class="on sub-nav-call">7天</a></li>
+                        <li><a href="javascript:;" rela="month" data-index="3" class="sub-nav-call">30天</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="cv-rank-box">
+                <div class="cv-rank-list" id="cv-rank-call" data-index="1" style="opacity: 1;display: block;">
+                </div>
+                <div class="cv-rank-list" id="cv-rank-call2" data-index="1" style="opacity: 1;display: block;">
+                </div>
+            </div>
+        </div>
+        <div class="cv-rank-area">
+            <div class="cv-rank">
+                <div class="cv-rank-head">
+                    <span>礼物榜</span>
+                    <ul class="sub-nav">
+                        <li><a href="javascript:;" rela="week" data-index="2" class="on sub-nav-gift">7天</a></li>
+                        <li><a href="javascript:;" rela="month" data-index="3" class="sub-nav-gift">30天</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="cv-rank-box">
+                <div class="cv-rank-list" id="cv-rank-gift" data-index="1" style="opacity: 1;display: block;">
+                </div>
+            </div>
+        </div>
+        <div class="cv-rank-area">
+            <div class="cv-rank">
+                <div class="cv-rank-head">
+                    <span>富豪榜</span>
+                    <ul class="sub-nav">
+                        <li><a href="javascript:;" rela="week" data-index="2" class="on sub-nav-rich">7天</a></li>
+                        <li><a href="javascript:;" rela="month" data-index="3" class="sub-nav-rich">30天</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="cv-rank-box">
+                <div class="cv-rank-list" id="cv-rank-rich" data-index="1" style="opacity: 1;display: block;">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</div>
+<div style="clear: both;"></div>
+<!-- 最下面的客服电话、帮助中心等 -->
+<div id="footer" style="float: left; width: 100%;">
+    <div class="footer_box">
+        <a href="javascript:" title="" class="fl"><img src="picture/consume1.jpg"></a>
+        <a href="javascript:" title="" class="fl"><img src="picture/consume2.jpg"></a>
+        <a href="javascript:" title="" class="fl"><img src="picture/consume3.jpg"></a>
+        <a href="javascript:" title="" class="fl"><img src="picture/consume4.jpg"></a>
+        <div class="clearfix"></div>
+        <div class="help_box mt30">
+            <div class="fl ml35 pr30 border_right"><i class="icon custom mr10"></i>客服电话：<span class="custom_01">010-68608228</span><span class="custom_02">咨询时间：7X24小时</span></div>
+            <div class="fl pl30" id="dd_kefu_pcbottom" style="cursor: pointer;"><i class="icon QQ mr10"></i>客服QQ：<span class="custom_01">800184580</span></div><div class="fl pl30"><span class="custom_02">咨询时间：7X24小时</span></div>
+            <div class="fl ml40">
+                <a href="javascript:" title="" class="fl help">帮助中心</a>
+                <a href="javascript:" title="" class="fl help">服务保障</a>
+                <a href="javascript:" title=""  class="fl help">陪玩守则</a>
+                <div class="clearfix"></div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="Copy">(京)字第05536号Copyright 2014-2020 TUWAN Corporation,All Rights Reserved</div>
+    </div>
+</div>
+<div style="display:none">
+    <script type="text/javascript">
+        var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " https://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1000286078'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "w.cnzz.com/q_stat.php%3Fid%3D1000286078' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " https://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1261314581'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "w.cnzz.com/q_stat.php%3Fid%3D1261314581' type='text/javascript'%3E%3C/script%3E"));</script>
+</div>
+<!-- WPA start -->
+<script id="qd28521617238326075327d1c513a4a384b1e7d01503" src="js/ae85e592fa3c4efb980bbb47c72482f0.js" charset="utf-8" async defer></script>
+<!-- WPA end -->
+<script src="js/tuwan_message.js"></script>
+<!-- <!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="format-detection" content="telephone=no">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<style>
+.yw-gg-float{
+    position: fixed;left: 0;bottom: 138px;width: 100%;height: 0;z-index: 999;
+}
+.yw-gg-float .yw-big-show{
+    position: relative; display: block; width: 1100px; height: 138px; display: none; background-image: url(images/yanwo-big.png); margin: 0 auto;cursor: default;
+}
+.yw-gg-float .yw-big-show .yw-close{
+    position: absolute; width: 19px; height: 19px; background-image: url(images/yanwo-close.png); right: 12px; top: 30px; cursor: pointer;
+}
+.yw-gg-float .yw-jump{
+    display: block; position: absolute; width: 100%; height: 100%; left: 0; top: 0;
+cursor: default;
+}
+.yw-gg-float .yw-small-show{
+    width: 161px; height: 120px; display: none; position: absolute; left: 0; top: 0; background-image: url(images/yanwo-small.png); cursor: default;
+}
+.yw-gg-float .yw-open{
+    width: 20px; height: 36px; position: absolute; right: 13px; top: 40px; background-image: url(images/yanwo-open.png); cursor: pointer;
+}
+</style>
+</head>
+<body>
+<div class="yw-gg-float">
+<div class="yw-big-show">
+    <a href="javascript:void(0)" class="yw-jump"></a>
+    <div class="yw-close"></div>
+</div>
+<div class="yw-small-show" style="display: none;">
+    <a href="javascript:void(0)" class="yw-jump"></a>
+    <div class="yw-open"></div>
+</div>
+</div>
+<script>
+    var ywJumpUrl = "javascript:void(0)";
+//var ywJumpUrl = "http://y.tuwan.com/"
+var close = "1";
+var myDate = new Date();
+//获取当前年
+var year = myDate.getFullYear();
+//获取当前月
+var month = myDate.getMonth() + 1;
+//获取当前日
+var date = myDate.getDate();
+var nowtime = year.toString() +  month.toString() + date.toString();
+
+var localtime = localStorage.getItem("yy-gg-time");
+
+if(localtime){
+    if(localtime !== nowtime){
+        close = "1";
+        localStorage.setItem("yy-gg-state", close);
+    }
+}
+localStorage.setItem("yy-gg-time", nowtime);
+
+var $ysGgFloat = $(".yw-gg-float");
+$ysGgFloat.find(".yw-jump").prop("href", ywJumpUrl);
+$ysGgFloat.find(".yw-close").on("click", function(){
+    close = "0";
+    localStorage.setItem("yy-gg-state", close);
+    $ysGgFloat.find(".yw-big-show").hide();
+    $ysGgFloat.find(".yw-small-show").show();
+});
+$ysGgFloat.find(".yw-small-show .yw-open").on("click", function(){
+    close = "1";
+    localStorage.setItem("yy-gg-state", close);
+    $ysGgFloat.find(".yw-big-show").show();
+    $ysGgFloat.find(".yw-small-show").hide();
+});
+
+if(localStorage.getItem("yy-gg-state") == "0"){
+    $('.yw-big-show').hide();
+    $('.yw-small-show').show();
+} else{
+    $('.yw-big-show').show();
+    $('.yw-small-show').hide();
+}
+</script>
+</body>
+</html>
+-->
+<!-- 排行榜的js判断 -->
+<script type="text/javascript">
+    var arr1 = [];
+    var arr2 = [];
+    // 判断富豪
+    function requestHot() {
+        $.ajax({
+            url: "https://api.tuwan.com/mobileplay/?data=teach_gift_recommend&format=jsonp",
+            type: "get",
+            dataType: "jsonp",
+            success: function(obj) {
+                var uids = obj["uids"];
+                var n = $(".play_box").length;
+                for (var i = 0; i < n; i++) {
+                    var teacherid = $(".play_box").eq(i).attr("index");
+
+                    if ($.inArray(teacherid + "", uids) == 0) {
+                        // console.log(11)
+                        $(".play_box").eq(i).find(".plutocrat_rick").show();
+                    } else {
+                        $(".play_box").eq(i).find(".plutocrat_rick").hide();
+                        // console.log(22)
+                    }
+                }
+
+            }
+        })
+    }
+
+    function nameFormat(objname, picsize, picmargin) {
+        var user_nickname = "";
+        user_nickname = objname.replace("qin", '<img style="width:' + picsize + 'px;height:' + picsize + 'px;margin-top:' + picmargin + 'px" src="picture/nianguan.gif">')
+        // user_nickname = user_nickname.replace("☬", '<img style="height:' + picsize + 'px;margin-top:' + picmargin + 'px" src="picture/nianduicon.png" />&nbsp;')
+        return user_nickname
+    }
+
+    // 右侧列表循环内容
+    function rightlistdata(get, type) {
+        $.ajax({
+            url: "https://y.tuwan.com/m/Lists/" + get + "?type=" + type + "&limit=5&format=jsonp",
+            type: "get",
+            dataType: "jsonp",
+            success: function(data) {
+                var data = data.data;
+                var rightstr = "";
+
+                var strType = "";
+                var tempStr = "";
+
+                switch (get) {
+                    case "getCharmList":
+                        strType = "魅力值：";
+                        break;
+
+                    case "getRegalList":
+                        strType = "贡献值：";
+                        break;
+                }
+
+                if (data && data.length) {
+                    for (var i = 0; i < data.length; i++) {
+                        var avatar_class = "";
+                        if (i == 0) {
+                            avatar_class = "first";
+                        } else if (i == 1) {
+                            avatar_class = "second";
+                        } else if (i == 2) {
+                            avatar_class = "third";
+                        } else {
+                            avatar_class = "";
+                        }
+
+                        if (get === "getRegalList") {
+                            var hrefString = 'href="javascript:;"';
+                        } else {
+                            var hrefString = 'href="https://y.tuwan.com/play/' + data[i].teacherid + '/" target="_blank"';
+                        }
+
+                        var user_nickname = "";
+                        user_nickname = nameFormat(data[i].nickname, 20, -7)
+
+                        rightstr += '<dl class="' + avatar_class + '">\
+                                <dt>\
+                                    <a ' + hrefString + ' ><img src="' + data[i].avatar + '" alt="电竞奥巴马" onerror="this.src=\'https://uc.tuwan.com/images/noavatar_1.jpg\'">\
+                                    <span class="avatar-mask"></span></a>\
+                                </dt>\
+                                <dd>\
+                                    <h3 class="name"><a ' + hrefString + '>' + user_nickname + '</a></h3>\
+                                    <p>' + strType + data[i].total + tempStr + '</p>\
+                                </dd>\
+                            </dl>';
+                    }
+                }
+                if (get == "getCharmList") {
+                    $("#cv-rank-gift").html(rightstr);
+                } else if (get == "getRegalList") {
+                    $("#cv-rank-rich").html(rightstr);
+                }
+
+            }
+        });
+    }
+    rightlistdata("getCharmList", "week");
+    rightlistdata("getRegalList", "week");
+    $(".sub-nav-gift").on("click", function() {
+        var ncall = $(".sub-nav-gift").index(this);
+        $(".sub-nav-gift").removeClass("on");
+        $(this).addClass("on");
+        if (ncall == 0) {
+            rightlistdata("getCharmList", "week");
+        } else {
+            rightlistdata("getCharmList", "month");
+        }
+    });
+    $(".sub-nav-rich").on("click", function() {
+        var ncall = $(".sub-nav-rich").index(this);
+        $(".sub-nav-rich").removeClass("on");
+        $(this).addClass("on");
+        if (ncall == 0) {
+            rightlistdata("getRegalList", "week");
+        } else {
+            rightlistdata("getRegalList", "month");
+        }
+    });
+</script>
+<!--右侧列表循环内容-end-->
+<script type="text/javascript">
+    // 左侧列表循环内容
+    function GetQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]);
+        return null;
+    }
+
+    var typeid = "0",
+        gameid = "",
+        sex = "0",
+        grading = "-1",
+        price = "0",
+        pageever = "1",
+        week = '',
+        month = '';
+    flag11 = 1;
+    if (GetQueryString('gameid')) {
+        gameid = GetQueryString('gameid');
+    } else {
+        gameid = "31540"
+    }
+
+    if (GetQueryString('sex')) {
+        sex = GetQueryString('sex');
+
+        if (sex == 1) {
+            $(".grade_sex").removeClass("grade_icon_add");
+            $(".grade_sex").eq(2).addClass("grade_icon_add");
+        } else {
+            $(".grade_sex").removeClass("grade_icon_add");
+            $(".grade_sex").eq(1).addClass("grade_icon_add");
+        }
+    } else {
+        sex = 0;
+    }
+
+    function leftlistdata() {
+
+        flag11 = 0;
+        var s = "&typeid=" + typeid + "&gameid=" + gameid + "&sex=" + sex + "&grading=" + grading + "&page=" + pageever + "&size=32&discount=1";
+        $.ajax({
+            url: "https://y.tuwan.com/m/Lists/appList?format=jsonp" + s,
+            type: "get",
+            dataType: "jsonp",
+            success: function(data) {
+                // 列表
+                var _data1 = data.data;
+
+                if (arr2.length > 0) {
+                    var _data1 = arr2.concat(_data1);
+                    _data = arr2;
+                    arr2 = [];
+                }
+
+                var str = '';
+
+                var arr3 = [];
+                var _data = [];
+                if (_data1.length) {
+
+                    for (var i = 0; i < _data1.length; i++) {
+                        var teacherid_l = _data1[i].teacherid * 1;
+                        if ($.inArray(teacherid_l, arr1) == -1) {
+                            _data.push(_data1[i]);
+                            arr1.push(teacherid_l);
+                            arr3.push(teacherid_l);
+                        } else {
+                            continue;
+                        }
+                    }
+
+                    key = arr3.length - arr3.length % 4;
+                    flag11 = 1;
+                    for (var i = 0; i < _data.length; i++) {
+
+                        if (i >= key && grading == '-1' && (gameid == 31540 || gameid == 20014 || gameid == 20004)) {
+                            arr2.push(_data[i]);
+                            continue;
+                        }
+
+                        var play_ageimg = "",
+                            play_age = "";
+                        if (_data[i].sex == 2) {
+                            play_ageimg = "play_ageimg";
+                            play_age = "play_age";
+                        } else {
+                            play_ageimg = "play_ageimg_02";
+                            play_age = "play_age_02";
+                        }
+                        var div_play_pro_add = "";
+                        if (_data[i].videocheck == 1) {
+                            div_play_pro_add = "";
+                        } else {
+                            div_play_pro_add = "div_play_pro_add";
+                        }
+                        var status_img = "",
+                            play_status = "";
+                        if (_data[i].online == 1) {
+                            status_img = '<i class="side_bg status_img fl"></i><span>在线</span>';
+                            play_status = "play_status";
+                        } else if (_data[i].online == 0) {
+                            status_img = '<i class="side_bg status_img_02 fl"></i><span>离线</span>';
+                            play_status = "play_status_03";
+                        } else if (_data[i].online == 2) {
+                            status_img = '<i class="side_bg status_img_03 fl"></i><span>忙碌</span>';
+                            play_status = "play_status_02";
+                        }
+                        var plutocrat_rick = "";
+                        if (_data[i].tag == "") {
+                            plutocrat_rick = "div_play_pro_add";
+                        } else {
+                            plutocrat_rick = "";
+                        }
+                        var discount_icon_box = "";
+                        if (_data[i].discount == 0) {
+                            discount_icon_box = "div_play_pro_add";
+                        } else {
+                            discount_icon_box = "";
+                        }
+                        var festival_icon = "";
+                        if (_data[i].festival == "") {
+                            festival_icon = "";
+                        } else {
+                            festival_icon = '<img src="' + _data[i].festival + '" class="festival_icon">';
+                        }
+                        var borderbg = "";
+                        if (_data[i].bg == 1) {
+                            borderbg = '<div class="play_box_bg"></div>';
+                        } else {
+                            borderbg = '';
+                        }
+                        var user_nickname = "";
+                        user_nickname = nameFormat(_data[i].nickname, 24, -7)
+                        str += '<a class="play_box fl" title="" href="https://y.tuwan.com/play/' + _data[i].teacherid + '/?gameid=' + gameid + '" target="_blank" index="' + _data[i].teacherid + '">\
+                               ' + borderbg + '\
+                                <div class="play_subbox">\
+                                    <div class="play_img">\
+                                        <img src="' + _data[i].avatar + '" class="play_img_border">\
+                                        <img src="picture/plutocrat_rick.png" class="plutocrat_rick">\
+                                        <i class="recommend_icon listicon ' + plutocrat_rick + '">' + _data[i].tag + '</i>\
+                                        <div class="discount_icon_box ' + discount_icon_box + '" >\
+                                            <i class="discount_icon listicon">低至<span>' + _data[i].discount + '</span>折</i>\
+                                             限时活动，下单就减 >\
+                                        </div>\
+                                    </div>\
+                                    <div class="ml10 mt15 mr10">\
+                                        <span class="fl play_name">' + festival_icon + '' + user_nickname + '</span>\
+                                        <span class="fr play_san">' + _data[i].grading + '</span>\
+                                        <div class="clearfix"></div>\
+                                    </div>\
+                                    <div class="ml10 mt10">\
+                                        <div class="fl ">\
+                                            <div class="fl ' + play_age + '">\
+                                                <i class="side_bg ' + play_ageimg + ' fl"></i>\
+                                                <span class="fl">' + _data[i].age + '</span>\
+                                                <div class="clearfix"></div>\
+                                            </div>\
+                                            <div class="fl ml5 ctiy">' + _data[i].city + '</div>\
+                                            <div class="clearfix"></div>\
+                                        </div>\
+                                        <div class="fr play_time">￥<span>' + _data[i].price / 100 + '/</span>' + _data[i].unit + '</div>\
+                                    </div>\
+                                    <div class="fr festival"></div>\
+                                    <div class="clearfix"></div>\
+                                    <div class="' + play_status + ' ml10 mr10">\
+                                        ' + status_img + '\
+                                        <div class="div_play_pro fr ' + div_play_pro_add + '"><img src="picture/immortal.png" style=""></div>\
+                                    </div>\
+                                </div>\
+                            </a>'
+                    }
+                    if (pageever == 1) {
+                        $(".list_left_box").html(str);
+                    } else {
+                        $(".list_left_box").append(str);
+                    }
+
+                    $(".list_left_box").css("margin-top", "0");
+                    $(".list_left_box").css("font-size", "12px");
+                    $(".list_left_box").css("text-align", "left");
+                } else {
+                    flag11 = 0;
+                    if (pageever == 1) {
+                        $(".list_left_box").html("暂无数据");
+                        $(".list_left_box").css("text-align", "center");
+                        $(".list_left_box").css("margin-top", "100px");
+                        $(".list_left_box").css("font-size", "19px")
+                    }
+
+
+                }
+                // console.log(arr2)
+                // 切换
+                if (pageever == 1) {
+                    var filter = data.filter,
+                        grading = filter.grading,
+                        gradingStr = "",
+                        grade_icon_add = "";
+                    for (var i = 0; i < grading.length; i++) {
+                        if (i == 0) {
+                            grade_icon_add = "grade_icon_add";
+                        } else {
+                            grade_icon_add = "";
+                        }
+                        gradingStr += '<div class="fl grade_icon grade_btn ' + grade_icon_add + '" grading="' + grading[i].id + '">' + grading[i].name + '</div>'
+                    }
+
+                    if (flag == false) {
+                        $("#grade_icon").html(gradingStr);
+                        flag = true;
+                    }
+                    // 加载富豪榜
+                    requestHot();
+                    // 热度榜
+                    var hot = data.hot;
+                    week = hot.week;
+                    month = hot.month;
+                    if (week) {
+                        hotdata(week);
+
+                        $(".sub-nav-call").eq(0).show();
+                    } else {
+                        hotdata(month);
+                        $(".sub-nav-call").eq(0).hide();
+
+                    }
+                }
+
+
+                pageever++;
+            }
+        })
+
+    }
+    // 切换热度榜的7和30天
+    $(".sub-nav-call").on("click", function() {
+        var n = $(".sub-nav-call").index(this);
+        $(".sub-nav-call").removeClass("on");
+        $(this).addClass("on");
+        if ($(".sub-nav-call").length > 1) {
+            if (n == 0) {
+                hotdata(week);
+            } else {
+                hotdata(month);
+            }
+        }
+
+    })
+
+    function hotdata(type) {
+        var data = type;
+        var rightstr = '';
+        for (var i = 0; i < data.length; i++) {
+            var avatar_class = "";
+            if (i == 0) {
+                avatar_class = "first";
+            } else if (i == 1) {
+                avatar_class = "second";
+            } else if (i == 2) {
+                avatar_class = "third";
+            } else {
+                avatar_class = "";
+            }
+            var user_nickname = "";
+            user_nickname = nameFormat(data[i].nickname, 20, -7)
+
+            rightstr += '<dl class="' + avatar_class + '">\
+                    <dt>\
+                        <a  href="https://y.tuwan.com/play/' + data[i].teacherid + '/?gameid=' + gameid + '" target="_blank"><img src="' + data[i].avatar + '" alt="电竞奥巴马" onerror="this.src=\'https://uc.tuwan.com/images/noavatar_1.jpg\'">\
+                        <span class="avatar-mask"></span></a>\
+                    </dt>\
+                    <dd>\
+                        <h3 class="name"><a href="https://y.tuwan.com/play/' + data[i].teacherid + '/?gameid=' + gameid + '" target="_blank">' + user_nickname + '</a></h3>\
+                        <p>接单：' + data[i].total + '</p>\
+                    </dd>\
+                </dl>';
+        }
+        $("#cv-rank-call2").html(rightstr);
+
+    }
+
+
+    leftlistdata();
+    // 智能推荐
+    $(".sort_nav").on("click", function() {
+        arr1 = [];
+        arr2 = [];
+        var n = $(".sort_nav").index(this);
+        $(".sort_nav").removeClass("sort_nav_add");
+        $(this).addClass("sort_nav_add");
+        if (n == 0) {
+            typeid = 0;
+        } else if (n == 1) {
+            typeid = 2;
+        } else if (n == 2) {
+            typeid = 1;
+        }
+        pageever = "1";
+        leftlistdata();
+    });
+    var flag = false;
+    $(document).on("click", ".grade_btn", function() {
+        arr1 = [];
+        arr2 = [];
+        pageever = "1"
+        grading = $(this).attr("grading");
+        $(document).find(".grade_btn").removeClass("grade_icon_add");
+        $(this).addClass("grade_icon_add");
+        leftlistdata();
+        flag = true;
+    })
+    $(document).on("click", ".grade_sex", function() {
+        arr1 = [];
+        arr2 = [];
+        pageever = "1"
+        var n = $(".grade_sex").index(this);
+        $(".grade_sex").removeClass("grade_icon_add");
+        $(this).addClass("grade_icon_add");
+        if (n == 1) {
+            sex = 2;
+        } else if (n == 2) {
+            sex = 1;
+        } else {
+            sex = 0;
+        }
+        leftlistdata();
+    })
+
+    // 通过url里面的值来判断服务的那个处于选中状态
+    for (var i = 0; i < $(".icon_box").length; i++) {
+        var _gameid = $(".icon_box").eq(i).attr("gameid");
+        var _class = $(".icon_box").eq(i).attr("_class");
+        if (_gameid == gameid) {
+            $(".icon_box i").eq(i).addClass(_class + "_click");
+            $(".icon_box").eq(i).css("color", "#fa6543");
+        }
+
+    }
+
+    $(".icon_box").on("click", function() {
+        arr1 = [];
+        arr2 = [];
+        pageever = "1";
+        sex = 0;
+        grading = -1;
+        // 男神女神清零
+        $(".grade_sex").removeClass("grade_icon_add");
+        $(".grade_sex").eq(0).addClass("grade_icon_add");
+        // 热门新人清零
+        $(".sort_nav").removeClass("sort_nav_add");
+        $(".sort_nav").eq(0).addClass("sort_nav_add");
+        typeid = 0;
+        gameid = $(this).attr("gameid");
+        leftlistdata();
+        var _class = $(this).attr("_class");
+        for (var i = 0; i < $(".icon_box").length; i++) {
+            _classall = $(".icon_box").eq(i).attr("_class");
+            $(".icon_box i").removeClass(_classall + "_click");
+        }
+        $(this).find("i").addClass(_class + "_click");
+        $(".icon_box").css("color", "#666666")
+        $(this).css("color", "#fa6543");
+        flag = false;
+    });
+
+
+
+
+    //获取文档完整的高度
+    function getScrollHeight() {
+        return Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+    }
+
+    // 获取窗口可视范围的高度
+    function getClientHeight() {
+        var clientHeight = 0;
+        if (document.body.clientHeight && document.documentElement.clientHeight) {
+            clientHeight = Math.min(document.body.clientHeight, document.documentElement.clientHeight);
+        } else {
+            clientHeight = Math.max(document.body.clientHeight, document.documentElement.clientHeight);
+        }
+        return clientHeight;
+    }
+
+    function getScrollTop() {
+        var scrollTop = 0;
+        if (document.documentElement && document.documentElement.scrollTop) {
+            scrollTop = document.documentElement.scrollTop;
+        } else if (document.body) {
+            scrollTop = document.body.scrollTop;
+        }
+        return scrollTop;
+    }
+
+    // 滚动加载
+    // 可视窗口的高度
+    // var scrollBottom = scrollTop = 0;
+    $(document).scroll(function() {
+
+        if (getScrollHeight() - (getScrollTop() + getClientHeight()) <= 1 && flag11 == 1) {
+            leftlistdata();
+        }
+
+
+        // var dch = getClientHeight();
+        // var scrollTop = getScrollTop();
+
+        // var scrollBottom = document.body.scrollHeight - scrollTop;
+        // console.info(scrollBottom);
+        // if(scrollBottom == dch && flag11==1){
+        //     leftlistdata();
+
+        // }
+
+    });
+    // 滑动出现咨询客服
+    $(function() {
+        $(window).scroll(function() {
+            var ling = $(document).scrollTop();
+            if (ling > 0) {
+                $(".fixed-nav-cell").css("display", 'block');
+            } else {
+                $('.fixed-nav-cell').css("display", 'none');
+            }
+        })
+    })
+    // 滑动出现咨询客服
+</script>
+<!-- 能力检测 -->
+<script type="text/javascript" src="js/rtcsupport.js"></script>
+
+<script type="text/javascript" src="js/nim_web_sdk_v4.7.0.js"></script>
+<script type="text/javascript" src="js/nim_web_nim_v4.7.0.js"></script>
+<script type="text/javascript" src="js/nim_web_netcall_v4.7.0.js"></script>
+<script type="text/javascript" src="js/nim_web_webrtc_v4.7.0.js"></script>
+<!-- <script src="js/jquery-1.12.3.min.js"></script> -->
+<script type="text/javascript" src="js/twim.js"></script>
+
+
+<style type="text/css">
+    .right-float {
+        width: 72px;
+        text-align: center;
+        position: fixed;
+        right: 10px;
+        bottom: 100px;
+        line-height: 0;
+        z-index: 9999;
+        font-size: 12px;
+    }
+
+    .right-float .right-float-main {
+        background: #fff;
+        padding: 10px 0;
+        border-radius: 5px;
+        box-shadow: 1px 1px 10px #f0f0f0;
+    }
+
+    .right-float .right-float-main p {
+        margin: 0;
+        padding: 0;
+        line-height: 30px;
+    }
+
+    .right-float .right-float-main a.right-float-item {
+        padding: 4px 0;
+        margin-bottom: 10px;
+        display: block;
+        cursor: pointer;
+        position: relative
+    }
+
+    .right-float .right-float-main .right-icon {
+        height: 38px;
+    }
+
+    .right-float .right-float-main .right-kefu {
+        background: url(images/kefu_default.png) no-repeat center center;
+    }
+
+    .right-float .right-float-main .right-chatroom {
+        background: url(images/chatroom_default.png) no-repeat center center;
+    }
+
+    .right-float .right-float-main .right-is {
+        background: url(images/is_default.png) no-repeat center center;
+    }
+
+    .right-float .right-float-main .right-chat {
+        height: 36px;
+        background: url(images/chat_default.png) no-repeat center center;
+    }
+
+    .right-float .right-float-main .right-top {
+        height: 18px;
+        background: url(images/top_default.png) no-repeat center center;
+    }
+
+    .right-float .right-float-main a.right-float-item {
+        color: #333;
+        text-decoration: none;
+    }
+
+    .right-float .right-float-main a.right-float-item:hover p {
+        color: #f64662;
+    }
+
+    .right-float .right-float-main a.right-float-item:hover .right-kefu {
+        background: url(images/kefu_select.png) no-repeat center center;
+    }
+
+    .right-float .right-float-main a.right-float-item:hover .right-chatroom {
+        background: url(images/chatroom_select.png) no-repeat center center;
+    }
+
+    .right-float .right-float-main a.right-float-item:hover .right-is {
+        background: url(images/is_select.png) no-repeat center center;
+    }
+
+    .right-float .right-float-main a.right-float-item:hover .right-chat {
+        height: 36px;
+        background: url(images/chat_select.png) no-repeat center center;
+    }
+
+    .right-float .right-float-main a.right-float-item:hover .right-top {
+        height: 18px;
+        background: url(images/top_select.png) no-repeat center center;
+    }
+
+    .messageNums {
+        display: none;
+        width: 20px;
+        height: 20px;
+        border-radius: 20px;
+        background: red;
+        color: #fff;
+        font-size: 14px;
+        text-align: center;
+        line-height: 20px;
+        position: absolute;
+        top: -4px;
+        left: 43px;
+    }
+</style>
+<div class="right-float">
+    <div>
+        <img src="picture/float_head.png">
+    </div>
+    <div class="right-float-main">
+        <a class="right-float-item" id="dd_kefu_float">
+            <div class="right-icon right-kefu"></div>
+            <p>咨询客服</p>
+        </a>
+        <a class="right-float-item" target="_blank" href="https://y.tuwan.com/chatroom">
+            <div class="right-icon right-chatroom"></div>
+            <p>语音大厅</p>
+        </a>
+        <!-- <a class="right-float-item" target="_blank" href="https://y.tuwan.com/is">
+            <div class="right-icon right-is"></div>
+            <p>IS聊天室</p>
+        </a> -->
+        <a class="right-float-item" id="rightfloat_showchat">
+            <div class="messageNums">1</div>
+            <div class="right-icon right-chat"></div>
+            <p>私信</p>
+        </a>
+        <a class="right-float-item" href="#">
+            <div class="right-icon right-top"></div>
+            <p>顶上</p>
+        </a>
+    </div>
+</div>
+<div id="div-im-message" style="position: fixed;z-index: 2000; right: -290px; bottom: 20px; background: #fff; border-radius: 10px; width: 220px; min-height: 20px; box-shadow: 0px 0px 100px #b1b1b1; padding:20px; cursor: pointer;">
+    <div>
+        <div id="div-im-username" style="display: inline-block; color: #ff0000;"></div>
+        <div id="div-im-text" style="display: inline-block; max-width: 220px; word-wrap: break-word; color: #666;"></div>
+    </div>
+</div>
+
+<div id="div-im-content" style="position: fixed; z-index: 2001; left: 0; top: 0; background: rgba(51,51,51,0.5); width: 100%; height: 100%; display: none;">
+    <div style="width: 1002px; height: 622px; position: absolute;left: 50%; top: 50%; transform: translate(-50%, -50%); cursor: pointer;">
+        <div onclick="document.getElementById('div-im-content').style.display='none';" style="width: 38px; height: 38px; position: absolute; right: -25px; top: -25px; z-index: 99">
+            <img src="picture/close.png">
+        </div>
+        <iframe style="width: 100%; height: 100%" scrolling="no" src=""></iframe>
+    </div>
+
+</div>
+
+
+
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        var unReadCount = 0
+        var idArr = []
+        var unReadRrr = []
+        var cb = {
+            onTextMessage: onTextMessage,
+            onConnect: function(accid) {
+
+            },
+            onSessions: function(sessions) {
+                console.info("------ygb----onsessions---");
+                console.log(sessions)
+
+                for (var i = 0; i < sessions.length; i++) {
+                    idArr.push(sessions[i].id)
+                    unReadRrr.push(sessions[i].unread)
+                    unReadCount += parseInt(sessions[i].unread)
+                    console.log(unReadCount)
+                }
+                if (unReadCount == 0) {
+                    // $('.messageNums').css('display', "none")
+                } else {
+                    $('.messageNums').html(unReadCount)
+                    $('.messageNums').css('display', "block")
+                }
+            },
+            onupdatesession: function(session) {
+                console.info("------ygb----onupdatesession---");
+                if (idArr.indexOf(session.id) == -1) {
+                    unReadCount += parseInt(session.unread)
+                    if (unReadCount == 0) {} else {
+                        $('.messageNums').html(unReadCount)
+                        $('.messageNums').css('display', "block")
+                    }
+                } else {
+                    var index = idArr.indexOf(session.id)
+                    unReadRrr[index] = session.unread
+                    unReadCount = eval(unReadRrr.join("+"))
+                    if (unReadCount == 0) {
+                        $('.messageNums').css('display', "none")
+                    } else {
+                        $('.messageNums').html(unReadCount)
+                        $('.messageNums').css('display', "block")
+                    }
+                }
+
+            }
+        }
+
+
+        function onTextMessage(msg) {
+            var type = msg.type;
+            if (type == "text") {
+                var fromNick = msg.fromNick;
+                var text = msg.text;
+                var from = msg.from;
+                var to = msg.to;
+
+                $("#div-im-username").html(fromNick + " :");
+                $("#div-im-text").html(text);
+
+                $("#div-im-message").attr("from", from);
+                $("#div-im-message").attr("to", to);
+
+                $("#div-im-message").animate({
+                    right: 20
+                }, 300);
+
+
+                setTimeout(function() {
+                    $("#div-im-message").animate({
+                        right: -290
+                    }, 300);
+                }, 3000)
+            }
+        }
+
+        $("#div-im-message").on("click", function() {
+            var from = $(this).attr("from");
+            $("#div-im-content").show();
+            var time = new Date().getTime();
+            $("#div-im-content iframe").attr("src", "https://y.tuwan.com/immain_test?v=" + time + "&accid=" + from);
+        })
+
+        $("#rightfloat_showchat").on("click", function() {
+            $.ajax({
+                url: "https://user.tuwan.com/api/action.ashx?t=userinfo",
+                type: "get",
+                dataType: "jsonp",
+                success: function(response) {
+                    if (response.code == 0) {
+                        var data = response.data,
+                            uid = data.uid;
+                        if (uid > 0) {
+                            var time = new Date().getTime(),
+                                accidstr = "",
+                                teachername = "";
+                            if (window.teacherid) {
+                                accidstr = "&accid=" + window.teacherid;
+                            }
+                            if (window.teacherName) {
+                                teachername = "&teachername=" + window.teacherName;
+                            }
+                            if ($("#div-im-content iframe").attr("src") == "") {
+                                $("#div-im-content iframe").attr("src", "https://y.tuwan.com/immain_test?v=" + time + accidstr + teachername);
+                            }
+
+                            $("#div-im-content").show();
+                        } else {
+
+                        }
+                    } else if (response.code == -1) {
+                        if ($('#index_pup_box').size() > 0) {
+                            $('#index_pup_box').show();
+                        }
+
+                    }
+                }
+            })
+
+        })
+        var twim = new window.TWAudio.twIM(cb);
+        twim.login();
+
+
+
+    })
+</script>
+<!-- WPA start -->
+<script id="qd2852161723ad87209142c456bcb0954de7a16e34d6" src="js/199e58af25b944139d13531ca903989f.js" charset="utf-8" async defer></script>
+<!-- WPA end -->
+</body>
+
+</html>
+
+</body>
+</html>

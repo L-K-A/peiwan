@@ -120,10 +120,15 @@ public class TPerson implements Serializable {
      */
     private String personCoverphoto;
 
+
     /**
      * 创建时间
      */
     private String personCreatetime;
+    /**
+    * 服务描述
+    */
+    private String  personServicedescription;
 
     /**
      * 成为主播时间
@@ -150,10 +155,6 @@ public class TPerson implements Serializable {
      */
     private Integer zZhubo;
 
-    /**
-     * 服务描述
-     */
-    private String  personServicedescription;
 
 
 }

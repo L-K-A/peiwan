@@ -1,8 +1,9 @@
 
 spring:
   datasource:
+    ##数据库连接信息
     name: mysql_test
-    type: com.alibaba.druid.pool.DruidDataSource
+
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://172.16.35.152:3306/peiwan?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8&useSSL=false
     username: root
@@ -43,5 +44,6 @@ mybatis-plus:
     filters: stat,wall,log4j
     # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
     connectionProperties: druid.stat.mergeSql\=true;druid.stat.slowSqlMillis\=5000
+
 
 

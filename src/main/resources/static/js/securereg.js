@@ -1,4 +1,4 @@
-﻿function sreg(b, c, d, e, f) {
+function sreg(b, c, d, e, f) {
     var a = {};
     a.n = b;
     a.p = c;
@@ -16,3 +16,4 @@
         }
     })
 };
+

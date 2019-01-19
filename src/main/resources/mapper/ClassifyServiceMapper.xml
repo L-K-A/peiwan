@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.peiwan.dao.ClassifyMapper">
+
+
+    <!-- 动态查询 -->
+    <select id="getCondition" parameterType="map" resultType="map">
+        SELECT
+        po.pid,po.person_nickname,po.person_name,po.person_sex,po.person_birthday,po.person_adress,po.person_coverphoto,po.person_createtime,po.z_zhubo,po.oid,po.o_money,g.gid,g.g_duanwei,g.g_price,po.pos
+        FROM
+        (
+        SELECT
+        p.pid,p.person_nickname,p.person_name,p.person_sex,p.person_birthday,p.person_adress,p.person_coverphoto,p.person_createtime,p.z_zhubo,o.oid,o.o_money,
+        COUNT(o.oid) pos
+        FROM t_person p
+        LEFT JOIN t_order_z o ON p.pid=o.pid
+        WHERE p.z_zhubo=1
+        GROUP BY p.pid) po
+        LEFT JOIN t_service g ON po.pid=g.pid
+        WHERE po.z_zhubo=1
+        <if test="map.gid != null and map.gid != ''">
+            and g.gid = #{map.gid}
+        </if>
+        <if test="map.gDw != null and map.gDw != ''">
+            and g.g_duanwei like concat("%",#{map.gDw},"%")
+        </if>
+        <if test="map.psex != null and map.psex != ''">
+            and po.person_sex = #{map.psex}
+        </if>
+        <if test="map.hot !=null and map.hot !=''">
+            group by po.pid
+        </if>
+        <if test="map.newest != null and map.newest !=''">
+            order by po.person_createtime desc
+        </if>
+    </select>
+
+</mapper>

@@ -139,13 +139,13 @@
 
 
                             createMessageHtml();
-                            $(".message-main #message_main_teachearname").html('<a class="message-goteacher-detail" href="https://y.tuwan.com/play/' + SendID + '/" target="_blank">' + Sender + '</a>');
+                            $(".message-main #message_main_teachearname").html('<a class="message-goteacher-detail" href="/' + SendID + '/" target="_blank">' + Sender + '</a>');
                             $(".message-main .message-content").text(_content);
                             // $(".message-main .message-sendtime").text(_time);
 
                             var thumbUrl = getHeadThumb(SendID);
                             $(".message-main .message-hongbao-thumb img").attr("src", thumbUrl);
-                            $(".message-main .message-hongbao-thumb a").attr("href", "https://y.tuwan.com/play/" + SendID + "/");
+                            $(".message-main .message-hongbao-thumb a").attr("href", "");
 
 
                             $(".message-main .message-close").off("click");
@@ -155,7 +155,7 @@
 
                         }
 
-                        new Image().src = "https://app.tuwan.com/Message/ChangeMessage.ashx?messageid=" + messageid + "&action=read"
+                        new Image().src = ""
 
                     }
 
@@ -220,7 +220,5 @@
             $("#message_tips").hide();
         }, 2000)
     }
-
-    new message().init();
-
+	new message().init()
 })(window, document, jQuery);

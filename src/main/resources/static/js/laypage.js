@@ -1,5 +1,4 @@
 /*! layPage-v1.3.0 分页组件 License MIT  http://laypage.layui.com/ By 贤心 */
-
 ;!function () {
     "use strict";
 
@@ -58,5 +57,3 @@
         return a
     }) : "undefined" != typeof exports ? module.exports = a : window.laypage = a
 }();
-
-

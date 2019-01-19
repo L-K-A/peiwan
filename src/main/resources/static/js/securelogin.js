@@ -1,4 +1,4 @@
-﻿function slogin(b, c, d, e, f) {
+function slogin(b, c, d, e, f) {
     var a = {};
     a.username = b;
     a.password = c;

@@ -30,7 +30,7 @@ function setTab(b, a, c) {
 }
 
 function loadcode(b, a, c) {
-    document.getElementById(b).src = location.protocol + "//user.tuwan.com/api/action.ashx?t\x3dverification\x26w\x3d" + a + "\x26h\x3d" + c + "\x26rand\x3d" + Math.random()
+    document.getElementById(b).src = location.protocol + "?t\x3dverification\x26w\x3d" + a + "\x26h\x3d" + c + "\x26rand\x3d" + Math.random()
 }
 
 function pwdPower(b) {
@@ -48,3 +48,4 @@ function pwdPower(b) {
     }(c);
     return 10 <= b.length && c++, s(b) || (c = 1), c = Math.min(Math.max(c, 1), 3)
 };
+
