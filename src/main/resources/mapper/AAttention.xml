@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<<<<<<< HEAD
 <mapper namespace="com.peiwan.dao.LxqUserInfoMapper">
+=======
+<mapper namespace="com.peiwan.dao.ZsdSortMapper">
+>>>>>>> 9fb37ab764f9d72d5831f5bcbec6d7e6ae795c6e
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.peiwan.bean.TAttention">

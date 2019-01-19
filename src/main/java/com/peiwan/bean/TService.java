@@ -1,9 +1,13 @@
 package com.peiwan.bean;
 
-import java.io.Serializable;
+import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
+
+import java.io.Serializable;
 
 /**
  * <p>
@@ -12,10 +16,20 @@ import lombok.experimental.Accessors;
  *
  * @author 
  * @since 2019-01-16
+<<<<<<< HEAD:src/main/java/com/peiwan/bean/TService.java
+=======
+ * @date 2019/1/10 16:32
+>>>>>>> 9fb37ab764f9d72d5831f5bcbec6d7e6ae795c6e:src/main/java/com/peiwan/bean/TService.java
  */
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
+<<<<<<< HEAD:src/main/java/com/peiwan/bean/TService.java
+=======
+@TableName("t_service")
+>>>>>>> 9fb37ab764f9d72d5831f5bcbec6d7e6ae795c6e:src/main/java/com/peiwan/bean/TService.java
 public class TService implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -51,7 +65,11 @@ public class TService implements Serializable {
     private String pGid;
 
     /**
+<<<<<<< HEAD:src/main/java/com/peiwan/bean/TService.java
      * 元/小时
+=======
+     * /元/小时
+>>>>>>> 9fb37ab764f9d72d5831f5bcbec6d7e6ae795c6e:src/main/java/com/peiwan/bean/TService.java
      */
     private Double gPrice;
 
