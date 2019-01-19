@@ -35,14 +35,15 @@ public class ZyfIndexController {
     }
 
 
-    //主播列表
-    @RequestMapping("/getPersonList")
-    public Map<String,Object> getPage(int curPage){
-        Page<Map<String, Object>> page = zyfIndexService.selectPersonList(curPage);
-        List<Map<String, Object>> personList = page.getRecords();
+    //热门推荐主播列表
+    @RequestMapping("/getHotPersonList")
+    public Map<String,Object> getPage(int curPage,int pageSize){
+        Page<Map<String, Object>> page = zyfIndexService.selectHotPerson(curPage,pageSize);
+        long current = page.getCurrent();//获取当前页
+        List<Map<String, Object>> hotPersonList = page.getRecords();
         Map map = new HashMap();
-        map.put("personList",personList);
-        System.out.println("热门推荐列表:"+personList);
+        map.put("hotPersonList",hotPersonList);
+        System.out.println("热门推荐列表:"+hotPersonList);
         return map;
     }
 
@@ -99,6 +100,38 @@ public class ZyfIndexController {
 
 
 
+    //人气榜 周榜 ：先按照规定时间筛选，根据主播的接单总时长来排序
+    @RequestMapping("/getTimeSumList")
+    public Map<String,Object> getTimeList(int curPage,int pageSize){
+        Page<Map<String, Object>> page = zyfIndexService.selectPersonTimeTop(curPage,pageSize);
+        Page<Map<String, Object>> page1 = zyfIndexService.selectPersonTime(curPage, pageSize);
+        List<Map<String, Object>> personTimeListTop = page.getRecords();//周榜前三
+        List<Map<String, Object>> personTimeList = page1.getRecords();//周榜第四到第十
+        Map map = new HashMap();
+        map.put("personTimeListTop",personTimeListTop);
+        map.put("personTimeList",personTimeList);
+        System.out.println("周榜前三:"+personTimeListTop);
+        System.out.println("周榜第四到第十："+personTimeList);
+        return map;
+    }
+
+    //人气榜 总榜 ：根据主播的接单总时长来排序
+    @RequestMapping("/getTimeSumListAll")
+    public Map<String,Object> getTimeListAll(int curPage,int pageSize){
+        Page<Map<String, Object>> page = zyfIndexService.selectPersonTimeAllTop(curPage, pageSize);
+        Page<Map<String, Object>> page1 = zyfIndexService.selectPersonTimeAll(curPage,pageSize);
+        List<Map<String, Object>> personTimeListAllTop = page.getRecords();//总榜前三
+        List<Map<String, Object>> personTimeListAll = page1.getRecords();//总榜第四到第十
+        Map map = new HashMap();
+        map.put("personTimeListAllTop",personTimeListAllTop);
+        map.put("personTimeListAll",personTimeListAll);
+        System.out.println("总榜前三："+personTimeListAllTop);
+        System.out.println("总榜第四到第十"+personTimeListAll);
+        return map;
+    }
+
+
+
     //富豪榜 周榜:先按照规定时间筛选，然后按照用户充值总金额排序
     @RequestMapping("/getMoneySumList")
     public Map<String,Object> getMoneyList(int curPage){
@@ -132,7 +165,7 @@ public class ZyfIndexController {
     //测试主播列表查询
     @RequestMapping("/toList")
     public ModelAndView select(){
-        return new ModelAndView("reDuBang");
+        return new ModelAndView("hotList");
     }
 
 

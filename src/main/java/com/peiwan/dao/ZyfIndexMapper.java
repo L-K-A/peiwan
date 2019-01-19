@@ -19,9 +19,8 @@ import java.util.Map;
 @Mapper
 public interface ZyfIndexMapper extends BaseMapper<TPerson> {
 
-    //查询主播列表
-    @Select("select p.pid,p.person_nickname,p.person_image,s.g_name,s.g_price from t_person p,t_service s where p.pid=s.pid")
-    List<Map<String,Object>> selectPersonPage(int curPage);
+    //热门推荐主播列表
+    List<Map<String,Object>> selectHotPersonList(int curPage,int pageSize);
 
     //导航栏根据昵称和Id模糊查询
     List<Map<String,Object>> selectPersonByNameAndId(TPerson person);
@@ -38,6 +37,17 @@ public interface ZyfIndexMapper extends BaseMapper<TPerson> {
     //热度榜 总榜 第四到第十：查询主播总订单数
     List<Map<String,Object>> selectOrderListAll(int curPage,int pageSize);
 
+
+
+    //人气榜 周榜 前三：先按照规定时间筛选，根据主播的接单总时长来排序
+    List<Map<String,Object>> selectTimeListTop(int curPage,int pageSize);
+    //人气榜 周榜 第四到第十：先按照规定时间筛选，根据主播的接单总时长来排序
+    List<Map<String,Object>> selectTimeList(int curPage,int pageSize);
+
+    //人气榜 总榜 前三：根据主播的接单总时长来排序
+    List<Map<String,Object>> selectTimeListAllTop(int curPage,int pageSize);
+    //人气榜 总榜 第四到第十：根据主播的接单总时长来排序
+    List<Map<String,Object>> selectTimeListAll(int curPage,int pageSize);
 
 
 

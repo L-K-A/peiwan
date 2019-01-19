@@ -346,7 +346,7 @@
                     </li>
                 </ul>
             </div>
-            <!-- 热门推荐 -->
+            <!-- 贴心推荐 -->
             <div class="right">
                 <div class="wall_top_wrapper">
                     <span class="wall_title_wrapper">
@@ -383,14 +383,12 @@
             </div>
         </div>
     </div>
-    <!--通宵专区-->
 
-        <!-- 头部 -->
+    <!-- 富豪推荐 -->
     <div class="plute_title_wrapper">
         <img src="/images/plute_5.png" alt="" class="hot_title">
     </div>
-    <!-- 富豪专区 -->
-    
+
     <div class="plute_wrapper">
         <div class="info_box">
             <div class="left swiper-button-next2"></div>
@@ -444,7 +442,7 @@
                             <p class="nick">接彩六r6先私聊</p>
                         </a>
                     </div>
-                                    </div>
+                </div>
             </div>
             <div class="right swiper-button-prev2"></div>
         </div>
@@ -462,7 +460,6 @@
             </span>
         </div>
         <!-- 列表 -->
-
         <ul class="hot_content_wrapper">
             <li class="hot_content_item " v-for="(item,index) in result" :key="index" @click="hotDetailUrl(item)"><!--触发事件-->
                 <div class="frame_logo_wrapper" :class="item.tags"> <!--tags是什么-->
@@ -630,7 +627,7 @@
                     <div class="list_item" style="display: none" v-show="tabShow1===1">
                         <div class="top">
                             <ul class="list_top_wrapper">
-                                <li class="list_top_item url_point" v-for="(item,index) in seven_charm_top">
+                                <li class="list_top_item url_point" v-for="(item,index) in order_seven_charm_top">
                                     <div class="logo_wrapper">
                                         <img :src="'/picture/'+item.person_image" class="logo_frame"><!--主播头像-->
                                     </div>
@@ -645,7 +642,7 @@
                         <!--从第四名开始的列表-->
                         <div class="bottom">
                             <ul class="list_bottom_wrapper">
-                                <li class="list_bottom_item url_point" v-cloak v-for="(item,index) in seven_charm" :key="index" @click="detailUrl(item.uid,item.pw_status)">
+                                <li class="list_bottom_item url_point" v-cloak v-for="(item,index) in order_seven_charm" :key="index" @click="detailUrl(item.uid,item.pw_status)">
                                     <i class="num_wrapper"><i class="num_item"><i class="num">{{index+4}}</i></i>
                                     </i>
                                     <div class="logo_wrapper">
@@ -673,7 +670,7 @@
                     <div class="list_item" style="display: none" v-show="tabShow1===2">
                         <div class="top"> <!--榜单前三-->
                             <ul class="list_top_wrapper">
-                                <li class="list_top_item url_point" v-for="(item,index) in charm_top">
+                                <li class="list_top_item url_point" v-for="(item,index) in order_charm_top">
                                     <div class="logo_wrapper">
                                         <img :src="'/picture/'+item.person_image" class="logo_frame"><!--主播头像-->
                                     </div>
@@ -688,7 +685,7 @@
                         <!--从第四名开始的列表-->
                         <div class="bottom">
                             <ul class="list_bottom_wrapper">
-                                <li class="list_bottom_item url_point" v-cloak v-for="(item,index) in charm" :key="index" @click="detailUrl(item.uid,item.pw_status)">
+                                <li class="list_bottom_item url_point" v-cloak v-for="(item,index) in order_charm" :key="index" @click="detailUrl(item.uid,item.pw_status)">
                                     <i class="num_wrapper"><i class="num_item"><i class="num">{{index+4}}</i></i>
                                     </i>
                                     <div class="logo_wrapper">
@@ -721,36 +718,37 @@
                 <div class="list_title_wrapper">
                     <img src="/images/list_title_2.png" alt="" class="title">
                 </div>
-                <!-- 头背景 -->
-                <div class="top_bg_wrapper" style="display: none" v-show="tabShow1===1">
+                <!-- 周榜 头背景 -->
+                <div class="top_bg_wrapper" style="display: none" v-show="tabShow2===1">
                     <!-- <img :src="leftTopBgImg1" alt="" class="top_bg_img" >-->
                     <img src="/images/mongolian_purple" alt="" class="mongolian">
                 </div>
-                <div class="top_bg_wrapper" style="display: none" v-show="tabShow1===2">
+                <!--总榜头背景-->
+                <div class="top_bg_wrapper" style="display: none" v-show="tabShow2===2">
                     <!--  <img :src="leftTopBgImg2" alt="" class="top_bg_img" >-->
                     <img src="/images/mongolian_purple" alt="" class="mongolian">
                 </div>
                 <!-- 选项卡 -->
                 <div class="tab_wrapper">
                     <div class="tab_content">
-                        <div class="tab_item" :class="{on:tabShow1===1}" @click="tabFun1(1)">周榜</div>
-                        <div class="tab_item" :class="{on:tabShow1===2}" @click="tabFun1(2)">总榜</div>
+                        <div class="tab_item" :class="{on:tabShow2===1}" @click="tabFun2(1)">周榜</div>
+                        <div class="tab_item" :class="{on:tabShow2===2}" @click="tabFun2(2)">总榜</div>
                     </div>
                 </div>
                 <!-- 列表内容 -->
                 <div class="list_wrapper">
-                    <!-- 周榜 -->
-                    <div class="list_item" style="display: none" v-show="tabShow1===1">
+                    <!-- 人气周榜 -->
+                    <div class="list_item" style="display: none" v-show="tabShow2===1">
                         <div class="top">
                             <ul class="list_top_wrapper">
-                                <li class="list_top_item url_point" v-for="(item,index) in money_seven_charm_top">
+                                <li class="list_top_item url_point" v-for="(item,index) in time_seven_charm_top">
                                     <div class="logo_wrapper">
                                         <img :src="'/picture/'+item.person_image" class="logo_frame"><!--主播头像-->
                                     </div>
                                     <div class="text">{{item.person_nickname}}</div>
                                     <div class="hot_wrapper">
                                         <i class="icon"></i>
-                                        <span class="hot_text">{{item.om}}</span>
+                                        <span class="hot_text">{{item.ot}}</span>
                                     </div>
                                 </li>
                             </ul>
@@ -758,7 +756,7 @@
                         <!--从第四名开始的列表-->
                         <div class="bottom">
                             <ul class="list_bottom_wrapper">
-                                <li class="list_bottom_item url_point" v-cloak v-for="(item,index) in money_seven_charm" :key="index" @click="detailUrl(item.uid,item.pw_status)">
+                                <li class="list_bottom_item url_point" v-cloak v-for="(item,index) in time_seven_charm" :key="index" @click="detailUrl(item.uid,item.pw_status)">
                                     <i class="num_wrapper"><i class="num_item"><i class="num">{{index+4}}</i></i>
                                     </i>
                                     <div class="logo_wrapper">
@@ -772,8 +770,8 @@
                                             <div class="right_content">
                                                 <!-- 热度值-->
                                                 <div class="hot_wrapper">
-                                                    <span class="icon">贡献:</span>
-                                                    <span class="hot_text">{{item.om}}</span>
+                                                    <span class="icon">时长:</span>
+                                                    <span class="hot_text">{{item.ot}}</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -782,11 +780,11 @@
                             </ul>
                         </div>
                     </div>
-                    <!-- 总榜 -->
-                    <div class="list_item" style="display: none" v-show="tabShow1===2">
+                    <!-- 人气总榜 -->
+                    <div class="list_item" style="display: none" v-show="tabShow2===2">
                         <div class="top"> <!--榜单前三-->
                             <ul class="list_top_wrapper">
-                                <li class="list_top_item url_point" v-for="(item,index) in money_charm_top">
+                                <li class="list_top_item url_point" v-for="(item,index) in time_charm_top">
                                     <div class="logo_wrapper">
                                         <img :src="'/picture/'+item.person_image" class="logo_frame"><!--主播头像-->
                                     </div>
@@ -801,7 +799,7 @@
                         <!--从第四名开始的列表-->
                         <div class="bottom">
                             <ul class="list_bottom_wrapper">
-                                <li class="list_bottom_item url_point" v-cloak v-for="(item,index) in money_charm" :key="index" @click="detailUrl(item.uid,item.pw_status)">
+                                <li class="list_bottom_item url_point" v-cloak v-for="(item,index) in time_charm" :key="index" @click="detailUrl(item.uid,item.pw_status)">
                                     <i class="num_wrapper"><i class="num_item"><i class="num">{{index+4}}</i></i>
                                     </i>
                                     <div class="logo_wrapper">
@@ -815,8 +813,8 @@
                                             <div class="right_content">
                                                 <!-- 热度值-->
                                                 <div class="hot_wrapper">
-                                                    <span class="icon">接单数:</span>
-                                                    <span class="hot_text">{{item.oo}}</span>
+                                                    <span class="icon">时长:</span>
+                                                    <span class="hot_text">{{item.ot}}</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -853,7 +851,7 @@
                 </div>
                 <!-- 列表内容 -->
                 <div class="list_wrapper">
-                    <!-- 周榜 -->
+                    <!-- 富豪周榜 -->
                     <div class="list_item" style="display: none" v-show="tabShow3===1">
                         <div class="top">
                             <ul class="list_top_wrapper">
@@ -896,7 +894,7 @@
                             </ul>
                         </div>
                     </div>
-                    <!-- 总榜 -->
+                    <!-- 富豪总榜 -->
                     <div class="list_item" style="display: none" v-show="tabShow3===2">
                         <div class="top"> <!--榜单前三-->
                             <ul class="list_top_wrapper">
@@ -998,49 +996,56 @@
 
 </section>
 
-        <!--热门推荐的函数-->
+
 <script>
 
-    var app = new Vue({
-        el: '#app',
-        data: {
-            result: []
-        }
-    });
+   /* 热门推荐的函数*/
+   var app = new Vue({
+       el: '#app',
+       data: {
+           result: []
+       }
+   });
 
-    var getUserPageList = function (curr) {
-        $.ajax({
-            type: 'POST',
-            dataType: 'json',
-            url: '/person/getPersonList',
-            data: {
-                curPage: curr || 1
-                //pageNum: 10,
-            },
-            success: function (msg) {
-                app.result = msg.personList;
-            }
-        });
-    };
-    getUserPageList();
+   var getUserPageList = function (curr) {
+       $.ajax({
+           type: 'POST',
+           dataType: 'json',
+           url: '/person/getPersonList',
+           data: {
+               curPage: curr || 1 ,
+               pageSize: 10
+           },
+           success: function (msg) {
+               app.result = msg.personList;
+           }
+       });
+   };
+   getUserPageList();
 
-</script>
-
-        <!--排行榜 热度榜和富豪榜的函数-->
-<script>
-
-    var app = new Vue({
+    <!--排行榜 热度榜和富豪榜的函数-->
+    var rank = new Vue({
         el: '#rankings_wrapper',
         data: {
             tabShow1: 1, //魅力榜 1|周榜 2|总榜
+            tabShow2: 1, //人气榜 1|周榜 2|总榜
             tabShow3: 1, //富豪榜 1|周榜 2|总榜
 
-            // 魅力榜
-            seven_charm_top: [], //魅力榜周榜前三
-            seven_charm: [],  //魅力榜周榜第四到第十
 
-            charm_top: [], //魅力榜总榜前三
-            charm: [], //魅力榜总榜第四到第十
+            // 魅力榜
+            order_seven_charm_top: [], //魅力榜周榜前三
+            order_seven_charm: [],  //魅力榜周榜第四到第十
+
+            order_charm_top: [], //魅力榜总榜前三
+            order_charm: [], //魅力榜总榜第四到第十
+
+
+            // 人气榜
+            time_seven_charm_top: [], //人气榜周榜前三
+            time_seven_charm: [],  //人气榜周榜第四到第十
+
+            time_charm_top: [], //人气榜总榜前三
+            time_charm: [], //人气榜总榜第四到第十
 
 
             //富豪榜
@@ -1069,6 +1074,11 @@
                 this.tabShow1 = ind;
             },
 
+            // 人气
+            tabFun2: function (ind) {
+                this.tabShow2 = ind;
+            },
+
             // 富豪
             tabFun3: function(ind) {
                 this.tabShow3 = ind;
@@ -1092,12 +1102,12 @@
             url: '/person/getOrderCountList',
             data: {
                 curPage: curr || 1 ,
-                pageSize: 3
+                pageSize: 10
             },
             success: function (msg) {
                 console.log(msg);
-                app.seven_charm_top = msg.personOrderListTop;
-                app.seven_charm = msg.personOrderList;
+                rank.order_seven_charm_top = msg.personOrderListTop;
+                rank.order_seven_charm = msg.personOrderList;
 
             }
         });
@@ -1116,13 +1126,54 @@
             },
             success: function (msg) {
                 console.log(msg);
-                app.charm_top = msg.personOrderListAllTop;
-                app.charm = msg.personOrderListAll;
+                rank.order_charm_top = msg.personOrderListAllTop;
+                rank.order_charm = msg.personOrderListAll;
 
             }
         });
     };
     getOrderPageListAll();
+
+
+    //人气周榜
+    var getTimePageList = function (curr) {
+        $.ajax({
+            type: 'POST',
+            dataType: 'json',
+            url: '/person/getTimeSumList',
+            data: {
+                curPage: curr || 1 ,
+                pageSize: 3
+            },
+            success: function (msg) {
+                console.log(msg);
+                rank.time_seven_charm_top = msg.personTimeListTop;  //人气榜周榜前三
+                rank.time_seven_charm = msg.personTimeList;         //人气榜周榜第四到第十
+
+            }
+        });
+    };
+    getTimePageList();
+
+    //人气总榜
+    var getTimePageListAll = function (curr) {
+        $.ajax({
+            type: 'POST',
+            dataType: 'json',
+            url: '/person/getTimeSumListAll',
+            data: {
+                curPage: curr || 1 ,
+                pageSize: 10
+            },
+            success: function (msg) {
+                console.log(msg);
+                rank.time_charm_top = msg.personTimeListAllTop;     //人气榜总榜前三
+                rank.time_charm = msg.personTimeListAll;            //人气榜总榜第四到第十
+
+            }
+        });
+    };
+    getTimePageListAll();
 
 
     //富豪周榜
@@ -1137,8 +1188,8 @@
             },
             success: function (msg) {
                 console.log(msg);
-                app.money_seven_charm_top = msg.personMoneyListTop;
-                app.money_seven_charm = msg.personMoneyList;
+                rank.money_seven_charm_top = msg.personMoneyListTop;
+                rank.money_seven_charm = msg.personMoneyList;
 
             }
         });
@@ -1158,8 +1209,8 @@
             },
             success: function (msg) {
                 console.log(msg);
-                app.money_charm_top = msg.personMoneyListAllTop;
-                app.money_charm = msg.personMoneyListAll;
+                rank.money_charm_top = msg.personMoneyListAllTop;
+                rank.money_charm = msg.personMoneyListAll;
 
             }
         });
@@ -1168,6 +1219,7 @@
     getMoneyPageListAll();
 
 </script>
+
 
 
 

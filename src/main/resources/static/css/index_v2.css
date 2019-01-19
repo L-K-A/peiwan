@@ -605,6 +605,12 @@ section .hot_list_wrapper .hot_content_wrapper .hot_content_item:hover .line {
   width: 216px;
   transition: .36s ease;
 }
+/*热门推荐主播头像*/
+section .hot_list_wrapper .hot_content_wrapper .hot_content_item .frame_logo_wrapper {
+  width: 216px;
+  height: 216px;
+  overflow: hidden;
+}
 section .hot_list_wrapper .hot_content_wrapper .hot_content_item:hover .logo_wrapper .icon {
   transition: .36s ease;
   transform: scale(1.1, 1.1);

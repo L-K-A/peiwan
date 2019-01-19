@@ -26,11 +26,11 @@ public class ZyfIndexServiceImpl extends ServiceImpl<ZyfIndexMapper, TPerson> im
     private ZyfIndexMapper zyfIndexMapper;
 
 
-    //查询主播列表
+    //热门推荐主播列表
     @Override
-    public Page<Map<String, Object>> selectPersonList(int curPage) {
+    public Page<Map<String, Object>> selectHotPerson(int curPage,int pageSize) {
         Page<Map<String,Object>> page = new Page<Map<String,Object>>();
-        Page<Map<String, Object>> mapPage = page.setRecords(this.baseMapper.selectPersonPage(curPage));
+        Page<Map<String, Object>> mapPage = page.setRecords(this.baseMapper.selectHotPersonList(curPage, pageSize));
         return mapPage;
     }
 
@@ -73,6 +73,36 @@ public class ZyfIndexServiceImpl extends ServiceImpl<ZyfIndexMapper, TPerson> im
         return orderListAll;
     }
 
+
+
+    //人气榜 周榜 前三：先按照规定时间筛选，根据主播的接单总时长来排序
+    @Override
+    public Page<Map<String, Object>> selectPersonTimeTop(int curPage, int pageSize) {
+        Page<Map<String,Object>> page = new Page<Map<String, Object>>();
+        Page<Map<String, Object>> timeListTop = page.setRecords(this.baseMapper.selectTimeListTop(curPage,pageSize));
+        return timeListTop;
+    }
+    //人气榜 周榜 第四到第十：先按照规定时间筛选，根据主播的接单总时长来排序
+    @Override
+    public Page<Map<String, Object>> selectPersonTime(int curPage, int pageSize) {
+        Page<Map<String,Object>> page = new Page<Map<String, Object>>();
+        Page<Map<String, Object>> timeList = page.setRecords(this.baseMapper.selectTimeList(curPage,pageSize));
+        return timeList;
+    }
+    //人气榜 总榜 前三：根据主播的接单总时长来排序
+    @Override
+    public Page<Map<String, Object>> selectPersonTimeAllTop(int curPage, int pageSize) {
+        Page<Map<String,Object>> page = new Page<Map<String, Object>>();
+        Page<Map<String, Object>> timeListAllTop = page.setRecords(this.baseMapper.selectTimeListAllTop(curPage,pageSize));
+        return timeListAllTop;
+    }
+    //人气榜 总榜 第四到第十：根据主播的接单总时长来排序
+    @Override
+    public Page<Map<String, Object>> selectPersonTimeAll(int curPage, int pageSize) {
+        Page<Map<String,Object>> page = new Page<Map<String, Object>>();
+        Page<Map<String, Object>> timeListAll = page.setRecords(this.baseMapper.selectTimeListAll(curPage,pageSize));
+        return timeListAll;
+    }
 
 
 

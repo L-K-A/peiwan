@@ -17,8 +17,8 @@ import java.util.Map;
  */
 public interface ZyfIndexService extends IService<TPerson> {
 
-    //查询主播列表
-    Page<Map<String,Object>> selectPersonList(int curPage);
+    //热门推荐主播列表
+    Page<Map<String,Object>> selectHotPerson(int curPage,int pageSize);
 
     //导航栏根据昵称和Id模糊查询
     List<Map<String,Object>> selectPersonByNameId(TPerson person);
@@ -32,6 +32,18 @@ public interface ZyfIndexService extends IService<TPerson> {
     Page<Map<String,Object>> selectPersonOrderAllTop(int curPage,int pageSize);
     //热度榜 总榜 第四到第十：查询主播总订单数
     Page<Map<String,Object>> selectPersonOrderAll(int curPage,int pageSize);
+
+
+
+    //人气榜 周榜 前三：先按照规定时间筛选，根据主播的接单总时长来排序
+    Page<Map<String,Object>> selectPersonTimeTop(int curPage,int pageSize);
+    //人气榜 周榜 第四到第十：先按照规定时间筛选，根据主播的接单总时长来排序
+    Page<Map<String,Object>> selectPersonTime(int curPage,int pageSize);
+
+    //人气榜 总榜 前三：根据主播的接单总时长来排序
+    Page<Map<String,Object>> selectPersonTimeAllTop(int curPage,int pageSize);
+    //人气榜 总榜 第四到第十：根据主播的接单总时长来排序
+    Page<Map<String,Object>> selectPersonTimeAll(int curPage,int pageSize);
 
 
 
