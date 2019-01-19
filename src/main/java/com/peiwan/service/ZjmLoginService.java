@@ -31,4 +31,16 @@ public interface ZjmLoginService extends IService<TPerson> {
      */
      boolean registerData(TPerson TPerson);
 
+    /**
+     * 封装发送验证码逻辑
+     */
+
+    void createSmsCode(String personTel);
+
+    /**
+     * 验证码校验
+     */
+    boolean checkSmsCode(String PersonTel,String code);
+
+
 }

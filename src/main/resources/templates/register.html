@@ -32,9 +32,13 @@
 							<div class="form_text_ipt">
 								<input id="personPwds" name="personPwds" type="password" placeholder="重复密码" onblur="rpwds()">
 							</div>
-							<!--<div class="form_text_ipt">-->
-								<!--<input name="code" type="text" placeholder="验证码">-->
-							<!--</div>-->
+							<div class="form_text_ipt">
+								<input id="personTel" name="personTel" type="text" style="width:120px;" placeholder="手机号" onblur="rtel()">
+								<a href="#" onclick="sendCode()">点击获取验证码</a>
+							</div>
+							<div class="form_text_ipt">
+								<input id="code" name="code" type="text" placeholder="验证码" onblur="rcode()">
+								</div>
 							<div class="form_btn">
 								<button type="submit">注册</button>
 							</div>
@@ -62,8 +66,14 @@
 			var personNickname = document.getElementById("personNickname");
 			var personPwd = document.getElementById("personPwd");
 			var personPwds = document.getElementById("personPwds");
-            var nameState="";
+			var personTel = document.getElementById("personTel");
+            var pattern = /^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$/;
+            var codes=/[1-9]\d{5}(?!\d)/;
+            var code = document.getElementById("code");
 
+
+            var nameState="";
+            var checkSmsCode="";
             //表单里为空不能提交
             function beforeSubmitt(form){
                 if (personNickname.value==""){
@@ -91,6 +101,31 @@
                     form.personPwds.focus();
                     return false;
 				}
+
+                if (personTel.value==""){
+                    //layer.msg('手机号不能为空！');
+                    form.personTel.focus();
+                    return false;
+				}else if (!pattern.test(personTel.value)){
+                    //layer.msg('手机号格式不对！');
+                    form.personTel.focus();
+                    return false;
+				}
+
+                if (code.value==""){
+                    //layer.msg('验证码不能为空！');
+                    form.code.focus();
+                    return false;
+                }else if(!codes.test(code.value)){
+                    //layer.msg('验证码格式不对！');
+                    form.code.focus();
+                    return false;
+                }else if (!checkSmsCode){
+                    //layer.msg('请再次确定验证码！');
+                    form.code.focus();
+					return false
+				}
+
 
 			}
             //用ajax异步验证用户名
@@ -132,6 +167,74 @@
 				}else {
 				}
             }
+            //手机号校验
+            function rtel() {
+                if (personTel.value==""){
+                    layer.tips("手机号不能为空！",'#personTel');
+                }else if(!pattern.test(personTel.value)){
+                    layer.tips("手机号格式不对！",'#personTel');
+                }
+            }
+
+            //发送验证码
+			function sendCode() {
+
+                if (personTel.value==""){
+                    layer.tips("手机号不能为空！",'#personTel');
+                }else if(!pattern.test(personTel.value)){
+                    layer.tips("手机号格式不对！",'#personTel');
+                }else {
+                    layer.tips("验证码已经发送请注意查收！",'#personTel');
+                    $.ajax({
+                        url: '/sendCode',//跳到业务层
+                        type: 'get',
+                        dataType: 'json',
+                        data:{
+                            personTel:personTel.value
+                        },
+                        success: function (msg) {
+
+                        },
+                        error: function () {
+
+                        }
+                    });
+				}
+
+            }
+
+            //验证码校验
+			function rcode() {
+                if (code.value==""){
+                    layer.tips("验证码不能为空！",'#code');
+                }else if(!codes.test(code.value)){
+                    layer.tips("验证码格式不对！",'#code');
+                }else{
+                    $.ajax({
+                        url: '/Ycode',//跳到业务层
+                        type: 'get',
+                        dataType: 'json',
+                        data:{
+                            personTel:personTel.value,
+                            smscode:code.value
+                        },
+                        success: function (msg) {
+                            layer.msg(msg.checkSmsCode);
+                            checkSmsCode=msg.checkSmsCode;
+                            if (checkSmsCode){
+                                layer.tips("验证码可以注册！",'#code');
+							} else {
+                                layer.tips("验证码不匹配！",'#code');
+                            }
+                        },
+                        error: function () {
+
+                        }
+                    });
+				}
+
+            }
+
 
 
 

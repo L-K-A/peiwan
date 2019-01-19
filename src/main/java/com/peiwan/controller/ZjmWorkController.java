@@ -1,6 +1,7 @@
 package com.peiwan.controller;
 
 import com.peiwan.bean.TPerson;
+import com.peiwan.common.utils.PhoneFormatCheckUtils;
 import com.peiwan.service.ZjmLoginService;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.IncorrectCredentialsException;
@@ -52,7 +53,8 @@ public class ZjmWorkController {
      */
     @RequestMapping("/registers")
     public String registers(TPerson TPerson){
-        if (TPerson.getPersonNickname()!=null||TPerson.getPersonPwd()!=null){
+
+        if (TPerson.getPersonNickname()!=null||TPerson.getPersonPwd()!=null||TPerson.getPersonTel()!=null){
             boolean result= zjmLoginService.registerData(TPerson);
             if (result){
                 return "login";
@@ -64,6 +66,41 @@ public class ZjmWorkController {
         }
 
     }
+
+//    手机验证码业务
+    @RequestMapping("/sendCode")
+    @ResponseBody
+    public Map  sendCode(String personTel){
+        Map map = new HashMap();
+        if(!PhoneFormatCheckUtils.isChinaPhoneLegal(personTel)){
+            map.put("msg","手机格式不正确！");
+            return map;
+        }
+        try {
+            zjmLoginService.createSmsCode(personTel);
+            map.put("msg",true);
+            return map;
+        } catch (Exception e) {
+            e.printStackTrace();
+            map.put("msg",false);
+            return map;
+        }
+    }
+
+    //检验验证码是否正确
+    @RequestMapping("/Ycode")
+    @ResponseBody
+    public Map Ycode(String personTel,String smscode){
+        Map map = new HashMap();
+        boolean checkSmsCode = zjmLoginService.checkSmsCode(personTel,smscode);
+        if (!checkSmsCode){
+            map.put("checkSmsCode",false);
+            return map;
+        }
+        map.put("checkSmsCode",true);
+        return map;
+    }
+
 
 //登陆
     /**

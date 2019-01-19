@@ -1,5 +1,6 @@
 package com.peiwan.serviceimpl;
 
+import com.alibaba.fastjson.JSON;
 import com.peiwan.bean.TPerson;
 import com.peiwan.bean.TPerson;
 import com.peiwan.common.utils.UUIDUtil;
@@ -8,12 +9,17 @@ import org.apache.shiro.crypto.hash.SimpleHash;
 import com.peiwan.service.ZjmLoginService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.apache.shiro.util.ByteSource;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.jms.core.JmsMessagingTemplate;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * <p>
@@ -126,6 +132,7 @@ public class ZjmLoginServiceImpl extends ServiceImpl<ZjmLoginMapper, TPerson> im
            String personNickname = tPerson.getPersonNickname();
            //密码
            String personPwd = tPerson.getPersonPwd();
+           String personTel = tPerson.getPersonTel();
            //获取系统当前时间 把它转换成 xxxx-xx-xx
            Date currentTime = new Date();
            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
@@ -151,16 +158,67 @@ public class ZjmLoginServiceImpl extends ServiceImpl<ZjmLoginMapper, TPerson> im
            person.setPersonPwd(newPs);
            person.setPersonPwdencry(newPs);
            person.setPersonCreatetime(PersonCreatetime);
+           person.setPersonTel(personTel);
            Integer integer = zjmLoginMapper.registerData(person);
            if (integer==1){
                return true;
            }else {
                return false;
            }
-
-
        }else {
            return false;
        }
+    }
+
+    /**
+     * 封装发送验证码逻辑
+     */
+    @Autowired
+    private RedisTemplate redisTemplate;
+
+    @Autowired
+    private JmsMessagingTemplate jmsMessagingTemplate;
+
+    @Override
+    public void createSmsCode(String personTel) {
+
+        //1生产一个6位随机数
+        String smscode=(long)(Math.random()*1000000)+"";
+        System.out.println(smscode);
+        //2将验证码放入redis
+        redisTemplate.boundHashOps("smscodl").put("personTel",smscode);
+
+        //3将短信内容发送给activeMQ
+        Map map = new HashMap();
+        Map map2 = new HashMap();
+        map.put("mobile",personTel);
+        map.put("template_code","PW工作室");
+        map.put("sign_name","SMS_155861806");
+        map2.put("name","Tom");
+        map2.put("code",smscode);
+        map.put("param", JSON.toJSONString(map2));
+        jmsMessagingTemplate.convertAndSend("sms",map);
+
+    }
+
+    /**
+     * 验证码校验
+     *
+     * @param PersonTel
+     * @param code
+     */
+    @Override
+    public boolean checkSmsCode(String PersonTel, String code) {
+        System.out.println("service里是否等到手机号和验证码"+PersonTel+":"+code);
+        String  systemcode = (String) redisTemplate.boundHashOps("smscodl").get("personTel");
+        if (systemcode==null){
+            System.out.println("缓存的验证码不存在");
+            return false;
+        }else if (!code.equals(systemcode)){
+            System.out.println("两次的验证码不一致");
+            return false;
+        }else {
+            return true;
+        }
     }
 }
