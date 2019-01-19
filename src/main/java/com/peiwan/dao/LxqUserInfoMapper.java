@@ -33,11 +33,13 @@ public interface LxqUserInfoMapper extends BaseMapper<TAttention>{
      */
 
     @Update("update t_person set " +
-            "person_nickname=#{personNickname},person_sex=#{personSex}," +
+            "person_name=#{personNickname},person_sex=#{personSex}," +
             "person_birthday=#{personBirthday},person_qq=#{personQq}," +
             "person_adress=#{personAdress},person_content=#{personContent}," +
             "person_height=#{personHeight},person_weight=#{personWeight}," +
-            "person_career=#{personCareer},person_school=#{personSchool},person_servicedescription=#{personServicedescription} where pid=#{pid}")
+            "person_career=#{personCareer},person_school=#{personSchool}," +
+            "person_servicedescription=#{personServicedescription}," +
+            "person_interest=#{personInterest},person_coverphoto=#{personCoverphoto},person_status =1  where pid=#{pid}")
     int getUpdatePPerson(TPerson pPerson);
 
     /**

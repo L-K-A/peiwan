@@ -380,7 +380,7 @@
                     </select>-->
                     <a href="javascript:void(0)" class="pick-area pick-area2" name="" style="margin-left: 138px;"></a>
                     <!--<div style="margin-top: -39px;margin-left: 350px"></div>-->
-                        <input type="text" placeholder="省/市" style="margin:2px 0 0 138px">
+                        <input type="text" placeholder="省/市" name="personAdress" style="margin:2px 0 0 138px">
 
                     <div class="clearfix"></div>
                 </div>
@@ -778,12 +778,13 @@
                         <div class="diagram diagram2" style="margin-top:10px;margin-right:16px;"></div>
                     </div>
                     <!--富文本编辑器-->
-                    <textarea  id="servicetext" style="display: none"></textarea>
+                    <textarea  name="personServicedescription" id="servicetext" style="display: none"></textarea>
                     <div class="clearfix"></div>
 
                 </div>
                 <div class="mt30" id="gamelist" style="display: none;">
-                    <div class="fl mt10 name_title"><span class="star"></span>QQ/微信 可接段位:</div>
+                    <div class="fl mt10 name_title">
+                        <span class="star"></span>QQ/微信 可接段位:</div>
                     <div class="ajaxgamelist fl" style="width: 724px;">
                         <div class='mt10 fl mr40 gamenums1'>
                             <input type='checkbox' name='gDuanwei' class='gamelist' value='1'/>倔强黄铜
@@ -1542,7 +1543,7 @@
                 fomFile.append("pid",pid);
                 //获取上传文件的路径和名称
                 var filePath=$("input[name='himage']").val();
-                Helper.ui.dialogSuccess( "提交成功", "请耐心等待审核,页面将返回!!" );
+                /*Helper.ui.dialogSuccess( "提交成功", "请耐心等待审核,页面将返回!!" );*/
 
                 $.ajax({
                     type: "POST",
@@ -1555,7 +1556,9 @@
                     success: function (result) {
                         if(result.succ==1){
                            /!* Helper.ui.dialogSuccess( "提交成功", "页面将返回!" );*!/
-                            countDown(1);
+                            countDown(5);
+                        }else {
+                            Helper.ui.dialogError( "出错了", "重新填写!" );
                         }
                     }
                 });
@@ -1565,6 +1568,7 @@
 
         function countDown(secs){
             if(secs>0){
+                Helper.ui.dialogSuccess( "提交成功", "页面将返回!" );
                 setTimeout("countDown("+secs+")",10000);
                 location.href='/indexw';
             }else{

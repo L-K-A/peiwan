@@ -9,6 +9,7 @@ import com.peiwan.dao.LxqUserInfoMapper;
 import com.peiwan.service.LxqUserInfoService;
 import com.qiniu.util.Auth;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.interceptor.TransactionAspectSupport;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import sun.misc.BASE64Decoder;
@@ -312,12 +313,14 @@ public class LxqUserInfoController {
         /*lxqUserInfoMapper.getPPersonInsert(pPerson);
         lxqUserInfoMapper.getInsertAlity(pAlity);
         lxqUserInfoMapper.getInsertGservice(gService);*/
-        int a=lxqUserInfoService.queryUpdateUserInfo(pPerson);
-        if(a>0){
-            lxqUserInfoService.queryUpdateUserAlity(pAlity);
-            lxqUserInfoService.queryUpdateUserService(gService);
-            map.put("succ", 1);
-        }
+            try{
+                lxqUserInfoService.queryUpdateUserInfo(pPerson);
+                lxqUserInfoService.queryUpdateUserAlity(pAlity);
+                lxqUserInfoService.queryUpdateUserService(gService);
+                map.put("succ", 1);
+            }catch (Exception e){
+                TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
+            }
         return map;
     }
 
