@@ -1,5 +1,4 @@
-﻿
-/*========== reset ==========*/
+﻿/*========== reset ==========*/
 html, body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td, iframe,hr{margin:0;padding:0;}
 fieldset, img { border:0; }
 address, caption, cite, dfn, em, th, var{font-style:normal;font-weight:normal;}
@@ -502,4 +501,3 @@ input{padding:2px 0 1px;*padding:4px 0 0;_padding:4px 0 0;_height:21px;}
     content: "";
     display: table;
 }
-
