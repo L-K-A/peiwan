@@ -82,9 +82,21 @@
         <version>3.7</version>
     </dependency>
 
+
         <!--静态资源加载问题-->
         <!-- 核心模块，包括自动配置支持、日志和YAML -->
-        <!--<dependency>
+        
+       <!-- <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-actuator</artifactId>
+            <version>1.5.9.RELEASE</version>
+        </dependency>-->
+
+
+        <!--静态资源加载问题-->
+        <!-- 核心模块，包括自动配置支持、日志和YAML -->
+       <!--<dependency>
+
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
         </dependency>-->

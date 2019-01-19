@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<<<<<<< HEAD
 <mapper namespace="com.peiwan.dao.LxqUserInfoMapper">
 
     <!-- 通用查询映射结果 -->
@@ -13,5 +14,9 @@
     <sql id="Base_Column_List">
         pid, aid, z_zhubo
     </sql>
+=======
+<mapper namespace="com.peiwan.dao.TAttentionMapper">
+
+>>>>>>> 62f535f901c014b9188b44f6c4b3b6f12f87f396
 
 </mapper>

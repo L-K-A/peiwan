@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>点点约玩</title>
+    <link rel="stylesheet" href="css/zuboInfo.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/layui.css"  media="all">
+    <link rel="stylesheet" type="text/css" href="css/top_footer.css">
+    <!--<script src="/js/vue.min.js"></script>-->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+<div class="body">
+    <!-- 头部zubo-title -->
+    <div class="zubo-title">
+        <div class="title-meta" id="qweqwe" style="scoped:scoped">
+            <div class="zuboImg">
+                <img :src="'./picture/'+result.person_image" alt="">
+            </div>
+            <div class="title-info">
+                <div class="name">{{result.person_nickname}}</div>
+                <div class="credit">
+                    <span>信用值：</span>
+                    <img :src="'./picture/xinyongTu/charm'+result.person_weight+'.png'" class="image" alt="">
+                </div>
+            </div>
+            <div class="zubo-giftBox">
+                <div class="zubo-gift">
+                    <p><span>小a</span>送给<span>小b</span><i></i></p>
+                    <p><span>小a</span>送给<span>小b</span><i></i></p>
+                </div>
+            </div>
+            <div class="zubo-other">
+                <div class="wechart"></div>
+                <div class="share">
+                    <i><img src="/picture/share.png" alt=""></i>
+                    <span><a href="#" @click="editEvent()">分享</a></span>
+                </div>
+                <div class="like" @click="getLike()">
+                    <i><img src="/picture/follow.png" alt=""></i>
+                    <span><a href="#" class="guanzhubian">关注</a></span>
+                </div>
+                <span class="age">
+          <i></i>&nbsp;&nbsp;{{result.person_birthday}}<!--年龄-->
+        </span>
+                <span class="ad">
+          <i></i>&nbsp;&nbsp;{{result.person_adress}}<!--住址-->
+        </span>
+                <span class="data">
+          <i></i>&nbsp;&nbsp;48天前
+        </span>
+            </div>
+        </div>
+    </div>
+    <div class="zubo-cont" id="zhubotouxaing">
+        <div class="left">
+            <!-- 内容区：左侧头部 -->
+            <div class="left-top">
+
+                <div class="zuboTab">
+                    <div class="tabCont">
+                        <img :src="'./picture/'+zbt.person_image" alt="">
+                    </div>
+                    <div class="tabDot">
+                        <div class="tabDotImg">
+                            <img :src="'./picture/'+zbt.person_image" alt="">
+                        </div>
+                        <div class="tabDotImg">
+                            <img :src="'./picture/'+zbt.person_image" alt="">
+                        </div>
+                        <div class="tabDotImg">
+                            <img src="/picture/30_avatar_middle.jpg" alt="">
+                        </div>
+
+                    </div>
+                </div>
+                <!--礼物内容-->
+                <div class="giftTab">
+                    <div class="tabDot">
+                        <div>礼物</div>&nbsp;&nbsp;|&nbsp;&nbsp;
+                        <div>冠名</div>
+                        <div>活动礼</div>
+                        <div>包裹</div>
+                    </div>
+                    <div class="tabCont">
+                        <ul class="tabCont-box">
+                            <li>
+                                <img src="picture/1292451542357555.png" alt="">
+                                <div>感恩的心</div>
+                            </li>
+                            <li>
+                                <img src="picture/1292451542357555.png" alt="">
+                                <div>感恩的心</div>
+                            </li>
+                            <li>
+                                <img src="picture/1292451542357555.png" alt="">
+                                <div>感恩的心</div>
+                            </li>
+                        </ul>
+                        <ul class="tabCont-box">
+                            <li>
+                                <img src="picture/2090801542354414.gif" alt="">
+                                <div>感恩的心</div>
+                            </li>
+                            <li>
+                                <img src="picture/2090801542354414.gif" alt="">
+                                <div>感恩的心</div>
+                            </li>
+                            <li>
+                                <img src="picture/2090801542354414.gif" alt="">
+                                <div>感恩的心</div>
+                            </li>
+
+                            <li>
+                                <img src="picture/1292451542357555.png" alt="">
+                                <div>感恩的心</div>
+                            </li>
+                        </ul>
+                        <ul class="tabCont-box">
+                            <li>
+                                <img src="picture/1292451542357555.png" alt="">
+                                <div>感恩的心</div>
+                            </li>
+                            <li>
+                                <img src="picture/1292451542357555.png" alt="">
+                                <div>感恩的心</div>
+                            </li>
+                            <li>
+                                <img src="picture/1292451542357555.png" alt="">
+                                <div>感恩的心</div>
+                            </li>
+                        </ul>
+                        <ul class="tabCont-box">
+                            <li>
+                                <img src="picture/2090801542354414.gif" alt="">
+                                <div>感恩的心</div>
+                            </li>
+                            <li>
+                                <img src="picture/2090801542354414.gif" alt="">
+                                <div>感恩的心</div>
+                            </li>
+                            <li>
+                                <img src="picture/2090801542354414.gif" alt="">
+                                <div>感恩的心</div>
+                            </li>
+
+                            <li>
+                                <img src="picture/1292451542357555.png" alt="">
+                                <div>感恩的心</div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="last">剩余钻石：0</div>
+                </div>
+                <div class="sendGift">
+                    <div class="left">
+                        <i></i>香吻
+                    </div>
+                    <div class="ipt">
+                        <div class="num">数量</div>
+                        <input type="text" value="1">
+                        <div class="img">
+                            <img src="picture/top_kong_hover.png" alt="">
+                        </div>
+
+                    </div>
+                    <div class="send">
+                        <div class="sendgift">赠送</div>
+                        <div class="img">
+                            <img src="picture/common_bottom.png" alt="">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- 内容区：左侧底部 -->
+            <div class="left-bottom">
+                <div class="zuboInfo">
+                    <div class="zuboInfo-title">资料</div>
+                    <ul class="zuboCont">
+                        <li>
+                            <img src="picture/data_01.png" alt="">
+                            <span>身高</span>:{{zbt.person_height}}
+                        </li>
+                        <li>
+                            <img src="picture/data_02.png" alt="">
+                            <span>星座</span>:{{zbt.person_sex}}
+                        </li>
+                        <li>
+                            <img src="picture/data_03.png" alt="">
+                            <span>职业</span>:{{zbt.person_career}}
+                        </li>
+                        <li>
+                            <img src="picture/data_04.png" alt="">
+                            <span>魅力部位</span>:{{zbt.charm_two}} {{zbt.charm_one}} {{zbt.charm_three}}
+                        </li>
+                        <li>
+                            <img src="picture/data_05.png" alt="">
+                            <span>个性标签</span>:{{zbt.person_content}}
+                        </li>
+                        <li>
+                            <img src="picture/data_06.png" alt="">
+                            <span>兴趣爱好</span>:{{zbt.person_interest}}
+                        </li>
+
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+        <div class="right">
+            <div class="right-top">
+                <div class="right-protecter">
+                    <div class="pro-tit">
+                        <img src="/picture/gift_top.png" alt="">
+                        <div>守护者</div>
+                    </div>
+                    <ul class="proCont-list">
+                        <li class="proCont-item">
+                            <img class="avatar" src="/picture/56_avatar_middle.jpg">
+                            <img class="top" src="/picture/one_top.png" alt="">
+                            <img class="bottom" src="/picture/one_bottom.png" alt="">
+                            <div>米迦文</div>
+                        </li>
+                        <li class="contri">
+                            <span>贡献值</span>
+                            <div>
+                                <div></div>
+                            </div>
+                            <span>17213</span>
+                        </li>
+                        <li class="proCont-item">
+                            <img class="avatar" src="/picture/56_avatar_middle.jpg">
+                            <img class="top" src="/picture/two_top.png" alt="">
+                            <img class="bottom" src="/picture/two_bottom.png" alt="">
+                            <div>米迦文</div>
+                        </li>
+                        <li class="contri">
+                            <span>贡献值</span>
+                            <div>
+                                <div></div>
+                            </div>
+                            <span>17213</span>
+                        </li>
+
+                        <li class="proCont-item">
+                            <img class="avatar" src="picture/56_avatar_middle.jpg">
+                            <img class="top" src="picture/three_top.png" alt="">
+                            <img class="bottom" src="picture/three_bottom.png" alt="">
+                            <div>米迦文</div>
+                        </li>
+                        <li class="contri">
+                            <span>贡献值</span>
+                            <div>
+                                <div></div>
+                            </div>
+                            <span>17213</span>
+                        </li>
+
+                        <li class="proCont-item">
+                            <img class="avatar" src="picture/56_avatar_middle.jpg">
+                            <img class="bottom" src="picture/five_bottom.png" alt="">
+                            <div>米迦文</div>
+                        </li>
+                        <li class="contri">
+                            <span>贡献值</span>
+                            <div>
+                                <div></div>
+                            </div>
+                            <span>17213</span>
+                        </li>
+
+                        <li class="proCont-item">
+                            <img class="avatar" src="picture/56_avatar_middle.jpg">
+
+                            <img class="bottom" src="picture/four_bottom.png" alt="">
+                            <div>米迦文</div>
+                        </li>
+                        <li class="contri">
+                            <span>贡献值</span>
+                            <div>
+                                <div></div>
+                            </div>
+                            <span>17213</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="right-gifts">
+                    <div class="gifts-tit">
+                        <div class="gif-tit">
+                            <img src="picture/gift_bottom.png" alt="">
+                            <div>礼物</div>
+                        </div>
+                    </div>
+                    <ul class="gifts-list">
+                        <li>
+                            <img src="picture/1142101545745926.png" alt="">
+                            <div>1</div>
+                        </li>
+                        <li>
+                            <img src="picture/1142101545745926.png" alt="">
+                            <div>1</div>
+                        </li>
+                        <li>
+                            <img src="picture/1142101545745926.png" alt="">
+                            <div>1</div>
+                        </li>
+                        <li>
+                            <img src="picture/1142101545745926.png" alt="">
+                            <div>1</div>
+                        </li>
+                        <li>
+                            <img src="picture/1142101545745926.png" alt="">
+                            <div>1</div>
+                        </li>
+                        <li>
+                            <img src="picture/1142101545745926.png" alt="">
+                            <div>1</div>
+                        </li>
+                        <li>
+                            <img src="picture/1142101545745926.png" alt="">
+                            <div>1</div>
+                        </li>
+                        <li>
+                            <img src="picture/1142101545745926.png" alt="">
+                            <div>1</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="right-tab">
+                <div class="rightTab-nav">
+                    <div v-for="(item,index) in services"
+                       :key="index"  @click="zhubofuwu(index)" :class="{playActive:index==num}">{{item.g_name}}
+                    </div>
+                </div>
+
+                <div class="rightTab-cont" >
+                    <div class="rightTab-cont-box" >
+
+                        <div class="onlineLol"  v-for="(ite,index) in serviceInfo" v-if="index===num">
+
+                            <div class="lol-head">
+                                <div class="left">
+                                    <div class="radio">
+                                        <img src="/picture/lol.png" alt="">
+                                    </div>
+                                    <div class="Lol-meta">
+                                        <div class="name">{{ite.g_name}}</div>
+                                        <div class="garde">{{ite.g_duanwei}}</div>
+                                        <div class="order-btn">
+                                            <img src="picture/order_btn.png" alt="">
+                                            <span>接单次数:{{ite.countdan}}次</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="right">
+                                    <div class="price">
+                                        <span>￥{{ite.g_price}}</span>/小时
+                                    </div>
+                                    <div class="order">下单约她</div>
+                                </div>
+                            </div>
+                            <div class="intro">
+                                <div class="intro-title">
+                                    <h3>介绍</h3>
+                                    <span>/INTRODUCE</span>
+                                </div>
+                                <P class="intro-info">
+                                    {{ite.g_content}}
+                                </P>
+                            </div>
+                            <div class="lol-comments">
+                                <div class="comm-title">
+                                    <div class="comm">评价<span>/COMMENTARIES</span></div>
+                                    <div class="gard">评分:<span>{{ite.pingfeng}}</span></div>
+                                </div>
+                                <div class="comm-body">
+                                    <div class="comm-lebal">
+                                        <div class="label-title">TA的印象标签</div>
+                                        <ul class="label-item">
+                                            <li>枪刚人稳<span>(1)</span></li>
+                                            <li>吃鸡大神<span>(1)</span></li>
+                                        </ul>
+                                    </div>
+                                    <ul class="comm-item">
+                                        <li v-for="(reco,index) in ite.IPage.records">
+                                            <div class="comm-info">
+                                                <img :src="'./picture/'+reco.person_image" alt="" class="author-pic">
+                                                <div>
+                                                    <div>
+                                                        <span class="name">{{reco.person_nickname}}</span>
+                                                        <span class="reply-time">{{reco.c_createtime}}</span>
+                                                    </div>
+                                                    <p class="comm-cont">{{reco.c_context}}</p>
+                                                </div>
+                                                <div class="stars" v-for=" (item,index) in reco.c_rank">
+                                                    <img width="30" height="30" src="/picture/star1.png" alt=""  >
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <div  style=""></div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="/js/jquery.min.js"></script>
+<script src="/js/vue.min.js"></script>
+<script src="/js/layer.js"></script>
+<script src="/js/laypage.js"></script>
+<!--<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>-->
+<script src="/js/zuboInfo.js"></script>
+<script th:inline="javascript">
+    var pid = [[${session.nameTPerson?.pid}]];
+</script>
+</html>

@@ -33,7 +33,7 @@ public class TComment implements Serializable {
     /**
      * 订单id
      */
-    private byte[] oid;
+    private String oid;
 
     /**
      * 板块id
@@ -58,7 +58,7 @@ public class TComment implements Serializable {
     /**
      * 评分(好评，中评，差评)
      */
-    private String cRank;
+    private Double cRank;
 
 
 }

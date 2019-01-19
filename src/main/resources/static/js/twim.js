@@ -319,7 +319,11 @@ if (!Function.prototype.bind) {
         if (twcookie) {
             jQuery.ajax({
                 type: "get",
+<<<<<<< HEAD
                 url: "/login?format=jsonp",
+=======
+                url: "https://u.tuwan.com/Netease/login?format=jsonp",
+>>>>>>> 62f535f901c014b9188b44f6c4b3b6f12f87f396
                 dataType: "jsonp",
                 jsonp: "callback",
                 success: function(data) {
