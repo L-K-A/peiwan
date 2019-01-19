@@ -1,7 +1,7 @@
 var publicKey = "";
-getRSAkey();
+getRSAKey();
 
-function getRSAkey() {
+function getRSAKey() {
     $.ajax({
         type: "get",
         url: "",

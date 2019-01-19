@@ -16,15 +16,17 @@ import java.io.Serializable;
  *
  * @author 
  * @since 2019-01-16
+<<<<<<< HEAD:src/main/java/com/peiwan/bean/TService.java
+=======
+ * @date 2019/1/10 16:32
+>>>>>>> 9fb37ab764f9d72d5831f5bcbec6d7e6ae795c6e:src/main/java/com/peiwan/bean/TService.java
  */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-
 @TableName("t_service")
-
 public class TService implements Serializable {
 
     private static final long serialVersionUID = 1L;

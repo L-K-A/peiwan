@@ -119,8 +119,6 @@ public class TPerson implements Serializable {
 
     /**
      * 封面图片
-     * 封面桌面
-     * 封面图片
      */
     private String personCoverphoto;
 

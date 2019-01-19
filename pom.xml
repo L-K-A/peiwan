@@ -137,7 +137,7 @@
         <groupId>org.apache.commons</groupId>
         <artifactId>commons-lang3</artifactId>
         <version>3.7</version>
-    </dependency>
+        </dependency>
         <!--静态资源加载问题-->
         <!-- 核心模块，包括自动配置支持、日志和YAML -->
         
