@@ -66,6 +66,11 @@ public class ZyfIndexController {
         return new ModelAndView("search");
     }
 
+    @RequestMapping("/toMore")
+    public ModelAndView fenlei(){
+        return new ModelAndView("fenlei");
+    }
+
 
 
     //热度榜 周榜：查询主播订单数，先筛选规定时间，然后按照订单数排序
@@ -160,7 +165,6 @@ public class ZyfIndexController {
         System.out.println("数据库查到的："+personMoneyListAll);
         return map;
     }
-
 
     //测试主播列表查询
     @RequestMapping("/toList")

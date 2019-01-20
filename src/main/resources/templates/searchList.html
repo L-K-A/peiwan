@@ -16,10 +16,7 @@
     <link rel="stylesheet" href="/css/public_frame_v2.css">
     <link rel="stylesheet" href="/css/index_v2.css">
     <link rel="stylesheet" href="/css/swiper.min.css">
-    <!-- v2侧边栏样式-->
-    <link rel="stylesheet" href="/css/sidebar.css">
-    <!--登录注册模板样式-->
-    <link rel="stylesheet" href="/css/login_registration.css">
+
 
 
     <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>-->
@@ -29,9 +26,6 @@
     <script type="text/javascript" src="/js/jquery.validate.min.js"></script>
     <script type="text/javascript" src="/js/messages_zh.min.js"></script>
     <script type="text/javascript" src="/js/store.legacy.min.js"></script>
-    <script type="text/javascript" src="/js/layer/layer.js"></script>
-    <script type="text/javascript" src="/js/swiper/swiper.min.css"></script>
-    <script type="text/javascript" src="/js/laypage/laypage.js"></script>
 
     <script type="text/javascript" src="/js/fzjs/websocket.js"></script>
     <script type="text/javascript" src="/js/fzjs/message.js"></script>
@@ -128,18 +122,18 @@
         getUserPageList(keyname);
 
         function getUserPageList(keyname) {
-        $.ajax({
-            type: 'POST',
-            dataType: 'json',
-            url: '/person/searchPerson',
-            data: {
-                personNickname:keyname
-            },
-            success: function (msg) {
-                search.result = msg.searchPersonList;
-            }
-        });
-    }
+            $.ajax({
+                type: 'POST',
+                dataType: 'json',
+                url: '/person/searchPerson',
+                data: {
+                    personNickname:keyname
+                },
+                success: function (msg) {
+                    search.result = msg.searchPersonList;
+                }
+            });
+        }
 
     }
 

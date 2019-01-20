@@ -40,34 +40,12 @@
 
 </head>
 <body>
-
-<!--<div class="public_nav_new">
-    <div class="info_v2 position">
-        <div class="info">
-            <div class="seach_Box">
-                <img src="/picture/ico_28_hover.png" style="display: none;" alt="">
-                <input @keyup.13="inputShow" @click.stop="" @focus="input_focus" @keyup.38.prevent="input_key_38" @keyup.40.prevent="input_key_40" v-model.trim="val" placeholder="陪玩昵称、ID、靓号" type="text" id="keyname">
-                <p @click="inputShow" id="searchinfo" class="seach_p"></p>
-                <div class="msg_info" v-show="msg_info_show" v-cloak>
-                    <ul>
-                        <li v-for="item in result" @mouseover="msg_li_mouseover(item)" :key="item.index" @click="msg_li_click(item)" :class="{'active':msg_info_index===item.index}">{{item.person_nickname}}</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>-->
-
 <section>
     <!-- 热门推荐 -->
     <div class="hot_box hot_list_wrapper" id="hot_box">
         <!-- 头部 -->
         <div class="hot_title_wrapper">
             <img src="/images/title_1.png" alt="" class="hot_title">
-            <!--<span class="hot_title_btn">
-				<span class="icon" id="changePages" ></span>
-                <span class="text">换一批</span>
-            </span>-->
            <span class="hot_title_btn" id="changePage" >
 				<span class="icon"></span>
                 <span class="text">换一批</span>
@@ -85,9 +63,9 @@
                 <!-- 用户信息 -->
                 <div class="info_wrapper">                                                  <!--此处显示主播昵称-->
                     <span class="nick_name">{{item.person_nickname}}</span>
-                   <!-- <span class="btn_wrapper">
+                    <!--<span class="btn_wrapper">
                     	<span class="btn_item" v-for="(iitem,ii) in item.icon" v-if="ii<3">&lt;!&ndash;item.icon里很可能是存放主播的所有服务&ndash;&gt;
-                    		<img :src="iitem.path" alt="" class="btn_icon" :title="iitem.name">&lt;!&ndash;iitem.name是游戏名字&ndash;&gt;
+                    		<img :src="iitem.path" alt="" class="btn_icon" :title="iitem.name">
                     	</span>
 					</span>-->
                 </div>
@@ -108,7 +86,7 @@
 
         <!-- 更多 -->
         <div class="hot_more_wrapper" >
-            <a href="/peiwan/lol/" target="_blank"><span class="btn"></span></a>
+            <a href="/person/toMore" target="_blank"><span class="btn"></span></a>
         </div>
     </div>
 
@@ -163,104 +141,50 @@
                     this.loadingShow = true;//loading
                 }
 
-                var getHotList = function (curr) {
-                    $.ajax({
-                        type: 'POST',
-                        dataType: 'json',
-                        url: '/person/getHotPersonList',
-                        data: {
-                            curPage: curr ,
-                            pageSize: 10
-                        },
-                        success: function (msg) {
-                            hot.hotList = msg.hotPersonList;
-
-                        }
-                    });
-                };
-                curr = curPage + 1;
-                getHotList(curr);
-
             }
         }*/
     });
 
     //热门推荐
-    var getHotList = function (curr) {
+    var getHotList = function () {
         $.ajax({
             type: 'POST',
             dataType: 'json',
             url: '/person/getHotPersonList',
             data: {
-                curPage: curr || 1 ,
+                curPage: 1 ,
                 pageSize: 10
             },
             success: function (msg) {
                 hot.hotList = msg.hotPersonList;
 
-               /* var jump = function (obj,first) {
-                    if (!first){
-                        getHotList(obj.curr); //点击跳页触发函数自身，并传递当前页：obj.curr
-                    }
-                }*/
             }
         });
     };
     getHotList();
-
+                        /*点击换一批时curPage需要变为第二页，但是无法给curr赋于当前页数+1的值*/
 
     // 换一批
     $("#changePage").click(function () {
-        getHotLists();
+            $.ajax({
+                type: 'POST',
+                dataType: 'json',
+                url: '/person/getHotPersonList',
+                data: {
+                    curPage: 2 ,
+                    pageSize: 10
+                },
+                success: function (msg) {
+                    hot.hotList = msg.hotPersonList;
+
+                }
+            });
+
     });
-
-    var getHotLists = function(curr){
-        alert("换一批");
-        $.ajax({
-            type: 'POST',
-            dataType: 'json',
-            url: '/person/getHotPersonList',
-            data: {
-                curPage: curr + 1 ,
-                pageSize: 10
-            },
-            success: function (msg) {
-                hot.hotList = msg.hotPersonList;
-
-            }
-        });
-    }
 
 
 
 </script>
 
-<!--<script>
-
-    /* 热门推荐的函数*/
-    var app = new Vue({
-        el: '#app',
-        data: {
-            result: []
-        }
-    });
-
-    var getUserPageList = function (curr) {
-        $.ajax({
-            type: 'POST',
-            dataType: 'json',
-            url: '/person/getPersonList',
-            data: {
-                curPage: curr || 1 ,
-                pageSize: 10
-            },
-            success: function (msg) {
-                app.result = msg.personList;
-            }
-        });
-    };
-    getUserPageList();
-
-</script>-->
 </body>
 </html>
