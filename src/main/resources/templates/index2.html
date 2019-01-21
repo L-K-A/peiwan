@@ -50,7 +50,7 @@
 <body>
 
 <!--改版新的页面-->
-<div class="public_nav_new">
+<!--<div class="public_nav_new">
     <div class="info_v2 position">
         <div class="info">
             <div style="height: 0px;width: 100%;"></div>
@@ -58,7 +58,7 @@
                 <a href="/"><img class="logo" alt="飞虎电竞" src="/images/yuewanlogo.png?123"></a>
             </h1>
             <div class="p_nav">
-                <div :class="[navIndex === 'index_index_index'?'active':'']"><!--三元运算符-->
+                <div :class="[navIndex === 'index_index_index'?'active':'']">&lt;!&ndash;三元运算符&ndash;&gt;
                     <a href="/">
                         首页
                     </a>
@@ -71,7 +71,7 @@
                 <div :class="[navIndex === 'index_price'?'active':'']">
                     <a href="/peiwan/price/">
                         9.9专区
-                        <img src="/images/price.gif" alt="" class="icon">
+                        <img src="/picture/price.gif" alt="" class="icon">
                     </a>
                 </div>
                                 <div :class="[navIndex === 'index_list_video'?'active':'']">
@@ -80,12 +80,12 @@
                     </a>
                 </div>
                                 <div :class="[navIndex === 'index_recharge'?'active':'']">
-                                           <!-- 未登录-->
+                                           &lt;!&ndash; 未登录&ndash;&gt;
                         <a href="javascript:;" @click="login_fn">充值</a>
                                         
                 </div>
                 <div :class="[navIndex === 'index_service'?'active':'']">
-                                             <!--未登录-->
+                                             &lt;!&ndash;未登录&ndash;&gt;
                         <a href="javascript:;" @click="login_fn">申请入驻</a>
                                     </div>
                 <div :class="[navIndex === 'activity'?'active':'']">
@@ -109,8 +109,8 @@
                 <img src="/images/ico_31_hover.png" style="display: none;">
                 <div style="height: 0px;width: 100%;"></div>
 
-                <!--beforeLanding(登陆之前) -->
-                <!--<div class="login style1" id="beforeLanding">
+                &lt;!&ndash;beforeLanding(登陆之前) &ndash;&gt;
+                &lt;!&ndash;<div class="login style1" id="beforeLanding">
                     <ul class="nav navbar-nav navbar-right">
 
                         <li>
@@ -119,15 +119,15 @@
                             <a data-toggle="modal" data-target="#register" href="/toRegister"><span class="glyphicon glyphicon-user"></span>注册</a>
                         </li>
                     </ul>
-                </div>-->
-                <!--afterTheLanding(登陆过后)-->
-                <!--<div class="login style1" id="afterTheLanding">
+                </div>&ndash;&gt;
+                &lt;!&ndash;afterTheLanding(登陆过后)&ndash;&gt;
+                &lt;!&ndash;<div class="login style1" id="afterTheLanding">
                     <ul class="nav navbar-nav navbar-right">
                         <li><a id="personnames" href="/indexw"  th:text="${session.nameTPerson?.personNickname}"></a>&nbsp;&nbsp;<a data-toggle="modal" data-target="#login" href="/logout"><span class="glyphicon glyphicon-log-in"></span>退出登陆</a></li>
                     </ul>
-                </div>-->
+                </div>&ndash;&gt;
 
-               <!-- <script th:inline="javascript">
+               &lt;!&ndash; <script th:inline="javascript">
 
                     &lt;!&ndash;登陆隐藏&ndash;&gt;
                     function LandingHide() {
@@ -147,7 +147,7 @@
                         LandingHides();
                     }
 
-                </script>-->
+                </script>&ndash;&gt;
 
 
                 <div @click="login_fn" class="login style1">
@@ -155,13 +155,11 @@
                     <span>登录&nbsp;&nbsp;|&nbsp;&nbsp;注册</span>
                 </div>
 
-
             </div>
         </div>
-            
     </div>
 
-    <!--导航栏模糊查询的函数-->
+    &lt;!&ndash;导航栏模糊查询的函数&ndash;&gt;
     <script>
         $("#searchinfo").click(function () {
             var keyname= $("#personNickname").val();
@@ -169,7 +167,7 @@
             sessionStorage.setItem("keyname",keyname);
         });
     </script>
-    <!---->
+    &lt;!&ndash;&ndash;&gt;
 
     <script>
         (function(){
@@ -187,10 +185,116 @@
 
         }());
     </script>
+</div>-->
+<div id="common_top_box">
+    <div class="fl common_top_logo" style="margin-left: 78px;margin-left: calc((100% - 1366px)/6.9);">
+        <a href="/person/toIndex">
+            <img src="/images/yuewanlogo.png">
+        </a>
+    </div>
+    <div class="fl common_center_box">
+        <a href="/person/toIndex" target="_blank" class="fl common_top_nav">首页</a>
+        <a href="/person/toMore" target="_blank" class="fl common_top_nav">约陪玩</a>
+        <a href="#" target="_blank" class="fl common_top_nav">9.9专区</a>
+        <a href="#" target="_blank" class="fl common_top_nav" style="color: #ff0000; position: relative;">充值</a>
+        <div class="search_box fl">
+            <div class="search_img_box">
+                <img style="right: 6px;" src="/images/ico_28_hover.png" class="search_img">
+                <input type="text" placeholder="搜索昵称、uid、靓号" class="search_input" id="personNickname">
+                <p @click="inputShow" id="searchinfo" class="seach_p"></p>
+            </div>
+        </div>
+    </div>
+    <div class="fl common_right mt15">
+        <a class="fl common_right_01 common_right_enter" id="apply">申请入驻</a>
+        <div class="common_right_02 fl"></div>
+        <div class="common_right_02 fl"></div>
+        <div class="fl">
+            <a href="javascript:;" class="common_right_01 common_right_hover" style="display: none;" id="loginfalse">
+                <img src="/images/no_login.png" class="qt">
+                <img src="/images/no_login_hover.png" style="display: none;" class="qt_hover">
+                <br>
+                注册/登录
+            </a>
+            <!-- <div class="head_img_bigbox" id="logintrue">
+                 <div class="head_img_hide_box">
+                     <a href="" class="ocenter_order" target="_blank">
+                         <div class="fl head_img_box"></div>
+                         <div class="fl ml10">
+                             <div>
+                                 <div class="fl common_head_name nickname mr10" style="width:60px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"></div>
+                                 <div class="fl mr10 common_head_name liangcode22" style="display:none;"><img src="//res.tuwan.com/templet/play/public/images/good.png"></div>
+                                 <div class="fl common_runk_number" style="display:none;">
+
+                                 </div>
+                                 <div class="clearfix"></div>
+                             </div>
+                             <div class="common_head_id"><span class="mr5 user_uid"></span><img src="//res.tuwan.com/templet/play/public/images/common_bottom.png"></div>
+                         </div>
+                     </a>
+                     <div class="clearfix"></div>
+                 </div>
+                 <div class="common_login">
+                     <div class="common_wechat_img"><img src="//res.tuwan.com/templet/play/public/images/common_top.png"></div>
+                     <div>
+                         <div class="drop_out" id="dologout">退出</div>
+                         <div class="clearfix"></div>
+                         <a href="" class="ocenter_order" target="_blank">
+                             <div class="head_img_small"></div>
+                         </a>
+                         <div class="hide_common mt5 mb5 nickname"></div>
+                         <div class="fl common_runk_number  common_runk_number_01"></div>
+                         <a class="means_box fl ml10 mr10" href="" target="_blank"><img src="//res.tuwan.com/templet/play/public/images/means.png" class="means"><img src="//res.tuwan.com/templet/play/public/images/means_hover.png" class="means_hover">&nbsp;资料</a>
+                         <a class="order_box fl" href="//y.tuwan.com/home/ocenter/" target="_blank"><img src="//res.tuwan.com/templet/play/public/images/order.png" class="order"><img src="//res.tuwan.com/templet/play/public/images/order_hover.png" class="order_hover">&nbsp;订单</a>
+                         <div class="clearfix"></div>
+                         <div class="contribution_value mt15 mb10"></div>
+                         <div class="common_vip_box">
+                             <div class="common_vip_line_box">
+                                 <div class="common_vip_line"></div>
+                             </div>
+                             <div class="fl vip_text v_top"></div>
+                             <div class="fr vip_text v_bottom"></div>
+                             <div class="clearfix"></div>
+                         </div>
+                         <div class="money_01_bigbox mt20">
+                             <a href="//y.tuwan.com/recharge/" target="_blank">
+                                 <div class="fl money_01_box">
+                                     <div class="current_money"></div>
+                                     <div class="money_01"><img src="//res.tuwan.com/templet/play/public/images/money_01.png">&nbsp;账户余额</div>
+                                 </div>
+                             </a>
+                             <a href="https://y.tuwan.com/recharge/" target="_blank">
+                                 <div class="fl money_01_box">
+                                     <div class="current_value"></div>
+                                     <div class="money_01"><img src="//res.tuwan.com/templet/play/public/images/zuanshi.png">&nbsp;<span class="current_value_info"></span></div>
+                                 </div>
+                             </a>
+                             <a class="fl common_payfor" href="//y.tuwan.com/recharge/" target="_blank">
+                                 充值
+                             </a>
+                             <div class="clearfix"></div>
+                         </div>
+                     </div>
+                 </div>
+             </div>-->
+        </div>
+    </div>
+    <!--导航栏模糊查询-->
+    <script>
+        $("#searchinfo").click(function () {
+            var keyname= $("#personNickname").val();
+            window.location.href = 'toSearch';
+            sessionStorage.setItem("keyname",keyname);
+        });
+    </script>
 </div>
 
 
+
+
 <section>
+
+
     <div class="top_wrapper">
         <!-- banner -->
         <div class="banner_wrapper">
@@ -262,7 +366,7 @@
                                             <em class="to">赠送</em>
                                         </div>
                                         <div class="gift_middle_middle">
-                                            <img src="/images/jiezhi.png" alt="" class="icon_gift">
+                                            <img src="/images/9af175e05695.png" alt="" class="icon_gift">
                                             <img src="/images/icon_num.png" alt="" class="icon_ride">
                                             <span class="num">6</span>
                                         </div>
@@ -438,7 +542,7 @@
                     <div class="swiper-slide" >
                         <a href="/item/1248163.html" target="_blank">
                             <div class="pic_box">
-                                <img class="pic" src="/picture/9.jpg">
+                                <img class="pic" src="/picture/9.gif">
                             </div>
                             <p class="nick">接彩六r6先私聊</p>
                         </a>
@@ -724,12 +828,12 @@
                 <!-- 周榜 头背景 -->
                 <div class="top_bg_wrapper" style="display: none" v-show="tabShow2===1">
                     <!-- <img :src="leftTopBgImg1" alt="" class="top_bg_img" >-->
-                    <img src="/images/mongolian_purple.png" alt="" class="mongolian">
+                    <img src="/images/mongolian_purple" alt="" class="mongolian">
                 </div>
                 <!--总榜头背景-->
                 <div class="top_bg_wrapper" style="display: none" v-show="tabShow2===2">
                     <!--  <img :src="leftTopBgImg2" alt="" class="top_bg_img" >-->
-                    <img src="/images/mongolian_purple.png" alt="" class="mongolian">
+                    <img src="/images/mongolian_purple" alt="" class="mongolian">
                 </div>
                 <!-- 选项卡 -->
                 <div class="tab_wrapper">
@@ -851,7 +955,7 @@
                 </div>
                 <div class="top_bg_wrapper" style="display: none" v-show="tabShow3===2">
                     <!--  <img :src="leftTopBgImg2" alt="" class="top_bg_img" >-->
-                    <img src="/images/mongolian_yellow.png" alt="" class="mongolian">
+                    <img src="/images/mongolian_yellow.png.png" alt="" class="mongolian">
                 </div>
                 <!-- 选项卡 -->
                 <div class="tab_wrapper">
@@ -1375,6 +1479,28 @@ var first_coupons = 9999;
 </div>
 </footer>
 
+<script defer="true" src="/fzjs/dsQIsvEEt22a2B72.js"></script>
+<script>
+    //声明一个全局变量原来存放当前的导航索引值
+    var nav_focus_index = 'index_index_index';    
+</script>
+<script>
+//百度统计
+var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    var s = document.getElementsByTagName("script")[0];
+    hm.src = "/js/hm.js";
+    s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<!--<script src="/js/require.js" data-main='https://yundown.daofengdj.com/static/home/js/index/index_v2' saync='true'></script>-->
+<script src="/js/require.js" data-main="/fzjs/index_v2" saync="true"></script>
+
+<script src="/js/require.js"></script>
+
+
 <!-- 侧边导航 -->
 <div id="sidebar-vm" class="flying-vm">
     <aside class="live-sidebar-ctnr a-move-in-left ts-dot-4">
@@ -1451,7 +1577,18 @@ var first_coupons = 9999;
         </div>
     </div>
 </div>
-
+<!-- 老用户活动奖励 -->
+<div id="public_old_oldUserId" class="public_old_oldUser_tc" v-cloak v-show="isshow" >
+    <div class="receive_body">
+        <div class="receive_top"></div>
+        <div class="receive_btn">
+            <div class="receive_close" @click="oldUser_close"></div>
+            <div class="receive_bottom">
+                <div class="receive_left"><a href="/user/account/gold_pool.html"></a></div>
+            </div>
+        </div>
+    </div>
+</div>
 
 </body>
 </html>
