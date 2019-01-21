@@ -1,0 +1,42 @@
+﻿@charset "utf-8";
+/* CSS Document */
+.icon1{background:url(../images/icon1.png)  no-repeat;-webkit-transition: all .3s ease;transition: all .3s ease;}
+#header .logo{height:61px;width:236px;background-position:-8px -29px;margin-top:10px;margin-bottom:6px;margin-right:60px; }
+i{ display:inline-block; }
+#header{width: 1168px;margin:0 auto;}
+#header .nav{padding:30px 20px;font-size:15px;color:#333333;margin:0 20px;border-bottom:3px solid #fff;}
+#header .nav:hover{border-bottom: 3px solid #ed4c37;color:#ed4c37;}
+#header .nav_add{border-bottom:3px solid #ed4c37;color:#ed4c37;}
+#header a{display: block;}
+#header .landing{width:210px;background-color:#fbaf51;position: absolute;padding-bottom:5px;z-index: 99;}
+#header .head01{width:40px;height:40px;border-radius: 100px;overflow: hidden;margin-top: 18px;margin-left:30px;}
+#header .head01 img{width:40px;height:40px;}
+#header .user_name{font-size: 15px;color:#fff;margin-top: 18px;}
+#header .user_uid{font-size: 12px;color:#fff;}
+#header .down_nav{text-align: center;margin-bottom: 5px;}	
+#header .develop_nav{margin-top:20px;border-top:1px solid #fcc171;color:#fff;font-size:11px;padding-top: 15px;}
+#header .personal{color:#fff;font-size:13px;text-align: center;width:85px;height:28px;line-height:28px;border: #ffcf8e solid 1px;}
+#header .personal:hover{border: #eeeeee solid 1px;color:#eeeeee;}
+#header .recharge_box{background-color: #ffcf8e;padding:25px 15px;color:#ed4c37;font-size: 13px;}
+#header .recharge_02{color:#fff;background-color: #ed4c37;border-radius: 20px;width:50px;height:22px;line-height: 22px;text-align: center;}
+#header .recharge_02:hover{background-color: #d44032;}
+#header .v_top{width:50%;height:18px;line-height: 18px; background-color: #ed4c37;position: absolute;z-index: 2;}
+#header .v_top span{position: absolute;left: 12px;}
+#header .v_bottom{width:190px;height:18px;line-height: 18px; background-color: #fff;text-align: right;}
+#header .v_bottom span{position: absolute;
+    z-index: 3;
+    display: block;
+    right: -10px;}
+#header .v_box{position: relative;color:#333;font-size:11px;padding-left: 10px;width: 180px;}
+#header .develop_title{text-align: left;margin-left: 15px;}
+#header .landing_box{width:210px}
+/*底部*/
+footer{background-color: #535353;position: relative;}
+footer .footer_box{width: 1204px;margin:0 auto;padding: 30px 0;background-color: #535353;}
+footer .Copy{color:#959595;font-size: 12px;margin-top: 34px;text-align: center;}
+footer .help_box{color:#c9c9c9;font-size: 15px;}
+footer .custom_01{font-size:17px;margin-right: 14px;}
+footer .custom_02{font-size:13px;}
+footer .border_right{border-right:#bfbfbf solid 1px;}
+footer .help{width:92px;height:26px; background-color:#3c3c3c;line-height: 26px;text-align: center;border: #707070 solid 1px;border-radius: 4px;margin-left: 16px;font-size:13px;color:#bfbfbf;}
+footer .help:hover{background-color:#4d4c4c;}

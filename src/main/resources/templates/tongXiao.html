@@ -4,36 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>陪玩搜索-刀锋电竞</title>
+    <title>通宵专区报名-刀锋电竞</title>
     <meta name="keywords" content="刀锋电竞陪玩,游戏陪玩,约玩,陪玩入驻,绝地求生陪玩,LOL陪玩,王者荣耀陪玩,美女陪玩,大神陪玩,导师陪玩">
     <meta name="description" itemprop="description" content="刀锋电竞，是（国内）专业的游戏陪玩交友平台。刀锋电竞致力于为您提供贴心的专属陪伴；平台内百万大神美女导师24小时待命，随时陪你游戏，和你聊天，还可以哄你睡觉；游戏类型多样，妹子风格各异，任你选择。">
     <!-- 禁止IE强制识别手机号 -->
     <meta name="format-detection" content="telephone=no"/>
+
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/css/public.css">
     <link rel="stylesheet" href="/css/public_nav_v2.css">
     <link rel="stylesheet" href="/css/layer.css">
-    <link rel="stylesheet" href="/css/public_frame_v2.css">
-    <link rel="stylesheet" href="/css/search.css">
     <!--v2侧边栏样式-->
     <link rel="stylesheet" href="/css/sidebar.css">
 
-    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>-->
-    <script type="text/javascript" src="/js/vue.min.js"></script>
-    <script type="text/javascript" src="/js/vue-resource.js"></script>
-    <script type="text/javascript" src="/js/jquery.min.js"></script>
-    <script type="text/javascript" src="/js/jquery.validate.min.js"></script>
-    <script type="text/javascript" src="/js/messages_zh.min.js"></script>
-    <script type="text/javascript" src="/js/store.legacy.min.js"></script>
-
-    <script type="text/javascript" src="/js/fzjs/websocket.js"></script>
-    <script type="text/javascript" src="/js/fzjs/message.js"></script>
-    <script type="text/javascript" src="/js/fzjs/chat.js"></script>
+    <link rel="stylesheet" href="/css/night_area.css">
 
 </head>
 <body>
-
-
 <!--改版新的页面-->
 <div class="public_nav_new">
     <div class="info_v2 position">
@@ -150,104 +137,107 @@
 </div>
 
 
-<!-- main-wrap -->
-<div id='search' v-cloak>
-    <div class="searchTop">
-        <div class="topcon">
-            <a href=" ">
-                <img src="/images/searchbanner.png">
-            </a>
-        </div>
+<section>
+    <div class="top">
+        <img src="/images/night_img_2.png">
     </div>
-    <div class="swrap">
-        <!-- 列表展示 -->
-        <div class="player">
-            <div class="hot-player-con">
-                <div v-for='item in searchList'>
-                    <a :href="'/item/'+item.pid+'.html'" @click="localStorage.setItem('gameID',0)">
-                        <div class="frame_logo_wrapper" :class="item.tags">
-                            <!-- logo -->
-                            <div class="pic_box">
-                                <img :src="'/picture/'+item.person_image" alt="" class="pic"><!--主播头像-->
-                            </div>
-                        </div>
-                        <div class="player-info">
-                            <span><div class="guanming" v-if="item.sponser">{{item.sponser.person_nickname}}<img :title="item.sponser.ps_name" :src="item.sponser.icon_path"></div><i class="text">{{item.person_nickname}}</i></span>
-                            <span>{{item.g_name}}</span>
-                        </div>
-                        <div class="player-money">
-                            <p>
-                                <span>¥{{item.g_price}}</span>/小时
-                            </p>
-                        </div>
-                    </a>
-                </div>
-                <!-- 没有数据 -->
-                <ul v-show="bgclass" style="padding-bottom:27px;">
-                    <li style="text-align:center;"><img src="/images/search.png"></li>
-                </ul>
+    <div class="txtBox" user_status="1">
+        <div class="tx1">
+            <div class="d1">
+                <img v-cloak src="/images/night_ico_4.png">
+                <span v-cloak v-if="status === 1">陪玩聚划算，订单享优惠，通宵赚翻天</span>
+                <span v-cloak v-else-if="status === 2">距离今日报名开始时间  {{time2 - this_time | timer2}}</span>
+                <span v-cloak v-else-if="status === 3">今日可报名时间还剩   {{time3 - this_time | timer2}}</span>
+                <span v-cloak v-else>今日报名时间已经截止，请于明天再来</span>
+            </div>
+            <div class="d2">
+                平台现推出陪玩 通宵接单专区 ，活动针对“刀锋电竞”的所有陪玩
+            </div>
+            <div @click="sign_up" class="d3" :class="[{'disabled':status<=2},{'ok':status===3 && user_status===1},{'no':status===3 && user_status===2},{'disabled':status === 4}]">
+
+            </div>
+            <div class="d4" v-cloak>
+                已报名陪玩数：{{all_num}}人
             </div>
         </div>
+        <div class="tx2">
+            <ul>
+                <li>1）</li>
+                <li>
+                    报名参加通宵活动的陪玩，当日23:00之后，会获得专属的展示区域（通宵专区）；
+                    <p>
+                        例：陪玩小A今日报名通宵活动，今日23:00后会被展示在首页通宵专区。
+                    </p>
+                </li>
+            </ul>
+            <ul>
+                <li>2）</li>
+                <li>
+                    通宵专区展示时间为每日23:00至次日6:00；
+                </li>
+            </ul>
+            <ul>
+                <li>3）</li>
+                <li>
+                    通宵专区每日需报名参加，报名时间为每日18：30至22:30，报名后不可取消；
+                </li>
+            </ul>
+            <ul>
+                <li>4）</li>
+                <li>
+                    当日报名参加通宵通宵活动的陪玩，当日23:00至次日6:00的订单手续费优惠1%，即订单手续费为9%（公会成员按照公会具体的抽成比例，不参与9%抽成活动）；
+                </li>
+            </ul>
+            <ul>
+                <li>5）</li>
+                <li>
+                    陪玩若参与通宵活动，次日平台客服会审核该陪玩通宵时间段的接单记录，如连续出现老板下单未接单情况，平台将会对该陪玩进行短期封禁处理；
+                </li>
+            </ul>
+            <ul>
+                <li>6）</li>
+                <li>
+                    陪玩报名即认可：如出现连续老板下单后未接单的情况，愿意接受平台惩罚处理；
+                </li>
+            </ul>
+            <ul>
+                <li>7）</li>
+                <li>
+                    上述时间以“刀锋电竞”平台服务器时间为准。
+                </li>
+            </ul>
+        </div>
     </div>
-</div>
+    <div class="info">
+        <div class="box">
+            <p v-cloak>
+                <img v-show="status<3" src="/images/night_title1.png">
+                <img v-show="status>2" src="/images/night_title.png">
+            </p>
 
-<!--模糊查询到的主播的函数-->
-<script>
-
-    var search = new Vue({
-        el: '#search',
-        data: {
-            bgclass:false , //没有数据
-            searchList: []
-        }
-    });
-
-    window.onload = function(){
-        var keyname = sessionStorage.getItem("keyname");
-        console.log(keyname);
-        getUserPageList(keyname);
-
-        function getUserPageList(keyname) {
-            $.ajax({
-                type: 'POST',
-                dataType: 'json',
-                url: '/person/searchPerson',
-                data: {
-                    personNickname:keyname
-                },
-                success: function (msg) {
-                    search.searchList = msg.searchPersonList;
-                    if (msg.searchPersonList.length==0) {
-                        search.bgclass = true;
-                    }
-                }
-            });
-        }
-    };
-
-    /*search页面导航栏查询函数*/
-    $("#searchinfo").click(function () {
-        var keyname= $("#personNickname").val();
-        getUserPageList(keyname);
-        function getUserPageList(keyname) {
-            $.ajax({
-                type: 'POST',
-                dataType: 'json',
-                url: '/person/searchPerson',
-                data: {
-                    personNickname: keyname
-                },
-                success: function (msg) {
-                    search.searchList = msg.searchPersonList;
-                    if (msg.searchPersonList.length==0) {
-                        search.bgclass = true;
-                    }
-                }
-            });
-        }
-    });
-
-</script>
+            <div class="cont">
+                <div class="big_list" v-for="(item,index) in list" :key="index">
+                    <div class="list" v-for="(itm,index) in item" :key="index" v-cloak>
+                        <a :href="'/item/'+itm.pw_uid+'.html'" target="_blank" :class="[{'boy':itm.sex===1},{'girl':itm.sex===2}]">
+                            <img :src="itm.avatar">
+                            <div class="nickname">
+                                {{itm.nickname}}
+                            </div>
+                            <div class="price">
+                                ￥<span>{{itm.price}}</span>/小时
+                            </div>
+                        </a>
+                    </div>
+                    <img src="/images/night_img_1.png">
+                </div>
+            </div>
+            <div class="btn" @click="add_list" v-cloak v-show="last_page>current_page">
+                加载更多
+            </div>
+        </div>
+        <div style="height:40px;"></div>
+    </div>
+</section>
 
 
 <footer>
@@ -394,6 +384,5 @@
 
     </aside>
 </div>
-
 </body>
 </html>

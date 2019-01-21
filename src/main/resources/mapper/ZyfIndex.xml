@@ -4,25 +4,26 @@
 
     <!--热门推荐主播列表-->
     <select id="selectHotPersonList" parameterType="map" resultType="map">
-        select p.pid,p.person_nickname,p.person_image,p.z_zhubo,s.g_name,s.g_price from t_person p,t_service s where p.pid=s.pid
-        limit ${pageSize*(curPage-1)},${pageSize}
+        SELECT p.pid,p.person_nickname,p.person_image,s.gid,s.g_name,s.g_price
+        FROM t_person p INNER JOIN t_service s ON p.pid=s.pid
+        WHERE p.z_zhubo=1 GROUP BY s.pid
+        LIMIT ${pageSize*(curPage-1)},${pageSize*curPage}
     </select>
 
 
     <!--导航栏根据昵称和Id模糊查询-->
     <select id="selectPersonByNameAndId" parameterType="map" resultType="map">
-            SELECT
-            p.pid,p.person_nickname,p.person_image,s.g_name,s.g_price
-            FROM t_person p LEFT JOIN t_service s ON p.pid=s.pid
-            WHERE p.z_zhubo=1
-            <if test="pid != null and pid != ''">
-                AND p.pid=#{pid}
-            </if>
-            <if test="personNickname != null and personNickname != ''">
-                AND p.person_nickname like "%"#{personNickname}"%"
-            </if>
+        SELECT p.pid,p.person_nickname,p.person_image,s.gid,s.g_name,s.g_price
+        FROM t_person p LEFT JOIN t_service s ON p.pid=s.pid
+        WHERE p.z_zhubo=1
+        <if test="pid != null and pid != ''">
+              AND p.pid=#{pid}
+        </if>
+        <if test="personNickname != null and personNickname != ''">
+              AND p.person_nickname like "%"#{personNickname}"%"
+        </if>
+        LIMIT 12
     </select>
-
 
 
     <!--热度榜 周榜 前三：先筛选规定时间，然后按照订单数排序-->
@@ -31,7 +32,7 @@
         FROM(SELECT p.pid,p.person_nickname,p.person_image,p.person_adress,p.person_sex,o.o_createtime,COUNT(o.oid) oo
              FROM t_person p LEFT JOIN t_order_z o ON p.pid=o.pid
              WHERE o.o_createtime>DATE_SUB(CURDATE(), INTERVAL 1 WEEK)
-               AND o.o_flate=1 GROUP BY o.pid ORDER BY COUNT(o.oid) DESC LIMIT 3)op
+             AND o.o_flate=1 GROUP BY o.pid ORDER BY COUNT(o.oid) DESC LIMIT 3)op
     </select>
     <!--热度榜 周榜 第四到第十：先筛选规定时间，然后按照订单数排序-->
     <select id="selectOrderList" parameterType="map" resultType="map">

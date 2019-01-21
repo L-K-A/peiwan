@@ -34,17 +34,37 @@ public class ZyfIndexController {
         return new ModelAndView("index");
     }
 
+    //通宵报名处
+    @RequestMapping("/toTongXiao")
+    public ModelAndView tongXiao(){
+        return new ModelAndView("tongXiao");
+    }
+    //英雄训练营
+    @RequestMapping("/toPractice")
+    public ModelAndView lolPractice(){
+        return new ModelAndView("lolPractice");
+    }
+    //导师涨价
+    @RequestMapping("/toZhangJia")
+    public ModelAndView zhangJia(){
+        return new ModelAndView("zhangJia");
+    }
 
     //热门推荐主播列表
     @RequestMapping("/getHotPersonList")
     public Map<String,Object> getPage(int curPage,int pageSize){
         Page<Map<String, Object>> page = zyfIndexService.selectHotPerson(curPage,pageSize);
-        long current = page.getCurrent();//获取当前页
         List<Map<String, Object>> hotPersonList = page.getRecords();
+        //page.getRecords(pid);
         Map map = new HashMap();
         map.put("hotPersonList",hotPersonList);
         System.out.println("热门推荐列表:"+hotPersonList);
         return map;
+    }
+    /*点击更多按钮跳转分类页面*/
+    @RequestMapping("/toMore")
+    public ModelAndView fenLei(){
+        return new ModelAndView("fenlei");
     }
 
 
@@ -65,12 +85,6 @@ public class ZyfIndexController {
     public ModelAndView list(){
         return new ModelAndView("search");
     }
-
-    @RequestMapping("/toMore")
-    public ModelAndView fenlei(){
-        return new ModelAndView("fenlei");
-    }
-
 
 
     //热度榜 周榜：查询主播订单数，先筛选规定时间，然后按照订单数排序
@@ -169,7 +183,7 @@ public class ZyfIndexController {
     //测试主播列表查询
     @RequestMapping("/toList")
     public ModelAndView select(){
-        return new ModelAndView("hotList");
+        return new ModelAndView("gunDong");
     }
 
 

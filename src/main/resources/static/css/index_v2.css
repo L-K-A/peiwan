@@ -632,17 +632,29 @@ section .hot_list_wrapper .hot_content_wrapper .hot_content_item .info_wrapper .
   white-space: nowrap;
   text-overflow: ellipsis;
 }
+
 section .hot_list_wrapper .hot_content_wrapper .hot_content_item .info_wrapper .nick_name img {
   width: 27px;
   vertical-align: top;
 }
+
 section .hot_list_wrapper .hot_content_wrapper .hot_content_item .info_wrapper .btn_wrapper {
   position: relative;
   display: inline-block;
   float: right;
   vertical-align: top;
 }
-section .hot_list_wrapper .hot_content_wrapper .hot_content_item .info_wrapper .btn_wrapper .btn_item {
+/*主播名字后面对应的服务名*/
+section .hot_list_wrapper .hot_content_wrapper .hot_content_item .info_wrapper .btn_wrapper span:nth-child(1){
+  padding:2px 5px;
+  border-radius: 4px;
+  background-color: #FF7D7B;
+  float: right;
+
+  color:#fff;
+  font-size: 12px;
+}
+/*section .hot_list_wrapper .hot_content_wrapper .hot_content_item .info_wrapper .btn_wrapper .btn_item {
   display: inline-block;
   margin-right: 6px;
 }
@@ -676,7 +688,7 @@ section .hot_list_wrapper .hot_content_wrapper .hot_content_item .info_wrapper .
 section .hot_list_wrapper .hot_content_wrapper .hot_content_item .info_wrapper .btn_wrapper .btn_item:hover .btn_desc {
   z-index: 1;
   opacity: 1;
-}
+}*/
 section .hot_list_wrapper .hot_content_wrapper .hot_content_item .desc_wrapper {
   padding: 0 10px;
 }

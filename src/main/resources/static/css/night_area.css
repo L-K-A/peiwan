@@ -1,0 +1,213 @@
+@charset "utf-8";
+[v-cloak]{
+	display:none;
+}
+section{
+	background:#02164b url(../../img/activity/night_bj.jpg) no-repeat;
+	background-position:center top;
+	min-width:1200px;
+}
+section .top{
+	padding-top:100px;
+	width:1200px;
+	margin:0 auto;
+	overflow:hidden;
+}
+section .top img{
+	display:block;
+	margin:0 auto;
+}
+section .txtBox{
+	width:1200px;
+	margin:0 auto;
+}
+section .txtBox .tx1{
+	text-align:center;
+	min-height:324px;
+}
+section .txtBox .tx1 .d1{
+	color:#fde415;
+	font-size:28px;
+	line-height:65px;
+	margin-top:25px;
+	min-height:65px;
+}
+section .txtBox .tx1 .d1 img{
+	margin-right:20px;
+}
+section .txtBox .tx1 .d2{
+	width:632px;
+	height:76px;
+	margin:0 auto;
+	margin-top:25px;
+	background:url("../../img/activity/night_img_3.png") no-repeat;
+	line-height:76px;
+	color:#cae4fe;
+	font-size:20px;
+}
+section .txtBox .tx1 .d3{
+	width:298px;
+	height:78px;
+	margin:0 auto;
+	margin-top:39px;
+	line-height:78px;
+	font-size:30px;
+	border:solid 1px #181370;
+	background:#1f1a76;
+	cursor:pointer;
+	visibility:hidden;
+}
+section .txtBox .tx1 .d3.ok{
+	visibility:visible;
+}
+section .txtBox .tx1 .d3.ok:hover{
+	background: #363091;
+}
+section .txtBox .tx1 .d3.ok:before{
+	color:#fff;
+	content:"立即报名";
+	text-shadow:0 1px 1px #f870b2;
+}
+section .txtBox .tx1 .d3.no{
+	background:#224e85;
+	visibility:visible;
+}
+section .txtBox .tx1 .d3.no:before{
+	color:#fff;
+	content:"已经报名";
+	text-shadow:0 1px 1px #f870b2;
+}
+section .txtBox .tx1 .d3.no:hover{
+	background:#2b578c;
+}
+section .txtBox .tx1 .d3.disabled{
+	background:#224e85;
+	visibility:visible;
+}
+section .txtBox .tx1 .d3.disabled:before{
+	color:#fff;
+	content:"敬请期待";
+	text-shadow:0 1px 1px #f870b2;
+}
+section .txtBox .tx1 .d4{
+	color:#fde415;
+	font-size:16px;
+	margin-top:18px;
+}
+section .txtBox .tx2{
+	margin-top:250px;
+}
+section .txtBox .tx2 ul{
+	overflow:hidden;
+	font-size:18px;
+	color:#c2dfff;
+	line-height:42px;
+}
+section .txtBox .tx2 ul li{
+	float:left;
+}
+section .txtBox .tx2 ul li p{
+	color:#ffdd1f;
+}
+section .txtBox .tx2 ul li:nth-child(1){
+	width:29px;
+}
+section .txtBox .tx2 ul li:nth-child(2){
+	width:1075px;
+}
+section .info{
+	width:1200px;
+	margin:0 auto;
+	margin-top:40px;
+}
+section .info>.box{
+	background:url(../../img/activity/night_img_4.jpg);
+	border:solid 5px #4d39a8;
+	border-radius:30px;
+}
+section .info>.box>p>img{
+	display:block;
+	margin:0 auto;
+	margin-top:50px;
+}
+section .info .cont{
+	overflow:hidden;
+	padding-bottom:30px;
+	min-height:800px;
+}
+section .info .cont .big_list{
+	padding-top:40px;
+	overflow:hidden;
+}
+section .info .cont .big_list>img{
+	display:block;
+	margin:0 auto;
+}
+section .info .cont .big_list:last-child>img{
+	display:none;
+}
+section .info .cont .list{
+	float:left;
+	width:16%;
+	margin:0 4.5%;
+	padding-bottom:35px;
+	text-align:center;
+}
+section .info .cont .list a{
+	display:block;
+	color:#fff;
+}
+section .info .cont .list a img{
+	width:158px;
+	height:158px;
+	border-radius:50%;
+
+}
+section .info .cont .list a .nickname{
+	text-align:center;
+	height:49px;
+	line-height:49px;
+	margin-top:19px;
+	font-size:20px;
+}
+section .info .cont .list a .price{
+	text-align:center;
+	font-size:20px;
+	line-height:70px;
+	font-weight:bold;
+	-webkit-text-stroke: 1px #b11c68;
+}
+section .info .cont .list a .price span{
+	font-size:40px;
+	-webkit-text-stroke: 2px #b11c68;
+}
+/*男孩*/
+section .info .cont .list a.boy img{
+	border:solid 2px #7383ba;
+}
+section .info .cont .list a.boy .nickname{
+	border-top:solid 1px #7383ba;
+	border-bottom:solid 1px #7383ba;
+}
+/*女孩*/
+section .info .cont .list a.girl img{
+	border:solid 2px #f44bb0;
+}
+section .info .cont .list a.girl .nickname{
+	border-top:solid 1px #f44bb0;
+	border-bottom:solid 1px #f44bb0;
+}
+section .info .btn{
+	width:200px;
+	height:50px;
+	margin:0 auto;
+	margin-top:30px;
+	line-height:50px;
+	font-size:24px;
+	border:solid 1px #181370;
+	background:#1f1a76;
+	cursor:pointer;
+	color:#99bff2;
+	text-align:center;
+	margin-bottom:50px;
+}

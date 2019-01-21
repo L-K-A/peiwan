@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="/css/sidebar.css">
     <!--登录注册模板样式-->
     <link rel="stylesheet" href="/css/login_registration.css">
-
+    <link rel="stylesheet" href="/css/top_footer.css">
 
     <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>-->
     <script type="text/javascript" src="/js/vue.min.js"></script>
@@ -36,13 +36,7 @@
     <script type="text/javascript" src="/js/hm.js"></script>
     <script type="text/javascript" src="/js/push.js"></script>
     <script type="text/javascript" src="/js/require.js"></script>
-
-
-    <!--<script type="text/javascript" src="/js/fzjs/dsQIsvEEt22a2B72.js"></script>-->
     <script type="text/javascript" src="/js/fzjs/websocket.js"></script>
-    <script type="text/javascript" src="/js/fzjs/message.js"></script>
-    <script type="text/javascript" src="/js/fzjs/chat.js"></script>
-
 
     <script>
         window.website_version = "201901040104";//网站版本号用于处理js的缓存1
@@ -101,7 +95,6 @@
                 </div>
 
             </div>
-
 
             <div class="seach_Box">
                 <img src="/images/ico_28_hover.png" style="display: none;">
@@ -201,33 +194,40 @@
     <div class="top_wrapper">
         <!-- banner -->
         <div class="banner_wrapper">
-
             <!--滚动横幅-->
             <div class="banner_box">
                 <div class="left swiper-button-next"></div>
-                <div class="swiper-container">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <a href="https://www.daofengdj.com/show/index" target="_blank">
-                                <img src="/images/b5e3b6c8d312b049b95dae7d890e76fa.png">
+                <div class="swiper-container swiper-container-horizontal">
+                    <div class="swiper-wrapper" style="transform: translate3d(-4800px, 0px, 0px); transition-duration: 1500ms;">
+                        <div class="swiper-slide swiper-slide-duplicate swiper-slide-next swiper-slide-duplicate-prev" data-swiper-slide-index="2" style="width: 1200px;">
+                            <a href="/person/toTongXiao" target="_blank">
+                                <img src="/images/tongxiao.png">
                             </a>
                         </div>
-                        <div class="swiper-slide">
-                            <a href="https://www.daofengdj.com/index/activity/annual.html" target="_blank">
-                                <img src="/images/1624921545717259.jpg">
+                        <div class="swiper-slide swiper-slide-duplicate-active" data-swiper-slide-index="0" style="width: 1200px;">
+                            <a href="/person/toPractice" target="_blank">
+                                <img src="/images/lolpractice.jpg">
                             </a>
                         </div>
-                        <div class="swiper-slide">
-                            <a href="http://xcb.kpzs.com/?qudao=XCB_DF" target="_blank">
-                                <img src="/images/0bebf8f40d994dadcd1310941833b529.jpg">
+                        <div class="swiper-slide" data-swiper-slide-index="1" style="width: 1200px;">
+                            <a href="/person/toZhangJia" target="_blank">
+                                <img src="/images/zhangjia.jpg">
                             </a>
                         </div>
-
+                        <div class="swiper-slide swiper-slide-prev swiper-slide-duplicate-next" data-swiper-slide-index="2" style="width: 1200px;">
+                            <a href="/person/toTongXiao" target="_blank">
+                                <img src="/images/tongxiao.png">
+                            </a>
+                        </div>
+                        <div class="swiper-slide swiper-slide-duplicate swiper-slide-active" data-swiper-slide-index="0"
+                             style="width: 1200px;">
+                            <a href="/person/toPractice" target="_blank">
+                                <img src="/images/lolpractice.jpg">
+                            </a>
+                        </div>
                     </div>
                     <div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets">
                         <span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span>
-                        <span class="swiper-pagination-bullet"></span>
-                        <span class="swiper-pagination-bullet"></span>
                         <span class="swiper-pagination-bullet"></span>
                         <span class="swiper-pagination-bullet"></span>
                     </div>
@@ -287,14 +287,16 @@
                     <span class="wall_title_wrapper">
 							<span>精品</span><i class="icon"></i><em>服务</em>
                     </span>
-                    <span class="middle_wall_btn_wrapper" onclick="window.open('/peiwan/lol/')">
+                    <a href="/person/toMore">
+                    <span class="middle_wall_btn_wrapper">
 							<span class="wall_text">More</span>
                         <i class="icon"></i>
                     </span>
+                    </a>
                 </div>
                 <ul class="service_list_wrapper">
                     <li class="service_list_item">
-                        <a href="/peiwan/pubg/">
+                        <a href="/person/toMore">
                             <div class="wai">
                                 <div class="nei">
                                     <img src="/images/logo_1.png" alt="" class="icon">
@@ -304,7 +306,7 @@
                         </a>
                     </li>
                     <li class="service_list_item">
-                        <a href="/peiwan/lol/">
+                        <a href="/person/toMore">
                             <div class="wai">
                                 <div class="nei">
                                     <img src="/images/logo_2.png" alt="" class="icon">
@@ -315,7 +317,7 @@
                     </li>
                     
                     <li class="service_list_item">
-                        <a href="/peiwan/syshengyouliaotian/">
+                        <a href="/person/toMore">
                             <div class="wai">
                                 <div class="nei">
                                     <img src="/images/logo_5.png" alt="" class="icon">
@@ -325,7 +327,7 @@
                         </a>
                     </li>
                     <li class="service_list_item">
-                        <a href="/peiwan/wangzherongyao/">
+                        <a href="/person/toMore">
                             <div class="wai">
                                 <div class="nei">
                                     <img src="/images/logo_4.png" alt="" class="icon">
@@ -335,7 +337,7 @@
                         </a>
                     </li>
                     <li class="service_list_item">
-                        <a href="/peiwan/shangfen/">
+                        <a href="/person/toMore">
                             <div class="wai">
                                 <div class="nei">
                                     <img src="/images/logo_6.png" alt="" class="icon">
@@ -388,13 +390,12 @@
     <div class="plute_title_wrapper">
         <img src="/images/plute_5.png" alt="" class="hot_title">
     </div>
-
     <div class="plute_wrapper">
         <div class="info_box">
             <div class="left swiper-button-next2"></div>
             <div class="swiper-container2">
                 <div class="swiper-wrapper">
-                                        <div class="swiper-slide" >
+                    <div class="swiper-slide" >
                         <a href="/item/122766.html" target="_blank">
                             <div class="pic_box">
                                 <img class="pic" src="/picture/4.gif">
@@ -402,7 +403,7 @@
                             <p class="nick">今天又是元气满满</p>
                         </a>
                     </div>
-                                        <div class="swiper-slide" >
+                    <div class="swiper-slide" >
                         <a href="/item/1225990.html" target="_blank">
                             <div class="pic_box">
                                 <img class="pic" src="/picture/5.gif">
@@ -410,7 +411,7 @@
                             <p class="nick">小妖精～想要你抱</p>
                         </a>
                     </div>
-                                        <div class="swiper-slide" >
+                    <div class="swiper-slide" >
                         <a href="/item/42046.html" target="_blank">
                             <div class="pic_box">
                                 <img class="pic" src="/picture/6.gif">
@@ -418,7 +419,7 @@
                             <p class="nick">斗鱼TV梓云</p>
                         </a>
                     </div>
-                                        <div class="swiper-slide" >
+                    <div class="swiper-slide" >
                         <a href="/item/1214333.html" target="_blank">
                             <div class="pic_box">
                                 <img class="pic" src="/picture/7.gif">
@@ -426,7 +427,7 @@
                             <p class="nick">CX.哑谜</p>
                         </a>
                     </div>
-                                        <div class="swiper-slide" >
+                    <div class="swiper-slide" >
                         <a href="/item/1237563.html" target="_blank">
                             <div class="pic_box">
                                 <img class="pic" src="/picture/8.gif">
@@ -434,7 +435,7 @@
                             <p class="nick">底层阿深ℓ乔木冠</p>
                         </a>
                     </div>
-                                        <div class="swiper-slide" >
+                    <div class="swiper-slide" >
                         <a href="/item/1248163.html" target="_blank">
                             <div class="pic_box">
                                 <img class="pic" src="/picture/9.gif">
@@ -448,7 +449,6 @@
         </div>
     </div>
 
-
     <!-- 热门推荐 -->
     <div class="hot_box hot_list_wrapper" id="hot_box">
         <!-- 头部 -->
@@ -461,7 +461,8 @@
         </div>
         <!-- 列表 -->
         <ul class="hot_content_wrapper">
-            <li class="hot_content_item " v-for="(item,index) in hotList" :key="index" @click="hotDetailUrl(item)"><!--触发事件-->
+            <li class="hot_content_item " v-for="(item,index) in hotList" :key="index"><!--触发事件-->
+                <a :href="'./hello/?pid='+item.pid+'&gid='+item.gid">
                 <div class="frame_logo_wrapper">
                     <div class="pic_box">
                         <img :src="'/picture/'+item.person_image" alt="" class="pic"><!--主播头像-->
@@ -469,13 +470,14 @@
                     </div>
                 </div>
                 <!-- 用户信息 -->
-                <div class="info_wrapper">                                                  <!--此处显示主播昵称-->
-                    <span class="nick_name">{{item.person_nickname}}</span>
-                    <!--<span class="btn_wrapper">
-                    	<span class="btn_item" v-for="(iitem,ii) in item.icon" v-if="ii<3">&lt;!&ndash;item.icon里很可能是存放主播的所有服务&ndash;&gt;
+                <div class="info_wrapper">
+                   <span class="nick_name">{{item.person_nickname}}</span>
+                    <span class="btn_wrapper">
+                        <span>{{item.g_name}}</span><!--主播服务名-->
+                    	<!--<span class="btn_item" v-for="(iitem,ii) in item.icon" v-if="ii<3">&lt;!&ndash;item.icon里很可能是存放主播的所有服务&ndash;&gt;
                     		<img :src="iitem.path" alt="" class="btn_icon" :title="iitem.name">
-                    	</span>
-					</span>-->
+                    	</span>-->
+					</span>
                 </div>
                 <!-- 价格 -->
                 <div class="desc_wrapper">
@@ -489,6 +491,7 @@
                     </span>
                 </div>
                 <span class="line"></span>
+                </a>
             </li>
         </ul>
 
@@ -620,6 +623,7 @@
                         <div class="top">
                             <ul class="list_top_wrapper">
                                 <li class="list_top_item url_point" v-for="(item,index) in order_seven_charm_top">
+                                    <a :href="'./hello/?pid='+item.pid+'&gid='+item.gid">
                                     <div class="logo_wrapper">
                                         <img :src="'/picture/'+item.person_image" class="logo_frame"><!--主播头像-->
                                     </div>
@@ -628,6 +632,7 @@
                                         <i class="icon"></i>
                                         <span class="hot_text">{{item.oo}}</span>
                                     </div>
+                                    </a>
                                 </li>
                             </ul>
                         </div>
@@ -635,6 +640,7 @@
                         <div class="bottom">
                             <ul class="list_bottom_wrapper">
                                 <li class="list_bottom_item url_point" v-cloak v-for="(item,index) in order_seven_charm" :key="index" @click="detailUrl(item.uid,item.pw_status)">
+                                    <a :href="'./hello/?pid='+item.pid+'&gid='+item.gid">
                                     <i class="num_wrapper"><i class="num_item"><i class="num">{{index+4}}</i></i>
                                     </i>
                                     <div class="logo_wrapper">
@@ -654,6 +660,7 @@
                                             </div>
                                         </div>
                                     </div>
+                                    </a>
                                 </li>
                             </ul>
                         </div>
@@ -663,6 +670,7 @@
                         <div class="top"> <!--榜单前三-->
                             <ul class="list_top_wrapper">
                                 <li class="list_top_item url_point" v-for="(item,index) in order_charm_top">
+                                    <a :href="'./hello/?pid='+item.pid+'&gid='+item.gid">
                                     <div class="logo_wrapper">
                                         <img :src="'/picture/'+item.person_image" class="logo_frame"><!--主播头像-->
                                     </div>
@@ -671,6 +679,7 @@
                                         <i class="icon"></i>
                                         <span class="hot_text">{{item.oo}}</span>
                                     </div>
+                                    </a>
                                 </li>
                             </ul>
                         </div>
@@ -678,6 +687,7 @@
                         <div class="bottom">
                             <ul class="list_bottom_wrapper">
                                 <li class="list_bottom_item url_point" v-cloak v-for="(item,index) in order_charm" :key="index" @click="detailUrl(item.uid,item.pw_status)">
+                                    <a :href="'./hello/?pid='+item.pid+'&gid='+item.gid">
                                     <i class="num_wrapper"><i class="num_item"><i class="num">{{index+4}}</i></i>
                                     </i>
                                     <div class="logo_wrapper">
@@ -697,6 +707,7 @@
                                             </div>
                                         </div>
                                     </div>
+                                    </a>
                                 </li>
                             </ul>
                         </div>
@@ -734,6 +745,7 @@
                         <div class="top">
                             <ul class="list_top_wrapper">
                                 <li class="list_top_item url_point" v-for="(item,index) in time_seven_charm_top">
+                                    <a :href="'./hello/?pid='+item.pid+'&gid='+item.gid">
                                     <div class="logo_wrapper">
                                         <img :src="'/picture/'+item.person_image" class="logo_frame"><!--主播头像-->
                                     </div>
@@ -742,6 +754,7 @@
                                         <i class="icon"></i>
                                         <span class="hot_text">{{item.ot}}</span>
                                     </div>
+                                    </a>
                                 </li>
                             </ul>
                         </div>
@@ -749,6 +762,7 @@
                         <div class="bottom">
                             <ul class="list_bottom_wrapper">
                                 <li class="list_bottom_item url_point" v-cloak v-for="(item,index) in time_seven_charm" :key="index" @click="detailUrl(item.uid,item.pw_status)">
+                                    <a :href="'./hello/?pid='+item.pid+'&gid='+item.gid">
                                     <i class="num_wrapper"><i class="num_item"><i class="num">{{index+4}}</i></i>
                                     </i>
                                     <div class="logo_wrapper">
@@ -768,6 +782,7 @@
                                             </div>
                                         </div>
                                     </div>
+                                    </a>
                                 </li>
                             </ul>
                         </div>
@@ -777,6 +792,7 @@
                         <div class="top"> <!--榜单前三-->
                             <ul class="list_top_wrapper">
                                 <li class="list_top_item url_point" v-for="(item,index) in time_charm_top">
+                                    <a :href="'./hello/?pid='+item.pid+'&gid='+item.gid">
                                     <div class="logo_wrapper">
                                         <img :src="'/picture/'+item.person_image" class="logo_frame"><!--主播头像-->
                                     </div>
@@ -785,6 +801,7 @@
                                         <i class="icon"></i>
                                         <span class="hot_text">{{item.oo}}</span>
                                     </div>
+                                    </a>
                                 </li>
                             </ul>
                         </div>
@@ -792,6 +809,7 @@
                         <div class="bottom">
                             <ul class="list_bottom_wrapper">
                                 <li class="list_bottom_item url_point" v-cloak v-for="(item,index) in time_charm" :key="index" @click="detailUrl(item.uid,item.pw_status)">
+                                    <a :href="'./hello/?pid='+item.pid+'&gid='+item.gid">
                                     <i class="num_wrapper"><i class="num_item"><i class="num">{{index+4}}</i></i>
                                     </i>
                                     <div class="logo_wrapper">
@@ -811,6 +829,7 @@
                                             </div>
                                         </div>
                                     </div>
+                                    </a>
                                 </li>
                             </ul>
                         </div>
@@ -939,7 +958,7 @@
     <!--语音软件-->
     <div class="clent_down">
         <a href="http://yundown.daofengdj.com/dianjing/dianjing_1.5.0.13690_offline.exe">
-            <img src="https://yundown.daofengdj.com/static/home/img/index_v2/img-15.png">
+            <img src="/images/img-15.png">
         </a>
         <p class="close" onclick="javascript:document.querySelector('.clent_down').style.display='none';"></p>
     </div>
@@ -991,6 +1010,46 @@
 
 <script>
 
+    //滚动横幅
+    (function() {
+        var swiper = new Swiper('.banner_wrapper .swiper-container', { //swiper
+            pagination: '.banner_wrapper .swiper-pagination',
+            paginationClickable: true,
+            speed: 1500,
+            loop: true,
+            observer: true,
+            observeParents: true,
+            autoplayDisableOnInteraction: false,
+            autoplay: 7000,
+            prevButton: '.banner_wrapper .swiper-button-next',
+            nextButton: '.banner_wrapper .swiper-button-prev'
+        });
+        var swiper1 = new Swiper('.wall_hot_wrapper .swiper-container', { //swiper
+            pagination: '.wall_hot_wrapper .swiper-pagination',
+            slidesPerView: 2,
+            spaceBetween: 30,
+            slidesPerGroup: 2,
+            speed: 1500,
+            loop: false,
+
+            loopFillGroupWithBlank: true,
+            prevButton: '.wall_hot_wrapper .swiper-button-next',
+            nextButton: '.wall_hot_wrapper .swiper-button-prev'
+        });
+        var swiper2 = new Swiper('.gift_content .swiper-container', { //swiper
+            pagination: '.gift_content .swiper-pagination',
+            paginationClickable: true,
+            speed: 1500,
+            loop: true,
+            observer: true,
+            observeParents: true,
+            autoplayDisableOnInteraction: false,
+            autoplay: 4000
+        });
+
+    }());
+
+
     // 热门推荐
     var hot =new Vue({
         el:"#hot_box",
@@ -1041,15 +1100,14 @@
              }
          }*/
     });
-
-    //热门推荐
-    var getHotList = function () {
+    //进入页面自动触发的热门推荐函数
+    var getHotList = function ( ) {
         $.ajax({
             type: 'POST',
             dataType: 'json',
             url: '/person/getHotPersonList',
             data: {
-                curPage: 1 ,
+                curPage:  1,
                 pageSize: 10
             },
             success: function (msg) {
@@ -1060,23 +1118,22 @@
     };
     getHotList();
     /*点击换一批时curPage需要变为第二页，但是无法给curr赋于当前页数+1的值*/
-
+    curPage = 1;
     // 换一批
-    $("#changePage").click(function () {
+    $("#changePage").click(function (curr) {
+        curr = curPage + 1  ;
         $.ajax({
             type: 'POST',
             dataType: 'json',
             url: '/person/getHotPersonList',
             data: {
-                curPage: 2 ,
+                curPage:  curr ,
                 pageSize: 10
             },
             success: function (msg) {
                 hot.hotList = msg.hotPersonList;
-
             }
         });
-
     });
 
 
@@ -1291,98 +1348,32 @@
 var first_coupons = 9999;
 </script>
 
-
 <footer>
-    <div class="box">
-        <div class="foot">
-            <!--隐藏掉提现(隐藏提现)字样（2017-12-18）margin-left:-->
-            <ul>
-                <li>
-                    <img src="/images/ico_ft01.png">
-                    <p>极速接单</p>
-                    <span class="desc">秒接单 八分钟未接单立即退款</span>
-                </li>
-                <li>
-                    <img src="/images/ico_ft02.png">
-                    <p>信息提醒</p>
-                    <span class="desc">来单短信提醒 不错过订单</span>
-                </li>
-                <li>
-                    <img src="/images/ico_ft03.png">
-                    <p>品质保障</p>
-                    <span class="desc">服务不满意为您来免单</span>
-                </li>
-                <li>
-                    <img src="/images/ico_ft04.png">
-                    <p>资金日结算</p>
-                    <span class="desc">实时掌控工资 给你安心</span>
-                </li>
-                <li>
-                    <img src="/images/ico_ft05.png">
-                    <p>7*24小时服务</p>
-                    <span class="desc">自助下单 7*24小时客服答疑</span>
-                </li>
-            </ul>
-        </div>
-
-        <ul class="footCenter">
-            <li class="li1">
-                <div>
-                    <img src="/images/link.png">
-                    <div style="line-height: 19px; margin-top: -2px;">
-                        <a target="_blank" href="https://www.zuhaowan.com"><p>租<i style="display:inline-block;width:.5em;"></i>号<i style="display:inline-block;width:.5em;"></i>玩 - 账号租借平台</p></a>
-                        <a target="_blank" href="http://www.mayidailian.com/"><p>蚂蚁代练 - 专业代练平台</p></a>
-                        <a target="_blank" href="http://www.irollfun.com/"><p>rollfun游戏站</p></a>
-                        <a target="_blank" href="http://www.99173.com/"><p>99173-游戏交易平台</p></a>
-                        <a target="_blank" href="http://www.wyaq.com/"><p>无忧安全</p></a>
-                    </div>
-                </div>
-            </li>
-            <li class="sp"></li>
-            <li class="li2">
-                <div>
-                    <img src="/images/kefu.png">
-                    <div>
-                        <p>客服电话：0371-55637968</p>
-                        <p>咨询时间：7 x 24 小时</p>
-                    </div>
-                </div>
-            </li>
-            <li class="sp"></li>
-            <li class="li3">
-                <div>
-                    <img src="/images/qq.png">
-                    <div>
-                        <p>客服QQ：3003120628</p>
-                        <p>咨询时间：7 x 24 小时</p>
-                    </div>
-                </div>
-            </li>
-            <li msg="新需求隐藏" class="sp" style="display:none;"></li>
-            <li msg="新需求隐藏" style="display:none;">
-                <div>
-                    <img src="/images/new.png">
-                    <div>
-                        <a target="_blank" href="/help/peiwan.html"><p>陪玩新手引导</p></a>
-                        <a target="_blank" href="/help/novice.html"><p>玩家新手引导</p></a>
-                    </div>
-                </div>
-            </li>
-        </ul>
-    </div>
-    <div class="box">
-        <div class="footBottom">
-            <div class="f_tx">
-                <a target="_blank" href="/help/contact_us.html">联系我们</a>
-                <a target="_blank" href="/help/company_profile.html">公司简介</a>
-                <a target="_blank" href="/help/disclaimer.html">免责声明</a>
+<div class="fl footer_box" style="width: 100%;">
+    <div class="footer_box">
+        <a href="javascript:" title="" class="fl"><img src="/images/consume1.jpg"></a>
+        <a href="javascript:" title="" class="fl"><img src="/images/consume2.jpg"></a>
+        <a href="javascript:" title="" class="fl"><img src="/images/consume3.jpg"></a>
+        <a href="javascript:" title="" class="fl"><img src="/images/consume4.jpg"></a>
+        <div class="clearfix"></div>
+        <div class="help_box mt30">
+            <div class="fl ml35 pr30 border_right"><i class="icon custom mr10"></i>客服电话：<span class="custom_01">010-68608228</span><span
+                    class="custom_02">咨询时间：7X24小时</span></div>
+            <div class="fl pl30" id="dd_kefu_pcbottom" style="cursor: pointer;"><i class="icon QQ mr10"></i>客服QQ：<span
+                    class="custom_01">800184580</span></div>
+            <div class="fl pl30"><span class="custom_02">咨询时间：7X24小时</span></div>
+            <div class="fl ml40">
+                <a href="javascript:" title="" class="fl help">帮助中心</a>
+                <a href="javascript:" title="" class="fl help">服务保障</a>
+                <a href="javascript:" title="" class="fl help">陪玩守则</a>
+                <div class="clearfix"></div>
             </div>
-            <p>版权所有 © 2017 安徽省刀锋网络科技有限公司 <a href="http://www.miitbeian.gov.cn">晥B2-20170045-5</a></p>
+            <div class="clearfix"></div>
         </div>
+        <div class="Copy">(京)字第05536号Copyright 2014-2020 TUWAN Corporation,All Rights Reserved</div>
     </div>
-
+</div>
 </footer>
-
 
 <script defer="true" src="/fzjs/dsQIsvEEt22a2B72.js"></script>
 <script>
@@ -1410,7 +1401,6 @@ var _hmt = _hmt || [];
 <div id="sidebar-vm" class="flying-vm">
     <aside class="live-sidebar-ctnr a-move-in-left ts-dot-4">
         <span>
-
             <div title="聊天和系统信息" class="sidebar-btn a-move-in-left message" onclick="tel_login_v1.bindPopShowFun(1)">
                 <div class="icon-ctnr">
                     <i class="btn-icon svg-icon menu-live-hover icon_message "></i>

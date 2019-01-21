@@ -26,17 +26,13 @@
     <script type="text/javascript" src="/js/jquery.validate.min.js"></script>
     <script type="text/javascript" src="/js/messages_zh.min.js"></script>
     <script type="text/javascript" src="/js/store.legacy.min.js"></script>
-    <!--    <script type="text/javascript" src="/js/layer/layer.js"></script>-->
     <script type="text/javascript" src="/js/swiper.min.js"></script>
     <script type="text/javascript" src="/js/hm.js"></script>
     <script type="text/javascript" src="/js/push.js"></script>
     <script type="text/javascript" src="/js/require.js"></script>
 
-
-    <!--<script type="text/javascript" src="/js/fzjs/dsQIsvEEt22a2B72.js"></script>-->
     <script type="text/javascript" src="/js/fzjs/websocket.js"></script>
-    <script type="text/javascript" src="/js/fzjs/message.js"></script>
-    <script type="text/javascript" src="/js/fzjs/chat.js"></script>
+
 
 </head>
 <body>
@@ -53,7 +49,7 @@
         </div>
         <!-- 列表 -->
         <ul class="hot_content_wrapper">
-            <li class="hot_content_item " v-for="(item,index) in hotList" :key="index" @click="hotDetailUrl(item)"><!--触发事件-->
+            <li class="hot_content_item " v-for="(item,index) in hotList" :key="index" ><!--触发事件-->
                 <div class="frame_logo_wrapper">
                     <div class="pic_box">
                         <img :src="'/picture/'+item.person_image" alt="" class="pic"><!--主播头像-->
@@ -100,7 +96,8 @@
         data:{
             //changeStatus: true,//换一批状态，防止重复点击
             hotList: [],//热门推荐列表
-            //curPage:0,//当前页数
+            //curr:1,
+            //curPage:1 ,//当前页数
             //hot_status:false,//热门推荐是否被第一次点击
             moreShow:false//更多按钮显示
             //loadingShow:true  //loading效果
@@ -146,13 +143,13 @@
     });
 
     //热门推荐
-    var getHotList = function () {
+    var getHotList = function ( ) {
         $.ajax({
             type: 'POST',
             dataType: 'json',
             url: '/person/getHotPersonList',
             data: {
-                curPage: 1 ,
+                curPage:  1,
                 pageSize: 10
             },
             success: function (msg) {
@@ -163,19 +160,21 @@
     };
     getHotList();
                         /*点击换一批时curPage需要变为第二页，但是无法给curr赋于当前页数+1的值*/
-
+    curPage = 1;
     // 换一批
-    $("#changePage").click(function () {
+    $("#changePage").click(function (curr) {
+            curr = curPage + 1  ;
             $.ajax({
                 type: 'POST',
                 dataType: 'json',
                 url: '/person/getHotPersonList',
                 data: {
-                    curPage: 2 ,
+                    curPage:  curr ,
                     pageSize: 10
                 },
                 success: function (msg) {
                     hot.hotList = msg.hotPersonList;
+
 
                 }
             });
