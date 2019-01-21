@@ -52,6 +52,7 @@
 				<th width="80">操作</th>
 			</tr>
 		</thead>
+
 		<tbody>
 			<tr class="text-c" v-for="(item,index) in result">
 				<td>{{item.pid}}</td>
