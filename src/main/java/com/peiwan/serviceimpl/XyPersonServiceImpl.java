@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
@@ -98,7 +99,6 @@ public class XyPersonServiceImpl extends ServiceImpl<XyPersonMapper, TPerson> im
                     break;
             }
         }
-        System.out.println("游戏人数："+hashMap);
         return hashMap;
     }
 
@@ -156,7 +156,6 @@ public class XyPersonServiceImpl extends ServiceImpl<XyPersonMapper, TPerson> im
                         break;
             }
         }
-        System.out.println("娱乐人数："+hashMap);
         return hashMap;
     }
 
@@ -183,7 +182,6 @@ public class XyPersonServiceImpl extends ServiceImpl<XyPersonMapper, TPerson> im
                 //查询符合某一时间段的用户
                 String personCreatetime = person.getPersonCreatetime();
                 list.add(personCreatetime);
-                System.out.println("符合条件的人："+person.getPersonName());
             }
         }
         //这个是避免一个（如果查询日期为空的话它会把所有的数据查出来）的bug
@@ -191,6 +189,8 @@ public class XyPersonServiceImpl extends ServiceImpl<XyPersonMapper, TPerson> im
             wrapper.eq("person_createtime","0");
         }
         wrapper.in("person_createtime",list);
+        wrapper.ne("person_logintime","无数据");
+        wrapper.ne("person_becometime","无数据");
         wrapper.like("person_name",pPerson.getPersonName());
         IPage<TPerson> PPerson = xyPersonMapper.selectPage(page,wrapper);
         return PPerson;
@@ -200,10 +200,10 @@ public class XyPersonServiceImpl extends ServiceImpl<XyPersonMapper, TPerson> im
 
     //根据pid删除日志
     @Override
-    public Boolean delete(Integer id) {
+    public Boolean delete(int pid) {
         int delete=0;
         boolean Panduan=false;
-        delete = xyPersonMapper.delete(id);
+        delete = xyPersonMapper.delete(pid);
         //如果删除数据成功就返回true
         if(delete!=0){
             Panduan=true;
@@ -216,6 +216,48 @@ public class XyPersonServiceImpl extends ServiceImpl<XyPersonMapper, TPerson> im
     public TPerson searchPerson(int pid) {
         TPerson pPerson = xyPersonMapper.selectById(pid);
         return pPerson;
+    }
+
+    //用户申请主播列表+模糊查询
+    @Override
+    public IPage<TPerson> anchorList(Page<TPerson> page, TPerson pPerson) {
+        QueryWrapper<TPerson> wrapper=new QueryWrapper();
+        wrapper.eq("person_flate",0);
+        wrapper.eq("person_status",1);
+        wrapper.like("person_name",pPerson.getPersonName());
+        IPage<TPerson> tPersonIPage = xyPersonMapper.selectPage(page, wrapper);
+        return tPersonIPage;
+    }
+
+    //同意成为主播事件
+    @Override
+    public int agreeEvent(TPerson tPerson) {
+        tPerson.setPersonFlate(1);
+        tPerson.setZZhubo(1);
+        //获取当前系统时间 这里表示1000毫秒更新一下时间
+        Date date = new Date();
+        SimpleDateFormat time = new SimpleDateFormat("yyyy-MM-dd");
+        String format = time.format(date);
+        tPerson.setPersonBecometime(format);
+        int i = xyPersonMapper.updateById(tPerson);
+        return i;
+    }
+
+    @Override
+    public int repulseEvent(TPerson tPerson) {
+        tPerson.setPersonStatus(0);
+        return xyPersonMapper.updateById(tPerson);
+    }
+
+    @Override
+    public int deleteTags(String ids) {
+        String[] split = ids.split(",");
+        List<Integer> list=new ArrayList<>();
+        for (String s : split) {
+            list.add(Integer.parseInt(s));
+        }
+        int i = xyPersonMapper.deleteTags(list);
+        return i;
     }
 
 

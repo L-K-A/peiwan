@@ -14,7 +14,20 @@
         pid, aid, z_zhubo
     </sql>
 
+    <!--根据用户id删除数据-->
     <update id="delete" parameterType="Integer">
         UPDATE t_person SET person_createtime="无数据", person_logintime="无数据" WHERE pid=#{v}
+    </update>
+
+    <!--批量更新-->
+    <update id="deleteTags" parameterType="list">
+        update t_person
+        SET
+        person_createtime="无数据"
+        WHERE
+           pid IN
+        <foreach collection="list" item="pid" open="(" close=")" separator=",">
+          #{pid}
+        </foreach>
     </update>
 </mapper>

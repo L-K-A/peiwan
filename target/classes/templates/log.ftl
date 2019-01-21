@@ -49,7 +49,7 @@
 		<span class="l">
 		<a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a>
 		</span>
-        <span class="r">共有数据：<strong id="zongtiaoshu"></strong> 条</span>
+        <span class="r">共有数据：<strong id="zongtiaoshu">0</strong> 条</span>
     </div>
     <table class="table table-border table-bordered table-bg table-hover table-sort">
         <thead>
@@ -57,6 +57,8 @@
             <th width="25"><input type="checkbox" name="" value=""></th>
             <th width="80">用户ID</th>
             <th width="17%">用户名</th>
+            <th width="17%">用户昵称</th>
+            <th width="120">用户成为主播时间</th>
             <th width="120">注册时间</th>
             <th width="120">最后一次登陆时间</th>
             <th width="70">操作</th>
@@ -64,9 +66,11 @@
         </thead>
         <tbody>
         <tr class="text-c" v-for="(item,index) in result">
-            <td><input type="checkbox" value="" name=""></td>
-            <td>{{index+1}}</td>
+            <td><input type="checkbox" :value="item.pid" name="tag"></td>
+            <td>{{item.pid}}</td>
             <td>{{item.personName}}</td>
+            <td>{{item.personNickname}}</td>
+            <td>{{item.personBecometime}}</td>
             <td>{{item.personCreatetime}}</td>
             <td>{{item.personLogintime}}</td>
             <td>
@@ -167,6 +171,36 @@
                 getStudentPageList();
             }
         });
+    }
+   /* 批量删除*/
+    function datadel(){
+        var checkedbox = $("input[name='tag']:checked");
+        if(checkedbox.length == 0){
+            alert("请选择要删除的标签");
+        }else{
+            if(confirm("确定要删除吗？")){
+                var res = checkedbox.map(function(){
+                    return this.value;
+                });
+                $.ajax({
+                    type:'GET',
+                    dataType:'json',
+                    url:'/deleteTags',
+                    data:{
+                        ids:res.toArray().join(",")
+                    },
+                    success:function (msg) {
+                        if(msg.zhuangtai){
+                            layer.msg("删除成功",{icon:6});
+                        }else{
+                            layer.msg('删除失败',{icon:6});
+                        }
+                        window.location.reload();
+                    }
+                });
+
+            }
+        }
     }
 </script>
 </body>

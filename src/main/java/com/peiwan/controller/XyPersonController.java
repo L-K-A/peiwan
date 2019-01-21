@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.peiwan.bean.TPerson;
 import com.peiwan.service.XyPersonService;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RestController;
@@ -76,16 +77,12 @@ public class XyPersonController {
         map.put("totalPage",pPersonIPage.getPages());
         //总条数
         map.put("zongtiaoshu",pPersonIPage.getTotal());
-        System.out.println("总条数"+map.get("zongtiaoshu"));
         return map;
     }
     //删除日志
     @RequestMapping("delete")
-    public String delete(Integer pid){
+    public String delete(int pid){
         Boolean delete = xyPersonService.delete(pid);
-        if (delete){
-            System.out.println("删除成功！");
-        }
         return delete+"";
     }
     //查用户的详情
@@ -119,6 +116,50 @@ public class XyPersonController {
         map.put("xuniCount",yu.get("xuniCount"));
         map.put("shengyinCount",yu.get("shengyinCount"));
         return new ModelAndView("zhuzhuangtu",map);
+    }
+
+
+    //申请主播管理
+    @RequestMapping("/anchor-list")
+    public ModelAndView anchorList(){
+        return new ModelAndView("anchor-list");
+    }
+    //申请主播页面模糊查询
+    @RequestMapping("/anchor")
+    public Map anchor(Integer pageCurrent,Integer pageSize,TPerson tPerson){
+        Page<TPerson> Page = new Page<>(pageCurrent,pageSize);
+        IPage<TPerson> tPersonIPage = xyPersonService.anchorList(Page, tPerson);
+        List<TPerson> records = tPersonIPage.getRecords();
+        System.out.println("申请人："+records);
+        Map map =new HashMap();
+        map.put("page",records);
+        //总页数
+        map.put("totalPage",tPersonIPage.getPages());
+        //总条数
+        map.put("zongtiaoshu",tPersonIPage.getTotal());
+        return map;
+    }
+    //申请主播页面，同意事件
+    @RequestMapping("/agreeEvent")
+    public int agreeEvent(TPerson person){
+        return xyPersonService.agreeEvent(person);
+    }
+
+    //申请主播页面，拒绝事件
+    @RequestMapping("/repulseEvent")
+    public int repulseEvent(TPerson person){
+        return xyPersonService.repulseEvent(person);
+    }
+
+    //批量删除
+    @RequestMapping("/deleteTags")
+    public Map deleteTags(String ids){
+        System.out.println("ids="+ids);
+        int i = xyPersonService.deleteTags(ids);
+        System.out.println("删除了几条数据"+i);
+        Map map= new HashMap<>();
+        map.put("zhuangtai",true);
+        return map;
     }
 
 

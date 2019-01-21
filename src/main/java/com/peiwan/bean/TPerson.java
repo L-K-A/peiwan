@@ -150,5 +150,9 @@ public class TPerson implements Serializable {
      */
     private Integer zZhubo;
 
+    /**
+     * 服务描述
+     */
+    private String  personServicedescription;
 
 }
