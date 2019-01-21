@@ -42,16 +42,18 @@
             -
             <input type="text" onfocus="WdatePicker({ minDate:'#F{$dp.$D(\'logmin\')}',maxDate:'%y-%M-%d' })"
                    id="logmax" class="input-text Wdate" style="width:120px;">
+            <input type="text" name="" id="commentId" placeholder="评论id" style="width:250px" class="input-text radius">
             <input type="text" name="" id="commentRank" placeholder="评分" style="width:250px" class="input-text radius">
             <button name="" id="findComment" class="btn btn-success radius" type="submit"><i class="Hui-iconfont">&#xe665;</i>
                 查询评论
             </button>
         </div>
+        <div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a></span> <span class="r">共有数据：<strong id="totalNumber">0</strong> 条</span> </div>
         <div class="mt-20">
             <table class="table table-border table-bordered table-bg table-hover table-sort">
                 <thead>
                 <tr class="text-c">
-                    <th width="40">序号</th>
+                    <th width="40"><input name="" type="checkbox" value=""></th>
                     <th width="40">评论id</th>
                     <th width="120">评论内容</th>
                     <th width="60">评论时间</th>
@@ -61,12 +63,12 @@
                 </thead>
                 <tbody>
                 <tr class="text-c va-m" v-for="(item,index) in result">
-                    <td>{{index+1}}</td>
+                    <td><input name="tag" type="checkbox" :value="item.cid"></td>
                     <td>{{item.cid}}</td>
                     <td>{{item.ccontext}}</td>
                     <td>{{item.ccreatetime}}</td>
                     <td>{{item.crank}}</td>
-                    <td><a href="#" @click="deleteEvent(item.crank)"><img src="/img/ab.jpg" style="width: 20px;height: 20px"/></a></td>
+                    <td><a href="#" @click="deleteEvent(item.cid)"><img src="/img/ab.jpg" style="width: 20px;height: 20px"/></a></td>
                 </tr>
                 </tbody>
             </table>
@@ -74,6 +76,8 @@
         </div>
     </div>
 </div>
+<script type="text/javascript" src="/Hui/lib/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="/Hui/static/h-ui/js/H-ui.min.js"></script>
 <script type="text/javascript" src="/Hui/lib/My97DatePicker/4.8/WdatePicker.js"></script>
 <script type="text/javascript">
     var app = new Vue({
@@ -93,9 +97,11 @@
                 pageSize: 3,
                 minTime: $("#logmin").val(),
                 maxTime: $("#logmax").val(),
+                cid: $("#commentId").val(),
                 cRank: $("#commentRank").val(),
             },
             success: function (msg) {
+                $("#totalNumber").html(msg.totalNumber);
                 app.result = msg.page;
                 laypage({
                     cont: 'pagenav', /**容器  值支持id名、原生dom对象，jquery对象*/
@@ -120,8 +126,8 @@
         getPcommentPageList();
     });
 
-    /**根据评分删除评论信息*/
-    var deleteEvent = function (cRank) {
+    /**根据评论id删除评论信息*/
+    var deleteEvent = function (cid) {
         //确认对话框
         layer.confirm('你忍心删除吗', {
             btn: ['删了吧', '朕再想想']
@@ -131,14 +137,46 @@
                 dataType: 'json',
                 url: '/deleteComment',
                 data: {
-                    cRank: cRank
+                    cid: cid
                 },
                 success: function () {
                     getPcommentPageList();
-                    layer.msg("成功删除" + cRank, {icon: 6});
+                    layer.msg("成功删除" + cid, {icon: 6});
                 }
             });
         });
+    }
+    
+    /**根据评论id批量删除*/
+    function datadel() {
+        var checkedbox = $("input[name='tag']:checked");
+        if (checkedbox.length==0){
+            alert("请选择要删除的标签");
+        }else{
+            if (confirm("确定要删除吗？")) {
+                var res = checkedbox.map(function () {
+                    return this.value;
+                });
+                $.ajax({
+                    type:'GET',
+                    dataType:'json',
+                    url:'/deleteComments',
+                    data:{
+                        ids:res.toArray().join(",")
+                    },
+                    success:function (msg) {
+                        if (msg) {
+                            layer.msg("删除成功",{icon:6});
+                        }else{
+                            layer.msg("删除失败",{icon:6});
+                        }
+                        window.location.reload();
+                    }
+                });
+            }
+        }
+
+        
     }
 
 </script>

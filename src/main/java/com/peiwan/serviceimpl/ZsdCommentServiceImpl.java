@@ -43,11 +43,9 @@ public class ZsdCommentServiceImpl extends ServiceImpl<ZsdCommentMapper, TCommen
         }
         QueryWrapper<TComment> wrapper = new QueryWrapper<>();
         List<TComment> tComments = zsdCommentMapper.selectComment();
-        /**System.out.println("查询的时间不为空的数据: "+tComments);*/
         List list = new ArrayList();
         for (TComment tComment1:tComments){
-            /**System.out.println("时间: "+tComment1.getCCreatetime());*/
-            int time = Integer.parseInt(tComment1.getCCreatetime());
+            int time = Integer.parseInt(tComment1.getCCreatetime().replaceAll("-",""));
             if (min<=time&&time<max){
                 /**查询符合某一时间段的评论*/
                 String cCreatetime = tComment1.getCCreatetime();
@@ -59,6 +57,9 @@ public class ZsdCommentServiceImpl extends ServiceImpl<ZsdCommentMapper, TCommen
         }
         wrapper.in("c_createtime",list);
         /**评分*/
+        if (tComment.getCid()!=null){
+            wrapper.eq("cid",tComment.getCid());
+        }
         wrapper.like("c_rank",tComment.getCRank());
         wrapper.orderByDesc("cid");
         IPage<TComment> tCommentPage = zsdCommentMapper.selectPage(page,wrapper);
@@ -66,14 +67,21 @@ public class ZsdCommentServiceImpl extends ServiceImpl<ZsdCommentMapper, TCommen
     }
 
     /**
-    * @description: 根据评分删除评论信息
+    * @description: 根据评论id删除评论信息
     * @author: 张帅东
     */
     @Override
-    public int deleteComment(TComment tComment) {
-        QueryWrapper<TComment> wrapper = new QueryWrapper<>();
-        wrapper.eq("c_rank",tComment.getCRank());
-        return zsdCommentMapper.delete(wrapper);
+    public int deleteCommentById(Integer id) {
+        return zsdCommentMapper.deleteById(id);
+    }
+
+    /**
+    * @description: 根据评论id批量删除
+    * @author: 张帅东
+    */
+    @Override
+    public int deleteComments(List idList) {
+        return zsdCommentMapper.deleteBatchIds(idList);
     }
 
     public ZsdCommentMapper getZsdCommentMapper() {

@@ -5,6 +5,8 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.peiwan.bean.TSort;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 
 /**
  * <p>
@@ -23,10 +25,10 @@ public interface ZsdSortService extends IService<TSort> {
     IPage<TSort> queryGamePage(@Param("pg") Page<TSort> page, TSort tSort);
 
     /**
-    * @description: 根据板块名删除板块信息
-    * @author: 张帅东
-    */
-    int deleteGsort(TSort tSort);
+     * @description: 根据板块id删除板块信息
+     * @author: 张帅东
+     */
+    int deleteGameById(Integer id);
 
     /**
     * @description: 查询板块id最大值+1
@@ -45,4 +47,9 @@ public interface ZsdSortService extends IService<TSort> {
      * @author: 张帅东
      */
     void addGame(TSort tSort);
+    /**
+    * @description: 根据板块id批量删除
+    * @author: 张帅东
+    */
+    int deleteGames(List idList);
 }

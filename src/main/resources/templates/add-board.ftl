@@ -72,7 +72,6 @@
                     $("#game").html("");
                     addGame();
                     $("#cancelBtn").click();
-                    /**alert("添加成功");*/
                 }
             },
             dataType:"json"

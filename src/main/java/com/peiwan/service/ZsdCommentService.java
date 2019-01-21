@@ -5,6 +5,8 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.peiwan.bean.TComment;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 /**
  * <p>
  *  服务类
@@ -22,9 +24,15 @@ public interface ZsdCommentService extends IService<TComment> {
     IPage<TComment> queryCommentPage(@Param("pg") Page<TComment> page, TComment tComment, String minTime, String maxTime);
 
     /**
-    * @description: 根据评分删除评论信息
+    * @description: 根据评论id删除评论信息
     * @author: 张帅东
     */
-    int deleteComment(TComment tComment);
+    int deleteCommentById(Integer id);
+
+    /**
+    * @description: 根据评论id批量删除
+    * @author: 张帅东
+    */
+    int deleteComments(List idList);
 
 }

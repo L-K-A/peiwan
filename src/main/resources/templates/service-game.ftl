@@ -37,19 +37,21 @@
                     class="Hui-iconfont">&#xe68f;</i></a></nav>
     <div class="page-container">
         <div class="text-c"> 查询条件：
+            <input type="text" name="" id="gameId" placeholder="板块id" style="width:250px" class="input-text radius">
             <input type="text" name="" id="gameName" placeholder="板块名" style="width:250px" class="input-text radius">
             <button name="" id="findGame" class="btn btn-success radius" type="submit"><i
                         class="Hui-iconfont">&#xe665;</i> 查询板块
             </button>
-            <button name="" id="addGameBtn" class="btn btn-danger radius" type="submit"><i
+            <button name="" id="addGameBtn" class="btn btn-primary radius" type="submit"><i
                         class="Hui-iconfont">&#xe600;</i> 增加板块
             </button>
         </div>
+        <div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a></span> <span class="r">共有数据：<strong id="totalNumber">0</strong> 条</span> </div>
         <div class="mt-20">
             <table class="table table-border table-bordered table-bg table-hover table-sort">
                 <thead>
                 <tr class="text-c">
-                    <th width="40">序号</th>
+                    <th width="40"><input name="" type="checkbox" value=""></th>
                     <th width="40">板块id</th>
                     <th width="120">板块名</th>
                     <th width="100">操作</th>
@@ -57,10 +59,10 @@
                 </thead>
                 <tbody>
                 <tr class="text-c va-m" v-for="(item,index) in result">
-                    <td>{{index+1}}</td>
+                    <td><input name="tag" type="checkbox" :value="item.gid"></td>
                     <td>{{item.gid}}</td>
                     <td>{{item.gname}}</td>
-                    <td><a href="#" @click="deleteEvent(item.gname)"><img src="/img/ab.jpg" style="width: 20px;height: 20px"/></a>
+                    <td><a href="#" @click="deleteEvent(item.gid)"><img src="/img/ab.jpg" style="width: 20px;height: 20px"/></a>
                     </td>
                 </tr>
                 </tbody>
@@ -69,6 +71,8 @@
         </div>
     </div>
 </div>
+<script type="text/javascript" src="/Hui/lib/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="/Hui/static/h-ui/js/H-ui.min.js"></script>
 <script>
     var app = new Vue({
         el: '#app',
@@ -85,9 +89,11 @@
             data: {
                 pageCurrent: curr || 1,
                 pageSize: 3,
+                gid: $("#gameId").val(),
                 gName: $("#gameName").val(),
             },
             success: function (msg) {
+                $("#totalNumber").html(msg.totalNumber);
                 app.result = msg.page;
                 laypage({
                     cont: 'pagenav', /**容器  值支持id名、原生dom对象，jquery对象*/
@@ -107,10 +113,12 @@
         });
     }
     getGsortPageList();
+
     /**查询板块数据*/
     $("#findGame").click(function () {
         getGsortPageList();
     });
+
     /**增加新板块*/
     $("#addGameBtn").click(function () {
         layer.open({
@@ -126,8 +134,8 @@
             }
         });
     })
-    /**根据板块名删除板块信息*/
-    var deleteEvent = function (gName) {
+    /**根据板块id删除板块信息*/
+    var deleteEvent = function (gid) {
         /**确认对话框*/
         layer.confirm('你忍心删除吗', {
             btn: ['删了吧', '朕再想想']
@@ -137,14 +145,44 @@
                 dataType: 'json',
                 url: '/deleteGame',
                 data: {
-                    gName: gName
+                    gid: gid
                 },
                 success: function () {
                     getGsortPageList();
-                    layer.msg("成功删除" + gName, {icon: 6});
+                    layer.msg("成功删除" + gid, {icon: 6});
                 }
             });
         });
+    }
+    /**根据板块id批量删除*/
+    function datadel(){
+        var checkedbox = $("input[name='tag']:checked");
+        if(checkedbox.length == 0){
+            alert("请选择要删除的标签");
+        }else{
+            if(confirm("确定要删除吗？")){
+                var res = checkedbox.map(function(){
+                    return this.value;
+                });
+                $.ajax({
+                    type:'GET',
+                    dataType:'json',
+                    url:'/deleteGames',
+                    data:{
+                        ids:res.toArray().join(",")
+                    },
+                    success:function (msg) {
+                        if(msg){
+                            layer.msg("删除成功",{icon:6});
+                        }else{
+                            layer.msg('删除失败',{icon:6});
+                        }
+                        window.location.reload();
+                    }
+                });
+
+            }
+        }
     }
 
 

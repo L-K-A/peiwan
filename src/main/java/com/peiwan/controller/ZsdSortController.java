@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -66,9 +67,10 @@ public class ZsdSortController {
         /**得到板块数据*/
         List<TSort> tSortList = tSortIPage.getRecords();
         map.put("page",tSortList);
-        /**板块总条数*/
+        /**板块总页数*/
         map.put("totalPage",tSortIPage.getPages());
-        /**System.out.println("板块数据"+tSortList);*/
+        /**板块总条数*/
+        map.put("totalNumber",tSortIPage.getTotal());
         return map;
     }
     @Resource
@@ -95,7 +97,6 @@ public class ZsdSortController {
         Map map=new HashMap();
         boolean result = zsdSortService.selectGameName(tSort);
         map.put("result",result);
-        /**System.out.println(map.get("result"));*/
         return map;
     }
 
@@ -111,14 +112,12 @@ public class ZsdSortController {
     }
 
     /**
-    * @description: 根据板块名删除板块信息
+    * @description: 根据板块id删除板块信息
     * @author: 张帅东
     */
     @RequestMapping("/deleteGame")
-    public Result deleteGsort(TSort tSort){
-        zsdSortService.deleteGsort(tSort);
-        /**System.out.println("传的值:"+tSort.getGName());*/
-        return new Result();
+    public int deleteGame(Integer gid){
+        return zsdSortService.deleteGameById(gid);
     }
 
     /**
@@ -133,26 +132,62 @@ public class ZsdSortController {
     public Map queryCommentList(int pageCurrent, int pageSize, TComment tComment, String minTime, String maxTime){
         String min=minTime.replaceAll("-","");
         String max=maxTime.replaceAll("-","");
-        /**System.out.println(min+"-"+max);*/
         Map map = new HashMap();
         Page<TComment> page = new Page<>(pageCurrent,pageSize);
         IPage<TComment> tCommentIPage = zsdCommentService.queryCommentPage(page,tComment,min,max);
         /**得到评论数据*/
         List<TComment> tCommentList = tCommentIPage.getRecords();
         map.put("page",tCommentList);
-        /**评论总条数*/
+        /**评论总页数*/
         map.put("totalPage",tCommentIPage.getPages());
+        /**评论总条数*/
+        map.put("totalNumber",tCommentIPage.getTotal());
         return map;
     }
 
     /**
-    * @description: 根据评分删除评论信息
+    * @description: 根据评论id删除评论信息
     * @author: 张帅东
     */
     @RequestMapping("/deleteComment")
-    public Result deleteComment(TComment tComment){
-        zsdCommentService.deleteComment(tComment);
-        return new Result();
+    public int deleteComment(Integer cid){
+        return zsdCommentService.deleteCommentById(cid);
+    }
+
+    /**
+    * @description: 根据板块id批量删除
+    * @author: 张帅东
+    */
+    @RequestMapping("/deleteGames")
+    public boolean deleteGames(String ids){
+        List<String> list = new ArrayList<>();
+        String[] str = ids.split(",");
+        for (int i = 0; i < str.length; i++) {
+            list.add(str[i]);
+            }
+        int j = zsdSortService.deleteGames(list);
+        if(j > 0){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+    * @description: 根据评论id批量删除
+    * @author: 张帅东
+    */
+    @RequestMapping("/deleteComments")
+    public boolean deleteComments(String ids){
+        List<String> list = new ArrayList<>();
+        String[] str = ids.split(",");
+        for (int i=0;i<str.length;i++){
+            list.add(str[i]);
+        }
+        int j = zsdCommentService.deleteComments(list);
+        if (j>0){
+            return true;
+        }
+        return false;
     }
 
 
