@@ -2,7 +2,6 @@ package com.peiwan.serviceimpl;
 
 import com.alibaba.fastjson.JSON;
 import com.peiwan.bean.TPerson;
-import com.peiwan.bean.TPerson;
 import com.peiwan.common.utils.UUIDUtil;
 import com.peiwan.dao.ZjmLoginMapper;
 import org.apache.shiro.crypto.hash.SimpleHash;
