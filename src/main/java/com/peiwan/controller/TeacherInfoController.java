@@ -21,7 +21,6 @@ import java.util.Map;
 public class TeacherInfoController {
     @Resource
     private TeacherInfoService teacherInfoService;
-
     /*获取导师表全部信息*/
     @RequestMapping("/getInfo")
     public Map getInfo(Integer pid) throws ParseException {
