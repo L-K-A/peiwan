@@ -73,7 +73,7 @@ public class ZyfIndexController {
         List<Map<String, Object>> searchPersonList = zyfIndexService.selectPersonByNameId(person);
         Map map = new HashMap();
         map.put("searchPersonList",searchPersonList);
-        System.out.println("数据库查到的:"+map);
+        System.out.println("模糊查询:"+searchPersonList);
         return map;
     }
     //首页导航栏模糊查询跳转到search页面

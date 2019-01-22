@@ -9,20 +9,15 @@
     <!-- 禁止IE强制识别手机号 -->
     <meta name="format-detection" content="telephone=no"/>
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <!--头部尾部样式-->
+    <link rel="stylesheet" href="/css/top_footer.css">
+    <!--页面主体样式-->
+    <link rel="stylesheet" href="/css/index.css">
     <link rel="stylesheet" href="/css/public.css">
-    <link rel="stylesheet" href="/css/public_nav_v2.css">
-    <link rel="stylesheet" href="/css/layer.css">
-    <link rel="stylesheet" href="/css/animate.css">
-    <link rel="stylesheet" href="/css/public_frame_v2.css">
-    <link rel="stylesheet" href="/css/index_v2.css">
+   <!--滚动横幅样式-->
     <link rel="stylesheet" href="/css/swiper.min.css">
-    <link rel="stylesheet" href="/css/search.css">
-    <link rel="stylesheet" href="/css/sidebar.css">
     <!-- v2侧边栏样式-->
     <link rel="stylesheet" href="/css/sidebar.css">
-    <!--登录注册模板样式-->
-    <link rel="stylesheet" href="/css/login_registration.css">
-    <link rel="stylesheet" href="/css/top_footer.css">
 
     <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>-->
     <script type="text/javascript" src="/js/vue.min.js"></script>
@@ -31,21 +26,12 @@
     <script type="text/javascript" src="/js/jquery.validate.min.js"></script>
     <script type="text/javascript" src="/js/messages_zh.min.js"></script>
     <script type="text/javascript" src="/js/store.legacy.min.js"></script>
-<!--    <script type="text/javascript" src="/js/layer/layer.js"></script>-->
     <script type="text/javascript" src="/js/swiper.min.js"></script>
     <script type="text/javascript" src="/js/hm.js"></script>
     <script type="text/javascript" src="/js/push.js"></script>
     <script type="text/javascript" src="/js/require.js"></script>
     <script type="text/javascript" src="/js/fzjs/websocket.js"></script>
 
-    <script>
-        window.website_version = "201901040104";//网站版本号用于处理js的缓存1
-        var loginstatus = 0;
-        var pw_status = 0;
-        //图形验证码地址
-        var img_code = '/captcha.html';
-        var mobileValue = 0; //判断用户是否绑定手机号：0|未绑定；1|已绑定
-    </script>
 </head>
 <body>
 
@@ -169,7 +155,6 @@
             sessionStorage.setItem("keyname",keyname);
         });
     </script>
-    <!---->
 
     <script>
         (function(){
@@ -1212,7 +1197,7 @@
 
 
 
-    <!--排行榜 热度榜和富豪榜的函数-->
+    <!--排行榜 热度榜、人气榜、富豪榜-->
     var rank = new Vue({
         el: '#rankings_wrapper',
         data: {
@@ -1304,7 +1289,7 @@
     };
     getOrderPageList();
 
-    //总榜
+    //魅力总榜
     var getOrderPageListAll = function () {
         $.ajax({
             type: 'POST',
@@ -1430,42 +1415,95 @@
 
 </script>
 
-
-<div class="red_packet_tc">
-    <div class="info">
-        <p class="btn1"></p>
-        <p class="btn2"></p>
-    </div>
-</div>
-<script>
-var first_coupons = 9999;
-</script>
-
 <footer>
-<div class="fl footer_box" style="width: 100%;">
-    <div class="footer_box">
-        <a href="javascript:" title="" class="fl"><img src="/images/consume1.jpg"></a>
-        <a href="javascript:" title="" class="fl"><img src="/images/consume2.jpg"></a>
-        <a href="javascript:" title="" class="fl"><img src="/images/consume3.jpg"></a>
-        <a href="javascript:" title="" class="fl"><img src="/images/consume4.jpg"></a>
-        <div class="clearfix"></div>
-        <div class="help_box mt30">
-            <div class="fl ml35 pr30 border_right"><i class="icon custom mr10"></i>客服电话：<span class="custom_01">010-68608228</span><span
-                    class="custom_02">咨询时间：7X24小时</span></div>
-            <div class="fl pl30" id="dd_kefu_pcbottom" style="cursor: pointer;"><i class="icon QQ mr10"></i>客服QQ：<span
-                    class="custom_01">800184580</span></div>
-            <div class="fl pl30"><span class="custom_02">咨询时间：7X24小时</span></div>
-            <div class="fl ml40">
-                <a href="javascript:" title="" class="fl help">帮助中心</a>
-                <a href="javascript:" title="" class="fl help">服务保障</a>
-                <a href="javascript:" title="" class="fl help">陪玩守则</a>
-                <div class="clearfix"></div>
-            </div>
-            <div class="clearfix"></div>
+    <div class="box">
+        <div class="foot">
+            <!--隐藏掉提现(隐藏提现)字样（2017-12-18）margin-left:-->
+            <ul>
+                <li>
+                    <img src="https://yundown.daofengdj.com/static/public/img/ico_ft01.png">
+                    <p>极速接单</p>
+                    <span class="desc">秒接单 八分钟未接单立即退款</span>
+                </li>
+                <li>
+                    <img src="https://yundown.daofengdj.com/static/public/img/ico_ft02.png">
+                    <p>信息提醒</p>
+                    <span class="desc">来单短信提醒 不错过订单</span>
+                </li>
+                <li>
+                    <img src="https://yundown.daofengdj.com/static/public/img/ico_ft03.png">
+                    <p>品质保障</p>
+                    <span class="desc">服务不满意为您来免单</span>
+                </li>
+                <li>
+                    <img src="https://yundown.daofengdj.com/static/public/img/ico_ft04.png">
+                    <p>资金日结算</p>
+                    <span class="desc">实时掌控工资 给你安心</span>
+                </li>
+                <li>
+                    <img src="https://yundown.daofengdj.com/static/public/img/ico_ft05.png">
+                    <p>7*24小时服务</p>
+                    <span class="desc">自助下单 7*24小时客服答疑</span>
+                </li>
+            </ul>
         </div>
-        <div class="Copy">(京)字第05536号Copyright 2014-2020 TUWAN Corporation,All Rights Reserved</div>
+
+        <ul class="footCenter">
+            <li class="li1">
+                <div>
+                    <img src="https://yundown.daofengdj.com/static/public/img/link.png">
+                    <div style="line-height: 19px; margin-top: -2px;">
+                        <a style="display:none;" target="_blank" href="https://www.zuhaowan.com"><img src="https://yundown.daofengdj.com/static/public/img/zuhaowna.png"  style="margin-top: 0px;"></a>
+                        <a target="_blank" href="https://www.zuhaowan.com"><p>租<i style="display:inline-block;width:.5em;"></i>号<i style="display:inline-block;width:.5em;"></i>玩 - 账号租借平台</p></a>
+                        <a target="_blank" href="http://www.mayidailian.com/"><p>蚂蚁代练 - 专业代练平台</p></a>
+                        <a target="_blank" href="http://www.irollfun.com/"><p>rollfun游戏站</p></a>
+                        <a target="_blank" href="http://www.99173.com/"><p>99173-游戏交易平台</p></a>
+                        <a target="_blank" href="http://www.wyaq.com/"><p>无忧安全</p></a>
+                    </div>
+                </div>
+            </li>
+            <li class="sp"></li>
+            <li class="li2">
+                <div>
+                    <img src="https://yundown.daofengdj.com/static/public/img/kefu.png">
+                    <div>
+                        <p>客服电话：0371-55637968</p>
+                        <p>咨询时间：7 x 24 小时</p>
+                    </div>
+                </div>
+            </li>
+            <li class="sp"></li>
+            <li class="li3">
+                <div>
+                    <img src="https://yundown.daofengdj.com/static/public/img/qq.png">
+                    <div>
+                        <p>客服QQ：3003120628</p>
+                        <p>咨询时间：7 x 24 小时</p>
+                    </div>
+                </div>
+            </li>
+            <li msg="新需求隐藏" class="sp" style="display:none;"></li>
+            <li msg="新需求隐藏" style="display:none;">
+                <div>
+                    <img src="https://yundown.daofengdj.com/static/public/img/new.png">
+                    <div>
+                        <a target="_blank" href="/help/peiwan.html"><p>陪玩新手引导</p></a>
+                        <a target="_blank" href="/help/novice.html"><p>玩家新手引导</p></a>
+                    </div>
+                </div>
+            </li>
+        </ul>
     </div>
-</div>
+    <div class="box">
+        <div class="footBottom">
+            <div class="f_tx">
+                <a target="_blank" href="/help/contact_us.html">联系我们</a>
+                <a target="_blank" href="/help/company_profile.html">公司简介</a>
+                <a target="_blank" href="/help/disclaimer.html">免责声明</a>
+            </div>
+            <p>版权所有 © 2017 安徽省刀锋网络科技有限公司 <a href="http://www.miitbeian.gov.cn">晥B2-20170045-5</a></p>
+        </div>
+    </div>
 </footer>
 
 <!-- 侧边导航 -->
@@ -1521,14 +1559,6 @@ var first_coupons = 9999;
 
     </aside>
 </div>
-
-<script>
-
-    function totop(){
-        document.body.scrollTop = 0;
-        document.documentElement.scrollTop = 0;
-    }
-</script>
 
 
 <!-- 新人红包 -->

@@ -13,8 +13,8 @@ p{word-wrap:break-word}
 /*åŽ»æŽ‰input numberç±»åž‹çš„å°ç®­å¤´*/
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button{
-    -webkit-appearance: none !important;
-    margin: 0; 
+	-webkit-appearance: none !important;
+	margin: 0;
 }
 input[type="number"]{-moz-appearance:textfield;}
 .fl{
@@ -106,7 +106,7 @@ a:hover{
 }
 
 /*å°¾éƒ¨*/
-footer{
+/*footer{
 	width:100%;
 	min-width:1200px;
 	background:#fff;
@@ -118,7 +118,7 @@ footer .box:nth-child(1){
 	background:#fff;
 }
 footer .box:nth-child(2){
-	/*background:#2c2c2c;*/
+	!*background:#2c2c2c;*!
 }
 footer .foot,footer .footBottom{
 	width:1200px;
@@ -223,7 +223,7 @@ footer .footBottom p{
 }
 footer .footBottom p a{
 	color:#787878;
-}
+}*/
 
 /*é’ˆå¯¹è¡¨å•éªŒè¯æç¤ºä¿¡æ¯æ ·å¼*/
 .Prompt_msg_style{
