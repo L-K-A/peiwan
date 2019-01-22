@@ -61,11 +61,7 @@ public class ZyfIndexController {
         System.out.println("热门推荐列表:"+hotPersonList);
         return map;
     }
-    /*点击更多按钮跳转分类页面*/
-    @RequestMapping("/toMore")
-    public ModelAndView fenLei(){
-        return new ModelAndView("fenlei");
-    }
+
 
 
     //根据昵称和Id模糊查询主播
@@ -87,7 +83,7 @@ public class ZyfIndexController {
     }
 
 
-    //热度榜 周榜：查询主播订单数，先筛选规定时间，然后按照订单数排序
+    //魅力榜 周榜：查询主播订单数，先筛选规定时间，然后按照订单数排序
     @RequestMapping("/getOrderCountList")
     public Map<String,Object> getOrderList(int curPage,int pageSize){
         Page<Map<String, Object>> page = zyfIndexService.selectPersonOrderTop(curPage,pageSize);
@@ -102,7 +98,7 @@ public class ZyfIndexController {
         return map;
     }
 
-    //热度榜 总榜：查询主播总订单数
+    //魅力榜 总榜：查询主播总订单数
     @RequestMapping("/getOrderCountListAll")
     public Map<String,Object> getOrderListAll(int curPage,int pageSize){
         Page<Map<String, Object>> page = zyfIndexService.selectPersonOrderAllTop(curPage, pageSize);
@@ -183,7 +179,7 @@ public class ZyfIndexController {
     //测试主播列表查询
     @RequestMapping("/toList")
     public ModelAndView select(){
-        return new ModelAndView("gunDong");
+        return new ModelAndView("reDuBang");
     }
 
 

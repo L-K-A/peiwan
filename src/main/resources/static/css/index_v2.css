@@ -1336,22 +1336,50 @@ section .bottom_wrapper .rankings_wrapper .rankings_item .list_wrapper .list_ite
   top: -29px;
   left: 0;
   width: 115px;
+  /*background:url("../images/ico_num_1.png") no-repeat;*/
 }
 section .bottom_wrapper .rankings_wrapper .rankings_item .list_wrapper .list_item .top .list_top_wrapper .list_top_item .text {
   display: inline-block;
   width: 100%;
-  margin-top: 100px;
+  margin-top: 10px;
   font-size: 14px;
   text-align: center;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
-section .bottom_wrapper .rankings_wrapper .rankings_item .list_wrapper .list_item .top .list_top_wrapper .list_top_item .icon_wrapper .icon_level {
-  width: 42px;
-  margin: 0 3px;
+section .bottom_wrapper .rankings_wrapper .rankings_item .list_wrapper .list_item .top .list_top_wrapper .list_top_item .icon_wrapper{
+  width: 100px;
+  height:26px;
 }
-section .bottom_wrapper .rankings_wrapper .rankings_item .list_wrapper .list_item .top .list_top_wrapper .list_top_item .icon_wrapper .num_wrapper {
+section .bottom_wrapper .rankings_wrapper .rankings_item .list_wrapper .list_item .top .list_top_wrapper .list_top_item .icon_wrapper .text {
+  display: inline-block;
+  color: white;
+  width: 30px;
+  font-size: 10px;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin-left: 9px;
+  margin-right: 4px;
+  background-color: #7F7F7F;
+  border-radius: 3px;
+}
+section .bottom_wrapper .rankings_wrapper .rankings_item .list_wrapper .list_item .top .list_top_wrapper .list_top_item .icon_wrapper .texts {
+  display: inline-block;
+  color: white;
+  width: 56px;
+  font-size: 10px;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  background-color: #d8679f;
+  border-radius: 3px;
+}
+/*靓号*/
+/*section .bottom_wrapper .rankings_wrapper .rankings_item .list_wrapper .list_item .top .list_top_wrapper .list_top_item .icon_wrapper .num_wrapper {
   position: relative;
   display: inline-block;
   margin-top: -1px;
@@ -1382,9 +1410,9 @@ section .bottom_wrapper .rankings_wrapper .rankings_item .list_wrapper .list_ite
 }
 section .bottom_wrapper .rankings_wrapper .rankings_item .list_wrapper .list_item .top .list_top_wrapper .list_top_item .icon_wrapper .num_wrapper:hover .text {
   display: block;
-}
+}*/
 section .bottom_wrapper .rankings_wrapper .rankings_item .list_wrapper .list_item .top .list_top_wrapper .list_top_item .hot_wrapper {
-  margin-top: 8px;
+  margin-top: 13px;
 }
 section .bottom_wrapper .rankings_wrapper .rankings_item .list_wrapper .list_item .top .list_top_wrapper .list_top_item .hot_wrapper .icon {
   display: inline-block;
@@ -1483,12 +1511,42 @@ section .bottom_wrapper .rankings_wrapper .rankings_item .list_wrapper .list_ite
   white-space: nowrap;
   text-overflow: ellipsis;
 }
-section .bottom_wrapper .rankings_wrapper .rankings_item .list_wrapper .list_item .bottom .list_bottom_wrapper .list_bottom_item .info_wrapper .icon_wrapper .icon_title {
+section .bottom_wrapper .rankings_wrapper .rankings_item .list_wrapper .list_item .bottom .list_bottom_wrapper .list_bottom_item .info_wrapper .icon_wrapper{
+  width: 100px;
+  height:26px;
+}
+section .bottom_wrapper .rankings_wrapper .rankings_item .list_wrapper .list_item .bottom .list_bottom_wrapper .list_bottom_item .info_wrapper .icon_wrapper .text {
+  display: inline-block;
+  color: white;
+  width: 30px;
+  font-size: 10px;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin-left: 4px;
+  margin-right: 4px;
+  background-color: #7F7F7F;
+  border-radius: 3px;
+}
+section .bottom_wrapper .rankings_wrapper .rankings_item .list_wrapper .list_item .bottom .list_bottom_wrapper .list_bottom_item .info_wrapper .icon_wrapper .texts {
+  display: inline-block;
+  color: white;
+  width: 56px;
+  font-size: 10px;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  background-color: #d8679f;
+  border-radius: 3px;
+}
+/*section .bottom_wrapper .rankings_wrapper .rankings_item .list_wrapper .list_item .bottom .list_bottom_wrapper .list_bottom_item .info_wrapper .icon_wrapper .icon_title {
   margin-right: 4px;
 }
 section .bottom_wrapper .rankings_wrapper .rankings_item .list_wrapper .list_item .bottom .list_bottom_wrapper .list_bottom_item .info_wrapper .icon_wrapper .icon_level {
   width: 42px;
-}
+}*/
 section .bottom_wrapper .rankings_wrapper .rankings_item .list_wrapper .list_item .bottom .list_bottom_wrapper .list_bottom_item .right_wrapper {
   display: inline-block;
   float: right;
