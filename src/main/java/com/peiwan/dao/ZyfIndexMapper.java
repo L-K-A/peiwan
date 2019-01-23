@@ -20,11 +20,13 @@ import java.util.Map;
 public interface ZyfIndexMapper extends BaseMapper<TPerson> {
 
     //热门推荐主播列表
-    List<Map<String,Object>> selectHotPersonList(int curPage,int pageSize);
+    List<Map<String,Object>> selectHotPersonList(Integer curPage,Integer pageSize);
 
     //导航栏根据昵称和Id模糊查询
     List<Map<String,Object>> selectPersonByNameAndId(TPerson person);
 
+    //新人推荐
+    List<Map<String,Object>> selectNewPersonList(Integer curPage,Integer pageSize);
 
 
     //热度榜 周榜 前三：先筛选规定时间，然后按照订单数排序

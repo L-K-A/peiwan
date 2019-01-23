@@ -1,0 +1,114 @@
+<!DOCtype html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>电竞陪玩|约玩_电竞_绝地求生陪玩_LOL陪玩_王者荣耀陪玩</title>
+    <meta name="keywords" content="电竞陪玩,游戏陪玩,约玩,陪玩入驻,绝地求生陪玩,LOL陪玩,王者荣耀陪玩,美女陪玩,大神陪玩,导师陪玩">
+    <meta name="description" itemprop="description" content="电竞，是（国内）专业的游戏陪玩交友平台。电竞致力于为您提供贴心的专属陪伴；平台内百万大神美女导师24小时待命，随时陪你游戏，和你聊天，还可以哄你睡觉；游戏类型多样，妹子风格各异，任你选择。">
+    <!-- 禁止IE强制识别手机号 -->
+    <meta name="format-detection" content="telephone=no"/>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <!--头部尾部样式-->
+    <link rel="stylesheet" href="/css/top_footer.css">
+    <!--页面主体样式-->
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/public.css">
+    <!--滚动横幅样式-->
+    <link rel="stylesheet" href="/css/swiper.min.css">
+    <!-- v2侧边栏样式-->
+    <link rel="stylesheet" href="/css/sidebar.css">
+    <!--页面图片聚焦-->
+    <link rel="stylesheet" href="/css/animate.css">
+
+     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!--<script type="text/javascript" src="/js/vue.min.js"></script>-->
+    <script type="text/javascript" src="/js/vue-resource.js"></script>
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="/js/store.legacy.min.js"></script><!--图片懒加载-->
+    <script type="text/javascript" src="/js/swiper.min.js"></script><!--图片滚动插件-->
+    <script type="text/javascript" src="/js/hm.js"></script>
+    <script type="text/javascript" src="/js/require.js"></script>
+    <script type="text/javascript" src="/js/fzjs/websocket.js"></script>
+
+</head>
+<body>
+
+
+<section>
+
+    <!-- 新人推荐和排行榜 -->
+    <div class="bottom_wrapper">
+        <!-- 新人推荐 -->
+        <div class="new_person_wrapper">
+            <div class="info_box">
+                <div class="left swiper-button-next2"></div>
+                <div class="swiper-container2">
+                    <img src="/images/img_1.png" alt="" class="icon_title">
+                    <a href="/person/togame?gid=1001" target="_blank" >
+                        <img src="/images/img_2.png" alt="" class="icon_more">
+                    </a>
+                    <ul class="swiper-wrapper">
+                        <li class="swiper-slide" v-for="(item,index) in newList">
+                            <a :href="'./hello2?zid='+item.pid+'&gid='+item.gid" target="_blank">
+                            <div class="pic_box">
+                                <img :src="'/picture/'+item.person_image" alt="" class="pic"><!--主播头像-->
+                            </div>
+                            <p class="nick">{{item.person_nickname}}</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="right swiper-button-prev2"></div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+<script>
+
+    // 新人推荐
+    var neL = new Vue({
+        el: ".new_person_wrapper",
+        data: {
+            newList: []  //新人推荐列表
+        }
+    });
+    var getNewList = function () {
+        $.ajax({
+           type:'POST',
+           dataType:'json',
+            url:'/person/getNewPersonList',
+           data:{
+               curPage: 1 ,
+               pageSize:10
+           } ,
+           success:function (msg) {
+               neL.newList = msg.newPersonList;
+               setTimeout(function() {
+                   var swiper = new Swiper('.swiper-container2', {
+                       slidesPerView: 'auto',
+                       slidesPerGroup: 8,
+                       speed: 1500,
+                       spaceBetween: 0,
+                       prevButton: '.swiper-button-next2',
+                       nextButton: '.swiper-button-prev2'
+                   });
+               }, 200);
+           }
+        })
+    };
+    getNewList();
+
+
+
+</script>
+
+
+
+
+</body>
+</html>

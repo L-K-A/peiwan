@@ -4,6 +4,9 @@
 
     <!--导航栏根据昵称和Id模糊查询-->
     <select id="selectPersonByNameAndId" parameterType="map" resultType="map">
+        /*SELECT p.pid,p.person_nickname,p.person_image,s.gid,s.g_name,s.g_price
+        FROM t_person p LEFT JOIN t_service s ON p.pid=s.pid
+        WHERE p.person_flate=1*/
         SELECT p.pid,p.person_nickname,p.person_image,s.gid,s.g_name,s.g_price
         FROM t_person p LEFT JOIN t_service s ON p.pid=s.pid
         WHERE p.person_flate=1
@@ -18,16 +21,16 @@
 
     <!--热门推荐主播列表-->
     <select id="selectHotPersonList" parameterType="map" resultType="map">
-       /* SELECT sp.pid,sp.person_nickname,sp.person_image,sp.gid,sp.g_name,sp.g_price,sp.om
-        FROM(SELECT p.pid,p.person_nickname,p.person_image,s.gid,s.g_name,s.g_price,SUM(o.o_money)om
-             FROM (t_person p LEFT JOIN t_service s ON p.pid=s.pid ) LEFT JOIN t_order_z o ON p.pid=o.pid
-             GROUP BY p.pid LIMIT ${pageSize*(curPage-1)},${pageSize})sp*/
-
        SELECT sp.pid,sp.person_nickname,sp.person_image,sp.gid,sp.g_name,sp.g_price,sp.om
        FROM(SELECT p.pid,p.person_nickname,p.person_image,s.gid,s.g_name,s.g_price,SUM(o.o_money)om
             FROM (t_person p LEFT JOIN t_service s ON p.pid=s.pid ) LEFT JOIN t_order_z o ON p.pid=o.pid
-            WHERE person_flate=1 GROUP BY p.pid  LIMIT ${pageSize*(curPage-1)},${pageSize})sp
+            WHERE person_flate=1 GROUP BY p.pid LIMIT ${pageSize*(curPage-1)},${pageSize} )sp
+    </select>
 
+    <!--新人推荐-->
+    <select id="selectNewPersonList" parameterType="map" resultType="map">
+        SELECT p.pid,p.person_nickname,p.person_image FROM t_person p
+        WHERE p.person_flate=1 AND p.person_becometime>DATE_SUB(CURDATE(),INTERVAL 2 WEEK) LIMIT 20
     </select>
 
 

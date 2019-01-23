@@ -18,17 +18,17 @@
     <link rel="stylesheet" href="/css/swiper.min.css">
     <!-- v2侧边栏样式-->
     <link rel="stylesheet" href="/css/sidebar.css">
+    <!--页面图片聚焦-->
+    <link rel="stylesheet" href="/css/animate.css">
 
     <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>-->
     <script type="text/javascript" src="/js/vue.min.js"></script>
     <script type="text/javascript" src="/js/vue-resource.js"></script>
     <script type="text/javascript" src="/js/jquery.min.js"></script>
     <script type="text/javascript" src="/js/jquery.validate.min.js"></script>
-    <script type="text/javascript" src="/js/messages_zh.min.js"></script>
-    <script type="text/javascript" src="/js/store.legacy.min.js"></script>
-    <script type="text/javascript" src="/js/swiper.min.js"></script>
+    <script type="text/javascript" src="/js/store.legacy.min.js"></script><!--图片懒加载-->
+    <script type="text/javascript" src="/js/swiper.min.js"></script><!--图片滚动插件-->
     <script type="text/javascript" src="/js/hm.js"></script>
-    <script type="text/javascript" src="/js/push.js"></script>
     <script type="text/javascript" src="/js/require.js"></script>
     <script type="text/javascript" src="/js/fzjs/websocket.js"></script>
 
@@ -41,31 +41,31 @@
         <div class="info">
             <div style="height: 0px;width: 100%;"></div>
             <h1>
-                <a href="/"><img class="logo" alt="飞虎电竞" src="/images/yuewanlogo.png?123"></a>
+                <a href="/person/toIndex"><img class="logo" alt="飞虎电竞" src="/images/yuewanlogo.png"></a>
             </h1>
             <div class="p_nav">
                 <div :class="[navIndex === 'index_index_index'?'active':'']"><!--三元运算符-->
-                    <a href="/">
+                    <a href="/person/toIndex">
                         首页
                     </a>
                 </div>
                 <div :class="[navIndex === 'index_peiwan'?'active':'']">    
-                    <a href="/peiwan/lol/">
+                    <a href="/person/toMore">
                         约陪玩
                     </a>
                 </div>
                 <div :class="[navIndex === 'index_price'?'active':'']">
-                    <a href="/peiwan/price/">
+                    <a href="/person/toAreaList?gid=1001">
                         9.9专区
                         <img src="/images/price.gif" alt="" class="icon">
                     </a>
                 </div>
-                                <div :class="[navIndex === 'index_list_video'?'active':'']">
+                <div :class="[navIndex === 'index_list_video'?'active':'']">
                     <a href="/peiwan/shangfen/">
                         上分专区
                     </a>
                 </div>
-                                <div :class="[navIndex === 'index_recharge'?'active':'']">
+                <div :class="[navIndex === 'index_recharge'?'active':'']">
                                            <!-- 未登录-->
                         <a href="javascript:;" @click="login_fn">充值</a>
                                         
@@ -73,7 +73,7 @@
                 <div :class="[navIndex === 'index_service'?'active':'']">
                                              <!--未登录-->
                         <a href="javascript:;" @click="login_fn">申请入驻</a>
-                                    </div>
+                </div>
                 <div :class="[navIndex === 'activity'?'active':'']">
                     <a href="/activity/list.html" >
                         活动
@@ -251,13 +251,17 @@
                                             <img src="/images/icon_num.png" alt="" class="icon_ride">
                                             <span class="num">6</span>
                                         </div>
-                                        <div class="gift_middle_bottom" onclick="window.open('/item/1233611.html')">
-                                            <span class="nickname">MY.好锦，</span>
+                                        <div class="gift_middle_bottom">
+                                            <a :href="./hello/?pid=2 &gid= 1001" target="_blank">
+                                                <span class="nickname">MY.好锦，</span>
+                                            </a>
                                         </div>
                                     </div>
-                                    <div class="gift_right" onclick="window.open('/item/1233611.html')">
-                                        <img src="/picture/70.jpg" alt="" class="icon">
-                                        <img src="/images/img_20_round.png" alt="" class="icon_frame">
+                                    <div class="gift_right">
+                                        <a :href="./hello/?pid=2 &gid= 1001" target="_blank">
+                                            <img src="/picture/25.jpg" alt="" class="icon">
+                                            <img src="/images/img_20_round.png" alt="" class="icon_frame">
+                                        </a>
                                     </div>
                                 </div>
                                 <div class="swiper-slide swiper-no-swiping">
@@ -275,16 +279,19 @@
                                             <img src="/images/icon_num.png" alt="" class="icon_ride">
                                             <span class="num">1</span>
                                         </div>
-                                        <div class="gift_middle_bottom" onclick="window.open('/item/1222794.html')">
-                                            <span class="nickname">李雨涵一直很呆萌</span>
+                                        <div class="gift_middle_bottom">
+                                            <a :href="./hello/?pid=3 &gid= 1004" target="_blank">
+                                                <span class="nickname">李雨涵一直很呆萌</span>
+                                            </a>
                                         </div>
                                     </div>
-                                    <div class="gift_right" onclick="window.open('/item/1222794.html')">
-                                        <img src="/picture/22.jpg" alt="" class="icon">
-                                        <img src="/images/img_20_round.png" alt="" class="icon_frame">
+                                    <div class="gift_right">
+                                        <a :href="./hello/?pid=3 &gid= 1004" target="_blank">
+                                            <img src="/picture/22.jpg" alt="" class="icon">
+                                            <img src="/images/img_20_round.png" alt="" class="icon_frame">
+                                        </a>
                                     </div>
                                 </div>
-                                
                             </div>
                         </div>
                     </div>
@@ -368,37 +375,37 @@
                     <div class="swiper-container">
                         <div class="swiper-wrapper">
                             <div class="swiper-slide swiper-no-swiping" >
-                                <a href="/item/1213625.html" target="_blank">
+                                <a :href="./hello/?pid=4 &gid= 1005" target="_blank">
 									<img src="/picture/1.gif">
 									<span class="text">月月</span>
 								</a>
                             </div>
                             <div class="swiper-slide swiper-no-swiping" >
-                                <a href="/item/1205245.html" target="_blank">
+                                <a :href="./hello/?pid=5 &gid= 1006" target="_blank">
 									<img src="/picture/2.gif">
 									<span class="text">小魔女♡開開♡</span>
 								</a>
                             </div>
                             <div class="swiper-slide swiper-no-swiping" >
-                                <a href="/item/1251058.html" target="_blank">
+                                <a :href="./hello/?pid=6 &gid= 1007" target="_blank">
 									<img src="/picture/3.gif">
 									<span class="text">林希</span>
 								</a>
                             </div>
                             <div class="swiper-slide swiper-no-swiping" >
-                                <a href="/item/1233287.html" target="_blank">
+                                <a :href="./hello/?pid=7 &gid= 1008" target="_blank">
                                     <img src="/picture/23.jpg">
                                     <span class="text">To_可爱甜</span>
                                 </a>
                             </div>
                             <div class="swiper-slide swiper-no-swiping" >
-                                <a href="/item/1254936.html" target="_blank">
+                                <a :href="./hello/?pid=8 &gid= 1009" target="_blank">
                                     <img src="/picture/24.jpeg">
                                     <span class="text">Lk_遥</span>
                                 </a>
                             </div>
                             <div class="swiper-slide swiper-no-swiping" >
-                                <a href="/item/1234443.html" target="_blank">
+                                <a :href="./hello/?pid=9 &gid= 1010" target="_blank">
                                     <img src="/picture/24.jpg">
                                     <span class="text">TO.小可碍</span>
                                 </a>
@@ -421,7 +428,7 @@
             <div class="swiper-container2">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide" >
-                        <a href="/item/122766.html" target="_blank">
+                        <a :href="./hello/?pid=10 &gid= 1011" target="_blank">
                             <div class="pic_box">
                                 <img class="pic" src="/picture/4.gif">
                             </div>
@@ -429,7 +436,7 @@
                         </a>
                     </div>
                     <div class="swiper-slide" >
-                        <a href="/item/1225990.html" target="_blank">
+                        <a :href="./hello/?pid=11 &gid= 1012" target="_blank">
                             <div class="pic_box">
                                 <img class="pic" src="/picture/5.gif">
                             </div>
@@ -437,7 +444,7 @@
                         </a>
                     </div>
                     <div class="swiper-slide" >
-                        <a href="/item/42046.html" target="_blank">
+                        <a :href="./hello/?pid=12 &gid= 1013" target="_blank">
                             <div class="pic_box">
                                 <img class="pic" src="/picture/6.gif">
                             </div>
@@ -445,7 +452,7 @@
                         </a>
                     </div>
                     <div class="swiper-slide" >
-                        <a href="/item/1214333.html" target="_blank">
+                        <a :href="./hello/?pid=13 &gid= 1014" target="_blank">
                             <div class="pic_box">
                                 <img class="pic" src="/picture/7.gif">
                             </div>
@@ -453,7 +460,7 @@
                         </a>
                     </div>
                     <div class="swiper-slide" >
-                        <a href="/item/1237563.html" target="_blank">
+                        <a :href="./hello/?pid=14 &gid= 1015" target="_blank">
                             <div class="pic_box">
                                 <img class="pic" src="/picture/8.gif">
                             </div>
@@ -461,7 +468,23 @@
                         </a>
                     </div>
                     <div class="swiper-slide" >
-                        <a href="/item/1248163.html" target="_blank">
+                        <a :href="./hello/?pid=15 &gid= 1015" target="_blank">
+                            <div class="pic_box">
+                                <img class="pic" src="/picture/9.jpg">
+                            </div>
+                            <p class="nick">接彩六r6先私聊</p>
+                        </a>
+                    </div>
+                    <div class="swiper-slide" >
+                        <a :href="./hello/?pid=14 &gid= 1015" target="_blank">
+                            <div class="pic_box">
+                                <img class="pic" src="/picture/8.gif">
+                            </div>
+                            <p class="nick">底层阿深ℓ乔木冠</p>
+                        </a>
+                    </div>
+                    <div class="swiper-slide" >
+                        <a :href="./hello/?pid=15 &gid= 1015" target="_blank">
                             <div class="pic_box">
                                 <img class="pic" src="/picture/9.jpg">
                             </div>
@@ -486,40 +509,36 @@
         </div>
         <!-- 列表 -->
         <ul class="hot_content_wrapper">
-            <li class="hot_content_item " v-for="(item,index) in hotList" :key="index"><!--触发事件-->
-                <a :href="'./hello2?zid='+item.pid+'&gid='+item.gid">
-                <div class="frame_logo_wrapper">
-                    <div class="pic_box">
-                        <img :src="'/picture/'+item.person_image" alt="" class="pic"><!--主播头像-->
-                        <i class="compensation"></i><!--超时赔-->
+            <li class="hot_content_item " v-for="(item,index) in hotList"><!--触发事件-->
+                <a :href="'./hello2?zid='+item.pid+'&gid='+item.gid" target="_blank">
+                    <div class="frame_logo_wrapper">
+                        <div class="pic_box">
+                            <img :src="'/picture/'+item.person_image" alt="" class="pic"><!--主播头像-->
+                            <i class="compensation"></i><!--超时赔-->
+                        </div>
                     </div>
-                </div>
-                <!-- 用户信息 -->
-                <div class="info_wrapper">
-                   <span class="nick_name">{{item.person_nickname}}</span>
-                    <span class="btn_wrapper">
+                    <!-- 用户信息 -->
+                    <div class="info_wrapper">
+                        <span class="nick_name">{{item.person_nickname}}</span>
+                        <span class="btn_wrapper">
                         <span>{{item.g_name}}</span><!--主播服务名-->
-                    	<!--<span class="btn_item" v-for="(iitem,ii) in item.icon" v-if="ii<3">&lt;!&ndash;item.icon里很可能是存放主播的所有服务&ndash;&gt;
-                    		<img :src="iitem.path" alt="" class="btn_icon" :title="iitem.name">
-                    	</span>-->
-					</span>
-                </div>
-                <!-- 价格 -->
-                <div class="desc_wrapper">
-                    <span class="hot_degree">
-							<span class="icon"></span>
-                    <span class="text">{{item.om}}</span><!--热度值-->
-                    </span>
-                    <span class="price_wrapper">
+					    </span>
+                    </div>
+                    <!-- 价格 -->
+                    <div class="desc_wrapper">
+                        <span class="hot_degree">
+                            <span class="icon"></span>
+                        <span class="text">{{item.om}}</span><!--热度值-->
+                        </span>
+                        <span class="price_wrapper">
 							<span class="num">￥{{item.g_price}}</span><!--价格-->
-                    <span class="company" style="margin-left: 2px;">起</span>
-                    </span>
-                </div>
-                <span class="line"></span>
+                        <span class="company" style="margin-left: 2px;">起</span>
+                        </span>
+                    </div>
+                    <span class="line"></span>
                 </a>
             </li>
         </ul>
-
         <!-- 更多 -->
         <div class="hot_more_wrapper" >
             <a href="/person/toMore" target="_blank"><span class="btn"></span></a>
@@ -534,83 +553,19 @@
                 <div class="left swiper-button-next2"></div>
                 <div class="swiper-container2">
                     <img src="/images/img_1.png" alt="" class="icon_title">
-                    <a href='/peiwan/lol/?type=new'>
-                        <img sr  "/picture/img_2.png" alt="" class="icon_more">
+                    <a href="/person/togame?gid=1001" target="_blank" >
+                        <img src="/images/img_2.png" alt="" class="icon_more">
                     </a>
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <a href="/item/1242119.html" target="_blank">
+                    <ul class="swiper-wrapper">
+                        <li class="swiper-slide" v-for="(item,index) in newList">
+                            <a :href="'./hello2?zid='+item.pid+'&gid='+item.gid" target="_blank">
                                 <div class="pic_box">
-                                    <img class="pic" src="/picture/10.jpg">
+                                    <img :src="'/picture/'+item.person_image" alt="" class="pic"><!--主播头像-->
                                 </div>
-                                <p class="nick">绾青丝</p>
+                                <p class="nick">{{item.person_nickname}}</p>
                             </a>
-                        </div>
-                        <div class="swiper-slide">
-                            <a href="/item/1254936.html" target="_blank">
-                                <div class="pic_box">
-                                    <img class="pic" src="/picture/11.jpg">
-                                </div>
-                                <p class="nick">Lk_遥</p>
-                            </a>
-                        </div>
-                        <div class="swiper-slide">
-                            <a href="/item/1262873.html" target="_blank">
-                                <div class="pic_box">
-                                    <img class="pic" src="/picture/12.jpg">
-                                </div>
-                                <p class="nick">L.薯条</p>
-                            </a>
-                        </div>
-                                                <div class="swiper-slide">
-                            <a href="/item/1262975.html" target="_blank">
-                                <div class="pic_box">
-                                    <img class="pic" src="/picture/13.jpg">
-                                </div>
-                                <p class="nick">小可可</p>
-                            </a>
-                        </div>
-                        <div class="swiper-slide">
-                            <a href="/item/1251058.html" target="_blank">
-                                <div class="pic_box">
-                                    <img class="pic" src="/picture/14.jpg">
-                                </div>
-                                <p class="nick">林希</p>
-                            </a>
-                        </div>
-                        <div class="swiper-slide">
-                            <a href="/item/1255408.html" target="_blank">
-                                <div class="pic_box">
-                                    <img class="pic" src="/picture/15.jpg">
-                                </div>
-                                <p class="nick">小葡萄❤可接外服</p>
-                            </a>
-                        </div>
-                        <div class="swiper-slide">
-                            <a href="/item/1262587.html" target="_blank">
-                                <div class="pic_box">
-                                    <img class="pic" src="/picture/16.jpg">
-                                </div>
-                                <p class="nick">Fair</p>
-                            </a>
-                        </div>
-                        <div class="swiper-slide">
-                            <a href="/item/1266192.html" target="_blank">
-                                <div class="pic_box">
-                                    <img class="pic" src="/picture/17.jpg">
-                                </div>
-                                <p class="nick">绿尔</p>
-                            </a>
-                        </div>
-                        <div class="swiper-slide">
-                            <a href="/item/1205245.html" target="_blank">
-                                <div class="pic_box">
-                                    <img class="pic" src="/picture/18.jpg">
-                                </div>
-                                <p class="nick">小魔女♡開開♡</p>
-                            </a>
-                        </div>
-                                            </div>
+                        </li>
+                    </ul>
                 </div>
                 <div class="right swiper-button-prev2"></div>
             </div>
@@ -647,49 +602,51 @@
                     <div class="list_item" style="display: none" v-show="tabShow1===1">
                         <div class="top">
                             <ul class="list_top_wrapper">
-                                <li class="list_top_item url_point" v-for="(item,index) in order_seven_charm_top" :key="index" @click="detailUrl(item.uid,item.pw_status)">
-                                    <div class="logo_wrapper">
-                                        <img :src="'/picture/'+item.person_image" alt="" class="logo"><!--主播头像-->
-                                        <img :src="frameFun(index)" alt="" class="logo_frame"><!--等级图片-->
-
-                                    </div>
-                                    <div class="text">{{item.person_nickname}}</div>
-                                    <div class="icon_wrapper">
-                                        <span class="text">{{item.person_sex}}</span>%nbsp;%nbsp;%nbsp;<span class="texts">{{item.person_adress}}</span>
-                                    </div>
-                                    <div class="hot_wrapper">
-                                        <i class="icon"></i>
-                                        <span class="hot_text">{{item.oo}}</span>
-                                    </div>
+                                <li class="list_top_item url_point" v-for="(item,index) in order_seven_charm_top" :key="index" >
+                                    <a :href="'./hello2?zid='+item.pid+'&gid='+item.gid" target="_blank">
+                                        <div class="logo_wrapper">
+                                            <img :src="'/picture/'+item.person_image" alt="" class="logo"><!--主播头像-->
+                                            <img :src="frameFun(index)" alt="" class="logo_frame"><!--等级图片-->
+                                        </div>
+                                        <div class="text">{{item.person_nickname}}</div>
+                                        <div class="icon_wrapper">
+                                            <span class="text">{{item.person_sex}}</span>%nbsp;%nbsp;%nbsp;<span class="texts">{{item.person_adress}}</span>
+                                        </div>
+                                        <div class="hot_wrapper">
+                                            <i class="icon"></i>
+                                            <span class="hot_text">{{item.oo}}</span>
+                                        </div>
+                                    </a>
                                 </li>
                             </ul>
                         </div>
                         <!--从第四名开始的列表-->
                         <div class="bottom">
                             <ul class="list_bottom_wrapper">
-                                <li class="list_bottom_item url_point" v-cloak v-for="(item,index) in order_seven_charm" :key="index" @click="detailUrl(item.pid,item.pw_status)">
-                                    <i class="num_wrapper"><i class="num_item"><i class="num">{{index+4}}</i></i>
-                                    </i>
-                                    <div class="logo_wrapper">
-                                        <img :src="'/picture/'+item.person_image" alt="" class="logo"><!--主播头像-->
-                                    </div>
-                                    <div class="info_wrapper">
-                                        <span class="nick_name">{{item.person_nickname}}</span>
-                                        <div class="icon_wrapper">
-                                            <span class="text">{{item.person_sex}}</span>%nbsp;%nbsp;%nbsp;<span class="texts">{{item.person_adress}}</span>
+                                <li class="list_bottom_item url_point" v-cloak v-for="(item,index) in order_seven_charm" :key="index" >
+                                    <a :href="'./hello2?zid='+item.pid+'&gid='+item.gid" target="_blank">
+                                        <i class="num_wrapper"><i class="num_item"><i class="num">{{index+4}}</i></i></i>
+                                        <div class="logo_wrapper">
+                                            <img :src="'/picture/'+item.person_image" alt="" class="logo"><!--主播头像-->
                                         </div>
-                                    </div>
-                                    <div class="right_wrapper">
-                                        <div class="right_box">
-                                            <div class="right_content">
-                                                <!-- 热度值-->
-                                                <div class="hot_wrapper">
-                                                    <span class="icon">接单数:</span>
-                                                    <span class="hot_text">{{item.oo}}</span>
+                                        <div class="info_wrapper">
+                                            <span class="nick_name">{{item.person_nickname}}</span>
+                                            <div class="icon_wrapper">
+                                                <span class="text">{{item.person_sex}}</span>%nbsp;%nbsp;%nbsp;<span class="texts">{{item.person_adress}}</span>
+                                            </div>
+                                        </div>
+                                        <div class="right_wrapper">
+                                            <div class="right_box">
+                                                <div class="right_content">
+                                                    <!-- 热度值-->
+                                                    <div class="hot_wrapper">
+                                                        <span class="icon">接单数:</span>
+                                                        <span class="hot_text">{{item.oo}}</span>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </a>
                                 </li>
                             </ul>
                         </div>
@@ -698,48 +655,51 @@
                     <div class="list_item" style="display: none" v-show="tabShow1===2">
                         <div class="top"> <!--榜单前三-->
                             <ul class="list_top_wrapper">
-                                <li class="list_top_item url_point" v-for="(item,index) in order_charm_top" @click="detailUrl(item.uid,item.pw_status)">
-                                    <div class="logo_wrapper">
-                                        <img :src="'/picture/'+item.person_image" alt="" class="logo"><!--主播头像-->
-                                        <img :src="frameFun(index)" alt="" class="logo_frame">
-                                    </div>
-                                    <div class="text">{{item.person_nickname}}</div>
-                                    <div class="icon_wrapper">
-                                        <span class="text">{{item.person_sex}}</span>%nbsp;%nbsp;%nbsp;<span class="texts">{{item.person_adress}}</span>
-                                    </div>
-                                    <div class="hot_wrapper">
-                                        <i class="icon"></i>
-                                        <span class="hot_text">{{item.oo}}</span>
-                                    </div>
+                                <li class="list_top_item url_point" v-for="(item,index) in order_charm_top">
+                                    <a :href="'./hello2?zid='+item.pid+'&gid='+item.gid" target="_blank">
+                                        <div class="logo_wrapper">
+                                            <img :src="'/picture/'+item.person_image" alt="" class="logo"><!--主播头像-->
+                                            <img :src="frameFun(index)" alt="" class="logo_frame">
+                                        </div>
+                                        <div class="text">{{item.person_nickname}}</div>
+                                        <div class="icon_wrapper">
+                                            <span class="text">{{item.person_sex}}</span>%nbsp;%nbsp;%nbsp;<span class="texts">{{item.person_adress}}</span>
+                                        </div>
+                                        <div class="hot_wrapper">
+                                            <i class="icon"></i>
+                                            <span class="hot_text">{{item.oo}}</span>
+                                        </div>
+                                    </a>
                                 </li>
                             </ul>
                         </div>
                         <!--从第四名开始的列表-->
                         <div class="bottom">
                             <ul class="list_bottom_wrapper">
-                                <li class="list_bottom_item url_point" v-cloak v-for="(item,index) in order_charm" :key="index" @click="detailUrl(item.uid,item.pw_status)">
-                                    <i class="num_wrapper"><i class="num_item"><i class="num">{{index+4}}</i></i>
-                                    </i>
-                                    <div class="logo_wrapper">
-                                        <img :src="'/picture/'+item.person_image" alt="" class="logo"><!--主播头像-->
-                                    </div>
-                                    <div class="info_wrapper">
-                                        <span class="nick_name">{{item.person_nickname}}</span>
-                                        <div class="icon_wrapper">
-                                            <span class="text">{{item.person_sex}}</span>%nbsp;%nbsp;%nbsp;<span class="texts">{{item.person_adress}}</span>
+                                <li class="list_bottom_item url_point" v-cloak v-for="(item,index) in order_charm" :key="index" >
+                                    <a :href="'./hello2?zid='+item.pid+'&gid='+item.gid" target="_blank">
+                                        <i class="num_wrapper"><i class="num_item"><i class="num">{{index+4}}</i></i></i>
+                                        <div class="logo_wrapper">
+                                            <img :src="'/picture/'+item.person_image" alt="" class="logo"><!--主播头像-->
                                         </div>
-                                    </div>
-                                    <div class="right_wrapper">
-                                        <div class="right_box">
-                                            <div class="right_content">
-                                                <!-- 热度值-->
-                                                <div class="hot_wrapper">
-                                                    <span class="icon">接单数:</span>
-                                                    <span class="hot_text">{{item.oo}}</span>
+                                        <div class="info_wrapper">
+                                            <span class="nick_name">{{item.person_nickname}}</span>
+                                            <div class="icon_wrapper">
+                                                <span class="text">{{item.person_sex}}</span>%nbsp;%nbsp;%nbsp;<span class="texts">{{item.person_adress}}</span>
+                                            </div>
+                                        </div>
+                                        <div class="right_wrapper">
+                                            <div class="right_box">
+                                                <div class="right_content">
+                                                    <!-- 热度值-->
+                                                    <div class="hot_wrapper">
+                                                        <span class="icon">接单数:</span>
+                                                        <span class="hot_text">{{item.oo}}</span>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </a>
                                 </li>
                             </ul>
                         </div>
@@ -777,19 +737,19 @@
                         <div class="top">
                             <ul class="list_top_wrapper">
                                 <li class="list_top_item url_point" v-for="(item,index) in time_seven_charm_top">
-                                    <a :href="'./hello2?zid='+item.pid+'&gid='+item.gid">
-                                    <div class="logo_wrapper">
-                                        <img :src="'/picture/'+item.person_image" alt="" class="logo"><!--主播头像-->
-                                        <img :src="frameFun(index)" alt="" class="logo_frame"><!--等级图片-->
-                                    </div>
-                                    <div class="text">{{item.person_nickname}}</div>
-                                        <div class="icon_wrapper">
-                                            <span class="text">{{item.person_sex}}</span>%nbsp;%nbsp;%nbsp;<span class="texts">{{item.person_adress}}</span>
+                                    <a :href="'./hello2?zid='+item.pid+'&gid='+item.gid" target="_blank">
+                                        <div class="logo_wrapper">
+                                            <img :src="'/picture/'+item.person_image" alt="" class="logo"><!--主播头像-->
+                                            <img :src="frameFun(index)" alt="" class="logo_frame"><!--等级图片-->
                                         </div>
-                                    <div class="hot_wrapper">
-                                        <i class="icon"></i>
-                                        <span class="hot_text">{{item.ot}}</span>
-                                    </div>
+                                        <div class="text">{{item.person_nickname}}</div>
+                                            <div class="icon_wrapper">
+                                                <span class="text">{{item.person_sex}}</span>%nbsp;%nbsp;%nbsp;<span class="texts">{{item.person_adress}}</span>
+                                            </div>
+                                        <div class="hot_wrapper">
+                                            <i class="icon"></i>
+                                            <span class="hot_text">{{item.ot}}</span>
+                                        </div>
                                     </a>
                                 </li>
                             </ul>
@@ -797,30 +757,30 @@
                         <!--从第四名开始的列表-->
                         <div class="bottom">
                             <ul class="list_bottom_wrapper">
-                                <li class="list_bottom_item url_point" v-cloak v-for="(item,index) in time_seven_charm" :key="index" @click="detailUrl(item.uid,item.pw_status)">
-                                    <a :href="'./hello2?zid='+item.pid+'&gid='+item.gid">
-                                    <i class="num_wrapper"><i class="num_item"><i class="num">{{index+4}}</i></i>
-                                    </i>
-                                    <div class="logo_wrapper">
-                                        <img :src="'/picture/'+item.person_image" class="logo_frame"><!--主播头像-->
-                                    </div>
-                                    <div class="info_wrapper">
-                                        <span class="nick_name">{{item.person_nickname}}</span>
-                                        <div class="icon_wrapper">
-                                            <span class="text">{{item.person_sex}}</span>%nbsp;%nbsp;%nbsp;<span class="texts">{{item.person_adress}}</span>
+                                <li class="list_bottom_item url_point" v-cloak v-for="(item,index) in time_seven_charm" :key="index">
+                                    <a :href="'./hello2?zid='+item.pid+'&gid='+item.gid" target="_blank">
+                                        <i class="num_wrapper"><i class="num_item"><i class="num">{{index+4}}</i></i>
+                                        </i>
+                                        <div class="logo_wrapper">
+                                            <img :src="'/picture/'+item.person_image" alt="" class="logo"><!--主播头像-->
                                         </div>
-                                    </div>
-                                    <div class="right_wrapper">
-                                        <div class="right_box">
-                                            <div class="right_content">
-                                                <!-- 热度值-->
-                                                <div class="hot_wrapper">
-                                                    <span class="icon">时长:</span>
-                                                    <span class="hot_text">{{item.ot}}</span>
+                                        <div class="info_wrapper">
+                                            <span class="nick_name">{{item.person_nickname}}</span>
+                                            <div class="icon_wrapper">
+                                                <span class="text">{{item.person_sex}}</span>%nbsp;%nbsp;%nbsp;<span class="texts">{{item.person_adress}}</span>
+                                            </div>
+                                        </div>
+                                        <div class="right_wrapper">
+                                            <div class="right_box">
+                                                <div class="right_content">
+                                                    <!-- 热度值-->
+                                                    <div class="hot_wrapper">
+                                                        <span class="icon">时长:</span>
+                                                        <span class="hot_text">{{item.ot}}</span>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
                                     </a>
                                 </li>
                             </ul>
@@ -831,19 +791,19 @@
                         <div class="top"> <!--榜单前三-->
                             <ul class="list_top_wrapper">
                                 <li class="list_top_item url_point" v-for="(item,index) in time_charm_top">
-                                    <a :href="'./hello2?zid='+item.pid+'&gid='+item.gid">
-                                    <div class="logo_wrapper">
-                                        <img :src="'/picture/'+item.person_image" alt="" class="logo"><!--主播头像-->
-                                        <img :src="frameFun(index)" alt="" class="logo_frame">
-                                    </div>
-                                    <div class="text">{{item.person_nickname}}</div>
-                                        <div class="icon_wrapper">
-                                            <span class="text">{{item.person_sex}}</span>%nbsp;%nbsp;%nbsp;<span class="texts">{{item.person_adress}}</span>
+                                    <a :href="'./hello2?zid='+item.pid+'&gid='+item.gid" target="_blank">
+                                        <div class="logo_wrapper">
+                                            <img :src="'/picture/'+item.person_image" alt="" class="logo"><!--主播头像-->
+                                            <img :src="frameFun(index)" alt="" class="logo_frame">
                                         </div>
-                                    <div class="hot_wrapper">
-                                        <i class="icon"></i>
-                                        <span class="hot_text">{{item.ot}}</span>
-                                    </div>
+                                        <div class="text">{{item.person_nickname}}</div>
+                                            <div class="icon_wrapper">
+                                                <span class="text">{{item.person_sex}}</span>%nbsp;%nbsp;%nbsp;<span class="texts">{{item.person_adress}}</span>
+                                            </div>
+                                        <div class="hot_wrapper">
+                                            <i class="icon"></i>
+                                            <span class="hot_text">{{item.ot}}</span>
+                                        </div>
                                     </a>
                                 </li>
                             </ul>
@@ -851,30 +811,29 @@
                         <!--从第四名开始的列表-->
                         <div class="bottom">
                             <ul class="list_bottom_wrapper">
-                                <li class="list_bottom_item url_point" v-cloak v-for="(item,index) in time_charm" :key="index" @click="detailUrl(item.uid,item.pw_status)">
-                                    <a :href="'./hello2?zid='+item.pid+'&gid='+item.gid">
-                                    <i class="num_wrapper"><i class="num_item"><i class="num">{{index+4}}</i></i>
-                                    </i>
-                                    <div class="logo_wrapper">
-                                        <img :src="'/picture/'+item.person_image" class="logo_frame"><!--主播头像-->
-                                    </div>
-                                    <div class="info_wrapper">
-                                        <span class="nick_name">{{item.person_nickname}}</span>
-                                        <div class="icon_wrapper">
-                                            <span class="text">{{item.person_sex}}</span>%nbsp;%nbsp;%nbsp;<span class="texts">{{item.person_adress}}</span>
+                                <li class="list_bottom_item url_point" v-cloak v-for="(item,index) in time_charm" :key="index">
+                                    <a :href="'./hello2?zid='+item.pid+'&gid='+item.gid" target="_blank">
+                                        <i class="num_wrapper"><i class="num_item"><i class="num">{{index+4}}</i></i></i>
+                                        <div class="logo_wrapper">
+                                            <img :src="'/picture/'+item.person_image" alt="" class="logo"><!--主播头像-->
                                         </div>
-                                    </div>
-                                    <div class="right_wrapper">
-                                        <div class="right_box">
-                                            <div class="right_content">
-                                                <!-- 热度值-->
-                                                <div class="hot_wrapper">
-                                                    <span class="icon">时长:</span>
-                                                    <span class="hot_text">{{item.ot}}</span>
+                                        <div class="info_wrapper">
+                                            <span class="nick_name">{{item.person_nickname}}</span>
+                                            <div class="icon_wrapper">
+                                                <span class="text">{{item.person_sex}}</span>%nbsp;%nbsp;%nbsp;<span class="texts">{{item.person_adress}}</span>
+                                            </div>
+                                        </div>
+                                        <div class="right_wrapper">
+                                            <div class="right_box">
+                                                <div class="right_content">
+                                                    <!-- 热度值-->
+                                                    <div class="hot_wrapper">
+                                                        <span class="icon">时长:</span>
+                                                        <span class="hot_text">{{item.ot}}</span>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
                                     </a>
                                 </li>
                             </ul>
@@ -931,11 +890,11 @@
                         <!--从第四名开始的列表-->
                         <div class="bottom">
                             <ul class="list_bottom_wrapper">
-                                <li class="list_bottom_item" v-for="(item,index) in money_seven_charm" :key="index" @click="detailUrl(item.uid,item.pw_status)">
+                                <li class="list_bottom_item" v-for="(item,index) in money_seven_charm" >
                                     <i class="num_wrapper"><i class="num_item"><i class="num">{{index+4}}</i></i>
                                     </i>
                                     <div class="logo_wrapper">
-                                        <img :src="'/picture/'+item.person_image" class="logo_frame"><!--主播头像-->
+                                        <img :src="'/picture/'+item.person_image" alt="" class="logo"><!--主播头像-->
                                     </div>
                                     <div class="info_wrapper">
                                         <span class="nick_name">{{item.person_nickname}}</span>
@@ -981,11 +940,11 @@
                         <!--从第四名开始的列表-->
                         <div class="bottom">
                             <ul class="list_bottom_wrapper">
-                                <li class="list_bottom_item url_point" v-cloak v-for="(item,index) in money_charm" :key="index" @click="detailUrl(item.uid,item.pw_status)">
+                                <li class="list_bottom_item url_point" v-cloak v-for="(item,index) in money_charm">
                                     <i class="num_wrapper"><i class="num_item"><i class="num">{{index+4}}</i></i>
                                     </i>
                                     <div class="logo_wrapper">
-                                        <img :src="'/picture/'+item.person_image" class="logo_frame"><!--主播头像-->
+                                        <img :src="'/picture/'+item.person_image" alt="" class="logo"><!--主播头像-->
                                     </div>
                                     <div class="info_wrapper">
                                         <span class="nick_name">{{item.person_nickname}}</span>
@@ -1111,90 +1070,108 @@
 
 
     // 热门推荐
+    var curPages=1;          //当前页数
+
     var hot =new Vue({
         el:"#hot_box",
         data:{
-            //changeStatus: true,//换一批状态，防止重复点击
-            hotList: [],//热门推荐列表
-            //curPage:0,//当前页数
-            //hot_status:false,//热门推荐是否被第一次点击
-            moreShow:false//更多按钮显示
-            //loadingShow:true  //loading效果
+            changeStatus: false ,   //换一批状态，防止重复点击
+            hotList: [],            //热门推荐列表
+            moreShow:false          //更多按钮显示
         }
-        /* mounted: function(){
-             this.$nextTick(function(){
-                 //this.getHotList(this.curPage);
-                 setTimeout(function(){
-                     img_lazy_load(document.documentElement.scrollTop || document.body.scrollTop); //懒加载
-                 },100);
-             });
-         },
-         methods: {
-             // 陪玩详情链接
-             detailUrl: function(uid) {
-                 var url = "/item/"+pid+".html";
-                 window.open(url);
-             },
-             // 热门推荐陪玩详情链接
-             hotDetailUrl: function(item) {
-                 var url = "/item/"+item.pid+".html?gid="+item.gid;
-                 window.open(url);
-             }
-
-             // 换一批
-             changePage: function() {
-                 if(!this.hot_status){
-                     this.hot_status = true;
-                 }
-                 if(this.changeStatus){
-                     if(this.curPage > 20){
-                         this.curPage = 0;
-                         this.getHotList(this.curPage);
-                     }else {
-                         this.curPage = this.curPage + 1;
-                         this.getHotList(this.curPage);
-                     }
-                     this.loadingShow = true;//loading
-                 }
-
-             }
-         }*/
+       /* methods: {
+            // 热门推荐陪玩详情链接
+            hotDetailUrl: function(item) {
+                var url = "/hello/"+item.pid+".html?gid="+item.gid;
+                window.open(url);
+            }
+        }*/
     });
     //进入页面自动触发的热门推荐函数
-    var getHotList = function ( ) {
+    var getHotList = function (curPages) {
         $.ajax({
             type: 'POST',
             dataType: 'json',
             url: '/person/getHotPersonList',
             data: {
-                curPage:  1,
+                curPage:  curPages ,
                 pageSize: 10
             },
             success: function (msg) {
                 hot.hotList = msg.hotPersonList;
+                if (msg.hotPersonList.length == 0){
+                    curPages=1;
+                    getHotList(curPages);
+                } else {
+                    hot.hotList=msg.hotPersonList;
+                    hot.changeStatus = true ;
+                    hot.moreShow = true ;
+                }
             }
         });
     };
-    getHotList();
+    getHotList(curPages);
 
-    curPage = 1;
     // 换一批
-    $("#changePage").click(function (curr) {
-        curr = curPage + 1  ;
+    $("#changePage").click(function () {
         $.ajax({
             type: 'POST',
             dataType: 'json',
             url: '/person/getHotPersonList',
             data: {
-                curPage:  curr ,
+                curPage: curPages ,
                 pageSize: 10
             },
             success: function (msg) {
                 hot.hotList = msg.hotPersonList;
+                if (msg.hotPersonList.length != 0){
+                    if(curPages > 3){
+                        curPages = 1;
+                        getHotList(curPages);
+                    }else {
+                        curPages = curPages + 1;
+                        getHotList(curPages);
+                    }
+                }else{
+                    curPages = 1 ;
+                    getHotList(curPages);
+                }
             }
         });
     });
 
+    // 新人推荐
+    var neL = new Vue({
+        el: ".new_person_wrapper",
+        data: {
+            newList: []  //新人推荐列表
+        }
+    });
+    var getNewList = function () {
+        $.ajax({
+            type:'POST',
+            dataType:'json',
+            url:'/person/getNewPersonList',
+            data:{
+                curPage: 1 ,
+                pageSize:10
+            } ,
+            success:function (msg) {
+                neL.newList = msg.newPersonList;
+                setTimeout(function() {
+                    var swiper = new Swiper('.swiper-container2', {
+                        slidesPerView: 'auto',
+                        slidesPerGroup: 8,
+                        speed: 1500,
+                        spaceBetween: 0,
+                        prevButton: '.swiper-button-next2',
+                        nextButton: '.swiper-button-prev2'
+                    });
+                }, 200);
+            }
+        })
+    };
+    getNewList();
 
 
     <!--排行榜 热度榜、人气榜、富豪榜-->

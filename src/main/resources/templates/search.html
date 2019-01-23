@@ -23,8 +23,7 @@
     <script type="text/javascript" src="/js/vue-resource.js"></script>
     <script type="text/javascript" src="/js/jquery.min.js"></script>
     <script type="text/javascript" src="/js/jquery.validate.min.js"></script>
-    <script type="text/javascript" src="/js/messages_zh.min.js"></script>
-    <script type="text/javascript" src="/js/store.legacy.min.js"></script>
+    <script type="text/javascript" src="/js/store.legacy.min.js"></script><!--图片懒加载-->
     <script type="text/javascript" src="/js/fzjs/websocket.js"></script>
 
 </head>
@@ -37,21 +36,21 @@
         <div class="info">
             <div style="height: 0px;width: 100%;"></div>
             <h1>
-                <a href="/"><img class="logo" alt="飞虎电竞" src="/images/yuewanlogo.png?123"></a>
+                <a href="/person/toIndex"><img class="logo" alt="飞虎电竞" src="/images/yuewanlogo.png"></a>
             </h1>
             <div class="p_nav">
                 <div :class="[navIndex === 'index_index_index'?'active':'']"><!--三元运算符-->
-                    <a href="/">
+                    <a href="/person/toIndex">
                         首页
                     </a>
                 </div>
                 <div :class="[navIndex === 'index_peiwan'?'active':'']">
-                    <a href="/peiwan/lol/">
+                    <a href="/person/toMore">
                         约陪玩
                     </a>
                 </div>
                 <div :class="[navIndex === 'index_price'?'active':'']">
-                    <a href="/peiwan/price/">
+                    <a href="/person/toAreaList?gid=1001">
                         9.9专区
                         <img src="/images/price.gif" alt="" class="icon">
                     </a>
@@ -77,7 +76,6 @@
                 </div>
 
             </div>
-
 
             <div class="seach_Box">
                 <img src="/images/ico_28_hover.png" style="display: none;">
@@ -144,6 +142,31 @@
 
     </div>
 
+    <!--导航栏模糊查询的函数-->
+    <script>
+        $("#searchinfo").click(function () {
+            var keyname= $("#personNickname").val();
+            window.location.href = 'toSearch';
+            sessionStorage.setItem("keyname",keyname);
+        });
+    </script>
+
+    <script>
+        (function(){
+            //处理滚动后导航悬停
+            var win_scroll = function(){
+                var obj = document.querySelector(".public_nav_new .info_v2");
+                var a = document.documentElement.scrollTop || document.body.scrollTop;//滚动条y轴上的距离
+
+                if(a>70){
+                    obj.classList.add("position");
+                }else{
+                    obj.classList.remove("position");
+                }
+            };
+
+        }());
+    </script>
 </div>
 
 
@@ -161,7 +184,7 @@
         <div class="player">
             <div class="hot-player-con">
                 <div v-for='item in searchList'>
-                    <a :href="'/item/'+item.pid+'.html'" @click="localStorage.setItem('gameID',0)">
+                    <a :href="'./hello2?zid='+item.pid+'&gid='+item.gid" target="_blank">
                         <div class="frame_logo_wrapper" :class="item.tags">
                             <!-- logo -->
                             <div class="pic_box">
@@ -169,7 +192,7 @@
                             </div>
                         </div>
                         <div class="player-info">
-                            <span><div class="guanming" v-if="item.sponser">{{item.sponser.person_nickname}}<img :title="item.sponser.ps_name" :src="item.sponser.icon_path"></div><i class="text">{{item.person_nickname}}</i></span>
+                            <span><i class="text">{{item.person_nickname}}</i></span>
                             <span>{{item.g_name}}</span>
                         </div>
                         <div class="player-money">

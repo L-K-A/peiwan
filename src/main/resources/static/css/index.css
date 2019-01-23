@@ -876,6 +876,7 @@ section .plute_wrapper .info_box .swiper-container2 .swiper-wrapper .swiper-slid
   animation: pulse .5s;
   -webkit-animation: pulse .5s;
 }
+
 /*新人推荐和排行榜的样式*/
 section .bottom_wrapper {
   width: 100%;

@@ -18,10 +18,13 @@ import java.util.Map;
 public interface ZyfIndexService extends IService<TPerson> {
 
     //热门推荐主播列表
-    Page<Map<String,Object>> selectHotPerson(int curPage,int pageSize);
+    Page<Map<String,Object>> selectHotPerson(Integer curPage,Integer pageSize);
 
     //导航栏根据昵称和Id模糊查询
     List<Map<String,Object>> selectPersonByNameId(TPerson person);
+
+    //新人推荐
+    Page<Map<String,Object>> selectNewPerson(Integer curPage,Integer pageSize);
 
     //热度榜 周榜 前三：先筛选规定时间，然后按照订单数排序
     Page<Map<String,Object>> selectPersonOrderTop(int curPage,int pageSize);

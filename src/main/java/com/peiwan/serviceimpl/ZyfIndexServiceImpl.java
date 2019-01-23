@@ -28,7 +28,7 @@ public class ZyfIndexServiceImpl extends ServiceImpl<ZyfIndexMapper, TPerson> im
 
     //热门推荐主播列表
     @Override
-    public Page<Map<String, Object>> selectHotPerson(int curPage,int pageSize) {
+    public Page<Map<String, Object>> selectHotPerson(Integer curPage,Integer pageSize) {
         Page<Map<String,Object>> page = new Page<Map<String,Object>>();
         Page<Map<String, Object>> mapPage = page.setRecords(this.baseMapper.selectHotPersonList(curPage, pageSize));
         return mapPage;
@@ -41,7 +41,13 @@ public class ZyfIndexServiceImpl extends ServiceImpl<ZyfIndexMapper, TPerson> im
         return maps;
     }
 
-
+    //新人推荐
+    @Override
+    public Page<Map<String, Object>> selectNewPerson(Integer curPage, Integer pageSize) {
+        Page<Map<String,Object>> page = new Page<Map<String,Object>>();
+        Page<Map<String, Object>> newList = page.setRecords(this.baseMapper.selectNewPersonList(curPage, pageSize));
+        return newList;
+    }
 
     //热度榜 周榜 前三：先筛选规定时间，然后按照订单数排序
     @Override

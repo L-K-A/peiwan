@@ -34,6 +34,12 @@ public class ZyfIndexController {
         return new ModelAndView("index");
     }
 
+    //跳转分类页面
+    @RequestMapping("/toMore")
+    public ModelAndView toMore(){
+        return new ModelAndView("fenlei");
+    }
+
     //通宵报名处
     @RequestMapping("/toTongXiao")
     public ModelAndView tongXiao(){
@@ -50,19 +56,6 @@ public class ZyfIndexController {
         return new ModelAndView("zhangJia");
     }
 
-    //热门推荐主播列表
-    @RequestMapping("/getHotPersonList")
-    public Map<String,Object> getPage(int curPage,int pageSize){
-        Page<Map<String, Object>> page = zyfIndexService.selectHotPerson(curPage,pageSize);
-        List<Map<String, Object>> hotPersonList = page.getRecords();
-        //page.getRecords(pid);
-        Map map = new HashMap();
-        map.put("hotPersonList",hotPersonList);
-        System.out.println("热门推荐列表:"+hotPersonList);
-        return map;
-    }
-
-
 
     //根据昵称和Id模糊查询主播
     @RequestMapping("/searchPerson")
@@ -74,12 +67,33 @@ public class ZyfIndexController {
         Map map = new HashMap();
         map.put("searchPersonList",searchPersonList);
         System.out.println("模糊查询:"+searchPersonList);
-        return map;
-    }
+        return map; }
     //首页导航栏模糊查询跳转到search页面
     @RequestMapping("/toSearch")
     public ModelAndView list(){
         return new ModelAndView("search");
+    }
+
+    //新人推荐
+    @RequestMapping("/getNewPersonList")
+    public Map<String,Object> getNewList(Integer curPage,Integer pageSize){
+        Page<Map<String, Object>> page = zyfIndexService.selectNewPerson(curPage, pageSize);
+        List<Map<String, Object>> newPersonList = page.getRecords();
+        Map map = new HashMap();
+        map.put("newPersonList",newPersonList);
+        System.out.println("新人列表："+newPersonList);
+        return map;
+    }
+
+    //热门推荐主播列表
+    @RequestMapping("/getHotPersonList")
+    public Map<String,Object> getHotList(Integer curPage,Integer pageSize){
+        Page<Map<String, Object>> page = zyfIndexService.selectHotPerson(curPage,pageSize);
+        List<Map<String, Object>> hotPersonList = page.getRecords();
+        Map map = new HashMap();
+        map.put("hotPersonList",hotPersonList);
+        System.out.println("热门推荐列表:"+hotPersonList);
+        return map;
     }
 
 
@@ -179,7 +193,7 @@ public class ZyfIndexController {
     //测试主播列表查询
     @RequestMapping("/toList")
     public ModelAndView select(){
-        return new ModelAndView("reDuBang");
+        return new ModelAndView("index2");
     }
 
 
