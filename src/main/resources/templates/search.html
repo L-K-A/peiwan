@@ -91,7 +91,7 @@
                 <div style="height: 0px;width: 100%;"></div>
 
                 <!--beforeLanding(登陆之前) -->
-                <!--<div class="login style1" id="beforeLanding">
+                <div class="login style1" id="beforeLanding">
                     <ul class="nav navbar-nav navbar-right">
 
                         <li>
@@ -102,33 +102,33 @@
                     </ul>
                 </div>-->
                 <!--afterTheLanding(登陆过后)-->
-                <!--<div class="login style1" id="afterTheLanding">
+                <div class="login style1" id="afterTheLanding">
                     <ul class="nav navbar-nav navbar-right">
                         <li><a id="personnames" href="/indexw"  th:text="${session.nameTPerson?.personNickname}"></a>&nbsp;&nbsp;<a data-toggle="modal" data-target="#login" href="/logout"><span class="glyphicon glyphicon-log-in"></span>退出登陆</a></li>
                     </ul>
-                </div>-->
+                </div>
 
-                <!-- <script th:inline="javascript">
+                <script th:inline="javascript">
 
-                     &lt;!&ndash;登陆隐藏&ndash;&gt;
-                     function LandingHide() {
-                         $("#afterTheLanding").hide();
-                     }
+                    /*登陆隐藏*/
+                    function LandingHide() {
+                        $("#afterTheLanding").hide();
+                    }
 
 
-                     &lt;!&ndash;登陆过后隐藏显示&ndash;&gt;
-                     function LandingHides() {
-                         $("#beforeLanding").hide();
-                     }
-                     var nameTPerson = [[${session.nameTPerson?.personNickname}]];
-                     /*alert(nameTPerson);*/
-                     if (nameTPerson==null||nameTPerson==0) {
-                         LandingHide();
-                     } else{
-                         LandingHides();
-                     }
+                    /*登陆过后隐藏显示*/
+                    function LandingHides() {
+                        $("#beforeLanding").hide();
+                    }
+                    var nameTPerson = [[${session.nameTPerson?.personNickname}]];
+                    /*alert(nameTPerson);*/
+                    if (nameTPerson==null||nameTPerson==0) {
+                        LandingHide();
+                    } else{
+                        LandingHides();
+                    }
 
-                 </script>-->
+                </script>
 
 
                 <div @click="login_fn" class="login style1">
@@ -185,7 +185,7 @@
             <div class="hot-player-con">
                 <div v-for='item in searchList'>
                     <a :href="'./hello2?zid='+item.pid+'&gid='+item.gid" target="_blank">
-                        <div class="frame_logo_wrapper" :class="item.tags">
+                        <div class="frame_logo_wrapper">
                             <!-- logo -->
                             <div class="pic_box">
                                 <img :src="'/picture/'+item.person_image" alt="" class="pic"><!--主播头像-->
@@ -193,7 +193,7 @@
                         </div>
                         <div class="player-info">
                             <span><i class="text">{{item.person_nickname}}</i></span>
-                            <span>{{item.g_name}}</span>
+                            <span>{{item.sg}}</span>
                         </div>
                         <div class="player-money">
                             <p>
@@ -222,10 +222,12 @@
         }
     });
 
+    //首页跳转传参函数
     window.onload = function(){
         var keyname = sessionStorage.getItem("keyname");
         console.log(keyname);
         getUserPageList(keyname);
+        getUserPageLists(keyname);
 
         function getUserPageList(keyname) {
             $.ajax({
@@ -234,6 +236,7 @@
                 url: '/person/searchPerson',
                 data: {
                     personNickname:keyname
+                   // pid: keyname
                 },
                 success: function (msg) {
                     search.searchList = msg.searchPersonList;
@@ -243,12 +246,34 @@
                 }
             });
         }
+
+        function getUserPageLists(keyname) {
+            $.ajax({
+                type: 'POST',
+                dataType: 'json',
+                url: '/person/searchPerson',
+                data: {
+                    //personNickname:keyname
+                     pid: keyname
+                },
+                success: function (msg) {
+                    search.searchList = msg.searchPersonList;
+                    if (msg.searchPersonList.length==0) {
+                        search.bgclass = true;
+                    }
+                }
+            });
+        }
+
+
     };
 
     /*search页面导航栏查询函数*/
     $("#searchinfo").click(function () {
         var keyname= $("#personNickname").val();
         getUserPageList(keyname);
+        getUserPageLists(keyname);
+
         function getUserPageList(keyname) {
             $.ajax({
                 type: 'POST',
@@ -256,6 +281,23 @@
                 url: '/person/searchPerson',
                 data: {
                     personNickname: keyname
+                },
+                success: function (msg) {
+                    search.searchList = msg.searchPersonList;
+                    if (msg.searchPersonList.length==0) {
+                        search.bgclass = true;
+                    }
+                }
+            });
+        }
+
+        function getUserPageLists(keyname) {
+            $.ajax({
+                type: 'POST',
+                dataType: 'json',
+                url: '/person/searchPerson',
+                data: {
+                    pid: keyname
                 },
                 success: function (msg) {
                     search.searchList = msg.searchPersonList;

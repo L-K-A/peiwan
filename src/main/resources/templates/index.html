@@ -84,7 +84,7 @@
 
             <div class="seach_Box">
                 <img src="/images/ico_28_hover.png" style="display: none;">
-                <input id="personNickname" placeholder="陪玩昵称、ID、靓号" type="text" >
+                <input id="personNickname" placeholder="陪玩昵称、ID" type="text" >
                 <p @click="inputShow" id="searchinfo" class="seach_p"></p>
             </div>
 
@@ -96,7 +96,7 @@
                 <div style="height: 0px;width: 100%;"></div>
 
                 <!--beforeLanding(登陆之前) -->
-                <!--<div class="login style1" id="beforeLanding">
+                <div class="login style1" id="beforeLanding">
                     <ul class="nav navbar-nav navbar-right">
 
                         <li>
@@ -105,23 +105,23 @@
                             <a data-toggle="modal" data-target="#register" href="/toRegister"><span class="glyphicon glyphicon-user"></span>注册</a>
                         </li>
                     </ul>
-                </div>-->
+                </div>
                 <!--afterTheLanding(登陆过后)-->
-                <!--<div class="login style1" id="afterTheLanding">
+                <div class="login style1" id="afterTheLanding">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a id="personnames" href="/indexw"  th:text="${session.nameTPerson?.personNickname}"></a>&nbsp;&nbsp;<a data-toggle="modal" data-target="#login" href="/logout"><span class="glyphicon glyphicon-log-in"></span>退出登陆</a></li>
+                        <li><a id="personnames" href="/indexw" th:text="${session.nameTPerson?.personNickname}"></a>&nbsp;&nbsp;<a data-toggle="modal" data-target="#login" href="/logout"><span class="glyphicon glyphicon-log-in"></span>退出登陆</a></li>
                     </ul>
-                </div>-->
+                </div>
 
-               <!-- <script th:inline="javascript">
+                <script th:inline="javascript">
 
-                    &lt;!&ndash;登陆隐藏&ndash;&gt;
+                    /*登陆隐藏*/
                     function LandingHide() {
                         $("#afterTheLanding").hide();
                     }
 
 
-                    &lt;!&ndash;登陆过后隐藏显示&ndash;&gt;
+                    /*登陆过后隐藏显示*/
                     function LandingHides() {
                         $("#beforeLanding").hide();
                     }
@@ -133,13 +133,13 @@
                         LandingHides();
                     }
 
-                </script>-->
+                </script>
 
 
-                <div @click="login_fn" class="login style1">
+                <!--<div @click="login_fn" class="login style1">
                     <p></p>
                     <span>登录&nbsp;&nbsp;|&nbsp;&nbsp;注册</span>
-                </div>
+                </div>-->
 
 
             </div>
