@@ -51,7 +51,7 @@
                 </div>
                 <div :class="[navIndex === 'index_price'?'active':'']">
                     <a href="/person/toAreaList?gid=1001">
-                        9.9专区
+                        八元专区
                         <img src="/images/price.gif" alt="" class="icon">
                     </a>
                 </div>
@@ -79,7 +79,7 @@
 
             <div class="seach_Box">
                 <img src="/images/ico_28_hover.png" style="display: none;">
-                <input id="personNickname" placeholder="陪玩昵称、ID、靓号" type="text" >
+                <input id="personNickname" placeholder="陪玩昵称、ID" type="text" >
                 <p @click="inputShow" id="searchinfo" class="seach_p"></p>
             </div>
 
@@ -100,11 +100,11 @@
                             <a data-toggle="modal" data-target="#register" href="/toRegister"><span class="glyphicon glyphicon-user"></span>注册</a>
                         </li>
                     </ul>
-                </div>-->
+                </div>
                 <!--afterTheLanding(登陆过后)-->
                 <div class="login style1" id="afterTheLanding">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a id="personnames" href="/indexw"  th:text="${session.nameTPerson?.personNickname}"></a>&nbsp;&nbsp;<a data-toggle="modal" data-target="#login" href="/logout"><span class="glyphicon glyphicon-log-in"></span>退出登陆</a></li>
+                        <li><a id="personnames" href="/indexw" th:text="${session.nameTPerson?.personNickname}"></a>&nbsp;&nbsp;<a data-toggle="modal" data-target="#login" href="/logout"><span class="glyphicon glyphicon-log-in"></span>退出登陆</a></li>
                     </ul>
                 </div>
 
@@ -131,10 +131,10 @@
                 </script>
 
 
-                <div @click="login_fn" class="login style1">
+                <!--<div @click="login_fn" class="login style1">
                     <p></p>
                     <span>登录&nbsp;&nbsp;|&nbsp;&nbsp;注册</span>
-                </div>
+                </div>-->
 
 
             </div>
@@ -214,10 +214,12 @@
 <!--模糊查询到的主播的函数-->
 <script>
 
+    var bgclass = false ;
+
     var search = new Vue({
         el: '#search',
         data: {
-            bgclass:false , //没有数据
+            //bgclass:false , //没有数据
             searchList: []
         }
     });
@@ -236,12 +238,14 @@
                 url: '/person/searchPerson',
                 data: {
                     personNickname:keyname
-                   // pid: keyname
+
                 },
                 success: function (msg) {
                     search.searchList = msg.searchPersonList;
                     if (msg.searchPersonList.length==0) {
-                        search.bgclass = true;
+                        bgclass = true;
+                    }else{
+                        bgclass = false;
                     }
                 }
             });
@@ -253,28 +257,28 @@
                 dataType: 'json',
                 url: '/person/searchPerson',
                 data: {
-                    //personNickname:keyname
                      pid: keyname
                 },
                 success: function (msg) {
                     search.searchList = msg.searchPersonList;
                     if (msg.searchPersonList.length==0) {
-                        search.bgclass = true;
+                        bgclass = true;
+                    }else{
+                        bgclass = false;
                     }
                 }
             });
         }
-
 
     };
 
     /*search页面导航栏查询函数*/
     $("#searchinfo").click(function () {
         var keyname= $("#personNickname").val();
-        getUserPageList(keyname);
-        getUserPageLists(keyname);
+        getBenPageList(keyname);
+        getBenPageLists(keyname);
 
-        function getUserPageList(keyname) {
+        function getBenPageList(keyname) {
             $.ajax({
                 type: 'POST',
                 dataType: 'json',
@@ -285,13 +289,15 @@
                 success: function (msg) {
                     search.searchList = msg.searchPersonList;
                     if (msg.searchPersonList.length==0) {
-                        search.bgclass = true;
+                        bgclass = true;
+                    }else{
+                        bgclass = false;
                     }
                 }
             });
         }
 
-        function getUserPageLists(keyname) {
+        function getBenPageLists(keyname) {
             $.ajax({
                 type: 'POST',
                 dataType: 'json',
@@ -302,7 +308,9 @@
                 success: function (msg) {
                     search.searchList = msg.searchPersonList;
                     if (msg.searchPersonList.length==0) {
-                        search.bgclass = true;
+                        bgclass = true;
+                    }else{
+                        bgclass = false;
                     }
                 }
             });

@@ -4,7 +4,7 @@
 
     <!--导航栏根据昵称和Id模糊查询-->
     <select id="selectPersonByNameAndId" parameterType="map" resultType="map">
-        SELECT sp.pid,sp.person_nickname,sp.person_image,sp.gid,sp.g_price,sp.sg,sp.om
+  SELECT sp.pid,sp.person_nickname,sp.person_image,sp.gid,sp.g_price,sp.sg,sp.om
         FROM (SELECT p.pid,p.person_nickname,p.person_image,s.gid,s.g_price,GROUP_CONCAT(DISTINCT s.g_name)sg,SUM(o.o_money)om
         FROM (t_person p LEFT JOIN t_service s ON p.pid=s.pid ) LEFT JOIN t_order_z o ON p.pid=o.pid
         WHERE p.person_flate=1

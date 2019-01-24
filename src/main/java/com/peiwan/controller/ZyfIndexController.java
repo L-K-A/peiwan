@@ -3,6 +3,7 @@ package com.peiwan.controller;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.peiwan.bean.TPerson;
 import com.peiwan.service.ZyfIndexService;
+import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RestController;
@@ -34,10 +35,29 @@ public class ZyfIndexController {
         return new ModelAndView("index");
     }
 
+    //头部
+    @RequestMapping("/toHead")
+    public ModelAndView head(){
+        return new ModelAndView("head");
+    }
+
+    //尾部
+    @RequestMapping("/toFoot")
+    public ModelAndView foot(){
+        return new ModelAndView("foot");
+    }
+
     //跳转分类页面
     @RequestMapping("/toMore")
     public ModelAndView toMore(){
         return new ModelAndView("fenlei");
+    }
+
+    //八元专区
+    @RequestMapping("/toAreaList")
+    public ModelAndView fenLei(){
+        System.out.println("前端页面已访问到togame的后台，返回到fenlei的前端页面");
+        return new ModelAndView("arealist");
     }
 
     //通宵报名处

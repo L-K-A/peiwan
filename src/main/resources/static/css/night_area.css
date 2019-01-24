@@ -3,7 +3,7 @@
 	display:none;
 }
 section{
-	background:#02164b url(../../img/activity/night_bj.jpg) no-repeat;
+	background:#02164b url(../images/night_bj.jpg) no-repeat;
 	background-position:center top;
 	min-width:1200px;
 }
@@ -40,7 +40,7 @@ section .txtBox .tx1 .d2{
 	height:76px;
 	margin:0 auto;
 	margin-top:25px;
-	background:url("../../img/activity/night_img_3.png") no-repeat;
+	background:url("../images/night_img_3.png") no-repeat;
 	line-height:76px;
 	color:#cae4fe;
 	font-size:20px;
@@ -121,7 +121,7 @@ section .info{
 	margin-top:40px;
 }
 section .info>.box{
-	background:url(../../img/activity/night_img_4.jpg);
+	background:url(../images/night_img_4.jpg);
 	border:solid 5px #4d39a8;
 	border-radius:30px;
 }

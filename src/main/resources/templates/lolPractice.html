@@ -3,22 +3,9 @@
 <head>
     <meta charset="utf-8">
     <title>英雄训练营 | 剑魔专精课程</title><meta name="keywords" content="英雄训练营剑魔,,lol剑魔,lol剑魔出装,lol剑魔符文,lol剑魔怎么玩,s9剑魔怎么玩" /><meta name="description" content="英雄训练营剑魔专精课程,教你各种剑魔连招技巧,帮你用剑魔快速上分." />
-    <link rel="shortcut icon" href="//t.tuwan.com/favicon.ico" type="image/x-icon" sizes="32x32">
+    <link rel="shortcut icon" href="/images/faviconLOL.ico" type="image/x-icon" sizes="32x32">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <script>
 
-        function getUrlParam(name) {
-            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
-            var r = window.location.search.substr(1).match(reg); //匹配目标参数
-            if (r != null) return unescape(r[2]); return null; //返回参数值
-        }
-        // 获取url的id
-        var id = getUrlParam('id');
-
-        if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
-            location.href = 'https://wx.tuwan.com/events/txcourse?id='+id;
-        }
-    </script>
     <style>
         /**/
         .hero-banner{
@@ -201,7 +188,7 @@
             height: 20px;
             line-height: 20px;
             text-indent: 40px;
-            background: url(https://res.tuwan.com/templet/teach/newindex/images/duihao.png) no-repeat 0 0;
+            background: url(static/images/duihao.png) no-repeat 0 0;
             margin-bottom: 17px;
         }
 
@@ -692,7 +679,7 @@
     .identif_go{margin-top: 35px;}
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<script src="https://res.tuwan.com/js/jquery-1.12.3.min.js"></script>
+<!--<script src="https://res.tuwan.com/js/jquery-1.12.3.min.js"></script>
 <script src="https://user.tuwan.com/js/json2.js"></script>
 <script src="https://user.tuwan.com/js/jsencrypt.min.js"></script>
 <script src="https://user.tuwan.com/js/getRSAKey.js"></script>
@@ -701,7 +688,7 @@
 <script src="https://user.tuwan.com/js/securelogin.js"></script>
 <script src="https://user.tuwan.com/js/securereg.js"></script>
 <script src="https://user.tuwan.com/api/sendTGID.ashx"></script>
-<script src="https://user.tuwan.com/js/gt.js"></script>
+<script src="https://user.tuwan.com/js/gt.js"></script>-->
 <input type="hidden" value="1" id="checkall_name">
 <input type="hidden" value="1" id="checkall_phone">
 <input type="hidden" value="1" id="checkall_pwd">
@@ -709,11 +696,11 @@
 <div id="captcha"></div>
 <div class="index-header-box">
     <div class="index-header">
-        <img src="https://res.tuwan.com/templet/teach/newindex/images/logo.png">
+        <img src="/images/logoLoL.png">
         <ul>
             <li><a href="/" target="_blank">首页</a></li>
-            <li><a href="/#divTiXiKeCheng" target="_blank">上钻石</a></li>
-            <li><a href="/#divZhuanXiangKeCheng" target="_blank">学英雄</a></li>
+            <li><a href="#" target="_blank">上钻石</a></li>
+            <li><a href="#" target="_blank">学英雄</a></li>
         </ul>
         <span class="index-header-login" id="loginbox" uid="0">
 <a class="button-login">登录</a>
@@ -721,489 +708,9 @@
 </span>
     </div>
 </div>
-<div id="index_pup_box" style="display: none;">
-    <div class="entry_pop_bg"></div>
-    <div class="entry_pop_box">
-        <div class="entry_pop_content">
-            <div class="enroll_box">
-                <div class="fl">
-                    <div class="fl enroll enroll_add">登录</div>
-                    <div class="fl enroll">注册</div>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="fr close"><div class="layer-cell-close"></div></div>
-                <div class="clearfix"></div>
-            </div>
-            <div class="fl" style="width:430px;">
-                <div class="enroll_content">
-                    <div class="register_box">
-                        <div class="register">
-                            <label> 账号</label>
-                            <input type="text" placeholder="请输入用户名/手机号" id="username" required>
-                            <div class="dislocation dislocation_02 usernameMsg"></div>
-                        </div>
-                        <div class="register">
-                            <label>密码</label>
-                            <input type="password" id="pwd" placeholder="请输入密码" required>
-                            <div class="dislocation dislocation_02 passwordMsg"></div>
-                        </div>
-                        <div class="register">
-                            <label>验证码</label>
-                            <input type="text" placeholder="验证码" required id="check" class="yanzheng identifying" required>
-                            <div class="dislocation dislocation_04 codeMsg"></div>
-                            <a style="padding-left: 20px" href="javascript:;" onclick="loadcode('code', 82, 30);"><img id="code" src="https://user.tuwan.com/api/action.ashx?t=verification&amp;w=82&amp;h=30&amp;rand=0.2505340869538486"></a>
-                        </div>
-                    </div>
-                    <div class="voluntarily_box">
-                        <input type="checkbox" checked class="fl voluntarily01"><span></span><div class="fl voluntarily02">下次自动登录</div>
-                        <a href="https://user.tuwan.com/resetpwd/" target="_blank" title="忘记密码？"><div class="fr voluntarily03">忘记密码?</div></a>
-                    </div>
-                    <button class="identif_go mt35" id="button_post" onclick="check_login()">登录</button>
-                </div>
-                <div class="enroll_content" style="display: none;">
-                    <div class="register_box">
-                        <div class="register">
-                            <label> 手机</label>
-                            <input type="text" placeholder="请输入手机号" required id="ctl00_mainContent_txt_phone">
-                            <div class="dislocation dislocation_01" id="phone_tishi"></div>
-                        </div>
-                        <div class="register">
-                            <label>用户名</label>
-                            <input type="text" placeholder="请输入用户名" required id="user_name">
-                            <div class="dislocation dislocation_02" id="username_tishi"></div>
-                        </div>
-                        <div class="register">
-                            <label>密码</label>
-                            <input type="password" placeholder="请输入密码" required id="userpwd">
-                            <div class="dislocation dislocation_03" id="userpwd_tishi"></div>
-                        </div>
-                        <div class="register">
-                            <label>验证码</label>
-                            <input type="password" placeholder="验证码" class="identifying yanzheng" required id="phonecode">
-                            <div class="dislocation dislocation_0aa dislocation_04"></div>
-                            <button class="identif yanzheng_02" id="getcode">获取验证码</button>
-                        </div>
-                    </div>
-                    <input type="radio" class="fl radio_01" checked="checked" required><div class="radio_box fl"><span>已阅读并同意</span>《兔玩网用户使用协议》</div>
-                    <div class="clearfix"></div>
-                    <button class="identif_go mt35" id="button_post1">注册</button>
-                </div>
-            </div>
-            <div class="fr entry_wbox mt50">
-                <div class="entry_01">第三方账号登录</div>
-                <a class="Wechat" href="javascript:;"><div class="entry_w"><img src="https://static.tuwan.com/templet/teach/index/images/entry_w.png">&nbsp;微信账号登录</div></a>
-                <a class="QQ" href="javascript:;"><div class="entry_qq"><img src="https://static.tuwan.com/templet/teach/index/images/entry_qq.png">&nbsp;QQ账号登录</div></a>
-            </div>
-            <div class="clearfix"></div>
-        </div>
-    </div>
-</div>
-<script>
-    $('#getcode').focus(function(){
-        $('.dislocation_01').html('');
-    })
-    var n=0;
-    $(".bottom_border").click(function(){
-
-            $(this).addClass("bottom_add").siblings().removeClass("bottom_add");
-            n=$(".bottom_border").index(this);
-            $(".student").eq(n).show().siblings().hide();
-        }
-    )
-    function check_login(){
-        var username = $('#username').val();
-        var pwd = $('#pwd').val();
-        var check = $('#check').val();
-        slogin(username,pwd,check,'pc',obj);
-    }
-    function slogin(username,password,code,platform,callback) {
-        var sendData = new Object();
-        sendData.username = username;
-        sendData.password = password;
-        sendData.code = code;
-        sendData.platform = platform;
-
-        var content = packSendData_general(sendData);
-        $.ajax({
-            type: "post",
-            url: "https://user.tuwan.com/api/method/login",
-            dataType: "jsonp",
-            jsonp: "callback",
-            data : {data:content},
-            success: function (data) {
-                var ret = data;
-                if (ret.code != 0) {
-                    var publicKey = (ret.data);
-                }
-
-                callback(ret);
-            }
-        });
-    }
-    function obj(data){
-        if(data.code == '0'){
-            var data=data.data,username=data.username,uid=data.userid;
-            $('#loginbox').attr("uid",uid);
-            $('#loginbox').html(getHeaderInfoHtml(uid,username));
-            $("#index_pup_box").hide();
-            if(loginSuccessCallback){
-                loginSuccessCallback(uid);
-            }
-        }
-        if(data.code == -1003 || data.code == -1004){
-            $('.passwordMsg').html(data.msg);
-        }
-        if(data.code == -1005){
-            $('.codeMsg').html(data.msg);
-        }
-
-    }
-
-    //结束
-    $(document).on('click','.button-regist',function(){
-
-        $('#index_pup_box').show();
-        $(".enroll").eq(1).addClass("enroll_add").siblings().removeClass("enroll_add");
-        $(".enroll_content").eq(1).show().siblings().hide();
-    })
-
-    //结束
-    $(document).on('click','.button-login',function(event){
-        $('#index_pup_box').show();
-        $(".enroll").eq(0).addClass("enroll_add").siblings().removeClass("enroll_add");
-        $(".enroll_content").eq(0).show().siblings().hide();
-    })
-    var flag = false;
-
-    $('.xuan').click(function(){
-
-        if(flag){
-
-            $('.xuan img').attr("src","https://static.tuwan.com/templet/teach/index/images/xuan.png?36");
-            flag=!flag;
-        }else{
-            $('.xuan img').attr("src","https://static.tuwan.com/templet/teach/index/images/xuan_hover.png?36");
-            flag=!flag;
-
-        }
-    })
-
-</script>
-<script>
-    // BizQQWPA.addCustom({aty: '0', a: '0', nameAccount: 800186693, selector: 'BizQQWPA'});
-
-
-    function getHeaderInfoHtml(uid, username){
-        return '<div class="index-header-logined fr"><div class="fl index-header-img"><img src="https://uc.tuwan.com/avatar.php?uid='+uid+'&size=middle"></div><div class="fl index-header-name">'+username+'</div><div class="fl index-header-name"><a target="_blank" href="http://t.tuwan.com/home/course/">学员中心</a></div><div class="fl index-header-bowout"  id="dologout">注销</div><div class="clearfix"></div></div>'
-    }
-
-
-    $(function(){
-        initData();
-        function initData(){
-            $.ajax({
-                url:"https://user.tuwan.com/api/action.ashx?t=userinfo",
-                dataType:'jsonp',
-                success:function (obj){
-                    if(obj.code==0){
-                        var username = obj.data['nickname'];
-                        var uid = obj.data['uid'];
-                        $('#loginbox').attr("uid",uid);
-                        $('#loginbox').html(getHeaderInfoHtml(uid,username));
-                        $("#index_pup_box").hide();
-                    }
-                    $("#loginbox").show();
-                }
-            })
-        }
 
 
 
-
-        $(document).on('click','#dologout',function(){
-            $.ajax({
-                url:"https://user.tuwan.com/api/method/logout",
-                dataType: "jsonp",
-                success:function (obj){
-                    // location.reload(true);
-                    $('#loginbox').attr("uid","0");
-                    $('#loginbox').html('<a  class="button-login">登录</a><a  class="button-regist">注册</a>');
-                    if(logoutSuccessCallback){
-                        logoutSuccessCallback()
-                    }
-
-                }
-            })
-        })
-        // 回车键事件
-        $(document).keypress(function(e) {
-            if(e.which == 13 && $('#index_pup_box').css('display') == 'block') {
-                check_login();
-            }
-        })
-    })
-    $('input').focus(function(){
-        $(this).next().html("");
-    })
-    //注册
-    //校验手机
-    function CheckPhone(){
-        var val = $('#ctl00_mainContent_txt_phone').val();
-        var reg_phone = /^1\d{10}$/;
-        if(!reg_phone.test(val)){
-            $("#phone_tishi").text("手机号必须为11位数字");
-            $("#checkall_phone").val(0);
-            return;
-        }
-        var sendData = new Object();
-        sendData.username = val;
-        sendData.platform = 'mobile';
-        var content = packSendData_general(sendData);
-        $.ajax({
-            type: "post",
-            url: "https://user.tuwan.com/api/method/chkuser",
-            dataType:'jsonp',
-            data: {
-                data: content
-            },
-            success: function (data) {
-                if(data.code != 0){
-                    publicKey = (data.data);
-                    $("#phone_tishi").text(data.msg);
-                    $("#checkall_phone").val(0);
-                    return;
-                }else{
-                    $("#checkall_phone").val(1);
-                    $("#phone_tishi").html('<img src="https://static.tuwan.com/templet/teach/index/images/ture.png"/>');
-                }
-            }
-        });
-    }
-    $('#ctl00_mainContent_txt_phone').blur(function(){
-        CheckPhone();
-    })
-    //校验用户名
-    function CheckUserName(){
-        var val = $("#user_name").val();
-        var pattern = new RegExp("[%--`~!\#@$^&*()\\s\=|{}':;',\\[\\].<>/?~！@￥……&*（）——|{}【】‘；：”“'。，、？\"]");
-        var pattern_2 = new RegExp("[0-9]+");
-        if (val.length > 15 || val.length < 3) {
-            $("#username_tishi").html("用户名格式不符合要求");
-            $("#checkall_name").val(0);
-            return;
-        }
-        if (val.match(pattern) != null) {
-            $("#username_tishi").html("用户名包含敏感字符");
-            $("#checkall_name").val(0);
-            return;
-        } else {
-            if(val.match(pattern_2)==val){
-                $("#username_tishi").html("用户名不能为纯数字");
-                $("#checkall_name").val(0);
-                return;
-            } else {
-                var sendData = new Object();
-                sendData.username = val;
-                sendData.platform = 'pc';
-                var content = packSendData_general(sendData);
-                $.ajax({
-                    type: "post",
-                    url: "https://user.tuwan.com/api/method/chkuser",
-                    dataType:'jsonp',
-                    data: {
-                        data: content
-                    },
-                    success: function (data) {
-                        if(data.code != 0){
-                            publicKey = (data.data);
-                            $("#username_tishi").text(data.msg);
-                            $("#checkall_name").val(0);
-                            return;
-                        }else{
-                            $("#checkall_name").val(1);
-                            $("#username_tishi").html('<img src="https://static.tuwan.com/templet/teach/index/images/ture.png"/>');
-                        }
-                    }
-                });
-            }
-        }
-    }
-    $('#user_name').blur(function(){
-        $('.dislocation_box').eq(0).css('display','none');
-        CheckUserName();
-    })
-    //校验密码
-    function CheckUserPass(){
-        if ($("#userpwd").val() == '') {
-            $("#userpwd_tishi").html("密码不能为空");
-            $("#checkall_pwd").val(0);
-            return;
-        } else if ($("#userpwd").val().length > 20 || $("#userpwd").val().length < 6){
-            $("#userpwd_tishi").html("密码不符合要求");
-            $("#checkall_pwd").val(0);
-            return;
-        } else if ($("#userpwd").val() == $("#user_name").val()) {
-            $("#userpwd_tishi").html("密码不能和用户名相同");
-            $("#checkall_pwd").val(0);
-            return;
-        } else if ($("#userpwd").val() == $("#ctl00_mainContent_txt_phone").val()) {
-            $("#userpwd_tishi").html("密码不能和手机号相同");
-            $("#checkall_pwd").val(0);
-            return;
-        }else{
-            $("#checkall_pwd").val(1);
-            $("#userpwd_tishi").html('<img src="https://static.tuwan.com/templet/teach/index/images/ture.png"/>');
-        }
-    }
-    $('#userpwd').blur(function(){
-        $('.dislocation_box').eq(1).css('display','none');
-        CheckUserPass();
-    })
-    var countdown = 60;
-    function settime(obj) {
-        if (countdown <= 0) {
-            obj.removeAttr("disabled");
-            obj.html("获取验证码");
-            countdown = 60;
-            return;
-        } else {
-            obj.attr("disabled", "disabled");
-            obj.html("重新发送(" + countdown + ")");
-            countdown--;
-        }
-        setTimeout(function () {
-            settime(obj)
-        }, 1000)
-    }
-    //验证码校验
-    var bindFlag = false;
-    var handler = function (captchaObj) {
-        // 将验证码加到id为captcha的元素里
-        $("#getcode").click(function () {
-            CheckPhone();
-            CheckUserName();
-            CheckUserPass();
-            var phone=$("#ctl00_mainContent_txt_phone").val();//获取手机号
-            var username=$("#user_name").val();//获取用户名
-            var userpwd=$("#userpwd").val();//获取密码
-            if($("#checkall_phone").val()==1 && $("#checkall_name").val()==1 && $("#checkall_pwd").val()==1){
-
-                if (!bindFlag) {
-                    $(".gt_holder").addClass('gt_show');
-                    captchaObj.bindOn("#getcode");
-                    $('.gt_show').css('z-index','9999999');
-                    bindFlag = true;
-                }
-
-
-                var validate = captchaObj.getValidate();
-                if (!validate) {//判断回执
-                    return;
-                }
-                var sendData = new Object();
-                sendData.t = phone;
-                sendData.c =  validate.geetest_challenge;
-                sendData.v = validate.geetest_validate;
-                sendData.s = validate.geetest_seccode;
-                var content = packSendData_general(sendData);
-                $.ajax({
-                    url: "https://user.tuwan.com/api/requestCode.ashx?t\x3d" + (new Date).getTime(),
-                    dataType: "jsonp",
-                    jsonp: "callback",
-                    data: {
-                        data: content
-                    },
-                    success: function (data) {
-
-                    }
-                });
-                settime($("#getcode"));
-            }
-        });
-        captchaObj.appendTo("#captcha");
-    };
-
-    $.ajax({
-        // 获取id，challenge，success（是否启用failback）
-        url: "https://user.tuwan.com/api/getSlider.ashx?t=" + (new Date()).getTime(),
-        type: "get",
-        dataType: "jsonp", // 使用jsonp格式
-        success: function (data) {
-            // 使用initGeetest接口
-            // 参数1：配置参数，与创建Geetest实例时接受的参数一致
-            // 参数2：回调，回调的第一个参数验证码对象，之后可以使用它做appendTo之类的事件
-            initGeetest({
-                gt: data.gt,
-                challenge: data.challenge,
-                product: "popup", // 产品形式
-                offline: !data.success
-            }, handler);
-        }
-    });
-    $("#phonecode").focus(function(){
-        $(".dislocation_0aa").html("");
-    })
-    //注册按钮
-    $("#button_post1").click(function(){
-        var phone=$("#ctl00_mainContent_txt_phone").val();//获取手机号
-        var username=$("#user_name").val();//获取用户名
-        var userpwd=$("#userpwd").val();//获取密码
-        var phonecode=$("#phonecode").val();//获取手机验证码
-        if($("#checkall_phone").val()==1 && $("#checkall_name").val()==1 && $("#checkall_pwd").val()==1){
-            //console.info(publicKey);
-            var sendData = new Object();
-            sendData.n = username;
-            sendData.p = userpwd;
-            sendData.t = phone;
-            sendData.c = phonecode;
-            var content = packSendData_general(sendData);
-            sreg(username,userpwd,phone,phonecode,callback);
-            function callback(data){
-                if(data.code=="0"){
-                    var data=data.data,username=data.username,uid=data.userid;
-                    $('#loginbox').html('<div class="index-header-logined fr"><div class="fl index-header-img"><img src="https://uc.tuwan.com/avatar.php?uid='+uid+'&size=middle"></div><div class="fl index-header-name">'+username+'</div><div class="fl index-header-bowout"  id="dologout">注销</div><div class="clearfix"></div></div>');
-                    $("#index_pup_box").hide();
-                    // window.location.href=location.href;
-                }else{
-                    $(".dislocation_0aa").html("验证码错误");
-                }
-            }
-        }
-    });
-    $("#user_name").focus(function(){
-        $('.dislocation_box').eq(0).css('display','block');
-    })
-    $("#userpwd").focus(function(){
-        $('.dislocation_box').eq(1).css('display','block');
-    })
-
-
-
-    var n=0;
-    $(".enroll").click(function(){
-            $(this).addClass("enroll_add").siblings().removeClass("enroll_add");
-            n=$(".enroll").index(this);
-            $(".enroll_content").eq(n).show().siblings().hide();
-        }
-    )
-    $(".close").click(function(){
-        $('#index_pup_box').hide();
-    })
-    $('.QQ').attr('href','https://user.tuwan.com/api/url.ashx?app=qq&redirect_uri='+location.href);
-    $('.Wechat').attr('href','https://user.tuwan.com/api/url.ashx?app=weixin&redirect_uri='+location.href);
-
-    $.ajax({
-        url:"https://api.tuwan.com/teach/?checkxlyvip=1",
-        dataType:'jsonp',
-        success:function (obj){
-            if(obj==1){
-                $('.grading').html("VIP用户");
-            }else{
-                $('.grading').html("普通用户");
-            }
-        }
-    })
-</script>
 <div class="hero-banner" id="heroBanner" style="position: relative;">
     <div class="hero-banner-content">
         <div style="height: 74px;"></div>
@@ -1214,45 +721,19 @@
         </div>
         <div class="div_price">
             <p class="p_price">价格:<span id="spanPrice">¥49</span><span id="spanOriginPrice">¥99</span></p>
-            <a href="/tnewpay?id=45" class="span_baoming" id="span_baoming" style="_blank" isClick="1">购买课程</a>
+            <a href="#" class="span_baoming" id="span_baoming" style="_blank" isClick="1">购买课程</a>
         </div>
     </div>
 </div>
-<script>
-    checkRepayment();
-    function checkRepayment(){
-        requestUrl('https://api.tuwan.com/mobileteach/?cid=45&data=midlolteach&format=jsonp',function(response){
 
-            if(response.power==1){
-
-                $('#span_baoming').html('已经拥有');
-                $('#span_baoming').removeAttr('href');
-                $('#span_baoming').removeAttr('target');
-                $('#span_baoming').attr('isClick','0');
-                $('#span_baoming').addClass('disabled');
-            }
-
-        })
-    }
-    function requestUrl(url, callback) {
-        $.ajax({
-            url: url,
-            type: "get",
-            dataType: "jsonp",
-            success: function(response) {
-                callback(response)
-            }
-        })
-    }
-</script>
 <div class="hero-main-content">
     <div class="hero-main-content-left" id="mainLeft">
         <div class="select hero-main-nav">
             <a href="#">课程介绍</a>
-            <img src="https://res.tuwan.com/templet/teach/newindex/images/kcjiantou.jpg" class="kcjiantou">
+            <img src="/images/kcjiantou.jpg" class="kcjiantou">
         </div>
-        <div class="hero-main-nav"><a href="#divSQFS">授课方式</a><img src="https://res.tuwan.com/templet/teach/newindex/images/kcjiantou.jpg" class="kcjiantou" style="display: none"></div>
-        <div class="hero-main-nav"><a href="#divJXNR">教学内容</a><img src="https://res.tuwan.com/templet/teach/newindex/images/kcjiantou.jpg" class="kcjiantou" style="display: none"></div>
+        <div class="hero-main-nav"><a href="#divSQFS">授课方式</a><img src="/images/kcjiantou.jpg" class="kcjiantou" style="display: none"></div>
+        <div class="hero-main-nav"><a href="#divJXNR">教学内容</a><img src="/images/kcjiantou.jpg" class="kcjiantou" style="display: none"></div>
     </div>
     <div class="hero-main-content-right" id="divKCJS">
         <div class="div-teacher">
@@ -1261,7 +742,7 @@
                     <tr>
                         <td class="firstTD" valign="top">
                             <div>
-                                <img id="imgTeacherHeader" src="http://img3.tuwandata.com/uploads/flink/1530192725.png">
+                                <img id="imgTeacherHeader" src="/picture/26.jpg">
                                 <p style="color: #333; font-size: 16px; line-height: 32px;" id="teacherName">灰原</p>
                                 <p style="color: #666; font-size: 14px; margin-top: 10px;">主讲导师</p>
                             </div>
@@ -1281,7 +762,7 @@
             <div class="div-skfs">
                 <div class="text-center div-skfs-title">
                     <p style="position: absolute;left: 50%; transform: translateX(-50%);">
-                        <img style="float:left; margin-right: 10px;" src="https://res.tuwan.com/templet/teach/newindex/images/diannao.png">
+                        <img style="float:left; margin-right: 10px;" src="/images/diannao.png">
                         <span style="float:left;">授课方式</span>
                     </p>
                 </div>
@@ -1300,10 +781,10 @@
         <div class="tigang">
             <p class="tigang-title">课程简要提纲如下</p>
             <ul id="ulCourseinfo">
-                <li><img src="https://res.tuwan.com/templet/teach/newindex/images/leftjiantou.png">玩好剑魔必须掌握的基础</li><li><img src="https://res.tuwan.com/templet/teach/newindex/images/leftjiantou.png">剑魔技能解析与释放技巧</li><li><img src="https://res.tuwan.com/templet/teach/newindex/images/leftjiantou.png">对线消耗手段及换血技巧</li><li><img src="https://res.tuwan.com/templet/teach/newindex/images/leftjiantou.png">剑魔对线各类强势上单打法</li><li><img src="https://res.tuwan.com/templet/teach/newindex/images/leftjiantou.png">剑魔初期的对线思路</li><li><img src="https://res.tuwan.com/templet/teach/newindex/images/leftjiantou.png">中期优劣势如何掌控节奏</li><li><img src="https://res.tuwan.com/templet/teach/newindex/images/leftjiantou.png">后期团站要点与进场时机</li>
+                <li><img src="/images/leftjiantou.png">玩好剑魔必须掌握的基础</li><li><img src="/images/leftjiantou.png">剑魔技能解析与释放技巧</li><li><img src="/images/leftjiantou.png">对线消耗手段及换血技巧</li><li><img src="/images/leftjiantou.png">剑魔对线各类强势上单打法</li><li><img src="/images/leftjiantou.png">剑魔初期的对线思路</li><li><img src="/images/leftjiantou.png">中期优劣势如何掌控节奏</li><li><img src="/images/leftjiantou.png">后期团站要点与进场时机</li>
             </ul>
             <div class="divQuan">
-                <img class="imgQuanShang" src="https://res.tuwan.com/templet/teach/newindex/images/quan.png">
+                <img class="imgQuanShang" src="/images/quan.png">
                 <div class="divLine"></div>
             </div>
             <div style="clear: both;"></div>
@@ -1314,7 +795,7 @@
 <div class="bottom">
     <div class="bottom-content">
         <div style="margin-right: 32px; ">
-            <img style="margin-top: 20px;" src="https://res.tuwan.com/templet/teach/newindex/images/logo2.png">
+            <img style="margin-top: 20px;" src="/images/logo2.png">
         </div>
         <div style="background: #37383a; width: 1px;height: 123px;"></div>
         <div class="bottom-youqing" style="padding-left: 58px;">
@@ -1328,7 +809,7 @@
         </div>
         <div style="background: #37383a; width: 1px;height: 123px; margin-right: 38px;"></div>
         <div>
-            <img src="https://res.tuwan.com/templet/teach/newindex/images/ewm.jpg">
+            <img src="/images/ewm.jpg">
         </div>
         <div style="color: #c1c1c1; width: 400px; margin-left: 24px;">
             <p style="font-size: 14px; margin-top: 8px;">关于我们</p>
@@ -1340,14 +821,7 @@
     <div style="clear: both;"></div>
 </div>
 <div style="display:none">
-    <script type="text/javascript">
-        var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1000286078'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "w.cnzz.com/q_stat.php%3Fid%3D1000286078' type='text/javascript'%3E%3C/script%3E"));
-        var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-        document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F4f076a14812b9a06461d3e2748176769' type='text/javascript'%3E%3C/script%3E"));
-        var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-        document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F02135f2a9b671e4eb898c93b5c211e30' type='text/javascript'%3E%3C/script%3E"));
-    </script>
-    <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1258092183'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "w.cnzz.com/q_stat.php%3Fid%3D1258092183' type='text/javascript'%3E%3C/script%3E"));</script>
+
 </div>
 <style type="text/css">
 
@@ -1367,7 +841,7 @@
         padding-right: 14px;
         width: 90px;
         height: 46px;
-        background: #74bbf2 url('http://static.tuwan.com/templet/teach/index/images/service_icon.png') no-repeat 12px center;
+        background: #74bbf2 url('static/images/service_icon.png') no-repeat 12px center;
         background-size: 20px 18px;
         font-size: 13px;
         line-height: 46px;
@@ -1378,7 +852,7 @@
         width: 105px;
         height: 56px;
         border-radius: 28px;
-        background: #74bbf2 url('http://static.tuwan.com/templet/teach/index/images/service_icon.png') no-repeat 18px center;
+        background: #74bbf2 url('static/images/service_icon.png') no-repeat 18px center;
         background-size: 23px 21px;
         color: #FFF;
         text-align: right;
@@ -1417,7 +891,7 @@
         width: 51px;
         height: 51px;
         cursor: pointer;
-        background: url(//game.gtimg.cn/images/lol/act/a20181120preseason/close.jpg) no-repeat;
+        background: url(static/images/close.jpg) no-repeat;
     }
 
     .video-nav a{
@@ -1429,115 +903,7 @@
 </style>
 <div id="service_box"><div class="sbox_btn">课程咨询</div></div>
 <iframe id="qqifr" src="" style="display:none;"></iframe>
-<script charset="utf-8" src="//res.tuwan.com/templet/teach/js/kfqq.js"></script>
-<script src="//res.tuwan.com/js/jquery-1.12.3.min.js"></script>
-<script type="text/javascript">
-
-    if($('#spanPrice').html()!=$('#spanOriginPrice').html()){
-
-        $('#spanOriginPrice').show();
-
-    }
 
 
-    var cid = 45;
-
-    if(cid == 37){
-
-        $('.hero-main-content-left').append('<div class="hero-main-nav video-nav"><a href="#video">浪子彦推荐</a><img src="https://res.tuwan.com/templet/teach/newindex/images/kcjiantou.jpg" class="kcjiantou" style="display: none"></div>');
-
-        $('body').append('<div class="video_container dialog_mask">\
-									<div class="videobox">\
-										<video src="//media.tuwan.com/templet/teach/herokc/images/yasuo_2.mp4" controls="controls" autoplay="autoplay" width="890" height="500">\
-											您的浏览器不支持 video 标签。\
-										</video>\
-										<div class="dia-close"></div>\
-									</div>\
-							</div>');
-
-        $('.dia-close').click(function(){
-
-            $('.video_container video')[0].pause();
-            $('.video_container').hide();
-
-        })
-
-        $('.video_container video')[0].play();
-
-        $('.video_container video').bind('canplay',function(){
-
-
-            $('.video_container video')[0].play();
-
-
-        });
-
-        $('.video_container video').bind('ended',function(){
-
-            $('.video_container video')[0].pause();
-            $('.video_container').hide();
-
-
-        });
-
-    }
-
-
-    $(document).ready(function(){
-        initEvent();
-        function initEvent(){
-            $("#span_baoming").on("click", function(){
-                if($("#span_baoming").attr('isClick') != "1"){
-                    return;
-                }
-                UserID = $('#loginbox').attr('uid');
-                if(UserID == 0){
-                    $(this).attr('href','javascript:;');
-                    $('#index_pup_box').show();
-                    $(".enroll").eq(0).addClass("enroll_add").siblings().removeClass("enroll_add");
-                    $(".enroll_content").eq(0).show().siblings().hide();
-                }else{
-                    location.href = 'http://t.tuwan.com/tnewpay?id=45';
-                }
-            })
-        }
-
-        $("#heroBanner").css("background","url(http://img3.tuwandata.com/uploads/repayment/20190116/20190116_1547622793_42398.jpg) no-repeat center center #3e4658");
-        var dayu = false;
-        var xiaoyu = true;
-        $(window).scroll(function() {
-            var topp = $(window).scrollTop();
-            if(topp >= 400){
-                if(dayu) return;
-                xiaoyu =false;
-                dayu = true;
-                $("#mainLeft").css({"position":"fixed","top":10})
-            }
-            else{
-                if(xiaoyu) return;
-                dayu = false;
-                xiaoyu = true;
-                $("#mainLeft").css({"position":"","top":""})
-            }
-        });
-
-    })
-    BizQQWPA.addCustom({aty: '0', a: '0', nameAccount: 800186693, selector: 'service_box'});
-    $('#service_box').click(function(){
-        //$('#qqifr').attr('src','https://wpa.qq.com/msgrd?v=3&uin=800186693&site=qq&menu=yes');
-        //window.open('https://wpa.qq.com/msgrd?v=3&uin=2749614534&site=qq&menu=yes');
-    })
-    $(".hero-main-nav").on("click",function(){
-        $(this).addClass("select").siblings().removeClass("select");
-        $(".kcjiantou").hide();
-        $(this).find(".kcjiantou").show();
-    })
-
-    $(".video-nav").on("click",function(){
-        $('.video_container').show();
-        $('.video_container video')[0].play();
-    })
-
-</script>
 </body>
 </html>
