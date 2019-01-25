@@ -10,7 +10,7 @@
     <meta name="format-detection" content="telephone=no"/>
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <link type="text/css" rel="stylesheet" href="/css/top_footer.css">
-    <script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
 </head>
 <body>
 
@@ -20,22 +20,22 @@
         <div class="info">
             <div style="height: 0px;width: 100%;"></div>
             <h1>
-                <a href="/"><img class="logo" alt="飞虎电竞" src="/images/yuewanlogo.png?123"></a>
+                <a href="/person/toIndex"><img class="logo" alt="飞虎电竞" src="/images/yuewanlogo.png?123"></a>
             </h1>
             <div class="p_nav">
                 <div :class="[navIndex === 'index_index_index'?'active':'']"><!--三元运算符-->
-                    <a href="/">
+                    <a href="/person/toIndex">
                         首页
                     </a>
                 </div>
                 <div :class="[navIndex === 'index_peiwan'?'active':'']">
-                    <a href="/peiwan/lol/">
+                    <a href="togame">
                         约陪玩
                     </a>
                 </div>
                 <div :class="[navIndex === 'index_price'?'active':'']">
-                    <a href="/peiwan/price/">
-                        9.9专区
+                    <a href="/person/toAreaList">
+                        八元专区
                         <img src="/images/price.gif" alt="" class="icon">
                     </a>
                 </div>
@@ -78,31 +78,15 @@
             </div>
         </div>
     </div>
-</div>
+
 <!--导航栏模糊查询的函数-->
 <script>
     $("#searchinfo").click(function () {
         var keyname= $("#personNickname").val();
-        window.location.href = 'toSearch';
+        window.open("toSearch");
         sessionStorage.setItem("keyname",keyname);
     });
 </script>
-<!---->
-
-<script>
-    (function(){
-        //处理滚动后导航悬停
-        var win_scroll = function(){
-            var obj = document.querySelector(".public_nav_new .info_v2");
-            var a = document.documentElement.scrollTop || document.body.scrollTop;//滚动条y轴上的距离
-
-            if(a>70){
-                obj.classList.add("position");
-            }else{
-                obj.classList.remove("position");
-            }
-        };
-    }());
-</script>
+</div>
 </body>
 </html>

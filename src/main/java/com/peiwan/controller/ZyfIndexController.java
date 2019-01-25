@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
+import java.text.ParseException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -33,12 +34,6 @@ public class ZyfIndexController {
     @RequestMapping("/toIndex")
     public ModelAndView index(){
         return new ModelAndView("index");
-    }
-
-    //头部
-    @RequestMapping("/toHead")
-    public ModelAndView head(){
-        return new ModelAndView("head");
     }
 
     //尾部
@@ -94,6 +89,7 @@ public class ZyfIndexController {
         return new ModelAndView("search");
     }
 
+
     //新人推荐
     @RequestMapping("/getNewPersonList")
     public Map<String,Object> getNewList(Integer curPage,Integer pageSize){
@@ -119,7 +115,7 @@ public class ZyfIndexController {
 
     //魅力榜 周榜：查询主播订单数，先筛选规定时间，然后按照订单数排序
     @RequestMapping("/getOrderCountList")
-    public Map<String,Object> getOrderList(int curPage,int pageSize){
+    public Map<String,Object> getOrderList(int curPage,int pageSize) throws ParseException {
         Page<Map<String, Object>> page = zyfIndexService.selectPersonOrderTop(curPage,pageSize);
         Page<Map<String, Object>> page1 = zyfIndexService.selectPersonOrder(curPage, pageSize);
         List<Map<String, Object>> personOrderListTop = page.getRecords();//周榜前三
@@ -134,7 +130,7 @@ public class ZyfIndexController {
 
     //魅力榜 总榜：查询主播总订单数
     @RequestMapping("/getOrderCountListAll")
-    public Map<String,Object> getOrderListAll(int curPage,int pageSize){
+    public Map<String,Object> getOrderListAll(int curPage,int pageSize) throws ParseException {
         Page<Map<String, Object>> page = zyfIndexService.selectPersonOrderAllTop(curPage, pageSize);
         Page<Map<String, Object>> page1 = zyfIndexService.selectPersonOrderAll(curPage,pageSize);
         List<Map<String, Object>> personOrderListAllTop = page.getRecords();//总榜前三
@@ -151,7 +147,7 @@ public class ZyfIndexController {
 
     //人气榜 周榜 ：先按照规定时间筛选，根据主播的接单总时长来排序
     @RequestMapping("/getTimeSumList")
-    public Map<String,Object> getTimeList(int curPage,int pageSize){
+    public Map<String,Object> getTimeList(int curPage,int pageSize) throws ParseException {
         Page<Map<String, Object>> page = zyfIndexService.selectPersonTimeTop(curPage,pageSize);
         Page<Map<String, Object>> page1 = zyfIndexService.selectPersonTime(curPage, pageSize);
         List<Map<String, Object>> personTimeListTop = page.getRecords();//周榜前三
@@ -166,7 +162,7 @@ public class ZyfIndexController {
 
     //人气榜 总榜 ：根据主播的接单总时长来排序
     @RequestMapping("/getTimeSumListAll")
-    public Map<String,Object> getTimeListAll(int curPage,int pageSize){
+    public Map<String,Object> getTimeListAll(int curPage,int pageSize) throws ParseException {
         Page<Map<String, Object>> page = zyfIndexService.selectPersonTimeAllTop(curPage, pageSize);
         Page<Map<String, Object>> page1 = zyfIndexService.selectPersonTimeAll(curPage,pageSize);
         List<Map<String, Object>> personTimeListAllTop = page.getRecords();//总榜前三
@@ -183,7 +179,7 @@ public class ZyfIndexController {
 
     //富豪榜 周榜:先按照规定时间筛选，然后按照用户充值总金额排序
     @RequestMapping("/getMoneySumList")
-    public Map<String,Object> getMoneyList(int curPage){
+    public Map<String,Object> getMoneyList(int curPage) throws ParseException {
         Page<Map<String, Object>> page = zyfIndexService.selectPersonMoneyTop(curPage);
         Page<Map<String, Object>> page1 = zyfIndexService.selectPersonMoney(curPage);
         List<Map<String, Object>> personMoneyListTop = page.getRecords();//周榜前三
@@ -197,7 +193,7 @@ public class ZyfIndexController {
     }
     //富豪榜 总榜:查询用户充值总金额
     @RequestMapping("/getMoneySumListAll")
-    public Map<String,Object> getMoneyListAll(int curPage){
+    public Map<String,Object> getMoneyListAll(int curPage) throws ParseException {
         Page<Map<String, Object>> page = zyfIndexService.selectPersonMoneyAllTop(curPage);
         Page<Map<String, Object>> page1 = zyfIndexService.selectPersonMoneyAll(curPage);
         List<Map<String, Object>> personMoneyListAllTop = page.getRecords();//总榜前三

@@ -35,16 +35,16 @@
 
     <!--魅力榜 周榜 前三：先筛选规定时间，然后按照订单数排序-->
     <select id="selectOrderListTop" parameterType="map" resultType="map">
-        SELECT op.pid,op.person_nickname,op.person_image,op.person_adress,op.person_sex,op.person_flate,op.o_createtime,op.oo
-        FROM(SELECT p.pid,p.person_nickname,p.person_image,p.person_adress,p.person_sex,p.person_flate,o.o_createtime,COUNT(o.oid) oo
+        SELECT op.pid,op.person_nickname,op.person_image,op.person_adress,op.person_sex,op.person_birthday,op.o_createtime,op.oo
+        FROM(SELECT p.pid,p.person_nickname,p.person_image,p.person_adress,p.person_sex,p.person_birthday,o.o_createtime,COUNT(o.oid) oo
              FROM t_person p LEFT JOIN t_order_z o ON p.pid=o.pid
              WHERE o.o_createtime>DATE_SUB(CURDATE(), INTERVAL 2 WEEK)
              AND o.o_flate=1 GROUP BY o.pid ORDER BY COUNT(o.oid) DESC LIMIT 3)op
     </select>
     <!--魅力榜 周榜 第四到第十：先筛选规定时间，然后按照订单数排序-->
     <select id="selectOrderList" parameterType="map" resultType="map">
-        SELECT op.pid,op.person_nickname,op.person_image,op.person_adress,op.person_sex,op.person_flate,op.o_createtime,op.oo
-        FROM(SELECT p.pid,p.person_nickname,p.person_image,p.person_adress,p.person_sex,p.person_flate,o.o_createtime,COUNT(o.oid) oo
+        SELECT op.pid,op.person_nickname,op.person_image,op.person_adress,op.person_sex,op.person_birthday,op.o_createtime,op.oo
+        FROM(SELECT p.pid,p.person_nickname,p.person_image,p.person_adress,p.person_sex,p.person_birthday,o.o_createtime,COUNT(o.oid) oo
              FROM t_person p LEFT JOIN t_order_z o ON p.pid=o.pid
              WHERE o.o_createtime>DATE_SUB(CURDATE(), INTERVAL 2 WEEK)
                AND o.o_flate=1 GROUP BY o.pid ORDER BY COUNT(o.oid) DESC LIMIT 4,10)op
@@ -52,15 +52,15 @@
 
     <!--魅力榜 总榜 前三：查询主播总订单数-->
     <select id="selectOrderListAllTop" parameterType="map" resultType="map">
-        SELECT op.pid,op.person_nickname,op.person_image,op.person_adress,op.person_sex,op.person_flate,op.o_createtime,op.oo
-        FROM(SELECT p.pid,p.person_nickname,p.person_image,p.person_adress,p.person_sex,p.person_flate,o.o_createtime,COUNT(o.oid) oo
+        SELECT op.pid,op.person_nickname,op.person_image,op.person_adress,op.person_sex,op.person_birthday,op.o_createtime,op.oo
+        FROM(SELECT p.pid,p.person_nickname,p.person_image,p.person_adress,p.person_sex,p.person_birthday,o.o_createtime,COUNT(o.oid) oo
              FROM t_person p LEFT JOIN t_order_z o ON p.pid=o.pid
              WHERE o.o_flate=1 GROUP BY o.pid ORDER BY COUNT(o.oid) DESC LIMIT 3)op
     </select>
     <!--魅力榜 总榜 第四到第十：查询主播总订单数-->
     <select id="selectOrderListAll" parameterType="map" resultType="map">
-        SELECT op.pid,op.person_nickname,op.person_image,op.person_adress,op.person_sex,op.person_flate,op.o_createtime,op.oo
-        FROM(SELECT p.pid,p.person_nickname,p.person_image,p.person_adress,p.person_sex,p.person_flate,o.o_createtime,COUNT(o.oid) oo
+        SELECT op.pid,op.person_nickname,op.person_image,op.person_adress,op.person_sex,op.person_birthday,op.o_createtime,op.oo
+        FROM(SELECT p.pid,p.person_nickname,p.person_image,p.person_adress,p.person_sex,p.person_birthday,o.o_createtime,COUNT(o.oid) oo
              FROM t_person p LEFT JOIN t_order_z o ON p.pid=o.pid
              WHERE o.o_flate=1 GROUP BY o.pid ORDER BY COUNT(o.oid) DESC LIMIT 4,10)op
     </select>
@@ -70,16 +70,16 @@
 
     <!--人气榜 周榜 前三：先按照规定时间筛选，根据主播的接单总时长来排序-->
     <select id="selectTimeListTop" parameterType="map" resultType="map">
-        SELECT op.pid,op.person_nickname,op.person_image,op.person_adress,op.person_sex,op.o_createtime,op.ot
-        FROM(SELECT p.pid,p.person_nickname,p.person_image,p.person_adress,p.person_sex,o.o_createtime,SUM(o.o_xiadanshijian)ot
+        SELECT op.pid,op.person_nickname,op.person_image,op.person_adress,op.person_sex,op.person_birthday,op.o_createtime,op.ot
+        FROM(SELECT p.pid,p.person_nickname,p.person_image,p.person_adress,p.person_sex,p.person_birthday,o.o_createtime,SUM(o.o_xiadanshijian)ot
              FROM t_person p LEFT JOIN t_order_z o ON p.pid=o.pid
              WHERE o.o_createtime>DATE_SUB(CURDATE(), INTERVAL 2 WEEK)
                AND o.o_flate=1 GROUP BY o.pid ORDER BY SUM(o.o_xiadanshijian) DESC LIMIT 3)op
     </select>
     <!--人气榜 周榜 第四到第十：先按照规定时间筛选，根据主播的接单总时长来排序-->
     <select id="selectTimeList" parameterType="map" resultType="map">
-        SELECT op.pid,op.person_nickname,op.person_image,op.person_adress,op.person_sex,op.o_createtime,op.ot
-        FROM(SELECT p.pid,p.person_nickname,p.person_image,p.person_adress,p.person_sex,o.o_createtime,SUM(o.o_xiadanshijian)ot
+        SELECT op.pid,op.person_nickname,op.person_image,op.person_adress,op.person_sex,op.person_birthday,op.o_createtime,op.ot
+        FROM(SELECT p.pid,p.person_nickname,p.person_image,p.person_adress,p.person_sex,p.person_birthday,o.o_createtime,SUM(o.o_xiadanshijian)ot
              FROM t_person p LEFT JOIN t_order_z o ON p.pid=o.pid
              WHERE o.o_createtime>DATE_SUB(CURDATE(), INTERVAL 2 WEEK)
               AND o.o_flate=1 GROUP BY o.pid ORDER BY SUM(o.o_xiadanshijian) DESC LIMIT 4,10)op
@@ -87,15 +87,15 @@
 
     <!--人气榜 总榜 前三：根据主播的接单总时长来排序-->
     <select id="selectTimeListAllTop" parameterType="map" resultType="map">
-        SELECT op.pid,op.person_nickname,op.person_image,op.person_adress,op.person_sex,op.o_createtime,op.ot
-        FROM (SELECT p.pid,p.person_nickname,p.person_image,p.person_adress,p.person_sex,o.o_createtime,SUM(o.o_xiadanshijian)ot
+        SELECT op.pid,op.person_nickname,op.person_image,op.person_adress,op.person_sex,op.person_birthday,op.o_createtime,op.ot
+        FROM (SELECT p.pid,p.person_nickname,p.person_image,p.person_adress,p.person_sex,p.person_birthday,o.o_createtime,SUM(o.o_xiadanshijian)ot
               FROM t_person p LEFT JOIN t_order_z o ON p.pid=o.pid
               WHERE o.o_flate=1 GROUP BY o.pid ORDER BY SUM(o.o_xiadanshijian) DESC LIMIT 3)op
     </select>
     <!--人气榜 总榜 第四到第十：根据主播的接单总时长来排序-->
     <select id="selectTimeListAll" parameterType="map" resultType="map">
-        SELECT op.pid,op.person_nickname,op.person_image,op.person_adress,op.person_sex,op.o_createtime,op.ot
-        FROM (SELECT p.pid,p.person_nickname,p.person_image,p.person_adress,p.person_sex,o.o_createtime,SUM(o.o_xiadanshijian)ot
+        SELECT op.pid,op.person_nickname,op.person_image,op.person_adress,op.person_sex,op.person_birthday,op.o_createtime,op.ot
+        FROM (SELECT p.pid,p.person_nickname,p.person_image,p.person_adress,p.person_sex,p.person_birthday,o.o_createtime,SUM(o.o_xiadanshijian)ot
               FROM t_person p LEFT JOIN t_order_z o ON p.pid=o.pid
               WHERE o.o_flate=1 GROUP BY o.pid ORDER BY SUM(o.o_xiadanshijian) DESC LIMIT 4,10)op
     </select>
@@ -105,16 +105,16 @@
 
     <!--富豪榜 周榜 前三 : 先按照规定时间筛选，然后按照用户充值总金额排序-->
     <select id="selectMoneyListTop" parameterType="map" resultType="map">
-        SELECT op.pid,op.person_nickname,op.person_image,op.person_adress,op.person_sex,op.om
-        FROM (SELECT p.pid,p.person_nickname,p.person_image,p.person_adress,p.person_sex,SUM(o.o_money)om
+        SELECT op.pid,op.person_nickname,op.person_image,op.person_adress,op.person_sex,op.person_birthday,op.om
+        FROM (SELECT p.pid,p.person_nickname,p.person_image,p.person_adress,p.person_sex,p.person_birthday,SUM(o.o_money)om
               FROM t_person p LEFT JOIN t_order o ON p.pid=o.pid
               WHERE o.o_createtime>DATE_SUB(CURDATE(),INTERVAL 2 WEEK)
                 AND o.o_flate=1 GROUP BY o.pid ORDER BY SUM(o.o_money) DESC LIMIT 3)op
     </select>
     <!--富豪榜 周榜 第四到第十 : 先按照规定时间筛选，然后按照用户充值总金额排序-->
     <select id="selectMoneyList" parameterType="map" resultType="map">
-        SELECT op.pid,op.person_nickname,op.person_image,op.person_adress,op.person_sex,op.om
-        FROM (SELECT p.pid,p.person_nickname,p.person_image,p.person_adress,p.person_sex,SUM(o.o_money)om
+        SELECT op.pid,op.person_nickname,op.person_image,op.person_adress,op.person_sex,op.person_birthday,op.om
+        FROM (SELECT p.pid,p.person_nickname,p.person_image,p.person_adress,p.person_sex,p.person_birthday,SUM(o.o_money)om
               FROM t_person p LEFT JOIN t_order o ON p.pid=o.pid
               WHERE o.o_createtime>DATE_SUB(CURDATE(),INTERVAL 2 WEEK)
               AND o.o_flate=1 GROUP BY o.pid ORDER BY SUM(o.o_money) DESC LIMIT 4,10)op
@@ -122,15 +122,15 @@
 
     <!--富豪榜 总榜 前三:查询用户充值总金额-->
     <select id="selectMoneyListAllTop" parameterType="map" resultType="map">
-        SELECT op.pid,op.person_nickname,op.person_image,op.person_adress,op.person_sex,op.om
-        FROM (SELECT p.pid,p.person_nickname,p.person_image,p.person_adress,p.person_sex,SUM(o.o_money)om
+        SELECT op.pid,op.person_nickname,op.person_image,op.person_adress,op.person_sex,op.person_birthday,op.om
+        FROM (SELECT p.pid,p.person_nickname,p.person_image,p.person_adress,p.person_sex,p.person_birthday,SUM(o.o_money)om
               FROM t_person p LEFT JOIN t_order o ON p.pid=o.pid
               WHERE o.o_flate=1 GROUP BY o.pid ORDER BY SUM(o.o_money) DESC LIMIT 3)op
     </select>
     <!--富豪榜 总榜 第四到第十:查询用户充值总金额-->
     <select id="selectMoneyListAll" parameterType="map" resultType="map">
-        SELECT op.pid,op.person_nickname,op.person_image,op.person_adress,op.person_sex,op.om
-        FROM (SELECT p.pid,p.person_nickname,p.person_image,p.person_adress,p.person_sex,SUM(o.o_money)om
+        SELECT op.pid,op.person_nickname,op.person_image,op.person_adress,op.person_sex,op.person_birthday,op.om
+        FROM (SELECT p.pid,p.person_nickname,p.person_image,p.person_adress,p.person_sex,p.person_birthday,SUM(o.o_money)om
               FROM t_person p LEFT JOIN t_order o ON p.pid=o.pid
               WHERE o.o_flate=1 GROUP BY o.pid ORDER BY SUM(o.o_money) DESC LIMIT 4,10)op
     </select>

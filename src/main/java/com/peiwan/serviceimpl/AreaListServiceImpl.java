@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 
 import com.peiwan.dao.AreaListMapper;
 import com.peiwan.service.AreaListService;
+import com.peiwan.util.AgeByBirthUtil;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -56,14 +57,14 @@ public class AreaListServiceImpl implements AreaListService{
         * List<Map<String, Object>> 类型更改map中指定key的Value的值时，不能使用增强for，需要遍历List，所以需要下标获取其中的值，即Map
         * Map.put 将指定的值与此映射中的指定键关联。如果此映射以前包含一个该键的映射关系，则用指定值替换旧值；
         * */
-        /*for (int i=0;i<areaList.size();i++) {
+        for (int i=0;i<areaList.size();i++) {
             String personBirthday = (String) areaList.get(i).get("person_birthday");
             int age = AgeByBirthUtil.getAgeByBirth(personBirthday);
             String s = String.valueOf(age);
             areaList.get(i).put("person_birthday",s);
             System.out.println(areaList.get(i).get("person_birthday"));
 
-        }*/
+        }
         return areaList;
     }
 

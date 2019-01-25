@@ -35,21 +35,21 @@
 <body>
 
 <!--改版新的页面-->
-<!--<div class="public_nav_new">
+<div class="public_nav_new">
     <div class="info_v2 position">
         <div class="info">
             <div style="height: 0px;width: 100%;"></div>
             <h1>
-                <a href="/person/toIndex"><img class="logo" alt="飞虎电竞" src="/images/yuewanlogo.png"></a>
+                <a href="/person/toIndex"><img class="logo" alt="dudu电竞" src="/images/dudulogo.png"></a>
             </h1>
             <div class="p_nav">
-                <div :class="[navIndex === 'index_index_index'?'active':'']">&lt;!&ndash;三元运算符&ndash;&gt;
-                    <a href="/person/toIndex" target="_blank">
+                <div :class="[navIndex === 'index_index_index'?'active':'']">
+                    <a href="/person/toIndex">
                         首页
                     </a>
                 </div>
-                <div :class="[navIndex === 'index_peiwan'?'active':'']">    
-                    <a href="/person/toMore" target="_blank">
+                <div :class="[navIndex === 'index_peiwan'?'active':'']">
+                    <a href="togame" target="_blank">
                         约陪玩
                     </a>
                 </div>
@@ -65,12 +65,12 @@
                     </a>
                 </div>
                 <div :class="[navIndex === 'index_recharge'?'active':'']">
-                                           &lt;!&ndash; 未登录&ndash;&gt;
+
                         <a href="javascript:;" @click="login_fn">充值</a>
-                                        
+
                 </div>
                 <div :class="[navIndex === 'index_service'?'active':'']">
-                                             &lt;!&ndash;未登录&ndash;&gt;
+
                         <a href="javascript:;" @click="login_fn">申请入驻</a>
                 </div>
                 <div :class="[navIndex === 'activity'?'active':'']">
@@ -97,63 +97,15 @@
                     <span>登录&nbsp;&nbsp;|&nbsp;&nbsp;注册</span>
                 </div>
 
-                &lt;!&ndash;<div class="loginBox"><p class="r_pic"><a href="/user/index.html"><img
-                        src="http://thirdqq.qlogo.cn/qqapp/101403388/A738DFA5477B4CD4CAB76FEAF3BFA40E/100"
-                        class="change-user-img"> <span class="frame_0"></span></a></p> <img
-                        src="https://yundown.daofengdj.com/static/public/img/ico_11.png" class="r_icoImg">
-                    <div class="r_info">
-                        <div class="avatar">
-                            <div class="ico"><a><img
-                                    src="http://thirdqq.qlogo.cn/qqapp/101403388/A738DFA5477B4CD4CAB76FEAF3BFA40E/100"
-                                    class="change-user-img"> <span class="frame_0"></span></a></div>
-                            <div class="text1">
-                                Time.                                &lt;!&ndash;&ndash;&gt;</div>
-                            <input type="hidden" id="user-uid" value="1257835">
-                            <div class="text2 vip_num" style="display: none;"><span class="text">0</span></div>
-                            <div class="text2" style="">
-                                ID：1257835
-                            </div>
-                            <a href="/index/recharge/vocher.html" style="display: none;">
-                                <div class="t_pay">充值</div>
-                            </a>
-                            <div class="grade_box" style=""><span class="s1">LV0</span>
-                                <div><p style="width: 0%;"></p></div>
-                                <span class="s2">LV1</span></div>
-                        </div>
-                        <div class="balance_box">
-                            <div><p><i><img src="https://yundown.daofengdj.com/static/public/img/ico_02.png"></i> <span>余额</span>
-                            </p>
-                                <p>
-                                    0 </p></div>
-                            <div><p><i><img src="https://yundown.daofengdj.com/static/public/img/ico_42.png"></i> <span>钻石</span>
-                            </p>
-                                <p class="head_my_damand">
-                                    0
-                                </p></div>
-                        </div>
-                        <div class="nav_list"><a href="/user/order/user_orderlist.html">
-                            <div class="order">订单</div>
-                        </a> <i></i> <a href="/user/info.html">
-                            <div class="info">资料设置</div>
-                        </a> <i></i> <a href="/index/recharge/vocher.html">
-                            <div class="money">充值</div>
-                        </a></div>
-                        <div class="logout">
-                            <div><a href="/user/index.html" class="logout_a"><span></span>个人中心</a> <a
-                                    href="/user/login/signout.html">退出登录</a></div>
-                        </div>
-                    </div>
-                </div>&ndash;&gt;
-
             </div>
         </div>
     </div>
 
-    &lt;!&ndash;导航栏模糊查询的函数&ndash;&gt;
+    <!--导航栏模糊查询的函数-->
     <script>
         $("#searchinfo").click(function () {
             var keyname= $("#personNickname").val();
-            window.location.href = 'toSearch';
+            window.location.href = 'toSearch';      //跳转到search页面
             sessionStorage.setItem("keyname",keyname);
         });
     </script>
@@ -174,11 +126,11 @@
 
         }());
     </script>
-</div>-->
-
-<div class="miaov_head">
-    <iframe marginwidth="0" marginheight="0" frameborder="0" scrolling="no" src="/person/toHead" height="70px" width="100%"></iframe>
 </div>
+
+<!--<div>
+<embed style="height:70px;width:2000px;" type="text/html" src="/person/toHead" />
+</div>-->
 
 <section>
     <div class="top_wrapper">
@@ -399,19 +351,19 @@
                             </div>
                             <div class="swiper-slide swiper-no-swiping" >
                                 <a href="../hello2?pid=7&gid=1008" target="_blank">
-                                    <img src="/picture/23.jpg">
+                                    <img src="/picture/4.jpg">
                                     <span class="text">To_可爱甜</span>
                                 </a>
                             </div>
                             <div class="swiper-slide swiper-no-swiping" >
                                 <a href="../hello2?pid=8&gid=1009" target="_blank">
-                                    <img src="/picture/24.jpeg">
+                                    <img src="/picture/5.gif">
                                     <span class="text">Lk_遥</span>
                                 </a>
                             </div>
                             <div class="swiper-slide swiper-no-swiping" >
                                 <a href="../hello2?pid=9&gid=1010" target="_blank">
-                                    <img src="/picture/24.jpg">
+                                    <img src="/picture/6.jpg">
                                     <span class="text">TO.小可碍</span>
                                 </a>
                             </div>
@@ -435,7 +387,7 @@
                     <div class="swiper-slide" >
                         <a href="../hello2?pid=10&gid=1011" target="_blank">
                             <div class="pic_box">
-                                <img class="pic" src="/picture/4.gif">
+                                <img class="pic" src="/picture/7.gif">
                             </div>
                             <p class="nick">今天又是元气满满</p>
                         </a>
@@ -443,7 +395,7 @@
                     <div class="swiper-slide" >
                         <a href="../hello2?pid=11&gid=1012" target="_blank">
                             <div class="pic_box">
-                                <img class="pic" src="/picture/5.gif">
+                                <img class="pic" src="/picture/8.gif">
                             </div>
                             <p class="nick">小妖精～想要你抱</p>
                         </a>
@@ -451,7 +403,7 @@
                     <div class="swiper-slide" >
                         <a href="../hello2?pid=12&gid=1013" target="_blank">
                             <div class="pic_box">
-                                <img class="pic" src="/picture/6.gif">
+                                <img class="pic" src="/picture/9.gif">
                             </div>
                             <p class="nick">斗鱼TV梓云</p>
                         </a>
@@ -459,7 +411,7 @@
                     <div class="swiper-slide" >
                         <a href="../hello2?pid=13&gid=1014" target="_blank">
                             <div class="pic_box">
-                                <img class="pic" src="/picture/7.gif">
+                                <img class="pic" src="/picture/10.gif">
                             </div>
                             <p class="nick">CX.哑谜</p>
                         </a>
@@ -467,7 +419,7 @@
                     <div class="swiper-slide" >
                         <a href="../hello2?pid=14&gid=1015" target="_blank">
                             <div class="pic_box">
-                                <img class="pic" src="/picture/8.gif">
+                                <img class="pic" src="/picture/11.gif">
                             </div>
                             <p class="nick">底层阿深ℓ乔木冠</p>
                         </a>
@@ -475,7 +427,7 @@
                     <div class="swiper-slide" >
                         <a href="../hello2?pid=15&gid=1015" target="_blank">
                             <div class="pic_box">
-                                <img class="pic" src="/picture/9.jpg">
+                                <img class="pic" src="/picture/12.jpg">
                             </div>
                             <p class="nick">接彩六r6先私聊</p>
                         </a>
@@ -483,7 +435,7 @@
                     <div class="swiper-slide" >
                         <a href="../hello2?pid=16&gid=1001" target="_blank">
                             <div class="pic_box">
-                                <img class="pic" src="/picture/10.jpg">
+                                <img class="pic" src="/picture/13.jpg">
                             </div>
                             <p class="nick">桉子✌下单秒回</p>
                         </a>
@@ -491,7 +443,7 @@
                     <div class="swiper-slide" >
                         <a href="../hello2?pid=17&gid=1001" target="_blank">
                             <div class="pic_box">
-                                <img class="pic" src="/picture/11.jpg">
+                                <img class="pic" src="/picture/14.gif">
                             </div>
                             <p class="nick">ℳ๑M糖</p>
                         </a>
@@ -615,7 +567,7 @@
                                         </div>
                                         <div class="text">{{item.person_nickname}}</div>
                                         <div class="icon_wrapper">
-                                            <span class="text">{{item.person_sex}}</span>%nbsp;%nbsp;%nbsp;<span class="texts">{{item.person_adress}}</span>
+                                            <span class="text"><span v-html="item.person_sex=='女'?'♀':'♂'">{{item.person_sex}}</span>&nbsp;<span>{{item.person_birthday}}</span></span>%nbsp;%nbsp;%nbsp;<span class="texts">{{item.person_adress}}</span>
                                         </div>
                                         <div class="hot_wrapper">
                                             <i class="icon"></i>
@@ -637,7 +589,7 @@
                                         <div class="info_wrapper">
                                             <span class="nick_name">{{item.person_nickname}}</span>
                                             <div class="icon_wrapper">
-                                                <span class="text">{{item.person_sex}}</span>%nbsp;%nbsp;%nbsp;<span class="texts">{{item.person_adress}}</span>
+                                                <span class="text"><span v-html="item.person_sex=='女'?'♀':'♂'">{{item.person_sex}}</span>&nbsp;<span>{{item.person_birthday}}</span></span>%nbsp;%nbsp;%nbsp;<span class="texts">{{item.person_adress}}</span>
                                             </div>
                                         </div>
                                         <div class="right_wrapper">
@@ -668,7 +620,7 @@
                                         </div>
                                         <div class="text">{{item.person_nickname}}</div>
                                         <div class="icon_wrapper">
-                                            <span class="text">{{item.person_sex}}</span>%nbsp;%nbsp;%nbsp;<span class="texts">{{item.person_adress}}</span>
+                                            <span class="text"><span v-html="item.person_sex=='女'?'♀':'♂'">{{item.person_sex}}</span>&nbsp;<span>{{item.person_birthday}}</span></span>%nbsp;%nbsp;%nbsp;<span class="texts">{{item.person_adress}}</span>
                                         </div>
                                         <div class="hot_wrapper">
                                             <i class="icon"></i>
@@ -690,7 +642,7 @@
                                         <div class="info_wrapper">
                                             <span class="nick_name">{{item.person_nickname}}</span>
                                             <div class="icon_wrapper">
-                                                <span class="text">{{item.person_sex}}</span>%nbsp;%nbsp;%nbsp;<span class="texts">{{item.person_adress}}</span>
+                                                <span class="text"><span v-html="item.person_sex=='女'?'♀':'♂'">{{item.person_sex}}</span>&nbsp;<span>{{item.person_birthday}}</span></span>%nbsp;%nbsp;%nbsp;<span class="texts">{{item.person_adress}}</span>
                                             </div>
                                         </div>
                                         <div class="right_wrapper">
@@ -749,7 +701,7 @@
                                         </div>
                                         <div class="text">{{item.person_nickname}}</div>
                                             <div class="icon_wrapper">
-                                                <span class="text">{{item.person_sex}}</span>%nbsp;%nbsp;%nbsp;<span class="texts">{{item.person_adress}}</span>
+                                                <span class="text"><span v-html="item.person_sex=='女'?'♀':'♂'">{{item.person_sex}}</span>&nbsp;<span>{{item.person_birthday}}</span></span>%nbsp;%nbsp;%nbsp;<span class="texts">{{item.person_adress}}</span>
                                             </div>
                                         <div class="hot_wrapper">
                                             <i class="icon"></i>
@@ -772,7 +724,7 @@
                                         <div class="info_wrapper">
                                             <span class="nick_name">{{item.person_nickname}}</span>
                                             <div class="icon_wrapper">
-                                                <span class="text">{{item.person_sex}}</span>%nbsp;%nbsp;%nbsp;<span class="texts">{{item.person_adress}}</span>
+                                                <span class="text"><span v-html="item.person_sex=='女'?'♀':'♂'">{{item.person_sex}}</span>&nbsp;<span>{{item.person_birthday}}</span></span>%nbsp;%nbsp;%nbsp;<span class="texts">{{item.person_adress}}</span>
                                             </div>
                                         </div>
                                         <div class="right_wrapper">
@@ -803,7 +755,7 @@
                                         </div>
                                         <div class="text">{{item.person_nickname}}</div>
                                             <div class="icon_wrapper">
-                                                <span class="text">{{item.person_sex}}</span>%nbsp;%nbsp;%nbsp;<span class="texts">{{item.person_adress}}</span>
+                                                <span class="text"><span v-html="item.person_sex=='女'?'♀':'♂'">{{item.person_sex}}</span>&nbsp;<span>{{item.person_birthday}}</span></span>%nbsp;%nbsp;%nbsp;<span class="texts">{{item.person_adress}}</span>
                                             </div>
                                         <div class="hot_wrapper">
                                             <i class="icon"></i>
@@ -825,7 +777,7 @@
                                         <div class="info_wrapper">
                                             <span class="nick_name">{{item.person_nickname}}</span>
                                             <div class="icon_wrapper">
-                                                <span class="text">{{item.person_sex}}</span>%nbsp;%nbsp;%nbsp;<span class="texts">{{item.person_adress}}</span>
+                                                <span class="text"><span v-html="item.person_sex=='女'?'♀':'♂'">{{item.person_sex}}</span>&nbsp;<span>{{item.person_birthday}}</span></span>%nbsp;%nbsp;%nbsp;<span class="texts">{{item.person_adress}}</span>
                                             </div>
                                         </div>
                                         <div class="right_wrapper">
@@ -883,7 +835,7 @@
                                     </div>
                                     <div class="text">{{item.person_nickname}}</div>
                                     <div class="icon_wrapper">
-                                        <span class="text">{{item.person_sex}}</span>%nbsp;%nbsp;%nbsp;<span class="texts">{{item.person_adress}}</span>
+                                        <span class="text"><span v-html="item.person_sex=='女'?'♀':'♂'">{{item.person_sex}}</span>&nbsp;<span>{{item.person_birthday}}</span></span>%nbsp;%nbsp;%nbsp;<span class="texts">{{item.person_adress}}</span>
                                     </div>
                                     <div class="hot_wrapper">
                                         <i class="icon"></i>
@@ -904,7 +856,7 @@
                                     <div class="info_wrapper">
                                         <span class="nick_name">{{item.person_nickname}}</span>
                                         <div class="icon_wrapper">
-                                            <span class="text">{{item.person_sex}}</span>%nbsp;%nbsp;%nbsp;<span class="texts">{{item.person_adress}}</span>
+                                            <span class="text"><span v-html="item.person_sex=='女'?'♀':'♂'">{{item.person_sex}}</span>&nbsp;<span>{{item.person_birthday}}</span></span>%nbsp;%nbsp;%nbsp;<span class="texts">{{item.person_adress}}</span>
                                         </div>
                                     </div>
                                     <div class="right_wrapper">
@@ -933,7 +885,7 @@
                                     </div>
                                     <div class="text">{{item.person_nickname}}</div>
                                     <div class="icon_wrapper">
-                                        <span class="text">{{item.person_sex}}</span>%nbsp;%nbsp;%nbsp;<span class="texts">{{item.person_adress}}</span>
+                                        <span class="text"><span v-html="item.person_sex=='女'?'♀':'♂'">{{item.person_sex}}</span>&nbsp;<span>{{item.person_birthday}}</span></span>%nbsp;%nbsp;%nbsp;<span class="texts">{{item.person_adress}}</span>
                                     </div>
                                     <div class="hot_wrapper">
                                         <i class="icon"></i>
@@ -954,7 +906,7 @@
                                     <div class="info_wrapper">
                                         <span class="nick_name">{{item.person_nickname}}</span>
                                         <div class="icon_wrapper">
-                                            <span class="text">{{item.person_sex}}</span>%nbsp;%nbsp;%nbsp;<span class="texts">{{item.person_adress}}</span>
+                                            <span class="text"><span v-html="item.person_sex=='女'?'♀':'♂'">{{item.person_sex}}</span>&nbsp;<span>{{item.person_birthday}}</span></span>%nbsp;%nbsp;%nbsp;<span class="texts">{{item.person_adress}}</span>
                                         </div>
                                     </div>
                                     <div class="right_wrapper">
@@ -994,7 +946,7 @@
 
     <!-- 大额礼物，好像是漂浮弹幕？ -->
     <div class="gift_pop_wrapper" v-cloak v-show="giftShow">
-        <div class="gift_pop_item" :class="returen_class(item)" v-for="(item,index) in list">
+        <div class="gift_pop_item" :class="returen_class(item)" v-for="(item,index) in giftList">
             <span class="close_wrapper" @click="giftShow=!giftShow" >
                 <img src="/images/close.png" alt="" class="close">
             </span>
@@ -1022,8 +974,7 @@
                 </span>
                 <span class="gift_num_wrapper" v-if="item.logo">
                     <img class="icon" src="/images/00.png">
-                     <img :src="return_num_ico(iitem)" class="gift_num_item" v-for="(iitem,index) in item.numArr">
-
+                    <img :src="return_num_ico(iitem)" class="gift_num_item" v-for="(iitem,index) in item.numArr">
                 </span>
             </div>
         </div>
@@ -1084,13 +1035,6 @@
             hotList: [],            //热门推荐列表
             moreShow:false          //更多按钮显示
         }
-       /* methods: {
-            // 热门推荐陪玩详情链接
-            hotDetailUrl: function(item) {
-                var url = "/hello/"+item.pid+".html?gid="+item.gid;
-                window.open(url);
-            }
-        }*/
     });
     //进入页面自动触发的热门推荐函数
     var getHotList = function (curPages) {
@@ -1487,6 +1431,7 @@
         </div>
     </div>
 </footer>-->
+<!--尾部-->
 <div class="miaov_foot">
     <iframe marginwidth="0" marginheight="0" frameborder="0" scrolling="no" src="/person/toFoot" height="364px" width="100%"></iframe>
 </div>
