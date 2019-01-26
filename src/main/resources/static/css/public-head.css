@@ -1,0 +1,72 @@
+*{
+    box-sizing: border-box;
+}
+.yuhead{
+    width: 100%;
+    height: 80px;
+    line-height: 80px;
+    display: flex;
+    background-color: white;
+    color:#303030;
+    font-size: 16px;
+    padding-bottom: 10px;
+    border-bottom:#eeeeee solid 1px;
+    border:1px solid red;
+
+}
+.yuhead .yuewanlogo{
+    margin-top: 16px;
+    width: 188px;
+    height:49px;
+    margin-right: 10px;
+}
+.yuewanlogo img{
+    width: 100%;
+    height:100%
+}
+.yuhead .headNav{
+    display: flex;
+    height:34px;
+    align-items: center;
+}
+.yuhead .headNav li{
+    margin-right: 26px;
+    height:34px;
+}
+.yuhead .headNav #head-sea{
+    margin-right:0px;
+}
+#head-sea input{
+width: 173px;
+border:none;
+background:none;
+outline: none;
+height:34px;
+border-radius: 20px;
+background-color: #f0f0f0;
+padding: 0 10px;
+font-size: 14px;
+}
+
+.yuhead .head-other{
+    display: flex;
+    align-items: center;
+    margin-left: 45px;
+    height:80px;
+}
+.yuhead .head-other a{
+    margin:0 10px;
+}
+
+.yuhead .head-other .applyEnto{
+    display: flex;
+    align-items: center;
+    padding-left: 5px;
+    margin-left: 18px;
+    border: 1px solid #fa6543 ;
+    width: 80px;
+    border-radius: 25px;
+    color:#fa6543;
+    height:34px;
+}
+

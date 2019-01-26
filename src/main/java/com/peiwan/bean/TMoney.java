@@ -7,7 +7,7 @@ import lombok.experimental.Accessors;
 
 /**
  * <p>
- * 
+ * 用户钱包表
  * </p>
  *
  * @author 
@@ -28,12 +28,12 @@ public class TMoney implements Serializable {
     /**
      * 用户账户id
      */
-    private Integer mid;
+    /*private Integer mid;*/
 
     /**
      * 用户充值订单id
      */
-    private Integer oid;
+    /*private Integer oid;*/
 
     /**
      * 钱包余额
@@ -48,7 +48,7 @@ public class TMoney implements Serializable {
     /**
      * 充值金额
      */
-    private Integer mCharge;
+    private Double mCharge;
 
 
 }

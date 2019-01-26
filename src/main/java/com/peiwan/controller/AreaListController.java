@@ -26,11 +26,11 @@ public class AreaListController {
     @Resource
     private AreaListService als;
 
-    /*@RequestMapping("/toAreaList")
+    @RequestMapping("/toAreaList")
     public ModelAndView fenLei(){
         System.out.println("前端页面已访问到togame的后台，返回到fenlei的前端页面");
         return new ModelAndView("arealist");
-    }*/
+    }
 
 
 

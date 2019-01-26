@@ -36,6 +36,12 @@ public class ZyfIndexController {
         return new ModelAndView("index");
     }
 
+    //头部
+    @RequestMapping("/toHead")
+    public ModelAndView head(){
+        return new ModelAndView("head");
+    }
+
     //尾部
     @RequestMapping("/toFoot")
     public ModelAndView foot(){
@@ -43,10 +49,10 @@ public class ZyfIndexController {
     }
 
     //跳转分类页面
-    @RequestMapping("/toMore")
+    /*@RequestMapping("/toMore")
     public ModelAndView toMore(){
         return new ModelAndView("fenlei");
-    }
+    }*/
 
     //八元专区
     @RequestMapping("/toAreaList")
@@ -86,9 +92,8 @@ public class ZyfIndexController {
     //首页导航栏模糊查询跳转到search页面
     @RequestMapping("/toSearch")
     public ModelAndView list(){
-        return new ModelAndView("search");
+        return new ModelAndView("search.html");
     }
-
 
     //新人推荐
     @RequestMapping("/getNewPersonList")

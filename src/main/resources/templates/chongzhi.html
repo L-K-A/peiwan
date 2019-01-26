@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>充值 - dudu约玩</title>
+    <link href="css/common_index.css" type="text/css" rel="stylesheet">
+    <link href="css/recharge.css" type="text/css" rel="stylesheet">
+    <script src="js/jquery-1.12.3.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+    <script src="https://cdn.bootcss.com/vue/2.5.21/vue.js"></script>
+    <link rel="stylesheet" href="css/top_footer.css">
+</head>
+<body>
+<!--改版新的页面-->
+<div class="public_nav_new">
+    <div class="info_v2 position">
+        <div class="info">
+            <div style="height: 0px;width: 100%;"></div>
+            <h1>
+                <a href="/person/toIndex"><img class="logo" alt="" src="/images/dudulogo.png" style="margin-top: 5px"></a>
+            </h1>
+            <div class="p_nav">
+                <div :class="[navIndex === 'index_index_index'?'active':'']"><!--三元运算符-->
+                    <a href="/person/toIndex">
+                        首页
+                    </a>
+                </div>
+                <div :class="[navIndex === 'index_peiwan'?'active':'']">
+                    <a href="/togame">
+                        约陪玩
+                    </a>
+                </div>
+                <div :class="[navIndex === 'index_price'?'active':'']">
+                    <a href="/toAreaList?gid=1001">
+                        9.9专区
+                        <img src="/images/price.gif" alt="" class="icon">
+                    </a>
+                </div>
+                <div :class="[navIndex === 'index_list_video'?'active':'']">
+                    <a href="/peiwan/shangfen/">
+                        上分专区
+                    </a>
+                </div>
+                <div :class="[navIndex === 'index_recharge'?'active':'']">
+                    <!-- 未登录-->
+                    <a href="/toHome" >充值</a><!--@click="login_fn"-->
+
+                </div>
+                <div :class="[navIndex === 'index_service'?'active':'']">
+                    <!--未登录-->
+                    <a href="javascript:;" @click="login_fn">申请入驻</a>
+                </div>
+
+
+            </div>
+
+            <div class="seach_Box">
+                <img src="/images/ico_28_hover.png" style="display: none;">
+                <input id="personNickname" placeholder="陪玩昵称、ID、靓号" type="text" >
+                <p  id="searchinfo" class="seach_p"></p>
+            </div>
+
+
+            <div class="right">
+                <img src="/images/ico_29_hover.png" style="display: none;">
+                <img src="/images/ico_30_hover.png" style="display: none;">
+                <img src="/images/ico_31_hover.png" style="display: none;">
+                <div style="height: 0px;width: 100%;"></div>
+
+                <!--beforeLanding(登陆之前) -->
+                <div class="login style1" id="beforeLanding" style="display: none;">
+                    <ul class="nav navbar-nav navbar-right">
+
+                        <li>
+                            <a data-toggle="modal" data-target="#login" href="/toLogin"><span class="glyphicon glyphicon-log-in"></span>登录</a>
+                            </li>
+                    </ul>
+                </div>
+                <!--afterTheLanding(登陆过后)-->
+                <div class="login style1" id="afterTheLanding" style="display: none;">
+                    <div class="loginBox" id="usersinfo" v-for="(item,index) in user" >
+                        <!--<div class="fl ml25 head_img_box" >
+                            <div class="vip_text_box fl">
+                                <div>
+                                    <a href="#">
+                                        <img class="r_pic" :src="'http://pleuof34m.bkt.clouddn.com/'+item.person_image+'?imageView2/2/w/400/h/400/q/100'">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>-->
+                        <p class="r_pic">
+                            <a href="#">
+                                <img :src="'http://pleuof34m.bkt.clouddn.com/'+item.person_image+'?imageView2/2/w/400/h/400/q/100'" class="change-user-img">
+                                <span class="frame_0"></span>
+                            </a>
+                        </p>
+                        <img src="/images/ico_11.png" class="r_icoImg">
+                        <div class="r_info" >
+                            <div class="avatar">
+                                <div class="ico">
+                                    <a>
+                                        <img :src="'http://pleuof34m.bkt.clouddn.com/'+item.person_image+'?imageView2/2/w/400/h/400/q/100'" >
+                                        <span class="frame_0"></span>
+                                    </a>
+                                </div>
+                                <div class="text1">昵称:{{item.person_nickname}}</div>
+                                <input type="hidden" id="user-uid" :value="item.pid">
+                                <div class="text2 vip_num" style="display: none;">
+                                    <span class="text">0</span>
+                                </div>
+                                <div class="text2" style="">
+                                    PID:{{item.pid}}
+                                </div>
+                                <!--<span href="/data" id="name_href"  style="text-align: center;direction: none" >
+                                昵称:{{item.person_nickname}}
+                                </span>
+                                <span v-if="item.person_flate=1" class="vip_01">
+                                    当前身份:主播
+                                </span>
+                                <span v-else class="vip_01">
+                                    当前身份:用户
+                                </span>
+                                <div>余额: <a href="/toHome">{{item.m_balance}}</a></div>
+                                <div v-if="item.person_flate=0" class="nav_list">
+                                    <a href="/indexw">
+                                        <div class="order">订单</div>
+                                    </a> <i></i>
+                                    <a href="/data">
+                                        <div class="info">资料设置</div>
+                                    </a> <i></i>
+                                    <a href="/">
+                                        <div class="money">充值</div>
+                                    </a>
+                                </div>
+                                <div v-else class="nav_list">
+                                    <a href="/zindexw">
+                                        <div class="order">订单</div>
+                                    </a> <i></i>
+                                    <a href="/zdata">
+                                        <div class="info">资料设置</div>
+                                    </a> <i></i>
+                                    <a href="/toHome">
+                                        <div class="money">充值</div>
+                                    </a>
+                                </div>
+                                <div class="logout">
+                                    <div>
+                                        <a v-if="item.person_flate=0" href="/secur" class="logout_a">
+                                        <span></span>
+                                        个人中心
+                                        </a>
+                                        <a v-else href="/zsecur" class="logout_a">
+                                            <span></span>
+                                            个人中心
+                                        </a>
+                                        <a href="/logout">退出登录</a>
+                                    </div>
+                                </div>-->
+                            </div>
+                            <div class="balance_box">
+                                <div>
+                                    <!--<p>
+                                    <i><img src="/images/ico_02.png"></i>
+                                    <span></span>
+                                    </p>-->
+                                    余额:{{item.m_balance}}
+                                </div>
+                            </div>
+                            <div v-if="item.person_flate==0" class="nav_list">
+                                <a href="/indexw">
+                                    <div class="order">订单</div>
+                                </a> <i></i>
+                                <a href="/data">
+                                    <div class="info">资料设置</div>
+                                </a> <i></i>
+                                <a href="/">
+                                    <div class="money">充值</div>
+                                </a>
+                            </div>
+                            <div v-else class="nav_list">
+                                <a href="/zindexw">
+                                    <div class="order">订单</div>
+                                </a> <i></i>
+                                <a href="/zdata">
+                                    <div class="info">资料设置</div>
+                                </a> <i></i>
+                                <a href="/toHome">
+                                    <div class="money">充值</div>
+                                </a>
+                            </div>
+                            <div class="logout">
+                                <div>
+                                    <a v-if="item.person_flate==0" href="/secur" class="logout_a">
+                                        <span></span>
+                                        个人中心
+                                    </a>
+                                    <a v-else href="/zsecur" class="logout_a">
+                                        <span></span>
+                                        个人中心
+                                    </a>
+                                    <a href="/logout">退出登录</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <script th:inline="javascript">
+                    var pid = [[${session.nameTPerson?.pid}]];
+                </script>
+
+                <script th:inline="javascript">
+
+                    /*加载用户的信息*/
+                    var  userinfo=new Vue({
+                        el:'#afterTheLanding',
+                        data:{
+                            user:[]
+                        }
+                    });
+                    var getUsersInfo=function(){
+                        $.ajax({
+                            type: 'post',
+                            dataType: 'json',
+                            url: '/getuserinfo',
+                            data: {pid:pid},
+                            success: function (rest) {
+                                userinfo.user = rest.results;
+                            }
+                        });
+                    };
+                    var nameTPerson = [[${session.nameTPerson?.personName}]];
+                    if (nameTPerson==null){
+                        document.getElementById("beforeLanding").style.display="";
+                    } else if (nameTPerson!=null){
+                        getUsersInfo();
+                        document.getElementById("afterTheLanding").style.display="";
+
+                    }
+                </script>
+            </div>
+        </div>
+
+    </div>
+
+    <!--导航栏模糊查询的函数-->
+    <script>
+        $("#searchinfo").click(function () {
+            var keyname= $("#personNickname").val();
+            window.location.href = '/person/toSearch';
+            sessionStorage.setItem("keyname",keyname);
+        });
+    </script>
+
+    <script>
+        (function(){
+            //处理滚动后导航悬停
+            var win_scroll = function(){
+                var obj = document.querySelector(".public_nav_new .info_v2");
+                var a = document.documentElement.scrollTop || document.body.scrollTop;//滚动条y轴上的距离
+
+                if(a>70){
+                    obj.classList.add("position");
+                }else{
+                    obj.classList.remove("position");
+                }
+            };
+
+        }());
+    </script>
+</div>
+
+
+<!-- 支付方法 -->
+<div class="pop_up_box"  style="display: none;">
+    <div class="pop_up_bg"></div>
+    <div class="order_payfor" style="display:block;color: #6f6983;
+    width: 500px;
+    background-color: #fff;
+    position: fixed;
+    z-index: 99998;
+    left: 28%;
+    top: 18%;
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    padding: 40px;">
+        <div class="close_btn fr"><img src="picture/close.png"></div>
+        <div class="order_information_title"></div>
+        <div class="order_information_title mt20" style="font-size: 16px;"><img src="/picture/order_cost.png">费用：</div>
+        <div class="alipay_time">$100元</div>
+
+        <div style="text-align: center; margin-top: 10px;">
+            <p>
+            <div id="qrCode1" style="margin-left:30%"></div>
+            </p>
+            <p style="font-size: 16px;">请用支付宝扫描支付</p>
+        </div>
+    </div>
+</div>
+<!-- 支付方法-end -->
+<style>
+    a{
+        bblr:expression(this.onFocus=this.blur());/*IE使用*/
+        outline-style:none;
+    }
+    #recharge .pay_for{display: block;}
+    .recharge_title,.alipay_box1{cursor: pointer;}
+    #recharge .recharge_title{color: #999999;}
+    #recharge .recharge_title_add{color: #333333;}
+    #recharge .recharge_title span{color: #dadada;display: inline-block;margin-left:10px;}
+    .jewel,.jewel_hover{display: inline-block;margin-right: 5px}
+    #recharge .account_01{
+        font-size: 24px;
+        color: #333333;
+    }
+    #recharge .coin_02{
+        color: #fb5757;
+        font-size: 30px;
+    }
+    #recharge .coin_03{color: #999999;
+        font-size: 14px;}
+    #recharge  .wran_text span{color: #fb5757;}
+    .flase_icon_text{font-size: 16px;margin-left: 20px;color: #333333;margin-top: 10px;}
+</style>
+<div id="flase" style="display:none;">
+    <div class="pop_up_bg"></div>
+    <div class="icon_box">
+        <img src="picture/icon_v1.png" class="fl">
+        <div class="fl flase_icon_text"></div>
+        <div class="clearfix"></div>
+        <div class="icon_02">[ 3 秒 ]</div>
+    </div>
+</div>
+<!-- <script charset="utf-8" src="js/kfqq.js"></script> -->
+<link rel="stylesheet" href="css/common_index.css" type="text/css">
+<link rel="stylesheet" href="css/top_footer.css" type="text/css">
+<link rel="stylesheet" href="css/geeteststyle.css" type="text/css">
+<link rel="stylesheet" href="css/common_head.css" type="text/css">
+<div id="recharge">
+    <div class="add_up_box">
+        <div>
+            <div class="recharge_title fl  pr10 recharge_title_add">账号充值</div>
+        </div>
+        <div class="fr add_up"></div>
+        <div class="clearfix"></div>
+    </div>
+    <div>
+        <div class="jewel_recharge">
+            <div class="ml30"  id="jewel_account" >
+                <div class="mt40 mb40" v-for="(iten,index) in ub">
+                    <div  class="fl account pr10">账户余额:</div>
+                    <div class="fl account_01 account_money">￥<span>{{iten.m_balance}}</span></div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="mb50">
+                    <div class="fl sum pr10">充值金额:</div>
+                    <ul class="fl sum_01">
+                        <li class="li_add ture"><span>50</span>元</li>
+                        <li><span>100</span>元</li>
+                        <li><span>500</span>元</li>
+                        <li><span>1000</span>元</li>
+                        <li><span>3000</span>元</li>
+                        <li><span>6666</span>元</li>
+                        <div class="clearfix"></div>
+                    </ul>
+                    <input type="text" placeholder="输入充值金额" class="fl text_border" id="money1">
+                    <span  class="position_sum">元</span>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="mb30">
+                    <div class="fl coin_01 pr10">充值货币：</div>
+                    <div class="fl coin_02">￥<span><i>50</i></span></div>
+                    <div class="clearfix"></div>
+                </div>
+                <div>
+                    <div class="fl coin_01 pr10">充值方式：</div>
+                    <div class="fl">
+                        <div class="fl alipay_box">
+                            <img src="/picture/wechat.jpg" class="alipay" style="display:none;" >
+                            <img src="/picture/wechat_hover.jpg" class="alipay_hover">
+                        </div>
+                        <div class="fl alipay_box ml20">
+                            <img src="/picture/alipay.jpg" class="alipay">
+                            <img src="/picture/alipay_hover.jpg" class="alipay_hover" style="display:none;" >
+                        </div>
+                        <div class="clearfix "></div>
+                    </div>
+                    <div class="clearfix "></div>
+                </div>
+                <a href="javascript:;" id="payurl" class="pay_for">去支付</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div style="clear: both;"></div>
+<script th:inline="javascript">
+    /*定义查询到的余额*/
+    var balance;
+    /*余额*/
+    var  userbalance=new Vue({
+        el:'#recharge',
+        data:{
+            ub:[]
+        }
+    });
+    /*加载用户的信息*/
+    var  userinfo=new Vue({
+        el:'#afterTheLanding',
+        data:{
+            user:[]
+        }
+    });
+    var getUsersInfo=function(){
+        $.ajax({
+            type: 'post',
+            dataType: 'json',
+            url: '/getuserinfo',
+            data: {pid:pid},
+            success: function (rest) {
+                userinfo.user = rest.results;
+                userbalance.ub=rest.results;
+            }
+        });
+    };
+    var nameTPerson = [[${session.nameTPerson?.personName}]];
+    if (nameTPerson==null){
+        document.getElementById("beforeLanding").style.display="";
+    } else if (nameTPerson!=null){
+        getUsersInfo();
+        document.getElementById("afterTheLanding").style.display="";
+
+    }
+</script>
+<script type="text/javascript">
+    var pid = [[${session.nameTPerson?.pid}]];
+    var urlflag = 0;
+    var money1 = 50;
+    $('#jewel_account .sum_01 li').click(function(){
+        $(this).addClass('li_add').siblings().removeClass('li_add')
+        $('#jewel_account .text_border').removeClass('li_add')
+        var n=$(this).find('span').text();
+        money1 = n;
+        $('#jewel_account .coin_02 span i').text(n)
+        $(this).addClass('ture').siblings().removeClass('ture')
+        $('#jewel_account .text_border').removeClass('ture')
+        $('#jewel_account .position_sum').css('color','#666666')
+    })
+
+    $("#jewel_account .text_border").on('input',function(e){
+        var n2=$('#jewel_account .text_border').val();
+        if(n2.length>0){
+            var n1=$(this).val();
+            money1 = n1;
+            $('#jewel_account .coin_02 span i').text(n1)
+        }
+    });
+    $("#jewel_account .text_border").click(function(){
+        $('#jewel_account .position_sum').css('color','#25e198')
+        $('#jewel_account .sum_01 li').removeClass('ture')
+        $('#jewel_account .text_border').addClass('ture')
+        $('#jewel_account .sum_01 li').removeClass('li_add')
+        $('#jewel_account .text_border').addClass('li_add')
+
+    })
+    $('#jewel_account .alipay_box').click(function() {
+        urlflag = $('.alipay_box').index(this);
+        $(this).find(".alipay_hover").show();
+        $(this).siblings().find(".alipay_hover").hide();
+        $(this).find(".alipay").hide();
+        $(this).siblings().find(".alipay").show();
+    })
+    var s=3;
+    var id = '';
+    function countsub(){
+        if(s<=1){
+            $("#jewel_account #money1").html();
+            $("#flase").hide();
+            $(".icon_02").html("[ 3 秒 ]");
+            clearInterval(id);
+            s=3
+        }else{
+            s--;
+            $(".icon_02").html("[ "+s+" 秒 ]");
+        }
+    }
+
+    $("#jewel_account #money1").click(function(){
+        money1 = $("#jewel_account #money1").val();
+        $('#jewel_account .coin_02 span i').text(money1*1);
+    })
+
+    function checkmoney1(){
+        var flag = !0;
+        money1 = $("#jewel_account #money1").val();
+        var preg = /^\d+$/;
+        if (!preg.test(money1)) flag = !1;
+        if(money1<10 || flag==!1) money1=10,$('.flase_icon_text').html('金额输入错误，充值不可少于10元'),$("#jewel_account #money1").val(10),$('#jewel_account .coin_02 span i').text(10),flag = !1;
+        if(money1>100000) money1=100000,$('.flase_icon_text').html('金额输入错误，充值不可多于10万元'),$("#jewel_account #money1").val(100000),$('#jewel_account .coin_02 span i').text(100000),flag = !1;
+        if(!flag){
+            $("#flase").show();
+            id = setInterval('countsub()',1000);
+        }
+        return flag;
+    }
+    $("#jewel #money1").blur(function(){
+        checkmoney1();
+    })
+    $("#jewel_account #money1").keyup(function(){
+        money1 = $("#jewel_account #money1").val();
+        var preg = /^\d+$/;
+        preg.test(money1) ? ($("#jewel_account #money1").val(money1*1),$('#jewel_account .coin_02 span i').text(money1*1)) : ($("#jewel_account #money1").val(''),$('#jewel_account .coin_02 span i').text(0),$("#jewel_account #money1").focus());
+    })
+
+    var playhonor = 0;
+    var yuewanMoney = 0;
+
+    $('#jewel_account .pay_for').click(function(){
+        $("#qrCode1").html('');
+        /*if (pid==0){
+
+        } */
+        if (urlflag == 0){
+            alert("暂不支持微信支付,请选择支付宝支付！");
+        }
+        else if(urlflag == 1) {
+            $("#qrCode1").html('');
+            var preg = /^\d{2,6}$/;
+            if (money1 < 10 || money1 > 100000 || !preg.test(money1)) return checkmoney1();
+            $('#jewel_account #payurl').attr('target', '_blank');
+            alert(money1);
+            $.ajax({
+                url: '/getQRCodeImg',
+                dataType: 'json',
+                data: {
+                    expoName: "dudu约玩",
+                    money: "0.01",
+                },
+                success: function (msg) {
+                    if (msg.qrCodeStr != null) {
+                        $("#qrCode1").qrcode({
+                            render: "table", //table方式
+                            width: 200, //宽度
+                            height: 200, //高度
+                            text: msg.qrCodeStr //任意内容*!/
+                        });
+                        $('.alipay_time').html("￥" + money1 + "元")
+                        $(".pop_up_box").show();
+                    }
+                    else {
+                        alert("请重新点击支付按钮");
+                    }
+
+                    var timer = setInterval(ss, 1000);
+
+                    function ss() {
+
+                        $.post({
+                            url: '/queryTradePayStatus',
+                            dataType: 'json',
+                            data: {tradeNo: msg.tradeNo},
+                            success: function (result) {
+
+                                if (result == true) {
+                                    $.ajax({
+                                        url: '/MoneyU',
+                                        dataType: 'json',
+                                        data: {
+                                            pid: pid,
+                                            rRechargemoney: money1,
+                                            rid: msg.tradeNo,
+                                        },
+                                        success: function (res) {
+                                            if (res == 1) {
+                                                $(".order_payfor").hide();
+                                                $("#qrCode1").html('');
+                                                alert("充值成功！");
+                                                clearInterval(timer)
+                                                getUsersInfo();
+                                            }
+                                            else if(res==0){
+                                                alert("充值失败！");
+                                            }
+                                        }
+                                    })
+
+                                }
+                                var tim = setInterval(gg, 300000);
+                                function gg(){
+                                    $(".pop_up_box").hide();
+                                    $(".pop_up_bg").html('');
+                                    $("#qrCode1").html('');
+                                    clearInterval(timer)
+                                }
+                                /*else if(result==false){
+                                    var html=''
+                                    html += '<div id="qrCode1" style="margin-left:30%;font-size:18px;"></div>';
+                                    $('.order_information_title').html(html);
+                                    $("#qrCode1").html('支付失败，请重新支付!');
+                                    $('.alipay_time').html('');
+                                    $(".pop_up_box").show();
+                                }*/
+                            }
+                        })
+                    }
+                }
+            })
+        }
+    })
+
+    // 弹窗关闭
+    $(".close_btn").on("click",function(){
+        $(".pop_up_box").hide();
+        $(".pop_up_bg").html('');
+        $("#qrCode1").html('');
+        clearInterval(timer)
+        window.location=window.location;
+    })
+</script>
+<footer>
+    <div class="box">
+        <div class="foot">
+            <!--隐藏掉提现(隐藏提现)字样（2017-12-18）margin-left:-->
+            <ul>
+                <li>
+                    <img src="https://yundown.daofengdj.com/static/public/img/ico_ft01.png">
+                    <p>极速接单</p>
+                    <span class="desc">秒接单 八分钟未接单立即退款</span>
+                </li>
+                <li>
+                    <img src="https://yundown.daofengdj.com/static/public/img/ico_ft02.png">
+                    <p>信息提醒</p>
+                    <span class="desc">来单短信提醒 不错过订单</span>
+                </li>
+                <li>
+                    <img src="https://yundown.daofengdj.com/static/public/img/ico_ft03.png">
+                    <p>品质保障</p>
+                    <span class="desc">服务不满意为您来免单</span>
+                </li>
+                <li>
+                    <img src="https://yundown.daofengdj.com/static/public/img/ico_ft04.png">
+                    <p>资金日结算</p>
+                    <span class="desc">实时掌控工资 给你安心</span>
+                </li>
+                <li>
+                    <img src="https://yundown.daofengdj.com/static/public/img/ico_ft05.png">
+                    <p>7*24小时服务</p>
+                    <span class="desc">自助下单 7*24小时客服答疑</span>
+                </li>
+            </ul>
+        </div>
+
+        <ul class="footCenter">
+            <li class="li1">
+                <div>
+                    <img src="https://yundown.daofengdj.com/static/public/img/link.png">
+                    <div style="line-height: 19px; margin-top: -2px;">
+                        <a style="display:none;" target="_blank" href="https://www.zuhaowan.com"><img src="https://yundown.daofengdj.com/static/public/img/zuhaowna.png"  style="margin-top: 0px;"></a>
+                        <a target="_blank" href="https://www.zuhaowan.com"><p>租<i style="display:inline-block;width:.5em;"></i>号<i style="display:inline-block;width:.5em;"></i>玩 - 账号租借平台</p></a>
+                        <a target="_blank" href="http://www.mayidailian.com/"><p>蚂蚁代练 - 专业代练平台</p></a>
+                        <a target="_blank" href="http://www.irollfun.com/"><p>rollfun游戏站</p></a>
+                        <a target="_blank" href="http://www.99173.com/"><p>99173-游戏交易平台</p></a>
+                        <a target="_blank" href="http://www.wyaq.com/"><p>无忧安全</p></a>
+                    </div>
+                </div>
+            </li>
+            <li class="sp"></li>
+            <li class="li2">
+                <div>
+                    <img src="https://yundown.daofengdj.com/static/public/img/kefu.png">
+                    <div>
+                        <p>客服电话：0371-55637968</p>
+                        <p>咨询时间：7 x 24 小时</p>
+                    </div>
+                </div>
+            </li>
+            <li class="sp"></li>
+            <li class="li3">
+                <div>
+                    <img src="https://yundown.daofengdj.com/static/public/img/qq.png">
+                    <div>
+                        <p>客服QQ：3003120628</p>
+                        <p>咨询时间：7 x 24 小时</p>
+                    </div>
+                </div>
+            </li>
+            <li msg="新需求隐藏" class="sp" style="display:none;"></li>
+            <li msg="新需求隐藏" style="display:none;">
+                <div>
+                    <img src="https://yundown.daofengdj.com/static/public/img/new.png">
+                    <div>
+                        <a target="_blank" href="/help/peiwan.html"><p>陪玩新手引导</p></a>
+                        <a target="_blank" href="/help/novice.html"><p>玩家新手引导</p></a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="box">
+        <div class="footBottom">
+            <div class="f_tx">
+                <a target="_blank" href="/help/contact_us.html">联系我们</a>
+                <a target="_blank" href="/help/company_profile.html">公司简介</a>
+                <a target="_blank" href="/help/disclaimer.html">免责声明</a>
+            </div>
+            <p>版权所有 © 2017 网络科技有限公司 <a href="http://www.miitbeian.gov.cn"></a></p>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
+

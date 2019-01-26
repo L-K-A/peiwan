@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>导师资料-点点约玩</title>
+
+    <link href="./css/geeteststyle.css" rel="stylesheet" type="text/css">
+    <link href="./css/personal_data.css" type="text/css" rel="stylesheet">
+    <link href="./css/newcommon_admin.css" type="text/css" rel="stylesheet">
+    <link href="./css/pot_up_settings.css" type="text/css" rel="stylesheet">
+    <!--<link href="./js/layer/mobile/need/layer.css" type="text/css" rel="stylesheet">-->
+    <link rel="stylesheet" href="./css/easyhelper.min.css">
+    <link rel="stylesheet" href="./js/layui/css/layui.css">
+    <link rel="stylesheet" href="./js/laydate/theme/default/laydate.css">
+    <link rel="stylesheet" href="./css/pick-pcc.min.1.0.1.css">
+    <link href="./css/basic_document.css" type="text/css" rel="stylesheet">
+
+    <script src="./js/es6-shim.min.js"></script>
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/jquery-3.3.1.min.js"></script>
+    <script src="./js/jquery.transit.min.js"></script>
+    <script src="./js/easyhelper.min.js"></script>
+    <script type="text/javascript" src="./js/jquery-1.12.3.min.js"></script>
+    <script type="text/javascript" src="./js/jquery.zclip.js"></script>
+    <script type="text/javascript" src="./js/cropbox.js"></script>
+    <script type="text/javascript" src="./js/gt.js"></script>
+    <script type="text/javascript" src="./js/jsencrypt.min.js"></script>
+    <script type="text/javascript" src="./js/getRSAKey.js"></script>
+    <script type="text/javascript" src="./js/encryption.js"></script>
+    <script src="https://cdn.bootcss.com/vue/2.5.21/vue.js"></script>
+    <script type="text/javascript" src="./js/personal_data1.js"></script>
+    <script type="text/javascript" src="./js/lrz.js"></script>
+    <script type="text/javascript" src="./js/exif.js"></script>
+
+    <script type="text/javascript" src="./js/moxie.js"></script>
+    <script type="text/javascript" src="./js/plupload.dev.js"></script>
+    <script type="text/javascript" src="./js/upload_playerinfo.js"></script>
+    <script type="text/javascript" src="./js/laydate/laydate.js"></script>
+    <script type="text/javascript" src="./js/layui/layui.all.js"></script>
+    <script type="text/javascript" src="./js/pick-pcc.min.1.0.1.js"></script>
+
+    <script type="text/javascript" src="./js/layer/layer.js"></script>
+</head>
+<style>
+    .keep_box {
+        background-color: #999999;
+        width: 192px;
+        height: 52px;
+        line-height: 52px;
+        font-size: 18px;
+        color: #fff;
+        text-align: center;
+        margin-top: 30px;
+        margin-right: 20px;
+        cursor: pointer;
+        border: none 0;
+        border-radius: 4px;
+        -webkit-border-radius: 4px;
+    }
+
+    .keep_box1 {
+        margin-left: -100px;
+        background-color: #5ecfba;
+    }
+
+    .keep_box1:hover {
+        background-color: #47b5a1;
+    }
+
+    .keep_box2:hover {
+        background-color: #888888;
+    }
+
+    .img_ts {
+        font-size: 12px;
+        color: #ea6e74;
+        width: 80%;
+        margin-top: -6px;
+    }
+
+    .img_ts input {
+        width: 80%;
+    }
+
+    .submit_box input {
+        height: 52px;
+        margin-left: 60%;
+    }
+
+    .game_ID span {
+        padding-top: 6px;
+    }
+
+    .content_bg1 {
+        height: 910px;
+    }
+
+    .imageBox .thumbBox {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 402px;
+        height: 402px;
+        margin-top: -200px;
+        margin-left: -200px;
+        border-radius: 50%;
+        box-sizing: border-box;
+        border: 1px solid rgb(102, 102, 102);
+        box-shadow: 0 0 0 1000px rgba(0, 0, 0, 0.5);
+        background: none repeat scroll 0% 0% transparent;
+    }
+
+    .pop_up_basic {
+        width: 760px;
+        height: 750px;
+        top: 50%;
+        margin-top: -375px;
+    }
+
+    .imageBox {
+        width: 460px;
+        height: 460px;
+    }
+
+    .cropped {
+        right: -312px;
+        height: 518px;
+        width: 200px;
+    }
+
+    .action {
+        width: 464px;
+    }
+
+    .keep_box2 {
+        margin-right: 77px;
+    }
+
+    .keep_box1 {
+        margin-left: -110px;
+    }
+
+    .new-contentarea {
+        overflow: visible;
+    }
+
+    a.upload-img {
+        margin-left: 0;
+        text-align: center;
+    }
+
+    .container {
+        margin: 20px;
+    }
+
+    .lol_status_03 {
+        color: red;
+        font-size: 14px;
+    }
+
+    #user_center_box {
+        margin-top: 0;
+    }
+
+    .content_center {
+        background-color: #fff;
+        margin: 0 auto;
+        width: 52%;
+        padding: 5% 10%;
+        font-family: '微软雅黑';
+    }
+
+    .protocol_box {
+        width: 100%;
+        padding-top: 17px;
+        padding-bottom: 17px;
+        border: #d6d7dc 1px solid;
+        margin-top: 65px;
+    }
+
+    .switch {
+        float: left;
+        margin-left: 12px;
+    }
+
+    .agree {
+        float: left;
+        color: #333;
+        margin-left: 12px;
+        margin-right: 26px;
+    }
+
+    .point_out {
+        float: left;
+        color: #be1a2c;
+        font-size: 14px;
+    }
+
+    .botton_box .botton_box1 {
+        background-color: #afb0b3;
+    }
+
+    .botton_box input {
+        height: 47px;
+        width: 190px;
+        color: #fff;
+        font-weight: 500;
+        margin-top: 40px;
+    }
+
+    button, input, select, .content_text {
+        font-size: 100%;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        border: none;
+    }
+
+    .botton_box .botton_box2 {
+        background-color: #be1a2c;
+        margin-left: 30px;
+        cursor: pointer;
+    }
+
+    .botton_box input {
+        height: 47px;
+        width: 190px;
+        color: #fff;
+        font-weight: 500;
+        margin-top: 40px;
+    }
+
+    .content_center .content_bigtitle {
+        font-size: 24px;
+        color: #333333;
+        text-align: center;
+        line-height: 34px;
+    }
+
+    .content_center .content_title {
+        font-size: 18px;
+        color: #333333;
+        line-height: 30px;
+    }
+
+    .content_center .content_text {
+        font-size: 14px;
+        color: #666666;
+        line-height: 28px;
+    }
+
+    .content_center_01 {
+        height: 500px;
+        overflow-y: scroll;
+    }
+
+    .closehide {
+        position: absolute;
+    }
+
+    .lol_box {
+        margin-left: 2.3%;
+        margin-top: 49px;
+    }
+</style>
+<body>
+<!--左边-->
+<!--left_column-->
+<div id="left_column">
+    <div>
+        <a href="/indexw" target="_blank">
+            <i class="header " style="color:white;margin:10px 0 0 25px;">
+                <img src="./img/icon.png">
+            </i></a>
+        <div class="boundary"></div>
+    </div>
+    <div>
+        <div class="manage_bigbox mt15">
+            <div class="manage_box pb15">
+                <i class="icon_bgs manage2 fl"></i>
+                <span class="fl">管理</span>
+                <div class="clearfix"></div>
+            </div>
+            <div class="classify_box">
+                <a href="/zindexw">我的订单</a>
+                <a href="/ztrecord">交易记录</a>
+            </div>
+        </div>
+        <div class="manage_bigbox mt15">
+            <div class="manage_box pb15">
+                <i class="icon_bgs manage3 fl"></i>
+                <span class="fl">设置</span>
+                <div class="clearfix"></div>
+            </div>
+            <div class="classify_box">
+                <a href="/zsecur">安全中心</a>
+                <a href="/zdata">个人资料</a>
+                <a href="/zplayinfo">详细信息</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!--left-column-end-->
+<!--top-box-->
+<div id="top_box" >
+    <div class="fr" v-for="(iten,index) in user">
+        <div class="mailbox_bigbox pt25 pb20 fl">
+            <a href="#">
+                <div class="fl mailbox_box">
+                    <i class="icon_bgs fl mailbox"></i>
+                    <span class="mailshu" style="display: none;">
+                    </span>
+                    <span class="fl">消息</span>
+                    <div class="clearfix"></div>
+                </div>
+            </a>
+            <div class="fl service_box course5" id="dd_kefu_qidian">
+                <i class="icon_bgs fl service"></i><span class="fl">客服</span>
+                <div class="clearfix"></div>
+            </div>
+            <div class="fl"><i class="fl"><img
+                    src="./img/icon_uid.png"></i><span class="fl">PID:{{iten.pid}}</span>
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="clearfix"></div>
+        </div>
+        <div class="fl ml25 head_img_box">
+            <div class="vip_text_box fl">
+                <div class="fl head_img">
+                    <a href="/zdata">
+                        <img :src="'http://pleuof34m.bkt.clouddn.com/'+iten.person_image+'?imageView2/2/w/400/h/400/q/100'"
+                             alt="头像" title="" onerror="avatarNoFound(this)">
+                    </a>
+                </div>
+                <div class="fl ml10 vip_text">
+                    <div class="vip_01">{{iten.person_flate==0?'用户':'主播'}}</div>
+                    <div class="vip_02">
+                        <a href="/zdata" id="name_href"  style="text-align: center;direction: none" >{{iten.person_nickname}}</a>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="common_login" style="display: none;background-color: #f4f3f3;width: 150px;height: 100px;margin-top: 5px;">
+                当前余额:{{balance}}
+            </div>
+            <!--<div class="fl ml10 mr40 pl10 quit" id="dologout">退出</div>-->
+            <a class="fl ml10 mr40 pl10 quit" href="/logout" id="dologout">退出</a>
+            <div class="clearfix"></div>
+        </div>
+        <div class="clearfix"></div>
+
+    </div>
+    <div class="clearfix"></div>
+</div>
+<div id="c_top" class="content_top"></div>
+<div class="left_margin"></div>
+
+
+<!--资料-->
+<div id="userinfo"  class="content_bg content_bg1 left_margin">
+    <div v-for="(item,index) in users">
+    <div class="game_ID" >
+        <label class="fl">
+            <span>*</span>&nbsp;&nbsp;性&nbsp;别:</label>
+        <div style="margin-left: -3px;" >
+            {{item.person_sex}}
+        </div>
+        <div class="clearfix"></div>
+    </div>
+
+    <div class="game_ID" >
+        <label class="fl"><span>*</span>&nbsp;&nbsp;生&nbsp;日:</label>
+        <div style="margin-left: -3px;" >
+            {{item.person_birthday}}
+        </div>
+        <div class="clearfix"></div>
+    </div>
+
+    <div class="game_ID" >
+        <label class="fl"><span>*</span>&nbsp;&nbsp;微&nbsp;信:</label>
+        <div style="margin-left: -3px;" >
+            {{item.person_weixin}}
+        </div>
+        <div class="clearfix"></div>
+    </div>
+
+    <div class="game_ID" >
+        <label class="fl"><span>*</span>&nbsp;&nbsp;地&nbsp;址:</label>
+        <div style="margin-left: -3px;" >
+            {{item.person_adress}}
+        </div>
+        <div class="clearfix"></div>
+    </div>
+
+    <div class="game_ID" >
+        <label class="fl"><span>*</span>&nbsp;&nbsp;签&nbsp;名:</label>
+        <div style="margin-left: -3px;" >
+            {{item.person_content}}
+        </div>
+        <div class="clearfix"></div>
+    </div>
+
+    <div class="game_ID" >
+        <label class="fl"><span>*</span>&nbsp;&nbsp;身&nbsp;高:</label>
+        <div style="margin-left: -3px;" >
+            {{item.person_height}}
+        </div>
+        <div class="clearfix"></div>
+    </div>
+
+    <div class="game_ID" >
+        <label class="fl"><span>*</span>&nbsp;&nbsp;体&nbsp;重:</label>
+        <div style="margin-left: -3px;" >
+            {{item.person_weight}}
+        </div>
+        <div class="clearfix"></div>
+    </div>
+
+    <div class="game_ID" >
+        <label class="fl"><span>*</span>&nbsp;&nbsp;职&nbsp;业:</label>
+        <div style="margin-left: -3px;" >
+            {{item.person_career}}
+        </div>
+        <div class="clearfix"></div>
+    </div>
+
+    <div class="game_ID" >
+        <label class="fl"><span>*</span>&nbsp;&nbsp;学&nbsp;校:</label>
+        <div style="margin-left: -3px;" >
+            {{item.person_school}}
+        </div>
+        <div class="clearfix"></div>
+    </div>
+
+    <div class="game_ID" >
+        <label class="fl"><span>*</span>&nbsp;&nbsp;兴&nbsp;趣:</label>
+        <div style="margin-left: -3px;" >
+            {{item.person_interest}}
+        </div>
+        <div class="clearfix"></div>
+    </div>
+
+    <div class="game_ID" >
+        <label class="fl"><span>*</span>&nbsp;&nbsp;描&nbsp;述:</label>
+        <div style="margin-left: -3px;" >
+            {{item.person_servicedescription}}
+        </div>
+        <div class="clearfix"></div>
+    </div>
+
+    <div class="game_ID" >
+        <label class="fl"><span>*</span>&nbsp;注&nbsp;册&nbsp;时&nbsp;间</label>
+        <div style="margin-left: -3px;" >
+            {{item.person_createtime}}
+        </div>
+        <div class="clearfix"></div>
+    </div>
+
+    <div class="game_ID" >
+        <label class="fl"><span>*</span>&nbsp;成&nbsp;为&nbsp;主&nbsp;博&nbsp;时&nbsp;间</label>
+        <div style="margin-left: -3px;" >
+            {{item.person_becometime}}
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    </div>
+</div>
+<!--资料-->
+<script th:inline="javascript">
+    var pid = [[${session.nameTPerson?.pid}]];
+</script>
+<script type="text/javascript">
+    /*加载用户的信息*/
+    var  users=new Vue({
+        el:'#top_box',
+        data:{
+            user:[]
+        }
+    });
+    var getUsersInfo=function(){
+        $.ajax({
+            type: 'get',
+            dataType: 'json',
+            url: '/getuserinfo',
+            data: {pid:pid},
+            success: function (rest) {
+                users.user = rest.results;
+            }
+        });
+    };
+    getUsersInfo();
+
+
+    /*加载用户的信息*/
+    var  userzl=new Vue({
+        el:'#userinfo',
+        data:{
+            users:[]
+        }
+    });
+    var getUsersInfo=function(){
+        $.ajax({
+            type: 'post',
+            dataType: 'json',
+            url: '/getuserzl',
+            data: {pid:pid},
+            success: function (rest) {
+                userzl.users = rest.results;
+            }
+        });
+    };
+    getUsersInfo();
+
+</script>
+</body>
+</html>

@@ -12,7 +12,9 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 /**
- *
+ *用户表
+ * @author 
+ * @since 2019-01-16
  */
 @Data
 @NoArgsConstructor
@@ -120,10 +122,15 @@ public class TPerson implements Serializable {
      */
     private String personCoverphoto;
 
+
     /**
      * 创建时间
      */
     private String personCreatetime;
+    /**
+    * 服务描述
+    */
+    private String  personServicedescription;
 
     /**
      * 成为主播时间
@@ -149,11 +156,5 @@ public class TPerson implements Serializable {
      * 修改(1)成为主播()
      */
     private Integer zZhubo;
-
-    /**
-     * 服务描述
-     */
-    private String  personServicedescription;
-
 
 }

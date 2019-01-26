@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="./css/dateRange.css" />
+    <script src="./js/jquery-1.12.3.min.js"></script>
+    <script type="text/javascript" src="./js/dateRange.js"></script>
+    <link href="./css/newcommon_admin.css" type="text/css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/vue/2.5.21/vue.js"></script>
+</head>
+<style>
+    .seek_time_box{
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        border: none 0;
+        font-family: "微软雅黑", "Hiragino Sans GB", tahoma, arial, "\5B8B\4F53";
+        -webkit-font-smoothing: antialiased;
+        -webkit-box-sizing: content-box;
+        -moz-box-sizing: content-box;
+        box-sizing: content-box;
+    }
+</style>
+<body>
+<!--左边-->
+<!--left_column-->
+<div id="left_column">
+    <div>
+        <a href="/indexw" target="_blank">
+            <i class="header " style="color:white;margin:10px 0 0 25px;">
+                <img src="./img/icon.png">
+            </i></a>
+        <div class="boundary"></div>
+    </div>
+    <div>
+        <div class="manage_bigbox mt15">
+            <div class="manage_box pb15">
+                <i class="icon_bgs manage2 fl"></i>
+                <span class="fl">管理</span>
+                <div class="clearfix"></div>
+            </div>
+            <div class="classify_box">
+                <a href="/indexw">我的订单</a>
+                <a href="/atten">我的关注</a>
+                <!--<a href="https://y.tuwan.com/home/medal/">聊天室特权</a>-->
+                <!--<a href="https://y.tuwan.com/home/blackroom/">黑名单管理</a>-->
+
+                <a href="/trecord">交易记录</a>
+                <!--<a href="/gift">礼物记录</a>-->
+
+            </div>
+        </div>
+        <div class="manage_bigbox mt15">
+            <div class="manage_box pb15">
+                <i class="icon_bgs manage3 fl"></i>
+                <span class="fl">设置</span>
+                <div class="clearfix"></div>
+            </div>
+            <div class="classify_box">
+                <a href="/secur">安全中心</a>
+                <a href="/data">个人资料</a>
+                <a href="/playinfo">申请入驻</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!--left-column-end-->
+<!--top-box-->
+<div id="top_box" >
+    <div class="fr" v-for="(iten,index) in user">
+        <div class="mailbox_bigbox pt25 pb20 fl">
+            <a href="#">
+                <div class="fl mailbox_box">
+                    <i class="icon_bgs fl mailbox"></i>
+                    <span class="mailshu" style="display: none;">
+                    </span>
+                    <span class="fl">消息</span>
+                    <div class="clearfix"></div>
+                </div>
+            </a>
+            <div class="fl service_box course5" id="dd_kefu_qidian">
+                <i class="icon_bgs fl service"></i><span class="fl">客服</span>
+                <div class="clearfix"></div>
+            </div>
+            <div class="fl"><i class="fl"><img
+                    src="./img/icon_uid.png"></i><span class="fl">PID:{{iten.pid}}</span>
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="clearfix"></div>
+        </div>
+        <div class="fl ml25 head_img_box">
+            <div class="vip_text_box fl">
+                <div class="fl head_img">
+                    <a href="/data">
+                        <img :src="'http://pleuof34m.bkt.clouddn.com/'+iten.person_image+'?imageView2/2/w/400/h/400/q/100'"
+                             alt="头像" title="" onerror="avatarNoFound(this)">
+                    </a>
+                </div>
+                <div class="fl ml10 vip_text">
+                    <div class="vip_01">{{iten.person_flate==0?'用户':'主播'}}</div>
+                    <div class="vip_02">
+                        <a href="/data" id="name_href"  style="text-align: center;direction: none" >{{iten.person_nickname}}</a>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="common_login" style="display: none;background-color: #f4f3f3;width: 150px;height: 100px;margin-top: 5px;">
+                当前余额:{{balance}}
+            </div>
+            <!--<div class="fl ml10 mr40 pl10 quit" id="dologout">退出</div>-->
+            <a class="fl ml10 mr40 pl10 quit" href="/logout" id="dologout">退出</a>
+            <div class="clearfix"></div>
+        </div>
+        <div class="clearfix"></div>
+
+    </div>
+    <div class="clearfix"></div>
+</div>
+<div id="c_top" class="content_top"></div>
+<div class="left_margin"></div>
+<!--消费-->
+<div id="record" class="left_margin">
+    <div class="seek_time_box">
+        <div class="record_title"><b>交易记录</b></div>
+        <div class="seek_time">
+            <div class="fl mt35 seek_box">
+                <div class="fl mt5"> 交易方式：</div>
+                <select id="type"  class="ta_date fl">
+                    <option value="0">全部</option>
+                    <option value="2">消费</option>
+                    <option value="3">退款</option>
+                    <option value="9">红包</option>
+                </select>
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="fr balance_box mt25">
+                <div class="account">账户余额（元）</div>
+                <div class="account_time account_time_01" id="zhangyu"></div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <div class="business_box">
+        <div class="business_time fl">交易账户</div>
+        <div class="business_account fl">交易时间</div>
+        <div class="business_account fl">交易单号</div>
+        <div class="business_after fl">金额(元)</div>
+        <div class="clearfix"></div>
+    </div>
+    <!--数据-->
+    <div class="business_box" v-for="(item,index) in recorecd ">
+        <div class=" business_time fl">{{item.pid}}</div>
+        <div class="business_account fl">{{item.r_rechargetime}}</div>
+        <div class="business_account fl">{{item.rid}}</div>
+        <div class="business_after fl">{{item.r_rechargemoney}}</div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="order_form" style="display: none;">
+        <img src="https://res.tuwan.com/templet/teach/admin/trecord/images/order_form.png"></div>
+
+</div>
+<div id="paging_box" >
+    <ul class="paging_box mt30 mb50">
+    </ul>
+    <label class="ye" style="display: none;"></label>
+</div>
+
+<script th:inline="javascript">
+    var pid = [[${session.nameTPerson?.pid}]];
+</script>
+<script type="text/javascript">
+    var userbalance;
+    /*加载用户的信息*/
+    var  recharge=new Vue({
+        el:'#top_box',
+        data:{
+            user:[]
+        }
+    });
+    var getUsersInfo=function(){
+        $.ajax({
+            type: 'get',
+            dataType: 'json',
+            url: '/getuserinfo',
+            data: {pid:pid},
+            success: function (rest) {
+                recharge.user = rest.results;
+                 userbalance=rest.results[0].m_balance;
+                 $("#zhangyu").text(userbalance);
+            }
+        });
+    };
+
+    getUsersInfo();
+
+    var  userrecord=new Vue({
+        el:'#record',
+        data:{
+            recorecd:[]
+        }
+    });
+    var getUsersrRecharge=function(){
+        $.ajax({
+            type: 'get',
+            dataType: 'json',
+            url: '/gettrecord',
+            data: {pid:pid},
+            success: function (rest) {
+                userrecord.recorecd = rest.recharge;
+                /*判断订单是否有*/
+                if(rest.length>0){
+                    $('.order_form').css({display: 'block'});
+                }
+                /* userbalance.balance=rest.results[0].m_balance;*/
+            }
+        });
+    };
+
+    getUsersrRecharge();
+
+    //函数页码
+    /*var longs = 0;
+    $("#type option:first").prop("selected", 'selected');
+    $.extend({'yema':function(page,pagesize){
+            var ty = $('#type').val();
+            $.ajax({
+                url: "",
+                type: "get",
+                dataType: "jsonp",
+                success:function(tmp){
+                    //判断数据是否存在
+                    if (tmp.list) {
+                        $('.order_form').css({
+                            display: 'none'
+                        });
+                        $('.business_bigbox').css({
+                            display: 'block'
+                        });
+                        //longs 总页数
+                        longs = Math.ceil(tmp.total/8);
+                        $('.ye').text(page);//放到隐藏域中
+                        //拼接页码html
+                        var str ='';
+                        if (longs == 1) {
+                            str = '';
+                        }else if (longs<8) {
+                            for (var i = 1; i <= longs; i++) {
+                                str += '<li class="fen">'+i+'</li>';
+                            }
+                        }else if(page<=4){
+                            for (var i = 1; i <= 7; i++) {
+                                str += '<li class="fen">'+i+'</li>';
+                            }
+                            str += '<li class="fen" >&gt</li><li class="fen">尾页</li>';
+                        }else if(page>=longs-3){
+                            str += '<li class="fen">首页</li><li class="fen">&lt</li>';
+                            for (var i = longs-6; i <= longs; i++) {
+                                str += '<li class="fen">'+i+'</li>';
+                            }
+                        }else{
+                            str += '<li class="fen">首页</li><li class="fen">&lt</li>';
+                            var j = page-3;
+                            for (var i = j; i < j+7; i++) {
+                                str += '<li class="fen">'+i+'</li>';
+                            }
+                            str += '<li class="fen" >&gt</li><li class="fen">尾页</li>';
+                        }
+                        str += '<div class="clearfix"></div>';
+                        //替换页码html
+                        $('.paging_box').html(str);
+                        //数据替换
+                        var data = tmp.list;
+                        var str = '';
+                        var i=0;
+                        for(var j = 0;j<data.length;j++){
+                            str +=  i%2==0?"<div class='business_box' style='background:#f9f9f9;'>" +
+                                "<div class='business_time fl'>":"<div class='business_box'><div class='business_time fl'>";
+                            str += data[j].time;
+                            str +="</div><div class='business_explain fl'>";
+                            var type = '';
+                            var tt ='';
+                            switch (data[j].type+''){
+                                case "1":
+                                    type="充值";
+                                    break;
+                                case "2":
+                                    type="消费";
+                                    break;
+                                case "3":
+                                    type="退款";
+                                    break;
+                                case "4":
+                                    type="提现";
+                                    break;
+                                case "5":
+                                    type="收益";
+                                    break;
+                                case "6":
+                                    type="渠道收入";
+                                    break;
+                                case "7":
+                                    type="扣款";
+                                    break;
+                                case "8":
+                                    type="礼物";
+                                    break;
+                                case "9":
+                                    type="红包";
+                                    break;
+                                case "10":
+                                    type="送红包";
+                                    break;
+                                case "2000":
+                                    type="消费-现金支付";
+                                    break;
+                                case "2001":
+                                    type="消费-余额支付";
+                                    break;
+                                default:
+                                    type="未知";
+                            }
+                            str +=type;
+                            str +="</div><div class='business_account fl'>"
+                            if (type == "消费-现金支付") {
+                                tt = '现金支付';
+                            }
+                            if(type == "消费-余额支付"){
+                                tt = '余额支付';
+                            }
+                            if (type == '消费') {
+                                tt = '消费';
+                            }
+                            else if(data[j].tt==1){tt='支付宝';}
+                            else if(data[j].tt==2){tt='微信';}
+                            else if(data[j].tt==3){tt='微信';}
+                            else if(data[j].tt == undefined){tt='个人账户：'+data[j].uid;}
+                            if(type == '退款') tt='个人账户：'+data[j].uid;
+                            str +=tt;
+                            if(type=='提现' || type=='消费' || type=="消费-现金支付" || type=="消费-余额支付" || type=="扣款" || type == "送红包"){
+                                var sss = " style='color: #ff6870;'";
+                                var price = "-"+(data[j].price/100).toFixed(2);
+                            }else{
+                                var sss =" style='color:#25e198;'";
+                                var price = "+"+(data[j].price/100).toFixed(2);
+                            }
+                            str +="</div><div class='business_after fl'"+sss+">";
+                            str +=price;
+                            str +="</div><div class='clearfix'></div></div>";
+                            i++;
+                        }
+                        $('.business_bigbox').html(str);
+                        $('.fen').each(function() {
+                            if ($(this).text()==page) {
+                                $(this).css({
+                                    border: 'solid 1px #25e198',
+                                    background: '#25e198',
+                                    color: '#fff'
+                                });
+                            }else{
+                                $(this).css({
+                                    border: '',
+                                    background: '',
+                                    color: ''
+                                });
+                            }
+                        });
+                    }else{
+                        $('.order_form').css({
+                            display: 'block'
+                        });
+                        $('.business_bigbox').css({
+                            display: 'none'
+                        });
+                        $('.paging_box').html('');
+                    }
+                }
+
+            });
+        }})
+    //页码点击事件
+    $(document).on("click",'.fen',function(event) {
+        var page = $(this).text();
+        // alert(page);
+        if (page == "首页") {
+            page=1;
+        }else if (page =="尾页") {
+            page= longs;
+        }else if (page == '<') {
+            page = $('.ye').text();
+            page--;
+        }else if (page == '>') {
+            page = $('.ye').text();
+            page++;
+        }
+        var pagesize = 8;
+        $.yema(page,pagesize);
+    });
+    //查找事件
+    $('#type').change(function(event) {
+        $.yema(1,8);
+    });
+    $('.business_bigbox .business_box:even').css('background', '#f9f9f9');
+    $.yema(1,8);*/
+</script>
+</body>
+</html>

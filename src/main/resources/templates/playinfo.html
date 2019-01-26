@@ -1,0 +1,1704 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>导师资料-点点约玩</title>
+
+    <link href="./css/geeteststyle.css" rel="stylesheet" type="text/css">
+    <link href="./css/personal_data.css" type="text/css" rel="stylesheet">
+    <link href="./css/newcommon_admin.css" type="text/css" rel="stylesheet">
+    <link href="./css/pot_up_settings.css" type="text/css" rel="stylesheet">
+    <!--<link href="./js/layer/mobile/need/layer.css" type="text/css" rel="stylesheet">-->
+    <link rel="stylesheet" href="./css/easyhelper.min.css">
+    <link rel="stylesheet" href="./js/layui/css/layui.css">
+    <link rel="stylesheet" href="./js/laydate/theme/default/laydate.css">
+    <link rel="stylesheet" href="./css/pick-pcc.min.1.0.1.css">
+
+
+    <script src="./js/es6-shim.min.js"></script>
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/jquery-3.3.1.min.js"></script>
+    <script src="./js/jquery.transit.min.js"></script>
+    <script src="./js/easyhelper.min.js"></script>
+    <script type="text/javascript" src="./js/jquery-1.12.3.min.js"></script>
+    <script type="text/javascript" src="./js/jquery.zclip.js"></script>
+    <script type="text/javascript" src="./js/cropbox.js"></script>
+    <script type="text/javascript" src="./js/gt.js"></script>
+    <script type="text/javascript" src="./js/jsencrypt.min.js"></script>
+    <script type="text/javascript" src="./js/getRSAKey.js"></script>
+    <script type="text/javascript" src="./js/encryption.js"></script>
+    <script src="https://cdn.bootcss.com/vue/2.5.21/vue.js"></script>
+    <script type="text/javascript" src="./js/personal_data1.js"></script>
+    <script type="text/javascript" src="./js/lrz.js"></script>
+    <script type="text/javascript" src="./js/exif.js"></script>
+
+    <script type="text/javascript" src="./js/moxie.js"></script>
+    <script type="text/javascript" src="./js/plupload.dev.js"></script>
+    <script type="text/javascript" src="./js/upload_playerinfo.js"></script>
+    <script type="text/javascript" src="./js/laydate/laydate.js"></script>
+    <script type="text/javascript" src="./js/layui/layui.all.js"></script>
+    <script type="text/javascript" src="./js/pick-pcc.min.1.0.1.js"></script>
+
+    <script type="text/javascript" src="./js/layer/layer.js"></script>
+</head>
+<style>
+    .keep_box {
+        background-color: #999999;
+        width: 192px;
+        height: 52px;
+        line-height: 52px;
+        font-size: 18px;
+        color: #fff;
+        text-align: center;
+        margin-top: 30px;
+        margin-right: 20px;
+        cursor: pointer;
+        border: none 0;
+        border-radius: 4px;
+        -webkit-border-radius: 4px;
+    }
+
+    .keep_box1 {
+        margin-left: -100px;
+        background-color: #5ecfba;
+    }
+
+    .keep_box1:hover {
+        background-color: #47b5a1;
+    }
+
+    .keep_box2:hover {
+        background-color: #888888;
+    }
+
+    .img_ts {
+        font-size: 12px;
+        color: #ea6e74;
+        width: 80%;
+        margin-top: -6px;
+    }
+
+    .img_ts input {
+        width: 80%;
+    }
+
+    .submit_box input {
+        height: 52px;
+        margin-left: 60%;
+    }
+
+    .game_ID span {
+        padding-top: 6px;
+    }
+
+    .content_bg1 {
+        height: 910px;
+    }
+
+    .imageBox .thumbBox {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 402px;
+        height: 402px;
+        margin-top: -200px;
+        margin-left: -200px;
+        border-radius: 50%;
+        box-sizing: border-box;
+        border: 1px solid rgb(102, 102, 102);
+        box-shadow: 0 0 0 1000px rgba(0, 0, 0, 0.5);
+        background: none repeat scroll 0% 0% transparent;
+    }
+
+    .pop_up_basic {
+        width: 760px;
+        height: 750px;
+        top: 50%;
+        margin-top: -375px;
+    }
+
+    .imageBox {
+        width: 460px;
+        height: 460px;
+    }
+
+    .cropped {
+        right: -312px;
+        height: 518px;
+        width: 200px;
+    }
+
+    .action {
+        width: 464px;
+    }
+
+    .keep_box2 {
+        margin-right: 77px;
+    }
+
+    .keep_box1 {
+        margin-left: -110px;
+    }
+
+    .new-contentarea {
+        overflow: visible;
+    }
+
+    a.upload-img {
+        margin-left: 0;
+        text-align: center;
+    }
+
+    .container {
+        margin: 20px;
+    }
+
+    .lol_status_03 {
+        color: red;
+        font-size: 14px;
+    }
+
+    #user_center_box {
+        margin-top: 0;
+    }
+
+    .content_center {
+        background-color: #fff;
+        margin: 0 auto;
+        width: 52%;
+        padding: 5% 10%;
+        font-family: '微软雅黑';
+    }
+
+    .protocol_box {
+        width: 100%;
+        padding-top: 17px;
+        padding-bottom: 17px;
+        border: #d6d7dc 1px solid;
+        margin-top: 65px;
+    }
+
+    .switch {
+        float: left;
+        margin-left: 12px;
+    }
+
+    .agree {
+        float: left;
+        color: #333;
+        margin-left: 12px;
+        margin-right: 26px;
+    }
+
+    .point_out {
+        float: left;
+        color: #be1a2c;
+        font-size: 14px;
+    }
+
+    .botton_box .botton_box1 {
+        background-color: #afb0b3;
+    }
+
+    .botton_box input {
+        height: 47px;
+        width: 190px;
+        color: #fff;
+        font-weight: 500;
+        margin-top: 40px;
+    }
+
+    button, input, select, .content_text {
+        font-size: 100%;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        border: none;
+    }
+
+    .botton_box .botton_box2 {
+        background-color: #be1a2c;
+        margin-left: 30px;
+        cursor: pointer;
+    }
+
+    .botton_box input {
+        height: 47px;
+        width: 190px;
+        color: #fff;
+        font-weight: 500;
+        margin-top: 40px;
+    }
+
+    .content_center .content_bigtitle {
+        font-size: 24px;
+        color: #333333;
+        text-align: center;
+        line-height: 34px;
+    }
+
+    .content_center .content_title {
+        font-size: 18px;
+        color: #333333;
+        line-height: 30px;
+    }
+
+    .content_center .content_text {
+        font-size: 14px;
+        color: #666666;
+        line-height: 28px;
+    }
+
+    .content_center_01 {
+        height: 500px;
+        overflow-y: scroll;
+    }
+
+    .closehide {
+        position: absolute;
+    }
+
+    .lol_box {
+        margin-left: 2.3%;
+        margin-top: 49px;
+    }
+</style>
+<body>
+<!--pop_up-->
+<!--<div id="mailer_box" style="display:none">
+    <div class="pop_up_bg"></div>
+    <div class="mailer">
+        <img src="./img/close.png" class="fr close">
+        <div class="clearfix"></div>
+        <div class="mailer_title mt25">我们已收到您的申请</div>
+        <div class="mailer_time">1970-01-01 08:00</div>
+        <p class="mailer_text">亲爱的，您的资料已提交成功，请申请加入考核QQ群进行考核。</p>
+        <div class="qq_box">
+            <a class="ic_face fl"
+               href="//shang.qq.com/wpa/qunwpa?idkey=5c75d39709a82b906b4ff53e5c73e8db2aee02688837dbb2a7239a24913e7538"
+               target="_blank" title="考核群：123123"><img src="./img/qq.png"></a>
+            <div class="fl face_qq mt15 ml25">
+                <span>考核群：</span>
+                <input type="text" class="input" id="share_link" value="596143834"/>
+                <a href="#none" class="copy-input" title="点击复制">【点击复制】</a>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>-->
+<!--pop_up_end-->
+
+
+<!--左边-->
+<!--left_column-->
+<div id="left_column">
+    <div>
+        <a href="/indexw" target="_blank">
+            <i class="header " style="color:white;margin:10px 0 0 25px;">
+                <img src="./img/icon.png">
+            </i></a>
+        <div class="boundary"></div>
+    </div>
+    <div>
+        <div class="manage_bigbox mt15">
+            <div class="manage_box pb15">
+                <i class="icon_bgs manage2 fl"></i>
+                <span class="fl">管理</span>
+                <div class="clearfix"></div>
+            </div>
+            <div class="classify_box">
+                <a href="/indexw">我的订单</a>
+                <a href="/atten">我的关注</a>
+                <!--<a href="https://y.tuwan.com/home/medal/">聊天室特权</a>-->
+                <!--<a href="https://y.tuwan.com/home/blackroom/">黑名单管理</a>-->
+
+                <a href="/trecord">交易记录</a>
+                <!--<a href="/gift">礼物记录</a>-->
+
+            </div>
+        </div>
+        <div class="manage_bigbox mt15">
+            <div class="manage_box pb15">
+                <i class="icon_bgs manage3 fl"></i>
+                <span class="fl">设置</span>
+                <div class="clearfix"></div>
+            </div>
+            <div class="classify_box">
+                <a href="/secur">安全中心</a>
+                <a href="/data">个人资料</a>
+                <a href="/playinfo">申请入驻</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!--left-column-end-->
+<!--top-box-->
+<div id="top_box" >
+    <div class="fr" v-for="(iten,index) in user">
+        <div class="mailbox_bigbox pt25 pb20 fl">
+            <a href="#">
+                <div class="fl mailbox_box">
+                    <i class="icon_bgs fl mailbox"></i>
+                    <span class="mailshu" style="display: none;">
+                    </span>
+                    <span class="fl">消息</span>
+                    <div class="clearfix"></div>
+                </div>
+            </a>
+            <div class="fl service_box course5" id="dd_kefu_qidian">
+                <i class="icon_bgs fl service"></i><span class="fl">客服</span>
+                <div class="clearfix"></div>
+            </div>
+            <div class="fl"><i class="fl"><img
+                    src="./img/icon_uid.png"></i><span class="fl">PID:{{iten.pid}}</span>
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="clearfix"></div>
+        </div>
+        <div class="fl ml25 head_img_box">
+            <div class="vip_text_box fl">
+                <div class="fl head_img">
+                    <a href="/data">
+                        <img :src="'http://pleuof34m.bkt.clouddn.com/'+iten.person_image+'?imageView2/2/w/400/h/400/q/100'"
+                             alt="头像" title="" onerror="avatarNoFound(this)">
+                    </a>
+                </div>
+                <div class="fl ml10 vip_text">
+                    <div class="vip_01">{{iten.person_flate==0?'用户':'主播'}}</div>
+                    <div class="vip_02">
+                        <a href="/data" id="name_href"  style="text-align: center;direction: none" >{{iten.person_nickname}}</a>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="common_login" style="display: none;background-color: #f4f3f3;width: 150px;height: 100px;margin-top: 5px;">
+                当前余额:{{balance}}
+            </div>
+            <!--<div class="fl ml10 mr40 pl10 quit" id="dologout">退出</div>-->
+            <a class="fl ml10 mr40 pl10 quit" href="/logout" id="dologout">退出</a>
+            <div class="clearfix"></div>
+        </div>
+        <div class="clearfix"></div>
+
+    </div>
+    <div class="clearfix"></div>
+</div>
+<div id="c_top" class="content_top"></div>
+<div class="left_margin"></div>
+<!--info start-->
+<div id="user_center_box" style="display:none">
+    <div class="user_content_left">
+        <div class="user_center">
+            <form method="post" enctype="multipart/form-data" id="personform">
+                <input type="hidden" name="dtid" class="dtid" value="31540"/>
+                <input type="hidden" name="loadflaghidden" id="loadflaghidden" value="0"/>
+                <!--头像-->
+                <!--<div>
+                    <div class="head_samllimg">
+                        <img id="headimg" src="">
+                    </div>
+                    <div class="head_title">修改头像</div>
+                    <input type="hidden" name="img64" id="img64" value="">
+                    <input type="hidden" name="ori_avatar" id="ori_avatar" value=""/>
+                </div>
+                <div class="care_text mt10">支持jpg/gif/png格式的图片，文件必须小于3M</div>-->
+                <!--资料-->
+                <div class="mt50 border_text_box">
+                    <div class="fl border_left"></div>
+                    <div class="fl border_text pb30">基本资料</div>
+                    <div class="fl remind ml35">标题标*为必填项，请务必填写真实资料</div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="mt30">
+                    <div class="fl mt10 name_title">
+                        <span class="star">*</span>昵称:
+                    </div>
+                    <input class="fl name_text pl10" type="text" placeholder="昵称" value="" id="personNickname"
+                           name="personNickname">
+                    <div class="clearfix"></div>
+                </div>
+                <div class="mt30">
+                    <div class="fl name_title mr5">
+                        <span class="star">*</span>性别:
+                    </div>
+                    <div class="fl sex_box">
+                        <input type="radio" value="男" checked name="personSex">&nbsp;&nbsp;男 &nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" value="女" name="personSex">&nbsp;&nbsp;女
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="mt30">
+                    <div class="fl name_title  mt10">
+                        <span class="star">*</span>出生日期:
+                    </div>
+                    <input type="text" id="birthday" placeholder="例:19990102" class="fl name_text pl10" value=""
+                           name="personBirthday">
+                    <div class="clearfix"></div>
+                </div>
+                <div class="mt30" onload="init()">
+                    <div class="fl name_title  mt10">
+                        <span class="star">*</span>所在地:
+                    </div>
+                    <!--<select id="province" name="personAdress" class="fl mr10 pl10 pr10" onchange="getCity()">
+                        <option value="0" selected="selected" name="personAdress">选择省份</option>
+                        <option value="100000">北京市</option>
+                        <option value="100020">天津市</option>
+                        <option value="100021">上海市</option>
+                        <option value="100022">重庆市</option>
+                        <option value="130000">河北省</option>
+                        <option value="140000">山西省</option>
+                        <option value="150000">内蒙古自治区</option>
+                        <option value="210000">辽宁省</option>
+                        <option value="220000">吉林省</option>
+                        <option value="230000">黑龙江省</option>
+                        <option value="320000">江苏省</option>
+                        <option value="330000">浙江省</option>
+                        <option value="340000">安徽省</option>
+                        <option value="350000">福建省</option>
+                        <option value="360000">江西省</option>
+                        <option value="370000">山东省</option>
+                        <option value="410000">河南省</option>
+                        <option value="420000">湖北省</option>
+                        <option value="430000">湖南省</option>
+                        <option value="440000">广东省</option>
+                        <option value="450000">广西壮族自治区</option>
+                        <option value="460000">海南省</option>
+                        <option value="510000">四川省</option>
+                        <option value="520000">贵州省</option>
+                        <option value="530000">云南省</option>
+                        <option value="540000">西藏自治区</option>
+                        <option value="610000">陕西省</option>
+                        <option value="620000">甘肃省</option>
+                        <option value="630000">青海省</option>
+                        <option value="640000">宁夏回族自治区</option>
+                        <option value="650000">新疆维吾尔自治区</option>
+                        <option value="659005">台湾省</option>
+                    </select>
+                    <select id="city" name="personAdress" class="fl pl10 pr10">
+                        <option value="0" selected>选择城市</option>
+                    </select>-->
+                    <a href="javascript:void(0)" class="pick-area pick-area2" name="" style="margin-left: 138px;"></a>
+                    <!--<div style="margin-top: -39px;margin-left: 350px"></div>-->
+                        <input type="text" placeholder="省/市" name="personAdress" style="margin:2px 0 0 138px">
+                    <div class="clearfix"></div>
+                </div>
+                <div class="mt30">
+                    <!--<div class="fl mt10 name_title">
+                        <span class="star" style="margin-right:10px;">*</span> 手机号:</div>
+                    <div style="padding-top: 10px;" id="phone"></div>-->
+                    <div class="clearfix"></div>
+                </div>
+                <div class="mt30">
+                    <div class="fl mt10 name_title"><span class="star">*</span>QQ：</div>
+                    <input class="fl name_text pl10" id="qq" name="personQq" type="number" maxlength="11" placeholder="重要联系方式(11位)" value="">
+                    <div class="clearfix"></div>
+                </div>
+                <div class="mt50">
+                    <div class="fl mt10 name_title">
+                        <span class="star">*</span>个性标签:<br/>
+                        <span class="Optional">（请任意选择两项）</span>
+                    </div>
+                    <div style="width:540px;" class="fl label">
+                        <div class='mt10 fl' style='margin-right:7%;'>
+                            <input type='checkbox' name='tag' class='TagCheckBox' value='特殊才艺'/>
+                            <span class='fl'>特殊才艺</span>
+                            <div class='clearfix'></div>
+                        </div>
+                        <div class='mt10 fl' style='margin-right:7%;'>
+                            <input type='checkbox' name='tag' class='TagCheckBox' value='颜值担当'/>
+                            <span class='fl'>颜值担当</span>
+                            <div class='clearfix'></div>
+                        </div>
+                        <div class='mt10 fl' style='margin-right:7%;'>
+                            <input type='checkbox' name='tag' class='TagCheckBox' value='逗比闲聊'/>
+                            <span class='fl'>逗比闲聊</span>
+                            <div class='clearfix'></div>
+                        </div>
+                        <div class='mt10 fl' style='margin-right:7%;'>
+                            <input type='checkbox' name='tag' class='TagCheckBox' value='声音甜美'/>
+                            <span class='fl'>声音甜美</span>
+                            <div class='clearfix'></div>
+                        </div>
+                        <div class='mt10 fl' style='margin-right:7%;'>
+                            <input type='checkbox' name='tag' class='TagCheckBox' value='乖巧黏人'/>
+                            <span class='fl'>乖巧黏人</span>
+                            <div class='clearfix'></div>
+                        </div>
+                        <div class='mt10 fl' style='margin-right:7%;'>
+                            <input type='checkbox' name='tag' class='TagCheckBox' value='情感知心'/>
+                            <span class='fl'>情感知心</span>
+                            <div class='clearfix'></div>
+                        </div>
+                        <div class='mt10 fl' style='margin-right:7%;'>
+                            <input type='checkbox' name='tag' class='TagCheckBox' value='爽朗直率'/>
+                            <span class='fl'>爽朗直率</span>
+                            <div class='clearfix'></div>
+                        </div>
+                        <div class='mt10 fl' style='margin-right:7%;'>
+                            <input type='checkbox' name='tag' class='TagCheckBox' value='激情四射'/>
+                            <span class='fl'>激情四射</span>
+                            <div class='clearfix'></div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="mt50">
+                    <div class="fl mt10  name_title"><span class="star">*</span>个性签名：</div>
+                    <input type="text" class="fl input_file" name="personContent" id="short_desc" placeholder="一句话介绍你自己"
+                           value="">
+                    <div class="clearfix"></div>
+                </div>
+                <br>
+                <br>
+
+                <div class="mt30" style="margin-bottom: 43px;">
+                    <div class="fl mt10">Tips：以下资料为选填内容，资料完整的陪玩导师优先获得首页推荐特权</div>
+                    <div class="clearfix"></div>
+                </div>
+                <div style="width:500px;height:1px;border-bottom:2px dotted #cccccc;"></div>
+                <div class="mt30">
+                    <div class="fl mt10 name_title"><span class="Optional">（选填）</span>身高(cm)</div>
+                    <input class="fl name_text pl10" id="Sheight" name="personHeight" type="text" placeholder="身高"
+                           value="">
+                    <div class="clearfix"></div>
+                </div>
+                <div class="mt30">
+                    <div class="fl mt10 name_title"><span class="Optional">（选填）</span>体重(kg)</div>
+                    <input class="fl name_text pl10" id="weight" name="personWeight" type="text" placeholder="体重"
+                           value="">
+                    <div class="clearfix"></div>
+                </div>
+                <div class="mt30">
+                    <div class="fl mt10 name_title"><span class="Optional">（选填）</span>职业：</div>
+                    <select name="personCareer" id="work">
+                        <option value="">请选择</option>
+                        <option value='学生'>学生</option>
+                        <option value='主播'>主播</option>
+                        <option value='医生'>医生</option>
+                        <option value='护士'>护士</option>
+                        <option value='模特'>模特</option>
+                        <option value='教师'>教师</option>
+                        <option value='公务员'>公务员</option>
+                        <option value='个体经营'>个体经营</option>
+                        <option value='上班族'>上班族</option>
+                        <option value='其他'>其他</option>
+                    </select>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="mt30 school" style="display:none">
+                    <div class="fl mt10 name_title"><span class="Optional">（选填）</span>学校：</div>
+                    <select name="school" id="personSchool">
+                        <option value="">请选择</option>
+                        <option value='0'>成都大学</option>
+                        <option value='1'>四川师范大学</option>
+                        <option value='2'>四川大学</option>
+                        <option value='3'>四川传媒学院</option>
+                    </select>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="mt30">
+                    <div class="fl mt10 name_title"><span class="Optional">（选填）</span>兴趣爱好：</div>
+                    <input type="text" class="fl input_file" name="personInterest" id="like" placeholder="字数不超过20个字"
+                           value="">
+                    <div class="clearfix"></div>
+                </div>
+                <div class="mt50">
+                    <div class="fl mt10 name_title"><span class="Optional">（选填）</span>魅力部位：<br/>
+                        <span class="Optional">（不超过三项）</span></div>
+                    <div style="width:540px;" class="fl label">
+                        <div class='mt10 fl mr40'>
+                            <input type='checkbox' name='organ' class='organ' value='眼睛'/>眼睛
+                        </div>
+                        <div class='mt10 fl mr40'>
+                            <input type='checkbox' name='organ' class='organ' value='鼻子'/>鼻子
+                        </div>
+                        <div class='mt10 fl mr40'>
+                            <input type='checkbox' name='organ' class='organ' value='耳朵'/>耳朵
+                        </div>
+                        <div class='mt10 fl mr40'>
+                            <input type='checkbox' name='organ' class='organ' value='嘴唇'/>嘴唇
+                        </div>
+                        <div class='mt10 fl mr40'>
+                            <input type='checkbox' name='organ' class='organ' value='胸部'/>胸部
+                        </div>
+                        <div class='mt10 fl mr40'>
+                            <input type='checkbox' name='organ' class='organ' value='腰部'/>腰部
+                        </div>
+                        <div class='mt10 fl mr40'>
+                            <input type='checkbox' name='organ' class='organ' value='腿'/>腿
+                        </div>
+                        <div class='mt10 fl mr40'>
+                            <input type='checkbox' name='organ' class='organ' value='臀部'/>臀部
+                        </div>
+                        <div class='mt10 fl mr40'>
+                            <input type='checkbox' name='organ' class='organ' value='手'/>手
+                        </div>
+                        <div class='mt10 fl mr40'>
+                            <input type='checkbox' name='organ' class='organ' value='其他'/>其他
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <!--<div id="container">
+                    <div class="mt30">
+                        <input type="hidden" name="fileurl" id="fileurl" value="">
+                        <div class="fl mt10"> <span class="Optional">（选填）</span>上传视频：</div>
+                        <input type="text" class="fl input_file" name="video" id="video" value="" placeholder="请上传十秒左右的自拍视频，视频“我是点点约玩的某某”" disabled="disabled">
+                        <span class="choose" id="selectfiles">选择</span>
+                        <div class="clearfix"></div>
+                        <span class="choose_text">注：视频大小不超过10MB，视频格式支持MP4，审核成功后获得真人认证勋章！</span>
+                        <div class="clearfix"></div>
+                        <div id="Progress" style="display: none;">
+                            <div  class="riginal_box fl">
+                                <div class="pop_up_original mt25"></div>
+                                <div class="pop_up_hou mb15"></div>
+                                <div class="zhengque">上传中，请等待...</div>
+                            </div>
+                            <div class="fl ml10">
+                                <div class="pop_up_percent mt10">0%</div>
+                                &lt;!&ndash; <div class="pop_up_per">取消上传</div> &ndash;&gt;
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+
+                    <div class="mt30" style="display:block">
+                        <div class="fl mt10 mr5 name_title"><span class="star">*</span> APP主页封面照：</div>
+                        <div class="fl" style="position: relative;">
+                            <input class="name_text pl10" type="button" value="上传图片" style="background-color: #5ecfba;color: #ffffff;height:32px;line-height:32px;">
+                            <input type="file"  class="file_01" id="appindeximg" accept="image/*" style="height:32px;line-height:32px;display:block;">
+                            <input type="hidden" name="appindeximg_64" id="appindeximg_64" value="">
+                            <div  class="diagram diagram3">示例图</div>
+                        </div>
+                        <div class="" style="margin-left: 10px;"><img style="width: 100px; margin-left: 20px;" src="./img/fmsl.jpg" class="appindeximgbreviary" /></div>
+                        <div class="voice_01 mt10" style="float: right;    margin-top: -6.6%;    margin-right: 13%;">请上传您的主页封面照，建议大小为：750*1334</div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>-->
+
+                <div class="mt50 border_text_box">
+                    <div class="fl border_left"></div>
+                    <div class="fl border_text pb30">开通服务</div>
+                    <div class="fl remind ml35">标题标*为必填项，请务必填写真实资料（个人最多申请开通七项服务）</div>
+                    <div class="clearfix"></div>
+                </div>
+                <!--服务-->
+                <div class="lol_bigbox" id="dj">
+
+                    <div class="fl lol_box"  >
+                        <div class="lol_img" dtid="31540" flag="0"  >
+                            <img src="./img/playinfo/apply_31540.png" class="status_lol"
+                                 style="width:80px;height:80px;display:none;" >
+                            <img src="./img/playinfo/apply_hover_31540.png"
+                                 style="width:80px;height:80px;display:block;" class="status_lolhover" >
+                        </div>
+                        <div class="lol_title" >线上LOL</div>
+                        <div class="lol_status">（未开通）</div>
+                    </div>
+
+
+
+                    <div class="fl lol_box" >
+                        <div class="lol_img" dtid="20002"  flag="0">
+                            <img src="./img/playinfo/apply_20002.png" class="status_lol"
+                                 style="width:80px;height:80px;display:block;">
+                            <img src="./img/playinfo/apply_hover_20002.png" style="width:80px;height:80px;display:none;"
+                                 class="status_lolhover">
+                        </div>
+                        <div class="lol_title">线上歌手</div>
+                        <div class="lol_status">（未开通）</div>
+                    </div>
+
+
+                    <div class="fl lol_box" >
+                        <div class="lol_img" dtid="20004"  flag="0">
+                            <!--<input type="checkbox" name="gid" value="20004" hidden="hidden">-->
+                            <!--<input name="gName" value="talker" hidden="hidden">-->
+                            <img src="./img/playinfo/apply_20004.png" class="status_lol"
+                                 style="width:80px;height:80px;display:block;">
+                            <img src="./img/playinfo/apply_hover_20004.png" style="width:80px;height:80px;display:none;"
+                                 class="status_lolhover">
+                        </div>
+                        <div class="lol_title">声优聊天</div>
+                        <div class="lol_status">（未开通）</div>
+                    </div>
+                    <div class="fl lol_box" >
+                        <div class="lol_img" dtid="20008" flag="0">
+                            <input type="checkbox" name="gid" value="20008" hidden="hidden">
+                            <!--<input name="gName" value="wangzhe" hidden="hidden">-->
+                            <img src="./img/playinfo/apply_20008.png" class="status_lol"
+                                 style="width:80px;height:80px;display:block;">
+                            <img src="./img/playinfo/apply_hover_20008.png" style="width:80px;height:80px;display:none;"
+                                 class="status_lolhover">
+                        </div>
+                        <div class="lol_title">王者荣耀</div>
+                        <div class="lol_status">（未开通）</div>
+                    </div>
+                    <div class="fl lol_box">
+                        <div class="lol_img" dtid="20011" flag="0">
+                            <input name="gid" value="20011" hidden="hidden">
+                            <!--<input name="gName" value="lover" hidden="hidden">-->
+                            <img src="./img/playinfo/apply_20011.png" class="status_lol"
+                                 style="width:80px;height:80px;display:block;">
+                            <img src="./img/playinfo/apply_hover_20011.png" style="width:80px;height:80px;display:none;"
+                                 class="status_lolhover">
+                        </div>
+                        <div class="lol_title">虚拟恋人</div>
+                        <div class="lol_status">（未开通）</div>
+                    </div>
+                    <div class="fl lol_box">
+                        <div class="lol_img" dtid="20012" flag="0">
+                            <input name="gid" value="20012" hidden="hidden">
+                            <!--<input name="gName" value="gosleep" hidden="hidden">-->
+                            <img src="./img/playinfo/apply_20012.png" class="status_lol"
+                                 style="width:80px;height:80px;display:block;">
+                            <img src="./img/playinfo/apply_hover_20012.png" style="width:80px;height:80px;display:none;"
+                                 class="status_lolhover">
+                        </div>
+                        <div class="lol_title">哄睡觉</div>
+                        <div class="lol_status">（未开通）</div>
+                    </div>
+                    <div class="fl lol_box">
+                        <div class="lol_img" dtid="20013" flag="0">
+                            <input name="gid" value="20013" hidden="hidden">
+                            <!--<input name="gName" value="weakup" hidden="hidden">-->
+                            <img src="./img/playinfo/apply_20013.png" class="status_lol"
+                                 style="width:80px;height:80px;display:block;">
+                            <img src="./img/playinfo/apply_hover_20013.png" style="width:80px;height:80px;display:none;"
+                                 class="status_lolhover">
+                        </div>
+                        <div class="lol_title">叫醒</div>
+                        <div class="lol_status">（未开通）</div>
+                    </div>
+                    <div class="fl lol_box">
+                        <div class="lol_img" dtid="20014" flag="0">
+                            <input name="gid" value="20014" hidden="hidden">
+                            <!--<input name="gName" value="pubg" hidden="hidden">-->
+                            <img src="./img/playinfo/apply_20014.png" class="status_lol"
+                                 style="width:80px;height:80px;display:block;">
+                            <img src="./img/playinfo/apply_hover_20014.png" style="width:80px;height:80px;display:none;"
+                                 class="status_lolhover">
+                        </div>
+                        <div class="lol_title">绝地求生</div>
+                        <div class="lol_status">（未开通）</div>
+                    </div>
+                    <div class="fl lol_box">
+                        <div class="lol_img" dtid="20016" flag="0">
+                            <input name="gid" value="20016" hidden="hidden">
+                            <!--<input name="gName" value="huangye" hidden="hidden">-->
+                            <img src="./img/playinfo/apply_20016.png" class="status_lol"
+                                 style="width:80px;height:80px;display:block;">
+                            <img src="./img/playinfo/apply_hover_20016.png" style="width:80px;height:80px;display:none;"
+                                 class="status_lolhover">
+                        </div>
+                        <div class="lol_title">荒野行动</div>
+                        <div class="lol_status">（未开通）</div>
+                    </div>
+                    <div class="fl lol_box">
+                        <div class="lol_img" dtid="20018" flag="0">
+                            <input name="gid" value="20018" hidden="hidden">
+                            <!--<input name="gName" value="ciji" hidden="hidden">-->
+                            <img src="./img/playinfo/apply_20018.png" class="status_lol"
+                                 style="width:80px;height:80px;display:block;">
+                            <img src="./img/playinfo/apply_hover_20018.png" style="width:80px;height:80px;display:none;"
+                                 class="status_lolhover">
+                        </div>
+                        <div class="lol_title">刺激战场</div>
+                        <div class="lol_status">（未开通）</div>
+                    </div>
+                    <div class="fl lol_box">
+                        <div class="lol_img" dtid="20019" flag="0">
+                            <input name="gid" value="20019" hidden="hidden">
+                            <!--<input name="gName" value="quanjun" hidden="hidden">-->
+                            <img src="./img/playinfo/apply_20019.png" class="status_lol"
+                                 style="width:80px;height:80px;display:block;">
+                            <img src="./img/playinfo/apply_hover_20019.png" style="width:80px;height:80px;display:none;"
+                                 class="status_lolhover">
+                        </div>
+                        <div class="lol_title">全军出击</div>
+                        <div class="lol_status">（未开通）</div>
+                    </div>
+                    <div class="fl lol_box">
+                        <div class="lol_img" dtid="20020" flag="0">
+                            <input name="gid" value="20020" hidden="hidden">
+                            <!--<input name="gName" value="five" hidden="hidden">-->
+                            <img src="./img/playinfo/apply_20020.png" class="status_lol"
+                                 style="width:80px;height:80px;display:block;">
+                            <img src="./img/playinfo/apply_hover_20020.png" style="width:80px;height:80px;display:none;"
+                                 class="status_lolhover">
+                        </div>
+                        <div class="lol_title">第五人格</div>
+                        <div class="lol_status">（未开通）</div>
+                    </div>
+                    <div class="fl lol_box">
+                        <div class="lol_img" dtid="20021" flag="0">
+                            <input name="gid" value="20021" hidden="hidden">
+                            <!--<input name="gName" value="videoplay" hidden="hidden">-->
+                            <img src="./img/playinfo/apply_20021.png" class="status_lol"
+                                 style="width:80px;height:80px;display:block;">
+                            <img src="./img/playinfo/apply_hover_20021.png" style="width:80px;height:80px;display:none;"
+                                 class="status_lolhover">
+                        </div>
+                        <div class="lol_title">视频游戏</div>
+                        <div class="lol_status">（未开通）</div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="mt30">
+                    <div class="fl mt10 mr5 name_title">
+                        <span class="star">*</span> 封面照：
+                    </div>
+                    <div class="fl" style="position: relative;">
+                        <input type="button" id="btn_add2" value="选择图片" class="layui-btn layui-btn-primary" style="float: left">
+                        <input type="file"  name="himage"  accept="image/*" id="imagefile" style="display: none" >
+                        <div class="imgdiv" style="float:left;margin-left: 15px ">
+                            <img src="./img/breviary.png" id="imgd"  class="upfilebreviary breviary">
+                        </div>
+                        <!--<BUTTON type="button" class="layui-btn" name="himage" id="imagefile" >图片上传</BUTTON>
+                        <div class="layui-upload-list">
+                            <img class="upfilebreviary breviary" id="imgsrc">
+                            <p id="dText"></p>
+                        </div>-->
+                    </div>
+                    <div class="voice_01 mt10 gameExplain" style="float: right;margin-top: -140px;margin-right: 60px;">
+                        请上传您的段位截图（需包含个人ID）,并填写<br>
+                        线上LOL相关的描述<br>
+                        男段位要求：电一钻Ⅰ以上，其他区大师王者；<br>
+                        女段位要求：黄金以上
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="mt30" style="margin-bottom: 43px;width:100%">
+                    <div class="fl mt10" style="width:13%">
+                        <span class="star"></span>服务描述:<br/>
+                        <div class="diagram diagram2" style="margin-top:10px;margin-right:16px;"></div>
+                    </div>
+                    <!--富文本编辑器-->
+                    <textarea  name="gServicedescription" id="servicetext" style="display: none"></textarea>
+                    <div class="clearfix"></div>
+
+                </div>
+                <div class="mt30" id="gamelist" style="display: none;">
+                    <div class="fl mt10 name_title">
+                        <span class="star"></span>QQ/微信 可接段位:</div>
+                    <div class="ajaxgamelist fl" style="width: 724px;">
+                        <div class='mt10 fl mr40 gamenums1'>
+                            <input type='checkbox' name='gDuanwei' class='gamelist' value='倔强黄铜'/>倔强黄铜
+                        </div>
+                        <div class='mt10 fl mr40 gamenums2'>
+                            <input type='checkbox' name='gDuanwei' class='gamelist' value='秩序白银'/>秩序白银
+                        </div>
+                        <div class='mt10 fl mr40 gamenums3'>
+                            <input type='checkbox' name='gDuanwei' class='gamelist' value='荣耀黄金'/>荣耀黄金
+                        </div>
+                        <div class='mt10 fl mr40 gamenums4'>
+                            <input type='checkbox' name='gDuanwei' class='gamelist' value='尊贵铂金'/>尊贵铂金
+                        </div>
+                        <div class='mt10 fl mr40 gamenums5'>
+                            <input type='checkbox' name='gDuanwei' class='gamelist' value='永恒钻石'/>永恒钻石
+                        </div>
+                        <div class='mt10 fl mr40 gamenums6'>
+                            <input type='checkbox' name='gDuanwei' class='gamelist' value='至尊星耀'/>至尊星耀
+                        </div>
+                        <div class='mt10 fl mr40 gamenums7'>
+                            <input type='checkbox' name='gDuanwei' class='gamelist' value='最强王者'/>最强王者
+                        </div>
+                        <div class='mt10 fl mr40 gamenums8'>
+                            <input type='checkbox' name='gDuanwei' class='gamelist' value='荣耀王者'/>荣耀王者
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+
+                <div id="dtid">
+
+                    <div class="mt30">
+                        <div class="fl mt10 mr5 name_title">
+                            <span class="star">*</span>游戏ID:</div>
+                        <input class="fl name_text pl10" type="text" placeholder="GameID" name="pGid" id="gameID"
+                               value="">
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="mt30">
+                        <div class="fl mt10 mr5 name_title"><span class="star">*</span>所在大区：</div>
+                        <select id="area_id" name="gDaqu" class="pl10 pr10">
+                            <option value="0" style="color:#999999;">请选择服务器</option>
+                            <option value="艾欧尼亚">艾欧尼亚</option>
+                            <option value="比尔吉沃特">比尔吉沃特</option>
+                            <option value="祖安">祖安</option>
+                            <option value="诺克萨斯">诺克萨斯</option>
+                            <option value="班德尔城">班德尔城</option>
+                            <option value="德玛西亚">德玛西亚</option>
+                            <option value="皮尔特沃夫">皮尔特沃夫</option>
+                            <option value="战争学院">战争学院</option>
+                            <option value="弗雷尔卓德">弗雷尔卓德</option>
+                            <option value="巨神峰">巨神峰</option>
+                            <option value="雷瑟守备">雷瑟守备</option>
+                            <option value="无畏先锋">无畏先锋</option>
+                            <option value="裁决之地">裁决之地</option>
+                            <option value="黑色玫瑰">黑色玫瑰</option>
+                            <option value="暗影岛">暗影岛</option>
+                            <option value="恕瑞玛">恕瑞玛</option>
+                            <option value="钢铁烈阳">钢铁烈阳</option>
+                            <option value="水晶之痕">水晶之痕</option>
+                            <option value="均衡教派">均衡教派</option>
+                            <option value="扭曲丛林">扭曲丛林</option>
+                            <option value="教育网专区">教育网专区</option>
+                            <option value="影流">影流</option>
+                            <option value="守望之海">守望之海</option>
+                            <option value="征服之海">征服之海</option>
+                            <option value="卡拉曼达">卡拉曼达</option>
+                            <option value="巨龙之巢">巨龙之巢</option>
+                            <option value="皮城警备">皮城警备</option>
+                            <option value="男爵领域">男爵领域</option>
+                            <option value="峡谷之巅">峡谷之巅</option>
+                        </select>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="mt30">
+                        <div class="fl mt10 mr5 name_title"><span class="star"> </span>当前段位：</div>
+                        <select name="gDuanwei">
+                            <option value="0" selected="selected">无段位</option>
+                            <option value="最强王者">最强王者</option>
+                            <option value="超凡大师">超凡大师</option>
+                            <option value="璀璨钻石Ⅰ">璀璨钻石Ⅰ</option>
+                            <option value="璀璨钻石Ⅱ">璀璨钻石Ⅱ</option>
+                            <option value="璀璨钻石Ⅲ">璀璨钻石Ⅲ</option>
+                            <option value="璀璨钻石Ⅳ">璀璨钻石Ⅳ</option>
+                            <option value="璀璨钻石Ⅴ">璀璨钻石Ⅴ</option>
+                            <option value="华贵铂金Ⅰ">华贵铂金Ⅰ</option>
+                            <option value="华贵铂金Ⅱ">华贵铂金Ⅱ</option>
+                            <option value="华贵铂金Ⅲ">华贵铂金Ⅲ</option>
+                            <option value="华贵铂金Ⅳ">华贵铂金Ⅳ</option>
+                            <option value="华贵铂金Ⅴ">华贵铂金Ⅴ</option>
+                            <option value="荣耀黄金Ⅰ">荣耀黄金Ⅰ</option>
+                            <option value="荣耀黄金Ⅱ">荣耀黄金Ⅱ</option>
+                            <option value="荣耀黄金Ⅲ">荣耀黄金Ⅲ</option>
+                            <option value="荣耀黄金Ⅳ">荣耀黄金Ⅳ</option>
+                            <option value="荣耀黄金Ⅴ">荣耀黄金Ⅴ</option>
+                            <option value="不屈白银Ⅰ">不屈白银Ⅰ</option>
+                            <option value="不屈白银Ⅱ">不屈白银Ⅱ</option>
+                            <option value="不屈白银Ⅲ">不屈白银Ⅲ</option>
+                            <option value="不屈白银Ⅳ">不屈白银Ⅳ</option>
+                            <option value="不屈白银Ⅴ">不屈白银Ⅴ</option>
+                            <option value="英勇黄铜Ⅰ">英勇黄铜Ⅰ</option>
+                            <option value="英勇黄铜Ⅱ">英勇黄铜Ⅱ</option>
+                            <option value="英勇黄铜Ⅲ">英勇黄铜Ⅲ</option>
+                            <option value="英勇黄铜Ⅳ">英勇黄铜Ⅳ</option>
+                            <option value="英勇黄铜Ⅴ">英勇黄铜Ⅴ</option>
+                        </select>
+
+                        <div class="clearfix"></div>
+                    </div>
+
+                </div>
+
+                <div id="typetag" style="display:none">
+                    <div class="mt50">
+                        <div class="fl mt10 name_title">*技能分类:<br/>
+                            <span class="Optional">（可多选）</span></div>
+                        <div style="width:540px;" class="fl label">
+                            <div class='mt10 fl' style='margin-right:7%;'>
+                                <input type='checkbox' name='typetag[]' id='typetag_32' value='32'/>
+                                <span class='fl'>在线点歌</span>
+                                <div class='clearfix'></div>
+                            </div>
+                            <div class='mt10 fl' style='margin-right:7%;'>
+                                <input type='checkbox' name='typetag[]' id='typetag_33' value='33'/>
+                                <span class='fl'>连麦哄睡</span>
+                                <div class='clearfix'></div>
+                            </div>
+                            <div class='mt10 fl' style='margin-right:7%;'>
+                                <input type='checkbox' name='typetag[]' id='typetag_34' value='34'/>
+                                <span class='fl'>情感咨询</span>
+                                <div class='clearfix'></div>
+                            </div>
+                            <div class='mt10 fl' style='margin-right:7%;'>
+                                <input type='checkbox' name='typetag[]' id='typetag_35' value='35'/>
+                                <span class='fl'>电台故事</span>
+                                <div class='clearfix'></div>
+                            </div>
+                            <div class='mt10 fl' style='margin-right:7%;'>
+                                <input type='checkbox' name='typetag[]' id='typetag_36' value='36'/>
+                                <span class='fl'>幽默搞笑</span>
+                                <div class='clearfix'></div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+
+
+                <!--<div class="mt30">
+                    <div class="fl mt10"><span class="Optional">（选填）</span>语音介绍：</div>
+                    <div class="voice_hover fl ">
+                        <div style="position: relative;"><span class="time_box">0s</span>
+                            <img src="./img/playinfo/voice.png" id="voice_hover" class="fl ml20" style="display:block;">
+                            <img src="./img/playinfo/voice_hover.png" class=" fl  ml20 voice_hover01" id="cloudBody">
+                            <img src="./img/playinfo/voice_hover02.gif" class=" fl  ml20  voice_hover02">
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                    <div class="fl voice mt10 ml10 mr5">上传语音
+                        <input type="file" class="input_top" id="datamp3" name="datamp3" accept="audio/mpeg">
+                        <input type="hidden" id="flagmp3" name="flagmp3" value=""></div>
+                    <div class="fl voice_01 mt10">（支持上传MP3格式录音，时长不可超过60秒）</div>
+                    <div class="clearfix"></div>
+
+                </div>-->
+                <div class="mt30">
+                    <div class="fl mt10 name_title">
+                        <span class="star">*</span>价格:
+                    </div>
+                    <input class="fl name_text pl10" type="text" placeholder="价格 默认（50.00元/小时）" value="" id="g_price"
+                           name="gPrice">
+                    <div class="clearfix"></div>
+                </div>
+                <!--<input type="submit" class="sure_box" value="确认提交" style="margin-left: 238px" id="postfiles">-->
+                <input type="button" class="sure_box1" value="申请导师" style="margin-left: 238px">
+            </form>
+        </div>
+    </div>
+</div>
+<!--info end-->
+
+<div class="left_margin" style="display:block">
+
+    <div class="content_center">
+        <div class="content_center_01">
+            <div class="content_bigtitle">“**约玩”陪玩申请协议</div>
+            <p class="content_text">本《陪玩申请协议》是您（下称"用户"）与**公司之间在申请成为**约玩平台（下称"**约玩"）陪玩人员（下称"陪陪"）时签署的协议。</p>
+            <div class="content_title">1、重要须知---在签署本协议之前，**正式提醒用户：</div>
+            <p class="content_text">1.1、您应认真阅读（未成年人应当在监护人陪同下阅读）、充分理解本《陪玩申请协议》中各条款，包括免除或者限制兔玩责任的免责条款及对用户的权利限制条款。</p>
+            <p class="content_text">1.2、除非您接受本协议，否则用户无权也无必要继续接受**的服务，可以退出本次注册。用户点击接受并继续使用兔玩的服务，视为用户已完全的接受本协议。</p>
+            <p class="content_text">1.3、本协议一经签署，具有法律效力，请您慎重考虑是否接受本协议。</p>
+            <p class="content_text">
+                1.4、在您签署本协议之后，此文本可能因国家政策、产品以及履行本协议的环境发生变化而进行修改，修改后的协议发布在本网站上，若您对修改后的协议有异议的，请立即停止登录、使用**产品及服务，若您登录或继续使用**产品，视为对修改后的协议予以认可。</p>
+            <div class="content_title">2、关于“**约玩帐号”</div>
+            <p class="content_text">
+                2.1、**旗下业务平台**（**.com）、**约玩（**.com）以及英雄训练营（t.tuwan.com）上同时提供用户注册通道，用户在任一通道注册获得点点约玩帐号。</p>
+            <p class="content_text">2.2、用户在首次注册**约玩账户成功之后，**会按系统规则自动分配给用户一个ID号码，ID号码与**约玩账号一样是用户接受**约玩服务的身份识别凭证。</p>
+            <p class="content_text">
+                2.3、点点约玩账号以及ID号码的性质上是**提供服务授予用户的凭证，点点约玩账号和ID号码是兔玩相应计算机软件作品的一部分，即兔玩将相关产品计算机软件著作权授权给注册用户的授权凭证。</p>
+            <p class="content_text">2.4、点点约玩账号还是用户持有、使用相关虚拟财产、道具的身份凭证。用户若需要接受兔玩提供的增值服务，点点约玩账号同时也是用户支付费用、接受增值服务的凭证。</p>
+            <p class="content_text">
+                2.5、用户应当妥善保管自己的点点约玩账号、密码，用户就其账号及密码项下之一切活动负全部责任，包括用户数据的修改，虚拟道具的损失以及其他所有的损失由用户自行承担。用户如发现他人未经许可使用其账号时立即通知兔玩。</p>
+            <p class="content_text">
+                2.6、用户点点约玩账号在丢失或遗忘密码后，可通过手机验证码的方式找回，如果未绑定手机号，需联系兔玩客服进行申诉找回帐号。用户应不断提供能增加账号安全性的个人密码保护资料。对用户因被他人冒名申诉而致的任何损失，兔玩不承担任何责任。</p>
+            <p class="content_text">
+                2.7、用户保证注册点点约玩账号时填写的身份信息是真实的，任何非法、不真实、不准确的用户信息所产生的责任由用户承担。如果因用户的注册信息不真实而引起的问题，以及对问题发生所带来的后果，兔玩不负任何责任。</p>
+            <p class="content_text">
+                2.8、如用户违反法律法规、兔玩各服务协议或点点约玩陪玩守则等规定，兔玩有权根据相关规则进行违规判定，并采取相应限制或处罚措施，包括但不限于：限制或冻结用户对点点约玩帐号的使用，限制或停止某项单独服务（如线上LOL陪玩），扣除保证金，扣减收入分成并根据实际情况决定是否恢复使用。</p>
+            <div class="content_title">3、审核通过的陪陪不得从事以下行为：</div>
+            <p class="content_text">3.1、利用**约玩平台发表、传播代练、代打、政治、色情等相关信息。</p>
+            <p class="content_text">3.2、利用**约玩平台产生欺诈、诱导买家第三方平台进行交易等行为，如私单、微信红包、QQ红包等。</p>
+            <p class="content_text">3.3、在陪玩过程中进行挂机、代打、消失、消极服务、谩骂等行为。</p>
+            <p class="content_text">3.4、进行其他任何违法以及侵犯其他个人、公司、社会团体、组织的合法权益的行为。</p>
+            <p class="content_text">3.5、利用**约玩平台产生欺诈、诱导买家第三方平台进行交易等行为，如私单、微信红包、QQ红包等。</p>
+            <div class="content_title">4、**约玩声明</div>
+            <p class="content_text">
+                4.1、用户须明白，在陪玩过程中可能存在有来自任何他人的包括威胁性的、诽谤性的、令人反感的或非法的内容或行为或对他人权利的侵犯（包括知识产权）的匿名或冒名的信息的风险，用户须承担以上风险，兔玩对服务不作担保，不论是明确的或隐含的，包括所有有关信息真实性、适当性、适于某一特定用途、所有权和非侵权性的默示担保和条件，对因此导致任何因用户不正当或非法使用服务产生的直接、间接、偶然、特殊及后续的损害，不承担任何责任。</p>
+            <p class="content_text">
+                4.2、使用**约玩服务必须遵守国家有关法律和政策等，维护国家利益，保护国家安全，并遵守本条款，对于用户违法或违反本协议的使用(包括但不限于言论发表、传送等)而引起的一切责任，由用户负全部责任。</p>
+            <p class="content_text">4.3、**约玩的服务同大多数因特网产品一样，易受到各种安全问题的困扰，包括但不限于：
+                1）透露详细个人资料，被不法分子利用，造成现实生活中的骚扰；
+                2）哄骗、套取密码；
+                对于发生上述情况的，用户应当自行承担责任。</p>
+            <p class="content_text">4.4、用户须明白，**为了服务整体运营的需要，有权在公告通知后修改或中断、中止或终止服务而不需通知您的权利，而无须向第三方负责或承担任何赔偿责任。</p>
+            <div class="content_title">5、知识产权</div>
+            <p class="content_text">5.1、**约玩的服务包括运营的网站、网页应用、软件以及内涵的文字、图片、视频、音频等元素，点点约玩服务标志、标识以及专利权，兔玩对此享有上述知识产权。</p>
+            <p class="content_text">
+                5.2、用户在使用**约玩服务时发表上传的文字、图片、视频、软件以及表演等用户原创的信息，此部分信息的知识产权归用户，但用户的发表、上传行为是对点点约玩平台的授权，用户确认其发表、上传的信息非独占性、永久性的授权，该授权可转授权。兔玩可将前述信息在兔玩旗下的服务平台上使用，可再次编辑后使用，也可以由兔玩授权给合作方使用。</p>
+            <p class="content_text">5.3、若**约玩平台内的信息以及其他用户上传、存储、传播的信息有侵犯的用户或第三人的知识产权的，兔玩网站提供投诉通道。</p>
+            <div class="content_title">6、隐私保护</div>
+            <p class="content_text">6.1、请用户注意勿在使用**约玩服务中透露自己的各类财产帐户、银行卡、信用卡、第三方支付账户及对应密码等重要资料，否则由此带来的任何损失由用户自行承担。</p>
+            <p class="content_text">6.2、用户的**约玩账号、密码属于保密信息，**应当采取积极的措施保护用户账号、密码的安全。</p>
+            <p class="content_text">6.3、用户的注册信息作为**的商业秘密进来保护。但用户同时明白，互联网的开放性以及技术更新非常快，非**可控制的因素导致用户泄漏的，兔玩不承担责任。</p>
+            <p class="content_text">6.4、用户在使用**约玩服务时不可将自认为隐私的信息发表、上传至**，也不可将该等信息通过**的服务传播给其他人，若用户的行为引起的隐私泄漏，由用户承担责任。</p>
+            <p class="content_text">
+                6.5、**在提供服务时可能会搜集用户信息，**会明确告知用户，通常信息仅限于用户姓名、性别、年龄、出生日期、身份证号、家庭住址、教育程度、公司情况、所属行业、兴趣爱好等。</p>
+            <p class="content_text">6.6、就下列相关事宜的发生，**不承担任何法律责任：
+                1）**根据法律规定或相关政府、司法机关的要求提供您的个人信息；
+                2）由于用户将用户密码告知他人或与他人共享注册账户，由此导致的任何个人信息的泄漏，或其他非因**原因导致的个人信息的泄漏；
+                3）任何由于黑客攻击、电脑病毒侵入造成的信息泄漏；
+                4）因不可抗力导致的信息泄漏；</p>
+            <div class="content_title">7、其他条款</div>
+            <p class="content_text">7.1、本协议由**公布在网站上，对**具有法律约束力；用户一经点击接受或者直接登录的行为视为对本协议的接受，对用户具有法律约束力。</p>
+        </div>
+        <div class="protocol_box">
+            <div class="switch">
+                <input type="checkbox" id="control" class="control">
+                <label for="control" class="checkbox"></label>
+            </div>
+            <div class="agree">我已阅读并同意此协议</div>
+            <div class="point_out">温馨提示：阅读整个协议，才能进行下一步。</div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="botton_box" style="text-align: center;">
+            <input type="button" value="下一步 &nbsp;&nbsp;&nbsp;>" class="botton_box1">
+        </div>
+
+    </div>
+</div>
+<script th:inline="javascript">
+    var pid = [[${session.nameTPerson?.pid}]];
+</script>
+<script type="text/javascript">
+    /*加载用户的信息*/
+    var  users=new Vue({
+        el:'#top_box',
+        data:{
+            user:[]
+        }
+    });
+    var getUsersInfo=function(){
+        $.ajax({
+            type: 'get',
+            dataType: 'json',
+            url: '/getuserinfo',
+            data: {pid:pid},
+            success: function (rest) {
+                users.user = rest.results;
+               /* userbalance.balance=rest.results[0].m_balance;*/
+            }
+        });
+    };
+
+    getUsersInfo();
+
+    $("#btn_add2").click(function(){
+        $("#imagefile").trigger("click");
+    });
+
+    var gName=null;
+    var dtid=null;
+
+    /*开通服务*/
+    function changeService(that, dtid) {
+        $('.dtid').val(dtid);
+        if ($(that).attr("flag") == 0) {
+            if ('1' > 7) {
+                alert('最多开通七种服务')
+                return false;
+            }
+            $('#desc').val('');
+            $('.time_box').html('空');
+            $('#cloudBody').attr("data-music", "");
+            $('.randimgsrc').html('<img src="./img/breviary.png" style="padding-left: 20px;" class="upfilebreviary breviary">');
+        }
+        GetDtidInfo(dtid);
+        if (dtid == '31540' || dtid == '20009') $('#dtid').show();
+        else $('#dtid').hide();
+        $(that).find('.status_lol').hide();
+        $(that).find('.status_lolhover').show();
+        $(that).parent().siblings().find('.status_lolhover').hide();
+        $(that).parent().siblings().find('.status_lol').show();
+        $('#gamelist').hide()
+        $('#gamelistV2').hide()
+        if (dtid == 20017) {
+            $("#typetag").show();
+        } else {
+            $("#typetag").hide();
+        }
+        if (dtid == 31540 || dtid == 20009) $('.gameExplain').html('请上传您的段位截图（需包含个人ID）,并填写<br>线上LOL相关的描述<br>男段位要求：电一钻Ⅰ以上，其他区大师王者；<br>女段位要求：黄金以上</div>');
+        else if (dtid == 20009) $('.gameExplain').html('请上传您的段位截图（需包含个人ID）,并填写<br>线上LOL相关的描述');
+        else if (dtid == 20002) $('.gameExplain').html('请上传真人正面清晰照作为该服务封面图，等<br>待考核');
+        else if (dtid == 20003) $('.gameExplain').html('请上传您的视频封面照一张，并联系客服进行<br>视频考核');
+        else if (dtid == 20004) $('.gameExplain').html('请上传您的点点约玩【声鉴卡】一张，<br>如没有【声鉴卡】，请点击获取。<a href="" target="_blank">获取声鉴卡</a>');
+        else if (dtid == 20006) $('.gameExplain').html('请上传真人正面清晰照作为该服务封面图，<br>等待考核');
+        else if (dtid == 20007) $('.gameExplain').html('请上传您的点点约玩【声鉴卡】一张，<br>如没有【声鉴卡】，请点击获取。<a href="" target="_blank">获取声鉴卡</a>');
+        else if (dtid == 20008) $('.gameExplain').html('请上传您的段位截图（需包含个人ID）,并填写<br>王者荣耀相关的描述'), $('#gamelist').show(), $('#gamelistV2').show();
+        else if (dtid == 20010) $('.gameExplain').html('请上传真人正面清晰照作为该服务封面图，等<br>待考核');
+        else if (dtid == 20011) $('.gameExplain').html('请上传真人正面清晰照作为该服务封面图，等<br>待考核<br>虚拟恋人按天服务，需要有足够长的时间<br>服务内容包含叫醒、哄睡、聊天、游戏、视频等');
+        else if (dtid == 20012) $('.gameExplain').html('请上传真人正面清晰照作为该服务封面图，等<br>待考核');
+        else if (dtid == 20013) $('.gameExplain').html('请上传真人正面清晰照作为该服务封面图，等<br>待考核');
+        else if (dtid == 20014) $('.gameExplain').html('请上传《绝地求生：大逃杀》个人数据截图，等<br>待考核');
+        else if (dtid == 20016) $('.gameExplain').html('请上传《荒野行动》个人数据截图，等<br>待考核');
+        else if (dtid == 20017) $('.gameExplain').html('请上传您的点点约玩【声鉴卡】一张，<br>如没有【声鉴卡】，请点击获取。<a href="" target="_blank">获取声鉴卡</a>');
+        else if (dtid == 20018) $('.gameExplain').html('请上传《刺激战场》个人数据截图，等<br>待考核');
+        else if (dtid == 20019) $('.gameExplain').html('请上传《全军出击》个人数据截图，等<br>待考核');
+        else if (dtid == 20020) $('.gameExplain').html('请上传《第五人格》个人数据截图，等<br>待考核');
+        else if (dtid == 20021) $('.gameExplain').html('请上传您的视频封面照一张，并联系客服进行<br>视频考核');
+    }
+
+    //切换
+    $('.lol_img').click(function () {
+        var dtid = $(this).attr("dtid");
+        changeService(this, dtid);
+    })
+    //根据游戏id去相对应的数据
+    //GetDtidInfo(dtid);
+    changeService($(".lol_box").find('div[dtid=' + dtid + ']'), dtid);
+
+    function GetDtidInfo(dtid) {
+        $.ajax({
+            url: "",
+            type: "get",
+            dataType: "jsonp",
+            success: function (obj) {
+                $('#myEditor').html(obj.desc);
+                if (obj.speech !== '' && obj.speech !== undefined && obj.speech !== null) $('#cloudBody').attr("data-music", "url" + obj.speech);
+                var audio = new Audio($("body #cloudBody").attr("data-music"));
+                audio.addEventListener('canplay', function () {
+                    var mp3 = Math.ceil(this.duration);
+                    $('.time_box').html(mp3 + 's');
+                });
+                if (obj.speech == null) $('.time_box').html('空');
+                if (obj.randimg == undefined || obj.randimg == null || obj.randimg == '') {
+                    $('.randimgsrc').html('<img src="./img/breviary.png" style="padding-left: 20px;" class="upfilebreviary breviary">');
+                    randimgFlag = 0;
+                } else {
+                    $('.randimgsrc').html('<a href=' + obj.randimg + ' target="_blank"><img src=' + obj.randimg + ' style="padding-left: 20px;" class="upfilebreviary breviary"></a>');
+                    randimgFlag = 1;
+                }
+                if (dtid == 20006 && obj.gamelist != null) {
+                    strs = obj.gamelist.split(",");
+                    for (var i = 0; i < strs.length; i++) {
+                        $('.gamenums' + strs[i] + ' .gamelist').attr('checked', 'true')
+                    }
+                }
+
+                if (dtid == 20017) {
+                    strs = obj.typetag.split(",");
+                    for (var i = 0; i < strs.length; i++) {
+                        $('#typetag_' + strs[i]).attr('checked', 'true')
+                    }
+                    $("#typetag").show();
+                } else {
+                    $("#typetag").hide();
+                }
+            }
+        })
+    }
+
+    //上传图片
+    //封面照
+    /*getImageWidthAndHeight('upfile', function (obj) {
+    }, '1');
+    //app封面照
+     getImageWidthAndHeight('appindeximg', function (obj) {
+    }, '1');*/
+
+    //获取input图片宽高和大小
+    /*function getImageWidthAndHeight(id, callback, flag) {
+        var _URL = window.URL || window.webkitURL;
+        $("#" + id).change(function (e) {
+            if (id == 'upfile') randimgFlag = 0;
+            var file, img;
+            var thisFiles = this.files[0];
+            if ((file = this.files[0])) {
+                img = new Image();
+                img.onload = function () {
+                    var widthsnum = this.width * 1;
+                    var heightsnum = this.height * 1;
+                    var flagyanzhen = $("#" + id).val().substr($("#" + id).val().lastIndexOf('.') + 1);
+                    if (flagyanzhen == 'jpg' || flagyanzhen == 'png' || flagyanzhen == 'jpeg' || flagyanzhen == 'JPG' || flagyanzhen == 'PNG' || flagyanzhen == 'JPEG') {
+                        lrz(thisFiles, {width: widthsnum, height: heightsnum}, function (results) {
+                            var ba = results.base64;
+                            if (flag == 1) {
+                                $('#upfile_64').val(ba);
+                                // $('.'+id+'breviary').css("height",$('.'+id+'breviary').height())
+                                $('.breviary').attr('src', ba);
+                            }
+                        })
+                    }
+                };
+                img.src = _URL.createObjectURL(file);
+            }
+        });
+    }*/
+
+    //cd时间
+    function GetCacheUid() {
+        $.ajax({
+            url: "/?type=play&data=getcacheuid&format=jsonp",
+            type: "get",
+            dataType: "jsonp",
+            success: function (obj) {
+            }
+        })
+    }
+
+    $('#choose').click(function () {
+        alert('不要频繁的上传视频，请于五分钟之后重试！');
+    })
+
+    $('.diagram3').click(function () {
+        dtidimg('./img/fdemo.jpg');
+    })
+    $('.diagram1').click(function () {
+        if (DitdVal() == 31540 || DitdVal() == 20009) dtidimg('/images/lol-s1.jpg');
+        else if (DitdVal() == 20002 || DitdVal() == 20010 || DitdVal() == 20011 || DitdVal() == 20012 || DitdVal() == 20013) dtidimg(' /images/sing-s1.jpg');
+        else if (DitdVal() == 20003) dtidimg('/images/video-s1.jpg');
+        else if (DitdVal() == 20004) dtidimg('/images/akira_1.jpg');
+        else if (DitdVal() == 20017) dtidimg('/images/akira_1.jpg');
+        else if (DitdVal() == 20012) dtidimg('/images/akira_1.jpg');
+        else if (DitdVal() == 20006) dtidimg('/images/game-s1.jpg');
+        else if (DitdVal() == 20007) dtidimg('/images/akira-s1.jpg');
+        else if (DitdVal() == 20008) dtidimg('/images/wzry-s1.jpg');
+        else if (DitdVal() == 20014) dtidimg('/images/dts-s1.jpg');
+        else if (DitdVal() == 20016) dtidimg('/images/huangye-s1.jpg');
+        else if (DitdVal() == 20018) dtidimg('/images/ciji-s1.jpg');
+        else if (DitdVal() == 20019) dtidimg('/images/quanjun-s1.jpg');
+        else if (DitdVal() == 20020) dtidimg('/images/dwrg-s1.jpg?t=1');
+    })
+    $('.diagram2').click(function () {
+        if (DitdVal() == 31540 || DitdVal() == 20009) dtidimg('/images/lol-s2.jpg');
+        else if (DitdVal() == 20002) dtidimg('/images/sing-s2.jpg');
+        else if (DitdVal() == 20003) dtidimg('/images/video-s2.jpg');
+        else if (DitdVal() == 20004) dtidimg('/images/akira-s2.jpg');
+        else if (DitdVal() == 20006) dtidimg('/images/game-s2.jpg');
+        else if (DitdVal() == 20007) dtidimg('/images/akira-s2.jpg');
+        else if (DitdVal() == 20008) dtidimg('/images/wzry-s2.jpg');
+    })
+
+    $('.layer-cell-close,.closehide').click(function () {
+        $('#shiliimg').hide();
+    })
+
+    /*点击下一步*/
+    $('#control').click(function () {
+        if ($(this).is(':checked')) {
+            $('.botton_box1').css('background-color', "#be1a2c").attr('flag', '1'), $('#loadflaghidden').val('1');
+        } else {
+            $('.botton_box1').css('background-color', "#afb0b3").attr('flag', '0'), $('#loadflaghidden').val('0');
+        }
+    });
+
+    $('.botton_box1').on('click', function () {
+        if ($('#control').is(':checked') === true && $('.botton_box1').attr("flag") == 1) $('.left_margin').hide(), $('#user_center_box').show();
+        else alert('请先勾选');
+    })
+
+    $('#work').click(function () {
+        if ($(this).val() == 0 && $(this).val() !== '') $('.school').show();
+        else $('.school').hide();
+    })
+
+    function DitdVal() {
+        $('.status_lolhover').each(function () {
+            if ($(this).css('display') !== 'none') {
+                dtids = $(this).parent().attr('dtid');
+            }
+        })
+
+        return dtids;
+    }
+
+    function dtidimg(val) {
+        var heights = imgLoad(val, imgheight, val);
+
+    }
+
+    function imgLoad(url, callback, val) {
+        var img = new Image();
+        img.src = url;
+        if (img.complete) {
+            callback(img.width, img.height);
+        } else {
+            img.onload = function () {
+                callback(img.width, img.height);
+                img.onload = null;
+            };
+        };
+        $('#shiliimg').find('.dtidimginfo').attr("src", val);
+    };
+
+    function imgheight(width, height) {
+        $('#shiliimg .Bound_cell').css("top", ($(window).height() - height) * 0.5)
+        $('#shiliimg').show();
+    }
+/*--------------------------------------------------------------------------------------------*/
+    $(document).ready(function () {
+
+        $("#Sheight").blur(function () {
+            var Sheight = $('#Sheight').val();
+            var pregSheight = /^\d{1,3}$/;
+            if (Sheight !== '' && !pregSheight.test(Sheight)) {
+                alert('请填写正确的身高');
+                $('#Sheight').addClass('add_input');
+                flag = false;
+            }
+        });
+        $("#weight").blur(function () {
+            var weight = $('#weight').val();
+            var pregweight = /^\d{1,3}$/;
+            if (weight !== '' && !pregweight.test(weight)) {
+                alert('请填写正确的体重');
+                $('#weight').addClass('add_input');
+                flag = false;
+            }
+        });
+        $("#like").blur(function () {
+            var like = $('#like').val();
+            if (like !== '' && like.length > 20) {
+                alert('兴趣爱好不超过20个字');
+                $('#like').addClass('add_input');
+                flag = false;
+            }
+        });
+
+        /*个性签名判断*/
+        $("#short_desc").blur(function () {
+            var desc = $(this).val();
+            var len = desc.length;
+            if (len == 0 ) {
+                alert("必填,请认真填写。");
+                return;
+            }
+        })
+        /*qq长度判断*/
+        $("#qq").blur(function () {
+            var pqq = $(this).val();
+            var len = pqq.length;
+            if (len > 11 ) {
+                alert("长度出错,请认真填写。");
+                $(".sure_box1").attr("disabled", true);
+                return;
+            }
+        });
+        /*年选择器*/
+            laydate.render({
+                elem: '#birthday'
+                ,format: 'yyyy-MM-dd'
+            });
+
+            /*省市start*/
+        $(".pick-area2").pickArea({
+            "format":"北京市市区", //格式
+            "width":"200",
+            "borderColor":"#25e198",//文本边框的色值
+            "arrowColor":"#666666",//箭头颜色
+            "listBdColor":"#25e198",//下拉框父元素ul的border色值
+            "color":"#666666",//字体颜色
+            "fontSize":"14px",//字体大小
+            "hoverColor":"#666666",
+            "paddingLeft":"10px",
+            "arrowRight":"10px",
+            //"preSet":"北京市/市辖区/东城区",
+            "getVal":function(){
+                //console.log($(".pick-area-hidden").val())
+                //console.log($(".pick-area-dom").val())
+                var thisdom = $("."+$(".pick-area-dom").val());
+                thisdom.next().val($(".pick-area-hidden").val());
+            }
+        });
+        /*省市end*/
+
+        /*富文本编辑器*/
+        layui.use('layedit', function(){
+            var layedit = layui.layedit;
+            layedit.build('servicetext'); //建立编辑器
+        });
+
+        /*游戏名判断*/
+        $(".fl.lol_box").click(function () {
+            /*var indexDiv = $("#dj div").index(this);
+            gid = indexDiv + 1000;
+            alert(gid);*/
+            var gameid=$(".fl.lol_box").index(this);
+            gameid=gameid+10001;
+            switch (gameid) {
+                case 10001:gName='线上lol';break;
+                case 10002:gName='线上歌手';break;
+                case 10003:gName='声优聊天';break;
+                case 10004:gName='王者荣耀';break;
+                case 10005:gName='虚拟恋人';break;
+                case 10006:gName='哄睡觉';break;
+                case 10007:gName='叫醒';break;
+                case 10008:gName='绝地求生';break;
+                case 10009:gName='荒野行动';break;
+                case 100010:gName='刺激战场';break;
+                case 100011:gName='全军出击';break;
+                case 100012:gName='第五人格';break;
+                case 100013:gName='视频游戏';break;
+            }
+        });
+
+        /*判断checkout选中个数*/
+        $(document).ready(function() {
+
+            $('input[type=checkbox][name=tag]').click(function () {
+                var leng = $("input[type=checkbox][name=tag]:checked").length;
+                if (leng > 2) {
+                    flag=false;
+                    alert("最多选2个");
+                    $("input[type=checkbox][name=tag]:checked").attr('checked', false);
+                }
+            });
+
+            $('input[type=checkbox][name=organ]').click(function () {
+                var leng = $("input[type=checkbox][name=organ]:checked").length;
+                if (leng > 3) {
+                    flag=false;
+                    alert("最多选3个");
+                    $("input[type=checkbox][name=organ]:checked").attr('checked', false);
+                }
+            });
+
+        });
+        /*图片预览-start*/
+        $("#imagefile").change(function () {
+            var objUrl = getObjectURL(this.files[0]) ;//获取文件信息
+            console.log("objUrl = "+objUrl);
+            if (objUrl) {
+                $("#imgd").attr("src", objUrl);
+            }
+        });
+        function getObjectURL(file) {
+            var url = null;
+            if (window.createObjectURL!=undefined) {
+                url = window.createObjectURL(file) ;
+            } else if (window.URL!=undefined) { // mozilla(firefox)
+                url = window.URL.createObjectURL(file) ;
+            } else if (window.webkitURL!=undefined) { // webkit or chrome
+                url = window.webkitURL.createObjectURL(file) ;
+            }
+            return url ;
+        }
+
+        /*layui.use('upload', function() {
+            var $ = layui.jquery
+                , upload = layui.upload;
+
+            //普通图片上传
+            var uploadInst = upload.render({
+                elem: '#imagefile'
+                , url: '/imgupload/'
+                , before: function (obj) {
+                    //预读本地文件示例，不支持ie8
+                    obj.preview(function (index, file, result) {
+                        $('#imgsrc').attr('src', result); //图片链接（base64）
+                    });
+                }
+                , done: function (res) {
+                    //如果上传失败
+                    if (res.code > 0) {
+                        return layer.msg('上传失败');
+                    }
+                    //上传成功
+                }
+                , error: function () {
+                    //演示失败状态，并实现重传
+                    var demoText = $('#dText');
+                    demoText.html('<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-xs demo-reload">重试</a>');
+                    demoText.find('.demo-reload').on('click', function () {
+                        uploadInst.upload();
+                    });
+                }
+            });
+        });*/
+        /*图片预览-end*/
+        /*表单提交*/
+        $(".sure_box1").click(function () {
+            var  flag=true;
+            /*昵称判断*/
+            if($("#personNickname").val()==''){
+                alert('昵称不能为空!');
+                flag=false;
+            }
+            /*图片判断*/
+            if ($("#imagefile").val() == '') {
+                alert('请上传图片');
+                flag = false;
+                return false;
+            };
+            var ext = $("#imagefile").val().substr($("#imagefile").val().lastIndexOf('.') + 1);
+            ext = ext.toLocaleLowerCase();
+            /*alert(ext);*/
+            if (ext != 'jpg' && ext != 'jpeg' && ext != 'png' && ext != 'JPG' && ext != 'JPEG' && ext != 'PNG')
+            {
+                flag = false;
+                alert('格式上传错误');
+                return false;
+            };
+            /*if ($('#imagefile').get(0).files[0] > 1048576) {
+                alert('图片大小不能超过1M');
+                flag = false;
+                return false;
+            };*/
+            var imgsize=document.getElementById("imagefile").files[0].size;
+            if(imgsize >  1048576){
+                flag=false;
+                alert('文件大小为'+(imgsize/1048576).toFixed(2)+'M'+'超出1M限制!!!');
+
+            };
+
+            if(flag==true){
+                var fomFile = new FormData($("#personform")[0]);
+                fomFile.append("gname",gName);
+                fomFile.append("pid",pid);
+                //获取上传文件的路径和名称
+                var filePath=$("input[name='himage']").val();
+                /*Helper.ui.dialogSuccess( "提交成功", "请耐心等待审核,页面将返回!!" );*/
+
+                $.ajax({
+                    type: "POST",
+                    url: "/playinfosubmit",
+                    dataType: "json",
+                    cache: false,
+                    processData: false,  //关闭
+                    contentType: false,  //关闭
+                    data: fomFile,
+                    success: function (result) {
+                        if(result.succ==1){
+                            Helper.ui.dialogSuccess( "提交成功", "页面将返回!" );
+                            countDown(5);
+                        }else {
+                            Helper.ui.dialogError( "出错了", "重新填写!" );
+                        }
+                    }
+                });
+            }
+        });
+
+
+        function countDown(secs){
+            if(secs>0){
+                /*Helper.ui.dialogSuccess( "提交成功", "页面将返回!" );*/
+                setTimeout("countDown("+secs+")",10000);
+                location.href='/indexw';
+            }else{
+                window.location.href='/indexw';
+            }
+        }
+
+        $("#personNickname").blur(function () {
+            var nickname = $(this).val();
+            var len = nickname.length;
+            if (len < 2 ) {
+                /*alert("昵称过短,至少2字符");*/
+                $(".sure_box1").attr("disabled", true);
+                return;
+            }else if(len > 10){
+                /*alert("昵称过长,不得大于10字符");*/
+                $(".sure_box1").attr("disabled", true);
+                return;
+            }
+
+            $.ajax({
+                url: "/checkoutPersonNick",
+                data:{
+                    personNickname:$("#personNickname").val()
+                },
+                type: "get",
+                dataType: "json",
+                success: function (obj) {
+                    if (obj.result == 1) {
+                        alert("昵称己被使用，换个试试");
+                        $(".sure_box1").attr("disabled", true);
+                    } else if(obj.result == 2) {
+                        alert("昵称可用");
+                        $(".sure_box1").attr("disabled", false);
+                    }
+                }
+            });
+        });
+    });
+
+</script>
+</body>
+</html>

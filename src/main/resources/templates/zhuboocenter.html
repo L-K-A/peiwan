@@ -1,0 +1,1827 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>订单中心-dudu约玩</title>
+    <link href="./css/User_center.css" type="text/css" rel="stylesheet">
+    <!--     <link href="https://res.tuwan.com/templet/teach/admin/public/css/my_common.css?4" type="text/css" rel="stylesheet">
+        <link href="https://res.tuwan.com/templet/teach/admin/css/common_admin.css" type="text/css" rel="stylesheet"> -->
+    <link href="./css/newcommon_admin.css" type="text/css" rel="stylesheet">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="format-detection" content="telephone=no">
+    <script src="./js/jquery-1.12.3.min.js"></script>
+    <script src="./js/jquery-3.3.1.min.js"></script>
+    <script src="./js/jquery.zclip.js"></script>
+    <script src="https://cdn.bootcss.com/vue/2.5.21/vue.js"></script>
+
+    <script>
+        function imgNoFound(that) {
+            that.src = "/images/noavatar_middle.gif";
+            that.onerror = null;
+        }
+
+    </script>
+    <style type="text/css">
+        #user_content {
+            margin-top: 0px;
+        }
+
+        .grade_box .grade_img {
+            width: 45px;
+        }
+
+        .grade_box .grade_span {
+
+            color: #76492b;
+            font-size: 12px;
+            width: 45px;
+            left: 8px;
+            position: absolute;
+        }
+
+        .grade_box {
+            position: relative;
+            display: inline-block;
+            margin-left: 6px;
+        }
+
+        #user_content .grade_box .grade_span1 {
+            font-size: 12px;
+            width: 45px;
+            left: 8px;
+            position: absolute;
+            color: #666;
+        }
+
+        #user_content .grade_box .grade_span2 {
+            font-size: 12px;
+            width: 45px;
+            left: 8px;
+            position: absolute;
+            color: #9b8310;
+        }
+    </style>
+    <script charset="utf-8" async="" src="./js/pk1.js" id="LBFnode"></script>
+    <script charset="utf-8" async="" src="./js/i.js" id="_da"></script>
+    <style>.message-main {
+        position: fixed;
+        width: 340px;
+        height: 210px;
+        right: 5px;
+        bottom: 5px;
+        border: solid 1px #ff9d3e;
+        background: #fff;
+        border-radius: 5px
+    }
+
+    .message-main .message-title {
+        padding: 0;
+        margin: 0;
+        height: 30px;
+        line-height: 30px;
+        text-indent: 10px;
+        font-size: 14px;
+        background: #fdab23;
+        text-align: center;
+        font-weight: bold
+    }
+
+    .message-main .message-title a.message-close {
+        height: 30px;
+        width: 30px;
+        line-height: 30px;
+        float: right
+    }
+
+    .message-main .message-title a.message-close img {
+        margin-top: 10px;
+        margin-right: 10px;
+    }
+
+    .message-main .message-title a.message-mymsg {
+        color: #333;
+        text-decoration: none
+    }
+
+    .message-main .message-biaoti {
+        padding: 0;
+        margin: 0;
+        text-align: center;
+        font-size: 14px;
+        padding-top: 16px
+    }
+
+    .message-main .message-hongbao-thumb {
+        width: 160px;
+        height: 160px;
+        float: left;
+        margin-left: 10px;
+        border-radius: 5px;
+        overflow: hidden
+    }
+
+    .message-main .message-hongbao-content {
+        float: left;
+        width: 170px;
+        height: 160px;
+        position: relative
+    }
+
+    .message-main .message-hongbao-thumb img {
+        width: 100%;
+        height: 100%
+    }
+
+    .message-main .message-content {
+        padding: 0 5px;
+        font-size: 14px;
+        line-height: 24px;
+        margin: 0;
+        word-wrap: break-word;
+        word-break: break-all;
+    }
+
+    .message-main .message-content a {
+        text-decoration: none;
+        color: #e71935;
+        font-size: 14px
+    }
+
+    .message-main .message-detail {
+        font-size: 14px;
+        text-align: center;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        padding: 0;
+        margin: 0
+    }
+
+    .message-main .message-detail a {
+        display: inline-block;
+        color: #fff;
+        background: #fdab23;
+        width: 120px;
+        height: 32px;
+        line-height: 32px;
+        text-decoration: none;
+        font-size: 14px;
+        border-radius: 3px
+    }
+
+    .message-main .message-sendtime {
+        font-size: 12px;
+        line-height: 0;
+        color: #999;
+        font-weight: lighter
+    }
+
+    .message-main a.message-goteacher-detail {
+        text-decoration: none;
+        color: red;
+        font-size: 14px
+    }
+    </style>
+    <style>
+        .message-hongbao {
+        position: fixed;
+        width: 340px;
+        height: 210px;
+        right: 5px;
+        bottom: 5px;
+        border: solid 1px #ff9d3e;
+        background: #fff;
+        border-radius: 5px
+    }
+
+    .message-hongbao .message-title {
+        padding: 0;
+        margin: 0;
+        height: 30px;
+        line-height: 30px;
+        text-indent: 10px;
+        font-size: 14px;
+        background: #fdab23;
+        text-align: center;
+        font-weight: bold
+    }
+
+    .message-hongbao .message-title a.message-close {
+        height: 30px;
+        width: 30px;
+        line-height: 30px;
+        float: right
+    }
+
+    .message-hongbao .message-title a.message-close img {
+        margin-top: 10px;
+        margin-right: 10px;
+    }
+
+    .message-hongbao .message-title a.message-mymsg {
+        color: #333;
+        text-decoration: none
+    }
+
+    .message-hongbao .message-biaoti {
+        padding: 0;
+        margin: 0;
+        text-align: center;
+        font-size: 14px;
+        padding-top: 16px
+    }
+
+    .message-hongbao .message-hongbao-thumb {
+        width: 160px;
+        height: 160px;
+        float: left;
+        margin-left: 10px;
+        border-radius: 5px;
+        overflow: hidden
+    }
+
+    .message-hongbao .message-hongbao-content {
+        float: left;
+        width: 170px;
+        height: 160px;
+        position: relative
+    }
+
+    .message-hongbao .message-hongbao-thumb img {
+        width: 100%;
+        height: 100%
+    }
+
+    .message-hongbao .message-content {
+        padding: 0 5px;
+        font-size: 14px;
+        line-height: 24px;
+        margin: 0
+    }
+
+    .message-hongbao .message-content a {
+        text-decoration: none;
+        color: #e71935;
+        font-size: 14px
+    }
+
+    .message-hongbao .message-detail {
+        font-size: 14px;
+        text-align: center;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        padding: 0;
+        margin: 0
+    }
+
+    .message-hongbao .message-detail a {
+        display: inline-block;
+        color: #fff;
+        background: #fdab23;
+        width: 120px;
+        height: 32px;
+        line-height: 32px;
+        text-decoration: none;
+        font-size: 14px;
+        border-radius: 3px
+    }
+
+    .message-hongbao .message-sendtime {
+        font-size: 12px;
+        line-height: 0;
+        color: #999;
+        font-weight: lighter
+    }</style>
+    <style>
+        #ywpj_mask {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(51, 51, 51, 80);
+    }
+
+    #ywpj_mask .ywpj-main p, #ywpj_mask .ywpj-main ul {
+        margin: 0;
+        padding: 0
+    }
+
+    #ywpj_mask .ywpj-main ul {
+        list-style: none;
+        margin-top: 15px
+    }
+
+    #ywpj_mask .ywpj-main ul li {
+        float: left;
+        width: 94px;
+        height: 28px;
+        color: #666;
+        font-size: 14px;
+        border: solid 1px #e5e5e5;
+        border-radius: 28px;
+        text-align: center;
+        line-height: 28px;
+        margin-right: 20px;
+        margin-bottom: 16px;
+        cursor: pointer
+    }
+
+    #ywpj_mask .ywpj-main ul li.ywpj-tag-select {
+        background: #fff0e3;
+        border: solid 1px #fff0e3;
+        color: #fc831a
+    }
+
+    #ywpj_mask .ywpj-main .ywpj-tag-custom {
+        color: #fb7330;
+        font-size: 14px;
+        text-align: center;
+        border-radius: 28px;
+        border: solid 1px #fb7330;
+        width: 94px;
+        height: 28px;
+        line-height: 28px;
+        position: relative;
+        cursor: pointer
+    }
+
+    #ywpj_mask .ywpj-main .ywpj-tag-custom em {
+        font-style: normal
+    }
+
+    #ywpj_mask .ywpj-main .ywpj-tag-custom-have {
+        padding-right: 16px
+    }
+
+    #ywpj_mask .ywpj-main .ywpj-tag-custom span {
+        position: absolute;
+        margin-left: 4px;
+        font-size: 20px;
+        line-height: 26px;
+        vertical-align: top;
+        cursor: pointer;
+        right: 7px;
+        top: 0
+    }
+
+    #ywpj_mask .ywpj-main {
+        position: absolute;
+        width: 580px;
+        height: 480px;
+        background: #fff;
+        border-radius: 3px;
+        top: 50%;
+        left: 50%;
+        margin-top: -265px;
+        margin-left: -321px;
+        padding: 24px 40px
+    }
+
+    #ywpj_mask p.ywpj-title {
+        font-size: 18px;
+        text-align: center
+    }
+
+    #ywpj_mask p.ywpj-title-item {
+        border-left: solid 4px #fc831a;
+        height: 16px;
+        font-size: 14px;
+        line-height: 16px;
+        font-weight: bold;
+        text-indent: 10px;
+        color: #333
+    }
+
+    #ywpj_mask p.ywpj-title-item-tags span {
+        float: right;
+        font-weight: normal;
+        background: url(../static/img/changeicon.png?20170920) no-repeat right center;
+        padding-right: 20px;
+        cursor: pointer
+    }
+
+    #ywpj_mask p.ywpj-starts {
+        height: 24px;
+        margin-top: 15px
+    }
+
+    #ywpj_mask p.ywpj-starts span {
+        float: left;
+        display: inline-block;
+        width: 30px;
+        height: 24px;
+        background: url(../static/img/starsbg.png) no-repeat;
+        cursor: pointer
+    }
+
+    #ywpj_mask p.ywpj-starts span.star0 {
+        background-position: 0 0
+    }
+
+    #ywpj_mask p.ywpj-starts span.star1 {
+        background-position: 0 -26px
+    }
+
+    #ywpj_mask p.ywpj-starts span.star2 {
+        background-position: -31px -26px
+    }
+
+    #ywpj_mask p.ywpj-starts span.star3 {
+        background-position: -62px -26px
+    }
+
+    #ywpj_mask p.ywpj-starts span.star4 {
+        background-position: -93px -26px
+    }
+
+    #ywpj_mask p.ywpj-starts span.star5 {
+        background-position: -124px -26px
+    }
+
+    #ywpj_mask .ywpj-main textarea {
+        width: 100%;
+        height: 32px;
+        border: solid 1px #e5e5e5;
+        border-radius: 3px;
+        margin-top: 16px;
+        font-size: 14px;
+        color: #666
+    }
+
+    #ywpj_mask .ywpj-main .ywpj-submit {
+        text-align: center;
+        margin-top: 30px
+    }
+
+    #ywpj_mask .ywpj-main .ywpj-submit button {
+        width: 142px;
+        height: 36px;
+        line-height: 36px;
+        font-size: 14px;
+        color: #fff;
+        background: #fc831a;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer
+    }
+
+    #ywpj_mask .ywpj-main .ywpj-submit p {
+        font-size: 14px;
+        color: #838c9a;
+        margin-top: 15px
+    }
+
+    #ywpj_mask .ywpj-main .ywpj-tag-custom-input {
+        width: 280px;
+        position: relative;
+        font-size: 12px
+    }
+
+    #ywpj_mask .ywpj-main .ywpj-tag-custom-input input {
+        border: none;
+        outline: 0;
+        height: 22px;
+        width: 186px;
+        padding: 4px 18px;
+        background: #f3f3f3;
+        border-radius: 15px;
+        color: #999;
+        font-size: 12px
+    }
+
+    #ywpj_mask .ywpj-main .ywpj-tag-submit-div {
+        display: inline-block;
+        height: 30px;
+        line-height: 30px;
+        top: 0;
+        position: absolute;
+        right: 0;
+        background: #fc831a;
+        border-bottom-right-radius: 30px;
+        border-top-right-radius: 30px;
+        color: #fff
+    }
+
+    #ywpj_mask .ywpj-main .ywpj-tag-submit-div span {
+        margin: 0 10px
+    }
+
+    #ywpj_mask .ywpj-main .ywpj-tag-submit-div span.ywpj-tag-submit-div-line {
+        display: inline-block;
+        height: 14px;
+        background: #fff;
+        width: 1px;
+        vertical-align: middle;
+        color: #fff;
+        margin: 0
+    }
+
+    #ywpj_mask .ywpj-custom-hidden {
+        display: none
+    }
+
+    #ywpj_mask .ywpj-tips {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 200px;
+        height: 30px;
+        line-height: 30px;
+        background: rgba(51, 51, 51, 0.9);
+        color: #fff;
+        font-size: 14px;
+        text-align: center;
+        border-radius: 3px;
+        margin-top: -15px;
+        margin-left: -100px;
+        display: none;
+        opacity: 0
+    }
+
+    #ywpj_mask .ywpj-close {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 40px;
+        height: 40px;
+        line-height: 36px;
+        font-size: 30px;
+        color: #d3d3d3;
+        text-align: center;
+        cursor: pointer;
+    }
+    </style>
+    <style>
+        @font-face {
+        font-family: uc-nexus-iconfont;
+        src: url(../static/fonts/font_9qmmi8b8jsxxbt9.woff) format('woff'), url(chrome-extension://pogijhnlcfmcppgimcaccdkmbedjkmhi/res/font_9qmmi8b8jsxxbt9.ttf) format('truetype')
+    }
+    </style>
+</head>
+
+<body>
+<iframe src="javascript:false" title="" frameborder="0" tabindex="-1"
+        style="position: absolute; width: 0px; height: 0px; border: 0px;"></iframe>
+<style type="text/css">.WPA3-SELECT-PANEL {
+    z-index: 2147483647;
+    width: 463px;
+    height: 292px;
+    margin: 0;
+    padding: 0;
+    border: 1px solid #d4d4d4;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 15px #d4d4d4;
+}
+
+.WPA3-SELECT-PANEL * {
+    position: static;
+    z-index: auto;
+    top: auto;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    width: auto;
+    height: auto;
+    max-height: auto;
+    max-width: auto;
+    min-height: 0;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    clear: none;
+    clip: auto;
+    background: transparent;
+    color: #333;
+    cursor: auto;
+    direction: ltr;
+    filter:;
+    float: none;
+    font: normal normal normal 12px "Helvetica Neue", Arial, sans-serif;
+    line-height: 16px;
+    letter-spacing: normal;
+    list-style: none;
+    marks: none;
+    overflow: visible;
+    page: auto;
+    quotes: none;
+    -o-set-link-source: none;
+    size: auto;
+    text-align: left;
+    text-decoration: none;
+    text-indent: 0;
+    text-overflow: clip;
+    text-shadow: none;
+    text-transform: none;
+    vertical-align: baseline;
+    visibility: visible;
+    white-space: normal;
+    word-spacing: normal;
+    word-wrap: normal;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    -ms-box-shadow: none;
+    -o-box-shadow: none;
+    box-shadow: none;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
+    border-radius: 0;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+    -ms-opacity: 1;
+    -o-opacity: 1;
+    opacity: 1;
+    -webkit-outline: 0;
+    -moz-outline: 0;
+    -ms-outline: 0;
+    -o-outline: 0;
+    outline: 0;
+    -webkit-text-size-adjust: none;
+    font-family: Microsoft YaHei, Simsun;
+}
+
+.WPA3-SELECT-PANEL a {
+    cursor: auto;
+}
+
+.WPA3-SELECT-PANEL .WPA3-SELECT-PANEL-TOP {
+    height: 25px;
+}
+
+.WPA3-SELECT-PANEL .WPA3-SELECT-PANEL-CLOSE {
+    float: right;
+    display: block;
+    width: 47px;
+    height: 25px;
+    background: url(../static/img/SelectPanel-sprites.png) no-repeat;
+}
+
+.WPA3-SELECT-PANEL .WPA3-SELECT-PANEL-CLOSE:hover {
+    background-position: 0 -25px;
+}
+
+.WPA3-SELECT-PANEL .WPA3-SELECT-PANEL-MAIN {
+    padding: 23px 20px 45px;
+}
+
+.WPA3-SELECT-PANEL .WPA3-SELECT-PANEL-GUIDE {
+    margin-bottom: 42px;
+    font-family: "Microsoft Yahei";
+    font-size: 16px;
+}
+
+.WPA3-SELECT-PANEL .WPA3-SELECT-PANEL-SELECTS {
+    width: 246px;
+    height: 111px;
+    margin: 0 auto;
+}
+
+.WPA3-SELECT-PANEL .WPA3-SELECT-PANEL-CHAT {
+    float: right;
+    display: block;
+    width: 88px;
+    height: 111px;
+    background: url(../static/img/SelectPanel-sprites.png) no-repeat 0 -80px;
+}
+
+.WPA3-SELECT-PANEL .WPA3-SELECT-PANEL-CHAT:hover {
+    background-position: -88px -80px;
+}
+
+.WPA3-SELECT-PANEL .WPA3-SELECT-PANEL-AIO-CHAT {
+    float: left;
+}
+
+.WPA3-SELECT-PANEL .WPA3-SELECT-PANEL-QQ {
+    display: block;
+    width: 76px;
+    height: 76px;
+    margin: 6px;
+    background: url(../static/img/SelectPanel-sprites.png) no-repeat -50px 0;
+}
+
+.WPA3-SELECT-PANEL .WPA3-SELECT-PANEL-QQ-ANONY {
+    background-position: -130px 0;
+}
+
+.WPA3-SELECT-PANEL .WPA3-SELECT-PANEL-LABEL {
+    display: block;
+    padding-top: 10px;
+    color: #00a2e6;
+    text-align: center;
+}
+
+.WPA3-SELECT-PANEL .WPA3-SELECT-PANEL-BOTTOM {
+    padding: 0 20px;
+    text-align: right;
+}
+
+.WPA3-SELECT-PANEL .WPA3-SELECT-PANEL-INSTALL {
+    color: #8e8e8e;
+}
+</style>
+<!-- 支付 -->
+<div id="buyorder" style="display: none;">
+    <div class="pop_up_bg">
+    </div>
+    <div class="layer-form-cell" id="order-confirm" style="display: none;">
+        <div class="layer-cell-close"></div>
+        <div class="title"></div>
+        <div class="pay mt30 mb30" style="text-align: center;">
+
+            <a id="alihref" target="_blank" class="pay-type choose">
+                <img src="./img/alipay.jpg" height="76" width="200"
+                     alt="支付宝">
+            </a> &nbsp;&nbsp;
+
+            <a id="wxhref" target="_blank" class="pay-type">
+                <img src="./img/weipay.jpg?1" height="76" width="200"
+                     alt="微信支付">
+            </a> &nbsp;&nbsp;
+
+            <a id="paybalance" target="_blank" class="pay-type">
+                <img src="./img/balance.jpg?1" height="76"
+                     width="200" alt="余额支付">
+            </a>
+
+        </div>
+        <div>当前余额:{{balance}}</div>
+    </div>
+    <div class="layer-form-cell hide" id="order-type" style="display:none;">
+        <div class="layer-cell-close"></div>
+        <div class="title">支付提示</div>
+        <div class="border-d text-center">
+            请您在新打开的第三方支付页面上完成支付
+        </div>
+        <div class="mt40 text-center">
+            <span class="btn-cell btn-red">支付完成</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="btn-cell btn-dark">支付失败</span>
+        </div>
+    </div>
+</div>
+<!--订单评价-->
+<div id="Evaluation" style="display:none;">
+    <div class="pop_up_bg"></div>
+    <div class="pop_up_01">
+        <div class="fr close mr10">×</div>
+        <div class="clearfix"></div>
+        <div class="no_order"> 评价订单</div>
+        <div class="fl mr10 tarBox">导师服务</div>
+        <div id="xzw_starSys" class="pt20 pb10 fl">
+            <div id="xzw_starBox" style="margin-top: 2px">
+                <select id="pingfen">
+                    <option value="">请对导师进行评分</option>
+                    <option value="0">0分</option>
+                    <option value="1">1分</option>
+                    <option value="2">2分</option>
+                    <option value="3">3分</option>
+                    <option value="4">4分</option>
+                    <option value="5">5分</option>
+                    <option value="6">6分</option>
+                    <option value="7">7分</option>
+                    <option value="8">8分</option>
+                    <option value="9">9分</option>
+                    <option value="10">10分</option>
+                </select>
+            </div>
+            <input value="1" style="margin-left:50px" type="checkbox" name="comanonymous" id="comanonymous"> 匿名
+            <div class="description"></div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="orders_content_box">
+            <div class="text_word_box">
+                <textarea name="reacallreason" class="text_word" id="commentdesc" maxlength="95"></textarea>
+            </div>
+            <div class="bt_botton mt20" id="comment" >提交</div>
+        </div>
+
+    </div>
+</div>
+<!--取消订单-->
+<div id="cancellation" style="display:none;">
+    <div class="pop_up_bg"></div>
+    <div class="pop_up_01">
+        <div class="fr close mr10">×</div>
+        <div class="clearfix"></div>
+        <div class="no_order">取消订单</div>
+        <div class="orders_content_box">
+            <ul class="meagess_box mt50">
+                <li class="offstr">
+                    <i class="icon_bg botton_bg fl mr10" style="display:none;"></i>
+                    <img src="./img/botton.png" class="fl mr10 botton">
+                    <span class="fl">订单信息填写有误</span>
+                    <div class="clearfix"></div>
+                </li>
+                <li class="offstr"><i class="icon_bg botton_bg fl mr10"></i><img
+                        src="./img/botton.png" class="fl mr10 botton"
+                        style="display:none;"><span class="fl">支付出现问题</span>
+                    <div class="clearfix"></div>
+                </li>
+                <li class="offstr"><i class="icon_bg botton_bg fl mr10"></i><img
+                        src="./img/botton.png" class="fl mr10 botton"
+                        style="display:none;"><span class="fl">导师要求取消订单</span>
+                    <div class="clearfix"></div>
+                </li>
+                <li class="offstr"><i class="icon_bg botton_bg fl mr10"></i><img
+                        src="./img/botton.png" class="fl mr10 botton"
+                        style="display:none;"><span class="fl">我自己临时有事</span>
+                    <div class="clearfix"></div>
+                </li>
+                <li class="offstr"><i class="icon_bg botton_bg fl mr10"></i><img
+                        src="./img/botton.png" class="fl mr10 botton"
+                        style="display:none;"><span class="fl">其他原因</span>
+                    <div class="clearfix"></div>
+                </li>
+                <div class="clearfix"></div>
+            </ul>
+            <div class="text_word_box">
+                <textarea class="text_word" id="offtext" maxlength="95" disabled=""></textarea>
+                <!--     <div class="text_word_01">95</div> -->
+            </div>
+            <div class="look_out">本日取消订单不能超过5次，否则将无法继续下单！</div>
+            <div class="bt_botton mt40" id="off" v-on:click="reacall()">提交</div>
+        </div>
+
+    </div>
+</div>
+<!--取消订单反馈-->
+<div id="feedback" style="display:none;">
+    <div class="pop_up_bg"></div>
+    <div class="pop_up_01 pop_up_10">
+        <div class="fr close mr10">×</div>
+        <div class="clearfix"></div>
+        <div class="sure"><img src="./img/sure.png"></div>
+        <div class="sure_01 mt25 mb25">订单取消成功</div>
+        <div class="sure_02">费用将返回您的账户</div>
+        <a class="bt_botton mt20 sure_03" style="margin-top: 26px; display: block;" id="dd_kefu_ordercancle">联系客服约单</a>
+        <p style="font-size: 14px;color: #999999;margin-left: 106px;margin-top: -23px;" class="sure_04">
+            联系客服！为您匹配更多大神、美女！</p>
+    </div>
+</div>
+<!--用户留言-->
+<div id="leave_word" style="display:none;">
+    <div class="pop_up_bg"></div>
+    <div class="pop_up_01">
+        <div class="fr close mr10">×</div>
+        <div class="clearfix"></div>
+        <div class="phone_title"></div>
+        <div class="word_text"></div>
+    </div>
+</div>
+<!--联系客服-->
+<div id="service" style="display:none;">
+    <div class="pop_up_bg"></div>
+    <div class="pop_up_01">
+        <div class="fr close mr10">×</div>
+        <div class="clearfix"></div>
+        <div class="phone_title"></div>
+        <div class="ic_face">
+            <a class="kefuqqqq" id="dd_kefu_ordercenter" target="_blank"><img
+                    src="./img/ic_face (4).png"></a>
+            <a class="kefuqqqq" id="dd_kefu_toushu" target="_blank"><img
+                    src="./img/ic_face (4).png"></a>
+            <a class="kefuqqqq" id="lianxidaoshi" target="_blank"><img
+                    src="./img/ic_face (4).png"></a>
+            <a class="kefuqqqq" id="lianxiyonghu" target="_blank"><img
+                    src="./img/ic_face (4).png"></a>
+        </div>
+        <!-- <div class="share_link">QQ：<span id="share_link"></span> <span class="shar_qq" data-clipboard-target="#share_link">【复制】</span></div> -->
+        <div class="share_link">
+            <span>QQ：</span>
+            <input type="text" id="share_link" class="input" value="">
+            <a href="#none" class="copy-input">【复制】</a>
+        </div>
+    </div>
+</div>
+<!--联系导师电话-->
+<div id="telephone" style="display:none;">
+    <div class="pop_up_bg"></div>
+    <div class="pop_up_01">
+        <div class="fr close mr10">×</div>
+        <div class="clearfix"></div>
+        <div class="phone_title"></div>
+        <div class="phone"><img id="telephoneimg"
+                                src="./img/phone.png"></div>
+        <div class="phone_number"></div>
+    </div>
+</div>
+<!--拒绝弹窗-->
+<div id="Reject" style="display:none;">
+    <div class="pop_up_bg"></div>
+    <div class="pop_up_01">
+        <div class="fr close mr10">×</div>
+        <div class="clearfix"></div>
+        <div class="confirm">拒绝订单需联系用户，由用户操作取消，无故不接订单，将被扣除信誉度。</div>
+        <div class="botton_Orders fl">确定</div>
+        <div class="cancel fl">取消</div>
+        <div class=" clearfix"></div>
+    </div>
+</div>
+<!--接单弹窗-->
+<div id="order_form" style="display:none;">
+    <div class="pop_up_bg"></div>
+    <div class="pop_up_01">
+        <div class="fr close mr10">×</div>
+        <div class="clearfix"></div>
+        <div class="confirm mt30 mb45">接单后，请及时与用户取得联系！</div>
+        <div class="botton_Orders fl">接单</div>
+        <div class="cancel fl">取消</div>
+        <div class=" clearfix"></div>
+    </div>
+</div>
+<!--top-box-->
+
+<script charset="utf-8" src="./js/kfqq.js"></script>
+<!--左边-->
+<!--left_column-->
+<div id="left_column">
+    <div>
+        <a href="/indexw" target="_blank">
+            <i class="header " style="color:white;margin:10px 0 0 25px;">
+                <img src="./img/icon.png">
+            </i></a>
+        <div class="boundary"></div>
+    </div>
+    <div>
+        <div class="manage_bigbox mt15">
+            <div class="manage_box pb15">
+                <i class="icon_bgs manage2 fl"></i>
+                <span class="fl">管理</span>
+                <div class="clearfix"></div>
+            </div>
+            <div class="classify_box">
+                <a href="/zindexw">我的订单</a>
+                <a href="/zatten">我的关注</a>
+                <a href="/ztrecord">交易记录</a>
+            </div>
+        </div>
+        <div class="manage_bigbox mt15">
+            <div class="manage_box pb15">
+                <i class="icon_bgs manage3 fl"></i>
+                <span class="fl">设置</span>
+                <div class="clearfix"></div>
+            </div>
+            <div class="classify_box">
+                <a href="/zsecur">安全中心</a>
+                <a href="/zdata">个人资料</a>
+                <a href="/zplayinfo">详细信息</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!--left-column-end-->
+<!--top-box-->
+<div id="top_box" >
+    <div class="fr" v-for="(iten,index) in user">
+        <div class="mailbox_bigbox pt25 pb20 fl">
+            <a href="#">
+                <div class="fl mailbox_box">
+                    <i class="icon_bgs fl mailbox"></i>
+                    <span class="mailshu" style="display: none;">
+                    </span>
+                    <span class="fl">消息</span>
+                    <div class="clearfix"></div>
+                </div>
+            </a>
+            <div class="fl service_box course5" id="dd_kefu_qidian">
+                <i class="icon_bgs fl service"></i><span class="fl">客服</span>
+                <div class="clearfix"></div>
+            </div>
+            <div class="fl"><i class="fl"><img
+                    src="./img/icon_uid.png"></i><span class="fl">PID:{{iten.pid}}</span>
+                <div class="clearfix"></div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="fl ml25 head_img_box">
+            <div class="vip_text_box fl">
+                <div class="fl head_img">
+                    <a href="/zdata">
+                    <img :src="'http://pleuof34m.bkt.clouddn.com/'+iten.person_image+'?imageView2/2/w/400/h/400/q/100'"
+                         alt="头像" title="" onerror="avatarNoFound(this)">
+                    </a>
+                </div>
+                <div class="fl ml10 vip_text">
+                    <div class="vip_01">{{iten.person_flate==0?'用户':'主播'}}</div>
+                    <div class="vip_02">
+                        <a href="/zdata" id="name_href"  style="text-align: center;direction: none" >{{iten.person_nickname}}</a>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <a class="fl ml10 mr40 pl10 quit" href="/logout" id="dologout">退出</a>
+        <div class="clearfix"></div>
+    </div>
+    <div class="clearfix"></div>
+</div>
+<div id="c_top" class="content_top"></div>
+<div class="left_margin"></div>
+
+<script type="text/javascript">
+    /*function avatarNoFound(that) {
+        that.src = "./img/noavatar_middle.gif";
+        that.onerror = null;
+    }*/
+    /*消息判断*/
+    /*$(function () {
+        msg();
+
+        function msg() {
+            $.ajax({
+                url: "",
+                dataType: 'json',
+                xhrFields: {
+                    withCredentials: true
+                },
+                crossDomain: true,
+                success: function (obj) {
+                    var obj = eval(obj);
+                    result = obj.result;
+                    TotalUnRead = result.TotalUnRead
+                    if (TotalUnRead < 1) {
+                        $('.mailshu').hide();
+                    } else {
+                        $('.mailshu').show();
+                        $('.mailshu').html(TotalUnRead);
+                    }
+                }
+            })
+        }
+    });*/
+    /*$('#dologout').click(function () {
+        $.ajax({
+            url: "/useraction.ashx?method=loginout",
+            dataType: "jsonp",
+            success: function (obj) {
+                url = window.location.href;
+                if (url.indexOf('home') > 0) {
+                    window.location.href = "m";
+                } else {
+                    location.reload(true);
+                }
+            }
+        })
+    })*/
+    /*$('#jump_yuewan').click(function () {
+        $.ajax({
+            url: "/",
+            dataType: "jsonp",
+            success: function (obj) {
+                window.location.href = "";
+            }
+        })
+    })*/
+    /*$.ajax({
+        url: "",
+        dataType: 'jsonp',
+        success: function (obj) {
+            if (obj.code == 0) {
+                if ("0" == "1") {
+                    $('.head_img').html('<a href="/playerinfo"><img src="" alt="头像" title="" onerror="avatarNoFound(this)"/></a>');
+                    $('.vip_02').html('<a href="/playerinfo/" id="name_href" title="假如dd">xx</a>');
+                } else {
+                    $('.head_img').html('<a href="/data"><img src="" alt="头像" title="" onerror="avatarNoFound(this)"/></a>');
+                    $('.vip_02').html('<a href="/data" id="name_href" title="">xxx</a>');
+                }
+            }
+        }
+    })*/
+</script>
+<!--top-box-end-->
+<script>
+    // $(".classify_box li").click(function() {
+    //     $(this).parents().find(".classify_box li").removeClass("left_border")
+    //     $(this).addClass("left_border").siblings().removeClass("left_border")
+    // })
+    var a = $('.classify_box a');
+    for (var i = a.length - 1; i >= 0; i--) {
+        if (location.href == a.eq(i).attr('href')) {
+            a.eq(i).attr('class', 'left_border');
+            a.eq(i).attr('href', 'javascript:void(0)');
+        }
+    }
+</script>
+<script src="./js/tuwan_message.js"></script>
+<div id="message_tips" style="display:none;position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 5px 20px; background: rgba(51,51,51,0.96);color: #fff;font-size: 16px; border-radius: 4px;"></div>
+
+<!--top-box-end-->
+
+<!--订单start-->
+<div id="app">
+<div id="user_content" class="left_margin" style="margin-top: 0px">
+    <ul class="menu">
+        <a href="#"><li class="menu_add">全部订单{{countorder}}</li></a>
+        <!--<a href="https://y.tuwan.com/home/ocenter/?type=2">
+            <li class="">约玩订单</li>
+        </a>-->
+        <div class="clearfix"></div>
+    </ul>
+        <div class="order_goods_box"   >
+            <!--订单-->
+            <div class="order_goods " style=" height: 192px;" v-for="(item,index) in result">
+                <div class="help_bigbox pt10 pb10">
+                    <div class="fl ml20 up_down_box">
+                        <span class="fl">订单号:{{item.oid}}</span>
+                    </div>
+                    <a class="fl help_box lianxikefu" href="javascript:void(0)" title="客服QQ:xxxx">
+                        <i class="icon_bg fl help"></i>
+                        <span v-on:click="lianxi()" class="fl telephone">联系客服</span>
+                        <div class="clearfix"></div>
+                    </a>
+                    <div class="fr refuse_box pr15 off" order="" v-if="item.o_flate==0">
+                        <i class="icon_bg fl refuse"></i>
+                        <span class="fl" v-on:click="recall(item.oid)" >取消订单</span>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="mt30 pb30">
+                    <div class="fl head_samllimg_box">
+                        <div class="fl">
+                            <div class="head_samll_box">
+                                <a href="" target="_blank" class="head_samllimg ml20" style="display: block;">
+                                    <img :src="'http://pleuof34m.bkt.clouddn.com/'+item.person_image+'?imageView2/2/w/200/h/200/q/100'" onerror="imgNoFound(this)"></a>
+                                <!-- <div class="head_samll_01">V5</div> -->
+                            </div>
+                        </div>
+                        <div class="fl  head_samlltext ml30">
+                            <div> {{item.o_service}}（{{item.o_xiadanshijian}}小时）</div>
+                            <div><span>用户:</span>{{item.person_nickname}}
+                               <!-- <div class="grade_box">
+                                    <img src="./img/grade.png" class="grade_img">
+                                    <span class="grade_span">VIP2</span>
+                                </div>-->
+                            </div>
+                            <div><span>PID:</span>{{item.pid}}</div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="fl refuse_01_box mt30">
+                        <span  class="fl">联系用户</span>
+                        <i v-on:click="lianxi()" class="icon_bg fl refuse_01 ml10 lxdaoshi" qq="qq" desc="用户" :title="'用户QQ:'+item.person_qq"></i>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="time_order fl mt20">
+                        <div class="yuyuetime">预约时间:</div>
+                        {{item.o_datetime}}:{{item.o_starttime}}
+                    </div>
+                    <div class="fl Orders_box zf Orders_box_zhifu">
+                        <div v-if="item.o_flate==1">
+                        <div > 已支付:{{item.o_money}}(元/小时)</div>
+                        <div name="用户nick" class="Orders Orders_06"  order="订单" >用户已支付</div>
+                            <div id="orderComment" class="Orders Orders_06">查看评价</div>
+                            <!--v-on:click="comment(item.oid,item.aid,item.gid)"-->
+                        </div>
+                        <div v-else-if="item.o_flate==0">
+                        <div > 未支付:{{item.o_money}}(元/小时)</div>
+                        <div name="用户nick" class="Orders Orders_05" v-on:click="toorder(item.oid,item.o_money,item.o_xiadanshijian)"  order="订单">用户未支付</div>
+                        </div>
+                        <div v-else>
+                        <div > 已取消:{{item.o_money}}(元/小时)</div>
+                        <div name="主播nick" class="Orders Orders_07"  order="订单">用户已取消</div>
+                            <div>取消原因:{{item.o_reacallreason}}</div>
+                        </div>
+
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+
+            <!--订单end-->
+        </div>
+        <div id="paging_box">
+        <ul class="paging_box mt30 mb50">
+
+            <div class="clearfix"></div>
+        </ul>
+    </div>
+</div>
+</div>
+
+<!--订单end-->
+<!--评价-->
+<script charset="utf-8" src="./js/comment.js"></script>
+<!--分页-->
+<script type="text/javascript" src="./js/ywpingjia.js"></script>
+<div id="ywpj_mask" style="display:none;">
+    <div class="ywpj-main" id="ywpj_main"><p class="ywpj-title">订单评价</p>
+        <p class="ywpj-title-item" style="margin-top: 20px;">选择对导师服务的评分</p>
+        <p class="ywpj-starts">
+            <span index="0" class="star0"></span>
+            <span index="1" class="star0"></span>
+            <span index="2" class="star0"></span>
+            <span index="3" class="star0"></span>
+            <span index="4" class="star0"></span>
+        </p>
+        <p class="ywpj-title-item ywpj-title-item-tags" style="margin-top: 22px;">选择对TA的印象<span
+                id="ywpj_change">换一批</span></p>
+        <ul></ul>
+        <div style="clear: both;"></div>
+        <div class="ywpj-tag-custom"><em>+自定义</em>
+            <span class="ywpj-custom-hidden">×</span></div>
+        <div class="ywpj-tag-custom-input" style="display: none;">
+            <input id="ywpj_tag_input" type="text" maxlength="4" placeholder="输入标签（最多4个字）">
+            <div class="ywpj-tag-submit-div"><span id="ywpj_custom_btnok" style="cursor: pointer;">确定</span>
+                <span class="ywpj-tag-submit-div-line"></span>
+                <span id="ywpj_custom_btncancle" style="cursor: pointer;">取消</span>
+            </div>
+        </div>
+        <div style="clear: both;"></div>
+        <p class="ywpj-title-item" style="margin-top: 22px;">输入对导师评价</p>
+        <textarea id="ywpj_desc"></textarea>
+        <div class="ywpj-submit">
+            <button id="ywpj_submit">提交</button>
+            <p><label><input name="yupj_niming" type="checkbox">匿名评价</label></p></div>
+        <span class="ywpj-close">×</span>
+        <div class="ywpj-tips"></div>
+    </div>
+</div>
+
+<script th:inline="javascript">
+    var pid = [[${session.nameTPerson?.pid}]];
+    </script>
+
+<script type="text/javascript">
+    /*定义全局的订单id*/
+    var id;
+    /*定义查询到的余额*/
+    var balance;
+    /*定义需要支付的价钱*/
+    var zid;
+    var gameid;
+    var paymoney;
+
+    var userbalance=new Vue({
+        el:'#buyorder',
+        data:{
+            balance:[]
+        }
+    });
+
+    /*加载用户的信息*/
+        var  users=new Vue({
+            el:'#top_box',
+            data:{
+             user:[]
+            }
+        });
+        var getUsersInfo=function(){
+            $.ajax({
+                type: 'get',
+                dataType: 'json',
+                url: '/getuserinfo',
+                data: {pid:pid},
+                success: function (rest) {
+                    users.user = rest.results;
+                    userbalance.balance=rest.results[0].m_balance;
+                    }
+            });
+        };
+
+        getUsersInfo();
+    /*进页面加载订单start*/
+    var  app = new Vue({
+        el: '#app',
+        data: {
+            result: []
+        },methods:{
+            toorder(oid,money,shichang){
+                //订单支付按钮
+                /*code = $(this).attr('order');*/
+                $('#buyorder .title').html('支付订单号:' + oid);
+                $('#alihref').attr('href', '/?type=&aid=' + oid + '&typeid=2000');
+                $('#wxhref').attr('href', '/wechat/' + oid + '/');
+                $('#order-type').hide();
+                $('#buyorder').show();
+                $('#order-confirm').show();
+                $('#paybalance').attr("order", oid);
+                id=oid;
+                paymoney=money*shichang;
+            },recall(oid){
+                /*取消订单*/
+                $("#cancellation").show();
+                id=oid;
+            },comment(oid,aid,gid){
+                $('#Evaluation').show();
+                id=oid;
+                zid=aid;
+                gameid=gid;
+            },lianxi(){
+                /*点击联系弹窗*/
+                $(".kefuqqqq").hide();
+                currentKefuType = kefuType.lianxi;
+                $("#service .phone_title").html('联系客服');
+                $("#service #share_link").val('800184580');
+                $("#service #dd_kefu_ordercenter").show();
+                // $("#service .kefuqqqq").attr("id", "dd_kefu_ordercenter");
+                $("#service #dd_kefu_ordercenter").attr('href', 'javascript:;');
+                $("#service #dd_kefu_ordercenter").attr('title', '联系客服QQ：800184580');
+                $("#service").show();
+                fuzhi();
+            }
+        }
+    });
+    window.onload = function() {
+        /*var keyname = sessionStorage.getItem("keyname");*/
+        var getOrderList = function () {
+            $.ajax({
+                type: 'get',
+                dataType: 'json',
+                url: '/zhuboorder',
+                data: {pid:pid},
+                success: function (res) {
+                    app.result = res.result;
+                    app.countorder = res.count;
+                }
+            });
+        };
+        getOrderList();
+        /*进页面加载订单end*/
+    }
+    var code = '';
+    $(function () {
+        $(window).scroll(function () {
+            var ling = $(document).scrollTop();
+            if (ling < 100) {
+                $("#fixed_left_box").removeClass("fixed_left_01");
+            }
+            if (ling > 100) {
+                $("#fixed_left_box").addClass("fixed_left_01");
+            }
+        })
+    })
+
+    var kefuType = {
+        lianxi: 1,
+        tousu: 2
+    }
+    var currentKefuType = 0;
+    // JavaScript Document
+    //订单号显示和隐藏
+    $(".up_down_box").click(function () {
+        if ($(this).parent().parent().find(".order_form").attr('flag') == 'false') {
+            $(this).find(".up_down").addClass("up_down1");
+            $(this).parent().parent().siblings().find(".up_down").removeClass("up_down1");
+            $(this).parent().parent().find(".order_form").stop().slideDown();
+            $(this).parent().parent().siblings().find(".order_form").hide();
+            $(this).parent().parent().find(".order_form").attr('flag', 'true');
+            $(this).parent().parent().siblings().find(".order_form").attr('flag', 'false');
+        } else {
+            $(this).find(".up_down").removeClass("up_down1");
+            $(this).parent().parent().find(".order_form").stop().slideUp();
+            $(this).parent().parent().find(".order_form").attr('flag', 'false');
+            $(this).parent().parent().siblings().find(".order_form").attr('flag', 'false');
+        }
+    })
+    //左侧栏
+    $(".classify_box li").click(function () {
+        $(this).parents().find(".classify_box li").removeClass("left_border")
+        $(this).addClass("left_border").siblings().removeClass("left_border")
+    })
+    //订单切换
+    $(".menu li").click(function () {
+        $(this).addClass("menu_add").siblings().removeClass("menu_add")
+        var n = $(".menu li").index(this)
+        $(".order_goods_box").eq(n).show().siblings().hide();
+    })
+    //全部订单
+    var flag = true;
+    $('.filter_01_box').click(function () {
+        if (flag == true) {
+            $('.filter_sbox').show();
+            $('.filter_01').addClass('filter_add')
+            $('.filter_box1').css('border', '#dedede solid 1px')
+            $('.filter_box1').css('border-top', 'none')
+            flag = false;
+        } else {
+            $('.filter_sbox').hide();
+            $('.filter_box1').css('border', '#fff solid 1px')
+            $('.filter_box1').css('border-top', 'none')
+            $('.filter_01').removeClass('filter_add')
+            flag = true;
+        }
+    })
+    $('.filter').click(function () {
+        $('.filter_01').text($(this).text())
+        $('.filter_sbox').hide();
+        $('.filter_box1').css('border', '#fff solid 1px')
+        $('.filter_box1').css('border-top', 'none')
+        $('.filter_01').removeClass('filter_add')
+        flag = true;
+    })
+    //复制的JS
+    // var clipboard = new Clipboard('.shar_qq');
+    // clipboard.on('success', function(e) {
+    //     e.clearSelection();
+    //     alert('复制成功')
+
+    // });
+    // clipboard.on('error', function(e) {});
+
+    //点击订单
+    var offstr = $('.offstr').eq(0).text();
+    var offnum = 0;
+    $('.meagess_box li').click(function () {
+        $(this).find('.botton').show()
+        $(this).find('.botton_bg').hide()
+        $(this).siblings().find('.botton').hide();
+        $(this).siblings().find('.botton_bg').show()
+    })
+
+    $(document).ready(function () {
+        var stepW = 24;
+        var stars = $("#star > li");
+        var descriptionTemp;
+        $("#showb").css("width", 0);
+        stars.each(function (i) {
+            $(stars[i]).click(function (e) {
+                var n = i + 1;
+                $("#showb").css({"width": stepW * n});
+                descriptionTemp = description[i];
+                $(this).find('a').blur();
+                return stopDefault(e);
+                return descriptionTemp;
+            });
+        });
+
+    });
+
+    function stopDefault(e) {
+        if (e && e.preventDefault)
+            e.preventDefault();
+        else
+            window.event.returnValue = false;
+        return false;
+    };
+    //弹窗出来
+    $('.close, #Reject .botton_Orders, .layer-cell-close, .btn-dark').click(function () {
+        $("#order_form").hide()
+        $("#Reject").hide()
+        $("#Evaluation").hide()
+        $("#cancellation").hide()
+        $("#feedback").hide()
+        $("#leave_word").hide()
+        $("#service").hide()
+        $("#telephone").hide()
+        $('#order-type').hide();
+        $('#buyorder').hide();
+        $('#order-confirm').hide();
+    })
+    $('.cancel').click(function () {
+        $("#Reject").hide()
+        $("#order_form").hide()
+    })
+    $(".Reject").click(function () {
+        $("#Reject").show()
+    })
+
+    function leave_word(str) {
+        $('#leave_word .phone_title').html('用户留言');
+        $("#leave_word .word_text").html(str);
+        $("#leave_word").show();
+    }
+
+    // $(".refuse_01").click(function() {
+    //     $("#service .phone_title").html('联系'+$(this).attr('desc')+'QQ');
+    //     $("#service #share_link").val($(this).attr('qq'));
+    //     $("#service #qqhref").attr('href','https://wpa.qq.com/msgrd?v=3&uin='+$(this).attr('qq')+'&site=qq&menu=yes');
+    //     $("#service #qqhref").attr('title',$(this).attr('title'));
+    //     $("#service").show();
+    //     fuzhi();
+    // })
+
+
+    $(".Evaluation").click(function () {
+        code = $(this).attr('order');
+        var sid = $(this).attr('sid');
+        var teacherid = $(this).attr('teacherid');
+        var gameid = $(this).attr('gameid');
+        var parents = $(this).parents(".Orders_box");
+        var jiedanEle = parents.find(".Orders_add01");
+        var oneMorebox = parents.find(".one_more_box");
+        window.YWPJ.show(sid, code, teacherid, gameid, function (desc, teacherId, gameId) {
+            //评价完成回调
+            jiedanEle.text("已完成");
+            jiedanEle.addClass("Orders_add03");
+            oneMorebox.html('<div class="fl one_more lookcomment" comment="' + desc + '" order="' + code + '' + teacherId + '">查看评论</div>\
+        <a href="/?gameid=" target="_blank"><div class="fl one_more2 one_more">再来一单</div></a>\
+        <div class="clearfix"></div>' + gameId + '')
+
+        });
+        // $("#Evaluation").show()
+    })
+    $(".refuse_02").click(function () {
+        $("#telephoneimg").attr("title", $(this).attr('title') + '电话：' + $(this).attr('title'));
+        $("#telephone .phone_title").html('联系' + $(this).attr('desc') + '手机');
+        $("#telephone .phone_number").html('手机号：' + $(this).attr('phone'));
+        $("#telephone").show();
+    })
+
+
+    $('.pay-type').click(function () {
+        $(this).addClass('choose');
+        $('.pay-type').not(this).removeClass('choose');
+    })
+    $('.text-center,#alihref,#wxhref').click(function () {
+        $('#order-type').show();
+        $('#order-confirm').hide();
+    })
+    $("#order_form .botton_Orders").click(function () {
+        code = $(this).attr('order');
+    })
+    $('.Orders_05').click(function () {
+        code = $(this).attr('order');
+        $('#buyorder .title').html('支付订单号:' + code);
+        $('#alihref').attr('href', '/?type=alipay&aid=' + code + '&typeid=2000');
+        $('#wxhref').attr('href', '/wechat/' + code + '/');
+        $('#order-type').hide();
+        $('#buyorder').show();
+        $('#order-confirm').show();
+        $('#paybalance').attr("order", code);
+    })
+    $('#order-type .btn-red').click(function () {
+        location.href = location.href;
+    })
+
+    $('.off').click(function () {
+        code = $(this).attr('order');
+        $('#cancellation').show();
+    })
+    //评论
+    $('#comment').click(function () {
+        var decs = ''
+        if ($('#commentdesc').val().length <= 95 && $('#commentdesc').val().length > 0) {
+            decs = $('#commentdesc').val();
+        }
+        //var comanonymous = $('#comanonymous').val();
+        //var comanonymous = $('#comanonymous').attr('checked');
+        var comanonymous = $("input[name='comanonymous']:checked").val();
+        if (1 != comanonymous) {
+            comanonymous = 0
+        }
+        var star = Math.floor($('#showb').css('width').replace(/px/g, "") * 1 / 24);
+        if (decs != '' && star > 0 && star <= 5) {
+            $.ajax({
+                url: '/',
+                data: "order=" + code + "&decs=" + decs + "&star=" + star + "&type=" + comanonymous,
+                type: "get",
+                dataType: "jsonp",
+                success: function (obj) {
+                    if (obj.code == 0) {
+                        alert('评论成功');
+                        location.href = location.href;
+                    }
+                }
+            })
+        } else {
+            if (decs == '') {
+                alert('评论内容不能为空');
+            } else {
+                alert('请给出评分(5☆为好评哦)');
+            }
+        }
+    })
+
+    //关闭订单
+    $('.offstr').click(function () {
+        offnum = $('.offstr').index(this);
+        if (offnum == 4) {
+            offstr = '';
+            $('#offtext').removeAttr('disabled');
+            $('#offtext').focus();
+        } else {
+            offstr = $(this).text().trim();
+            $('#offtext').attr('disabled', 'disabled');
+        }
+    });
+
+    $('#off').click(function () {
+        if (offnum == 4 && $('#offtext').val().length <= 95 && $('#offtext').val().length > 0) {
+            offstr = $('#offtext').val();
+        }
+        if (offstr == '') {
+            alert('内容不能为空');
+            return;
+        }
+        $.ajax({
+            url: '/reacallreason',
+            type: "post",
+            dataType: "json",
+            data: {
+                pid:pid,
+                oid:id,
+                reacallcomment:offstr
+            },
+            success: function (obj) {
+                if (obj.reason > 0) {
+                        $('.pop_up_10').css('height', '340');
+                        $('#cancellation').hide();
+                        $('#feedback').show();
+                }
+                     else {
+                        $('.sure_03').hide();
+                        $('.sure_04').hide();
+                        $('#feedback .sure_02').html('');
+                        $('#cancellation').hide();
+                        $('#feedback').show();
+                    }
+            }
+        });
+    });
+
+    $('.Orders_box').on("click", " .lookcomment", function () {
+        var str = $(this).attr('comment');
+        $('#leave_word .phone_title').html('我的评论');
+        $("#leave_word .word_text").html(str);
+        $("#leave_word").show();
+    })
+    $('#feedback .close').click(function () {
+        location.href = location.href;
+    })
+    $(".Orders_form").click(function () {
+        code = $(this).attr('order');
+        $("#order_form .botton_Orders").attr('order', code);
+        $("#order_form").show();
+    })
+    //接单
+    $("#order_form .botton_Orders").click(function () {
+        $.ajax({
+            url: '',/*https://api.tuwan.com/playteach/?type=play&data=makeorder&format=jsonp*/
+            data: "order=" + $(this).attr('order'),
+            type: "get",
+            dataType: "jsonp",
+            success: function (obj) {
+                if (obj.code == 0) {
+                    alert('接单成功');
+                    location.href = location.href;
+                }
+            }
+        })
+    });
+
+    $('.order_01').mouseenter(function () {
+        $('#ts_' + $(this).attr('order')).show();
+        $('#tsstr_' + $(this).attr('order')).show();
+    })
+    $('.order_01').mouseleave(function () {
+        $('#ts_' + $(this).attr('order')).hide();
+        $('#tsstr_' + $(this).attr('order')).hide();
+    })
+
+    $('.tousu').click(function () {
+        $(".kefuqqqq").hide();
+        $("#service .phone_title").html('联系客服进行投诉');
+        $("#service #share_link").val('800184580');
+        $("#service #dd_kefu_toushu").show();
+        $("#service #dd_kefu_toushu").attr('href', 'javascript:;');
+        $("#service #dd_kefu_toushu").attr('title', '联系客服QQ：800184580');
+        $("#service").show();
+        fuzhi();
+        //动态创建script
+        addScript("qd285216172382bcaaf974deca5614a80a529372a1e4", "/qidian/2852161723/82bcaaf974deca5614a80a529372a1e4");
+    })
+
+    $(".lxdaoshi").click(function () {
+        $(".kefuqqqq").hide();
+        $("#service .phone_title").html('联系' + $(this).attr('desc') + 'QQ');
+        $("#service #share_link").val($(this).attr('qq'));
+        $("#service #lianxidaoshi").attr('href', 'msgrd?v=3&uin=' + $(this).attr('qq') + '&site=qq&menu=yes');
+        $("#service #lianxidaoshi").show();
+        $("#service #lianxidaoshi").attr('title', $(this).attr('title'));
+        $("#service").show();
+        fuzhi();
+    })
+
+    $(".lxyonghu").click(function () {
+        $(".kefuqqqq").hide();
+        $("#service .phone_title").html('联系' + $(this).attr('desc') + 'QQ');
+        $("#service #share_link").val($(this).attr('qq'));
+        $("#service #lianxiyonghu").show();
+        $("#service #lianxiyonghu").attr('href', '/msgrd?v=3&uin=' + $(this).attr('qq') + '&site=qq&menu=yes');
+        $("#service #lianxiyonghu").attr('title', $(this).attr('title'));
+        $("#service").show();
+        fuzhi();
+    })
+
+    $('.lianxikefu').click(function () {
+        $(".kefuqqqq").hide();
+        currentKefuType = kefuType.lianxi;
+        $("#service .phone_title").html('联系客服');
+        $("#service #share_link").val('800184580');
+        $("#service #dd_kefu_ordercenter").show();
+        // $("#service .kefuqqqq").attr("id", "dd_kefu_ordercenter");
+        $("#service #dd_kefu_ordercenter").attr('href', 'javascript:;');
+        $("#service #dd_kefu_ordercenter").attr('title', '联系客服QQ：800184580');
+        $("#service").show();
+        fuzhi();
+    })
+
+    function addScript(id, url) {
+        if ($("#id").length > 0) {
+            // $("#id").remove();
+            return;
+        }
+        var script = document.createElement("script");  // 穿件一个script 标签
+        script.id = id;
+        script.charset = "utf-8";
+        script.src = url;  // 把script的src设置为我们请求数据的地址并传递参数 和回调函数
+        document.body.appendChild(script); // 把script 插入到body里面
+    }
+/*余额支付*/
+    $('#paybalance').click(function () {
+        /*$(this).addClass('choose');
+        if (confirm("你确定要用余额支付吗？")) {
+            code = $(this).attr('order');
+            $.ajax({
+                url: '/orderpay',
+                data: {
+                    oid:id,
+
+                },
+                type: "get",
+                dataType: "jsonp",
+                success: function (obj) {
+                    if (obj.code == 1) {
+                        alert('支付成功');
+                        location.href = location.href;
+                    } else if (obj.code == -1) {
+                        alert('支付失败');
+                        location.href = location.href;
+                    } else if (obj.code == -1002) {
+                        alert('余额不足');
+                        location.href = location.href;
+                    } else if (obj.code == -2002) {
+                        alert('您的余额不足（部分约玩币已冻结）');
+                        location.href = location.href;
+                    }
+                }
+            })
+        }*/
+        /*alert(id);
+        alert(paymoney);*/
+        balance= userbalance.balance;
+        $(this).addClass('choose');
+        if (confirm("你确定要用余额支付吗？")) {
+            /*code = $(this).attr('order');*/
+            if(balance<paymoney){
+                alert('余额不足，请充值!');
+            }else {
+                $.ajax({
+                    url: '/orderpay',
+                    data: {
+                        oid:id,
+                        pid:pid,
+                        paymoney:paymoney,
+                        balance:balance
+                    },
+                    type: "post",
+                    dataType: "json",
+                    success: function (obj) {
+                        if (obj.code == 2) {
+                            alert('支付成功');
+                            location.href = location.href;
+                        }else {
+                            alert('支付失败');
+                            location.href = location.href;
+                        }/*else if (obj.code == -1) {
+                            alert('支付失败');
+                            location.href = location.href;
+                        } else if (obj.code == -1002) {
+                            alert('余额不足');
+                            location.href = location.href;
+                        } else if (obj.code == -2002) {
+                            alert('您的余额不足（部分约玩币已冻结）');
+                            location.href = location.href;
+                        }*/
+                    }
+                });
+            }
+        }
+    });
+
+    function fuzhi() {
+        $(document).ready(function () {
+            /* 定义所有class为copy-input标签，点击后可复制class为input的文本 */
+            $(".copy-input").zclip({
+                path: "/js/ZeroClipboard.swf",
+                copy: function () {
+                    return $(this).parent().find("#share_link").val();
+                },
+                afterCopy: function () { /* 复制成功后的操作 */
+                    var $copysuc = $("<div class='copy-tips'><div class='copy-tips-wrap'>☺ 复制成功</div></div>");
+                    $("body").find(".copy-tips").remove().end().append($copysuc);
+                    $(".copy-tips").fadeOut(3000);
+                }
+            });
+        });
+    }
+</script>
+</body>
+</html>

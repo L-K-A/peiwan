@@ -244,7 +244,7 @@ input[type="number"]{-moz-appearance:textfield;}
 .public_nav_new .info_v2 .info .right .style1 {
     float: left;
     margin-top: 5px;
-    line-height: 24px;
+    line-height: 49px;
     cursor: pointer;
 }
 .public_nav_new .info_v2 .info .right .style1 span {
@@ -427,7 +427,7 @@ input[type="number"]{-moz-appearance:textfield;}
     position: relative;
     float: left;
     width: 74px;
-    height: 50px;
+    height: 49px;
     margin-right: 10px;
     margin-left: 10px;
 }
@@ -506,7 +506,7 @@ input[type="number"]{-moz-appearance:textfield;}
 .public_nav_new .info_v2 .info .right .loginBox .r_info .avatar {
     margin: 0 20px;
     font-size: 12px;
-    line-height: 20px;
+    line-height: 49px;
     color: #6d6d6d;
 }
 .public_nav_new .info_v2 .info .right .loginBox .r_info .avatar .ico {

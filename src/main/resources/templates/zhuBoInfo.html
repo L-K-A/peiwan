@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>点点约玩</title>
+    <link rel="stylesheet" href="css/zuboInfo.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/layui.css"  media="all">
+    <link rel="stylesheet" type="text/css" href="css/top_footer.css">
+    <!--<script src="/js/vue.min.js"></script>-->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="./js/jquery-1.12.3.min.js"></script>
+    <!--订单-->
+    <link href="css/common_index.css" type="text/css" rel="stylesheet">
+    <link href="css/teacher.css" type="text/css" rel="stylesheet">
+    <link href="css/daterange.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/jquery.fancybox.css" media="screen" />
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css">
+    <script src="js/jquery-1.12.3.min.js"></script>
+    <script src="js/bootstrap-datetimepicker.js"></script>
+    <script src="js/bootstrap-datetimepicker.zh-cn.js"></script>
+    <script type="text/javascript" src="js/s.js" charset="gb2312"></script>
+    <script src="https://cdn.bootcss.com/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+    <script src="js/json2.js"></script>
+    <script src="js/jsencrypt.min.js"></script>
+    <script src="js/getrsakey.js"></script>
+    <script src="js/function.js"></script>
+    <script src="js/encryption.js"></script>
+    <script src="js/securelogin.js"></script>
+    <script src="js/securereg.js"></script>
+    <script src="js/sendtgid.js"></script>
+    <script src="js/gt.js"></script>
+    <!-- <script charset="utf-8" src="js/kfqq_3.js"></script> -->
+    <link rel="stylesheet" href="css/common_index.css" type="text/css">
+    <link rel="stylesheet" href="css/top_footer.css" type="text/css">
+    <link rel="stylesheet" href="css/geeteststyle.css" type="text/css">
+    <link rel="stylesheet" href="css/common_head.css" type="text/css">
+</head>
+
+<body>
+<!--改版新的页面-->
+<div class="public_nav_new">
+    <div class="info_v2 position">
+        <div class="info">
+            <div style="height: 0px;width: 100%;"></div>
+            <h1>
+                <a href="/person/toIndex"><img class="logo" alt="" src="/images/dudulogo.png" style="margin-top: 5px"></a>
+            </h1>
+            <div class="p_nav">
+                <div :class="[navIndex === 'index_index_index'?'active':'']"><!--三元运算符-->
+                    <a href="/person/toIndex">
+                        首页
+                    </a>
+                </div>
+                <div :class="[navIndex === 'index_peiwan'?'active':'']">
+                    <a href="/togame">
+                        约陪玩
+                    </a>
+                </div>
+                <div :class="[navIndex === 'index_price'?'active':'']">
+                    <a href="/toAreaList?gid=1001">
+                        9.9专区
+                        <img src="/images/price.gif" alt="" class="icon">
+                    </a>
+                </div>
+                <div :class="[navIndex === 'index_list_video'?'active':'']">
+                    <a href="/peiwan/shangfen/">
+                        上分专区
+                    </a>
+                </div>
+                <div :class="[navIndex === 'index_recharge'?'active':'']">
+                    <!-- 未登录-->
+                    <a href="/toHome" >充值</a><!--@click="login_fn"-->
+
+                </div>
+                <div :class="[navIndex === 'index_service'?'active':'']">
+                    <!--未登录-->
+                    <a href="javascript:;" @click="login_fn">申请入驻</a>
+                </div>
+
+
+            </div>
+
+            <div class="seach_Box">
+                <img src="/images/ico_28_hover.png" style="display: none;">
+                <input id="personNickname" placeholder="陪玩昵称、ID、靓号" type="text" >
+                <p  id="searchinfo" class="seach_p"></p>
+            </div>
+
+
+            <div class="right">
+                <img src="/images/ico_29_hover.png" style="display: none;">
+                <img src="/images/ico_30_hover.png" style="display: none;">
+                <img src="/images/ico_31_hover.png" style="display: none;">
+                <div style="height: 0px;width: 100%;"></div>
+
+                <!--beforeLanding(登陆之前) -->
+                <div class="login style1" id="beforeLanding" style="display: none;">
+                    <ul class="nav navbar-nav navbar-right">
+
+                        <li>
+                            <a data-toggle="modal" data-target="#login" href="/toLogin"><span class="glyphicon glyphicon-log-in"></span>登录</a>
+                        </li>
+                    </ul>
+                </div>
+                <!--afterTheLanding(登陆过后)-->
+                <div class="login style1" id="afterTheLanding" style="display: none;">
+                    <div class="loginBox" id="usersinfo" v-for="(item,index) in user" >
+                        <!--<div class="fl ml25 head_img_box" >
+                            <div class="vip_text_box fl">
+                                <div>
+                                    <a href="#">
+                                        <img class="r_pic" :src="'http://pleuof34m.bkt.clouddn.com/'+item.person_image+'?imageView2/2/w/400/h/400/q/100'">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>-->
+                        <p class="r_pic">
+                            <a href="#">
+                                <img :src="'http://pleuof34m.bkt.clouddn.com/'+item.person_image+'?imageView2/2/w/400/h/400/q/100'" class="change-user-img">
+                                <span class="frame_0"></span>
+                            </a>
+                        </p>
+                        <img src="/images/ico_11.png" class="r_icoImg">
+                        <div class="r_info" >
+                            <div class="avatar">
+                                <div class="ico">
+                                    <a>
+                                        <img :src="'http://pleuof34m.bkt.clouddn.com/'+item.person_image+'?imageView2/2/w/400/h/400/q/100'" >
+                                        <span class="frame_0"></span>
+                                    </a>
+                                </div>
+                                <div class="text1">昵称:{{item.person_nickname}}</div>
+                                <input type="hidden" id="user-uid" :value="item.pid">
+                                <div class="text2 vip_num" style="display: none;">
+                                    <span class="text">0</span>
+                                </div>
+                                <div class="text2" style="">
+                                    PID:{{item.pid}}
+                                </div>
+
+                            </div>
+                            <div class="balance_box">
+                                <div>
+                                    <!--<p>
+                                    <i><img src="/images/ico_02.png"></i>
+                                    <span></span>
+                                    </p>-->
+                                    余额:{{item.m_balance}}
+                                </div>
+                            </div>
+                            <div v-if="item.person_flate==0" class="nav_list">
+                                <a href="/indexw">
+                                    <div class="order">订单</div>
+                                </a> <i></i>
+                                <a href="/data">
+                                    <div class="info">资料设置</div>
+                                </a> <i></i>
+                                <a href="/">
+                                    <div class="money">充值</div>
+                                </a>
+                            </div>
+                            <div v-else class="nav_list">
+                                <a href="/zindexw">
+                                    <div class="order">订单</div>
+                                </a> <i></i>
+                                <a href="/zdata">
+                                    <div class="info">资料设置</div>
+                                </a> <i></i>
+                                <a href="/toHome">
+                                    <div class="money">充值</div>
+                                </a>
+                            </div>
+                            <div class="logout">
+                                <div>
+                                    <a v-if="item.person_flate==0" href="/secur" class="logout_a">
+                                        <span></span>
+                                        个人中心
+                                    </a>
+                                    <a v-else href="/zsecur" class="logout_a">
+                                        <span></span>
+                                        个人中心
+                                    </a>
+                                    <a href="/logout">退出登录</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <script th:inline="javascript">
+                    var pid = [[${session.nameTPerson?.pid}]];
+                </script>
+
+                <script th:inline="javascript">
+                    var balance;
+                    /*加载用户的信息*/
+                    var  userinfo=new Vue({
+                        el:'#afterTheLanding',
+                        data:{
+                            user:[]
+                        }
+                    });
+                    var getUsersInfo=function(){
+                        $.ajax({
+                            type: 'post',
+                            dataType: 'json',
+                            url: '/getuserinfo',
+                            data: {pid:pid},
+                            success: function (rest) {
+                                userinfo.user = rest.results;
+                               balance = rest.results[0].m_balance;
+                                $('.about_box1 #currmoney').text('账户余额:' + balance );
+                            }
+                        });
+                    };
+                    var nameTPerson = [[${session.nameTPerson?.personName}]];
+                    if (nameTPerson==null){
+                        document.getElementById("beforeLanding").style.display="";
+                    } else if (nameTPerson!=null){
+                        getUsersInfo();
+                        document.getElementById("afterTheLanding").style.display="";
+
+                    }
+                </script>
+            </div>
+        </div>
+
+    </div>
+
+    <!--导航栏模糊查询的函数-->
+    <script>
+        $("#searchinfo").click(function () {
+            var keyname= $("#personNickname").val();
+            window.location.href = '/person/toSearch';
+            sessionStorage.setItem("keyname",keyname);
+        });
+    </script>
+
+    <script>
+        (function(){
+            //处理滚动后导航悬停
+            var win_scroll = function(){
+                var obj = document.querySelector(".public_nav_new .info_v2");
+                var a = document.documentElement.scrollTop || document.body.scrollTop;//滚动条y轴上的距离
+
+                if(a>70){
+                    obj.classList.add("position");
+                }else{
+                    obj.classList.remove("position");
+                }
+            };
+
+        }());
+    </script>
+</div>
+
+<div class="body">
+    <!-- 头部zubo-title -->
+    <div class="zubo-title">
+        <div class="title-meta" id="qweqwe" style="scoped:scoped">
+            <div class="zuboImg">
+                <img :src="'./picture/'+result.person_image" alt="">
+            </div>
+            <div class="title-info">
+                <div class="name">{{result.person_nickname}}</div>
+                <div class="credit">
+                    <span>信用值：</span>
+                    <img :src="'./picture/xinyongTu/charm'+result.person_weight+'.png'" class="image" alt="">
+                </div>
+            </div>
+            <div class="zubo-giftBox">
+                <div class="zubo-gift">
+                    <p><span>小a</span>送给<span>小b</span><i></i></p>
+                    <p><span>小a</span>送给<span>小b</span><i></i></p>
+                </div>
+            </div>
+            <div class="zubo-other">
+                <div class="wechart"></div>
+                <div class="share">
+                    <i><img src="/picture/share.png" alt=""></i>
+                    <span><a href="#" @click="editEvent()">分享</a></span>
+                </div>
+                <div class="like" @click="getLike()">
+                    <i><img src="/picture/follow.png" alt=""></i>
+                    <span><a href="#" class="guanzhubian">关注</a></span>
+                </div>
+                <span class="age">
+          <i></i>&nbsp;&nbsp;{{result.person_birthday}}<!--年龄-->
+        </span>
+                <span class="ad">
+          <i></i>&nbsp;&nbsp;{{result.person_adress}}<!--住址-->
+        </span>
+                <span class="data">
+          <i></i>&nbsp;&nbsp;48天前
+        </span>
+            </div>
+            <!-- 大弹窗 -->
+            <div class="pop_up_bigbox" style="display:none">
+                <div class="pop_up_bigcontent">
+                    <div class="close_btn fr"><img src="picture/close.png"></div>
+                    <!-- 支付方法 -->
+                    <div class="order_payfor"   style="display: none;">
+                        <div class="order_information_title"></div>
+                        <div class="order_name_box">
+                            <div class="fl order_name">导师：</div>
+                            <div class="fl order_test_head"><img :src="'./picture/'+result.person_image" alt=""></div>
+                            <div class="fl order_name">{{result.person_nickname}}</div>
+                            <div class="fr order_time">支付剩余时间：<span id="minute_show">09分</span><span id="second_show">59秒</span></div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="order_information_title mt20"><img src="picture/order_cost.png">费用：</div>
+                        <div class="alipay_time">48元 * 1小时</div>
+
+                        <div style="text-align: center; margin-top: 10px;">
+                            <p>
+                            <div id="imgPayEWM" style="margin-left:30%"></div>
+                            </p>
+                                <!--<img id="imgPayEWM" width="240" height="240" src="">-->
+                            <p style="font-size: 16px;">请用支付宝扫描支付</p>
+
+                        </div>
+
+
+                    </div>
+                    <!-- 支付方法-end -->
+                    <!-- 支付失败 -->
+                    <div class="pay_fail pb30" style="display: none;">
+                        <div class="pay_warn"><img src="picture/pay_warn.png"><span class="paytitle">支付提示</span></div>
+                        <div class="pay_fail_cion"><img src="picture/pay_fail.png"></div>
+                        <div class="pay_for paycontent">请您在新打开的第三方页面完成支付</div>
+                        <div class="pay_for_box paysuccess">
+                            <div class="fl pay_for_fail">支付失败</div>
+                            <div class="fl pay_for_success">支付完成</div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <!-- 支付失败-end -->
+                    <!-- 下单约她 -->
+                    <div class="about_box about_box1" style="display: none">
+                        <div class="order_information_title"><img src="/picture/order_information.png">下单信息：</div>
+                        <div class="order_name_bigbox">
+                            <div class="order_name_box fl">
+                                <div class="fl order_name">导师：</div>
+                                <div class="fl order_test_head"><img :src="'./picture/'+result.person_image" alt=""></div>
+                                <div class="fl order_name" id="ordername">{{result.person_nickname}}</div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="order_name_box fl ml50">
+                                <div class="fl order_name">服务：</div>
+                                <div class="fl order_test_lol"></div>
+                                <div class="fl order_name service_name"></div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="order_information_title mt15"><img src="/picture/order_time.png">下单时间：</div>
+                        <div class="express_content ">
+                            <span class="content_icon fl">日期:</span>
+                            <div class="fl">
+                                <div class="ta_date" id="div_date1">
+                                    <input class="form_datetime date_title" type="text" value="" readonly placeholder="" style="width: 150px;background:#eaeaea;" />
+                                </div>
+                            </div>
+                            <div class="fl ml5">
+                                <div class="content_time_box">
+                                    <div class="content_icon fl">时间</div>
+                                    <div class="content_input fl content_input_time" id="shijian" style="line-height:30px;"></div>
+                                    <input  class="input-cell" type="hidden" value="" id="shijian1">
+                                    <input  class="input-cell" type="hidden" value="" id="shijian2">
+                                    <div class="table_time" style="display: none;">
+                                        <table border="1" cellpadding="0" cellspacing="0" rules="all">
+                                            <tbody>
+                                            <tr>
+                                                <td>00:00</td>
+                                                <td>00:30</td>
+                                                <td class="">01:00</td>
+                                                <td class="">01:30</td>
+                                                <td>02:00</td>
+                                                <td>02:30</td>
+                                                <td>03:00</td>
+                                                <td>03:30</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td>04:00</td>
+                                                <td>04:30</td>
+                                                <td>05:00</td>
+                                                <td>05:30</td>
+                                                <td class="td_add">06:00</td>
+                                                <td>06:30</td>
+                                                <td>07:00</td>
+                                                <td>07:30</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td>08:00</td>
+                                                <td>08:30</td>
+                                                <td>09:00</td>
+                                                <td>09:30</td>
+                                                <td>10:00</td>
+                                                <td>10:30</td>
+                                                <td>11:00</td>
+                                                <td>11:30</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td>12:00</td>
+                                                <td>12:30</td>
+                                                <td class="">13:00</td>
+                                                <td>13:30</td>
+                                                <td>14:00</td>
+                                                <td>14:30</td>
+                                                <td>15:00</td>
+                                                <td>15:30</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td>16:00</td>
+                                                <td>16:30</td>
+                                                <td>17:00</td>
+                                                <td class="">17:30</td>
+                                                <td class="">18:00</td>
+                                                <td>18:30</td>
+                                                <td class="">19:00</td>
+                                                <td>19:30</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td>20:00</td>
+                                                <td>20:30</td>
+                                                <td>21:00</td>
+                                                <td>21:30</td>
+                                                <td>22:00</td>
+                                                <td>22:30</td>
+                                                <td>23:00</td>
+                                                <td class="">23:30</td>
+                                            </tr>
+                                            </tbody></table>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="fl ml5">
+                                <div class="content_icon fl">小时：</div>
+                                <div class="fl add_left_box">
+                                    <div class="fl add_left bootstrap-touchspin-down">-</div>
+                                    <div class="fl add_text" id="hour_">1</div>
+                                    <div class="fl add_right bootstrap-touchspin-up">+</div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="mt30 pb10">
+                            <span class="fl qq_03_content"><img src="picture/qq_03.png">&nbsp;联系方式:</span>
+                            <input type="text" value=""  placeholder="请务必填写您的qq,方便导师与您联系" class="fl qq_03_input border-qq border-qq1" />
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="order_information_title mt15"><img src="picture/order_btn.png">导师留言:</div>
+                        <textarea placeholder="给导师说点什么吧..." class="order_textarea"></textarea>
+                        <div class="order_information_title mt15 fl" id="currmoney"></div>
+                        <div style="margin:15px 0px 0px 25px "><a style="color: #8e1c09" href="/toHome" target="_blank" title=""><span>去充值</span></a></div>
+                        <div class="fr order_grade_box">
+                            <div class="order_cost"><img src="picture/order_cost.png">
+                                <span>总价</span>：40元（单价：40*1小时）</div>
+                            <div class="order_count">实付：<span>40元</span></div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="fl sure_leftbtn_count">现金支付</div>
+                        <div class="fl sure_rightbtn_count">余额支付</div>
+                        <div class="fl orderTips" style=" color: #aa5826;font-size: 12px;text-align: center;margin-top: 10px;margin-left:50px;">
+                            请勿用第三方平台进行交易，谨防被骗，一经查出将严惩，点点约玩将保留追求其他相关法律责任权利。<br>
+                            欢迎大家举报私单行为，一经核实将有丰厚奖励。
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="sure_rightbtn_bottom_warn" style="display: none">1天内未支付订单超过5个，当日将无法继续下单</div>
+                    </div>
+                    <!-- 下单约她-end -->
+                    <!-- 下单约她 -->
+
+                    <!-- 下单约她-end -->
+                </div>
+            </div>
+            <!-- 大弹窗-end -->
+            <!-- 当前所选时间 -->
+            <input type="hidden" id="index" value="" />
+        </div>
+    </div>
+    <div class="zubo-cont" id="zhubotouxaing">
+        <div class="left">
+            <!-- 内容区：左侧头部 -->
+            <div class="left-top">
+
+                <div class="zuboTab">
+                    <div class="tabCont">
+                        <img :src="'./picture/'+zbt.person_image" alt="">
+                    </div>
+                    <div class="tabDot">
+                        <div class="tabDotImg">
+                            <img :src="'./picture/'+zbt.person_image" alt="">
+                        </div>
+                        <div class="tabDotImg">
+                            <img :src="'./picture/'+zbt.person_image" alt="">
+                        </div>
+                        <div class="tabDotImg">
+                            <img src="/picture/30_avatar_middle.jpg" alt="">
+                        </div>
+
+                    </div>
+                </div>
+                <!--礼物内容-->
+                <div class="giftTab">
+                    <div class="tabDot">
+                        <div>礼物</div>&nbsp;&nbsp;|&nbsp;&nbsp;
+                        <div>冠名</div>
+                        <div>活动礼</div>
+                        <div>包裹</div>
+                    </div>
+                    <div class="tabCont">
+                        <ul class="tabCont-box">
+                            <li>
+                                <img src="images/07f603e73477dbe673c5a624c77f9e84.gif" alt="">
+                                <div>加冕</div>
+                            </li>
+                            <li>
+                                <img src="picture/1292451542357555.png" alt="">
+                                <div>感恩的心</div>
+                            </li>
+                            <li>
+                                <img src="images/6f4e977166bb83ceef5591ee2ee1d501.gif" alt="">
+                                <div>领袖</div>
+                            </li>
+                        </ul>
+                        <ul class="tabCont-box">
+                            <li>
+                                <img src="picture/2090801542354414.gif" alt="">
+                                <div>亲亲</div>
+                            </li>
+                            <li>
+                                <img src="picture/1292451542357555.png" alt="">
+                                <div>感恩的心</div>
+                            </li>
+                        </ul>
+                        <ul class="tabCont-box">
+                            <li>
+                                <img src="picture/1142101545745926.png" alt="">
+                                <div>流星</div>
+                            </li>
+                        </ul>
+                        <ul class="tabCont-box">
+                            <li>
+                                <img src="picture/1292451542357555.png" alt="">
+                                <div>感恩的心</div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="last">剩余钻石：0</div>
+                </div>
+                <div class="sendGift">
+                    <div class="left">
+                        <i></i>香吻
+                    </div>
+                    <div class="ipt">
+                        <div class="num">数量</div>
+                        <input type="text" value="1">
+                        <div class="img">
+                            <img src="picture/top_kong_hover.png" alt="">
+                        </div>
+
+                    </div>
+                    <div class="send">
+                        <div class="sendgift">赠送</div>
+                        <div class="img">
+                            <img src="picture/common_bottom.png" alt="">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- 内容区：左侧底部 -->
+            <div class="left-bottom">
+                <div class="zuboInfo">
+                    <div class="zuboInfo-title">资料</div>
+                    <ul class="zuboCont">
+                        <li>
+                            <img src="picture/data_01.png" alt="">
+                            <span>身高</span>:{{zbt.person_height}}
+                        </li>
+                        <li>
+                            <img src="picture/data_02.png" alt="">
+                            <span>星座</span>:{{zbt.person_sex}}
+                        </li>
+                        <li>
+                            <img src="picture/data_03.png" alt="">
+                            <span>职业</span>:{{zbt.person_career}}
+                        </li>
+                        <li>
+                            <img src="picture/data_04.png" alt="">
+                            <span>魅力部位</span>:{{zbt.charm_two}} {{zbt.charm_one}} {{zbt.charm_three}}
+                        </li>
+                        <li>
+                            <img src="picture/data_05.png" alt="">
+                            <span>个性标签</span>:{{zbt.person_content}}
+                        </li>
+                        <li>
+                            <img src="picture/data_06.png" alt="">
+                            <span>兴趣爱好</span>:{{zbt.person_interest}}
+                        </li>
+
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+        <div class="right">
+            <div class="right-top">
+                <div class="right-protecter">
+                    <div class="pro-tit">
+                        <img src="/picture/gift_top.png" alt="">
+                        <div>守护者</div>
+                    </div>
+                    <ul class="proCont-list">
+                        <li class="proCont-item">
+                            <img class="avatar" src="/picture/56_avatar_middle.jpg">
+                            <img class="top" src="/picture/one_top.png" alt="">
+                            <img class="bottom" src="/picture/one_bottom.png" alt="">
+                            <div>米迦文</div>
+                        </li>
+                        <li class="contri">
+                            <span>贡献值</span>
+                            <div>
+                                <div></div>
+                            </div>
+                            <span>17213</span>
+                        </li>
+                        <li class="proCont-item">
+                            <img class="avatar" src="/picture/5.gif">
+                            <img class="top" src="/picture/two_top.png" alt="">
+                            <img class="bottom" src="/picture/two_bottom.png" alt="">
+                            <div>果园北</div>
+                        </li>
+                        <li class="contri">
+                            <span>贡献值</span>
+                            <div>
+                                <div></div>
+                            </div>
+                            <span>17213</span>
+                        </li>
+
+                        <li class="proCont-item">
+                            <img class="avatar" src="picture/1.gif">
+                            <img class="top" src="picture/three_top.png" alt="">
+                            <img class="bottom" src="picture/three_bottom.png" alt="">
+                            <div>小奥</div>
+                        </li>
+                        <li class="contri">
+                            <span>贡献值</span>
+                            <div>
+                                <div></div>
+                            </div>
+                            <span>17213</span>
+                        </li>
+                        <li class="proCont-item">
+                            <img class="avatar" src="picture/2.gif">
+                            <img class="bottom" src="picture/five_bottom.png" alt="">
+                            <div>流星雨</div>
+                        </li>
+                        <li class="contri">
+                            <span>贡献值</span>
+                            <div>
+                                <div></div>
+                            </div>
+                            <span>17213</span>
+                        </li>
+
+                        <li class="proCont-item">
+                            <img class="avatar" src="picture/3.gif">
+
+                            <img class="bottom" src="picture/four_bottom.png" alt="">
+                            <div>青柠檬</div>
+                        </li>
+                        <li class="contri">
+                            <span>贡献值</span>
+                            <div>
+                                <div></div>
+                            </div>
+                            <span>17213</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="right-gifts">
+                    <div class="gifts-tit">
+                        <div class="gif-tit">
+                            <img src="picture/gift_bottom.png" alt="">
+                            <div>礼物</div>
+                        </div>
+                    </div>
+                    <ul class="gifts-list">
+                        <li>
+                            <img src="picture/1142101545745926.png" alt="">
+                            <div>1</div>
+                        </li>
+                        <li>
+                            <img src="picture/1292451542357555.png" alt="">
+                            <div>1</div>
+                        </li>
+                        <li>
+                            <img src="picture/2090801542354414.gif" alt="">
+                            <div>1</div>
+                        </li>
+                        <li>
+                            <img src="images/6f4e977166bb83ceef5591ee2ee1d501.gif" alt="">
+                            <div>1</div>
+                        </li>
+                        <li>
+                            <img src="images/07f603e73477dbe673c5a624c77f9e84.gif" alt="">
+                            <div>1</div>
+                        </li>
+                        <li>
+                            <img src="picture/1142101545745926.png" alt="">
+                            <div>1</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="right-tab">
+                <div class="rightTab-nav">
+                    <div v-for="(item,index) in services"
+                       :key="index"  @click="zhubofuwu(index)" :class="{playActive:index==num}">{{item.g_name}}
+                    </div>
+                </div>
+
+                <div class="rightTab-cont" >
+                    <div class="rightTab-cont-box" >
+                        <div class="onlineLol"  v-for="(ite,index) in serviceInfo"  v-if="index===num">
+                            <div class="lol-head">
+                                <div class="left">
+                                    <div class="radio">
+                                        <img :src="'./picture/xinyongTu/'+ite.gid+'.png'" alt="" >
+                                    </div>
+                                    <div class="Lol-meta">
+                                        <div class="name">{{ite.g_name}}</div>
+                                        <div class="garde">{{ite.g_duanwei}}</div>
+                                        <div class="order-btn">
+                                            <img src="picture/order_btn.png" alt="">
+                                            <span>接单次数:{{ite.countdan}}次</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="right">
+                                    <div class="price">
+                                        <span>￥{{ite.g_price}}</span>/小时
+                                    </div>
+                                    <div class="order" @click="Recharge(ite.gid,ite.g_price,ite.g_name)"  >下单约她</div>
+                                </div>
+                            </div>
+                            <div class="intro">
+                                <div class="intro-title">
+                                    <h3>介绍</h3>
+                                    <span>/INTRODUCE</span>
+                                </div>
+                                <P class="intro-info">
+                                    {{ite.g_content}}
+                                </P>
+                            </div>
+                            <div class="lol-comments">
+                                <div class="comm-title">
+                                    <div class="comm">评价<span>/COMMENTARIES</span></div>
+                                    <div class="gard">评分:<span>{{ite.pingfeng}}</span></div>
+                                </div>
+                                <div class="comm-body">
+                                    <div class="comm-lebal">
+                                        <div class="label-title">TA的印象标签</div>
+                                        <ul class="label-item">
+                                            <li>枪刚人稳<span>(1)</span></li>
+                                            <li>吃鸡大神<span>(1)</span></li>
+                                        </ul>
+                                    </div>
+                                    <ul class="comm-item">
+                                        <li v-for="(reco,index) in ite.IPage.records">
+                                            <div class="comm-info">
+                                                <img :src="'./picture/'+reco.person_image" alt="" class="author-pic">
+                                                <div>
+                                                    <div>
+                                                        <span class="name">{{reco.person_nickname}}</span>
+                                                        <span class="reply-time">{{reco.c_createtime}}</span>
+                                                    </div>
+                                                    <p class="comm-cont">{{reco.c_context}}</p>
+                                                </div>
+                                                <div class="stars" v-for=" (item,index) in reco.c_rank">
+                                                    <img width="30" height="30" src="/picture/star1.png" alt=""  >
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--尾-->
+<footer>
+    <div class="box">
+        <div class="foot">
+            <!--隐藏掉提现(隐藏提现)字样（2017-12-18）margin-left:-->
+            <ul>
+                <li>
+                    <img src="https://yundown.daofengdj.com/static/public/img/ico_ft01.png">
+                    <p>极速接单</p>
+                    <span class="desc">秒接单 八分钟未接单立即退款</span>
+                </li>
+                <li>
+                    <img src="https://yundown.daofengdj.com/static/public/img/ico_ft02.png">
+                    <p>信息提醒</p>
+                    <span class="desc">来单短信提醒 不错过订单</span>
+                </li>
+                <li>
+                    <img src="https://yundown.daofengdj.com/static/public/img/ico_ft03.png">
+                    <p>品质保障</p>
+                    <span class="desc">服务不满意为您来免单</span>
+                </li>
+                <li>
+                    <img src="https://yundown.daofengdj.com/static/public/img/ico_ft04.png">
+                    <p>资金日结算</p>
+                    <span class="desc">实时掌控工资 给你安心</span>
+                </li>
+                <li>
+                    <img src="https://yundown.daofengdj.com/static/public/img/ico_ft05.png">
+                    <p>7*24小时服务</p>
+                    <span class="desc">自助下单 7*24小时客服答疑</span>
+                </li>
+            </ul>
+        </div>
+
+        <ul class="footCenter">
+            <li class="li1">
+                <div>
+                    <img src="https://yundown.daofengdj.com/static/public/img/link.png">
+                    <div style="line-height: 19px; margin-top: -2px;">
+                        <a style="display:none;" target="_blank" href="https://www.zuhaowan.com"><img src="https://yundown.daofengdj.com/static/public/img/zuhaowna.png"  style="margin-top: 0px;"></a>
+                        <a target="_blank" href="https://www.zuhaowan.com"><p>租<i style="display:inline-block;width:.5em;"></i>号<i style="display:inline-block;width:.5em;"></i>玩 - 账号租借平台</p></a>
+                        <a target="_blank" href="http://www.mayidailian.com/"><p>蚂蚁代练 - 专业代练平台</p></a>
+                        <a target="_blank" href="http://www.irollfun.com/"><p>rollfun游戏站</p></a>
+                        <a target="_blank" href="http://www.99173.com/"><p>99173-游戏交易平台</p></a>
+                        <a target="_blank" href="http://www.wyaq.com/"><p>无忧安全</p></a>
+                    </div>
+                </div>
+            </li>
+            <li class="sp"></li>
+            <li class="li2">
+                <div>
+                    <img src="https://yundown.daofengdj.com/static/public/img/kefu.png">
+                    <div>
+                        <p>客服电话：0371-55637968</p>
+                        <p>咨询时间：7 x 24 小时</p>
+                    </div>
+                </div>
+            </li>
+            <li class="sp"></li>
+            <li class="li3">
+                <div>
+                    <img src="https://yundown.daofengdj.com/static/public/img/qq.png">
+                    <div>
+                        <p>客服QQ：3003120628</p>
+                        <p>咨询时间：7 x 24 小时</p>
+                    </div>
+                </div>
+            </li>
+            <li msg="新需求隐藏" class="sp" style="display:none;"></li>
+            <li msg="新需求隐藏" style="display:none;">
+                <div>
+                    <img src="https://yundown.daofengdj.com/static/public/img/new.png">
+                    <div>
+                        <a target="_blank" href="/help/peiwan.html"><p>陪玩新手引导</p></a>
+                        <a target="_blank" href="/help/novice.html"><p>玩家新手引导</p></a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="box">
+        <div class="footBottom">
+            <div class="f_tx">
+                <a target="_blank" href="/help/contact_us.html">联系我们</a>
+                <a target="_blank" href="/help/company_profile.html">公司简介</a>
+                <a target="_blank" href="/help/disclaimer.html">免责声明</a>
+            </div>
+            <p>版权所有 © 2017 网络科技有限公司 <a href="http://www.miitbeian.gov.cn"></a></p>
+        </div>
+    </div>
+</footer>
+<script type="text/javascript" src="js/jquery.fancybox.js"></script>
+<!-- 能力检测 -->
+<script type="text/javascript" src="js/rtcsupport.js"></script>
+
+<script type="text/javascript" src="js/nim_web_sdk_v4.7.0.js"></script>
+<script type="text/javascript" src="js/nim_web_nim_v4.7.0.js"></script>
+<script type="text/javascript" src="js/nim_web_netcall_v4.7.0.js"></script>
+<script type="text/javascript" src="js/nim_web_webrtc_v4.7.0.js"></script>
+<script type="text/javascript" src="js/twim_3.js"></script>
+</body>
+
+<script th:inline="javascript">
+    var pid = [[${session.nameTPerson?.pid}]];
+</script>
+
+<script src="./js/vue.min.js"></script>
+<script src="./js/layer.js"></script>
+<script src="./js/laypage.js"></script>
+<!--<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>-->
+<script src="./js/zuboInfo.js"></script>
+</html>

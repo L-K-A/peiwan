@@ -1,13 +1,16 @@
 package com.peiwan.bean;
 
 import java.io.Serializable;
+
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 /**
  * <p>
- * 
+ * 评论表
  * </p>
  *
  * @author 
@@ -16,6 +19,7 @@ import lombok.experimental.Accessors;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
+@TableName("t_comment")
 public class TComment implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -33,7 +37,7 @@ public class TComment implements Serializable {
     /**
      * 订单id
      */
-    private byte[] oid;
+    private String oid;
 
     /**
      * 板块id
@@ -43,6 +47,7 @@ public class TComment implements Serializable {
     /**
      * 评论id
      */
+    @TableId(value = "cid")
     private Integer cid;
 
     /**

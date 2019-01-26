@@ -7,7 +7,7 @@ import lombok.experimental.Accessors;
 
 /**
  * <p>
- * 
+ * 用户送出礼物表（没用到）
  * </p>
  *
  * @author 

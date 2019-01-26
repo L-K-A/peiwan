@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<!---需要技术支持联系QQ：44312658--->
+<head>
+    <meta charset="utf-8">
+    <title>登录界面</title>
+    <link rel="stylesheet" href="/loginJC/css/reset.css"/>
+    <link rel="stylesheet" href="/loginJC/css/common.css"/>
+    <link rel="stylesheet" href="/loginJC/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="/plugins/layer/layer.css"/>
+</head>
+<body>
+<div class="wrap login_wrap">
+    <div class="content">
+        <div class="logo"></div>
+        <div class="login_box">
+
+            <div class="login_form">
+                <div class="login_title">
+                    登录<br/>
+                </div>
+                    <form name="form" action="/mobileRegisters" method="post" onSubmit="return beforeSubmitt(this);">
+                        <div class="form_text_ipt">
+                            <input id="personTel" name="personTel" type="text" style="width:120px;" placeholder="手机号" onblur="rtel()">
+                            <a href="#" onclick="sendCode()">点击获取验证码</a>
+                        </div>
+                        <div class="form_text_ipt">
+                            <input id="code" name="code" type="text" placeholder="验证码" onblur="rcode()">
+                        </div>
+                    <!--<div class="form_check_ipt">
+                        <div class="left check_left">
+                            <label><input name="" type="checkbox">下次自动登录</label>
+                        </div>
+                        <div class="right check_right">
+                            <a href="#">忘记密码</a>
+                        </div>
+                    </div>-->
+                    <div class="form_btn">
+                        <!--onclick="javascript:window.location.href=''"-->
+                        <button type="submit">登录</button>
+                    </div>
+                    <div class="form_reg_btn">
+                        <span>还没有帐号？</span><a href="/tomobileRegister">马上注册</a>
+                    </div>
+                </form>
+                <div class="other_login">
+                    <div class="left other_left">
+                        <span><a href="/toLogin">用户密码登陆</a></span>
+                    </div>
+                    <div class="right other_right">
+                        <a href="#"><i class="fa fa-qq fa-2x"></i></a>
+                        <a href="#"><i class="fa fa-weixin fa-2x"></i></a>
+                        <a href="#"><i class="fa fa-weibo fa-2x"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="/loginJC/js/jquery.min.js"></script>
+<script type="text/javascript" src="/plugins/layer/layer.js"></script>
+<script>
+    /*
+	* 定义的全局变量
+	* */
+
+    //根据id获取手机号这个输入框 (可返回对拥有指定 ID 的第一个对象的引用)
+    var personTel = document.getElementById("personTel");
+    //手机号正则
+    var pattern = /^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$/;
+    //根据id获取验证码这个输入框 (可返回对拥有指定 ID 的第一个对象的引用)
+    var code = document.getElementById("code");
+    //验证码正则
+    var codes=/[1-9]\d{5}(?!\d)/;
+
+
+
+    /*
+    * 下面实提交表单拦截
+    * */
+
+    //表单里为空不能提交
+    //提交表单进行判断拦截
+    function beforeSubmitt(form){
+
+        //手机号校验
+        if (personTel.value==""){
+            //layer.msg('手机号不能为空！');
+            form.personTel.focus();
+            return false;
+        }else if (!pattern.test(personTel.value)){
+            //layer.msg('手机号格式不对！');
+            form.personTel.focus();
+            return false;
+        }
+
+
+        if (code.value==""){
+            //layer.msg('验证码不能为空！');
+            form.code.focus();
+            return false;
+        }else if(!codes.test(code.value)){
+            //layer.msg('验证码格式不对！');
+            form.code.focus();
+            return false;
+        }else if (!checkSmsCode){
+            //layer.msg('请再次确定验证码！');
+            form.code.focus();
+            return false
+        }
+
+
+    }
+
+    /*
+    * 出发事件2
+    * */
+    //手机号校验
+    function rtel() {
+        if (personTel.value==""){
+            layer.tips("手机号不能为空！",'#personTel');
+        }else if(!pattern.test(personTel.value)){
+            layer.tips("手机号格式不对！",'#personTel');
+        }
+    }
+
+
+    //发送验证码
+    function sendCode() {
+
+        if (personTel.value==""){
+            layer.tips("手机号不能为空！",'#personTel');
+        }else if(!pattern.test(personTel.value)){
+            layer.tips("手机号格式不对！",'#personTel');
+        }else {
+            $.ajax({
+                url: '/sendCode',//跳到业务层
+                type: 'get',
+                dataType: 'json',
+                data:{
+                    personTel:personTel.value
+                },
+                success: function (msg) {
+                    if (msg.msg){
+                        layer.tips("验证码发送成功，请注意查收！",'#personTel');
+                    }
+                },
+                error: function () {
+
+                }
+            });
+        }
+
+    }
+
+    //验证码校验
+    function rcode() {
+        if (code.value==""){
+            layer.tips("验证码不能为空！",'#code');
+        }else if(!codes.test(code.value)){
+            layer.tips("验证码格式不对！",'#code');
+        }else{
+            $.ajax({
+                url: '/Ycode',//跳到业务层
+                type: 'get',
+                dataType: 'json',
+                data:{
+                    personTel:personTel.value,
+                    smscode:code.value
+                },
+                success: function (msg) {
+                    //layer.msg(msg.checkSmsCode);
+                    checkSmsCode=msg.checkSmsCode;
+                    if (checkSmsCode){
+                        layer.tips("验证码可以注册！",'#code');
+                    } else {
+                        layer.tips("验证码不匹配！",'#code');
+                    }
+                },
+                error: function () {
+
+                }
+            });
+        }
+
+    }
+</script>
+<div style="text-align:center;">
+</div>
+</body>
+</html>

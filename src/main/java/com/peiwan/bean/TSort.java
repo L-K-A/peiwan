@@ -1,13 +1,16 @@
 package com.peiwan.bean;
 
 import java.io.Serializable;
+
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 /**
  * <p>
- * 
+ * 业务分类表
  * </p>
  *
  * @author 
@@ -16,6 +19,7 @@ import lombok.experimental.Accessors;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
+@TableName("t_sort")
 public class TSort implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -23,6 +27,7 @@ public class TSort implements Serializable {
     /**
      * 板块id
      */
+    @TableId(value = "gid")
     private Integer gid;
 
     /**

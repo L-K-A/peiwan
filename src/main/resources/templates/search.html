@@ -1,11 +1,12 @@
+
 <!DOCtype html>
 <html lang="zh">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>陪玩搜索-刀锋电竞</title>
+    <title>陪玩搜索-电竞</title>
     <meta name="keywords" content="刀锋电竞陪玩,游戏陪玩,约玩,陪玩入驻,绝地求生陪玩,LOL陪玩,王者荣耀陪玩,美女陪玩,大神陪玩,导师陪玩">
-    <meta name="description" itemprop="description" content="刀锋电竞，是（国内）专业的游戏陪玩交友平台。刀锋电竞致力于为您提供贴心的专属陪伴；平台内百万大神美女导师24小时待命，随时陪你游戏，和你聊天，还可以哄你睡觉；游戏类型多样，妹子风格各异，任你选择。">
+    <meta name="description" itemprop="description" content="专业的游戏陪玩交友平台。致力于为您提供贴心的专属陪伴；平台内百万大神美女导师24小时待命，随时陪你游戏，和你聊天，还可以哄你睡觉；游戏类型多样，妹子风格各异，任你选择。">
     <!-- 禁止IE强制识别手机号 -->
     <meta name="format-detection" content="telephone=no"/>
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -23,9 +24,11 @@
     <script type="text/javascript" src="/js/jquery.min.js"></script>
     <script type="text/javascript" src="/js/jquery.validate.min.js"></script>
     <script type="text/javascript" src="/js/store.legacy.min.js"></script><!--图片懒加载-->
+    <script type="text/javascript" src="/js/fzjs/websocket.js"></script>
 
 </head>
 <body>
+
 
 <!--改版新的页面-->
 <div class="public_nav_new">
@@ -33,72 +36,237 @@
         <div class="info">
             <div style="height: 0px;width: 100%;"></div>
             <h1>
-                <a href="/person/toIndex"><img class="logo" alt="飞虎电竞" src="/images/yuewanlogo.png"></a>
+                <a href="/person/toIndex"><img class="logo" alt="" src="/images/dudulogo.png" style="margin-top: 5px"></a>
             </h1>
             <div class="p_nav">
-                <div :class="[navIndex === 'index_index_index'?'active':'']">
+                <div :class="[navIndex === 'index_index_index'?'active':'']"><!--三元运算符-->
                     <a href="/person/toIndex">
                         首页
                     </a>
                 </div>
                 <div :class="[navIndex === 'index_peiwan'?'active':'']">
-                    <a href="togame" target="_blank">
+                    <a href="/togame">
                         约陪玩
                     </a>
                 </div>
                 <div :class="[navIndex === 'index_price'?'active':'']">
-                    <a href="/person/toAreaList?gid=1001" target="_blank">
-                        八元专区
+                    <a href="/toAreaList?gid=1001">
+                        9.9专区
                         <img src="/images/price.gif" alt="" class="icon">
                     </a>
                 </div>
                 <div :class="[navIndex === 'index_list_video'?'active':'']">
-                    <a href="/peiwan/shangfen/" target="_blank">
+                    <a href="/peiwan/shangfen/">
                         上分专区
                     </a>
                 </div>
                 <div :class="[navIndex === 'index_recharge'?'active':'']">
-
-                    <a href="javascript:;" @click="login_fn">充值</a>
+                    <!-- 未登录-->
+                    <a href="/toHome" >充值</a><!--@click="login_fn"-->
 
                 </div>
                 <div :class="[navIndex === 'index_service'?'active':'']">
-
+                    <!--未登录-->
                     <a href="javascript:;" @click="login_fn">申请入驻</a>
                 </div>
-                <div :class="[navIndex === 'activity'?'active':'']">
-                    <a href="/activity/list.html" >
-                        活动
-                    </a>
-                </div>
+
 
             </div>
 
             <div class="seach_Box">
                 <img src="/images/ico_28_hover.png" style="display: none;">
-                <input id="personNickname" placeholder="陪玩昵称、ID" type="text" >
-                <p @click="inputShow" id="searchinfo" class="seach_p"></p>
+                <input id="personNickname" placeholder="陪玩昵称、ID、靓号" type="text" >
+                <p  id="searchinfo" class="seach_p"></p>
             </div>
 
 
             <div class="right">
-
+                <img src="/images/ico_29_hover.png" style="display: none;">
+                <img src="/images/ico_30_hover.png" style="display: none;">
+                <img src="/images/ico_31_hover.png" style="display: none;">
                 <div style="height: 0px;width: 100%;"></div>
 
-                <div @click="login_fn" class="login style1">
-                    <p></p>
-                    <span>登录&nbsp;&nbsp;|&nbsp;&nbsp;注册</span>
+                <!--beforeLanding(登陆之前) -->
+                <div class="login style1" id="beforeLanding" style="display: none;">
+                    <ul class="nav navbar-nav navbar-right">
+
+                        <li>
+                            <a data-toggle="modal" data-target="#login" href="/toLogin"><span class="glyphicon glyphicon-log-in"></span>登录</a>
+                            </li>
+                    </ul>
+                </div>
+                <!--afterTheLanding(登陆过后)-->
+                <div class="login style1" id="afterTheLanding" style="display: none;">
+                    <div class="loginBox" id="usersinfo" v-for="(item,index) in user" >
+                        <!--<div class="fl ml25 head_img_box" >
+                            <div class="vip_text_box fl">
+                                <div>
+                                    <a href="#">
+                                        <img class="r_pic" :src="'http://pleuof34m.bkt.clouddn.com/'+item.person_image+'?imageView2/2/w/400/h/400/q/100'">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>-->
+                        <p class="r_pic">
+                            <a href="#">
+                                <img :src="'http://pleuof34m.bkt.clouddn.com/'+item.person_image+'?imageView2/2/w/400/h/400/q/100'" class="change-user-img">
+                                <span class="frame_0"></span>
+                            </a>
+                        </p>
+                        <img src="/images/ico_11.png" class="r_icoImg">
+                        <div class="r_info" >
+                            <div class="avatar">
+                                <div class="ico">
+                                    <a>
+                                        <img :src="'http://pleuof34m.bkt.clouddn.com/'+item.person_image+'?imageView2/2/w/400/h/400/q/100'" >
+                                        <span class="frame_0"></span>
+                                    </a>
+                                </div>
+                                <div class="text1">昵称:{{item.person_nickname}}</div>
+                                <input type="hidden" id="user-uid" :value="item.pid">
+                                <div class="text2 vip_num" style="display: none;">
+                                    <span class="text">0</span>
+                                </div>
+                                <div class="text2" style="">
+                                    PID:{{item.pid}}
+                                </div>
+                                <!--<span href="/data" id="name_href"  style="text-align: center;direction: none" >
+                                昵称:{{item.person_nickname}}
+                                </span>
+                                <span v-if="item.person_flate=1" class="vip_01">
+                                    当前身份:主播
+                                </span>
+                                <span v-else class="vip_01">
+                                    当前身份:用户
+                                </span>
+                                <div>余额: <a href="/toHome">{{item.m_balance}}</a></div>
+                                <div v-if="item.person_flate=0" class="nav_list">
+                                    <a href="/indexw">
+                                        <div class="order">订单</div>
+                                    </a> <i></i>
+                                    <a href="/data">
+                                        <div class="info">资料设置</div>
+                                    </a> <i></i>
+                                    <a href="/">
+                                        <div class="money">充值</div>
+                                    </a>
+                                </div>
+                                <div v-else class="nav_list">
+                                    <a href="/zindexw">
+                                        <div class="order">订单</div>
+                                    </a> <i></i>
+                                    <a href="/zdata">
+                                        <div class="info">资料设置</div>
+                                    </a> <i></i>
+                                    <a href="/toHome">
+                                        <div class="money">充值</div>
+                                    </a>
+                                </div>
+                                <div class="logout">
+                                    <div>
+                                        <a v-if="item.person_flate=0" href="/secur" class="logout_a">
+                                        <span></span>
+                                        个人中心
+                                        </a>
+                                        <a v-else href="/zsecur" class="logout_a">
+                                            <span></span>
+                                            个人中心
+                                        </a>
+                                        <a href="/logout">退出登录</a>
+                                    </div>
+                                </div>-->
+                            </div>
+                            <div class="balance_box">
+                                <div>
+                                    <!--<p>
+                                    <i><img src="/images/ico_02.png"></i>
+                                    <span></span>
+                                    </p>-->
+                                    余额:{{item.m_balance}}
+                                </div>
+                            </div>
+                            <div v-if="item.person_flate==0" class="nav_list">
+                                <a href="/indexw">
+                                    <div class="order">订单</div>
+                                </a> <i></i>
+                                <a href="/data">
+                                    <div class="info">资料设置</div>
+                                </a> <i></i>
+                                <a href="/">
+                                    <div class="money">充值</div>
+                                </a>
+                            </div>
+                            <div v-else class="nav_list">
+                                <a href="/zindexw">
+                                    <div class="order">订单</div>
+                                </a> <i></i>
+                                <a href="/zdata">
+                                    <div class="info">资料设置</div>
+                                </a> <i></i>
+                                <a href="/toHome">
+                                    <div class="money">充值</div>
+                                </a>
+                            </div>
+                            <div class="logout">
+                                <div>
+                                    <a v-if="item.person_flate==0" href="/secur" class="logout_a">
+                                        <span></span>
+                                        个人中心
+                                    </a>
+                                    <a v-else href="/zsecur" class="logout_a">
+                                        <span></span>
+                                        个人中心
+                                    </a>
+                                    <a href="/logout">退出登录</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
+                <script th:inline="javascript">
+                    var pid = [[${session.nameTPerson?.pid}]];
+                </script>
+
+                <script th:inline="javascript">
+
+                    /*加载用户的信息*/
+                    var  userinfo=new Vue({
+                        el:'#afterTheLanding',
+                        data:{
+                            user:[]
+                        }
+                    });
+                    var getUsersInfo=function(){
+                        $.ajax({
+                            type: 'post',
+                            dataType: 'json',
+                            url: '/getuserinfo',
+                            data: {pid:pid},
+                            success: function (rest) {
+                                userinfo.user = rest.results;
+                            }
+                        });
+                    };
+                    var nameTPerson = [[${session.nameTPerson?.personName}]];
+                    if (nameTPerson==null){
+                        document.getElementById("beforeLanding").style.display="";
+                    } else if (nameTPerson!=null){
+                        getUsersInfo();
+                        document.getElementById("afterTheLanding").style.display="";
+
+                    }
+                </script>
             </div>
         </div>
+
     </div>
 
     <!--导航栏模糊查询的函数-->
     <script>
         $("#searchinfo").click(function () {
             var keyname= $("#personNickname").val();
-            window.location.href = 'toSearch';      //跳转到search页面
+            window.location.href = '/person/toSearch';
             sessionStorage.setItem("keyname",keyname);
         });
     </script>
@@ -136,7 +304,7 @@
         <div class="player">
             <div class="hot-player-con">
                 <div v-for='item in searchList'>
-                    <a :href="'./hello2?zid='+item.pid+'&gid='+item.gid" target="_blank">
+                    <a :href="'/hello2?zid='+item.pid+'&gid='+item.gid" target="_blank">
                         <div class="frame_logo_wrapper">
                             <!-- logo -->
                             <div class="pic_box">
@@ -146,9 +314,6 @@
                         <div class="player-info">
                             <span><i class="text">{{item.person_nickname}}</i></span>
                             <span>{{item.sg}}</span>
-                        </div>
-                        <div>
-                            <span>¥{{item.om}}</span>/小时
                         </div>
                         <div class="player-money">
                             <p>
@@ -174,7 +339,7 @@
     var search = new Vue({
         el: '#search',
         data: {
-            searchinfo:false,
+            //bgclass:false , //没有数据
             searchList: []
         }
     });
@@ -182,29 +347,9 @@
     //首页跳转传参函数
     window.onload = function(){
         var keyname = sessionStorage.getItem("keyname");
-        //console.log(keyname);
+        console.log(keyname);
         getUserPageList(keyname);
         getUserPageLists(keyname);
-
-        function getUserPageLists(keyname) {
-            $.ajax({
-                type: 'POST',
-                dataType: 'json',
-                url: '/person/searchPerson',
-                data: {
-                    pid: keyname
-                },
-                success: function (msg) {
-                    search.searchList = msg.searchPersonList;
-                    if (msg.searchPersonList.length==0) {
-                        bgclass = true;
-                        search.searchinfo=true;
-                    }else{
-                        bgclass = false;
-                    }
-                }
-            });
-        }
 
         function getUserPageList(keyname) {
             $.ajax({
@@ -213,11 +358,11 @@
                 url: '/person/searchPerson',
                 data: {
                     personNickname:keyname
+
                 },
                 success: function (msg) {
                     search.searchList = msg.searchPersonList;
                     if (msg.searchPersonList.length==0) {
-                        search.searchinfo=true;
                         bgclass = true;
                     }else{
                         bgclass = false;
@@ -226,11 +371,29 @@
             });
         }
 
+        function getUserPageLists(keyname) {
+            $.ajax({
+                type: 'POST',
+                dataType: 'json',
+                url: '/person/searchPerson',
+                data: {
+                     pid: keyname
+                },
+                success: function (msg) {
+                    search.searchList = msg.searchPersonList;
+                    if (msg.searchPersonList.length==0) {
+                        bgclass = true;
+                    }else{
+                        bgclass = false;
+                    }
+                }
+            });
+        }
 
     };
 
     /*search页面导航栏查询函数*/
-    /*$("#searchinfo").click(function () {
+    $("#searchinfo").click(function () {
         var keyname= $("#personNickname").val();
         getBenPageList(keyname);
         getBenPageLists(keyname);
@@ -272,19 +435,15 @@
                 }
             });
         }
-
-    });*/
+    });
 
 </script>
 
-<div class="miaov_foot">
-    <iframe marginwidth="0" marginheight="0" frameborder="0" scrolling="no" src="/person/toFoot" height="364px" width="100%"></iframe>
-</div>
 
-<!--<footer>
+<footer>
     <div class="box">
         <div class="foot">
-            &lt;!&ndash;隐藏掉提现(隐藏提现)字样（2017-12-18）margin-left:&ndash;&gt;
+            <!--隐藏掉提现(隐藏提现)字样（2017-12-18）margin-left:-->
             <ul>
                 <li>
                     <img src="/images/ico_ft01.png">
@@ -370,7 +529,7 @@
         </div>
     </div>
 
-</footer>-->
+</footer>
 
 <!--侧边栏-->
 <div id="sidebar-vm" class="flying-vm">

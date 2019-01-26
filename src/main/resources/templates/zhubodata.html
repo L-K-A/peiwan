@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>个人资料-约玩</title>
+    <link href="./css/newcommon_admin.css" type="text/css" rel="stylesheet">
+    <link href="./css/Registration_course.css" type="text/css" rel="stylesheet">
+    <link href="./css/course_pop.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="./js/jquery-1.12.3.min.js"></script>
+    <script type="text/javascript" src="./js/cycle.js"></script>
+    <script type="text/javascript" src="./js/raphael.js"></script>
+    <script type="text/javascript" src="./js/html5media.min.js"></script>
+    <script type="text/javascript" src="./js/commit.js"></script>
+    <script type="text/javascript" src="./js/editavatar.js"></script>
+    <link href="./css/pot_up_settings.css" type="text/css" rel="stylesheet">
+    <link href="./css/basic_document.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="./js/cropbox.js"></script>
+    <script type="text/javascript" src="./js/jsencrypt.min.js "></script>
+    <script type="text/javascript" src="./js/getRSAKey.js"></script>
+    <script type="text/javascript" src="./js/encryption.js "></script>
+    <script src="https://cdn.bootcss.com/vue/2.5.21/vue.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/qiniu-js@2.5.3/dist/qiniu.min.js"></script>
+    <script src="https://cdn.bootcss.com/vue/2.5.21/vue.js"></script>
+    <!--<script type="text/javascript" src="./js/jquery-3.3.1.min.js"></script>-->
+</head>
+<style>
+    .keep_box {
+        background-color: #999999;
+        width: 192px;
+        height: 52px;
+        line-height: 52px;
+        font-size: 18px;
+        color: #fff;
+        text-align: center;
+        margin-top: 30px;
+        margin-right: 20px;
+        cursor: pointer;
+        border: none 0;
+        border-radius: 4px;
+        -webkit-border-radius: 4px;
+    }
+
+    .keep_box1 {
+        margin-left: -100px;
+        background-color: #5ecfba;
+    }
+
+    .keep_box1:hover {
+        background-color: #47b5a1;
+    }
+
+    .keep_box2:hover {
+        background-color: #888888;
+    }
+
+    .img_ts {
+        font-size: 12px;
+        color: #ea6e74;
+        width: 80%;
+        margin-top: -6px;
+    }
+
+    .img_ts input {
+        width: 80%;
+    }
+
+    .submit_box input {
+        height: 52px;
+        margin-left: 60%;
+    }
+
+    .game_ID span {
+        padding-top: 6px;
+    }
+
+    .content_bg1 {
+        height: 910px;
+    }
+
+    .imageBox .thumbBox {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 402px;
+        height: 402px;
+        margin-top: -200px;
+        margin-left: -200px;
+        border-radius: 50%;
+        box-sizing: border-box;
+        border: 1px solid rgb(102, 102, 102);
+        box-shadow: 0 0 0 1000px rgba(0, 0, 0, 0.5);
+        background: none repeat scroll 0% 0% transparent;
+    }
+
+    .pop_up_basic {
+        width: 760px;
+        height: 750px;
+        top: 50%;
+        margin-top: -375px;
+    }
+
+    .imageBox {
+        width: 460px;
+        height: 460px;
+    }
+
+    .cropped {
+        right: -312px;
+        height: 518px;
+        width: 200px;
+    }
+
+    .action {
+        width: 464px;
+    }
+
+    .keep_box2 {
+        margin-right: 77px;
+    }
+
+    .keep_box1 {
+        margin-left: -110px;
+    }
+
+    .new-contentarea {
+        overflow: visible;
+    }
+
+    a.upload-img {
+        margin-left: 0;
+        text-align: center;
+    }
+
+
+    .container {
+        margin: 20px;
+    }
+</style>
+<body>
+<!--左边-->
+<!--left_column-->
+<div id="left_column">
+    <div>
+        <a href="/indexw" target="_blank">
+            <i class="header " style="color:white;margin:10px 0 0 25px;">
+                <img src="./img/icon.png">
+            </i></a>
+        <div class="boundary"></div>
+    </div>
+    <div>
+        <div class="manage_bigbox mt15">
+            <div class="manage_box pb15">
+                <i class="icon_bgs manage2 fl"></i>
+                <span class="fl">管理</span>
+                <div class="clearfix"></div>
+            </div>
+            <div class="classify_box">
+                <a href="/zindexw">我的订单</a>
+                <a href="/zatten">我的关注</a>
+               <a href="/ztrecord">交易记录</a>
+
+            </div>
+        </div>
+        <div class="manage_bigbox mt15">
+            <div class="manage_box pb15">
+                <i class="icon_bgs manage3 fl"></i>
+                <span class="fl">设置</span>
+                <div class="clearfix"></div>
+            </div>
+            <div class="classify_box">
+                <a href="/zsecur">安全中心</a>
+                <a href="/zdata">个人资料</a>
+                <a href="/zplayinfo">详细信息</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!--left-column-end-->
+<!--top-box-->
+<div id="top_box" >
+    <div class="fr" v-for="(iten,index) in user">
+        <div class="mailbox_bigbox pt25 pb20 fl">
+            <a href="#">
+                <div class="fl mailbox_box">
+                    <i class="icon_bgs fl mailbox"></i>
+                    <span class="mailshu" style="display: none;">
+                    </span>
+                    <span class="fl">消息</span>
+                    <div class="clearfix"></div>
+                </div>
+            </a>
+            <div class="fl service_box course5" id="dd_kefu_qidian">
+                <i class="icon_bgs fl service"></i><span class="fl">客服</span>
+                <div class="clearfix"></div>
+            </div>
+            <div class="fl"><i class="fl"><img
+                    src="./img/icon_uid.png"></i><span class="fl">PID:{{iten.pid}}</span>
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="clearfix"></div>
+        </div>
+        <div class="fl ml25 head_img_box">
+            <div class="vip_text_box fl">
+                <div class="fl head_img">
+                    <a href="/zdata">
+                        <img :src="'http://pleuof34m.bkt.clouddn.com/'+iten.person_image+'?imageView2/2/w/400/h/400/q/100'"
+                             alt="头像" title="" onerror="avatarNoFound(this)">
+                    </a>
+                </div>
+                <div class="fl ml10 vip_text">
+                    <div class="vip_01">{{iten.person_flate==0?'用户':'主播'}}</div>
+                    <div class="vip_02">
+                        <a href="/zdata" id="name_href"  style="text-align: center;direction: none" >{{iten.person_nickname}}</a>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="common_login" style="display: none;background-color: #f4f3f3;width: 150px;height: 100px;margin-top: 5px;">
+                当前余额:{{balance}}
+            </div>
+            <!--<div class="fl ml10 mr40 pl10 quit" id="dologout">退出</div>-->
+            <a class="fl ml10 mr40 pl10 quit" href="/logout" id="dologout">退出</a>
+            <div class="clearfix"></div>
+        </div>
+        <div class="clearfix"></div>
+
+    </div>
+    <div class="clearfix"></div>
+</div>
+<div id="c_top" class="content_top"></div>
+<div class="left_margin"></div>
+<!--弹窗1-->
+<div class="pop_up_basicbox1" style="display:none;">
+    <div class="pop_up_basic01">
+    </div>
+    <div class="pop_up_basic">
+        <div class="basic_title_box">
+            <div class="basic_title">上传头像</div>
+            <div class="close">×</div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="container">
+            <div class="imageBox">
+                <div class="thumbBox"></div>
+                <div class="spinner" style="display: none"> Loading...</div>
+            </div>
+            <div class="action">
+                <div class="new-contentarea tc">
+                    <a href="javascript:void(0)" class="upload-img">
+                        <label for="upload-file" >上传图像</label>
+                    </a>
+                    <input type="file" class="" name="upload-file" id="upload-file" accept="image/*"/>
+                </div>
+                <input type="button" id="btnCrop" class="Btnsty_peyton" value="裁切">
+                <input type="button" id="btnZoomIn" class="Btnsty_peyton" value="+" style="font-size:30px;">
+                <input type="button" id="btnZoomOut" class="Btnsty_peyton" value="-" style="font-size:40px;">
+            </div>
+            <div class="cropped"></div>
+        </div>
+        <input type="button" value="保存" class="keep_box keep_box1" id="saveAvatar">
+        <input type="button" value="取消" class="keep_box keep_box2">
+    </div>
+</div>
+<!--content-->
+<div id="app">
+<form id="form" action="/updateuserinfopid" method="post">
+    <div class="money_box_bg" >
+        <div class="courses_title left_margin">个人资料 </div>
+        <div class="content_bg content_bg1 left_margin" v-for="(item,index) in result" >
+            <div class="head_portrait_box" >
+                <div class="head_portrait" >
+                    <img :src="'http://pleuof34m.bkt.clouddn.com/'+item.person_image+'?imageView2/2/w/400/h/400/q/100'" id="image">
+                </div>
+                <ul class="portrait_text">
+                    <li class="portrait_btn" v-on:click="clickfun()">上传头像</li>
+                    <!--<li>支持jpg、gif、png、或bmp格式的图片，文件必须小于1M</li>-->
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <input name="pid" style="display: none" value="pid">
+            <div class="game_ID" >
+                <label class="fl"><span>*</span>&nbsp;&nbsp;用&nbsp;户&nbsp;名：</label>
+                <div style="margin-left: -3px;" >
+                    {{item.person_name}}
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="game_ID">
+                <label class="fl"><span>*</span>&nbsp;&nbsp;昵&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;称：</label>
+                <div class="img_ts fl" style="margin-left: -3px;">
+                    <input name="personNickname" id="name" type="text" placeholder="请输入昵称" :value="item.person_nickname">
+                    <!--<input name="personnickname" id="nickname" type="hidden" value=""/>-->
+                    <!--<input name="data" id="data" type="hidden" value=""/>-->
+                    <!--<i id="name_i"></i>-->
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="game_ID">
+                <label class="fl"><span>*</span>&nbsp;&nbsp;QQ&nbsp;&nbsp;&nbsp;号：</label>
+                <div class="img_ts fl" style="margin-left: -3px;">
+                    <input name="personQq" id="qq" type="text" placeholder="请输入QQ号，一定要输入啊！！！" :value="item.person_qq">
+                    <i id="qq_i"></i>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="submit_box">
+                <input type="submit" value="提交修改" id="commit" class="problem">
+            </div>
+        </div>
+    </div>
+</form>
+</div>
+<script th:inline="javascript">
+    var pid = [[${session.nameTPerson?.pid}]];
+</script>
+<script type="text/javascript">
+    /*加载用户的信息*/
+    var  users=new Vue({
+        el:'#top_box',
+        data:{
+            user:[]
+        }
+    });
+    var getUsersInfo=function(){
+        $.ajax({
+            type: 'get',
+            dataType: 'json',
+            url: '/getuserinfo',
+            data: {pid:pid},
+            success: function (rest) {
+                users.user = rest.results;
+                /* userbalance.balance=rest.results[0].m_balance;*/
+            }
+        });
+    };
+
+    getUsersInfo();
+
+    var app = new Vue({
+        el: '#app',
+        data: {
+            result: [],
+            personimage:[]
+        },
+        methods:{
+            clickfun(){
+                $(".pop_up_basicbox1").show();
+                $("body").css("overflow-y", "hidden");
+            }
+        }
+    });
+    var getUserInfo = function () {
+        $.ajax({
+            type: 'POST',
+            dataType: 'json',
+            url: '/getuserinfo',
+            data: {
+                pid: pid
+            },
+            success: function (res) {
+                app.result = res.results;
+                /*app.personimage=res.results.person_image;*/
+            }
+        });
+    }
+    getUserInfo();
+
+
+    /*上传头像*/
+    /*$(".portrait_btn").click(function () {
+        $(".pop_up_basicbox1").show();
+        $("body").css("overflow-y", "hidden");
+    })*/
+
+    $(".close").click(function () {
+        $(".pop_up_basicbox1").hide();
+        $("body").css('overflow-y', 'scroll');
+    })
+
+    $(".keep_box2").click(function () {
+        $(".pop_up_basicbox1").hide();
+        $("body").css('overflow-y', 'scroll');
+    })
+    //上传头像
+    $(window).load(function () {
+        var options =
+            {
+                thumbBox: '.thumbBox',
+                spinner: '.spinner',
+                imgSrc: ''
+            }
+        var cropper = $('.imageBox').cropbox(options);
+        $('#upload-file').on('change', function () {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                options.imgSrc = e.target.result;
+                cropper = $('.imageBox').cropbox(options);
+            }
+            reader.readAsDataURL(this.files[0]);
+            this.files = [];
+        })
+        /*裁剪*/
+        $('#btnCrop').on('click', function () {
+            var img = cropper.getDataURL();
+            $('.cropped').html('');
+            $('.cropped').append('<img src="' + img + '" align="absmiddle" style="width:64px;margin-top:15px;border-radius:64px;box-shadow:0px 0px 12px #7E7E7E;" >' +
+                '<p  style="margin-top:20px;">64px*64px</p>');
+            $('.cropped').append('<img src="' + img + '" align="absmiddle" style="width:128px;margin-top:15px;border-radius:128px;box-shadow:0px 0px 12px #7E7E7E;">' +
+                '<p  style="margin-top:20px;">128px*128px</p>');
+            $('.cropped').append('<img src="' + img + '" align="absmiddle" style="width:400px;margin-left:-100px;margin-top:-90px;transform:scale(0.5,0.5);border-radius:400px;box-shadow:0px 0px 12px #7E7E7E;">' +
+                '<p style="margin-top:-90px;">400px*400px</p>');
+        })
+        $('#btnZoomIn').on('click', function () {
+            cropper.zoomIn();
+        })
+        $('#btnZoomOut').on('click', function () {
+            cropper.zoomOut();
+        })
+    });
+    $("#saveAvatar").click(function () {
+        if ($(".container .cropped img")[0] != null) {
+            /*var imgClip = $(".container .cropped img")[0].src;
+            $.ajax({
+                type: "post",
+                url: "/personimg",
+                crossDomain: true,
+                xhrFields: {
+                    withCredentials: true
+                },
+                data: {userimage: imgClip, pid: pid},
+                success: function (data) {
+                    personimage = data.resuls[0].person_image;
+                    /!*if (data.result.pid > 0) {*!/
+                        /!*if (ret.data.small != null) {}*!/
+                        /!*$(".pop_up").hide();
+                        $("body").css('overflow-y', 'scroll');
+                        /!*$(".head_samllimg img")[0].src*!/
+                         $(".container .cropped img")[0].src= imgClip;
+                        $("#img64").val('1');*!/
+
+                    /!*} else {
+                        alert("上传出现问题!稍后。");
+                    }*!/
+                    $(".pop_up_basicbox1").hide();
+                    $("body").css('overflow-y', 'scroll');
+                    /!*$(".container .cropped img")[0].src = "";*!/
+                    $('.container .cropped img').attr('src', "'./imgupload/'+personimage");
+                }
+            });*/
+            var obj = $("#upload-file");
+            var fileName = obj.val();		                                           //上传的本地文件绝对路径
+            var suffix = fileName.substring(fileName.lastIndexOf("."),fileName.length);//后缀名
+            var file = obj.get(0).files[0];	                                           //上传的文件
+            var size = file.size > 1024 ? file.size / 1024 > 1024 ? file.size / (1024 * 1024) > 1024 ? (file.size / (1024 * 1024 * 1024)).toFixed(2) + 'GB' : (file.size
+                / (1024 * 1024)).toFixed(2) + 'MB' : (file.size
+                / 1024).toFixed(2) + 'KB' : (file.size).toFixed(2) + 'B';		   //文件上传大小
+            //七牛云上传
+            $.ajax({
+                type:'post',
+                url: "/QiniuUpToken",
+                data:{"suffix":suffix,pid: pid},
+                dataType:'json',
+                success: function(result){
+                    if(result.success == 1){
+                        var observer = {                         //设置上传过程的监听函数
+                            next(result){                        //上传中(result参数带有total字段的 object，包含loaded、total、percent三个属性)
+                                Math.floor(result.total.percent);//查看进度[loaded:已上传大小(字节);total:本次上传总大小;percent:当前上传进度(0-100)]
+                            },
+                            error(err){                          //失败后
+                                alert(err.message);
+                            },
+                            complete(res){                       //成功后
+                                // ?imageView2/2/h/100：展示缩略图，不加显示原图
+                                // ?vframe/jpg/offset/0/w/480/h/360：用于获取视频截图的后缀，0：秒，w：宽，h：高
+                                /*$("#image").attr("src",result.imgUrl);*/
+                                $(".pop_up_basicbox1").hide();
+                                $("body").css('overflow-y', 'scroll');
+                                $("#image")[0].src= "http://pleuof34m.bkt.clouddn.com/"+ result.imgUrl+"?imageView2/2/w/400/h/400/q/100";
+
+                            }
+                        };
+                        var putExtra = {
+                            fname: "",                          //原文件名
+                            params: {},                         //用来放置自定义变量
+                            mimeType: null                      //限制上传文件类型
+                        };
+                        var config = {
+                            region:qiniu.region.z0,             //存储区域(z0:代表华东;z2:代表华南,不写默认自动识别)
+                            concurrentRequestLimit:3            //分片上传的并发请求量
+                        };
+                        var observable = qiniu.upload(file,result.imgUrl,result.token,putExtra,config);
+                        var subscription = observable.subscribe(observer);          // 上传开始
+                        // 取消上传
+                        // subscription.unsubscribe();
+                        app.result = res.results;
+                    }else{
+                        alert(result.message);                  //获取凭证失败
+                    }
+                },error:function(){                             //服务器响应失败处理函数
+                    alert("服务器繁忙");
+                }
+            });
+        } else {
+            alert("请先裁剪图片!");
+        }
+    });
+
+    /*form*/
+    $('#form').submit(function () {
+        var flag = true;
+        if ($('#qq').val().length == 0) {
+            flag = false;
+            $('#qq_i').html('&nbsp;&nbsp;&nbsp;&nbsp; <img src="./img/wrong.png">&nbsp;&nbsp;请输入QQ');
+        }
+        if ($('#name').val().length == "") {
+            flag = false;
+            $('#name_i').html('&nbsp;&nbsp;&nbsp;&nbsp; <img src="./img/wrong.png">&nbsp;&nbsp;请输入昵称');
+        } else if ($('#name').val() != $('#nickname').val()) {
+            var a = new Object();
+            a.nickname = $('#name').val();
+            a = packSendData_general(a);
+            $('#data').val(a);
+        }
+
+        return flag;
+    })
+</script>
+</body>
+</html>

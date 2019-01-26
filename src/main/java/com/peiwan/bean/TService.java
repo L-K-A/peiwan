@@ -11,12 +11,11 @@ import java.io.Serializable;
 
 /**
  * <p>
- * 
+ * 选择服务表
  * </p>
  *
  * @author 
  * @since 2019-01-16
- * @date 2019/1/10 16:32
  */
 @Data
 @NoArgsConstructor
@@ -59,7 +58,7 @@ public class TService implements Serializable {
     private String pGid;
 
     /**
-     * /元/小时
+     * 元/小时
      */
     private Double gPrice;
 

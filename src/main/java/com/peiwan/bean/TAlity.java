@@ -7,7 +7,7 @@ import lombok.experimental.Accessors;
 
 /**
  * <p>
- * 
+ * 用户才艺表
  * </p>
  *
  * @author 

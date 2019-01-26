@@ -13,7 +13,7 @@ import lombok.experimental.Accessors;
 
 /**
  * <p>
- * 
+ * 主播订单表
  * </p>
  *
  * @author 
@@ -38,7 +38,6 @@ public class TOrderZ implements Serializable {
     /**
      * 订单id
      */
-    @TableId(value = "oid", type = IdType.AUTO)
     private String oid;
 
     /**
@@ -49,7 +48,7 @@ public class TOrderZ implements Serializable {
     /**
      * 服务id
      */
-    private Integer gid;
+    private String gid;
 
     /**
      * 服务类型=板块名
@@ -91,5 +90,9 @@ public class TOrderZ implements Serializable {
      */
     private String oDatetime;
 
+    /*
+     * 用户QQ
+     * */
+    private String oQq;
 
 }

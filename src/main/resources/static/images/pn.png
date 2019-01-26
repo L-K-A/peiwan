@@ -1,0 +1,3619 @@
+﻿
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<title>兔玩电竞 - 最任性的游戏媒体</title>
+<meta name="keywords" content="兔玩网,电竞,兔玩电竞,腾讯游戏,暴雪游戏" />
+<meta name="description" content="兔玩网是国内最优秀的电竞门户网之一，致力于向玩家提供高品质的电竞赛事报道，呈现优质的电竞视频、资讯、干货等内容，让喜爱电子竞技的玩家时时了解各类电竞游戏的最新内容。"/>
+<meta name="sogou_site_verification" content="lwRTy8FRqV"/>
+<meta name="360-site-verification" content="124263b81b052e5d87d9a27c6cd28527" />
+<meta name="chinaso-site-verification" content="chinaso58QXTMRC"/>
+<meta name="baidu-site-verification" content="rSzVHY64yM" />
+<meta http-equiv="mobile-agent" content="format=html5; url=http://m.tuwan.com/">
+<script type="text/javascript" src="//res.tuwan.com/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="//res.tuwan.com/js/config.js"></script>
+<script type="text/javascript" src="//res.tuwan.com/v3/homepagev2/js/main.js"></script>
+<script type="text/javascript" src="//res.tuwan.com/v3/homepagev2/js/slide.js?v=3"></script>
+<link rel="icon" href="//www.tuwan.com/favicon.ico" sizes="32x32">
+<link rel="stylesheet" type="text/css" href="//res.tuwan.com/v3/homepagev2/css/common.css?v=7">
+<link rel="stylesheet" type="text/css" href="//res.tuwan.com/v3/homepagev2/css/style.css?v=16">
+<script type="text/javascript" src="//vista.tuwan.com/s.js" charset="gb2312"></script>
+</head>
+<body>
+<div class="login-all-index-cell">
+<div class="login-all-index-box cf">
+<a class="login-all-tuwan-esports fl" href="http://www.tuwan.com/" title="兔玩电竞">TUWAN ESPORTS</a>
+<span class="login-all-chaoshen-app fl">
+<i class="icon-bg icon-iphone"></i>
+超神电竞APP
+<div class="erweima"><img src="//static.tuwan.com/v3/homepagev2/images/chaoshen-app.jpg" alt="超神电竞APP"></div>
+</span>
+<ul class="login-all-nav-ul-cell fr cf" id="userinfo">
+<li><a href="//user.tuwan.com/" target="_blank" title="登录"><i class="icon-bg icon-login"></i>登录</a></li>
+<li><a href="//user.tuwan.com/register/" target="_blank" title="注册"><i class="icon-bg icon-register"></i>注册</a></li>
+<li><a href="http://www.tuwan.com/topic/about_sitemap/" target="_blank" title="网站地图"><i class="icon-bg icon-map"></i>网站地图</a></li>
+</ul>
+<script type="text/javascript">
+                $(function () {
+                    $.ajax({
+                        url: 'https://user.tuwan.com/api/method/userinfo',
+                        dataType: "jsonp",
+                        jsonp: "callback",
+                        success: function (data) {
+                            if (data.code == "0") {
+                                $("#userinfo").html('<li><a href="//user.tuwan.com/" target="_blank" ><i class="icon-bg icon-login"></i>'+data.data.username+'</a></li><li><a href="javascript:;"  title="退出" onclick="Logout();">退出</a></li><li><a href="http://www.tuwan.com/topic/about_sitemap/" target="_blank" title="网站地图"><i class="icon-bg icon-map"></i>网站地图</a></li>');
+
+                            }
+                            else {
+                                $("#userinfo").html('<li><a href="//user.tuwan.com/" target="_blank" title="登录"><i class="icon-bg icon-login"></i>登录</a></li><li><a href="//user.tuwan.com/register/" target="_blank" title="注册"><i class="icon-bg icon-register"></i>注册</a></li><li><a href="http://www.tuwan.com/topic/about_sitemap/" target="_blank" title="网站地图"><i class="icon-bg icon-map"></i>网站地图</a></li>');
+                            }
+                        }
+                    });
+                });
+
+                function Logout() {
+                    $.ajax({
+                        url: 'https://user.tuwan.com/api/method/logout',
+                        dataType: "jsonp",
+                        jsonp: "callback",
+                        success: function (data) {
+						    $("#userinfo").html('<li><a href="//user.tuwan.com/" target="_blank" title="登录"><i class="icon-bg icon-login"></i>登录</a></li><li><a href="//user.tuwan.com/register/" target="_blank" title="注册"><i class="icon-bg icon-register"></i>注册</a></li><li><a href="http://www.tuwan.com/topic/about_sitemap/" target="_blank" title="网站地图"><i class="icon-bg icon-map"></i>网站地图</a></li>');
+                        }
+                    });
+                }
+            </script>
+<ul class="login-all-share-ul-cell fr cf">
+<li><a class="icon-bg icon-tencent-play" href="http://v.qq.com/vplus/tuwan" target="_blank" title="腾讯视频"></a></li>
+<li><a class="icon-bg icon-youku-play" href="http://i.youku.com/i/UMTkyOTQ1MzAw" target="_blank" title="优酷视频"></a></li>
+<li><a class="icon-bg icon-weibo" href="http://weibo.com/p/1006065042958097" target="_blank" title="新浪微博"></a></li>
+<li><a class="icon-bg icon-weixin" href="http://mp.weixin.qq.com/s?__biz=MzA5MTU3MzExMg==&mid=504991415&idx=1&sn=42fd9d263273d256a5cff2b1de1bd0db&scene=23" target="_blank" title="微信"></a></li>
+</ul>
+</div>
+</div>
+<div class="header-cell">
+<div class="header-box cf">
+<div class="logo-cell fl"><a href="http://www.tuwan.com/" title="兔玩电竞"><img src="//static.tuwan.com/v3/homepagev2/images/logo.png?v=1" alt="兔玩，电竞第一平台"></a></div>
+<ul class="nav-ul-cell fl cf">
+<li class="logo-cell fl" style="margin-left: -160px;display: none;"><a href="http://www.tuwan.com/" title="兔玩电竞"><img src="//static.tuwan.com/v3/homepage/images/logoattach.png?v=1" alt="兔玩，电竞第一平台"></a></li>
+<li class="choose"><a class="name" title="首页">首页</a></li>
+<li><a class="name" href="http://www.tuwan.com/news/" target="_blank" title="新闻">新闻</a></li>
+<li><a class="name" href="http://www.tuwan.com/video/" target="_blank" title="视频">视频</a></li>
+<li><a class="name" href="http://www.tuwan.com/esport/match/" target="_blank" title="赛事">赛事</a></li>
+<li><a class="name" href="https://www.tuwanjun.com/" target="_blank" title="美图">美图</a></li>
+<li><a class="name" href="//app.tuwan.com/Entrance/G34tzpVkw_d58nQiEaL3ZKsW0_n0Zukb" target="_blank" title="1v1约玩" style="color:#3DDFA1;">约玩</a></li>
+<li><a class="name" href="http://t.tuwan.com/" target="_blank" title="训练营">训练营</a></li>
+</ul>
+<div class="form-search-cell cf fr cf">
+<i class="icon-bg icon-search"></i>
+<form target="_blank">
+<input type="text" class="input-text transition-time-cell fl" placeholder="请输入搜索内容" id="bdcsMain">
+<input class="input-btn fr" name="" type="submit" value="GO">
+</form>
+</div>
+<script>
+			   function search(){
+			      var t = document.getElementById("search-text").value;
+			      if(t == ""){alert("请输入搜索内容");}
+				  else{window.open("http://s.tuwan.com/?keyword="+t);}
+			   }
+			</script>
+</div>
+</div>
+<script type="text/javascript">(function(){document.write(unescape('%3Cdiv id="bdcs"%3E%3C/div%3E'));var bdcs = document.createElement('script');bdcs.type = 'text/javascript';bdcs.async = true;bdcs.src = 'http://znsv.baidu.com/customer_search/api/js?sid=9519942873291897223' + '&plate_url=' + encodeURIComponent(window.location.href) + '&t=' + Math.ceil(new Date()/3600000);var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(bdcs, s);})();</script>
+<div id="cbody" class="content-cell content-background">
+<!--End of eggs-box -->
+<div class="banner-box_box ">
+<div class="banner-box ">
+<div class="ck-slide">
+<ul class="ck-slide-wrapper banner-img cf">
+<li>
+<a href="http://www.yabet1395.com/" target="_blank" title="亚博电竞"><img src="http://img4.tuwandata.com/v2/thumb/all/MjAwNCwxMjQwLDMyMCwyNTUsMywxLC0xLE5PTkUsLCw5MA==/u/www.tuwan.com/uploads/1812/15/1-1Q2151U249540.jpg" alt="亚博电竞" width="1240px" height="320px"></a>
+</li>
+<li style="display:none">
+<a href="https://lol.tuwan.com/390895/" target="_blank" title="兔玩专访姿态"><img src="http://img4.tuwandata.com/v2/thumb/all/MTNjMSwxMjQwLDMyMCwyNTUsMywxLC0xLE5PTkUsLCw5MA==/u/www.tuwan.com/uploads/1901/03/1-1Z103114334222.jpg" alt="兔玩专访姿态" width="1240px" height="320px"></a>
+</li>
+<li style="display:none">
+<a href="http://pubg.tuwan.com/390896/" target="_blank" title="韦神孤存小狮子齐亮相 职业选手解说新年送祝福"><img src="http://img4.tuwandata.com/v2/thumb/all/YTZkNCwxMjQwLDMyMCwyNTUsMywxLC0xLE5PTkUsLCw5MA==/u/www.tuwan.com/uploads/1901/03/1-1Z103114K1432.jpg" alt="韦神孤存小狮子齐亮相 职业选手解说新年送祝福" width="1240px" height="320px"></a>
+</li>
+<li style="display:none">
+<a href="http://t.tuwan.com/#divZhuanXiangKeCheng" target="_blank" title="圣诞5折活动"><img src="http://img4.tuwandata.com/v2/thumb/all/YjQyNSwxMjQwLDMyMCwyNTUsMywxLC0xLE5PTkUsLCw5MA==/u/www.tuwan.com/uploads/1901/02/860-1Z102150356201.jpg" alt="圣诞5折活动" width="1240px" height="320px"></a>
+</li>
+<li style="display:none">
+<a href="https://www.tuwanjun.com/?id=1334" target="_blank" title="兔玩君的图包分享计划"><img src="http://img4.tuwandata.com/v2/thumb/all/OTFhOCwxMjQwLDMyMCwyNTUsMywxLC0xLE5PTkUsLCw5MA==/u/www.tuwan.com/uploads/1901/02/889-1Z1021U50OZ.jpg" alt="兔玩君的图包分享计划" width="1240px" height="320px"></a>
+</li>
+</ul>
+<a href="javascript:;" class="ctrl-slide ck-prev">上一张</a> <a href="javascript:;" class="ctrl-slide ck-next">下一张</a>
+<div class="ck-slidebox">
+<div class="slideWrap">
+<ul class="dot-wrap">
+<li class="current"><em>1</em></li>
+<li><em>2</em></li>
+<li><em>3</em></li>
+<li><em>4</em></li>
+<li><em>5</em></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+		   var width = ($(document).width()-1160)/2 - 50;
+			$("#cbody .banner-box_box").before('<div style="width:1240px;height:124px;position:absolute;left:'+width+'px;background-color:#red;margin:0 auto;cursor:pointer;" onclick="gotopic();"></div>');
+			$("#cbody .banner-box_box").before('<div style="width:'+width+'px;height:850px;position:absolute;left:0px;top:130px;cursor:pointer;" onclick="gotopic();"></div>');
+			$("#cbody .banner-box_box").after('<div style="width:'+width+'px;height:850px;position:absolute;right:0px;top:130px;cursor:pointer;" onclick="gotopic();"></div>');  
+			$("#cbody").css({"background-image":"url(//static.tuwan.com/templet/lol/images/yabobg.jpg)"});
+			$("#cbody .banner-box_box").css("padding-top","50px");
+
+			function gotopic(){
+				window.open("http://www.yabet1395.com/");
+			}
+		
+        </script>
+<script>
+			$('.ck-slide').ckSlide({
+				autoPlay: true
+			});
+		</script>
+<div class="width-cell game-all-box cf">
+<ul class="game-all-ul fl cf">
+<div class="name"><span>ESPORT<br>PC GAME</span></div>
+<li><a href="http://lol.tuwan.com/" target="_blank" title="英雄联盟"><i class="game-icon"><img src="//static.tuwan.com/v3/homepagev2/images/game-lol.png" alt="英雄联盟"></i>英雄联盟</a></li>
+<li><a href="http://fn.tuwan.com/" target="_blank" title="堡垒之夜"><i class="game-icon"><img src="//static.tuwan.com/v3/homepagev2/images/game-fn.png" alt="堡垒之夜"></i>堡垒之夜</a></li>
+<li><a href="http://pubg.tuwan.com/" target="_blank" title="绝地求生"><i class="game-icon"><img src="//static.tuwan.com/v3/homepagev2/images/game-pubg.png" alt="绝地求生"></i>绝地求生</a></li>
+<li><a href="http://hs.tuwan.com/" target="_blank" title="炉石传说"><i class="game-icon"><img src="//static.tuwan.com/v3/homepagev2/images/game-lushi.png" alt="炉石传说"></i>炉石传说</a></li>
+<li><a href="http://ow.tuwan.com/" target="_blank" title="守望先锋"><i class="game-icon"><img src="//static.tuwan.com/v3/homepagev2/images/game-ow.png" alt="守望先锋"></i>守望先锋</a></li>
+</ul>
+<ul class="game-all-ul fr cf">
+<div class="name"><span>ESPORT<br>MOBILE GAME</span></div>
+<li><a href="http://www.tuwan.com/shouji/wzry/" target="_blank" title="王者荣耀"><i class="game-icon"><img src="//static.tuwan.com/v3/homepagev2/images/game-wz.png" alt="王者荣耀"></i>王者荣耀</a></li>
+<li><a href="http://www.tuwan.com/shouji/cr/" target="_blank" title="皇室战争"><i class="game-icon"><img src="//static.tuwan.com/v3/homepagev2/images/game-cr.png" alt="皇室战争"></i>皇室战争</a></li>
+<li><a href="http://www.tuwan.com/shouji/qmcs/" target="_blank" title="全民超神"><i class="game-icon"><img src="//static.tuwan.com/v3/homepagev2/images/game-qm.png" alt="全民超神"></i>全民超神</a></li>
+</ul>
+</div>
+<div class="background-w">
+<div class="pt35 cf">
+<div class="main-left-box fl">
+<div class="main-left-top">
+<div class="Hover-img" style="background:url(http://img4.tuwandata.com/v2/thumb/all/YmQxMCw0NzIsMjIwLDI1NSwzLDEsLTEsTk9ORSwsLDkw/u/www.tuwan.com/uploads/1901/02/1-1Z102100001341.jpg)">
+<a href="http://lol.tuwan.com/390872/" target="_blank" title="三大系列全面半价 五大必买皮肤评测推荐"><img src="http://img4.tuwandata.com/v2/thumb/all/YmQxMCw0NzIsMjIwLDI1NSwzLDEsLTEsTk9ORSwsLDkw/u/www.tuwan.com/uploads/1901/02/1-1Z102100001341.jpg" alt="三大系列全面半价 五大必买皮肤评测推荐" width="472" height="220"></a>
+</div>
+<div class="info">
+<div class="title over-ell"><a href="http://lol.tuwan.com/390872/" target="_blank" title="三大系列全面半价 五大必买皮肤评测推荐">三大系列全面半价 五大必买皮肤评测推荐</a></div>
+<p>2019年的第一天，英雄联盟也是限时开启了皮肤半价特惠活动。大热门的玉剑传说、源计划和未来战士系列！全是T1级别的全特效皮肤！</p>
+</div>
+</div>
+<div class="main-left-bottom mt30">
+<div class="title-cell">
+<span>活动·礼包</span>
+</div>
+<ul class="activity-packs cf">
+<li class="Img-loading"><a href="http://www.tuwan.com/pic/" target="_blank" title="最污电竞公众号"><img src="//res.tuwan.com/v3/homepagev2/images/dome/twzx_index_v1.jpg" alt="最污电竞公众号"></a></li>
+<li class="Img-loading"><a href="https://detail.tmall.com/item.htm?spm=a1z10.1-b.w5003-17389943827.2.4fc866ffQFpUpQ&id=565453431141&scene=taobao_shop&skuId=3745844583064&mm_gxbid=5_2050768_738dfa54fc573dead01b1e31411a42b7" target="_blank" title="首页活动三：傲风粉色电竞椅"><img src="/uploads/1804/03/731-1P403101633639.jpg" alt="首页活动三：傲风粉色电竞椅"></a></li>
+<li class="Img-loading"><a href="https://item.taobao.com/item.htm?spm=a1z10.1-c.w4004-16567047660.2.542bac0fmpsucm&id=552450779270" target="_blank" title="乐观战袍"><img src="/uploads/1810/31/1-1Q031103040V2.jpg" alt="乐观战袍"></a></li>
+<li class="Img-loading"><a href="https://www.tuwanjun.com/" target="_blank" title="首页活动一：兔玩君的萌妹福利"><img src="/uploads/1808/07/731-1PPG5261GI.jpg" alt="首页活动一：兔玩君的萌妹福利"></a></li>
+<li class="Img-loading"><a href="http://t.tuwan.com/" target="_blank" title="训练营活动推荐"><img src="/uploads/1812/26/1-1Q226164H9426.jpg" alt="训练营活动推荐"></a></li>
+</ul>
+</div>
+</div>
+<div class="main-cen fl">
+<div class="title-cell">
+<a href="http://www.tuwan.com/news/" class="icon-bg icon-more fr" target="_blank" title="查看更多"></a>
+<span>今日热点</span>
+</div>
+<ul class="hot-news-ul cf">
+<li class="cf"><a href="http://www.tuwan.com/view/390953/" target="_blank" title="英雄齐聚斗鱼开黑节，宁美国度超500台豪机掀起电竞风暴！">
+<div class="Hover-img fl"><img src="http://img4.tuwandata.com/v2/thumb/all/Nzc5MCwxNDAsOTAsOSwzLDEsLTEsTk9ORSwsLDkw/u/www.tuwan.com/uploads/allimg/1901/03/S5_01031405445519.jpg" alt="英雄齐聚斗鱼开黑节，宁美国度超500台豪机掀起电竞风暴！"></div>
+<div class="info">
+<span class="title">英雄齐聚斗鱼开黑节，宁美国度超500台豪机掀起电竞风暴！</span>
+<span class="time"><i class="icon-bg icon-time"></i>01-03</span>
+</div>
+</a></li><li class="cf"><a href="http://lol.tuwan.com/390963/" target="_blank" title="贾克斯成上分热门 版本上单全面评级">
+<div class="Hover-img fl"><img src="http://img4.tuwandata.com/v2/thumb/all/ZTdkZSwxNDAsOTAsOSwzLDEsLTEsTk9ORSwsLDkw/u/www.tuwan.com/uploads/1901/03/904-1Z10314340L34-lp.jpg" alt="贾克斯成上分热门 版本上单全面评级"></div>
+<div class="info">
+<span class="title">贾克斯成上分热门 版本上单全面评级</span>
+<span class="time"><i class="icon-bg icon-time"></i>01-03</span>
+</div>
+</a></li><li class="cf"><a href="http://lol.tuwan.com/390961/" target="_blank" title="魅惑大招无缝打出 伊芙琳九大隐藏技巧">
+<div class="Hover-img fl"><img src="http://img4.tuwandata.com/v2/thumb/all/MTNkMywxNDAsOTAsOSwzLDEsLTEsTk9ORSwsLDkw/u/www.tuwan.com/uploads/1901/03/904-1Z103141205329.jpg" alt="魅惑大招无缝打出 伊芙琳九大隐藏技巧"></div>
+<div class="info">
+<span class="title">魅惑大招无缝打出 伊芙琳九大隐藏技巧</span>
+<span class="time"><i class="icon-bg icon-time"></i>01-03</span>
+</div>
+</a></li><li class="cf"><a href="http://lol.tuwan.com/390958/" target="_blank" title="新赛季SDG和V5将登场 LPL新军能否成黑马">
+<div class="Hover-img fl"><img src="http://img4.tuwandata.com/v2/thumb/all/OTkxMywxNDAsOTAsOSwzLDEsLTEsTk9ORSwsLDkw/u/www.tuwan.com/uploads/1901/03/802-1Z103141634A7.jpg" alt="新赛季SDG和V5将登场 LPL新军能否成黑马"></div>
+<div class="info">
+<span class="title">新赛季SDG和V5将登场 LPL新军能否成黑马</span>
+<span class="time"><i class="icon-bg icon-time"></i>01-03</span>
+</div>
+</a></li><li class="cf"><a href="http://www.tuwan.com/view/390952/" target="_blank" title="FG解散CS分部 创始人揭行业黑幕遭大V驳斥">
+<div class="Hover-img fl"><img src="http://img4.tuwandata.com/v2/thumb/all/OTU1YSwxNDAsOTAsOSwzLDEsLTEsTk9ORSwsLDkw/u/www.tuwan.com/uploads/repayment/201901/5-03112553.jpeg" alt="FG解散CS分部 创始人揭行业黑幕遭大V驳斥"></div>
+<div class="info">
+<span class="title">FG解散CS分部 创始人揭行业黑幕遭大V驳斥</span>
+<span class="time"><i class="icon-bg icon-time"></i>01-03</span>
+</div>
+</a></li><li class="cf"><a href="http://lol.tuwan.com/390951/" target="_blank" title="虎牙直播再获LCK独家直播权驻守电竞赛事版权内容高地">
+<div class="Hover-img fl"><img src="http://img4.tuwandata.com/v2/thumb/all/MjIwYywxNDAsOTAsOSwzLDEsLTEsTk9ORSwsLDkw/u/www.tuwan.com/uploads/allimg/1901/03/P2_010311551T135.jpg" alt="虎牙直播再获LCK独家直播权驻守电竞赛事版权内容高地"></div>
+<div class="info">
+<span class="title">虎牙直播再获LCK独家直播权驻守电竞赛事版权内容高地</span>
+<span class="time"><i class="icon-bg icon-time"></i>01-03</span>
+</div>
+</a></li>
+</ul>
+</div>
+<div class="main-right fr">
+<div class="title-cell">
+<a href="http://www.tuwan.com/tag_%E5%85%94%E7%8E%A9%E5%87%BA%E5%93%81/" class="icon-bg icon-more fr" target="_blank" title="查看更多"></a>
+<span>兔玩出品</span>
+</div>
+<ul class="tuwan-product">
+<li class="one"><a href="http://lol.tuwan.com/cs/" target="_blank" title="超神电竞APP">
+<div class="text transition-time-cell">
+<span class="icon-bg fr"></span>
+<h4>超神电竞APP</h4>
+<p>换个姿势看电竞</p>
+</div>
+<img class="i" src="http://static.tuwan.com/v3/homepagev2/images/tuwan-i-1.png" alt="超神电竞APP">
+<img class="p" src="http://static.tuwan.com/v3/homepagev2/images/tuwan-p-1.jpg" alt="超神电竞APP">
+</a></li>
+<li class="two"><a href="http://www.tuwan.com/xunlianying/" target="_blank" title="兔玩英雄训练营">
+<div class="text transition-time-cell">
+<span class="icon-bg fr"></span>
+<h4>兔玩英雄训练营</h4>
+<p>兔玩旗下培训机构</p>
+</div>
+<img class="i" src="http://static.tuwan.com/v3/homepagev2/images/tuwan-i-2.png" alt="兔玩英雄训练营">
+<img class="p" src="http://static.tuwan.com/v3/homepagev2/images/tuwan-p-2.jpg" alt="兔玩英雄训练营">
+</a></li>
+<li class="three"><a href="http://y.tuwan.com/" target="_blank" title="点点约玩">
+<div class="text transition-time-cell">
+<span class="icon-bg fr"></span>
+<h4>点点约玩</h4>
+<p>最真实陪玩交友平台</p>
+</div>
+<img class="i" src="http://static.tuwan.com/v3/homepagev2/images/tuwan-i-59.png" alt="点点约玩">
+</a></li>
+<li class="four"><a href="http://lol.tuwan.com/tag_懒人看版本/" target="_blank" title="懒人看版本">
+<div class="text transition-time-cell">
+<span class="icon-bg fr"></span>
+<h4>懒人系列</h4>
+<p>懒人也能轻松掌握LOL</p>
+</div>
+<img class="i" src="http://static.tuwan.com/v3/homepagev2/images/tuwan-i-4.png" alt="懒人看版本">
+</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div style="text-align:center;">
+<script type="text/javascript">TUWAN_VISTA(68);</script>
+</div>
+<div class="background-ed" style="margin-top:15px">
+<div class="width-f-cell">
+<div class="title-big" style="text-align:left;">
+视频节目
+</div>
+<div class="video-nav-cell mt30" style="margin-top:-46px;">
+<div class="video-nav-box">
+<a href="http://lol.tuwan.com/tag_%E4%B8%96%E7%95%8C%E7%AC%AC%E4%B8%80/" target="_blank" title="世界第一">
+<span class="title">世界第一<i class="icon-bg icon-hot"></i></span>
+<span class="info">看大神 学操作</span>
+</a>
+<a href="http://lol.tuwan.com/tag_%E5%A4%A7%E7%A5%9E%E6%80%8E%E4%B9%88%E8%AF%B4/" target="_blank" title="大神怎么说">
+<span class="title">大神怎么说<i class="icon-bg icon-new"></i></span>
+<span class="info">问明星 怎么答</span>
+</a>
+<a href="http://www.tuwan.com/shouji/wzry/tag_%E5%9B%BD%E6%9C%8D%E6%9C%80%E5%BC%BA/" target="_blank" title="国服最强">
+<span class="title">国服最强</span>
+<span class="info">看操作 上王者</span>
+</a>
+<a href="http://lol.tuwan.com/tag_%E7%89%88%E6%9C%AC%E8%80%81%E5%8F%B8%E6%9C%BA/" target="_blank" title="版本老司机">
+<span class="title">版本老司机</span>
+<span class="info">新版本 看完懂</span>
+</a>
+<a href="http://lol.tuwan.com/tag_%E7%9E%8EB%E6%93%8D%E4%BD%9C/" target="_blank" title="瞎β操作">
+<span class="title">瞎β操作</span>
+<span class="info">骚操作 比赛梗</span>
+</a>
+</div>
+</div>
+<a class="fr" href="http://www.tuwan.com/video/" target="_blank" title="更多视频" style="margin-top:-40px;">更多视频 <i class="icon-bg icon-more"></i></a>
+<ul class="video-con-cell mt20 cf">
+<li class="first transition-time-cell"><a href="http://lol.tuwan.com/390938/" target="_blank" title="质量王者局994：Ghost SoHwan JACKAIRAY">
+<div class="img"><img src="http://img4.tuwandata.com/v2/thumb/all/MDU3YSwzNzEsMjk2LDksMywxLC0xLE5PTkUsLCw5MA==/u/www.tuwan.com/uploads/1901/03/802-1Z1030UZcC.jpg" alt="质量王者局994：Ghost SoHwan JACKAIRAY" width="371" height="296"><i class="icon-bg icon-video"></i></div>
+<div class="info">
+<h4 class="over-ell bigpic">质量王者局994：Ghost SoHwan JACKAIRAY</h4>
+</div>
+</a></li>
+<li class="transition-time-cell"><a href="http://lol.tuwan.com/390937/" target="_blank" title="大神怎么玩：Knight艾克 五杀就这么简单">
+<div class="img"><img src="http://img1.tuwandata.com/v2/thumb/all/MDNjOCwxNzcsMTA5LDksMywxLC0xLE5PTkUsLCw5MA==/u/www.tuwan.com/uploads/1901/03/802-1Z1030U62N45.jpg" alt="大神怎么玩：Knight艾克 五杀就这么简单"><i class="icon-bg icon-video"></i></div>
+<div class="info">
+<h4>大神怎么玩：Knight艾克 五杀就这么简单</h4>
+</div>
+</a></li><li class="transition-time-cell"><a href="http://lol.tuwan.com/390936/" target="_blank" title="大神怎么玩：小龙堡乌迪尔 王者900点对局">
+<div class="img"><img src="http://img1.tuwandata.com/v2/thumb/all/ODllZiwxNzcsMTA5LDksMywxLC0xLE5PTkUsLCw5MA==/u/www.tuwan.com/uploads/1901/03/802-1Z1030U523645.jpg" alt="大神怎么玩：小龙堡乌迪尔 王者900点对局"><i class="icon-bg icon-video"></i></div>
+<div class="info">
+<h4>大神怎么玩：小龙堡乌迪尔 王者900点对局</h4>
+</div>
+</a></li><li class="transition-time-cell"><a href="http://pubg.tuwan.com/390896/" target="_blank" title="韦神孤存小狮子齐亮相 职业选手解说新年送祝福">
+<div class="img"><img src="http://img1.tuwandata.com/v2/thumb/all/NDdkNiwxNzcsMTA5LDksMywxLC0xLE5PTkUsLCw5MA==/u/www.tuwan.com/uploads/1901/02/802-1Z102112104604.jpg" alt="韦神孤存小狮子齐亮相 职业选手解说新年送祝福"><i class="icon-bg icon-video"></i></div>
+<div class="info">
+<h4>韦神孤存小狮子齐亮相 职业选手解说新年送祝福</h4>
+</div>
+</a></li><li class="transition-time-cell"><a href="http://lol.tuwan.com/390895/" target="_blank" title="专访RNG姿态：我也想当个没心没肺的小孩">
+<div class="img"><img src="http://img1.tuwandata.com/v2/thumb/all/NTdjZSwxNzcsMTA5LDksMywxLC0xLE5PTkUsLCw5MA==/u/www.tuwan.com/uploads/1901/02/802-1Z102112010916.jpg" alt="专访RNG姿态：我也想当个没心没肺的小孩"><i class="icon-bg icon-video"></i></div>
+<div class="info">
+<h4>专访RNG姿态：我也想当个没心没肺的小孩</h4>
+</div>
+</a></li><li class="transition-time-cell"><a href="http://lol.tuwan.com/390887/" target="_blank" title="大神怎么玩：Faker领衔七名SKT队员混战">
+<div class="img"><img src="http://img1.tuwandata.com/v2/thumb/all/NDBmOCwxNzcsMTA5LDksMywxLC0xLE5PTkUsLCw5MA==/u/www.tuwan.com/uploads/1901/02/802-1Z1020R555B9.jpg" alt="大神怎么玩：Faker领衔七名SKT队员混战"><i class="icon-bg icon-video"></i></div>
+<div class="info">
+<h4>大神怎么玩：Faker领衔七名SKT队员混战</h4>
+</div>
+</a></li><li class="transition-time-cell"><a href="http://lol.tuwan.com/390886/" target="_blank" title="大神怎么玩：厂长招牌螳螂 宝刀未老23杀">
+<div class="img"><img src="http://img1.tuwandata.com/v2/thumb/all/MTZjOSwxNzcsMTA5LDksMywxLC0xLE5PTkUsLCw5MA==/u/www.tuwan.com/uploads/1901/02/802-1Z1020R425361.jpg" alt="大神怎么玩：厂长招牌螳螂 宝刀未老23杀"><i class="icon-bg icon-video"></i></div>
+<div class="info">
+<h4>大神怎么玩：厂长招牌螳螂 宝刀未老23杀</h4>
+</div>
+</a></li>
+<li class="last transition-time-cell"><a href="http://lol.tuwan.com/390273/" target="_blank" title="世界第一：最强派克 2500码超远距离团控开团">
+<div class="img">
+<img src="http://img1.tuwandata.com/v2/thumb/all/NTU3NiwxNzcsMjk2LDI1NSwzLDEsLTEsMSwsLDkw/u/www.tuwan.com/uploads/1812/15/1-1Q2151RP1433.jpg" alt="世界第一：最强派克 2500码超远距离团控开团">
+<i class="icon-bg icon-hot"></i>
+<i class="icon-bg icon-video"></i>
+</div>
+<div class="info">
+<h4>世界第一：最强派克 2500码超远距离团控开团</h4>
+</div>
+</a></li>
+</ul>
+<div class="mt30 cf">
+<div class="width-572 fl">
+<div class="title-cell-f">
+<a class="more fr" href="http://lol.tuwan.com/tag_%E4%B8%96%E7%95%8C%E7%AC%AC%E4%B8%80/" target="_blank" title="更多世界第一视频">+ 更多</a>
+<span>世界第一</span>
+</div>
+<ul class="video-con-cell other-video-cell cf">
+<li class="first transition-time-cell"><a href="http://lol.tuwan.com/390273/" target="_blank" title="世界第一：最强派克 2500码超远距离团控开团">
+<div class="img fl"><img src="http://img4.tuwandata.com/v2/thumb/all/NzUyNCwyNTgsMTU5LDksMywxLC0xLE5PTkUsLCw5MA==/u/www.tuwan.com/uploads/1812/15/802-1Q21513111C63.jpg" alt="世界第一：最强派克 2500码超远距离团控开团"><i class="icon-bg icon-video"></i></div>
+<div class="info fr">
+<h4>世界第一：最强派克 2500码超远距离团控开团</h4>
+</div>
+</a></li>
+<li class="transition-time-cell"><a href="http://lol.tuwan.com/389973/" target="_blank" title="世界第一：贾克斯超远距离瞬晕 爆伤五连">
+<div class="img"><img src="http://img1.tuwandata.com/v2/thumb/all/OTFiYywxNzcsMTA5LDksMywxLC0xLE5PTkUsLCw5MA==/u/www.tuwan.com/uploads/1812/08/802-1Q20Q42449595.jpg" alt="世界第一：贾克斯超远距离瞬晕 爆伤五连"><i class="icon-bg icon-video"></i></div>
+<div class="info">
+<h4>世界第一：贾克斯超远距离瞬晕 爆伤五连</h4>
+</div>
+</a></li>
+</ul>
+</div>
+<div class="width-572 fr">
+<div class="title-cell-f">
+<a class="more fr" href="http://lol.tuwan.com/tag_%E5%A4%A7%E7%A5%9E%E6%80%8E%E4%B9%88%E8%AF%B4/" target="_blank" title="更多大神怎么说视频">+ 更多</a>
+<span>大神怎么说</span>
+</div>
+<ul class="video-con-cell other-video-cell cf">
+<li class="first transition-time-cell"><a href="http://lol.tuwan.com/390024/" target="_blank" title="兔玩特别节目：爱萝莉的第一次美妆挑战">
+<div class="img fl"><img src="http://img4.tuwandata.com/v2/thumb/all/NjhhOSwyNTgsMTU5LDksMywxLC0xLE5PTkUsLCw5MA==/u/www.tuwan.com/uploads/1812/10/802-1Q210102950610.jpg" alt="兔玩特别节目：爱萝莉的第一次美妆挑战"><i class="icon-bg icon-video"></i></div>
+<div class="info fr">
+<h4>兔玩特别节目：爱萝莉的第一次美妆挑战</h4>
+</div>
+</a></li>
+<li class="transition-time-cell"><a href="http://lol.tuwan.com/386503/" target="_blank" title="大神怎么说：还记得在LPL的第一场比赛吗？">
+<div class="img"><img src="http://img4.tuwandata.com/v2/thumb/all/NGRhMSwxNzcsMTA5LDksMywxLC0xLE5PTkUsLCw5MA==/u/www.tuwan.com/uploads/1809/25/1-1P925134I5360.png" alt="大神怎么说：还记得在LPL的第一场比赛吗？"><i class="icon-bg icon-video"></i></div>
+<div class="info">
+<h4>大神怎么说：还记得在LPL的第一场比赛吗？</h4>
+</div>
+</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div style="text-align:center;margin-top: 40px;">
+<script type="text/javascript">TUWAN_VISTA(19);</script>
+</div>
+</div>
+<div class="esport-game-cell">
+<div class="width-f-cell">
+<div class="esport-game-type"><a href="http://lol.tuwan.com/cs/" target="_blank" title="超神电竞APP"><img src="http://static.tuwan.com/v3/homepagev2/images/esport-game-type.png" height="123" width="157" alt="超神电竞APP"></a></div>
+<div class="title-big">电竞赛事</div>
+<div class="esport-game-nav-cell">
+<div class="esport-game-nav-box">
+<a class="choose show" href="javascript:;" onclick="ShowGame(-1);">全部</a>
+<a href="javascript:;" class="show" onclick="ShowGame('英雄联盟');">英雄联盟</a>
+<a href="javascript:;" class="show" onclick="ShowGame('DOTA2');">DOTA2</a>
+<a href="javascript:;" class="show" onclick="ShowGame('守望先锋');">守望先锋</a>
+</div>
+</div>
+<div class="schedule-matchBox">
+<div class="matchList-box">
+<ul class="matchList-ul cf" page="0">
+<li class="one">
+<span style="display:none;">DOTA2</span>
+<div class="one_position ">
+<img src="http://static.tuwan.com/v3/homepagev2/images/time.png">08月05日 (周五) 00:30
+</div>
+<div class="matchList_bg">
+<div class="li-top lol">
+<span>DOTA2</span>
+<div class="name">TI6国际邀请赛 小组赛</div>
+</div>
+<div class="li-con cf">
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fl">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/YjAzOCw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1507/31/807-150I11F019437.jpg" alt="" width="41px" height="48px"></div>
+<div class="team-name">Navi</div>
+</div></a>
+<div class="match-score" target="_blank" title="">
+<p class="fl">0</p>
+<span class="semicolon">:</span>
+<p class="fr">2</p>
+<div class="type"><span style="background-color:#11b475;color:#fff;">已结束</span></div>
+</div>
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fr">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/MzU4Miw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1605/27/827-16052G64233934.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">Alliance</div>
+</div></a>
+</div>
+<div class="li-bottom cf">
+<a class="fl" href='http://www.tuwan.com/game/dota2/336243/' target='_blank' title=""><i class="icon-bg icon-camera"></i></a>
+<a class="fr" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-order"></i></a>
+</div>
+</div>
+</li><li class="one">
+<span style="display:none;">DOTA2</span>
+<div class="one_position ">
+<img src="http://static.tuwan.com/v3/homepagev2/images/time.png">08月05日 (周五) 00:30
+</div>
+<div class="matchList_bg">
+<div class="li-top lol">
+<span>DOTA2</span>
+<div class="name">TI6国际邀请赛 小组赛</div>
+</div>
+<div class="li-con cf">
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fl">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/MDU3MCw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1605/20/827-1605201H246211.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">OG</div>
+</div></a>
+<div class="match-score" target="_blank" title="">
+<p class="fl">1</p>
+<span class="semicolon">:</span>
+<p class="fr">1</p>
+<div class="type"><span style="background-color:#11b475;color:#fff;">已结束</span></div>
+</div>
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fr">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/NmRmNiw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1605/26/827-160526155S4Q6.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">Wings</div>
+</div></a>
+</div>
+<div class="li-bottom cf">
+<a class="fl" href='http://www.tuwan.com/game/dota2/336245/' target='_blank' title=""><i class="icon-bg icon-camera"></i></a>
+<a class="fr" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-order"></i></a>
+</div>
+</div>
+</li><li class="one">
+<span style="display:none;">DOTA2</span>
+<div class="one_position ">
+<img src="http://static.tuwan.com/v3/homepagev2/images/time.png">08月09日 (周二) 01:30
+</div>
+<div class="matchList_bg">
+<div class="li-top lol">
+<span>DOTA2</span>
+<div class="name">TI6国际邀请赛 淘汰赛</div>
+</div>
+<div class="li-con cf">
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fl">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/MDU3MCw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1605/20/827-1605201H246211.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">OG</div>
+</div></a>
+<div class="match-score" target="_blank" title="">
+<p class="fl">2</p>
+<span class="semicolon">:</span>
+<p class="fr">1</p>
+<div class="type"><span style="background-color:#11b475;color:#fff;">已结束</span></div>
+</div>
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fr">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/YTg4Yyw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1605/26/827-160526102115226.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">MVP</div>
+</div></a>
+</div>
+<div class="li-bottom cf">
+<a class="fl" href='http://www.tuwan.com/game/dota2/337508/' target='_blank' title=""><i class="icon-bg icon-camera"></i></a>
+<a class="fr" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-order"></i></a>
+</div>
+</div>
+</li><li class="one">
+<span style="display:none;">DOTA2</span>
+<div class="one_position ">
+<img src="http://static.tuwan.com/v3/homepagev2/images/time.png">08月09日 (周二) 04:00
+</div>
+<div class="matchList_bg">
+<div class="li-top lol">
+<span>DOTA2</span>
+<div class="name">TI6国际邀请赛 淘汰赛</div>
+</div>
+<div class="li-con cf">
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fl">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/NTE1Miw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1605/23/827-160523131S22b.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">DC</div>
+</div></a>
+<div class="match-score" target="_blank" title="">
+<p class="fl">1</p>
+<span class="semicolon">:</span>
+<p class="fr">2</p>
+<div class="type"><span style="background-color:#11b475;color:#fff;">已结束</span></div>
+</div>
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fr">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/NmRmNiw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1605/26/827-160526155S4Q6.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">Wings</div>
+</div></a>
+</div>
+<div class="li-bottom cf">
+<a class="fl" href='http://www.tuwan.com/game/dota2/337507/' target='_blank' title=""><i class="icon-bg icon-camera"></i></a>
+<a class="fr" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-order"></i></a>
+</div>
+</div>
+</li><li class="one">
+<span style="display:none;">DOTA2</span>
+<div class="one_position ">
+<img src="http://static.tuwan.com/v3/homepagev2/images/time.png">08月09日 (周二) 07:00
+</div>
+<div class="matchList_bg">
+<div class="li-top lol">
+<span>DOTA2</span>
+<div class="name">TI6国际邀请赛 淘汰赛</div>
+</div>
+<div class="li-con cf">
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fl">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/NDA1OCw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1608/04/827-160P40951305O.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">TnC</div>
+</div></a>
+<div class="match-score" target="_blank" title="">
+<p class="fl">1</p>
+<span class="semicolon">:</span>
+<p class="fr">0</p>
+<div class="type"><span style="background-color:#11b475;color:#fff;">已结束</span></div>
+</div>
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fr">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/ZTU1Myw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1606/30/827-160630131359C2.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">VG.R</div>
+</div></a>
+</div>
+<div class="li-bottom cf">
+<a class="fl" href='http://www.tuwan.com/game/dota2/337506/' target='_blank' title=""><i class="icon-bg icon-camera"></i></a>
+<a class="fr" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-order"></i></a>
+</div>
+</div>
+</li><li class="one">
+<span style="display:none;">DOTA2</span>
+<div class="one_position ">
+<img src="http://static.tuwan.com/v3/homepagev2/images/time.png">08月09日 (周二) 08:00
+</div>
+<div class="matchList_bg">
+<div class="li-top lol">
+<span>DOTA2</span>
+<div class="name">TI6国际邀请赛 淘汰赛</div>
+</div>
+<div class="li-con cf">
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fl">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/MjI0ZCw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1605/23/827-1605231H5032R.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">LGD</div>
+</div></a>
+<div class="match-score" target="_blank" title="">
+<p class="fl">1</p>
+<span class="semicolon">:</span>
+<p class="fr">0</p>
+<div class="type"><span style="background-color:#11b475;color:#fff;">已结束</span></div>
+</div>
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fr">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/NTVkZiw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1507/31/807-150I11A411228.jpg" alt="" width="41px" height="48px"></div>
+<div class="team-name">Secret</div>
+</div></a>
+</div>
+<div class="li-bottom cf">
+<a class="fl" href='http://www.tuwan.com/game/dota2/337504/' target='_blank' title=""><i class="icon-bg icon-camera"></i></a>
+<a class="fr" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-order"></i></a>
+</div>
+</div>
+</li><li class="one">
+<span style="display:none;">DOTA2</span>
+<div class="one_position ">
+<img src="http://static.tuwan.com/v3/homepagev2/images/time.png">08月09日 (周二) 09:00
+</div>
+<div class="matchList_bg">
+<div class="li-top lol">
+<span>DOTA2</span>
+<div class="name">TI6国际邀请赛 淘汰赛</div>
+</div>
+<div class="li-con cf">
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fl">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/OWZlZCw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1605/30/827-160530142GTF.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">Fnatic</div>
+</div></a>
+<div class="match-score" target="_blank" title="">
+<p class="fl">1</p>
+<span class="semicolon">:</span>
+<p class="fr">0</p>
+<div class="type"><span style="background-color:#11b475;color:#fff;">已结束</span></div>
+</div>
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fr">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/MzgxNSw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1608/02/827-160P2102040947.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">Escape</div>
+</div></a>
+</div>
+<div class="li-bottom cf">
+<a class="fl" href='http://www.tuwan.com/game/dota2/337501/' target='_blank' title=""><i class="icon-bg icon-camera"></i></a>
+<a class="fr" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-order"></i></a>
+</div>
+</div>
+</li><li class="one">
+<span style="display:none;">DOTA2</span>
+<div class="one_position ">
+<img src="http://static.tuwan.com/v3/homepagev2/images/time.png">08月09日 (周二) 10:00
+</div>
+<div class="matchList_bg">
+<div class="li-top lol">
+<span>DOTA2</span>
+<div class="name">TI6国际邀请赛 淘汰赛</div>
+</div>
+<div class="li-con cf">
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fl">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/OGU5Niw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1605/30/827-160530114Ga22.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">Liquid</div>
+</div></a>
+<div class="match-score" target="_blank" title="">
+<p class="fl">1</p>
+<span class="semicolon">:</span>
+<p class="fr">0</p>
+<div class="type"><span style="background-color:#11b475;color:#fff;">已结束</span></div>
+</div>
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fr">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/YjAzOCw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1507/31/807-150I11F019437.jpg" alt="" width="41px" height="48px"></div>
+<div class="team-name">Navi</div>
+</div></a>
+</div>
+<div class="li-bottom cf">
+<a class="fl" href='http://www.tuwan.com/game/dota2/337499/' target='_blank' title=""><i class="icon-bg icon-camera"></i></a>
+<a class="fr" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-order"></i></a>
+</div>
+</div>
+</li><li class="one">
+<span style="display:none;">DOTA2</span>
+<div class="one_position ">
+<img src="http://static.tuwan.com/v3/homepagev2/images/time.png">08月10日 (周三) 00:00
+</div>
+<div class="matchList_bg">
+<div class="li-top lol">
+<span>DOTA2</span>
+<div class="name">TI6国际邀请赛 淘汰赛</div>
+</div>
+<div class="li-con cf">
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fl">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/MDBjNCw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1507/31/807-150I11H546445.jpg" alt="" width="41px" height="48px"></div>
+<div class="team-name">EHOME</div>
+</div></a>
+<div class="match-score" target="_blank" title="">
+<p class="fl">2</p>
+<span class="semicolon">:</span>
+<p class="fr">0</p>
+<div class="type"><span style="background-color:#11b475;color:#fff;">已结束</span></div>
+</div>
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fr">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/MzU4Miw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1605/27/827-16052G64233934.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">Alliance</div>
+</div></a>
+</div>
+<div class="li-bottom cf">
+<a class="fl" href='http://www.tuwan.com/game/dota2/337495/' target='_blank' title=""><i class="icon-bg icon-camera"></i></a>
+<a class="fr" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-order"></i></a>
+</div>
+</div>
+</li><li class="one">
+<span style="display:none;">DOTA2</span>
+<div class="one_position ">
+<img src="http://static.tuwan.com/v3/homepagev2/images/time.png">08月10日 (周三) 02:30
+</div>
+<div class="matchList_bg">
+<div class="li-top lol">
+<span>DOTA2</span>
+<div class="name">TI6国际邀请赛 淘汰赛</div>
+</div>
+<div class="li-con cf">
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fl">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/ZDNjZSw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1507/31/807-150I11H305334.jpg" alt="" width="41px" height="48px"></div>
+<div class="team-name">EG</div>
+</div></a>
+<div class="match-score" target="_blank" title="">
+<p class="fl">2</p>
+<span class="semicolon">:</span>
+<p class="fr">0</p>
+<div class="type"><span style="background-color:#11b475;color:#fff;">已结束</span></div>
+</div>
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fr">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/Y2VlYyw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1605/20/827-160520094222K2.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">NewBee</div>
+</div></a>
+</div>
+<div class="li-bottom cf">
+<a class="fl" href='http://www.tuwan.com/game/dota2/337494/' target='_blank' title=""><i class="icon-bg icon-camera"></i></a>
+<a class="fr" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-order"></i></a>
+</div>
+</div>
+</li><li class="one">
+<span style="display:none;">DOTA2</span>
+<div class="one_position ">
+<img src="http://static.tuwan.com/v3/homepagev2/images/time.png">08月10日 (周三) 04:30
+</div>
+<div class="matchList_bg">
+<div class="li-top lol">
+<span>DOTA2</span>
+<div class="name">TI6国际邀请赛 淘汰赛</div>
+</div>
+<div class="li-con cf">
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fl">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/MDU3MCw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1605/20/827-1605201H246211.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">OG</div>
+</div></a>
+<div class="match-score" target="_blank" title="">
+<p class="fl">0</p>
+<span class="semicolon">:</span>
+<p class="fr">2</p>
+<div class="type"><span style="background-color:#11b475;color:#fff;">已结束</span></div>
+</div>
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fr">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/NDA1OCw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1608/04/827-160P40951305O.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">TnC</div>
+</div></a>
+</div>
+<div class="li-bottom cf">
+<a class="fl" href='http://www.tuwan.com/game/dota2/337493/' target='_blank' title=""><i class="icon-bg icon-camera"></i></a>
+<a class="fr" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-order"></i></a>
+</div>
+</div>
+</li><li class="one">
+<span style="display:none;">DOTA2</span>
+<div class="one_position ">
+<img src="http://static.tuwan.com/v3/homepagev2/images/time.png">08月10日 (周三) 06:30
+</div>
+<div class="matchList_bg">
+<div class="li-top lol">
+<span>DOTA2</span>
+<div class="name">TI6国际邀请赛 淘汰赛</div>
+</div>
+<div class="li-con cf">
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fl">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/NTE1Miw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1605/23/827-160523131S22b.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">DC</div>
+</div></a>
+<div class="match-score" target="_blank" title="">
+<p class="fl">2</p>
+<span class="semicolon">:</span>
+<p class="fr">0</p>
+<div class="type"><span style="background-color:#11b475;color:#fff;">已结束</span></div>
+</div>
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fr">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/MjI0ZCw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1605/23/827-1605231H5032R.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">LGD</div>
+</div></a>
+</div>
+<div class="li-bottom cf">
+<a class="fl" href='http://www.tuwan.com/game/dota2/337487/' target='_blank' title=""><i class="icon-bg icon-camera"></i></a>
+<a class="fr" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-order"></i></a>
+</div>
+</div>
+</li><li class="one">
+<span style="display:none;">DOTA2</span>
+<div class="one_position ">
+<img src="http://static.tuwan.com/v3/homepagev2/images/time.png">08月11日 (周四) 00:00
+</div>
+<div class="matchList_bg">
+<div class="li-top lol">
+<span>DOTA2</span>
+<div class="name">TI6国际邀请赛 淘汰赛</div>
+</div>
+<div class="li-con cf">
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fl">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/MzU4Miw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1605/27/827-16052G64233934.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">Alliance</div>
+</div></a>
+<div class="match-score" target="_blank" title="">
+<p class="fl">0</p>
+<span class="semicolon">:</span>
+<p class="fr">2</p>
+<div class="type"><span style="background-color:#11b475;color:#fff;">已结束</span></div>
+</div>
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fr">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/OWZlZCw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1605/30/827-160530142GTF.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">Fnatic</div>
+</div></a>
+</div>
+<div class="li-bottom cf">
+<a class="fl" href='http://www.tuwan.com/game/dota2/337484/' target='_blank' title=""><i class="icon-bg icon-camera"></i></a>
+<a class="fr" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-order"></i></a>
+</div>
+</div>
+</li><li class="one">
+<span style="display:none;">DOTA2</span>
+<div class="one_position ">
+<img src="http://static.tuwan.com/v3/homepagev2/images/time.png">08月11日 (周四) 02:00
+</div>
+<div class="matchList_bg">
+<div class="li-top lol">
+<span>DOTA2</span>
+<div class="name">TI6国际邀请赛 淘汰赛</div>
+</div>
+<div class="li-con cf">
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fl">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/Y2VlYyw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1605/20/827-160520094222K2.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">NewBee</div>
+</div></a>
+<div class="match-score" target="_blank" title="">
+<p class="fl">1</p>
+<span class="semicolon">:</span>
+<p class="fr">2</p>
+<div class="type"><span style="background-color:#11b475;color:#fff;">已结束</span></div>
+</div>
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fr">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/OGU5Niw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1605/30/827-160530114Ga22.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">Liquid</div>
+</div></a>
+</div>
+<div class="li-bottom cf">
+<a class="fl" href='http://www.tuwan.com/game/dota2/337481/' target='_blank' title=""><i class="icon-bg icon-camera"></i></a>
+<a class="fr" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-order"></i></a>
+</div>
+</div>
+</li><li class="one">
+<span style="display:none;">DOTA2</span>
+<div class="one_position ">
+<img src="http://static.tuwan.com/v3/homepagev2/images/time.png">08月11日 (周四) 04:00
+</div>
+<div class="matchList_bg">
+<div class="li-top lol">
+<span>DOTA2</span>
+<div class="name">TI6国际邀请赛 半决赛</div>
+</div>
+<div class="li-con cf">
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fl">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/YTg4Yyw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1605/26/827-160526102115226.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">MVP</div>
+</div></a>
+<div class="match-score" target="_blank" title="">
+<p class="fl">0</p>
+<span class="semicolon">:</span>
+<p class="fr">2</p>
+<div class="type"><span style="background-color:#11b475;color:#fff;">已结束</span></div>
+</div>
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fr">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/NmRmNiw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1605/26/827-160526155S4Q6.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">Wings</div>
+</div></a>
+</div>
+<div class="li-bottom cf">
+<a class="fl" href='http://www.tuwan.com/game/dota2/337480/' target='_blank' title=""><i class="icon-bg icon-camera"></i></a>
+<a class="fr" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-order"></i></a>
+</div>
+</div>
+</li><li class="one">
+<span style="display:none;">DOTA2</span>
+<div class="one_position ">
+<img src="http://static.tuwan.com/v3/homepagev2/images/time.png">08月11日 (周四) 06:00
+</div>
+<div class="matchList_bg">
+<div class="li-top lol">
+<span>DOTA2</span>
+<div class="name">TI6国际邀请赛 半决赛</div>
+</div>
+<div class="li-con cf">
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fl">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/MDBjNCw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1507/31/807-150I11H546445.jpg" alt="" width="41px" height="48px"></div>
+<div class="team-name">EHOME</div>
+</div></a>
+<div class="match-score" target="_blank" title="">
+<p class="fl">0</p>
+<span class="semicolon">:</span>
+<p class="fr">2</p>
+<div class="type"><span style="background-color:#11b475;color:#fff;">已结束</span></div>
+</div>
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fr">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/ZDNjZSw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1507/31/807-150I11H305334.jpg" alt="" width="41px" height="48px"></div>
+<div class="team-name">EG</div>
+</div></a>
+</div>
+<div class="li-bottom cf">
+<a class="fl" href='http://www.tuwan.com/game/dota2/337473/' target='_blank' title=""><i class="icon-bg icon-camera"></i></a>
+<a class="fr" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-order"></i></a>
+</div>
+</div>
+</li><li class="one">
+<span style="display:none;">DOTA2</span>
+<div class="one_position ">
+<img src="http://static.tuwan.com/v3/homepagev2/images/time.png">08月12日 (周五) 00:00
+</div>
+<div class="matchList_bg">
+<div class="li-top lol">
+<span>DOTA2</span>
+<div class="name">TI6国际邀请赛 淘汰赛</div>
+</div>
+<div class="li-con cf">
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fl">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/NDA1OCw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1608/04/827-160P40951305O.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">TnC</div>
+</div></a>
+<div class="match-score" target="_blank" title="">
+<p class="fl">1</p>
+<span class="semicolon">:</span>
+<p class="fr">2</p>
+<div class="type"><span style="background-color:#11b475;color:#fff;">已结束</span></div>
+</div>
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fr">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/NTE1Miw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1605/23/827-160523131S22b.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">DC</div>
+</div></a>
+</div>
+<div class="li-bottom cf">
+<a class="fl" href='http://www.tuwan.com/game/dota2/337472/' target='_blank' title=""><i class="icon-bg icon-camera"></i></a>
+<a class="fr" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-order"></i></a>
+</div>
+</div>
+</li><li class="one">
+<span style="display:none;">DOTA2</span>
+<div class="one_position ">
+<img src="http://static.tuwan.com/v3/homepagev2/images/time.png">08月12日 (周五) 02:00
+</div>
+<div class="matchList_bg">
+<div class="li-top lol">
+<span>DOTA2</span>
+<div class="name">TI6国际邀请赛 淘汰赛</div>
+</div>
+<div class="li-con cf">
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fl">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/OWZlZCw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1605/30/827-160530142GTF.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">Fnatic</div>
+</div></a>
+<div class="match-score" target="_blank" title="">
+<p class="fl">2</p>
+<span class="semicolon">:</span>
+<p class="fr">0</p>
+<div class="type"><span style="background-color:#11b475;color:#fff;">已结束</span></div>
+</div>
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fr">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/OGU5Niw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1605/30/827-160530114Ga22.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">Liquid</div>
+</div></a>
+</div>
+<div class="li-bottom cf">
+<a class="fl" href='http://www.tuwan.com/game/dota2/337471/' target='_blank' title=""><i class="icon-bg icon-camera"></i></a>
+<a class="fr" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-order"></i></a>
+</div>
+</div>
+</li><li class="one">
+<span style="display:none;">DOTA2</span>
+<div class="one_position ">
+<img src="http://static.tuwan.com/v3/homepagev2/images/time.png">08月12日 (周五) 04:00
+</div>
+<div class="matchList_bg">
+<div class="li-top lol">
+<span>DOTA2</span>
+<div class="name">TI6国际邀请赛 淘汰赛</div>
+</div>
+<div class="li-con cf">
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fl">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/MDBjNCw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1507/31/807-150I11H546445.jpg" alt="" width="41px" height="48px"></div>
+<div class="team-name">EHOME</div>
+</div></a>
+<div class="match-score" target="_blank" title="">
+<p class="fl">0</p>
+<span class="semicolon">:</span>
+<p class="fr">2</p>
+<div class="type"><span style="background-color:#11b475;color:#fff;">已结束</span></div>
+</div>
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fr">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/NTE1Miw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1605/23/827-160523131S22b.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">DC</div>
+</div></a>
+</div>
+<div class="li-bottom cf">
+<a class="fl" href='http://www.tuwan.com/game/dota2/337469/' target='_blank' title=""><i class="icon-bg icon-camera"></i></a>
+<a class="fr" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-order"></i></a>
+</div>
+</div>
+</li><li class="one">
+<span style="display:none;">DOTA2</span>
+<div class="one_position ">
+<img src="http://static.tuwan.com/v3/homepagev2/images/time.png">08月13日 (周六) 00:00
+</div>
+<div class="matchList_bg">
+<div class="li-top lol">
+<span>DOTA2</span>
+<div class="name">TI6国际邀请赛 淘汰赛</div>
+</div>
+<div class="li-con cf">
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fl">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/YTg4Yyw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1605/26/827-160526102115226.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">MVP</div>
+</div></a>
+<div class="match-score" target="_blank" title="">
+<p class="fl">0</p>
+<span class="semicolon">:</span>
+<p class="fr">2</p>
+<div class="type"><span style="background-color:#11b475;color:#fff;">已结束</span></div>
+</div>
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fr">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/OWZlZCw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1605/30/827-160530142GTF.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">Fnatic</div>
+</div></a>
+</div>
+<div class="li-bottom cf">
+<a class="fl" href='http://www.tuwan.com/game/dota2/337462/' target='_blank' title=""><i class="icon-bg icon-camera"></i></a>
+<a class="fr" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-order"></i></a>
+</div>
+</div>
+</li><li class="one">
+<span style="display:none;">DOTA2</span>
+<div class="one_position ">
+<img src="http://static.tuwan.com/v3/homepagev2/images/time.png">08月13日 (周六) 02:00
+</div>
+<div class="matchList_bg">
+<div class="li-top lol">
+<span>DOTA2</span>
+<div class="name">TI6国际邀请赛 决赛</div>
+</div>
+<div class="li-con cf">
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fl">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/NmRmNiw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1605/26/827-160526155S4Q6.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">Wings</div>
+</div></a>
+<div class="match-score" target="_blank" title="">
+<p class="fl">2</p>
+<span class="semicolon">:</span>
+<p class="fr">0</p>
+<div class="type"><span style="background-color:#11b475;color:#fff;">已结束</span></div>
+</div>
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fr">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/ZDNjZSw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1507/31/807-150I11H305334.jpg" alt="" width="41px" height="48px"></div>
+<div class="team-name">EG</div>
+</div></a>
+</div>
+<div class="li-bottom cf">
+<a class="fl" href='http://www.tuwan.com/game/dota2/337455/' target='_blank' title=""><i class="icon-bg icon-camera"></i></a>
+<a class="fr" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-order"></i></a>
+</div>
+</div>
+</li><li class="one">
+<span style="display:none;">DOTA2</span>
+<div class="one_position ">
+<img src="http://static.tuwan.com/v3/homepagev2/images/time.png">08月13日 (周六) 04:00
+</div>
+<div class="matchList_bg">
+<div class="li-top lol">
+<span>DOTA2</span>
+<div class="name">TI6国际邀请赛 淘汰赛</div>
+</div>
+<div class="li-con cf">
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fl">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/NTE1Miw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1605/23/827-160523131S22b.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">DC</div>
+</div></a>
+<div class="match-score" target="_blank" title="">
+<p class="fl">2</p>
+<span class="semicolon">:</span>
+<p class="fr">0</p>
+<div class="type"><span style="background-color:#11b475;color:#fff;">已结束</span></div>
+</div>
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fr">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/OWZlZCw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1605/30/827-160530142GTF.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">Fnatic</div>
+</div></a>
+</div>
+<div class="li-bottom cf">
+<a class="fl" href='http://www.tuwan.com/game/dota2/337436/' target='_blank' title=""><i class="icon-bg icon-camera"></i></a>
+<a class="fr" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-order"></i></a>
+</div>
+</div>
+</li><li class="one">
+<span style="display:none;">DOTA2</span>
+<div class="one_position ">
+<img src="http://static.tuwan.com/v3/homepagev2/images/time.png">08月14日 (周日) 00:00
+</div>
+<div class="matchList_bg">
+<div class="li-top lol">
+<span>DOTA2</span>
+<div class="name">TI6国际邀请赛 决赛</div>
+</div>
+<div class="li-con cf">
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fl">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/ZDNjZSw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1507/31/807-150I11H305334.jpg" alt="" width="41px" height="48px"></div>
+<div class="team-name">EG</div>
+</div></a>
+<div class="match-score" target="_blank" title="">
+<p class="fl">1</p>
+<span class="semicolon">:</span>
+<p class="fr">2</p>
+<div class="type"><span style="background-color:#11b475;color:#fff;">已结束</span></div>
+</div>
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fr">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/NTE1Miw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1605/23/827-160523131S22b.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">DC</div>
+</div></a>
+</div>
+<div class="li-bottom cf">
+<a class="fl" href='http://www.tuwan.com/game/dota2/337431/' target='_blank' title=""><i class="icon-bg icon-camera"></i></a>
+<a class="fr" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-order"></i></a>
+</div>
+</div>
+</li><li class="one">
+<span style="display:none;">DOTA2</span>
+<div class="one_position ">
+<img src="http://static.tuwan.com/v3/homepagev2/images/time.png">08月14日 (周日) 03:00
+</div>
+<div class="matchList_bg">
+<div class="li-top lol">
+<span>DOTA2</span>
+<div class="name">TI6国际邀请赛 总决赛</div>
+</div>
+<div class="li-con cf">
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fl">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/NmRmNiw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1605/26/827-160526155S4Q6.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">Wings</div>
+</div></a>
+<div class="match-score" target="_blank" title="">
+<p class="fl">3</p>
+<span class="semicolon">:</span>
+<p class="fr">1</p>
+<div class="type"><span style="background-color:#11b475;color:#fff;">已结束</span></div>
+</div>
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fr">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/NTE1Miw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1605/23/827-160523131S22b.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">DC</div>
+</div></a>
+</div>
+<div class="li-bottom cf">
+<a class="fl" href='http://www.tuwan.com/game/dota2/337427/' target='_blank' title=""><i class="icon-bg icon-camera"></i></a>
+<a class="fr" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-order"></i></a>
+</div>
+</div>
+</li><li class="one">
+<span style="display:none;">守望先锋</span>
+<div class="one_position ">
+<img src="http://static.tuwan.com/v3/homepagev2/images/time.png">09月03日 (周日) 18:00
+</div>
+<div class="matchList_bg">
+<div class="li-top lol">
+<span>守望先锋</span>
+<div class="name">第四周 常规赛</div>
+</div>
+<div class="li-con cf">
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fl">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/YTRjYiw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1708/09/835-1FP91P23T33.jpg" alt="" width="41px" height="48px"></div>
+<div class="team-name">CC</div>
+</div></a>
+<div class="match-score" target="_blank" title="">
+<p class="fl">2</p>
+<span class="semicolon">:</span>
+<p class="fr">0</p>
+<div class="type"><span style="background-color:#11b475;color:#fff;">已结束</span></div>
+</div>
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fr">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/MGUyOCw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1708/09/835-1FP91K454425.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">LF</div>
+</div></a>
+</div>
+<div class="li-bottom cf">
+<a class="fl" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-camera"></i></a>
+<a class="fr" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-order"></i></a>
+</div>
+</div>
+</li><li class="one">
+<span style="display:none;">守望先锋</span>
+<div class="one_position ">
+<img src="http://static.tuwan.com/v3/homepagev2/images/time.png">09月03日 (周日) 19:00
+</div>
+<div class="matchList_bg">
+<div class="li-top lol">
+<span>守望先锋</span>
+<div class="name">第四周 常规赛</div>
+</div>
+<div class="li-con cf">
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fl">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/YTRjYiw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1708/09/835-1FP91P23T33.jpg" alt="" width="41px" height="48px"></div>
+<div class="team-name">CC</div>
+</div></a>
+<div class="match-score" target="_blank" title="">
+<p class="fl">0</p>
+<span class="semicolon">:</span>
+<p class="fr">2</p>
+<div class="type"><span style="background-color:#11b475;color:#fff;">已结束</span></div>
+</div>
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fr">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/YjAwZSw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1708/09/835-1FP9163126244.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">VG</div>
+</div></a>
+</div>
+<div class="li-bottom cf">
+<a class="fl" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-camera"></i></a>
+<a class="fr" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-order"></i></a>
+</div>
+</div>
+</li><li class="one">
+<span style="display:none;">守望先锋</span>
+<div class="one_position ">
+<img src="http://static.tuwan.com/v3/homepagev2/images/time.png">09月07日 (周四) 18:00
+</div>
+<div class="matchList_bg">
+<div class="li-top lol">
+<span>守望先锋</span>
+<div class="name">第五周 常规赛</div>
+</div>
+<div class="li-con cf">
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fl">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/ODIyNiw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1708/09/835-1FP91K536263.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">LGD</div>
+</div></a>
+<div class="match-score" target="_blank" title="">
+<p class="fl">2</p>
+<span class="semicolon">:</span>
+<p class="fr">0</p>
+<div class="type"><span style="background-color:#11b475;color:#fff;">已结束</span></div>
+</div>
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fr">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/YTRjYiw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1708/09/835-1FP91P23T33.jpg" alt="" width="41px" height="48px"></div>
+<div class="team-name">CC</div>
+</div></a>
+</div>
+<div class="li-bottom cf">
+<a class="fl" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-camera"></i></a>
+<a class="fr" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-order"></i></a>
+</div>
+</div>
+</li><li class="one">
+<span style="display:none;">守望先锋</span>
+<div class="one_position ">
+<img src="http://static.tuwan.com/v3/homepagev2/images/time.png">09月07日 (周四) 19:00
+</div>
+<div class="matchList_bg">
+<div class="li-top lol">
+<span>守望先锋</span>
+<div class="name">第五周 常规赛</div>
+</div>
+<div class="li-con cf">
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fl">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/MGUyOCw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1708/09/835-1FP91K454425.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">LF</div>
+</div></a>
+<div class="match-score" target="_blank" title="">
+<p class="fl">1</p>
+<span class="semicolon">:</span>
+<p class="fr">2</p>
+<div class="type"><span style="background-color:#11b475;color:#fff;">已结束</span></div>
+</div>
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fr">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/ZmJkZCw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1708/09/835-1FP91KF0B2.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">1246</div>
+</div></a>
+</div>
+<div class="li-bottom cf">
+<a class="fl" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-camera"></i></a>
+<a class="fr" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-order"></i></a>
+</div>
+</div>
+</li><li class="one">
+<span style="display:none;">守望先锋</span>
+<div class="one_position ">
+<img src="http://static.tuwan.com/v3/homepagev2/images/time.png">09月08日 (周五) 17:00
+</div>
+<div class="matchList_bg">
+<div class="li-top lol">
+<span>守望先锋</span>
+<div class="name">第五周 常规赛</div>
+</div>
+<div class="li-con cf">
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fl">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/MTE2OSw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1708/09/835-1FP91P450455.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">OMG</div>
+</div></a>
+<div class="match-score" target="_blank" title="">
+<p class="fl">0</p>
+<span class="semicolon">:</span>
+<p class="fr">2</p>
+<div class="type"><span style="background-color:#11b475;color:#fff;">已结束</span></div>
+</div>
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fr">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/Y2ZkMyw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1708/09/835-1FP91GA2338.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">MT1</div>
+</div></a>
+</div>
+<div class="li-bottom cf">
+<a class="fl" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-camera"></i></a>
+<a class="fr" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-order"></i></a>
+</div>
+</div>
+</li><li class="one">
+<span style="display:none;">守望先锋</span>
+<div class="one_position ">
+<img src="http://static.tuwan.com/v3/homepagev2/images/time.png">09月08日 (周五) 18:00
+</div>
+<div class="matchList_bg">
+<div class="li-top lol">
+<span>守望先锋</span>
+<div class="name">第五周 常规赛</div>
+</div>
+<div class="li-con cf">
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fl">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/ODIyNiw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1708/09/835-1FP91K536263.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">LGD</div>
+</div></a>
+<div class="match-score" target="_blank" title="">
+<p class="fl">2</p>
+<span class="semicolon">:</span>
+<p class="fr">0</p>
+<div class="type"><span style="background-color:#11b475;color:#fff;">已结束</span></div>
+</div>
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fr">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/NzQ4Ziw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1708/09/835-1FP91GRQ41.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">LGE</div>
+</div></a>
+</div>
+<div class="li-bottom cf">
+<a class="fl" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-camera"></i></a>
+<a class="fr" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-order"></i></a>
+</div>
+</div>
+</li><li class="one">
+<span style="display:none;">守望先锋</span>
+<div class="one_position ">
+<img src="http://static.tuwan.com/v3/homepagev2/images/time.png">09月08日 (周五) 19:00
+</div>
+<div class="matchList_bg">
+<div class="li-top lol">
+<span>守望先锋</span>
+<div class="name">第五周 常规赛</div>
+</div>
+<div class="li-con cf">
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fl">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/MWQ5MCw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1708/09/835-1FP91P51QN.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">MY</div>
+</div></a>
+<div class="match-score" target="_blank" title="">
+<p class="fl">2</p>
+<span class="semicolon">:</span>
+<p class="fr">1</p>
+<div class="type"><span style="background-color:#11b475;color:#fff;">已结束</span></div>
+</div>
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fr">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/OThhYyw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1708/09/835-1FP916345T07.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">Celestial</div>
+</div></a>
+</div>
+<div class="li-bottom cf">
+<a class="fl" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-camera"></i></a>
+<a class="fr" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-order"></i></a>
+</div>
+</div>
+</li><li class="one">
+<span style="display:none;">守望先锋</span>
+<div class="one_position ">
+<img src="http://static.tuwan.com/v3/homepagev2/images/time.png">09月09日 (周六) 17:00
+</div>
+<div class="matchList_bg">
+<div class="li-top lol">
+<span>守望先锋</span>
+<div class="name">第五周 常规赛</div>
+</div>
+<div class="li-con cf">
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fl">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/ZmJkZCw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1708/09/835-1FP91KF0B2.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">1246</div>
+</div></a>
+<div class="match-score" target="_blank" title="">
+<p class="fl">2</p>
+<span class="semicolon">:</span>
+<p class="fr">0</p>
+<div class="type"><span style="background-color:#11b475;color:#fff;">已结束</span></div>
+</div>
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fr">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/YTRjYiw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1708/09/835-1FP91P23T33.jpg" alt="" width="41px" height="48px"></div>
+<div class="team-name">CC</div>
+</div></a>
+</div>
+<div class="li-bottom cf">
+<a class="fl" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-camera"></i></a>
+<a class="fr" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-order"></i></a>
+</div>
+</div>
+</li><li class="one">
+<span style="display:none;">守望先锋</span>
+<div class="one_position ">
+<img src="http://static.tuwan.com/v3/homepagev2/images/time.png">09月09日 (周六) 18:00
+</div>
+<div class="matchList_bg">
+<div class="li-top lol">
+<span>守望先锋</span>
+<div class="name">第五周 常规赛</div>
+</div>
+<div class="li-con cf">
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fl">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/YjAwZSw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1708/09/835-1FP9163126244.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">VG</div>
+</div></a>
+<div class="match-score" target="_blank" title="">
+<p class="fl">2</p>
+<span class="semicolon">:</span>
+<p class="fr">1</p>
+<div class="type"><span style="background-color:#11b475;color:#fff;">已结束</span></div>
+</div>
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fr">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/ZjQxZCw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1708/09/835-1FP91P154923.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">FTD</div>
+</div></a>
+</div>
+<div class="li-bottom cf">
+<a class="fl" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-camera"></i></a>
+<a class="fr" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-order"></i></a>
+</div>
+</div>
+</li><li class="one">
+<span style="display:none;">守望先锋</span>
+<div class="one_position ">
+<img src="http://static.tuwan.com/v3/homepagev2/images/time.png">09月09日 (周六) 19:00
+</div>
+<div class="matchList_bg">
+<div class="li-top lol">
+<span>守望先锋</span>
+<div class="name">第五周 常规赛</div>
+</div>
+<div class="li-con cf">
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fl">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/MGUyOCw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1708/09/835-1FP91K454425.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">LF</div>
+</div></a>
+<div class="match-score" target="_blank" title="">
+<p class="fl">2</p>
+<span class="semicolon">:</span>
+<p class="fr">0</p>
+<div class="type"><span style="background-color:#11b475;color:#fff;">已结束</span></div>
+</div>
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fr">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/MmEyMSw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1708/09/835-1FP91K914L0.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">SKG</div>
+</div></a>
+</div>
+<div class="li-bottom cf">
+<a class="fl" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-camera"></i></a>
+<a class="fr" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-order"></i></a>
+</div>
+</div>
+</li><li class="one">
+<span style="display:none;">守望先锋</span>
+<div class="one_position ">
+<img src="http://static.tuwan.com/v3/homepagev2/images/time.png">09月10日 (周日) 17:00
+</div>
+<div class="matchList_bg">
+<div class="li-top lol">
+<span>守望先锋</span>
+<div class="name">第五周 常规赛</div>
+</div>
+<div class="li-con cf">
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fl">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/NzQ4Ziw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1708/09/835-1FP91GRQ41.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">LGE</div>
+</div></a>
+<div class="match-score" target="_blank" title="">
+<p class="fl">2</p>
+<span class="semicolon">:</span>
+<p class="fr">1</p>
+<div class="type"><span style="background-color:#11b475;color:#fff;">已结束</span></div>
+</div>
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fr">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/OThhYyw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1708/09/835-1FP916345T07.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">Celestial</div>
+</div></a>
+</div>
+<div class="li-bottom cf">
+<a class="fl" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-camera"></i></a>
+<a class="fr" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-order"></i></a>
+</div>
+</div>
+</li><li class="one">
+<span style="display:none;">守望先锋</span>
+<div class="one_position ">
+<img src="http://static.tuwan.com/v3/homepagev2/images/time.png">09月10日 (周日) 18:00
+</div>
+<div class="matchList_bg">
+<div class="li-top lol">
+<span>守望先锋</span>
+<div class="name">第五周 常规赛</div>
+</div>
+<div class="li-con cf">
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fl">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/MWQ5MCw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1708/09/835-1FP91P51QN.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">MY</div>
+</div></a>
+<div class="match-score" target="_blank" title="">
+<p class="fl">2</p>
+<span class="semicolon">:</span>
+<p class="fr">0</p>
+<div class="type"><span style="background-color:#11b475;color:#fff;">已结束</span></div>
+</div>
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fr">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/Y2ZkMyw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1708/09/835-1FP91GA2338.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">MT1</div>
+</div></a>
+</div>
+<div class="li-bottom cf">
+<a class="fl" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-camera"></i></a>
+<a class="fr" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-order"></i></a>
+</div>
+</div>
+</li><li class="one">
+<span style="display:none;">守望先锋</span>
+<div class="one_position ">
+<img src="http://static.tuwan.com/v3/homepagev2/images/time.png">09月10日 (周日) 19:00
+</div>
+<div class="matchList_bg">
+<div class="li-top lol">
+<span>守望先锋</span>
+<div class="name">第五周 常规赛</div>
+</div>
+<div class="li-con cf">
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fl">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/MTE2OSw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1708/09/835-1FP91P450455.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">OMG</div>
+</div></a>
+<div class="match-score" target="_blank" title="">
+<p class="fl">0</p>
+<span class="semicolon">:</span>
+<p class="fr">2</p>
+<div class="type"><span style="background-color:#11b475;color:#fff;">已结束</span></div>
+</div>
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fr">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/MmEyMSw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1708/09/835-1FP91K914L0.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">SKG</div>
+</div></a>
+</div>
+<div class="li-bottom cf">
+<a class="fl" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-camera"></i></a>
+<a class="fr" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-order"></i></a>
+</div>
+</div>
+</li><li class="one">
+<span style="display:none;">守望先锋</span>
+<div class="one_position ">
+<img src="http://static.tuwan.com/v3/homepagev2/images/time.png">09月14日 (周四) 18:00
+</div>
+<div class="matchList_bg">
+<div class="li-top lol">
+<span>守望先锋</span>
+<div class="name">第六周 常规赛</div>
+</div>
+<div class="li-con cf">
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fl">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/YjAwZSw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1708/09/835-1FP9163126244.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">VG</div>
+</div></a>
+<div class="match-score" target="_blank" title="">
+<p class="fl">2</p>
+<span class="semicolon">:</span>
+<p class="fr">0</p>
+<div class="type"><span style="background-color:#11b475;color:#fff;">已结束</span></div>
+</div>
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fr">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/MTE2OSw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1708/09/835-1FP91P450455.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">OMG</div>
+</div></a>
+</div>
+<div class="li-bottom cf">
+<a class="fl" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-camera"></i></a>
+<a class="fr" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-order"></i></a>
+</div>
+</div>
+</li><li class="one">
+<span style="display:none;">守望先锋</span>
+<div class="one_position ">
+<img src="http://static.tuwan.com/v3/homepagev2/images/time.png">09月14日 (周四) 19:00
+</div>
+<div class="matchList_bg">
+<div class="li-top lol">
+<span>守望先锋</span>
+<div class="name">第六周 常规赛</div>
+</div>
+<div class="li-con cf">
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fl">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/ZjQxZCw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1708/09/835-1FP91P154923.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">FTD</div>
+</div></a>
+<div class="match-score" target="_blank" title="">
+<p class="fl">1</p>
+<span class="semicolon">:</span>
+<p class="fr">2</p>
+<div class="type"><span style="background-color:#11b475;color:#fff;">已结束</span></div>
+</div>
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fr">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/MGUyOCw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1708/09/835-1FP91K454425.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">LF</div>
+</div></a>
+</div>
+<div class="li-bottom cf">
+<a class="fl" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-camera"></i></a>
+<a class="fr" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-order"></i></a>
+</div>
+</div>
+</li><li class="one">
+<span style="display:none;">守望先锋</span>
+<div class="one_position ">
+<img src="http://static.tuwan.com/v3/homepagev2/images/time.png">09月15日 (周五) 17:00
+</div>
+<div class="matchList_bg">
+<div class="li-top lol">
+<span>守望先锋</span>
+<div class="name">第六周 常规赛</div>
+</div>
+<div class="li-con cf">
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fl">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/NzQ4Ziw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1708/09/835-1FP91GRQ41.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">LGE</div>
+</div></a>
+<div class="match-score" target="_blank" title="">
+<p class="fl">0</p>
+<span class="semicolon">:</span>
+<p class="fr">2</p>
+<div class="type"><span style="background-color:#11b475;color:#fff;">已结束</span></div>
+</div>
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fr">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/ZmJkZCw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1708/09/835-1FP91KF0B2.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">1246</div>
+</div></a>
+</div>
+<div class="li-bottom cf">
+<a class="fl" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-camera"></i></a>
+<a class="fr" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-order"></i></a>
+</div>
+</div>
+</li><li class="one">
+<span style="display:none;">守望先锋</span>
+<div class="one_position ">
+<img src="http://static.tuwan.com/v3/homepagev2/images/time.png">09月15日 (周五) 18:00
+</div>
+<div class="matchList_bg">
+<div class="li-top lol">
+<span>守望先锋</span>
+<div class="name">第六周 常规赛</div>
+</div>
+<div class="li-con cf">
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fl">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/YTRjYiw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1708/09/835-1FP91P23T33.jpg" alt="" width="41px" height="48px"></div>
+<div class="team-name">CC</div>
+</div></a>
+<div class="match-score" target="_blank" title="">
+<p class="fl">2</p>
+<span class="semicolon">:</span>
+<p class="fr">0</p>
+<div class="type"><span style="background-color:#11b475;color:#fff;">已结束</span></div>
+</div>
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fr">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/OThhYyw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1708/09/835-1FP916345T07.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">Celestial</div>
+</div></a>
+</div>
+<div class="li-bottom cf">
+<a class="fl" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-camera"></i></a>
+<a class="fr" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-order"></i></a>
+</div>
+</div>
+</li><li class="one">
+<span style="display:none;">守望先锋</span>
+<div class="one_position ">
+<img src="http://static.tuwan.com/v3/homepagev2/images/time.png">09月15日 (周五) 19:00
+</div>
+<div class="matchList_bg">
+<div class="li-top lol">
+<span>守望先锋</span>
+<div class="name">第六周 常规赛</div>
+</div>
+<div class="li-con cf">
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fl">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/Y2ZkMyw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1708/09/835-1FP91GA2338.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">MT1</div>
+</div></a>
+<div class="match-score" target="_blank" title="">
+<p class="fl">1</p>
+<span class="semicolon">:</span>
+<p class="fr">2</p>
+<div class="type"><span style="background-color:#11b475;color:#fff;">已结束</span></div>
+</div>
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fr">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/ODIyNiw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1708/09/835-1FP91K536263.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">LGD</div>
+</div></a>
+</div>
+<div class="li-bottom cf">
+<a class="fl" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-camera"></i></a>
+<a class="fr" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-order"></i></a>
+</div>
+</div>
+</li><li class="one">
+<span style="display:none;">守望先锋</span>
+<div class="one_position ">
+<img src="http://static.tuwan.com/v3/homepagev2/images/time.png">09月16日 (周六) 17:00
+</div>
+<div class="matchList_bg">
+<div class="li-top lol">
+<span>守望先锋</span>
+<div class="name">第六周 常规赛</div>
+</div>
+<div class="li-con cf">
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fl">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/MTE2OSw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1708/09/835-1FP91P450455.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">OMG</div>
+</div></a>
+<div class="match-score" target="_blank" title="">
+<p class="fl">1</p>
+<span class="semicolon">:</span>
+<p class="fr">2</p>
+<div class="type"><span style="background-color:#11b475;color:#fff;">已结束</span></div>
+</div>
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fr">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/ZjQxZCw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1708/09/835-1FP91P154923.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">FTD</div>
+</div></a>
+</div>
+<div class="li-bottom cf">
+<a class="fl" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-camera"></i></a>
+<a class="fr" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-order"></i></a>
+</div>
+</div>
+</li><li class="one">
+<span style="display:none;">守望先锋</span>
+<div class="one_position ">
+<img src="http://static.tuwan.com/v3/homepagev2/images/time.png">09月16日 (周六) 18:00
+</div>
+<div class="matchList_bg">
+<div class="li-top lol">
+<span>守望先锋</span>
+<div class="name">第六周 常规赛</div>
+</div>
+<div class="li-con cf">
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fl">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/YjAwZSw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1708/09/835-1FP9163126244.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">VG</div>
+</div></a>
+<div class="match-score" target="_blank" title="">
+<p class="fl">0</p>
+<span class="semicolon">:</span>
+<p class="fr">2</p>
+<div class="type"><span style="background-color:#11b475;color:#fff;">已结束</span></div>
+</div>
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fr">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/MmEyMSw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1708/09/835-1FP91K914L0.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">SKG</div>
+</div></a>
+</div>
+<div class="li-bottom cf">
+<a class="fl" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-camera"></i></a>
+<a class="fr" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-order"></i></a>
+</div>
+</div>
+</li><li class="one">
+<span style="display:none;">守望先锋</span>
+<div class="one_position ">
+<img src="http://static.tuwan.com/v3/homepagev2/images/time.png">09月16日 (周六) 19:00
+</div>
+<div class="matchList_bg">
+<div class="li-top lol">
+<span>守望先锋</span>
+<div class="name">第六周 常规赛</div>
+</div>
+<div class="li-con cf">
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fl">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/MWQ5MCw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1708/09/835-1FP91P51QN.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">MY</div>
+</div></a>
+<div class="match-score" target="_blank" title="">
+<p class="fl">2</p>
+<span class="semicolon">:</span>
+<p class="fr">1</p>
+<div class="type"><span style="background-color:#11b475;color:#fff;">已结束</span></div>
+</div>
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fr">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/MGUyOCw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1708/09/835-1FP91K454425.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">LF</div>
+</div></a>
+</div>
+<div class="li-bottom cf">
+<a class="fl" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-camera"></i></a>
+<a class="fr" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-order"></i></a>
+</div>
+</div>
+</li><li class="one">
+<span style="display:none;">守望先锋</span>
+<div class="one_position ">
+<img src="http://static.tuwan.com/v3/homepagev2/images/time.png">09月17日 (周日) 17:00
+</div>
+<div class="matchList_bg">
+<div class="li-top lol">
+<span>守望先锋</span>
+<div class="name">第六周 常规赛</div>
+</div>
+<div class="li-con cf">
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fl">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/YTRjYiw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1708/09/835-1FP91P23T33.jpg" alt="" width="41px" height="48px"></div>
+<div class="team-name">CC</div>
+</div></a>
+<div class="match-score" target="_blank" title="">
+<p class="fl">1</p>
+<span class="semicolon">:</span>
+<p class="fr">2</p>
+<div class="type"><span style="background-color:#11b475;color:#fff;">已结束</span></div>
+</div>
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fr">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/Y2ZkMyw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1708/09/835-1FP91GA2338.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">MT1</div>
+</div></a>
+</div>
+<div class="li-bottom cf">
+<a class="fl" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-camera"></i></a>
+<a class="fr" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-order"></i></a>
+</div>
+</div>
+</li><li class="one">
+<span style="display:none;">守望先锋</span>
+<div class="one_position ">
+<img src="http://static.tuwan.com/v3/homepagev2/images/time.png">09月17日 (周日) 18:00
+</div>
+<div class="matchList_bg">
+<div class="li-top lol">
+<span>守望先锋</span>
+<div class="name">第六周 常规赛</div>
+</div>
+<div class="li-con cf">
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fl">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/MWQ5MCw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1708/09/835-1FP91P51QN.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">MY</div>
+</div></a>
+<div class="match-score" target="_blank" title="">
+<p class="fl">2</p>
+<span class="semicolon">:</span>
+<p class="fr">0</p>
+<div class="type"><span style="background-color:#11b475;color:#fff;">已结束</span></div>
+</div>
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fr">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/NzQ4Ziw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1708/09/835-1FP91GRQ41.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">LGE</div>
+</div></a>
+</div>
+<div class="li-bottom cf">
+<a class="fl" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-camera"></i></a>
+<a class="fr" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-order"></i></a>
+</div>
+</div>
+</li><li class="one">
+<span style="display:none;">守望先锋</span>
+<div class="one_position ">
+<img src="http://static.tuwan.com/v3/homepagev2/images/time.png">09月17日 (周日) 19:00
+</div>
+<div class="matchList_bg">
+<div class="li-top lol">
+<span>守望先锋</span>
+<div class="name">第六周 常规赛</div>
+</div>
+<div class="li-con cf">
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fl">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/OThhYyw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1708/09/835-1FP916345T07.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">Celestial</div>
+</div></a>
+<div class="match-score" target="_blank" title="">
+<p class="fl">0</p>
+<span class="semicolon">:</span>
+<p class="fr">2</p>
+<div class="type"><span style="background-color:#11b475;color:#fff;">已结束</span></div>
+</div>
+<a href='javascript:void(0);' target='_parent'>
+<div class="team fr">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/ZmJkZCw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1708/09/835-1FP91KF0B2.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">1246</div>
+</div></a>
+</div>
+<div class="li-bottom cf">
+<a class="fl" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-camera"></i></a>
+<a class="fr" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-order"></i></a>
+</div>
+</div>
+</li><li class="one">
+<span style="display:none;">英雄联盟</span>
+<div class="one_position ">
+<img src="http://static.tuwan.com/v3/homepagev2/images/time.png">12月09日 (周日) 09:00
+</div>
+<div class="matchList_bg">
+<div class="li-top lol">
+<span>英雄联盟</span>
+<div class="name">Allstar2018 赛区对抗赛 </div>
+</div>
+<div class="li-con cf">
+<a href='http://club.tuwan.com/team/西方队/' target='_blank'>
+<div class="team fl">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/MTExNyw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1812/05/835-1Q205155914T7.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">西方队</div>
+</div></a>
+<div class="match-score" target="_blank" title="">
+<p class="fl">0</p>
+<span class="semicolon">:</span>
+<p class="fr">1</p>
+<div class="type"><span style="background-color:#11b475;color:#fff;">已结束</span></div>
+</div>
+<a href='http://club.tuwan.com/team/东方队/' target='_blank'>
+<div class="team fr">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/NGU5OSw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1812/05/835-1Q205155R95a.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">东方队</div>
+</div></a>
+</div>
+<div class="li-bottom cf">
+<a class="fl" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-camera"></i></a>
+<a class="fr" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-order"></i></a>
+</div>
+</div>
+</li><li class="one">
+<span style="display:none;">英雄联盟</span>
+<div class="one_position ">
+<img src="http://static.tuwan.com/v3/homepagev2/images/time.png">12月09日 (周日) 10:00
+</div>
+<div class="matchList_bg">
+<div class="li-top lol">
+<span>英雄联盟</span>
+<div class="name">Allstar2018 极限闪击战</div>
+</div>
+<div class="li-con cf">
+<a href='http://club.tuwan.com/team/东方队/' target='_blank'>
+<div class="team fl">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/NGU5OSw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1812/05/835-1Q205155R95a.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">东方队</div>
+</div></a>
+<div class="match-score" target="_blank" title="">
+<p class="fl">0</p>
+<span class="semicolon">:</span>
+<p class="fr">1</p>
+<div class="type"><span style="background-color:#11b475;color:#fff;">已结束</span></div>
+</div>
+<a href='http://club.tuwan.com/team/西方队/' target='_blank'>
+<div class="team fr">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/MTExNyw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1812/05/835-1Q205155914T7.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">西方队</div>
+</div></a>
+</div>
+<div class="li-bottom cf">
+<a class="fl" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-camera"></i></a>
+<a class="fr" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-order"></i></a>
+</div>
+</div>
+</li><li class="one">
+<span style="display:none;">英雄联盟</span>
+<div class="one_position ">
+<img src="http://static.tuwan.com/v3/homepagev2/images/time.png">12月09日 (周日) 11:00
+</div>
+<div class="matchList_bg">
+<div class="li-top lol">
+<span>英雄联盟</span>
+<div class="name">Allstar2018 </div>
+</div>
+<div class="li-con cf">
+<a href='http://club.tuwan.com/team/Faker/' target='_blank'>
+<div class="team fl">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/ZjljNiw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1812/05/835-1Q205133Z4303.jpg" alt="" width="41px" height="48px"></div>
+<div class="team-name">Faker</div>
+</div></a>
+<div class="match-score" target="_blank" title="">
+<p class="fl">0</p>
+<span class="semicolon">:</span>
+<p class="fr">1</p>
+<div class="type"><span style="background-color:#11b475;color:#fff;">已结束</span></div>
+</div>
+<a href='http://club.tuwan.com/team/Pabu/' target='_blank'>
+<div class="team fr">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/MTFjYSw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1812/05/835-1Q205141J4544.jpg" alt="" width="41px" height="48px"></div>
+<div class="team-name">Pabu</div>
+</div></a>
+</div>
+<div class="li-bottom cf">
+<a class="fl" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-camera"></i></a>
+<a class="fr" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-order"></i></a>
+</div>
+</div>
+</li><li class="one">
+<span style="display:none;">英雄联盟</span>
+<div class="one_position ">
+<img src="http://static.tuwan.com/v3/homepagev2/images/time.png">12月09日 (周日) 11:10
+</div>
+<div class="matchList_bg">
+<div class="li-top lol">
+<span>英雄联盟</span>
+<div class="name">Allstar2018 1v1淘汰赛</div>
+</div>
+<div class="li-con cf">
+<a href='http://club.tuwan.com/team/Maple/' target='_blank'>
+<div class="team fl">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/OTdmYyw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1812/05/835-1Q205133605153.jpg" alt="" width="41px" height="48px"></div>
+<div class="team-name">Maple</div>
+</div></a>
+<div class="match-score" target="_blank" title="">
+<p class="fl">0</p>
+<span class="semicolon">:</span>
+<p class="fr">1</p>
+<div class="type"><span style="background-color:#11b475;color:#fff;">已结束</span></div>
+</div>
+<a href='http://club.tuwan.com/team/Caps/' target='_blank'>
+<div class="team fr">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/YWZmNSw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1812/05/835-1Q205141AI63.jpg" alt="" width="41px" height="48px"></div>
+<div class="team-name">Caps</div>
+</div></a>
+</div>
+<div class="li-bottom cf">
+<a class="fl" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-camera"></i></a>
+<a class="fr" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-order"></i></a>
+</div>
+</div>
+</li><li class="one">
+<span style="display:none;">英雄联盟</span>
+<div class="one_position ">
+<img src="http://static.tuwan.com/v3/homepagev2/images/time.png">12月09日 (周日) 11:20
+</div>
+<div class="matchList_bg">
+<div class="li-top lol">
+<span>英雄联盟</span>
+<div class="name">Allstar2018 1v1淘汰赛</div>
+</div>
+<div class="li-con cf">
+<a href='http://club.tuwan.com/team/Rookie/' target='_blank'>
+<div class="team fl">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/YmY0MSw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1812/05/835-1Q2051414155O.jpg" alt="" width="41px" height="48px"></div>
+<div class="team-name">Rookie</div>
+</div></a>
+<div class="match-score" target="_blank" title="">
+<p class="fl">‖</p>
+<span class="semicolon">:</span>
+<p class="fr">‖</p>
+<div class="type"><span style="background-color:#11b475;color:#fff;">已结束</span></div>
+</div>
+<a href='http://club.tuwan.com/team/Bang/' target='_blank'>
+<div class="team fr">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/NWIyMCw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1812/05/835-1Q2051346443B.jpg" alt="" width="41px" height="48px"></div>
+<div class="team-name">Bang</div>
+</div></a>
+</div>
+<div class="li-bottom cf">
+<a class="fl" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-camera"></i></a>
+<a class="fr" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-order"></i></a>
+</div>
+</div>
+</li><li class="one">
+<span style="display:none;">英雄联盟</span>
+<div class="one_position ">
+<img src="http://static.tuwan.com/v3/homepagev2/images/time.png">12月09日 (周日) 11:30
+</div>
+<div class="matchList_bg">
+<div class="li-top lol">
+<span>英雄联盟</span>
+<div class="name">Allstar2018 1v1淘汰赛</div>
+</div>
+<div class="li-con cf">
+<a href='http://club.tuwan.com/team/Evi/' target='_blank'>
+<div class="team fl">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/MzlmNiw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1812/05/835-1Q2051419292R.jpg" alt="" width="41px" height="48px"></div>
+<div class="team-name">Evi</div>
+</div></a>
+<div class="match-score" target="_blank" title="">
+<p class="fl">0</p>
+<span class="semicolon">:</span>
+<p class="fr">1</p>
+<div class="type"><span style="background-color:#11b475;color:#fff;">已结束</span></div>
+</div>
+<a href='http://club.tuwan.com/team/Uzi/' target='_blank'>
+<div class="team fr">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/Mjc5OSw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1812/05/835-1Q2051342544V.jpg" alt="" width="41px" height="48px"></div>
+<div class="team-name">Uzi</div>
+</div></a>
+</div>
+<div class="li-bottom cf">
+<a class="fl" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-camera"></i></a>
+<a class="fr" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-order"></i></a>
+</div>
+</div>
+</li><li class="one">
+<span style="display:none;">英雄联盟</span>
+<div class="one_position ">
+<img src="http://static.tuwan.com/v3/homepagev2/images/time.png">12月09日 (周日) 11:40
+</div>
+<div class="matchList_bg">
+<div class="li-top lol">
+<span>英雄联盟</span>
+<div class="name">Allstar2018 1v1淘汰赛</div>
+</div>
+<div class="li-con cf">
+<a href='http://club.tuwan.com/team/Pabu/' target='_blank'>
+<div class="team fl">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/MTFjYSw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1812/05/835-1Q205141J4544.jpg" alt="" width="41px" height="48px"></div>
+<div class="team-name">Pabu</div>
+</div></a>
+<div class="match-score" target="_blank" title="">
+<p class="fl">2</p>
+<span class="semicolon">:</span>
+<p class="fr">1</p>
+<div class="type"><span style="background-color:#11b475;color:#fff;">已结束</span></div>
+</div>
+<a href='http://club.tuwan.com/team/Rookie/' target='_blank'>
+<div class="team fr">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/YmY0MSw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1812/05/835-1Q2051414155O.jpg" alt="" width="41px" height="48px"></div>
+<div class="team-name">Rookie</div>
+</div></a>
+</div>
+<div class="li-bottom cf">
+<a class="fl" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-camera"></i></a>
+<a class="fr" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-order"></i></a>
+</div>
+</div>
+</li><li class="one">
+<span style="display:none;">英雄联盟</span>
+<div class="one_position ">
+<img src="http://static.tuwan.com/v3/homepagev2/images/time.png">12月09日 (周日) 11:55
+</div>
+<div class="matchList_bg">
+<div class="li-top lol">
+<span>英雄联盟</span>
+<div class="name">Allstar2018 1v1淘汰赛</div>
+</div>
+<div class="li-con cf">
+<a href='http://club.tuwan.com/team/Caps/' target='_blank'>
+<div class="team fl">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/YWZmNSw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1812/05/835-1Q205141AI63.jpg" alt="" width="41px" height="48px"></div>
+<div class="team-name">Caps</div>
+</div></a>
+<div class="match-score" target="_blank" title="">
+<p class="fl">2</p>
+<span class="semicolon">:</span>
+<p class="fr">0</p>
+<div class="type"><span style="background-color:#11b475;color:#fff;">已结束</span></div>
+</div>
+<a href='http://club.tuwan.com/team/Uzi/' target='_blank'>
+<div class="team fr">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/Mjc5OSw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1812/05/835-1Q2051342544V.jpg" alt="" width="41px" height="48px"></div>
+<div class="team-name">Uzi</div>
+</div></a>
+</div>
+<div class="li-bottom cf">
+<a class="fl" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-camera"></i></a>
+<a class="fr" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-order"></i></a>
+</div>
+</div>
+</li><li class="one">
+<span style="display:none;">英雄联盟</span>
+<div class="one_position ">
+<img src="http://static.tuwan.com/v3/homepagev2/images/time.png">12月09日 (周日) 12:20
+</div>
+<div class="matchList_bg">
+<div class="li-top lol">
+<span>英雄联盟</span>
+<div class="name">Allstar2018 赛区对抗赛</div>
+</div>
+<div class="li-con cf">
+<a href='http://club.tuwan.com/team/LPL/' target='_blank'>
+<div class="team fl">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/MWMxNCw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1712/06/835-1G206093253U9.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">LPL</div>
+</div></a>
+<div class="match-score" target="_blank" title="">
+<p class="fl">1</p>
+<span class="semicolon">:</span>
+<p class="fr">0</p>
+<div class="type"><span style="background-color:#11b475;color:#fff;">已结束</span></div>
+</div>
+<a href='http://club.tuwan.com/team/LCK/' target='_blank'>
+<div class="team fr">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/ZGM5Niw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1712/06/835-1G206093I2A8.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">LCK</div>
+</div></a>
+</div>
+<div class="li-bottom cf">
+<a class="fl" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-camera"></i></a>
+<a class="fr" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-order"></i></a>
+</div>
+</div>
+</li><li class="one">
+<span style="display:none;">英雄联盟</span>
+<div class="one_position ">
+<img src="http://static.tuwan.com/v3/homepagev2/images/time.png">12月09日 (周日) 13:20
+</div>
+<div class="matchList_bg">
+<div class="li-top lol">
+<span>英雄联盟</span>
+<div class="name">Allstar2018 1v1淘汰赛</div>
+</div>
+<div class="li-con cf">
+<a href='http://club.tuwan.com/team/Pabu/' target='_blank'>
+<div class="team fl">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/MTFjYSw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1812/05/835-1Q205141J4544.jpg" alt="" width="41px" height="48px"></div>
+<div class="team-name">Pabu</div>
+</div></a>
+<div class="match-score" target="_blank" title="">
+<p class="fl">0</p>
+<span class="semicolon">:</span>
+<p class="fr">2</p>
+<div class="type"><span style="background-color:#11b475;color:#fff;">已结束</span></div>
+</div>
+<a href='http://club.tuwan.com/team/Caps/' target='_blank'>
+<div class="team fr">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/YWZmNSw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1812/05/835-1Q205141AI63.jpg" alt="" width="41px" height="48px"></div>
+<div class="team-name">Caps</div>
+</div></a>
+</div>
+<div class="li-bottom cf">
+<a class="fl" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-camera"></i></a>
+<a class="fr" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-order"></i></a>
+</div>
+</div>
+</li><li class="one">
+<span style="display:none;">英雄联盟</span>
+<div class="one_position ">
+<img src="http://static.tuwan.com/v3/homepagev2/images/time.png">12月20日 (周四) 12:10
+</div>
+<div class="matchList_bg">
+<div class="li-top lol">
+<span>英雄联盟</span>
+<div class="name">西安德杯 淘汰赛</div>
+</div>
+<div class="li-con cf">
+<a href='http://club.tuwan.com/team/IG/' target='_blank'>
+<div class="team fl">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/NjM2ZSw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1602/20/807-16022014203K33.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">IG</div>
+</div></a>
+<div class="match-score" target="_blank" title="">
+<p class="fl">1</p>
+<span class="semicolon">:</span>
+<p class="fr">0</p>
+<div class="type"><span style="background-color:#11b475;color:#fff;">已结束</span></div>
+</div>
+<a href='http://club.tuwan.com/team/SN/' target='_blank'>
+<div class="team fr">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/MTMwNiw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1705/24/835-1F52414153UP.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">SN</div>
+</div></a>
+</div>
+<div class="li-bottom cf">
+<a class="fl" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-camera"></i></a>
+<a class="fr" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-order"></i></a>
+</div>
+</div>
+</li><li class="one">
+<span style="display:none;">英雄联盟</span>
+<div class="one_position ">
+<img src="http://static.tuwan.com/v3/homepagev2/images/time.png">12月20日 (周四) 13:25
+</div>
+<div class="matchList_bg">
+<div class="li-top lol">
+<span>英雄联盟</span>
+<div class="name">西安德杯 淘汰赛</div>
+</div>
+<div class="li-con cf">
+<a href='http://club.tuwan.com/team/RW/' target='_blank'>
+<div class="team fl">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/ZDlhMyw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1801/02/835-1P102110541c2.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">RW</div>
+</div></a>
+<div class="match-score" target="_blank" title="">
+<p class="fl">1</p>
+<span class="semicolon">:</span>
+<p class="fr">0</p>
+<div class="type"><span style="background-color:#11b475;color:#fff;">已结束</span></div>
+</div>
+<a href='http://club.tuwan.com/team/SDG/' target='_blank'>
+<div class="team fr">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/NGViYiw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1812/17/835-1Q21G42RH52.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">SDG</div>
+</div></a>
+</div>
+<div class="li-bottom cf">
+<a class="fl" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-camera"></i></a>
+<a class="fr" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-order"></i></a>
+</div>
+</div>
+</li><li class="one">
+<span style="display:none;">英雄联盟</span>
+<div class="one_position ">
+<img src="http://static.tuwan.com/v3/homepagev2/images/time.png">12月20日 (周四) 14:40
+</div>
+<div class="matchList_bg">
+<div class="li-top lol">
+<span>英雄联盟</span>
+<div class="name">西安德杯 淘汰赛</div>
+</div>
+<div class="li-con cf">
+<a href='http://club.tuwan.com/team/JDG/' target='_blank'>
+<div class="team fl">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/OGM3ZSw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1705/25/835-1F525092915148.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">JDG</div>
+</div></a>
+<div class="match-score" target="_blank" title="">
+<p class="fl">0</p>
+<span class="semicolon">:</span>
+<p class="fr">1</p>
+<div class="type"><span style="background-color:#11b475;color:#fff;">已结束</span></div>
+</div>
+<a href='http://club.tuwan.com/team/top/' target='_blank'>
+<div class="team fr">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/NjdhNiw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1801/19/835-1P119131405L2.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">top</div>
+</div></a>
+</div>
+<div class="li-bottom cf">
+<a class="fl" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-camera"></i></a>
+<a class="fr" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-order"></i></a>
+</div>
+</div>
+</li><li class="one">
+<span style="display:none;">英雄联盟</span>
+<div class="one_position ">
+<img src="http://static.tuwan.com/v3/homepagev2/images/time.png">12月20日 (周四) 15:50
+</div>
+<div class="matchList_bg">
+<div class="li-top lol">
+<span>英雄联盟</span>
+<div class="name">西安德杯 淘汰赛</div>
+</div>
+<div class="li-con cf">
+<a href='http://club.tuwan.com/team/RNG/' target='_blank'>
+<div class="team fl">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/OTkyYiw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1602/20/807-160220140P9132.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">RNG</div>
+</div></a>
+<div class="match-score" target="_blank" title="">
+<p class="fl">1</p>
+<span class="semicolon">:</span>
+<p class="fr">0</p>
+<div class="type"><span style="background-color:#11b475;color:#fff;">已结束</span></div>
+</div>
+<a href='http://club.tuwan.com/team/EDG/' target='_blank'>
+<div class="team fr">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/ZDBlZiw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1701/04/835-1F10409535C60.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">EDG</div>
+</div></a>
+</div>
+<div class="li-bottom cf">
+<a class="fl" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-camera"></i></a>
+<a class="fr" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-order"></i></a>
+</div>
+</div>
+</li><li class="one">
+<span style="display:none;">英雄联盟</span>
+<div class="one_position ">
+<img src="http://static.tuwan.com/v3/homepagev2/images/time.png">12月20日 (周四) 17:05
+</div>
+<div class="matchList_bg">
+<div class="li-top lol">
+<span>英雄联盟</span>
+<div class="name">西安德杯 小组赛</div>
+</div>
+<div class="li-con cf">
+<a href='http://club.tuwan.com/team/SDG/' target='_blank'>
+<div class="team fl">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/NGViYiw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1812/17/835-1Q21G42RH52.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">SDG</div>
+</div></a>
+<div class="match-score" target="_blank" title="">
+<p class="fl">1</p>
+<span class="semicolon">:</span>
+<p class="fr">2</p>
+<div class="type"><span style="background-color:#11b475;color:#fff;">已结束</span></div>
+</div>
+<a href='http://club.tuwan.com/team/SN/' target='_blank'>
+<div class="team fr">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/MTMwNiw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1705/24/835-1F52414153UP.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">SN</div>
+</div></a>
+</div>
+<div class="li-bottom cf">
+<a class="fl" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-camera"></i></a>
+<a class="fr" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-order"></i></a>
+</div>
+</div>
+</li><li class="one">
+<span style="display:none;">英雄联盟</span>
+<div class="one_position ">
+<img src="http://static.tuwan.com/v3/homepagev2/images/time.png">12月20日 (周四) 20:30
+</div>
+<div class="matchList_bg">
+<div class="li-top lol">
+<span>英雄联盟</span>
+<div class="name">西安德杯 小组赛</div>
+</div>
+<div class="li-con cf">
+<a href='http://club.tuwan.com/team/EDG/' target='_blank'>
+<div class="team fl">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/ZDBlZiw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1701/04/835-1F10409535C60.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">EDG</div>
+</div></a>
+<div class="match-score" target="_blank" title="">
+<p class="fl">2</p>
+<span class="semicolon">:</span>
+<p class="fr">1</p>
+<div class="type"><span style="background-color:#11b475;color:#fff;">已结束</span></div>
+</div>
+<a href='http://club.tuwan.com/team/JDG/' target='_blank'>
+<div class="team fr">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/OGM3ZSw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1705/25/835-1F525092915148.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">JDG</div>
+</div></a>
+</div>
+<div class="li-bottom cf">
+<a class="fl" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-camera"></i></a>
+<a class="fr" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-order"></i></a>
+</div>
+</div>
+</li><li class="one">
+<span style="display:none;">英雄联盟</span>
+<div class="one_position ">
+<img src="http://static.tuwan.com/v3/homepagev2/images/time.png">12月21日 (周五) 11:00
+</div>
+<div class="matchList_bg">
+<div class="li-top lol">
+<span>英雄联盟</span>
+<div class="name">西安德杯 小组赛</div>
+</div>
+<div class="li-con cf">
+<a href='http://club.tuwan.com/team/IG/' target='_blank'>
+<div class="team fl">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/NjM2ZSw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1602/20/807-16022014203K33.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">IG</div>
+</div></a>
+<div class="match-score" target="_blank" title="">
+<p class="fl">2</p>
+<span class="semicolon">:</span>
+<p class="fr">1</p>
+<div class="type"><span style="background-color:#11b475;color:#fff;">已结束</span></div>
+</div>
+<a href='http://club.tuwan.com/team/RW/' target='_blank'>
+<div class="team fr">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/ZDlhMyw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1801/02/835-1P102110541c2.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">RW</div>
+</div></a>
+</div>
+<div class="li-bottom cf">
+<a class="fl" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-camera"></i></a>
+<a class="fr" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-order"></i></a>
+</div>
+</div>
+</li><li class="one">
+<span style="display:none;">英雄联盟</span>
+<div class="one_position ">
+<img src="http://static.tuwan.com/v3/homepagev2/images/time.png">12月21日 (周五) 14:15
+</div>
+<div class="matchList_bg">
+<div class="li-top lol">
+<span>英雄联盟</span>
+<div class="name">西安德杯 小组赛</div>
+</div>
+<div class="li-con cf">
+<a href='http://club.tuwan.com/team/top/' target='_blank'>
+<div class="team fl">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/NjdhNiw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1801/19/835-1P119131405L2.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">top</div>
+</div></a>
+<div class="match-score" target="_blank" title="">
+<p class="fl">2</p>
+<span class="semicolon">:</span>
+<p class="fr">0</p>
+<div class="type"><span style="background-color:#11b475;color:#fff;">已结束</span></div>
+</div>
+<a href='http://club.tuwan.com/team/RNG/' target='_blank'>
+<div class="team fr">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/OTkyYiw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1602/20/807-160220140P9132.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">RNG</div>
+</div></a>
+</div>
+<div class="li-bottom cf">
+<a class="fl" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-camera"></i></a>
+<a class="fr" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-order"></i></a>
+</div>
+</div>
+</li><li class="one">
+<span style="display:none;">英雄联盟</span>
+<div class="one_position ">
+<img src="http://static.tuwan.com/v3/homepagev2/images/time.png">12月21日 (周五) 17:30
+</div>
+<div class="matchList_bg">
+<div class="li-top lol">
+<span>英雄联盟</span>
+<div class="name">西安德杯 小组赛</div>
+</div>
+<div class="li-con cf">
+<a href='http://club.tuwan.com/team/RW/' target='_blank'>
+<div class="team fl">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/ZDlhMyw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1801/02/835-1P102110541c2.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">RW</div>
+</div></a>
+<div class="match-score" target="_blank" title="">
+<p class="fl">1</p>
+<span class="semicolon">:</span>
+<p class="fr">2</p>
+<div class="type"><span style="background-color:#11b475;color:#fff;">已结束</span></div>
+</div>
+<a href='http://club.tuwan.com/team/SN/' target='_blank'>
+<div class="team fr">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/MTMwNiw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1705/24/835-1F52414153UP.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">SN</div>
+</div></a>
+</div>
+<div class="li-bottom cf">
+<a class="fl" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-camera"></i></a>
+<a class="fr" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-order"></i></a>
+</div>
+</div>
+</li><li class="one">
+<span style="display:none;">英雄联盟</span>
+<div class="one_position ">
+<img src="http://static.tuwan.com/v3/homepagev2/images/time.png">12月21日 (周五) 19:30
+</div>
+<div class="matchList_bg">
+<div class="li-top lol">
+<span>英雄联盟</span>
+<div class="name">西安德杯 小组赛</div>
+</div>
+<div class="li-con cf">
+<a href='http://club.tuwan.com/team/EDG/' target='_blank'>
+<div class="team fl">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/ZDBlZiw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1701/04/835-1F10409535C60.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">EDG</div>
+</div></a>
+<div class="match-score" target="_blank" title="">
+<p class="fl">2</p>
+<span class="semicolon">:</span>
+<p class="fr">1</p>
+<div class="type"><span style="background-color:#11b475;color:#fff;">已结束</span></div>
+</div>
+<a href='http://club.tuwan.com/team/RNG/' target='_blank'>
+<div class="team fr">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/OTkyYiw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1602/20/807-160220140P9132.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">RNG</div>
+</div></a>
+</div>
+<div class="li-bottom cf">
+<a class="fl" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-camera"></i></a>
+<a class="fr" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-order"></i></a>
+</div>
+</div>
+</li><li class="one">
+<span style="display:none;">英雄联盟</span>
+<div class="one_position ">
+<img src="http://static.tuwan.com/v3/homepagev2/images/time.png">12月22日 (周六) 13:00
+</div>
+<div class="matchList_bg">
+<div class="li-top lol">
+<span>英雄联盟</span>
+<div class="name">西安德杯 小组赛</div>
+</div>
+<div class="li-con cf">
+<a href='http://club.tuwan.com/team/IG/' target='_blank'>
+<div class="team fl">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/NjM2ZSw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1602/20/807-16022014203K33.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">IG</div>
+</div></a>
+<div class="match-score" target="_blank" title="">
+<p class="fl">0</p>
+<span class="semicolon">:</span>
+<p class="fr">2</p>
+<div class="type"><span style="background-color:#11b475;color:#fff;">已结束</span></div>
+</div>
+<a href='http://club.tuwan.com/team/top/' target='_blank'>
+<div class="team fr">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/NjdhNiw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1801/19/835-1P119131405L2.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">top</div>
+</div></a>
+</div>
+<div class="li-bottom cf">
+<a class="fl" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-camera"></i></a>
+<a class="fr" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-order"></i></a>
+</div>
+</div>
+</li><li class="one">
+<span style="display:none;">英雄联盟</span>
+<div class="one_position ">
+<img src="http://static.tuwan.com/v3/homepagev2/images/time.png">12月22日 (周六) 15:50
+</div>
+<div class="matchList_bg">
+<div class="li-top lol">
+<span>英雄联盟</span>
+<div class="name">西安德杯 小组赛</div>
+</div>
+<div class="li-con cf">
+<a href='http://club.tuwan.com/team/SN/' target='_blank'>
+<div class="team fl">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/MTMwNiw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1705/24/835-1F52414153UP.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">SN</div>
+</div></a>
+<div class="match-score" target="_blank" title="">
+<p class="fl">2</p>
+<span class="semicolon">:</span>
+<p class="fr">1</p>
+<div class="type"><span style="background-color:#11b475;color:#fff;">已结束</span></div>
+</div>
+<a href='http://club.tuwan.com/team/EDG/' target='_blank'>
+<div class="team fr">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/ZDBlZiw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1701/04/835-1F10409535C60.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">EDG</div>
+</div></a>
+</div>
+<div class="li-bottom cf">
+<a class="fl" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-camera"></i></a>
+<a class="fr" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-order"></i></a>
+</div>
+</div>
+</li><li class="one">
+<span style="display:none;">英雄联盟</span>
+<div class="one_position ">
+<img src="http://static.tuwan.com/v3/homepagev2/images/time.png">12月22日 (周六) 18:50
+</div>
+<div class="matchList_bg">
+<div class="li-top lol">
+<span>英雄联盟</span>
+<div class="name">西安德杯 小组赛</div>
+</div>
+<div class="li-con cf">
+<a href='http://club.tuwan.com/team/IG/' target='_blank'>
+<div class="team fl">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/NjM2ZSw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1602/20/807-16022014203K33.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">IG</div>
+</div></a>
+<div class="match-score" target="_blank" title="">
+<p class="fl">2</p>
+<span class="semicolon">:</span>
+<p class="fr">1</p>
+<div class="type"><span style="background-color:#11b475;color:#fff;">已结束</span></div>
+</div>
+<a href='http://club.tuwan.com/team/SN/' target='_blank'>
+<div class="team fr">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/MTMwNiw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1705/24/835-1F52414153UP.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">SN</div>
+</div></a>
+</div>
+<div class="li-bottom cf">
+<a class="fl" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-camera"></i></a>
+<a class="fr" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-order"></i></a>
+</div>
+</div>
+</li><li class="one">
+<span style="display:none;">英雄联盟</span>
+<div class="one_position ">
+<img src="http://static.tuwan.com/v3/homepagev2/images/time.png">12月23日 (周日) 16:00
+</div>
+<div class="matchList_bg">
+<div class="li-top lol">
+<span>英雄联盟</span>
+<div class="name">西安德杯 决赛</div>
+</div>
+<div class="li-con cf">
+<a href='http://club.tuwan.com/team/top/' target='_blank'>
+<div class="team fl">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/NjdhNiw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1801/19/835-1P119131405L2.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">top</div>
+</div></a>
+<div class="match-score" target="_blank" title="">
+<p class="fl">1</p>
+<span class="semicolon">:</span>
+<p class="fr">3</p>
+<div class="type"><span style="background-color:#11b475;color:#fff;">已结束</span></div>
+</div>
+<a href='http://club.tuwan.com/team/IG/' target='_blank'>
+<div class="team fr">
+<div class="team-pic"><img src="http://img4.tuwandata.com/v2/thumb/png/NjM2ZSw0MSw0OCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1602/20/807-16022014203K33.png" alt="" width="41px" height="48px"></div>
+<div class="team-name">IG</div>
+</div></a>
+</div>
+<div class="li-bottom cf">
+<a class="fl" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-camera"></i></a>
+<a class="fr" href='javascript:void(0);' target='_parent' title=""><i class="icon-bg icon-order"></i></a>
+</div>
+</div>
+</li>
+<div class="clearfix"></div>
+</ul>
+<script>
+				  function ShowGame(id){
+				        if(id != -1){
+							$(".matchList-ul li").each(function () {
+								if ($(this).find("span:contains(" + id + ")").length == 0) { $(this).hide(); }
+								else { $(this).show(); }
+							});
+						}
+						else{
+						   $(".matchList-ul li").show();
+						}
+						
+						showbisai();
+				  }
+				</script>
+</div>
+<a class="matchPrev icon-bg" id="matchPrev" href="javascript:;">上翻</a>
+<a class="matchNext icon-bg" id="matchNext" href="javascript:;">下翻</a>
+</div>
+</div>
+</div>
+<script> 
+		    var countPage,curPage,left = 0;
+		    function showbisai(){
+				var li = $(".matchList-box ul li").length;
+				var sli = li - $(".matchList-box ul li:hidden").length;
+			    countPage = parseInt((sli%4 > 0 ? sli/4+1:sli/4)) - 1;
+				
+				left =  23;
+				curPage = 0;			
+				var nw = 0;
+				$(".matchList-box ul li").each(function () {
+						if ($(this).find("span:contains('进行中')").length == 1 && $(this).css("display") != "none") { 
+						return false;
+					}
+					else {
+						if($(this).css("display") != "none") nw++;
+					}
+				});
+				
+				if(nw == sli){
+				    nw = 0;
+					$(".matchList-box ul li").each(function () {
+							if ($(this).find("span:contains('未开始')").length == 1 && $(this).css("display") != "none") { 
+							return false;
+						}
+						else {
+							if($(this).css("display") != "none") nw++;
+						}
+					});
+				}
+				if(nw == sli){
+					curPage = parseInt((nw%4 > 0 ? nw/4+1:nw/4)) -1;
+					left = curPage * 1136 + 23;
+					$(".matchList-box ul").stop().animate({marginLeft:-left},200);
+				} 
+				
+				if(nw > 0 && nw != sli){
+					nw = nw + 1;
+					curPage = parseInt((nw%4 > 0 ? nw/4+1:nw/4)) -1;
+					left = curPage * 1136 + 23;
+					$(".matchList-box ul").stop().animate({marginLeft:-left},200);
+				}
+				
+				
+				if(curPage == 0) $("#matchPrev").hide();
+				else $("#matchPrev").show();
+				if(curPage == countPage || countPage == -1) $("#matchNext").hide();
+				else $("#matchNext").show();
+            }
+
+			$("#matchNext").click(function run(){
+				left = left + 1137;
+				$("#matchPrev").show();
+				$(".matchList-box ul").stop().animate({marginLeft:-left},200);
+				curPage = curPage + 1;
+				if(curPage == countPage){
+				  $("#matchNext").hide();
+				}else{
+				  $("#matchNext").show();
+				}
+				})
+				
+			$("#matchPrev").click(function run(){
+				left = left - 1137;
+				$("#matchNext").show();
+				$(".matchList-box ul").stop().animate({marginLeft:-left},200);
+				curPage = curPage - 1;
+				if(curPage > 0){
+					$("#matchPrev").show();
+				}else{
+					$("#matchPrev").hide();
+				}
+			})   			
+
+            showbisai();			
+        </script>
+<script>
+		$(".show:eq(0)").click(function(){
+		    $("#box1").show()
+		    $("#box2").hide()
+			$("#box3").hide()
+			$("#box4").hide()
+		}
+	)
+        	$(".show:eq(1)").click(function(){
+		    $("#box2").show()
+		    $("#box1").hide()
+			$("#box3").hide()
+			$("#box4").hide()
+		}
+	)
+	
+	$(".show:eq(2)").click(function(){
+		    $("#box3").show()
+		    $("#box1").hide()
+			$("#box2").hide()
+			$("#box4").hide()
+		}
+	)
+	$(".show:eq(3)").click(function(){
+		    $("#box4").show()
+		    $("#box1").hide()
+			$("#box3").hide()
+			$("#box2").hide()
+		}
+	)
+	$(".show").click(
+	function(){
+		$(this).addClass("choose").siblings().removeClass("choose");
+		
+		}
+	
+	)
+        </script>
+<div class="width-f-cell pt35 cf">
+<div class="minor-left-box fl">
+<div class="title-cell">
+<a href="http://www.tuwan.com/news/tag_%E8%B5%9B%E4%BA%8B/" class="icon-bg icon-more fr" title="查看更多" target="_blank"></a>
+<span>聚焦PC电竞</span>
+</div>
+<ul class="pc-esports-cell mt15">
+<li class="one mb20"><a href="http://lol.tuwan.com/390960/" target="_blank" title="宁美斗鱼两大巨头携手泛娱乐，引领行业互娱新风向！">
+<div class="Hover-img fl"><img src="http://img4.tuwandata.com/v2/thumb/all/MWFkNCwxMjUsOTAsOSwzLDEsLTEsTk9ORSwsLDkw/u/www.tuwan.com/uploads/allimg/1901/03/S5_0103142152PM.png" alt="宁美斗鱼两大巨头携手泛娱乐，引领行业互娱新风向！"></div>
+<div class="info">
+<span class="title">宁美斗鱼两大巨头携手泛娱乐，引领行业互娱新风向！</span>
+<span class="time"><i class="icon-bg icon-time"></i>01-03</span>
+</div>
+</a></li>
+<li><span class="fr time">01-03</span><a class="over-ell" href="http://lol.tuwan.com/390958/" target="_blank" title="新赛季SDG和V5将登场 LPL新军能否成黑马">新赛季SDG和V5将登场 LPL新军能否成黑马</a></li>
+<li><span class="fr time">01-03</span><a class="over-ell" href="http://lol.tuwan.com/390951/" target="_blank" title="虎牙直播再获LCK独家直播权驻守电竞赛事版权内容高地">虎牙直播再获LCK独家直播权驻守电竞赛事版权内容高地</a></li>
+<li><span class="fr time">01-03</span><a class="over-ell" href="http://lol.tuwan.com/390950/" target="_blank" title="LCK新赛季战火重燃 GRF或成赛区新王？">LCK新赛季战火重燃 GRF或成赛区新王？</a></li>
+<li><span class="fr time">01-02</span><a class="over-ell" href="http://lol.tuwan.com/390929/" target="_blank" title="LPL春季赛五大看点 iG能否夺得LPL首冠？">LPL春季赛五大看点 iG能否夺得LPL首冠？</a></li>
+</ul>
+<div class="title-cell mt20">
+<a href="http://www.tuwan.com/news/tag_%E8%B5%9B%E4%BA%8B/" class="icon-bg icon-more fr" title="查看更多" target="_blank"></a>
+<span>聚焦移动电竞</span>
+</div>
+<ul class="pc-esports-cell mt15">
+<li class="one mb20"><a href="http://www.tuwan.com/shouji/wzry/390618/" target="_blank" title="王者荣耀：Hero久竞成功卫冕冠军！西部霸主成功捍卫荣耀！触手">
+<div class="Hover-img fl"><img src="http://img4.tuwandata.com/v2/thumb/all/MjVhNCwxMjUsOTAsOSwzLDEsLTEsTk9ORSwsLDkw/u/www.tuwan.com/uploads/1812/24/748-1Q224114I25I.jpg" alt="王者荣耀：Hero久竞成功卫冕冠军！西部霸主成功捍卫荣耀！触手"></div>
+<div class="info">
+<span class="title">王者荣耀：Hero久竞成功卫冕冠军！西部霸主成功捍卫荣耀！触手</span>
+<span class="time"><i class="icon-bg icon-time"></i>12-24</span>
+</div>
+</a></li>
+<li><span class="fr time">12-24</span><a class="over-ell" href="http://www.tuwan.com/shouji/wzry/390617/" target="_blank" title="Hero 久竞王者归来！总决赛捧起银龙杯卫冕双冠王！触手直播一">Hero 久竞王者归来！总决赛捧起银龙杯卫冕双冠王！触手直播一</a></li>
+<li><span class="fr time">12-24</span><a class="over-ell" href="http://www.tuwan.com/shouji/wzry/390615/" target="_blank" title="我们是KPL秋季赛总冠军！捍卫主场荣誉，Hero久竞王朝降临！">我们是KPL秋季赛总冠军！捍卫主场荣誉，Hero久竞王朝降临！</a></li>
+<li><span class="fr time">12-23</span><a class="over-ell" href="http://www.tuwan.com/shouji/wzry/390595/" target="_blank" title="久竞再夺银龙杯 李宁冠军衫开创电竞先河">久竞再夺银龙杯 李宁冠军衫开创电竞先河</a></li>
+<li><span class="fr time">12-22</span><a class="over-ell" href="http://www.tuwan.com/shouji/wzry/390568/" target="_blank" title="王者主播大神邀你围观KPL企妙夜总决赛 火锅福利拿不停">王者主播大神邀你围观KPL企妙夜总决赛 火锅福利拿不停</a></li>
+</ul>
+</div>
+<div class="minor-cen-box fl">
+<div class="title-cell">
+<span>赛事报道</span>
+</div>
+<ul class="big-images-box mt15 cf">
+<li class="Hover-img"><a href="https://lol.tuwan.com/tag_%E5%BE%B7%E7%8E%9B%E8%A5%BF%E4%BA%9A%E6%9D%AF/" target="_blank" title="恭喜iG勇夺德玛西亚杯冠军！">
+<img src="http://img4.tuwandata.com/v2/thumb/all/N2ZiYSwzODUsMTc4LDksMywxLC0xLE5PTkUsLCw5MA==/u/www.tuwan.com/uploads/1812/26/1-1Q2261JT3248.jpg" height="178" width="385" alt="恭喜iG勇夺德玛西亚杯冠军！">
+<div class="info">
+<h3>恭喜iG勇夺德玛西亚杯冠军！</h3>
+<p class="mt5"><span class="main-color">让一追三！IG战胜TOP拿下德杯西安站冠军</span></p>
+</div>
+</a></li>
+<li class="Hover-img"><a href="http://lol.tuwan.com/s8final/" target="_blank" title="英雄联盟2018全球总决赛 兔玩网全面报道">
+<img src="http://img4.tuwandata.com/v2/thumb/all/YTRiMywzODUsMTc4LDksMywxLC0xLE5PTkUsLCw5MA==/u/www.tuwan.com/uploads/1810/01/1-1Q001141232220.jpg" height="178" width="385" alt="英雄联盟2018全球总决赛 兔玩网全面报道">
+<div class="info">
+<h3>英雄联盟2018全球总决赛 兔玩网全面报道</h3>
+<p class="mt5"><span class="main-color">谁将登顶2018全球总决赛总冠军？让我们一起敬请期待！</span></p>
+</div>
+</a></li>
+<li class="Hover-img"><a href="http://lol.tuwan.com/tag_lpl/" target="_blank" title="2018LPL夏季赛 常规赛 兔玩报道">
+<img src="http://img4.tuwandata.com/v2/thumb/all/MGFkNywzODUsMTc4LDksMywxLC0xLE5PTkUsLCw5MA==/u/www.tuwan.com/uploads/1806/18/731-1P61Q62Q2515.jpg" height="178" width="385" alt="2018LPL夏季赛 常规赛 兔玩报道">
+<div class="info">
+<h3>2018LPL夏季赛 常规赛 兔玩报道</h3>
+<p class="mt5"><span class="main-color">战火重燃，LPL夏季赛6月11日正式开战！</span></p>
+</div>
+</a></li>
+</ul>
+</div>
+<div class="minor-right-box fr">
+<ul class="ranking-nav-box cf" id="onClickShow">
+<li class="choose">战队榜</li>
+</ul>
+<div class="ranking-con-box" id="onClickShowCon">
+<div class="ranking-con-list" id="onClickShowConLi" style="display:block;">
+<ul class="game-ranking-nav-box cf" id="onClickShow">
+<li class="choose show2">LOL</li>
+<li class="show2">DOTA2</li>
+</ul>
+<a class="fr club-pt" href="http://club.tuwan.com/" target="_blank" title="进入超神俱乐部">进入超神俱乐部</a>
+<div class="game-ranking-con-box">
+<table class="TableBox" width="100%" border="0" cellpadding="0" cellspacing="0" id="Corps_01">
+<tbody>
+<tr class="alt">
+<th width="70">世界排名</th>
+<th width="110">战队</th>
+<th width="70">积分</th>
+<th>国家排名</th>
+</tr>
+<tr class="alt2" onclick="window.open('http://club.tuwan.com/team/Gen.G/');">
+<td>1</td>
+<td align="left" class="pl20"><img src="http://img4.tuwandata.com/v2/thumb/jpg/NGZlYywzMCwzMCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1809/30/835-1P930045U3a8.png" alt="Gen.G">Gen.G</td>
+<td>1307</td>
+<td><img src="http://static.tuwandata.com/images/nation/Korea.png" width="25px" height="18px">2</td>
+</tr><tr class="alt2" onclick="window.open('http://club.tuwan.com/team/EDG/');">
+<td>2</td>
+<td align="left" class="pl20"><img src="http://img4.tuwandata.com/v2/thumb/jpg/ZDBlZiwzMCwzMCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1701/04/835-1F10409535C60.png" alt="EDG">EDG</td>
+<td>1242</td>
+<td><img src="http://static.tuwandata.com/images/nation/China.png" width="25px" height="18px">1</td>
+</tr><tr class="alt2" onclick="window.open('http://club.tuwan.com/team/KT/');">
+<td>3</td>
+<td align="left" class="pl20"><img src="http://img4.tuwandata.com/v2/thumb/jpg/ZDUyOSwzMCwzMCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/allimg/1602/04/04Feb2016134020386.jpg" alt="KT">KT</td>
+<td>1269</td>
+<td><img src="http://static.tuwandata.com/images/nation/Korea.png" width="25px" height="18px">3</td>
+</tr><tr class="alt2" onclick="window.open('http://club.tuwan.com/team/H2K/');">
+<td>4</td>
+<td align="left" class="pl20"><img src="http://img4.tuwandata.com/v2/thumb/jpg/MDIxNywzMCwzMCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/allimg/1602/04/04Feb2016134210398.jpg" alt="H2K">H2K</td>
+<td>1264</td>
+<td><img src="http://static.tuwandata.com/images/nation/Europe.png" width="25px" height="18px">1</td>
+</tr><tr class="alt2" onclick="window.open('http://club.tuwan.com/team/IG/');">
+<td>5</td>
+<td align="left" class="pl20"><img src="http://img4.tuwandata.com/v2/thumb/jpg/NjM2ZSwzMCwzMCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1602/20/807-16022014203K33.png" alt="IG">IG</td>
+<td>1228</td>
+<td><img src="http://static.tuwandata.com/images/nation/China.png" width="25px" height="18px">2</td>
+</tr><tr class="alt2" onclick="window.open('http://club.tuwan.com/team/Cloud 9/');">
+<td>6</td>
+<td align="left" class="pl20"><img src="http://img4.tuwandata.com/v2/thumb/jpg/NjgyZSwzMCwzMCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/allimg/1602/04/04Feb2016135127753.jpg" alt="Cloud 9">Cloud 9</td>
+<td>1324</td>
+<td><img src="http://static.tuwandata.com/images/nation/USA.png" width="25px" height="18px">2</td>
+</tr><tr class="alt2" onclick="window.open('http://club.tuwan.com/team/SKT/');">
+<td>7</td>
+<td align="left" class="pl20"><img src="http://img4.tuwandata.com/v2/thumb/jpg/M2MwNiwzMCwzMCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1603/01/807-16030110332U23.png" alt="SKT">SKT</td>
+<td>1212</td>
+<td><img src="http://static.tuwandata.com/images/nation/Korea.png" width="25px" height="18px">6</td>
+</tr><tr class="alt2" onclick="window.open('http://club.tuwan.com/team/G2/');">
+<td>8</td>
+<td align="left" class="pl20"><img src="http://img4.tuwandata.com/v2/thumb/jpg/YmJjNSwzMCwzMCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1604/23/807-160423235R4141.png" alt="G2">G2</td>
+<td>1251</td>
+<td><img src="http://static.tuwandata.com/images/nation/Europe.png" width="25px" height="18px">2</td>
+</tr><tr class="alt2" onclick="window.open('http://club.tuwan.com/team/RNG/');">
+<td>9</td>
+<td align="left" class="pl20"><img src="http://img4.tuwandata.com/v2/thumb/jpg/OTkyYiwzMCwzMCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1602/20/807-160220140P9132.png" alt="RNG">RNG</td>
+<td>1169</td>
+<td><img src="http://static.tuwandata.com/images/nation/China.png" width="25px" height="18px">3</td>
+</tr><tr class="alt2" onclick="window.open('http://club.tuwan.com/team/WE/');">
+<td>10</td>
+<td align="left" class="pl20"><img src="http://img4.tuwandata.com/v2/thumb/jpg/OTNkNiwzMCwzMCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1602/20/807-160220134144147.png" alt="WE">WE</td>
+<td>1158</td>
+<td><img src="http://static.tuwandata.com/images/nation/China.png" width="25px" height="18px">5</td>
+</tr>
+</tbody>
+</table>
+<table class="TableBox" width="100%" border="0" cellpadding="0" cellspacing="0" style="display:none" id="Corps_02">
+<tbody>
+<tr class="alt">
+<th width="70">世界排名</th>
+<th width="110">战队</th>
+<th width="70">积分</th>
+<th>国家排名</th>
+</tr>
+<tr class="alt2">
+<td>1</td>
+<td align="left" class="pl20"><img src="http://img4.tuwandata.com/v2/thumb/jpg/MDU3MCwzMCwzMCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1605/20/827-1605201H246211.png" alt="OG">OG</td>
+<td>1415</td>
+<td><img src="http://static.tuwandata.com/images/nation/Europe.png" width="25px" height="18px">1</td>
+</tr><tr class="alt2">
+<td>2</td>
+<td align="left" class="pl20"><img src="http://img4.tuwandata.com/v2/thumb/jpg/ZDNjZSwzMCwzMCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1507/31/807-150I11H305334.jpg" alt="EG">EG</td>
+<td>1402</td>
+<td><img src="http://static.tuwandata.com/images/nation/USA.png" width="25px" height="18px">1</td>
+</tr><tr class="alt2">
+<td>3</td>
+<td align="left" class="pl20"><img src="http://img4.tuwandata.com/v2/thumb/jpg/NTE1MiwzMCwzMCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1605/23/827-160523131S22b.png" alt="DC">DC</td>
+<td>1341</td>
+<td><img src="http://static.tuwandata.com/images/nation/USA.png" width="25px" height="18px">2</td>
+</tr><tr class="alt2">
+<td>4</td>
+<td align="left" class="pl20"><img src="http://img4.tuwandata.com/v2/thumb/jpg/ODkxOCwzMCwzMCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1507/31/807-150I11F4455O.jpg" alt="VP">VP</td>
+<td>1311</td>
+<td><img src="http://static.tuwandata.com/images/nation/Russia.png" width="25px" height="18px">2</td>
+</tr><tr class="alt2">
+<td>5</td>
+<td align="left" class="pl20"><img src="http://img4.tuwandata.com/v2/thumb/jpg/OGU5NiwzMCwzMCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1605/30/827-160530114Ga22.png" alt="Liquid">Liquid</td>
+<td>1301</td>
+<td><img src="http://static.tuwandata.com/images/nation/Europe.png" width="25px" height="18px">3</td>
+</tr><tr class="alt2">
+<td>6</td>
+<td align="left" class="pl20"><img src="http://img4.tuwandata.com/v2/thumb/jpg/Y2VlYywzMCwzMCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1605/20/827-160520094222K2.png" alt="NewBee">NewBee</td>
+<td>1294</td>
+<td><img src="http://static.tuwandata.com/images/nation/China.png" width="25px" height="18px">1</td>
+</tr><tr class="alt2">
+<td>7</td>
+<td align="left" class="pl20"><img src="http://img4.tuwandata.com/v2/thumb/jpg/NmRmNiwzMCwzMCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1605/26/827-160526155S4Q6.png" alt="Wings">Wings</td>
+<td>1281</td>
+<td><img src="http://static.tuwandata.com/images/nation/China.png" width="25px" height="18px">2</td>
+</tr><tr class="alt2">
+<td>8</td>
+<td align="left" class="pl20"><img src="http://img4.tuwandata.com/v2/thumb/jpg/OGFmNywzMCwzMCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1702/13/691-1F2131636192Z.jpg" alt="NP">NP</td>
+<td>1278</td>
+<td><img src="http://static.tuwandata.com/images/nation/USA.png" width="25px" height="18px">3</td>
+</tr><tr class="alt2">
+<td>9</td>
+<td align="left" class="pl20"><img src="http://img4.tuwandata.com/v2/thumb/jpg/ZDM1ZiwzMCwzMCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1702/13/691-1F21316394C95.jpg" alt="Faceless">Faceless</td>
+<td>1270</td>
+<td><img src="http://static.tuwandata.com/images/nation/Malaysia.png" width="25px" height="18px">1</td>
+</tr><tr class="alt2">
+<td>10</td>
+<td align="left" class="pl20"><img src="http://img4.tuwandata.com/v2/thumb/jpg/MjgzNiwzMCwzMCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1702/13/691-1F2131A409219.jpg" alt="iGV">iGV</td>
+<td>1233</td>
+<td><img src="http://static.tuwandata.com/images/nation/China.png" width="25px" height="18px">3</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<script>
+				$(".show2:eq(0)").click(
+					function(){
+						$("#Corps_01").show();
+						$("#Corps_02").hide();
+						
+					}
+				)
+				
+				$(".show2:eq(1)").click(
+					function(){
+						$("#Corps_02").show();
+						$("#Corps_01").hide();
+						
+					}
+				)
+					
+				$(".show2:eq(0)").click(
+					function(){
+						$("#Corps_03").show();
+						$("#Corps_04").hide();
+						
+					}
+				)
+				
+				$(".show2:eq(1)").click(
+					function(){
+						$("#Corps_04").show();
+						$("#Corps_03").hide();
+						
+					}
+				)
+            </script>
+</div>
+<div class="width-f-cell mt50">
+<div class="author-union border-heng">
+<div class="title-big">
+作者联盟
+</div>
+</div>
+<ul class="author-union-ul last-li-border-none mt50 cf">
+<li>
+<h2 class="main-color" id="money-type">19118</h2>
+<div class="title-zuo">原创文章</div>
+</li>
+<li>
+<h2 class="main-color" id="money-type">262</h2>
+<div class="title-zuo">作者</div>
+</li>
+<li>
+<h2 class="main-color" id="money-type">286770</h2>
+<div class="title-zuo">发放佣金<span>（元）</span></div>
+</li>
+</ul>
+<a href="http://www.tuwan.com/user/" class="btn-cell author-union-btn mt40" target="_blank" title="加入兔玩作者联盟"><i class="icon-bg icon-write"></i>我要加入</a>
+</div>
+<div class="width-f-cell mt50">
+<div class="article-hot-box cf">
+<div class="Hover-img fl">
+<a href="http://lol.tuwan.com/389430/" target="_blank" title="国服8.23更新公告：2019赛季季前赛到来"><img src="http://img4.tuwandata.com/v2/thumb/jpg/YjVmMyw1NjAsMjYxLDksMywxLC0xLE5PTkUsLCw5MA==/u/www.tuwan.com/uploads/1811/28/802-1Q12Q15335608.jpg" alt="国服8.23更新公告：2019赛季季前赛到来" display="block">
+<span class="Hover-title">国服8.23更新公告：2019赛季季前赛到来<b class="Hover-b"></b></span>
+<i class="icon-bg icon-tuijian"></i></a>
+</div>
+<div class="author fl">
+<div class="user"><a href="http://www.tuwan.com/user/318227/" target="_blank" title="Se7en专栏"><img src="http://img4.tuwandata.com/v2/thumb/jpg/OWVhZSw2NCw2NCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1603/10/693-160310101001A9.jpg" alt="Se7en"></a></div>
+<div class="name"><a href="http://www.tuwan.com/user/318227/" target="_blank" title="Se7en">Se7en</a></div>
+<div class="info">一枚资深电竞爱好者，钟爱英雄联盟，对其他游戏没办法做到雨露均占。</div>
+<a href="http://www.tuwan.com/user/318227/" class="more" target="_blank" title="更多作品">+ 更多作品</a>
+</div>
+<div class="author-other fl">
+<div class="title">热门作者</div>
+<div class="author-list cf">
+<a href="http://www.tuwan.com/user/160644/" target="_blank" title="ZXCZXC"><img src="http://img4.tuwandata.com/v2/thumb/all/YWNlNywzMiwzMiw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1508/22/693-150R2155GK96.jpg" alt="ZXCZXC">ZXCZXC</a><a href="http://www.tuwan.com/user/76224/" target="_blank" title="liquid"><img src="http://img4.tuwandata.com/v2/thumb/all/YjVkYiwzMiwzMiw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/allimg/1502/08/693_150208144819_1.jpg" alt="liquid">liquid</a><a href="http://www.tuwan.com/user/330616/" target="_blank" title="风兮"><img src="http://img4.tuwandata.com/v2/thumb/all/MTI0YSwzMiwzMiw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1606/22/819-160622133424439.jpg" alt="风兮">风兮</a><a href="http://www.tuwan.com/user/359091/" target="_blank" title="至一"><img src="http://img4.tuwandata.com/v2/thumb/all/MmIyZSwzMiwzMiw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1707/25/819-1FH5103151363.jpg" alt="至一">至一</a><a href="http://www.tuwan.com/user/248096/" target="_blank" title="若希"><img src="http://img4.tuwandata.com/v2/thumb/all/YTZlZCwzMiwzMiw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1511/25/693-151125204116419.jpg" alt="若希">若希</a><a href="http://www.tuwan.com/user/329874/" target="_blank" title="叶言"><img src="http://img4.tuwandata.com/v2/thumb/all/MzBhZCwzMiwzMiw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1606/15/1-160615141613161.jpg" alt="叶言">叶言</a><a href="http://www.tuwan.com/user/362479/" target="_blank" title="幻羚"><img src="http://img4.tuwandata.com/v2/thumb/all/MDAwYiwzMiwzMiw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1707/02/819-1FF2205R5a3-lp.jpg" alt="幻羚">幻羚</a><a href="http://www.tuwan.com/user/239844/" target="_blank" title="白猫"><img src="http://img4.tuwandata.com/v2/thumb/all/YWMxZSwzMiwzMiw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1601/15/693-160115111Z0925.jpg" alt="白猫">白猫</a><a href="http://www.tuwan.com/user/49794/" target="_blank" title="tomoyo"><img src="http://img4.tuwandata.com/v2/thumb/all/ZmM1NSwzMiwzMiw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1409/03/691-140Z31U024115.jpg" alt="tomoyo">tomoyo</a><a href="http://www.tuwan.com/user/365241/" target="_blank" title="繁小秋"><img src="http://img4.tuwandata.com/v2/thumb/all/YzdiNiwzMiwzMiw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/allimg/1708/04/782-1FP40ZI50-L.jpg" alt="繁小秋">繁小秋</a><a href="http://www.tuwan.com/user/365754/" target="_blank" title="Stool"><img src="http://img4.tuwandata.com/v2/thumb/all/ZmQ2NiwzMiwzMiw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1708/11/782-1FQ1104Z0509.jpg" alt="Stool">Stool</a><a href="http://www.tuwan.com/user/365909/" target="_blank" title="英雄训练营CY"><img src="http://img4.tuwandata.com/v2/thumb/all/ODQxZiwzMiwzMiw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/allimg/1708/14/782-1FQ41430250-L.jpg" alt="英雄训练营CY">英雄训练营CY</a>
+</div>
+</div>
+</div>
+<ul class="article-box cf">
+<li class="transition-time-cell">
+<div class="img">
+<a href="http://lol.tuwan.com/390963/" target="_blank" title="贾克斯成上分热门 版本上单全面评级"><img width="260px" height="186px" src="http://img4.tuwandata.com/v2/thumb/jpg/ZTdkZSwyNjAsMTg2LDksMywxLC0xLE5PTkUsLCw5MA==/u/www.tuwan.com/uploads/1901/03/904-1Z10314340L34-lp.jpg" alt="贾克斯成上分热门 版本上单全面评级"></a>
+<div class="user"><a href="http://www.tuwan.com/user/330616/" target="_blank" title="风兮专栏"><img src="http://img4.tuwandata.com/v2/thumb/jpg/MTI0YSw2NCw2NCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1606/22/819-160622133424439.jpg" alt="风兮"></a></div>
+<span class="type over-ell user-name"><a href="http://www.tuwan.com/user/330616/" target="_blank" title="风兮">风兮</a> for 英雄联盟</span>
+</div>
+<div class="border">
+<div class="title"><a href="http://lol.tuwan.com/390963/" target="_blank" title="贾克斯成上分热门 版本上单全面评级">贾克斯成上分热门 版本上单全面评级</a></div>
+<div class="info">贾克斯成上分热门 版本上单全面评级</div>
+<div class="num"><span id="money-type">7</span>人阅读</div>
+</div>
+</li><li class="transition-time-cell">
+<div class="img">
+<a href="http://lol.tuwan.com/390961/" target="_blank" title="魅惑大招无缝打出 伊芙琳九大隐藏技巧"><img width="260px" height="186px" src="http://img4.tuwandata.com/v2/thumb/jpg/MTNkMywyNjAsMTg2LDksMywxLC0xLE5PTkUsLCw5MA==/u/www.tuwan.com/uploads/1901/03/904-1Z103141205329.jpg" alt="魅惑大招无缝打出 伊芙琳九大隐藏技巧"></a>
+<div class="user"><a href="http://www.tuwan.com/user/248096/" target="_blank" title="若希专栏"><img src="http://img4.tuwandata.com/v2/thumb/jpg/YTZlZCw2NCw2NCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1511/25/693-151125204116419.jpg" alt="若希"></a></div>
+<span class="type over-ell user-name"><a href="http://www.tuwan.com/user/248096/" target="_blank" title="若希">若希</a> for 英雄联盟</span>
+</div>
+<div class="border">
+<div class="title"><a href="http://lol.tuwan.com/390961/" target="_blank" title="魅惑大招无缝打出 伊芙琳九大隐藏技巧">魅惑大招无缝打出 伊芙琳九大隐藏技巧</a></div>
+<div class="info">魅惑大招无缝打出 伊芙琳九大隐藏技巧</div>
+<div class="num"><span id="money-type">4</span>人阅读</div>
+</div>
+</li><li class="transition-time-cell">
+<div class="img">
+<a href="http://www.tuwan.com/view/390952/" target="_blank" title="FG解散CS分部 创始人揭行业黑幕遭大V驳斥"><img width="260px" height="186px" src="http://img4.tuwandata.com/v2/thumb/jpg/OTU1YSwyNjAsMTg2LDksMywxLC0xLE5PTkUsLCw5MA==/u/www.tuwan.com/uploads/repayment/201901/5-03112553.jpeg" alt="FG解散CS分部 创始人揭行业黑幕遭大V驳斥"></a>
+<div class="user"><a href="http://www.tuwan.com/user/377311/" target="_blank" title="Niceboat专栏"><img src="http://img4.tuwandata.com/v2/thumb/jpg/MDFiNyw2NCw2NCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1806/21/782-1P6211432262c-lp.png" alt="Niceboat"></a></div>
+<span class="type over-ell user-name"><a href="http://www.tuwan.com/user/377311/" target="_blank" title="Niceboat">Niceboat</a> for </span>
+</div>
+<div class="border">
+<div class="title"><a href="http://www.tuwan.com/view/390952/" target="_blank" title="FG解散CS分部 创始人揭行业黑幕遭大V驳斥">FG解散CS分部 创始人揭行业黑幕遭大V驳斥</a></div>
+<div class="info">FG解散CS分部 创始人揭行业黑幕遭大C驳斥</div>
+<div class="num"><span id="money-type">8</span>人阅读</div>
+</div>
+</li><li class="transition-time-cell">
+<div class="img">
+<a href="http://www.tuwan.com/view/390945/" target="_blank" title="12月电竞赛事收视 2018全明星赛登顶Youtube"><img width="260px" height="186px" src="http://img4.tuwandata.com/v2/thumb/jpg/NmJiNywyNjAsMTg2LDksMywxLC0xLE5PTkUsLCw5MA==/u/www.tuwan.com/uploads/allimg/1901/03/873_190103102205_1.jpg" alt="12月电竞赛事收视 2018全明星赛登顶Youtube"></a>
+<div class="user"><a href="http://www.tuwan.com/user/377311/" target="_blank" title="Niceboat专栏"><img src="http://img4.tuwandata.com/v2/thumb/jpg/MDFiNyw2NCw2NCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1806/21/782-1P6211432262c-lp.png" alt="Niceboat"></a></div>
+<span class="type over-ell user-name"><a href="http://www.tuwan.com/user/377311/" target="_blank" title="Niceboat">Niceboat</a> for </span>
+</div>
+<div class="border">
+<div class="title"><a href="http://www.tuwan.com/view/390945/" target="_blank" title="12月电竞赛事收视 2018全明星赛登顶Youtube">12月电竞赛事收视 2018全明星赛登顶Youtube</a></div>
+<div class="info">12月电竞赛事收视 2018全明星赛登顶Youtube</div>
+<div class="num"><span id="money-type">7</span>人阅读</div>
+</div>
+</li><li class="transition-time-cell">
+<div class="img">
+<a href="http://lol.tuwan.com/390927/" target="_blank" title="厄加特领衔五大英雄 版本上分英雄盘点"><img width="260px" height="186px" src="http://img4.tuwandata.com/v2/thumb/jpg/MjA3OCwyNjAsMTg2LDksMywxLC0xLE5PTkUsLCw5MA==/u/www.tuwan.com/uploads/1901/02/904-1Z10214023L47-lp-lp.jpg" alt="厄加特领衔五大英雄 版本上分英雄盘点"></a>
+<div class="user"><a href="http://www.tuwan.com/user/384355/" target="_blank" title="Funky专栏"><img src="http://img4.tuwandata.com/v2/thumb/jpg/NDYzNiw2NCw2NCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/allimg/1808/09/782-1PP91U5260-L.jpg" alt="Funky"></a></div>
+<span class="type over-ell user-name"><a href="http://www.tuwan.com/user/384355/" target="_blank" title="Funky">Funky</a> for 英雄联盟</span>
+</div>
+<div class="border">
+<div class="title"><a href="http://lol.tuwan.com/390927/" target="_blank" title="厄加特领衔五大英雄 版本上分英雄盘点">厄加特领衔五大英雄 版本上分英雄盘点</a></div>
+<div class="info">厄加特领衔五大英雄 版本上分英雄盘点</div>
+<div class="num"><span id="money-type">86929</span>人阅读</div>
+</div>
+</li><li class="transition-time-cell">
+<div class="img">
+<a href="http://www.tuwan.com/game/dota2/390905/" target="_blank" title="YYF将为人父暂停直播 Zhou神祝福：fgnb"><img width="260px" height="186px" src="http://img4.tuwandata.com/v2/thumb/jpg/ZjQ4NSwyNjAsMTg2LDksMywxLC0xLE5PTkUsLCw5MA==/u/www.tuwan.com/uploads/allimg/1901/02/873_190102111917_1.jpg" alt="YYF将为人父暂停直播 Zhou神祝福：fgnb"></a>
+<div class="user"><a href="http://www.tuwan.com/user/377311/" target="_blank" title="Niceboat专栏"><img src="http://img4.tuwandata.com/v2/thumb/jpg/MDFiNyw2NCw2NCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1806/21/782-1P6211432262c-lp.png" alt="Niceboat"></a></div>
+<span class="type over-ell user-name"><a href="http://www.tuwan.com/user/377311/" target="_blank" title="Niceboat">Niceboat</a> for DOTA2</span>
+</div>
+<div class="border">
+<div class="title"><a href="http://www.tuwan.com/game/dota2/390905/" target="_blank" title="YYF将为人父暂停直播 Zhou神祝福：fgnb">YYF将为人父暂停直播 Zhou神祝福：fgnb</a></div>
+<div class="info">YYF将为人父暂停直播 Zhou神祝福：fgnb</div>
+<div class="num"><span id="money-type">8</span>人阅读</div>
+</div>
+</li><li class="transition-time-cell">
+<div class="img">
+<a href="http://lol.tuwan.com/390873/" target="_blank" title="打野努努胜率登顶 法坦双打法全解析"><img width="260px" height="186px" src="http://img4.tuwandata.com/v2/thumb/jpg/MWNiYywyNjAsMTg2LDksMywxLC0xLE5PTkUsLCw5MA==/u/www.tuwan.com/uploads/repayment/201901/1-01044620.jpeg" alt="打野努努胜率登顶 法坦双打法全解析"></a>
+<div class="user"><a href="http://www.tuwan.com/user/384355/" target="_blank" title="Funky专栏"><img src="http://img4.tuwandata.com/v2/thumb/jpg/NDYzNiw2NCw2NCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/allimg/1808/09/782-1PP91U5260-L.jpg" alt="Funky"></a></div>
+<span class="type over-ell user-name"><a href="http://www.tuwan.com/user/384355/" target="_blank" title="Funky">Funky</a> for 英雄联盟</span>
+</div>
+<div class="border">
+<div class="title"><a href="http://lol.tuwan.com/390873/" target="_blank" title="打野努努胜率登顶 法坦双打法全解析">打野努努胜率登顶 法坦双打法全解析</a></div>
+<div class="info">打野努努法坦双打法全解析</div>
+<div class="num"><span id="money-type">149</span>人阅读</div>
+</div>
+</li><li class="transition-time-cell">
+<div class="img">
+<a href="http://lol.tuwan.com/390872/" target="_blank" title="三大系列全面半价 五大必买皮肤评测推荐"><img width="260px" height="186px" src="http://img4.tuwandata.com/v2/thumb/jpg/YmQxMCwyNjAsMTg2LDksMywxLC0xLE5PTkUsLCw5MA==/u/www.tuwan.com/uploads/1901/02/1-1Z102100001341.jpg" alt="三大系列全面半价 五大必买皮肤评测推荐"></a>
+<div class="user"><a href="http://www.tuwan.com/user/330616/" target="_blank" title="风兮专栏"><img src="http://img4.tuwandata.com/v2/thumb/jpg/MTI0YSw2NCw2NCw5LDMsMSwtMSxOT05FLCwsOTA=/u/www.tuwan.com/uploads/1606/22/819-160622133424439.jpg" alt="风兮"></a></div>
+<span class="type over-ell user-name"><a href="http://www.tuwan.com/user/330616/" target="_blank" title="风兮">风兮</a> for 英雄联盟</span>
+</div>
+<div class="border">
+<div class="title"><a href="http://lol.tuwan.com/390872/" target="_blank" title="三大系列全面半价 五大必买皮肤评测推荐">三大系列全面半价 五大必买皮肤评测推荐</a></div>
+<div class="info">2019年的第一天，英雄联盟也是限时开启了皮肤半价特惠活动。大热门的玉剑传说、源计划和未来战士系列！全是T1级别的全特效皮肤！</div>
+<div class="num"><span id="money-type">186788</span>人阅读</div>
+</div>
+</li>
+</ul>
+<a href="javascript:;" onClick="getwriter();" class="loading-more mt20" target="_parent">+ 加载更多</a>
+<script>
+			//加载更多作者文章
+			var c = 0;
+			function getwriter(){
+			   if(c > 0){window.location.href="http://www.tuwan.com/tag_%E5%85%94%E7%8E%A9%E5%87%BA%E5%93%81/";}
+			   else{
+					$.get("http://api.tuwan.com/writer/?v=123", function(result){
+						$(".article-box").append(result);
+                    });
+					
+					c++;
+			    }
+			}
+			</script>
+</div>
+<div class="width-f-cell mt40" style="margin-top:57px;">
+<div style="padding-bottom:20px; text-align:center;">
+</div>
+<div class="title-big" style="text-align:left;">
+<a class="fr" href="http://www.tuwan.com/pic/" target="_blank" title="进入图片频道">进入图片频道 ></a>
+美图
+</div>
+<ul class="Meitu-con mt20 cf">
+<li class="Mt1"><a href="https://www.tuwanjun.com/" target="_blank" title="甜甜的小麋鹿"><img src="http://img4.tuwandata.com/v2/thumb/jpg/NjU2YywxNzcsMjQwLDksMywxLC0xLE5PTkUsLCw5MA==/u/res.tuwan.com/zipgoods/20181224/1545655869m.jpg" alt="甜甜的小麋鹿"><div class="Hover-mt-bg"><span><i>甜甜的小麋鹿</i></span></div></a></li><li class="Mt2"><a href="https://www.tuwanjun.com/" target="_blank" title="兔子呀"><img src="http://img4.tuwandata.com/v2/thumb/jpg/NTliNywxNzcsMjQwLDksMywxLC0xLE5PTkUsLCw5MA==/u/res.tuwan.com/zipgoods/20181224/1545656012m.jpg" alt="兔子呀"><div class="Hover-mt-bg"><span><i>兔子呀</i></span></div></a></li><li class="Mt3"><a href="https://www.tuwanjun.com/" target="_blank" title="妮可"><img src="http://img4.tuwandata.com/v2/thumb/jpg/NjYwZiwzNTUsMjQxLDksMywxLC0xLE5PTkUsLCw5MA==/u/res.tuwan.com/zipgoods/20181224/1545656258m.jpg" alt="妮可"><div class="Hover-mt-bg"><span><i>妮可</i></span></div></a></li><li class="Mt4"><a href="https://www.tuwanjun.com/" target="_blank" title="女枪"><img src="http://img4.tuwandata.com/v2/thumb/jpg/ZjVkZSwzNTUsNDgyLDksMywxLC0xLE5PTkUsLCw5MA==/u/res.tuwan.com/zipgoods/20181224/1545649724m.jpg" alt="女枪"><div class="Hover-mt-bg"><span><i>女枪</i></span></div></a></li><li class="Mt5"><a href="https://www.tuwanjun.com/" target="_blank" title="圣诞萌女郎"><img src="http://img4.tuwandata.com/v2/thumb/jpg/MzU5OCwyMTAsMjQwLDksMywxLC0xLE5PTkUsLCw5MA==/u/res.tuwan.com/zipgoods/20181224/1545659036my.jpg" alt="圣诞萌女郎"><div class="Hover-mt-bg"><span><i>圣诞萌女郎</i></span></div></a></li><li class="Mt6"><a href="https://www.tuwanjun.com/" target="_blank" title="圣诞恋歌"><img src="http://img4.tuwandata.com/v2/thumb/jpg/ZjI1NywyMTAsMjQwLDksMywxLC0xLE5PTkUsLCw5MA==/u/res.tuwan.com/zipgoods/20181224/1545656544m.jpg" alt="圣诞恋歌"><div class="Hover-mt-bg"><span><i>圣诞恋歌</i></span></div></a></li><li class="Mt7"><a href="https://www.tuwanjun.com/" target="_blank" title="小埋和海老名"><img src="http://img4.tuwandata.com/v2/thumb/jpg/ODNlYywyMTAsMjQxLDksMywxLC0xLE5PTkUsLCw5MA==/u/res.tuwan.com/zipgoods/20181224/1545656636m.jpg" alt="小埋和海老名"><div class="Hover-mt-bg"><span><i>小埋和海老名</i></span></div></a></li><li class="Mt8"><a href="https://www.tuwanjun.com/" target="_blank" title="糖果"><img src="http://img4.tuwandata.com/v2/thumb/jpg/ZWY0ZSwyMTAsMjQxLDksMywxLC0xLE5PTkUsLCw5MA==/u/res.tuwan.com/zipgoods/20181224/1545656730m.jpg" alt="糖果"><div class="Hover-mt-bg"><span><i>糖果</i></span></div></a></li>
+</ul>
+</div>
+<div class="fixed-nav-cell" id="box">
+<div class="icon-bg icon-close" id="close" for="fixed-nav-cell"></div>
+<ul class="fixed-nav-ul">
+<li class="icon-fixed-news01">
+<a href="javascript:;" class="num" style="display:none">
+<i class="icon-bg icon-fixed-news"></i>
+<p>新闻</p>
+</a>
+<a href="javascript:;" class="word" style="display:block">
+<i class="icon-bg icon-fixed-news"></i>
+<p>新闻</p>
+</a>
+</li>
+<li class="icon-fixed-news01">
+<a href="javascript:;" class="num" style="display:none">
+<i class="icon-bg icon-fixed-games"></i>
+<p>视频</p>
+</a>
+<a href="javascript:;" class="word" style="display:block">
+<i class="icon-bg icon-fixed-games"></i>
+<p>视频</p>
+</a>
+</li>
+<li class="icon-fixed-news01">
+<a href="javascript:;" class="num" style="display:none">
+<i class="icon-bg icon-fixed-evaluate"></i>
+<p>赛事</p>
+</a>
+<a href="javascript:;" class="word" style="display:block">
+<i class="icon-bg icon-fixed-evaluate"></i>
+<p>赛事</p>
+</a>
+</li>
+<li class="icon-fixed-news01">
+<a href="javascript:;" class="num" style="display:none">
+<i class="icon-bg icon-fixed-video"></i>
+<p>原创</p>
+</a>
+<a href="javascript:;" class="word" style="display:block">
+<i class="icon-bg icon-fixed-video"></i>
+<p>原创</p>
+</a>
+</li>
+<li class="icon-fixed-news01">
+<a href="javascript:;" class="num" style="display:none">
+<i class="icon-bg icon-fixed-jap"></i>
+<p>美图</p>
+</a>
+<a href="javascript:;" class="word" style="display:block">
+<i class="icon-bg icon-fixed-jap"></i>
+<p>美图</p>
+</a>
+</li>
+<li id="go-up">
+<i class="icon-bg icon-fixed-up mt10"></i>
+</li>
+</ul>
+</div>
+<script>
+	$(function(){
+		// @ 给窗口加滚动条事件
+		$(window).scroll(function(){
+			// 获得窗口滚动上去的距离
+			var ling = $(document).scrollTop();
+			// 在标题栏显示滚动的距离
+			// document.title = ling;
+			// 如果滚动距离大于1534的时候让滚动框出来
+			if(ling>760){
+				$("#box").show();
+			}
+			if(760<ling && ling<1659){
+				// 让第一层的数字隐藏，文字显示，让其他兄弟元素的li数字显示，
+				$(".icon-fixed-news01").eq(0).find(".num").hide().siblings(".word").css("display","block");
+				$(".icon-fixed-news01").eq(0).siblings('li').find('.num').css('display','block').siblings('.word').hide();
+			}else if(ling<2462){
+				$(".icon-fixed-news01").eq(1).find(".num").hide().siblings(".word").css("display","block");
+				$(".icon-fixed-news01").eq(1).siblings('li').find('.num').css('display','block').siblings('.word').hide();
+			}else if(ling<3648){
+				$(".icon-fixed-news01").eq(2).find('.num').hide().siblings('.word').css('display','block');
+				$(".icon-fixed-news01").eq(2).siblings('li').find('.num').css('display','block').siblings('.word').hide();
+			}else if(ling<5204){
+				$(".icon-fixed-news01").eq(3).find('.num').hide().siblings('.word').css('display','block');
+				$(".icon-fixed-news01").eq(3).siblings('li').find('.num').css('display','block').siblings('.word').hide();
+			}else if(ling<5282){
+				$(".icon-fixed-news01").eq(4).find('.num').hide().siblings('.word').css('display','block');
+				$(".icon-fixed-news01").eq(4).siblings('li').find('.num').css('display','block').siblings('.word').hide();
+			}
+			if(ling>6000 || ling<760){
+				// $('#box').css('display','none');  // @ 这一句和下一句效果一样。
+				$('#box').hide();
+			}
+			
+		})
+
+	})
+<!--点击回到相应的位置-->
+	$(".icon-fixed-news01:eq(0)").click(function(event) {
+        $("#box").hide();
+ 		$('html,body').animate({
+ 			'scrollTop':660
+ 		},600);
+		$("#box").show();
+ 	});
+	$(".icon-fixed-news01:eq(1)").click(function(event) {
+ 		$('html,body').animate({
+ 			'scrollTop':1659
+ 		},600);
+ 	});
+	$(".icon-fixed-news01:eq(2)").click(function(event) {
+ 		$('html,body').animate({
+ 			'scrollTop': 2462
+ 		},600);
+ 	});
+	$(".icon-fixed-news01:eq(3)").click(function(event) {
+ 		$('html,body').animate({
+ 			'scrollTop':3648
+ 		},600);
+ 	});
+	$(".icon-fixed-news01:eq(4)").click(function(event) {
+ 		$('html,body').animate({
+ 			'scrollTop':5204
+ 		},600);
+ 	});
+	</script>
+<div class="footer-top mt50">
+<div class="width-f-cell">
+<div class="footer-nav-cell cf">
+<div class="footer-l fl cf">
+<a href="http://www.tuwan.com/" class="logo fl" title="兔玩网"><img src="http://static.tuwan.com/v3/homepagev2/images/footer-logo.png" alt="兔玩网"><i class="icon-bg icon-pao"></i></a>
+<span class="erweima fl"><img src="http://static.tuwan.com/v3/homepagev2/images/chaoshen-app.jpg" alt="超神电竞二维码"></span>
+<span class="info fl">
+<i>想真正懂电竞吗？</i>
+<i>试试这款APP</i>
+<i>扫描二维码</i>
+<i>下载超神APP</i>
+</span>
+</div>
+<div class="footer-r fr">
+<li>
+<h4>栏目</h4>
+<p><a href="http://www.tuwan.com/news/" target="_blank" title="资讯">资讯</a><a href="http://www.tuwan.com/faq/" target="_blank" title="问答">回答</a></p>
+<p><a href="http://www.tuwan.com/video/" target="_blank" title="视频">视频</a><a href="http://www.tuwan.com/huodong/" target="_blank" title="活动">活动</a></p>
+<p><a href="http://www.tuwan.com/guide/" target="_blank" title="攻略">攻略</a><a href="http://www.tuwan.com/esport/match/" target="_blank" title="比赛">比赛</a></p>
+<p><a href="http://www.tuwan.com/pic/" target="_blank" title="图片">图片</a><a href="http://www.tuwan.com/game/" target="_blank" title="游戏库">游戏库</a></p>
+</li>
+<li>
+<h4>专区</h4>
+<p><a href="http://lol.tuwan.com/" target="_blank" title="英雄联盟">英雄联盟</a><a href="http://fb.tuwan.com/" target="_blank" title="风暴英雄">风暴英雄</a></p>
+<p><a href="http://wow.tuwan.com/" target="_blank" title="魔兽世界">魔兽世界</a><a href="http://www.tuwan.com/game/dota2/" target="_blank" title="DOTA2">DOTA2</a></p>
+<p><a href="http://hs.tuwan.com/" target="_blank" title="炉石传说">炉石传说</a><a href="http://www.tuwan.com/shouji/wzry/" target="_blank" title="王者荣耀">王者荣耀</a></p>
+<p><a href="http://ow.tuwan.com/" target="_blank" title="守望先锋">守望先锋</a><a href="http://www.tuwan.com/shouji/cr/" target="_blank" title="皇室战争">皇室战争</a></p>
+</li>
+<li>
+<h4>推荐</h4>
+<p><a href="http://club.tuwan.com/" target="_blank" title="超神俱乐部">超神俱乐部</a></p>
+<p><a href="http://lol.tuwan.com/tag_%E4%B8%96%E7%95%8C%E7%AC%AC%E4%B8%80/" target="_blank" title="世界第一">世界第一</a></p>
+<p><a href="http://lol.tuwan.com/tag_%E8%8B%B1%E9%9B%84%E7%BA%A6%E4%B8%8D%E7%BA%A6/" target="_blank" title="英雄约不约">英雄约不约</a></p>
+<p><a href="http://lol.tuwan.com/tag_%E7%89%88%E6%9C%AC%E8%80%81%E5%8F%B8%E6%9C%BA/" target="_blank" title="版本老司机">版本老司机</a></p>
+</li>
+<li class="follow fl">
+<h4>关注</h4>
+<p><a class="icon-bg icon-follow-weixin" href="http://mp.weixin.qq.com/s?__biz=MzA5MTU3MzExMg==&mid=504991415&idx=1&sn=42fd9d263273d256a5cff2b1de1bd0db&scene=23" target="_blank" title="关注兔玩官方微信"></a></p>
+<p><a class="icon-bg icon-follow-weibo" href="http://weibo.com/p/1006065042958097" target="_blank" title="关注兔玩官方微博"></a></p>
+<p><a class="icon-bg icon-follow-qq-weibo" href="http://v.qq.com/vplus/tuwan" target="_blank" title="关注兔玩官方腾讯视频"></a></p>
+<p><a class="icon-bg icon-follow-other" href="http://i.youku.com/i/UMTkyOTQ1MzAw" target="_blank" title="关注兔玩官方优酷空间"></a></p>
+</li>
+</div>
+</div>
+<div class="friend-link mt40">
+<div class="title fl">
+<span>友情链接</span>
+<a href="http://wpa.qq.com/msgrd?v=3&amp;uin=154304829&amp;site=qq&amp;menu=yes" target="_blank" title="欢迎权重>5的同类网站交换友链"><i class="icon-bg icon-qq"></i>友联交换</a>
+</div>
+<div class="list">
+<a id="_pingansec_bottomimagelarge_shiming" href="http://si.trustutn.org/info?sn=408161020024920946943&certType=1"></a>
+<a href='http://games.sina.com.cn/' target='_blank'>新浪游戏</a>
+<a href='http://www.douyutv.com/' target='_blank'>斗鱼TV</a>
+<a href='http://v.17173.com/' target='_blank'>17173游戏视频</a>
+<a href='http://www.youxiniao.com/' target='_blank'>手机游戏</a>
+<a href='http://www.99youmeng.com/' target='_blank'>99游盟</a>
+<a href='http://www.yiwan.com/' target='_blank'>好玩的手机游戏</a>
+<a href='http://www.99danji.com/game/' target='_blank'>单机游戏下载</a>
+<a href='http://longzhu.com/' target='_blank'>龙珠直播</a>
+<a href='http://guide.candou.com/' target='_blank'>手游攻略</a>
+<a href='http://m.ali213.net/' target='_blank'>掌上游侠</a>
+<a href='http://www.9553.com/danji/' target='_blank'>单机游戏下载</a>
+<a href='http://www.391k.com' target='_blank'>单机游戏推荐</a>
+<a href='http://www.tuwan.com/game/cf/112272/' target='_blank'>穿越火线美女教官</a>
+<a href='http://www.a9vg.com/' target='_blank'>A9VG</a>
+<a href='http://www.tuwan.com/' target='_blank'>兔玩电竞</a>
+<a href='http://www.anruan.com' target='_blank'>安软市场</a>
+<a href='http://www.diyiyou.com/' target='_blank'>手游排行榜</a>
+<a href='http://www.duouoo.com' target='_blank'>多游网</a>
+<a href='http://www.qushiw.com/' target='_blank'>英雄联盟视频</a>
+<a href='http://www.kaopu001.com' target='_blank'>安卓模拟器</a>
+<a href='http://www.appgame.com/' target='_blank'>手机游戏媒体</a>
+<a href='http://www.imbatv.cn/' target='_blank'>imbatv</a>
+<a href='http://www.zhanqi.tv' target='_blank'>战旗TV</a>
+<a href='http://www.58game.com/' target='_blank'>58游戏</a>
+<a href='http://www.gk99.com/' target='_blank'>游戏港口</a>
+<a href='http://www.1688wan.com/' target='_blank'>1688玩手游网</a>
+<a href='http://lol.tuwan.com/tag_世界第一/' target='_blank'>世界第一</a>
+<a href='http://www.ooqiu.com/' target='_blank'>全球电竞网</a>
+<a href='http://www.shuowan.com/' target='_blank'>说玩网</a>
+<a href='http://www.youxi500.cn/' target='_blank'>单机游戏下载</a>
+<a href='http://xin.18183.com/' target='_blank'>18183新游</a>
+<a href='http://www.ahgame.com/' target='_blank'>安游在线</a>
+<a href='http://www.7xz.com/' target='_blank'>七匣子手游网</a>
+<a href='http://www.3367.com/' target='_blank'>3367手机游戏</a>
+<a href='http://www.jiaoyimao.com/' target='_blank'>手游交易平台</a>
+<a href='http://www.bufan.com/' target='_blank'>不凡手游网</a>
+<a href='http://www.bianwanjia.com/' target='_blank'>便玩家游戏</a>
+<a href='http://d.163.com' target='_blank'>凯恩之角</a>
+<a href='http://shouji.newyx.net/' target='_blank'>手机游戏</a>
+<a href='http://www.7881.com/' target='_blank'>7881游戏交易平台</a>
+<a href='http://www.zhuantilan.com/' target='_blank'>软件下载</a>
+<a href='http://www.autofull.net/' target='_blank'>AutoFull傲风电竞椅</a>
+<a href='http://www.crxz.com/' target='_blank'>软件下载中心</a>
+<a href='http://www.66868.com/' target='_blank'>软件下载</a>
+<a href='http://www.yoyou.com/' target='_blank'>优游网</a>
+<a href='http://www.te5.com/' target='_blank'>特玩游戏网</a>
+<a href='http://www.zuhaowan.com/' target='_blank'>租号玩</a>
+<a href='http://chushou.tv/' target='_blank'>触手直播</a>
+<a href='http://www.noyes.cn/' target='_blank'>安卓游戏</a>
+<a href='http://www.87g.com/' target='_blank'>87G手游网</a>
+<a href='http://www.pc141.com/' target='_blank'>pc软件下载</a>
+<a href='http://www.xyaz.cn/' target='_blank'>安卓模拟器</a>
+<a href='http://www.shouyoubus.com/' target='_blank'>手游巴士</a>
+<a href='http://www.8868.cn/' target='_blank'>手游戏交易平台</a>
+<a href='http://www.h5uc.com/' target='_blank'>核弹头小游戏</a>
+<a href='https://bbs.houdao.com/' target='_blank'>猴岛论坛</a>
+<a href='http://www.gm86.com/' target='_blank'>游戏部落</a>
+<a href='http://www.gh-esports.com/' target='_blank'>直尚电竞</a>
+<a href='http://www.dadajiasu.com/' target='_blank'>哒哒加速器</a>
+<a href='http://www.119you.com/' target='_blank'>119手游排行榜</a>
+<a href='http://www.asp1.com.cn/' target='_blank'>A1下载</a>
+<a href='https://www.quanmin.tv/' target='_blank'>全民直播</a>
+<a href='http://www.10339.com/' target='_blank'>10339手游网</a>
+<a href='http://www.gaoshouyou.com/' target='_blank'>手机游戏</a>
+<a href='https://www.muzhiwan.com/' target='_blank'>拇指玩</a>
+<a href='http://cc.163.com/v/' target='_blank'>网易CC视频</a>
+<a href='https://www.eayyou.com/' target='_blank'>羿游手游排行</a>
+</div>
+</div>
+</div>
+</div>
+<div class="footer-bottom">
+<div class="width-f-cell cf">
+<div class="foot-nav fl">
+<a id="_pingansec_bottomimagesmall_shiming" href="http://si.trustutn.org/info?sn=408161020024920946943&certType=1" target="_blank" style="display:none;"><img src="http://v.trustutn.org/images/cert/bottom_small_img.png"/></a>
+<a href="http://www.tuwan.com/topic/about/" target="_blank" title="关于我们">关于我们</a>
+<a href="http://www.tuwan.com/topic/about_contact/" target="_blank" title="联系我们">联系我们</a>
+<a href="http://www.tuwan.com/topic/about_contact/" target="_blank" title="友情链接">友情链接</a>
+<a href="https://www.lagou.com/gongsi/j40215.html" target="_blank" title="诚聘英才">诚聘英才</a>
+<a href="http://www.tuwan.com/topic/about_sitemap/" target="_blank" title="网站地图">网站地图</a>
+</div>
+<div class="copy fr">
+<p><a href="http://www.miitbeian.gov.cn" target="_blank" title="京ICP备15050374号">
+京ICP备15050374号</a> <a href="http://www.tuwan.com/topic/licence_culture/" target="_blank" title="网络文化经营许可证">京网文[2015]2217-412号</a> <a href="http://www.tuwan.com/topic/licence_telecom/" target="_blank" title="电信与信息服务业务经营许可证">京ICP证160193号</a> 京公网安备11010802014777号</p>
+<p><a href="http://www.tuwan.com/topic/licence_program/" target="_blank" title="广播电视节目制作经营许可证">广播电视节目制作经营许可证：（京）字第05536号</a> Copyright 2014-2020 TUWAN Corporation,All Rights Reserved</p>
+</div>
+</div>
+</div>
+<div style="display:none">
+<script type="text/javascript">TUWAN_VISTA(40);</script>
+<script type="text/javascript">TUWAN_VISTA(60);</script>
+<script type="text/javascript">
+var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1000286078'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "w.cnzz.com/q_stat.php%3Fid%3D1000286078' type='text/javascript'%3E%3C/script%3E"));
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F4f076a14812b9a06461d3e2748176769' type='text/javascript'%3E%3C/script%3E"));
+</script>
+</div>
+</body>
+</html>

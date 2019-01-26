@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<!---需要技术支持联系QQ：44312658--->
+<head>
+	<meta charset="utf-8">
+	<title>注册界面</title>
+	<link rel="stylesheet" href="/loginJC/css/reset.css" />
+	<link rel="stylesheet" href="/loginJC/css/common.css" />
+	<link rel="stylesheet" href="/loginJC/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="/plugins/layer/layer.css" />
+</head>
+<body>
+<div class="wrap login_wrap">
+	<div class="content">
+
+		<div class="logo"></div>
+
+		<div class="login_box">
+
+			<div class="login_form">
+				<div class="login_title">
+					注册
+				</div>
+				<form name="form" action="/register" method="post" onSubmit="return beforeSubmitt(this);">
+					<!--用户名 实体类对应id 和 name 的字段 ，personName -->
+					<!--onblur 对象失去焦点时发生 ， 调用rname（）函数-->
+					<div class="form_text_ipt">
+						<input id="personName" name="personName" type="text" placeholder="用户名(字母开头，4-12位英文字母)" onblur="rname()">
+					</div>
+					<div class="form_text_ipt">
+						<input id="personPwd" name="personPwd" type="password" placeholder="密码（字母数字组合，6-12位）" onblur="rpwd()">
+					</div>
+					<!--<div class="form_text_ipt">-->
+						<!--<input id="personPwds" name="personPwds" type="password" placeholder="重复密码" onblur="rpwds()">-->
+					<!--</div>-->
+					<div class="form_btn">
+						<button type="submit">注册</button>
+					</div>
+					<div class="form_reg_btn">
+						<span>已有帐号？</span><a href="index.html">马上登录</a>
+					</div>
+				</form>
+				<div class="other_login">
+					<div class="left other_left">
+						<span><a href="/tomobileRegister">手机号注册</a></span>
+					</div>
+					<div class="right other_right">
+						<a href="#"><i class="fa fa-qq fa-2x"></i></a>
+						<a href="#"><i class="fa fa-weixin fa-2x"></i></a>
+						<a href="#"><i class="fa fa-weibo fa-2x"></i></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src="/loginJC/js/jquery.min.js" ></script>
+<script type="text/javascript" src="/plugins/layer/layer.js" ></script>
+<script>
+	/*
+	* 定义的全局变量
+	* */
+
+	//根据id获取用户名这个输入框 (可返回对拥有指定 ID 的第一个对象的引用)
+    var personName = document.getElementById("personName");
+	//用户名的正则表达式
+	var personNamez =/^[a-zA-Z][a-zA-Z0-9_]{3,12}$/;
+    //根据id获取密码这个输入框 (可返回对拥有指定 ID 的第一个对象的引用)
+    var personPwd = document.getElementById("personPwd");
+    //密码正则
+    var personPwdz = /^(?=.*\d)(?=.*[a-z]).{6,12}$/;
+    //根据id获取二次密码这个输入框 (可返回对拥有指定 ID 的第一个对象的引用)
+    var personPwds = document.getElementById("personPwds");
+    //后台返回的用户名状态
+    var nameState="";
+    var checkSmsCode="";
+
+    /*
+    * 下面实提交表单拦截
+    * */
+
+    //表单里为空不能提交
+	//提交表单进行判断拦截
+    function beforeSubmitt(form){
+        //判段用户框是否为空
+        if (personName.value==""){
+            //layer.msg('用户名不能为空！');
+            form.personName.focus();//然后输入焦点或者光标定位到这个为空的文本框里。
+			//返回FALSE  拦截提交
+            return false;
+            // 利用正则制定规范
+        }else if (!personNamez.test(personName.value)){
+            //layer.msg('用户规格不正确!');
+            form.personName.focus();//然后输入焦点或者光标定位到这个为空的文本框里。
+            //返回FALSE  拦截提交
+            return false;
+		}else if(nameState!=0){
+            //layer.msg("用户名已经存在");
+            form.personName.focus();//然后输入焦点或者光标定位到这个为空的文本框里。
+            //返回FALSE  拦截提交
+            return false;
+        }
+
+
+
+
+        //判段密码框是否为空
+        if (personPwd.value==""){
+            //layer.msg('密码不能为空！');
+            form.personPwd.focus();//然后输入焦点或者光标定位到这个为空的文本框里。
+            //返回FALSE  拦截提交
+            return false;
+        }else if (!personPwdz.test(personPwd.value)){
+            //layer.msg('密码规格不正确！');
+            form.personPwd.focus();//然后输入焦点或者光标定位到这个为空的文本框里。
+            //返回FALSE  拦截提交
+			return false;
+		}
+
+
+
+
+
+        // //二次密码校验
+        // if (personPwds.value==""){
+        //     //layer.msg('重复密码不能为空！');
+        //     form.personPwds.focus();//然后输入焦点或者光标定位到这个为空的文本框里。
+        //     return false;
+        // }else if (personPwd.value!=personPwds.value){
+        //     //layer.msg('请在次确定密码！');
+        //     form.personPwds.focus();
+        //     return false;
+        // }
+
+    }
+
+    /*
+    * 出发事件2
+    * */
+
+    //用ajax异步验证用户名
+    function rname() {
+        if (personName.value == "") {
+            layer.tips("用户名不能为空！", '#personName');
+        }else if(!personNamez.test(personName.value)){
+			layer.tips("用户规格不正确!",'#personName');
+		} else {
+            $.ajax({
+                url: '/registerName',//跳到业务层
+                type: 'get',
+                dataType: 'json',
+                data:{
+                    personName:personName.value
+                },
+                success: function (msg) {
+                    nameState=msg.nameState;
+                    if(nameState==0){
+                        layer.tips("用户名可用！", '#personName');
+                    } else if(nameState==1){
+                        layer.tips("用户名已经存在！", '#personName')
+                    }
+                },
+                error: function () {
+
+                }
+            });
+        }
+    }
+
+    //密码校验
+    function rpwd() {
+        if (personPwd.value==""){
+            layer.tips("密码不能为空！",'#personPwd');
+        }else if(!personPwdz.test(personPwd.value)){
+            layer.tips("密码规格不正确！",'#personPwd');
+		}
+    }
+
+    //
+    // //二次密码校验
+    // function rpwds() {
+    //     if (personPwds.value==""){
+    //         layer.tips("重复密码不能为空！",'#personPwds');
+    //     }else if(personPwd.value!=personPwds.value){
+    //         layer.tips("请在次确定两次输入的密码！",'#personPwds');
+    //     }else {
+    //     }
+    // }
+
+
+
+
+</script>
+
+<div style="text-align:center;">
+</div>
+</body>
+</html>

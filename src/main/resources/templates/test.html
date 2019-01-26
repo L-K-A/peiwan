@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HTML5上传图片预览</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="./css/easyhelper.min.css">
+    <script src="./js/es6-shim.min.js"></script>
+    <script src="./js/jquery-3.3.1.min.js"></script>
+    <script src="./js/jquery.transit.min.js"></script>
+    <script src="./js/easyhelper.min.js"></script>
+</head>
+<body>
+<!--beforeLanding(登陆之前) -->
+<!--<div class="login style1" id="beforeLanding">
+    <ul class="nav navbar-nav navbar-right">
+
+        <li>
+            <a data-toggle="modal" data-target="#login" href="/toLogin"><span class="glyphicon glyphicon-log-in"></span>登录</a>
+            |
+            <a data-toggle="modal" data-target="#register" href="/toRegister"><span class="glyphicon glyphicon-user"></span>注册</a>
+        </li>
+    </ul>
+</div>-->
+<!--afterTheLanding(登陆过后)-->
+<!--<div class="login style1" id="afterTheLanding">
+    <ul class="nav navbar-nav navbar-right">
+        <li>
+            <a id="personnames" href="/indexw"  th:text="${session.nameTPerson?.personNickname}">
+
+            </a>&nbsp;&nbsp;<a data-toggle="modal" data-target="#login" href="/logout"><span class="glyphicon glyphicon-log-in"></span>退出</a></li>
+    </ul>
+</div>
+
+<script th:inline="javascript">
+
+    /*登陆隐藏*/
+    function LandingHide() {
+        $("#afterTheLanding").hide();
+    }
+
+
+    /*登陆过后隐藏显示*/
+    function LandingHides() {
+        $("#beforeLanding").hide();
+    }
+    var nameTPerson = [[${session.nameTPerson?.personNickname}]];
+    /*alert(nameTPerson);*/
+    if (nameTPerson==null||nameTPerson==0) {
+        LandingHide();
+    } else{
+        LandingHides();
+    }
+
+</script>-->
+
+<!--悬浮层-->
+2019-01-26 10:42:19
+<div class="loginBox">
+    <p class="r_pic">
+        <a href="/user/index.html">
+        <img
+        src="http://thirdqq.qlogo.cn/qqapp/101403388/A738DFA5477B4CD4CAB76FEAF3BFA40E/100" class="change-user-img">
+    <span class="frame_0"></span>
+    </a>
+    </p>
+    <img src="https://yundown.daofengdj.com/static/public/img/ico_11.png" class="r_icoImg">
+
+    <div class="r_info">
+        <div class="avatar">
+            <div class="ico">
+                <a><img src="http://thirdqq.qlogo.cn/qqapp/101403388/A738DFA5477B4CD4CAB76FEAF3BFA40E/100"
+                                     class="change-user-img">
+                    <span class="frame_0"></span>
+                </a>
+            </div>
+            <div class="text1">Time.</div>
+            <input type="hidden" id="user-uid" value="">
+            <div class="text2 vip_num" style="display: none;">
+                <span class="text">0</span></div>
+            <div class="text2" style="">
+                ID：1257835
+            </div>
+            <a href="/index/recharge/vocher.html" style="display: none;">
+                <div class="t_pay">充值</div>
+            </a>
+            <div class="grade_box" style=""><span class="s1">LV0</span>
+                <div><p style="width: 0%;"></p></div>
+                <span class="s2">LV1</span></div>
+
+        </div>
+        <div class="balance_box">
+            <div><p><i><img src="https://yundown.daofengdj.com/static/public/img/ico_02.png"></i> <span>余额</span></p>
+                <p>
+                    0 </p></div>
+            <div><p><i><img src="https://yundown.daofengdj.com/static/public/img/ico_42.png"></i> <span>钻石</span></p>
+                <p class="head_my_damand">
+                    0
+                </p></div>
+        </div>
+        <div class="nav_list"><a href="/user/order/user_orderlist.html">
+            <div class="order">订单</div>
+        </a> <i></i> <a href="/user/info.html">
+            <div class="info">资料设置</div>
+        </a> <i></i> <a href="/index/recharge/vocher.html">
+            <div class="money">充值</div>
+        </a></div>
+        <div class="logout">
+            <div><a href="/user/index.html" class="logout_a"><span></span>个人中心</a> <a href="/user/login/signout.html">退出登录</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--悬浮层-->
+<!--<div>
+    <div class="order_goods_box">
+
+    </div>
+</div>-->
+<!--guanzhu-->
+<!--<div class="left_margin gift_record">
+    <div class="gift_title mb20">我的关注</div>
+    <div class="gift_list_box">
+        <div class="gift_list_border">
+            <div class="gift_list_title ml10 fl">全部关注(<span class="gift_list_allnumber">1</span>)</div>
+            <div class="fr m130">
+                <div class="fl all_pitch"><label><input id="checkAll" type="checkbox" class="fl"><span class="fl">全选</span></label><div class="clearfix"></div></div>
+                <div class="fl follow_box"><img src="https://res.tuwan.com/templet/play/attent/images/follow.png" class="follow"><img src="https://res.tuwan.com/templet/play/attent/images/follow_hover.png" class="follow_hover">&nbsp;取消关注</div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="follow_code_bigbox">
+            <div class="follow_code_subbox"><div class="follow_code_box fl">
+                <div class="follow_code_input">
+                    <input type="checkbox" value="420073" class="follow_code_input_01"></div>					<a class="fl pr25 follow_code_headimg_border" href="https://y.tuwan.com/play/420073/?gameid=31540" target="_blank"><div class="follow_code_headimg mt20"><img src="https://ucavatar.tuwan.com/data/avatar/000/42/00/73_avatar_middle.jpg?random=1546952848" onerror="this.src='https://uc.tuwan.com/images/noavatar_1.jpg'"></div></a>					<div class="fl ml25 mt10">						<a class="follow_code_name" href="https://y.tuwan.com/play/420073/?gameid=31540" target="_blank">小耳朵</a>						<div class="follow_runk">							<div class="fl  mr10">								<div class="vip_runk_02">5</div>								<img src="https://res.tuwan.com/templet/play/teacher/images/jibie_02.png?0009">							</div>							<div class="fl like_runk">魅力值：89308</div>							<div class="clearfix"></div>						</div>						<div class="follow_hover_box" tid="420073"><img src="https://res.tuwan.com/templet/play/attent/images/follow_hover.png" class="follow_hover_01">&nbsp;取消关注</div>					</div>					<div class="clearfix"></div>				</div></div>
+            <div class="nofollow">
+                <img src="https://res.tuwan.com/templet/play/attent/images/blank.png"></div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="tcdPageCode"><span class="disabled">上一页</span><span class="current">1</span><span class="disabled">下一页</span></div>
+    </div>
+</div>-->
+<!--guanzhu3nd-->
+<!--<h3>请选择图片文件：JPG/GIF</h3>
+<form name="form0" id="form0">
+    <input type="file" name="file0" id="file0" multiple="multiple" /><br>
+    <img src="" id="img0" style="width: 20rem;height: 15rem;">
+</form>-->
+<!--<button id="butt" value="点击">点击</button>-->
+<!--<div id="mailer_box"style="display: none" >
+    <div class="pop_up_bg"></div>
+    <div class="mailer">
+        <img src="./img/close.png" class="fr close">
+        <div class="clearfix"></div>
+        <div class="mailer_title mt25">我们已收到您的申请</div>
+        <div class="mailer_time">时间</div>
+        <p class="mailer_text">亲爱的，您的资料已提交成功，请申请加入考核QQ群进行考核。</p>
+        <div class="qq_box">
+            <a class="ic_face fl"
+               href="//shang.qq.com/wpa/qunwpa?idkey=5c75d39709a82b906b4ff53e5c73e8db2aee02688837dbb2a7239a24913e7538"
+               target="_blank" title="考核群：123123"><img src="./img/qq.png"></a>
+            <div class="fl face_qq mt15 ml25">
+                <span>考核群：</span>
+                <input type="text" class="input" id="share_link" value="596143834"/>
+                <a href="#none" class="copy-input" title="点击复制">【点击复制】</a>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>-->
+<!--<div class="wrapper">
+    <button class="helper-button-info" id="dialog-info">info 对话框</button>
+    <button class="helper-button-info" id="dialog-success">success 对话框</button>
+    <button class="helper-button-info" id="dialog-warn">warn 对话框</button>
+    <button class="helper-button-info" id="dialog-error">error 对话框</button>
+</div>-->
+
+<script>
+    $(".head_img_bigbox").hover(
+        function () {
+            $(".common_login").stop().slideDown("fast");
+        },
+        function () {
+            $(".common_login").stop().slideUp("fast");
+        }
+    );
+    $("#dialog-info").on("click", function () {
+        Helper.ui.dialogInfo("对话框标题", "对话框内容");
+    })
+
+    $("#dialog-success").on("click", function () {
+        Helper.ui.dialogSuccess("对话框标题", "对话框内容");
+    })
+
+    $("#dialog-warn").on("click", function () {
+        Helper.ui.dialogWarn("对话框标题", "对话框内容");
+    })
+
+    $("#dialog-error").on("click", function () {
+        Helper.ui.dialogError("对话框标题", "对话框内容");
+    })
+</script>
+
+
+<!--<script>
+
+            /*$("#")
+                //示范一个公告层
+                layer.open({
+                    type: 1,
+                    title: false, //不显示标题栏
+                    closeBtn: false,
+                    area: '300px;',
+                    shade: 0.8,
+                    id: 'LAY_layuipro', //设定一个id，防止重复弹出
+                    btn: ['火速围观', '残忍拒绝'],
+                    btnAlign: 'c',
+                    moveType: 1, //拖拽模式，0或者1
+                    content: '<div style="padding: 50px; line-height: 22px; background-color: #393D49; color: #fff; font-weight: 300;">你知道吗？亲！<br>layer ≠ layui<br><br>layer只是作为Layui的一个弹层模块，由于其用户基数较大，所以常常会有人以为layui是layerui<br><br>layer虽然已被 Layui 收编为内置的弹层模块，但仍然会作为一个独立组件全力维护、升级。<br><br>我们此后的征途是星辰大海 ^_^</div>',
+                    success: function (layero) {
+                        var btn = layero.find('.layui-btn');
+                        btn.find('.layui-layer-btn0').attr({
+                            href: 'http://www.layui.com/', target: '_blank'
+                        });
+                    }
+                });*/
+    /*$("#file0").change(function(){
+        var objUrl = getObjectURL(this.files[0]) ;//获取文件信息
+        console.log("objUrl = "+objUrl);
+        if (objUrl) {
+            $("#img0").attr("src", objUrl);
+        }
+    }) ;
+    function getObjectURL(file) {
+        var url = null;
+        if (window.createObjectURL!=undefined) {
+            url = window.createObjectURL(file) ;
+        } else if (window.URL!=undefined) { // mozilla(firefox)
+            url = window.URL.createObjectURL(file) ;
+        } else if (window.webkitURL!=undefined) { // webkit or chrome
+            url = window.webkitURL.createObjectURL(file) ;
+        }
+        return url ;
+    }*/
+
+    $("#butt").click(function () {
+        layer.open({
+            type: 2,
+            title: '添加用户',
+            fix: false,
+            maxmin: true,
+            shadeClose: true,
+            area: '500px',
+            content: "newpeople",
+            end: function () {
+            }
+        });
+    });
+</script>-->
+<!--
+=======
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>测试Thymeleaf取值</title>
+</head>
+<body>
+<h3 th:text="${name}"></h3>
+<hr/>
+
+进入用户添加功能：<a href="/add">用户添加</a>
+进入用户更新功能：<a href="/update">用户更新</a>
+
+>>>>>>> 8433e5b1b0554e26d2348ad6da78374c538c19d0
+</body>
+</html>-->
+</body>
+</html>

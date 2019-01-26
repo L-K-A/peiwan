@@ -1,11 +1,11 @@
 package com.peiwan.serviceimpl;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.peiwan.Utils.AgeByBirthUtil;
 import com.peiwan.bean.TPerson;
 import com.peiwan.dao.ZyfIndexMapper;
 import com.peiwan.service.ZyfIndexService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.peiwan.util.AgeByBirthUtil;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -249,6 +249,7 @@ public class ZyfIndexServiceImpl extends ServiceImpl<ZyfIndexMapper, TPerson> im
             String ad = adress.substring(adress.length()- 3);
             moneyListAll.getRecords().get(i).put("person_adress",ad);
         }
+
         return moneyListAll;
     }
 

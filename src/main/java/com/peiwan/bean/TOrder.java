@@ -1,15 +1,13 @@
 package com.peiwan.bean;
 
 import java.io.Serializable;
-
-import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 /**
  * <p>
- * 
+ * 用户订单表
  * </p>
  *
  * @author 
@@ -18,7 +16,6 @@ import lombok.experimental.Accessors;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@TableName("t_order")
 public class TOrder implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -40,6 +37,11 @@ public class TOrder implements Serializable {
 
     /**
      * 服务类型=板块名
+     */
+    private String oService;
+
+    /**
+     * 服务id
      */
     private String gid;
 

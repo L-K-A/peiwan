@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<link href="css/common_index.css" type="text/css" rel="stylesheet">
+<link href="css/playlist.css" type="text/css" rel="stylesheet">
+<script src="js/jquery-1.12.3.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+<script src="js/json2.js"></script>
+<script src="js/jsencrypt.min.js"></script>
+<script src="js/getrsakey.js"></script>
+<script src="js/function.js"></script>
+<script src="js/encryption.js"></script>
+<script src="js/securelogin.js"></script>
+<script src="js/securereg.js"></script>
+<script src="js/sendtgid.js"></script>
+<script src="js/gt.js"></script>
+<!-- <script charset="utf-8" src="js/kfqq.js"></script> -->
+<link rel="stylesheet" href="css/common_index_1.css" type="text/css">
+<link rel="stylesheet" href="css/top_footer.css" type="text/css">
+<link rel="stylesheet" href="css/geeteststyle.css" type="text/css">
+<link rel="stylesheet" href="css/common_head.css" type="text/css">
+
+<!--laypage的-->
+
+<script src="laypage/laypage.js"></script>
+<script src="layer/layer.js"></script>
+<link rel="stylesheet" href="laypage/skin/laypage.css" type="text/css">
+<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+<link rel="stylesheet" href="css/laypage.css" type="text/css">
+
+<!-- 这个是控制左边弹窗和主播展示头像的边框的 -->
+<style type="text/css">
+    #common_top_box {
+        background: #fff;
+    }
+
+
+    /*为某些指定用户的展示头像添加边框 images/border_list.png是边框图片*/
+    /*增加bg*/
+    #entry_box .play_box_bg {
+        background: (images / border_list . png) no-repeat center top;
+        width: 300px;
+        height: 400px;
+        margin-left: -27px;
+        position: absolute;
+        z-index: 1;
+        top: -24px;
+        left: 0;
+    }
+
+    /*以下左边弹窗的代码没有调用*/
+    /*左边弹窗*/
+    .fixed-nav-cell {
+        position: fixed;
+        right: 14%;
+        top: 60%;
+        margin-top: -204px;
+        width: 50px;
+        z-index: 9999;
+    }
+
+    @media screen and (max-width: 1600px) and (min-width: 1365px) {
+        .fixed-nav-cell {
+            position: fixed;
+            right: 7%;
+            top: 50%;
+            margin-top: -204px;
+            width: 50px;
+            z-index: 9999;
+        }
+    }
+
+    @media screen and (max-width: 1366px) {
+        .fixed-nav-cell {
+            position: fixed;
+            right: 0;
+            top: 50%;
+            z-index: 9999;
+        }
+    }
+
+    .fixed-nav-cell .fixed_bg {
+        height: 180px;
+        width: 100px;
+        background-color: #f33b52;
+        border-radius: 50px;
+        margin-top: -80px;
+        margin-left: 9px;
+    }
+
+    .fixed-nav-cell .aqt {
+        padding-top: 94px;
+        display: block;
+        text-align: center;
+        color: #fff;
+        font-size: 13px;
+    }
+
+    .fixed-nav-cell .top {
+        text-align: center;
+        display: block;
+        margin-top: 20px;
+    }
+
+    .service_hover {
+        display: block;
+        position: relative;
+        z-index: 2;
+    }
+
+    .service_hover2 {
+        display: none;
+    }
+
+    .service_hover:hover .service_hover1 {
+        display: none;
+    }
+
+    .service_hover:hover .service_hover2 {
+        display: inline-block;
+    }
+
+    .fixed_bg:hover {
+        background-color: #dd1c40;
+    }
+
+    .festival_icon {
+        width: 24px;
+        display: inline-block;
+        margin-right: 4px;
+    }
+
+    /*左边浮窗*/
+    .fixed-nav-left {
+        position: fixed;
+        top: 60%;
+        margin-top: -204px;
+        width: 50px;
+        z-index: 9999;
+        left: 10%
+    }
+
+    .fixed-nav-left:hover {
+        opacity: 0.8
+    }
+</style>
+
+
+<!-- 这个是控制左边弹窗和主播展示头像的边框的 -->
+<style type="text/css">
+    #common_top_box {
+        background: #fff;
+    }
+
+    /*float的设置*/
+    .fl {
+        float: left;
+    }
+
+    .fr {
+        float: right;
+    }
+
+    /*margin的设置*/
+    .mt5 {
+        margin-top: 5px;
+    }
+
+    .mt8 {
+        margin-top: 8px;
+    }
+
+    .mt10 {
+        margin-top: 10px;
+    }
+
+    .mt15 {
+        margin-top: 15px;
+    }
+
+    .mt18 {
+        margin-top: 18px;
+    }
+
+    .mt20 {
+        margin-top: 20px;
+    }
+
+    .mr6 {
+        margin-right: 6px;
+    }
+
+    .mr10 {
+        margin-right: 10px;
+    }
+
+    .mr29 {
+        margin-right: 29px;
+    }
+
+    .mb30 {
+        margin-bottom: 30px;
+    }
+
+    .ml6 {
+        margin-left: 6px;
+    }
+
+    .ml10 {
+        margin-left: 10px;
+    }
+
+    .ml13 {
+        margin-left: 13px;
+    }
+
+    .ml145 {
+        margin-left: 145px;
+    }
+
+    .mydiv1 {
+        height: 342px;
+        width: 240px;
+        border: #9b9ca8 1px solid;
+        /*color:#9b9ca8;*/
+        filter: progid:DXImageTransform.Microsoft.Shadow(color=#909090, direction=120, strength=4);
+        -moz-box-shadow: 2px 2px 10px #909090;
+        -webkit-box-shadow: 2px 2px 10px #909090;
+        box-shadow: 2px 2px 0px #909090;
+    }
+
+    .mydiv2 {
+        height: 342px;
+        width: 240px;
+        border: #9b9ca8 1px solid;
+    }
+
+
+</style>
+
+<body>
+<!--改版新的页面-->
+<div class="public_nav_new">
+    <div class="info_v2 position">
+        <div class="info">
+            <div style="height: 0px;width: 100%;"></div>
+            <h1>
+                <a href="/person/toIndex"><img class="logo" alt="" src="/images/dudulogo.png" style="margin-top: 5px"></a>
+            </h1>
+            <div class="p_nav">
+                <div :class="[navIndex === 'index_index_index'?'active':'']"><!--三元运算符-->
+                    <a href="/person/toIndex">
+                        首页
+                    </a>
+                </div>
+                <div :class="[navIndex === 'index_peiwan'?'active':'']">
+                    <a href="/togame">
+                        约陪玩
+                    </a>
+                </div>
+                <div :class="[navIndex === 'index_price'?'active':'']">
+                    <a href="/toAreaList?gid=1001">
+                        9.9专区
+                        <img src="/images/price.gif" alt="" class="icon">
+                    </a>
+                </div>
+                <div :class="[navIndex === 'index_list_video'?'active':'']">
+                    <a href="/peiwan/shangfen/">
+                        上分专区
+                    </a>
+                </div>
+                <div :class="[navIndex === 'index_recharge'?'active':'']">
+                    <!-- 未登录-->
+                    <a href="/toHome" >充值</a><!--@click="login_fn"-->
+
+                </div>
+                <div :class="[navIndex === 'index_service'?'active':'']">
+                    <!--未登录-->
+                    <a href="javascript:;" @click="login_fn">申请入驻</a>
+                </div>
+
+
+            </div>
+
+            <div class="seach_Box">
+                <img src="/images/ico_28_hover.png" style="display: none;">
+                <input id="personNickname" placeholder="陪玩昵称、ID、靓号" type="text" >
+                <p  id="searchinfo" class="seach_p"></p>
+            </div>
+
+
+            <div class="right">
+                <img src="/images/ico_29_hover.png" style="display: none;">
+                <img src="/images/ico_30_hover.png" style="display: none;">
+                <img src="/images/ico_31_hover.png" style="display: none;">
+                <div style="height: 0px;width: 100%;"></div>
+
+                <!--beforeLanding(登陆之前) -->
+                <div class="login style1" id="beforeLanding" style="display: none;">
+                    <ul class="nav navbar-nav navbar-right">
+
+                        <li>
+                            <a data-toggle="modal" data-target="#login" href="/toLogin"><span class="glyphicon glyphicon-log-in"></span>登录</a>
+                            </li>
+                    </ul>
+                </div>
+                <!--afterTheLanding(登陆过后)-->
+                <div class="login style1" id="afterTheLanding" style="display: none;">
+                    <div class="loginBox" id="usersinfo" v-for="(item,index) in user" >
+                        <!--<div class="fl ml25 head_img_box" >
+                            <div class="vip_text_box fl">
+                                <div>
+                                    <a href="#">
+                                        <img class="r_pic" :src="'http://pleuof34m.bkt.clouddn.com/'+item.person_image+'?imageView2/2/w/400/h/400/q/100'">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>-->
+                        <p class="r_pic">
+                            <a href="#">
+                                <img :src="'http://pleuof34m.bkt.clouddn.com/'+item.person_image+'?imageView2/2/w/400/h/400/q/100'" class="change-user-img">
+                                <span class="frame_0"></span>
+                            </a>
+                        </p>
+                        <img src="/images/ico_11.png" class="r_icoImg">
+                        <div class="r_info" >
+                            <div class="avatar">
+                                <div class="ico">
+                                    <a>
+                                        <img :src="'http://pleuof34m.bkt.clouddn.com/'+item.person_image+'?imageView2/2/w/400/h/400/q/100'" >
+                                        <span class="frame_0"></span>
+                                    </a>
+                                </div>
+                                <div class="text1">昵称:{{item.person_nickname}}</div>
+                                <input type="hidden" id="user-uid" :value="item.pid">
+                                <div class="text2 vip_num" style="display: none;">
+                                    <span class="text">0</span>
+                                </div>
+                                <div class="text2" style="">
+                                    PID:{{item.pid}}
+                                </div>
+                                <!--<span href="/data" id="name_href"  style="text-align: center;direction: none" >
+                                昵称:{{item.person_nickname}}
+                                </span>
+                                <span v-if="item.person_flate=1" class="vip_01">
+                                    当前身份:主播
+                                </span>
+                                <span v-else class="vip_01">
+                                    当前身份:用户
+                                </span>
+                                <div>余额: <a href="/toHome">{{item.m_balance}}</a></div>
+                                <div v-if="item.person_flate=0" class="nav_list">
+                                    <a href="/indexw">
+                                        <div class="order">订单</div>
+                                    </a> <i></i>
+                                    <a href="/data">
+                                        <div class="info">资料设置</div>
+                                    </a> <i></i>
+                                    <a href="/">
+                                        <div class="money">充值</div>
+                                    </a>
+                                </div>
+                                <div v-else class="nav_list">
+                                    <a href="/zindexw">
+                                        <div class="order">订单</div>
+                                    </a> <i></i>
+                                    <a href="/zdata">
+                                        <div class="info">资料设置</div>
+                                    </a> <i></i>
+                                    <a href="/toHome">
+                                        <div class="money">充值</div>
+                                    </a>
+                                </div>
+                                <div class="logout">
+                                    <div>
+                                        <a v-if="item.person_flate=0" href="/secur" class="logout_a">
+                                        <span></span>
+                                        个人中心
+                                        </a>
+                                        <a v-else href="/zsecur" class="logout_a">
+                                            <span></span>
+                                            个人中心
+                                        </a>
+                                        <a href="/logout">退出登录</a>
+                                    </div>
+                                </div>-->
+                            </div>
+                            <div class="balance_box">
+                                <div>
+                                    <!--<p>
+                                    <i><img src="/images/ico_02.png"></i>
+                                    <span></span>
+                                    </p>-->
+                                    余额:{{item.m_balance}}
+                                </div>
+                            </div>
+                            <div v-if="item.person_flate==0" class="nav_list">
+                                <a href="/indexw">
+                                    <div class="order">订单</div>
+                                </a> <i></i>
+                                <a href="/data">
+                                    <div class="info">资料设置</div>
+                                </a> <i></i>
+                                <a href="/">
+                                    <div class="money">充值</div>
+                                </a>
+                            </div>
+                            <div v-else class="nav_list">
+                                <a href="/zindexw">
+                                    <div class="order">订单</div>
+                                </a> <i></i>
+                                <a href="/zdata">
+                                    <div class="info">资料设置</div>
+                                </a> <i></i>
+                                <a href="/toHome">
+                                    <div class="money">充值</div>
+                                </a>
+                            </div>
+                            <div class="logout">
+                                <div>
+                                    <a v-if="item.person_flate==0" href="/secur" class="logout_a">
+                                        <span></span>
+                                        个人中心
+                                    </a>
+                                    <a v-else href="/zsecur" class="logout_a">
+                                        <span></span>
+                                        个人中心
+                                    </a>
+                                    <a href="/logout">退出登录</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <script th:inline="javascript">
+                    var pid = [[${session.nameTPerson?.pid}]];
+                </script>
+
+                <script th:inline="javascript">
+
+                    /*加载用户的信息*/
+                    var  userinfo=new Vue({
+                        el:'#afterTheLanding',
+                        data:{
+                            user:[]
+                        }
+                    });
+                    var getUsersInfo=function(){
+                        $.ajax({
+                            type: 'post',
+                            dataType: 'json',
+                            url: '/getuserinfo',
+                            data: {pid:pid},
+                            success: function (rest) {
+                                userinfo.user = rest.results;
+                            }
+                        });
+                    };
+                    var nameTPerson = [[${session.nameTPerson?.personName}]];
+                    if (nameTPerson==null){
+                        document.getElementById("beforeLanding").style.display="";
+                    } else if (nameTPerson!=null){
+                        getUsersInfo();
+                        document.getElementById("afterTheLanding").style.display="";
+
+                    }
+                </script>
+            </div>
+        </div>
+
+    </div>
+
+    <!--导航栏模糊查询的函数-->
+    <script>
+        $("#searchinfo").click(function () {
+            var keyname= $("#personNickname").val();
+            window.location.href = '/person/toSearch';
+            sessionStorage.setItem("keyname",keyname);
+        });
+    </script>
+
+    <script>
+        (function(){
+            //处理滚动后导航悬停
+            var win_scroll = function(){
+                var obj = document.querySelector(".public_nav_new .info_v2");
+                var a = document.documentElement.scrollTop || document.body.scrollTop;//滚动条y轴上的距离
+
+                if(a>70){
+                    obj.classList.add("position");
+                }else{
+                    obj.classList.remove("position");
+                }
+            };
+
+        }());
+    </script>
+</div>
+
+<!-- 游戏服务、娱乐服务、等级分类、导师性别四个板块 -->
+
+<div class="nav_center_box" id="game">
+    <!-- 游戏服务 -->
+    <div class="nav_box_border">
+        <div class="fl nav_title nav_title_add">游戏服务</div>
+
+        <div class="fl icon_box" gameid="1001" _class="lolup_icon">
+            <i class="listicon lolup_icon"></i><br>线上LOL
+        </div>
+
+
+        <div class="fl icon_box" gameid="1002" _class="pubg_icon">
+            <i class="listicon pubg_icon"></i><br>绝地求生
+        </div>
+
+        <div class="fl icon_box" gameid="1003" _class="hizi_icon">
+            <i class="listicon hizi_icon"></i><br>王者荣耀
+        </div>
+
+        <div class="fl icon_box" gameid="1004" _class="ciji_icon">
+            <i class="listicon ciji_icon"></i><br>刺激战场
+        </div>
+
+        <div class="fl icon_box" gameid="1005" _class="quanjun_icon">
+            <i class="listicon quanjun_icon"></i><br>全军出击
+        </div>
+
+        <div class="fl icon_box" gameid="1006" _class="huangye_icon">
+            <i class="listicon huangye_icon"></i><br>荒野行动
+        </div>
+
+        <div class="fl icon_box" gameid="1007" _class="five_icon">
+            <i class="listicon five_icon"></i><br>第五人格
+        </div>
+
+        <div class="fl icon_box" gameid="1008" _class="video_icon">
+            <i class="listicon video_icon"></i><br>视频游戏
+        </div>
+
+        <div class="clearfix"></div>
+    </div>
+    <!-- 娱乐服务 -->
+
+    <div class="nav_box_border">
+        <div class="fl  nav_title">娱乐服务</div>
+
+        <div class="fl icon_box" gameid="1009" _class="audio_icon">
+            <i class="listicon audio_icon"></i><br>声优聊天
+        </div>
+
+        <div class="fl icon_box" gameid="1010" _class="sleep_icon">
+            <i class="listicon sleep_icon"></i><br>哄睡觉
+        </div>
+
+        <div class="fl icon_box" gameid="1011" _class="songster_icon">
+            <i class="listicon songster_icon"></i><br>线上歌手
+        </div>
+
+        <div class="fl icon_box" gameid="1012" _class="wake_icon">
+            <i class="listicon wake_icon"></i><br>叫醒
+        </div>
+
+        <div class="fl icon_box" gameid="1013" _class="lover_icon">
+            <i class="listicon lover_icon"></i><br>虚拟恋人
+        </div>
+
+        <div class="clearfix"></div>
+    </div>
+    <!-- 等级分类 -->
+    <div class="nav_box_border" id="grade">
+        <div class="nav_title_bottom fl">等级分类</div>
+        <div v-for="item in grades" class="fl" style="display:inline-block">
+            <div class="fl mt18 ml13" style="width: 90px;height: 36px;text-align: center;line-height: 36px"
+                 v-on:click="clickfun()">{{item.g_dw}}</div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <!-- 性别 -->
+    <div id="sex">
+        <div class="nav_title_bottom fl">导师性别</div>
+        <div class="sex-box">
+            <div class="fl grade_icon grade_sex grade_icon_add">全部
+            </div>
+            <div class="fl grade_icon grade_sex">女神
+            </div>
+            <div class="fl grade_icon grade_sex">男神
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+    </div>
+</div>
+<!-- 综合、热门、新人排序 -->
+<div class="sort_nav_box" id="sorts">
+    <div class="fl sort_nav sort_nav_add" id="sort">综合排序</div>
+    <div class="fl sort_nav" id="hot">热门</div>
+    <div class="fl sort_nav" id="newest">新人</div>
+    <div class="clearfix"></div>
+</div>
+<!-- 信息展示 -->
+<div class="list_box mt20" id="xxzs">
+    <div class="list_left_box fl" style="border: #9b9ca8 0px solid;width: 1060px">
+
+        <div v-for="(item,index) in zbxx" class="div2 fl mr29 mb30" style="width: 236px;height: 338px">
+            <a :href="'./hello?pid='+item.pid+'&gid='+item.gid">
+                <span style="display: none" id="gid">{{item.gid}}</span>
+                <span style="display: none" id="pid">{{item.gid}}</span>
+                <!-- 主播头像的遍历 -->
+                <img :src="'./imgupload/'+item.person_coverphoto" style="width: 236px;height: 233px"/>
+                <div class="mt15 mr10 ml10" style="width: 216px;height: 27px">
+                    <!-- 昵称的遍历 -->
+                    <span class="fl" style="width: 150px;height: 27px;font-size: 20px">{{item.person_nickname}}</span>
+                    <!-- 段位的遍历 -->
+                    <span class="fr mt5 ml6"
+                          style="width: 34px;height: 18px;background-color: #fcc171">{{item.g_duanwei}}</span>
+                </div>
+                <div class="mt10 ml10" style="width: 110px;height: 18px">
+                    <div style="width: 109px;height: 18px">
+                        <!-- 性别和年龄 -->
+                        <div class="fl" style="width: 25px;height: 18px;margin-right: 6px">
+                            <i class="fl" style="width: 9px;height: 18px" v-html="item.person_sex=='女'?'♀':'♂'">{{item.person_sex}}</i>
+                            <span class="fl" style="width: 16px;height: 18px">{{item.person_birthday}}</span>
+                            <div class="clearfix"></div>
+                        </div>
+                        <!-- 地址的遍历 -->
+                        <div class="fl" style="margin-right: 5px;width: 66px;height: 18px">{{item.person_adress}}</div>
+                    </div>
+                    <!-- 每小时费用的遍历 -->
+                    <div class="mt8 mr6 ml145" style="width: 74.016px;height: 30px;font-size: 15px">
+                        ￥<span>{{item.g_price}}</span>/小时
+                    </div>
+                </div>
+                <!-- 是否在线 -->
+                <div class="fl mt10 mr10 ml10" style="width: 109px;height: 21px">
+                    <i style="width: 12px;height: 12px">☺</i>
+                    <span style="width: 28px;height: 19px">在线</span>
+                </div>
+            </a>
+        </div>
+
+        <div id="pagenav" style="margin: 0px 350px 20px 350px;width: 360px;text-align: center"></div>
+    </div>
+    <div class="list_right_box fr" id="Rank">
+        <div class="cv-rank-area">
+            <div class="cv-rank">
+                <div class="cv-rank-head">
+                    <span>热度榜</span>
+                    <ul class="sub-nav" id="hotClick">
+                        <li><a href="javascript:;" rela="week" data-index="2" class="on sub-nav-call">7天</a></li>
+                        <li><a href="javascript:;" rela="month" data-index="3" class="sub-nav-call">30天</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="cv-rank-box">
+                <!--<div class="cv-rank-list" id="cv-rank-call" data-index="1" style="opacity: 1;display: block;">
+                </div>-->
+                <div v-for="(item,index) in hotrank" class="cv-rank-list" id="cv-rank-call2" data-index="1" style="opacity: 1;display: block;">
+                    <dl :class="{'first':index==0,'second':index==1,'third':index==2}" >
+                        <dt>
+                            <a :href="'./hello?pid='+item.pid+'&gid='+item.gid">
+                                <img :src="'./imgupload/'+item.person_image">
+                                <span class="avatar-mask"></span>
+                            </a>
+                        </dt>
+                        <dd style="width: 120px;height: 46px;margin-top: 28px">
+                            <h3 class="name" style="margin-top: -18px">
+                                <a :href="'./hello/?pid='+item.pid+'&gid='+item.gid">{{item.person_nickname}}</a>
+                            </h3>
+                            <p>接单：{{item.pos}}</p>
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+        <!--<div class="cv-rank-area">
+            <div class="cv-rank">
+                <div class="cv-rank-head">
+                    <span>礼物榜</span>
+                    <ul class="sub-nav">
+                        <li><a href="javascript:;" rela="week" data-index="2" class="on sub-nav-gift">7天</a></li>
+                        <li><a href="javascript:;" rela="month" data-index="3" class="sub-nav-gift">30天</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="cv-rank-box">
+                <div class="cv-rank-list" id="cv-rank-gift" data-index="1" style="opacity: 1;display: block;">
+                    &lt;!&ndash;<dl class="first">
+                        <dt>
+                            <a href="'http://localhost:8080/fenlei/?gid='+item.gid">
+                                <img :src="'./imgupload/'+item.person_image">
+                                <span class="avatar-mask"></span>
+                            </a>
+                        </dt>
+                        <dd>
+                            <h3 class="name">
+                                <a href="'http://localhost:8080/fenlei/?gid='+item.gid">{{item.person_nickname}}</a>
+                            </h3>
+                            <p>接单：{{item.pos}}</p>
+                        </dd>
+                    </dl>&ndash;&gt;
+                </div>
+            </div>
+        </div>-->
+        <div class="cv-rank-area">
+            <div class="cv-rank">
+                <div class="cv-rank-head">
+                    <span>富豪榜</span>
+                    <ul class="sub-nav" id="magnateClick">
+                        <li><a href="javascript:;" rela="week" data-index="2" class="on sub-nav-rich">7天</a></li>
+                        <li><a href="javascript:;" rela="month" data-index="3" class="sub-nav-rich">30天</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="cv-rank-box">
+                <div v-for="(item,index) in magnaterank" class="cv-rank-list" id="cv-rank-rich" data-index="1" style="opacity: 1;display: block;">
+                    <dl :class="{'first':index==0,'second':index==1,'third':index==2}">
+                        <dt>
+                            <a href="javascript:;">
+                                <img :src="'./imgupload/'+item.person_image">
+                                <span class="avatar-mask"></span>
+                            </a>
+                        </dt>
+                        <dd style="width: 120px;height: 46px;margin-top: 28px">
+                            <h3 class="name" style="margin-top: -18px">
+                                <a href="javascript:;">{{item.person_nickname}}</a>
+                            </h3>
+                            <p>富豪值：{{item.oms}}</p>
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+</div>
+<!--尾-->
+<footer>
+    <div class="box">
+        <div class="foot">
+            <!--隐藏掉提现(隐藏提现)字样（2017-12-18）margin-left:-->
+            <ul>
+                <li>
+                    <img src="https://yundown.daofengdj.com/static/public/img/ico_ft01.png">
+                    <p>极速接单</p>
+                    <span class="desc">秒接单 八分钟未接单立即退款</span>
+                </li>
+                <li>
+                    <img src="https://yundown.daofengdj.com/static/public/img/ico_ft02.png">
+                    <p>信息提醒</p>
+                    <span class="desc">来单短信提醒 不错过订单</span>
+                </li>
+                <li>
+                    <img src="https://yundown.daofengdj.com/static/public/img/ico_ft03.png">
+                    <p>品质保障</p>
+                    <span class="desc">服务不满意为您来免单</span>
+                </li>
+                <li>
+                    <img src="https://yundown.daofengdj.com/static/public/img/ico_ft04.png">
+                    <p>资金日结算</p>
+                    <span class="desc">实时掌控工资 给你安心</span>
+                </li>
+                <li>
+                    <img src="https://yundown.daofengdj.com/static/public/img/ico_ft05.png">
+                    <p>7*24小时服务</p>
+                    <span class="desc">自助下单 7*24小时客服答疑</span>
+                </li>
+            </ul>
+        </div>
+
+        <ul class="footCenter">
+            <li class="li1">
+                <div>
+                    <img src="https://yundown.daofengdj.com/static/public/img/link.png">
+                    <div style="line-height: 19px; margin-top: -2px;">
+                        <a style="display:none;" target="_blank" href="https://www.zuhaowan.com"><img src="https://yundown.daofengdj.com/static/public/img/zuhaowna.png"  style="margin-top: 0px;"></a>
+                        <a target="_blank" href="https://www.zuhaowan.com"><p>租<i style="display:inline-block;width:.5em;"></i>号<i style="display:inline-block;width:.5em;"></i>玩 - 账号租借平台</p></a>
+                        <a target="_blank" href="http://www.mayidailian.com/"><p>蚂蚁代练 - 专业代练平台</p></a>
+                        <a target="_blank" href="http://www.irollfun.com/"><p>rollfun游戏站</p></a>
+                        <a target="_blank" href="http://www.99173.com/"><p>99173-游戏交易平台</p></a>
+                        <a target="_blank" href="http://www.wyaq.com/"><p>无忧安全</p></a>
+                    </div>
+                </div>
+            </li>
+            <li class="sp"></li>
+            <li class="li2">
+                <div>
+                    <img src="https://yundown.daofengdj.com/static/public/img/kefu.png">
+                    <div>
+                        <p>客服电话：0371-55637968</p>
+                        <p>咨询时间：7 x 24 小时</p>
+                    </div>
+                </div>
+            </li>
+            <li class="sp"></li>
+            <li class="li3">
+                <div>
+                    <img src="https://yundown.daofengdj.com/static/public/img/qq.png">
+                    <div>
+                        <p>客服QQ：3003120628</p>
+                        <p>咨询时间：7 x 24 小时</p>
+                    </div>
+                </div>
+            </li>
+            <li msg="新需求隐藏" class="sp" style="display:none;"></li>
+            <li msg="新需求隐藏" style="display:none;">
+                <div>
+                    <img src="https://yundown.daofengdj.com/static/public/img/new.png">
+                    <div>
+                        <a target="_blank" href="/help/peiwan.html"><p>陪玩新手引导</p></a>
+                        <a target="_blank" href="/help/novice.html"><p>玩家新手引导</p></a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="box">
+        <div class="footBottom">
+            <div class="f_tx">
+                <a target="_blank" href="/help/contact_us.html">联系我们</a>
+                <a target="_blank" href="/help/company_profile.html">公司简介</a>
+                <a target="_blank" href="/help/disclaimer.html">免责声明</a>
+            </div>
+            <p>版权所有 © 2017 网络科技有限公司 <a href="http://www.miitbeian.gov.cn"></a></p>
+        </div>
+    </div>
+</footer>
+
+<script src="js/tuwan_message.js"></script>
+
+<!-- 使用VUE遍历的代码 -->
+<script>
+
+
+
+    var gid = location.search.substr(5);
+    var gdw = null;
+    var psex = null;
+    var price = 9.9;
+    var sort = null;
+    var hot = null;
+    var newest = null;
+    var curr;
+    var hotday = 7;     //热度榜的天数
+    var magnateday = 7; //富豪榜的天数
+
+
+    /*点击游戏服务的Vue*/
+    var gameservice = new Vue({
+        el: '#grade',
+        data: {
+            grades: []
+        },
+        methods: {
+            clickfun(gdw) {
+                // console.log(gdw);
+                if (gdw == null) {
+                    gdw = "黑铁V";
+                }/*测试添加动画特效未完成
+                $(".fl.mt18.ml13").on('click','div',function () {
+                    $(this).addClass("fl mt18 ml13 grade_icon_add").sibling().removeClass("grade_icon_add")
+                })*/
+                // event.target.addClass("fl mt18 ml13 grade_icon_add").sibling().removeClass("grade_icon_add");
+                //addClass('fl mt18 ml13 grade_icon_add').siblings().removeClass('grade_icon_add');
+                gdw = event.target.innerHTML;
+                getCondition(gid, gdw, psex, sort, hot, newest, curr,price);
+
+            }
+        }
+    });
+
+    /*等级分类的Vue
+    * 以及排行榜的Vue
+    * */
+    var all = new Vue({
+        el: '#xxzs',
+        data: {
+            zbxx: [],
+            brith: [],
+            hotrank:[],
+            magnaterank: []
+        }
+    });
+
+
+    /*
+    * 点击导师性别改变性别选项事件
+    * */
+    $(".fl.grade_icon.grade_sex").click(function () {
+        $(this).addClass('fl grade_icon grade_sex grade_icon_add').siblings().removeClass('grade_icon_add');
+        psex = $(".fl.grade_icon.grade_sex").index(this);
+        switch (psex) {
+            case 0:
+                psex = null;
+                break;
+            case 1:
+                psex = "女";
+                break;
+            case 2:
+                psex = "男";
+                break;
+            default:
+                psex = null;
+                break;
+
+        }
+        getCondition(gid, gdw, psex, sort, hot, newest, curr,price);
+    });
+
+
+    /*排序的点击事件，点击过后赋值，向后台调用数据，然后重置三个为空*/
+    $(".fl.sort_nav").click(function () {
+        $(this).addClass('fl sort_nav sort_nav_add').siblings().removeClass('sort_nav_add');
+        var i = $(".fl.sort_nav").index(this);
+
+        switch (i) {
+            case 0:
+                sort = i;
+                break;
+            case 1:
+                hot = i;
+                break;
+            case 2:
+                newest = i;
+                break;
+            default:
+                sort, hot, newest = null;
+                break;
+        }
+        getCondition(gid, gdw, psex, sort, hot, newest, curr,price);
+        sort, hot, newest = null;
+    });
+
+
+    /*点击游戏服务*/
+    $(".fl.icon_box").click(function () {
+        var indexDiv = $(".fl.icon_box").index(this);
+        if (gid>1000){
+            gid=0;
+        }
+        gid = 1001 + indexDiv;
+
+        //console.log("点击游戏服务："+gameservice.clickfun(gdw));
+        getEntry(gid);
+        getCondition(gid, gdw, psex, sort, hot, newest, curr,price);
+        getHotRank(gid,hotday);
+        getMagnateRank(gid,magnateday);
+        //getUserPageList();
+        psex = null;
+        gdw = null;
+        sort = null;
+    });
+
+    /*从后台获取游戏板块对应的段位*/
+    var getEntry = function (gid) {
+        /*if (gid == 0) {
+            gid = 1001;
+        }*/
+        $.ajax({
+            type: 'POST',
+            dataType: 'json',
+            async: true,
+            url: '/getDuanWei',
+            data: {gid: gid},
+            success: function (data) {
+                // console.log(data);
+
+                gameservice.grades = data.duanWei;
+            }
+        });
+
+    };
+
+    //getEntry(gid);
+
+
+    /*
+    * 向后台传递gid,gdw,psex三个跟类,和sort、hot、newest三种排序方式，以及当前页数
+    *
+    * */
+    var getCondition = function (gid, gdw, psex, sort, hot, newest, curr,price) {
+        console.log(gdw);
+        $.ajax({
+            type: 'Post',
+            dataType: 'json',
+            async: true,
+            url: '/getAreaList',
+            data: {
+                gid: gid,
+                gdw: gdw,
+                psex: psex,
+                price:price,
+                sort: sort,
+                hot: hot,
+                newest: newest,
+                pageNum: curr || 1,
+                pageSize: 8
+
+            },
+            success: function (data) {
+                console.log(data);
+                all.zbxx = data.mapPage.records;
+                laypage({
+                    cont: 'pagenav',
+                    pages: data.mapPage.pages,
+                    skip:true,      //是否开启跳页
+                    skin:'molv',    //加载内置皮肤
+                    prev:'<',
+                    next:'>',
+                    first: '<<',
+                    last: '>>',
+                    curr: curr || 1,
+                    jump: function (obj, first) {
+                        if (!first) {
+                            getCondition(gid, gdw, psex, sort, hot, newest, price,obj.curr);
+                        }
+                    }
+                });
+            }
+        });
+    };
+
+
+    /*暂时没用*/
+    $(".list_left_box fl").click(function () {
+        $.ajax({
+            type: 'Post',
+            dataType: 'json',
+            async: true,
+            url: '/PidGid',
+            data: {
+                gid: gid,
+                pid: pid
+            }
+        });
+    });
+
+
+
+
+
+</script>
+<!--排行榜========================-->
+<script>
+
+    /*热度榜的天数点击事件*/
+    $("#hotClick li").click(function () {
+        hotday = $("#hotClick li").index(this);
+        switch (hotday) {
+            case 0:
+                hotday=7;
+                break;
+            case 1:
+                hotday=30;
+                break;
+            default:
+                hotday=7;
+                break;
+        }
+        console.log("hoday="+hotday);
+        getHotRank(gid,hotday);
+    });
+
+    /*富豪榜的天数点击事件*/
+    $("#magnateClick li").click(function () {
+        magnateday = $("#magnateClick li").index(this);
+        switch (magnateday) {
+            case 0:
+                magnateday=7;
+                break;
+            case 1:
+                magnateday=30;
+                break;
+            default:
+                magnateday=7;
+                break;
+        }
+        console.log("magnateday="+magnateday);
+        getMagnateRank(gid,magnateday);
+    });
+
+
+    /*热度排行榜*/
+    var getHotRank = function (gid,hotday) {
+        $.ajax({
+            type: 'POST',
+            dataType: 'json',
+            async: true,
+            url: '/gethotrank',
+            data: {
+                gid: gid,
+                hotday:hotday
+            },
+            success: function (data) {
+                console.log(data);
+
+                all.hotrank = data.hotRank;
+            }
+        });
+
+    };
+
+    /*用户富豪榜*/
+    var getMagnateRank = function (gid,magnateday) {
+        $.ajax({
+            type: 'POST',
+            dataType: 'json',
+            async: true,
+            url: '/gemagnaterank',
+            data: {
+                gid: gid,
+                magnateday:magnateday
+            },
+            success: function (data) {
+                console.log(data);
+
+                all.magnaterank = data.magnateRank;
+            }
+        });
+
+    };
+    getEntry(gid);
+    getCondition(gid, gdw, psex, sort, hot, newest, curr,price);
+    getHotRank(gid,hotday);
+    getMagnateRank(gid,magnateday);
+
+
+
+
+
+</script>
+
+<script>
+    /*var dom=$('.nav_center_box #sex .sex-box');
+    var domChild=dom.children('div');
+    dom.on('click','div',function(){
+        console.log($(this).index());
+        $(this).addClass('fl grade_icon grade_sex grade_icon_add').siblings().removeClass('fl grade_icon grade_sex grade_icon_add');
+    })*/
+
+
+
+    /* onmouseover="changediv('t')" onmouseout="changediv('f')*/
+
+    /*function changediv(v) {
+        var jd = document.getElementById("jd");
+        if (v == "t") {
+            jd.className = "mydiv1";
+        } else {
+            jd.className = "mydiv2";
+        }
+    }*/
+
+    /*for (var i = 0; i < $(".icon_box").length; i++) {
+        var _gameid = $(".icon_box").eq(i).attr("gameid");
+        var _class = $(".icon_box").eq(i).attr("_class");
+        if (_gameid == gameid) {
+            $(".icon_box i").eq(i).addClass(_class + "_click");
+            $(".icon_box").eq(i).css("color", "#fa6543");
+        }
+
+    }*/
+
+
+
+
+
+</script>
+
+</body>
+</html>
