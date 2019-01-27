@@ -267,9 +267,9 @@
             </div>
             <div class="zubo-other">
                 <div class="wechart"></div>
-                <div class="share" @click="editEvent()">
+                <div class="share">
                     <i><img src="/picture/share.png" alt=""></i>
-                    <span><a href="#" >分享</a></span>
+                    <span><a href="#" @click="editEvent()">分享</a></span>
                 </div>
                 <div class="like" @click="getLike()">
                     <i><img src="/picture/follow.png" alt=""></i>
@@ -345,7 +345,7 @@
                             </div>
                             <div class="clearfix"></div>
                         </div>
-                        <div class="order_information_title mt15"><img src="/picture/order_time.png">下单时间：</div>
+                        <div class="order_information_title mt15"><img src="picture/order_time.png">下单时间：</div>
                         <div class="express_content ">
                             <span class="content_icon fl">日期:</span>
                             <div class="fl">
@@ -493,8 +493,12 @@
                             <img :src="'./picture/'+zbt.person_image" alt="">
                         </div>
                         <div class="tabDotImg">
-                            <img :src="'./picture/'+zbt.person_coverphoto" alt="">
+                            <img :src="'./picture/'+zbt.person_image" alt="">
                         </div>
+                        <div class="tabDotImg">
+                            <img src="/picture/30_avatar_middle.jpg" alt="">
+                        </div>
+
                     </div>
                 </div>
                 <!--礼物内容-->

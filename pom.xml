@@ -13,6 +13,7 @@
     <groupId>com.peiwan</groupId>
     <artifactId>peiwan</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <packaging>jar</packaging>
     <name>peiwan</name>
     <description>Demo project for Spring Boot</description>
 <!--版本控制器 修改参数-->

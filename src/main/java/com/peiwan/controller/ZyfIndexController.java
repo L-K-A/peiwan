@@ -36,28 +36,9 @@ public class ZyfIndexController {
         return new ModelAndView("index");
     }
 
-    //头部
-    @RequestMapping("/toHead")
-    public ModelAndView head(){
-        return new ModelAndView("head");
-    }
-
-    //尾部
-    @RequestMapping("/toFoot")
-    public ModelAndView foot(){
-        return new ModelAndView("foot");
-    }
-
-    //跳转分类页面
-    /*@RequestMapping("/toMore")
-    public ModelAndView toMore(){
-        return new ModelAndView("fenlei");
-    }*/
-
     //八元专区
     @RequestMapping("/toAreaList")
     public ModelAndView fenLei(){
-        System.out.println("前端页面已访问到togame的后台，返回到fenlei的前端页面");
         return new ModelAndView("arealist");
     }
 
@@ -210,13 +191,6 @@ public class ZyfIndexController {
         System.out.println("数据库查到的："+personMoneyListAll);
         return map;
     }
-
-    //测试主播列表查询
-    @RequestMapping("/toList")
-    public ModelAndView select(){
-        return new ModelAndView("index2");
-    }
-
 
     public ZyfIndexService getZyfIndexService() {
         return zyfIndexService;

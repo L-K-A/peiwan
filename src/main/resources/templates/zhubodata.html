@@ -141,7 +141,7 @@
 <!--left_column-->
 <div id="left_column">
     <div>
-        <a href="/indexw" target="_blank">
+        <a href="/" target="_blank">
             <i class="header " style="color:white;margin:10px 0 0 25px;">
                 <img src="./img/icon.png">
             </i></a>
@@ -265,7 +265,7 @@
 </div>
 <!--content-->
 <div id="app">
-<form id="form" action="/updateuserinfopid" method="post">
+<form id="form" action="/updateuserinfo" method="post">
     <div class="money_box_bg" >
         <div class="courses_title left_margin">个人资料 </div>
         <div class="content_bg content_bg1 left_margin" v-for="(item,index) in result" >
@@ -279,7 +279,7 @@
                 </ul>
                 <div class="clearfix"></div>
             </div>
-            <input name="pid" style="display: none" value="pid">
+            <input name="pid" style="display: none" :value="item.pid">
             <div class="game_ID" >
                 <label class="fl"><span>*</span>&nbsp;&nbsp;用&nbsp;户&nbsp;名：</label>
                 <div style="margin-left: -3px;" >
@@ -367,8 +367,17 @@
         });
     }
     getUserInfo();
-
-
+        /*长度验证*/
+    $("#qq").blur(function () {
+        var pqq = $(this).val();
+        var len = pqq.length;
+        if (len > 11 ) {
+            /* alert("长度出错,请认真填写。");*/
+            /*$(".sure_box1").attr("disabled", true);*/
+            $("#qq").css("border",'1px solid red');
+            return;
+        }
+    });
     /*上传头像*/
     /*$(".portrait_btn").click(function () {
         $(".pop_up_basicbox1").show();

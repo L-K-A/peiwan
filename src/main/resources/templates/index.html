@@ -115,7 +115,7 @@
                         </div>-->
                         <p class="r_pic">
                             <a href="#">
-                                <img :src="'http://pleuof34m.bkt.clouddn.com/'+item.person_image+'?imageView2/2/w/400/h/400/q/100'" class="change-user-img">
+                                <img :src="'http://pleuof34m.bkt.clouddn.com/'+item.person_image+'?imageView2/2/w/400/h/400/q/100'" >
                                 <span class="frame_0"></span>
                             </a>
                         </p>
@@ -497,7 +497,7 @@
             <div class="swiper-container2">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide" >
-                        <a href="../hello2?pid=10&gid=1011" target="_blank">
+                        <a href="../hello2?zid=10&gid=1011" target="_blank">
                             <div class="pic_box">
                                 <img class="pic" src="/picture/7.gif">
                             </div>
@@ -505,7 +505,7 @@
                         </a>
                     </div>
                     <div class="swiper-slide" >
-                        <a href="../hello2?pid=11&gid=1012" target="_blank">
+                        <a href="../hello2?zid=11&gid=1012" target="_blank">
                             <div class="pic_box">
                                 <img class="pic" src="/picture/8.gif">
                             </div>
@@ -513,7 +513,7 @@
                         </a>
                     </div>
                     <div class="swiper-slide" >
-                        <a href="../hello2?pid=12&gid=1013" target="_blank">
+                        <a href="../hello2?zid=12&gid=1013" target="_blank">
                             <div class="pic_box">
                                 <img class="pic" src="/picture/9.gif">
                             </div>
@@ -521,7 +521,7 @@
                         </a>
                     </div>
                     <div class="swiper-slide" >
-                        <a href="../hello2?pid=13&gid=1014" target="_blank">
+                        <a href="../hello2?zid=13&gid=1014" target="_blank">
                             <div class="pic_box">
                                 <img class="pic" src="/picture/10.gif">
                             </div>
@@ -529,7 +529,7 @@
                         </a>
                     </div>
                     <div class="swiper-slide" >
-                        <a href="../hello2?pid=14&gid=1015" target="_blank">
+                        <a href="../hello2?zid=14&gid=1015" target="_blank">
                             <div class="pic_box">
                                 <img class="pic" src="/picture/11.gif">
                             </div>
@@ -537,7 +537,7 @@
                         </a>
                     </div>
                     <div class="swiper-slide" >
-                        <a href="../hello2?pid=15&gid=1015" target="_blank">
+                        <a href="../hello2?zid=15&gid=1015" target="_blank">
                             <div class="pic_box">
                                 <img class="pic" src="/picture/12.jpg">
                             </div>
@@ -545,7 +545,7 @@
                         </a>
                     </div>
                     <div class="swiper-slide" >
-                        <a href="../hello2?pid=16&gid=1001" target="_blank">
+                        <a href="../hello2?zid=16&gid=1001" target="_blank">
                             <div class="pic_box">
                                 <img class="pic" src="/picture/13.jpg">
                             </div>
@@ -553,7 +553,7 @@
                         </a>
                     </div>
                     <div class="swiper-slide" >
-                        <a href="../hello2?pid=17&gid=1001" target="_blank">
+                        <a href="../hello2?zid=17&gid=1001" target="_blank">
                             <div class="pic_box">
                                 <img class="pic" src="/picture/14.gif">
                             </div>
@@ -626,7 +626,7 @@
                     </a>
                     <ul class="swiper-wrapper">
                         <li class="swiper-slide" v-for="(item,index) in newList">
-                            <a :href="'./hello2?zid='+item.pid+'&gid='+item.gid" target="_blank">
+                            <a :href="'../hello2?zid='+item.pid+'&gid='+item.gid" target="_blank">
                                 <div class="pic_box">
                                     <img :src="'/picture/'+item.person_image" alt="" class="pic"><!--主播头像-->
                                 </div>
@@ -671,7 +671,7 @@
                         <div class="top">
                             <ul class="list_top_wrapper">
                                 <li class="list_top_item url_point" v-for="(item,index) in order_seven_charm_top" :key="index" >
-                                    <a :href="'./hello2?zid='+item.pid+'&gid='+item.gid" target="_blank">
+                                    <a :href="'../hello2?zid='+item.pid+'&gid='+item.gid" target="_blank">
                                         <div class="logo_wrapper">
                                             <img :src="'/picture/'+item.person_image" alt="" class="logo"><!--主播头像-->
                                             <img :src="frameFun(index)" alt="" class="logo_frame"><!--等级图片-->
@@ -692,7 +692,7 @@
                         <div class="bottom">
                             <ul class="list_bottom_wrapper">
                                 <li class="list_bottom_item url_point" v-cloak v-for="(item,index) in order_seven_charm" :key="index" >
-                                    <a :href="'./hello2?zid='+item.pid+'&gid='+item.gid" target="_blank">
+                                    <a :href="'../hello2?zid='+item.pid+'&gid='+item.gid" target="_blank">
                                         <i class="num_wrapper"><i class="num_item"><i class="num">{{index+4}}</i></i></i>
                                         <div class="logo_wrapper">
                                             <img :src="'/picture/'+item.person_image" alt="" class="logo"><!--主播头像-->
@@ -724,7 +724,7 @@
                         <div class="top"> <!--榜单前三-->
                             <ul class="list_top_wrapper">
                                 <li class="list_top_item url_point" v-for="(item,index) in order_charm_top">
-                                    <a :href="'./hello2?zid='+item.pid+'&gid='+item.gid" target="_blank">
+                                    <a :href="'../hello2?zid='+item.pid+'&gid='+item.gid" target="_blank">
                                         <div class="logo_wrapper">
                                             <img :src="'/picture/'+item.person_image" alt="" class="logo"><!--主播头像-->
                                             <img :src="frameFun(index)" alt="" class="logo_frame">
@@ -745,7 +745,7 @@
                         <div class="bottom">
                             <ul class="list_bottom_wrapper">
                                 <li class="list_bottom_item url_point" v-cloak v-for="(item,index) in order_charm" :key="index" >
-                                    <a :href="'./hello2?zid='+item.pid+'&gid='+item.gid" target="_blank">
+                                    <a :href="'../hello2?zid='+item.pid+'&gid='+item.gid" target="_blank">
                                         <i class="num_wrapper"><i class="num_item"><i class="num">{{index+4}}</i></i></i>
                                         <div class="logo_wrapper">
                                             <img :src="'/picture/'+item.person_image" alt="" class="logo"><!--主播头像-->
@@ -805,7 +805,7 @@
                         <div class="top">
                             <ul class="list_top_wrapper">
                                 <li class="list_top_item url_point" v-for="(item,index) in time_seven_charm_top">
-                                    <a :href="'./hello2?zid='+item.pid+'&gid='+item.gid" target="_blank">
+                                    <a :href="'../hello2?zid='+item.pid+'&gid='+item.gid" target="_blank">
                                         <div class="logo_wrapper">
                                             <img :src="'/picture/'+item.person_image" alt="" class="logo"><!--主播头像-->
                                             <img :src="frameFun(index)" alt="" class="logo_frame"><!--等级图片-->
@@ -826,7 +826,7 @@
                         <div class="bottom">
                             <ul class="list_bottom_wrapper">
                                 <li class="list_bottom_item url_point" v-cloak v-for="(item,index) in time_seven_charm" :key="index">
-                                    <a :href="'./hello2?zid='+item.pid+'&gid='+item.gid" target="_blank">
+                                    <a :href="'../hello2?zid='+item.pid+'&gid='+item.gid" target="_blank">
                                         <i class="num_wrapper"><i class="num_item"><i class="num">{{index+4}}</i></i>
                                         </i>
                                         <div class="logo_wrapper">
@@ -859,7 +859,7 @@
                         <div class="top"> <!--榜单前三-->
                             <ul class="list_top_wrapper">
                                 <li class="list_top_item url_point" v-for="(item,index) in time_charm_top">
-                                    <a :href="'./hello2?zid='+item.pid+'&gid='+item.gid" target="_blank">
+                                    <a :href="'../hello2?zid='+item.pid+'&gid='+item.gid" target="_blank">
                                         <div class="logo_wrapper">
                                             <img :src="'/picture/'+item.person_image" alt="" class="logo"><!--主播头像-->
                                             <img :src="frameFun(index)" alt="" class="logo_frame">
@@ -880,7 +880,7 @@
                         <div class="bottom">
                             <ul class="list_bottom_wrapper">
                                 <li class="list_bottom_item url_point" v-cloak v-for="(item,index) in time_charm" :key="index">
-                                    <a :href="'./hello2?zid='+item.pid+'&gid='+item.gid" target="_blank">
+                                    <a :href="'../hello2?zid='+item.pid+'&gid='+item.gid" target="_blank">
                                         <i class="num_wrapper"><i class="num_item"><i class="num">{{index+4}}</i></i></i>
                                         <div class="logo_wrapper">
                                             <img :src="'/picture/'+item.person_image" alt="" class="logo"><!--主播头像-->

@@ -291,7 +291,7 @@
 <!--left_column-->
 <div id="left_column">
     <div>
-        <a href="/indexw" target="_blank">
+        <a href="/" target="_blank">
             <i class="header " style="color:white;margin:10px 0 0 25px;">
                 <img src="./img/icon.png">
             </i></a>
@@ -409,14 +409,14 @@
                     <div class="fl remind ml35">标题标*为必填项，请务必填写真实资料</div>
                     <div class="clearfix"></div>
                 </div>
-                <div class="mt30">
+                <!--<div class="mt30">
                     <div class="fl mt10 name_title">
                         <span class="star">*</span>昵称:
                     </div>
                     <input class="fl name_text pl10" type="text" placeholder="昵称" value="" id="personNickname"
                            name="personNickname">
                     <div class="clearfix"></div>
-                </div>
+                </div>-->
                 <div class="mt30">
                     <div class="fl name_title mr5">
                         <span class="star">*</span>性别:
@@ -439,44 +439,6 @@
                     <div class="fl name_title  mt10">
                         <span class="star">*</span>所在地:
                     </div>
-                    <!--<select id="province" name="personAdress" class="fl mr10 pl10 pr10" onchange="getCity()">
-                        <option value="0" selected="selected" name="personAdress">选择省份</option>
-                        <option value="100000">北京市</option>
-                        <option value="100020">天津市</option>
-                        <option value="100021">上海市</option>
-                        <option value="100022">重庆市</option>
-                        <option value="130000">河北省</option>
-                        <option value="140000">山西省</option>
-                        <option value="150000">内蒙古自治区</option>
-                        <option value="210000">辽宁省</option>
-                        <option value="220000">吉林省</option>
-                        <option value="230000">黑龙江省</option>
-                        <option value="320000">江苏省</option>
-                        <option value="330000">浙江省</option>
-                        <option value="340000">安徽省</option>
-                        <option value="350000">福建省</option>
-                        <option value="360000">江西省</option>
-                        <option value="370000">山东省</option>
-                        <option value="410000">河南省</option>
-                        <option value="420000">湖北省</option>
-                        <option value="430000">湖南省</option>
-                        <option value="440000">广东省</option>
-                        <option value="450000">广西壮族自治区</option>
-                        <option value="460000">海南省</option>
-                        <option value="510000">四川省</option>
-                        <option value="520000">贵州省</option>
-                        <option value="530000">云南省</option>
-                        <option value="540000">西藏自治区</option>
-                        <option value="610000">陕西省</option>
-                        <option value="620000">甘肃省</option>
-                        <option value="630000">青海省</option>
-                        <option value="640000">宁夏回族自治区</option>
-                        <option value="650000">新疆维吾尔自治区</option>
-                        <option value="659005">台湾省</option>
-                    </select>
-                    <select id="city" name="personAdress" class="fl pl10 pr10">
-                        <option value="0" selected>选择城市</option>
-                    </select>-->
                     <a href="javascript:void(0)" class="pick-area pick-area2" name="" style="margin-left: 138px;"></a>
                     <!--<div style="margin-top: -39px;margin-left: 350px"></div>-->
                         <input type="text" placeholder="省/市" name="personAdress" style="margin:2px 0 0 138px">
@@ -689,6 +651,8 @@
 
                     <div class="fl lol_box"  >
                         <div class="lol_img" dtid="31540" flag="0"  >
+                            <input  name="gid" value="1001" style="display: none">
+                            <input  name="gName" value="线上lol" style="display: none">
                             <img src="./img/playinfo/apply_31540.png" class="status_lol"
                                  style="width:80px;height:80px;display:none;" >
                             <img src="./img/playinfo/apply_hover_31540.png"
@@ -697,11 +661,10 @@
                         <div class="lol_title" >线上LOL</div>
                         <div class="lol_status">（未开通）</div>
                     </div>
-
-
-
                     <div class="fl lol_box" >
                         <div class="lol_img" dtid="20002"  flag="0">
+                            <input  name="gid" value="1011" style="display: none">
+                            <input  name="gName" value="线上歌手" style="display: none">
                             <img src="./img/playinfo/apply_20002.png" class="status_lol"
                                  style="width:80px;height:80px;display:block;">
                             <img src="./img/playinfo/apply_hover_20002.png" style="width:80px;height:80px;display:none;"
@@ -714,8 +677,8 @@
 
                     <div class="fl lol_box" >
                         <div class="lol_img" dtid="20004"  flag="0">
-                            <!--<input type="checkbox" name="gid" value="20004" hidden="hidden">-->
-                            <!--<input name="gName" value="talker" hidden="hidden">-->
+                            <input  name="gid" value="1009" style="display: none">
+                            <input  name="gName" value="声优聊天" style="display: none">
                             <img src="./img/playinfo/apply_20004.png" class="status_lol"
                                  style="width:80px;height:80px;display:block;">
                             <img src="./img/playinfo/apply_hover_20004.png" style="width:80px;height:80px;display:none;"
@@ -726,8 +689,8 @@
                     </div>
                     <div class="fl lol_box" >
                         <div class="lol_img" dtid="20008" flag="0">
-                            <input type="checkbox" name="gid" value="20008" hidden="hidden">
-                            <!--<input name="gName" value="wangzhe" hidden="hidden">-->
+                            <input  name="gid" value="1003" style="display: none">
+                            <input  name="gName" value="王者荣耀" style="display: none">
                             <img src="./img/playinfo/apply_20008.png" class="status_lol"
                                  style="width:80px;height:80px;display:block;">
                             <img src="./img/playinfo/apply_hover_20008.png" style="width:80px;height:80px;display:none;"
@@ -738,8 +701,8 @@
                     </div>
                     <div class="fl lol_box">
                         <div class="lol_img" dtid="20011" flag="0">
-                            <input name="gid" value="20011" hidden="hidden">
-                            <!--<input name="gName" value="lover" hidden="hidden">-->
+                            <input  name="gName" value="虚拟恋人" style="display: none">
+                            <input  name="gid" value="1013" style="display: none">
                             <img src="./img/playinfo/apply_20011.png" class="status_lol"
                                  style="width:80px;height:80px;display:block;">
                             <img src="./img/playinfo/apply_hover_20011.png" style="width:80px;height:80px;display:none;"
@@ -750,8 +713,8 @@
                     </div>
                     <div class="fl lol_box">
                         <div class="lol_img" dtid="20012" flag="0">
-                            <input name="gid" value="20012" hidden="hidden">
-                            <!--<input name="gName" value="gosleep" hidden="hidden">-->
+                            <input  name="gid" value="1010" style="display: none">
+                            <input  name="gName" value="哄睡觉" style="display: none">
                             <img src="./img/playinfo/apply_20012.png" class="status_lol"
                                  style="width:80px;height:80px;display:block;">
                             <img src="./img/playinfo/apply_hover_20012.png" style="width:80px;height:80px;display:none;"
@@ -762,8 +725,8 @@
                     </div>
                     <div class="fl lol_box">
                         <div class="lol_img" dtid="20013" flag="0">
-                            <input name="gid" value="20013" hidden="hidden">
-                            <!--<input name="gName" value="weakup" hidden="hidden">-->
+                            <input  name="gid" value="1012" style="display: none">
+                            <input  name="gName" value="叫醒" style="display: none">
                             <img src="./img/playinfo/apply_20013.png" class="status_lol"
                                  style="width:80px;height:80px;display:block;">
                             <img src="./img/playinfo/apply_hover_20013.png" style="width:80px;height:80px;display:none;"
@@ -774,8 +737,8 @@
                     </div>
                     <div class="fl lol_box">
                         <div class="lol_img" dtid="20014" flag="0">
-                            <input name="gid" value="20014" hidden="hidden">
-                            <!--<input name="gName" value="pubg" hidden="hidden">-->
+                            <input  name="gid" value="1002" style="display: none">
+                            <input  name="gName" value="绝地求生" style="display: none">
                             <img src="./img/playinfo/apply_20014.png" class="status_lol"
                                  style="width:80px;height:80px;display:block;">
                             <img src="./img/playinfo/apply_hover_20014.png" style="width:80px;height:80px;display:none;"
@@ -786,8 +749,8 @@
                     </div>
                     <div class="fl lol_box">
                         <div class="lol_img" dtid="20016" flag="0">
-                            <input name="gid" value="20016" hidden="hidden">
-                            <!--<input name="gName" value="huangye" hidden="hidden">-->
+                            <input  name="gid" value="1006" style="display: none">
+                            <input  name="gName" value="荒野行动" style="display: none">
                             <img src="./img/playinfo/apply_20016.png" class="status_lol"
                                  style="width:80px;height:80px;display:block;">
                             <img src="./img/playinfo/apply_hover_20016.png" style="width:80px;height:80px;display:none;"
@@ -798,8 +761,8 @@
                     </div>
                     <div class="fl lol_box">
                         <div class="lol_img" dtid="20018" flag="0">
-                            <input name="gid" value="20018" hidden="hidden">
-                            <!--<input name="gName" value="ciji" hidden="hidden">-->
+                            <input  name="gid" value="1004" style="display: none">
+                            <input  name="gName" value="刺激战场" style="display: none">
                             <img src="./img/playinfo/apply_20018.png" class="status_lol"
                                  style="width:80px;height:80px;display:block;">
                             <img src="./img/playinfo/apply_hover_20018.png" style="width:80px;height:80px;display:none;"
@@ -810,8 +773,8 @@
                     </div>
                     <div class="fl lol_box">
                         <div class="lol_img" dtid="20019" flag="0">
-                            <input name="gid" value="20019" hidden="hidden">
-                            <!--<input name="gName" value="quanjun" hidden="hidden">-->
+                            <input  name="gid" value="1005" style="display: none">
+                            <input  name="gName" value="全军出击" style="display: none">
                             <img src="./img/playinfo/apply_20019.png" class="status_lol"
                                  style="width:80px;height:80px;display:block;">
                             <img src="./img/playinfo/apply_hover_20019.png" style="width:80px;height:80px;display:none;"
@@ -822,8 +785,8 @@
                     </div>
                     <div class="fl lol_box">
                         <div class="lol_img" dtid="20020" flag="0">
-                            <input name="gid" value="20020" hidden="hidden">
-                            <!--<input name="gName" value="five" hidden="hidden">-->
+                            <input  name="gid" value="1007" style="display: none">
+                            <input  name="gName" value="第五人格" style="display: none">
                             <img src="./img/playinfo/apply_20020.png" class="status_lol"
                                  style="width:80px;height:80px;display:block;">
                             <img src="./img/playinfo/apply_hover_20020.png" style="width:80px;height:80px;display:none;"
@@ -834,8 +797,8 @@
                     </div>
                     <div class="fl lol_box">
                         <div class="lol_img" dtid="20021" flag="0">
-                            <input name="gid" value="20021" hidden="hidden">
-                            <!--<input name="gName" value="videoplay" hidden="hidden">-->
+                            <input  name="gid" value="1008" style="display: none">
+                            <input  name="gName" value="视频游戏" style="display: none">
                             <img src="./img/playinfo/apply_20021.png" class="status_lol"
                                  style="width:80px;height:80px;display:block;">
                             <img src="./img/playinfo/apply_hover_20021.png" style="width:80px;height:80px;display:none;"
@@ -1030,25 +993,6 @@
                         <div class="clearfix"></div>
                     </div>
                 </div>
-
-
-                <!--<div class="mt30">
-                    <div class="fl mt10"><span class="Optional">（选填）</span>语音介绍：</div>
-                    <div class="voice_hover fl ">
-                        <div style="position: relative;"><span class="time_box">0s</span>
-                            <img src="./img/playinfo/voice.png" id="voice_hover" class="fl ml20" style="display:block;">
-                            <img src="./img/playinfo/voice_hover.png" class=" fl  ml20 voice_hover01" id="cloudBody">
-                            <img src="./img/playinfo/voice_hover02.gif" class=" fl  ml20  voice_hover02">
-                            <div class="clearfix"></div>
-                        </div>
-                    </div>
-                    <div class="fl voice mt10 ml10 mr5">上传语音
-                        <input type="file" class="input_top" id="datamp3" name="datamp3" accept="audio/mpeg">
-                        <input type="hidden" id="flagmp3" name="flagmp3" value=""></div>
-                    <div class="fl voice_01 mt10">（支持上传MP3格式录音，时长不可超过60秒）</div>
-                    <div class="clearfix"></div>
-
-                </div>-->
                 <div class="mt30">
                     <div class="fl mt10 name_title">
                         <span class="star">*</span>价格:
@@ -1446,8 +1390,11 @@
             var desc = $(this).val();
             var len = desc.length;
             if (len == 0 ) {
-                alert("必填,请认真填写。");
+               /* alert("必填,请认真填写。");*/
+                $("#short_desc").css("border",'1px solid red');
                 return;
+            }else {
+                $("#short_desc").css("border",'1px solid #666666');
             }
         })
         /*qq长度判断*/
@@ -1456,7 +1403,8 @@
             var len = pqq.length;
             if (len > 11 ) {
                 alert("长度出错,请认真填写。");
-                $(".sure_box1").attr("disabled", true);
+                /*$(".sure_box1").attr("disabled", true);*/
+                $("#short_desc").css("border",'1px solid red');
                 return;
             }
         });
@@ -1468,7 +1416,7 @@
 
             /*省市start*/
         $(".pick-area2").pickArea({
-            "format":"北京市市区", //格式
+            "format":"北京市/市区", //格式
             "width":"200",
             "borderColor":"#25e198",//文本边框的色值
             "arrowColor":"#666666",//箭头颜色
@@ -1659,10 +1607,10 @@
         function countDown(secs){
             if(secs>0){
                 /*Helper.ui.dialogSuccess( "提交成功", "页面将返回!" );*/
-                setTimeout("countDown("+secs+")",10000);
+                setTimeout("countDown("+secs+")",5000);
                 location.href='/indexw';
             }else{
-                window.location.href='/indexw';
+               location.href=location.href;
             }
         }
 

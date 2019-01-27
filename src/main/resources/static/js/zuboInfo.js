@@ -257,7 +257,8 @@ var getLike = function () {
             }
         });
     } else {
-        alert("当前未登陆,去登陆!")
+        alert("当前未登陆,点击登陆!")
+        location.href="/toLogin";
     }
 };
 
@@ -313,9 +314,6 @@ var isAlertBiaoBai = false;
 //定义全局变量
 
 $(".coupon_show_tab_content input").tag = 0;
-
-//板块ID
-//var dtid = 31540;
 var paramJson = {
     "5346": {
         "gameIcon": "http:\/\/res.tuwan.com\/templet\/play\/teacher\/images\/lol.png",
@@ -333,24 +331,12 @@ var paramJson = {
 };
 //主播ID
 var teacherid = 1126422;
-//主播名
-//var teacherName = '张万里'; //导师名
-
 //用户ID
 var uid = pid;
-
 var gameid = 0;
-//服务名
-//var gameTitle = '';
-var gameIcon = '';
 var tinfoid = 5346;
 var vip = 0;
-var disjson = {"5346": {"7": {"num": 0, "status": 0}, "8": {"num": 0, "status": 0}, "9": {"num": 23, "status": 1}}};
-var currentPage = 1;
-var tagmark = "";
-
 var sile = 1;
-//var price = 0;
 var money = 0;
 var startDate = getTime(1);
 var endDate = getTime(2);
@@ -370,17 +356,8 @@ var packageid = 0;
 var successUrl = location.href;
 var qqFlag = 0;
 var flag = false;
-var giftType = 0;
 var prices = '';
 var indList = '';
-var fromType = 1;
-var worth = 0;
-var isPay99 = false;
-
-
-//余额支付
-//钻石支付
-//礼物回调处理
 
 function get_play_ajax(todaytime) {
     $("#shijian").html('');
@@ -412,7 +389,6 @@ function get_play_ajax(todaytime) {
         get_play_list(todaytime);
     }
 }
-
 
 function get_play_list(todaytime) {
     $.ajax({
@@ -632,9 +608,6 @@ function get_play_list(todaytime) {
                     return false
                 }
             })
-            // console.log($('.table_time table td.no_td_add').length)
-            // console.log($('.table_time table td').eq($('.table_time table td.no_td_add').length))
-            // setDateData($('.table_time table td').eq($('.table_time table td.no_td_add').length))
         }
     })
 }
@@ -745,7 +718,6 @@ var zongjia = 0;
 function text_() {
     var hour = parseInt($("#hour_").html());
     var html = '';
-    // console.log(disjson[tinfoid])
 
     zongjia = accMul(price, hour);
 
@@ -765,10 +737,8 @@ function setParam() {
 
     text_();
 
-    //gameIcon = paramJson[tinfoid].gameIcon;
-    // gameTitle = paramJson[tinfoid].gameTitle;
+
     sile = paramJson[tinfoid].sile;
-    //price = paramJson[tinfoid].price;
     timestatus = paramJson[tinfoid].timestatus;
     starttime = paramJson[tinfoid].timeStart;
     starttime2 = paramJson[tinfoid].timeStart2;
@@ -950,42 +920,6 @@ function timer(intDiff) {
 
 }
 
-function payComfirm() {
-    $('.paytitle').html('支付提示');
-    $('.paycontent').html('请您在新打开的第三方支付页面上完成支付');
-
-    var html = '<div class="fl pay_for_fail">支付失败</div>';
-    var tempStr = successUrl + '';
-    if (tempStr.indexOf("https:") >= 0) {
-        html += '<a href="' + successUrl + '" target="_blank"><div class="fl pay_for_success">支付完成</div></a>';
-    } else {
-        html += '<div class="fl pay_for_success">支付完成</div>';
-    }
-
-    html += '<div class="clearfix"></div>';
-    $('.paysuccess').html(html);
-
-    $('.pay_for_success').click(function () {
-        initDisplay();
-        if (successUrl == 0) {
-
-        } else if (successUrl == 1) {
-
-        } else if (successUrl == 2) {
-            giftCallback();
-        } else if (successUrl == 3) {
-            loadTeacherWx();
-        } else {
-            //location.href = successUrl;
-        }
-
-    });
-    $('.pay_for_fail').click(function () {
-        initDisplay();
-    });
-
-}
-
 function AddRecord(IdName) {
     var id = tinfoid;
     var yesmoney = 0;
@@ -1080,7 +1014,7 @@ function AddRecord(IdName) {
             // alert(111);
             foid = obj.foid;
 
-            if (obj.code == 1 && obj.status == 1) {
+            if (obj.code == 1 && obj.st == 1) {
                 var arrtime = DateTime.split("-");
                 var endtimeas = parseInt((shijian.split(":")[0])) + parseInt(HoursTime);
                 if (endtimeas >= 24) {
@@ -1243,17 +1177,6 @@ function listenPay(orderid) {
                         }
                     })
                 }
-                /*if(data&&data.error ==0){
-                    var state = data.state;
-                    if(state == 2){
-                        clearInterval(listenWXInterval);
-                        location.href="https://y.tuwan.com/home/ocenter/"
-                    }
-                }
-                else{
-
-
-                }*/
             }
         })
     }, 2000)
@@ -1317,104 +1240,6 @@ var formatDateTime = function (date, getflag) {
     }
 };
 
-//获取导师微信
-
-//检查附加属性
-
-
-function cancelConfession() {
-    $.ajax({
-        url: "https://y.tuwan.com/m/Teacher/cancelConfession/teacherid/" + teacherid + "?id=" + giftuserid,
-        type: "get",
-        dataType: "jsonp",
-        success: function (obj) {
-            if (obj.error == -1) {
-
-            } else if (obj.error == 0) {
-                $(".pop_up_box").hide();
-                $(".express_popup_box1").hide();
-            }
-        }
-    });
-}
-
-
-function cancelNaming() {
-    $.ajax({
-        url: "https://y.tuwan.com/m/Teacher/cancelNaming/teacherid/" + teacherid + "?id=" + giftuserid2,
-        type: "get",
-        dataType: "jsonp",
-        success: function (obj) {
-            if (obj.error == -1) {
-
-            } else if (obj.error == 0) {
-                $(".pop_up_box").hide();
-                $(".express_popup_box2").hide();
-            }
-        }
-    });
-}
-
-
-var attention = 0;
-
-function checkAttention() {
-    $.ajax({
-        url: "https://y.tuwan.com/m/Attention/check?teacherid=" + teacherid,
-        type: "get",
-        dataType: "jsonp",
-        success: function (obj) {
-            if (obj.error == 0) {
-                $(".top_follow_ed").show();
-                $(".top_follow").hide();
-                $(".top_follow_no").hide();
-            } else {
-                $(".top_follow").show();
-                $(".top_follow_ed").hide();
-                $(".top_follow_no").hide();
-            }
-        }
-    });
-}
-
-function setAttention() {
-    $.ajax({
-        url: "https://y.tuwan.com/m/Attention/add?teacherid=" + teacherid,
-        type: "get",
-        dataType: "jsonp",
-        success: function (obj) {
-            if (obj.error == -1) {
-
-            } else if (obj.error == 0) {
-                $(".top_follow_ed").show();
-                $(".top_follow").hide();
-                $(".top_follow_no").hide();
-                aCancel = 0;
-            }
-        }
-    });
-}
-
-var aCancel = 0;
-
-function cancelAttention() {
-    $.ajax({
-        url: "https://y.tuwan.com/m/Attention/cencel?teacherid=" + teacherid,
-        type: "get",
-        dataType: "jsonp",
-        success: function (obj) {
-            if (obj.error == -1) {
-
-            } else if (obj.error == 0) {
-                aCancel = 1;
-                $(".top_follow_ed").hide();
-                $(".top_follow").show();
-                $(".top_follow_no").hide();
-            }
-        }
-    });
-}
-
 $(function () {
 
 
@@ -1439,17 +1264,6 @@ $(function () {
     $(".content_input_time").on("click", function () {
         $(".table_time").show();
     });
-
-    //加载问答
-
-
-    //点赠送直接余额支付
-
-
-    //赠送点击
-
-
-    //9.9体验下单
 
     $(".form_datetime").datetimepicker({
         language: 'zh-CN',
@@ -1494,99 +1308,9 @@ $(function () {
 
     // 购买弹窗
 
-    $('.see_more_btn').click(function () {
-        var that = $(this);
-        var page = that.attr('page') * 1;
-        // currentPage++;
-        totalPage = that.attr('totalpage') * 1;
-        that.attr('disabled', true);
-        if (page > totalPage) {
-            return;
-        }
-        loadTagComment(page, tagmark, function (html, count) {
-            that.parent().parent().find('.divCommentList').append(html);
-            that.attr('disabled', false);
-            that.attr('page', page + 1);
-            // that.attr('totalpage', count);
-            if (totalPage <= page) {
-                that.hide();
-            } else {
-                that.show();
-            }
-        })
-    })
-
     //微信查看购买
-
-    $(".recharge_left_btn").click(function () {
-        initDisplay();
-    })
-    $(".express_popup_box1 .no_express").click(function () {
-        cancelConfession();
-    })
-    $(".express_popup_box1 .sure_express").click(function () {
-        setConfession();
-    })
-    $(".express_popup_box2 .no_express").click(function () {
-        cancelNaming();
-    })
-    $(".express_popup_box2 .sure_express").click(function () {
-        setNaming();
-    })
-    $(".top_follow").click(function () {
-        if (uid == 0) { //未登录
-            $('#index_pup_box').show();
-            return;
-        }
-        setAttention();
-    })
-    $(".top_follow_ed").on("mouseover", function () {
-        if (aCancel) {
-            return;
-        }
-        $(".top_follow").hide();
-        $(".top_follow_ed").hide();
-        $(".top_follow_no").show();
-    })
-    $(".top_follow_no").click(function () {
-        cancelAttention();
-    })
-    $(".top_follow_no").on("mouseout", function () {
-        if (aCancel) {
-            return;
-        }
-        $(".top_follow").hide();
-        $(".top_follow_ed").show();
-        $(".top_follow_no").hide();
-    })
-
-    //分享
-
-    // 左边隐藏礼物增加切换
-
-    $(".content_left_magnifier_img").click(function () {
-        // console.log($(this).parent().parent())
-        $(this).parent().parent().find(".fancybox").trigger("click");//模拟执行id=a的事件
-    });
-
-    $(".pay_select_box .recharge_new_left_btn").click(function () {
-        payMoney($(this).attr('url'), fromType);
-    });
-    $(".pay_select_box .recharge_new_right_btn").click(function () {
-        payDiamond($(this).attr('url'), fromType);
-    });
-
-    //loadQuestionAnswer();
     setParam();
     setHours();
-    loadCharm();
-    loadGiftScroll();
-    setHaveGift();
-    // setOrderGift();
-    loadUserGift();
-    loadTeacherWx();
-    checkConfession();
-    checkNaming();
     checkAttention();
 
     $('.fancybox').fancybox();
